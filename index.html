@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+        
+        .page-title {
+            background-color: #0486c2;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        
+        .main-container {
+            display: flex;
+            min-height: calc(100vh - 50px); /* Account for the header height */
+        }
+        
+        .sidebar {
+            width: 140px;
+            background: #f9f9f9;
+            border-right: 1px solid #ddd;
+        }
+        
+        .sidebar-nav {
+            padding-top: 50px; /* This adds space above the navigation links */
+        }
+        
+        .sidebar a {
+            display: block;
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+            text-decoration: none;
+            color: #333;
+        }
+        
+        .content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .chart {
+            flex: 1;
+            background-image: url("images/coin-jar-6.jpg");
+            background-size: cover;
+            background-color: #000; /* Fallback */
+        }
+        
+        .advice {
+            background: #e6e6e6;
+            padding: 10px;
+        }
+        
+        .advice h3 {
+            margin: 0;
+            font-size: 16px;
+            font-weight: normal;
+        }
+        
+        .advice h4 {
+            margin: 5px 0 0 0;
+            font-size: 14px;
+            font-weight: normal;
+        }
+    </style>
+</head>
+<body>
+    <!-- Page Title/Heading -->
+    <div class="page-title">
+        Strong Trendz Stock Advisory – Dominate the Market with Discipline & Strategy!
+    </div>
+    
+    <div class="main-container">
+        <!-- Sidebar Navigation -->
+        <div class="sidebar">
+            <div class="sidebar-nav">
+                <div class="sidebar">
+                    <div class="sidebar-nav">
+                        <a href="home.html">HOME</a>
+                        <a href="#">"about-us.html">ABOUT US</a>
+                        <a href="#">SERVICES</a>
+                        <a href="#">PAYMENT OPTION</a>
+                        <a href="#">MEMBER LOGIN</a>
+                        <a href="#">CONTACT US</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Main Content -->
+        <div class="content">
+            <div class="chart"></div>
+            <div class="advice">
+                <h3>Equity Market Advice</h3>
+                <h4>Why Strong Trendz?</h4>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

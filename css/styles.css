@@ -1,0 +1,466 @@
+/* Global styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    overflow-x: hidden;
+}
+
+/* Page title/heading */
+.page-title {
+    background-color: #0486c2;
+    color: white;
+    padding: 15px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+/* Main container layout */
+.main-container {
+    display: flex;
+    min-height: calc(100vh - 50px); /* Account for the header height */
+}
+
+/* Sidebar styles */
+.sidebar {
+    width: 140px;
+    background: #f9f9f9;
+    border-right: 1px solid #ddd;
+}
+
+.sidebar-nav {
+    padding-top: 50px; /* Space above the navigation links */
+}
+
+.sidebar a {
+    display: block;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    text-decoration: none;
+    color: #333;
+    transition: background-color 0.3s;
+}
+
+.sidebar a:hover {
+    background-color: #e8e8e8;
+}
+
+.sidebar a.active {
+    background-color: #e0e0e0;
+    font-weight: bold;
+}
+
+/* Content area */
+.content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Chart area on index page */
+.chart {
+    flex: 1;
+    background-image: url("../images/coin-jar-1.jpg");
+    background-size: cover;
+    background-position: center;
+    background-color: #000; /* Fallback */
+}
+
+/* Advice section on index page */
+.advice {
+    background: #e6e6e6;
+    padding: 15px;
+}
+
+.advice h3 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: normal;
+    color: #333;
+}
+
+.advice h4 {
+    margin: 5px 0 0 0;
+    font-size: 14px;
+    font-weight: normal;
+    color: #333;
+}
+
+/* Home page specific styles */
+.home-content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.home-image {
+    flex: 1;
+    min-height: 300px;
+    background-image: url("../images/coin-jar-3.jpg");
+    background-size: cover;
+    background-position: center;
+    background-color: #000; /* Fallback */
+}
+
+.home-text {
+    padding: 20px;
+    background-color: #f5f5f5;
+}
+
+.home-text p {
+    margin: 0;
+    line-height: 1.6;
+    color: #333;
+    font-size: 15px;
+}
+
+/* Enquiry form styles */
+.enquiry-form {
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    overflow: hidden;
+    max-width: 350px;
+    margin: 20px auto;
+}
+
+.enquiry-form-header {
+    background-color: #0486c2;
+    color: white;
+    padding: 15px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.enquiry-form-body {
+    padding: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #555;
+}
+
+.form-group input, .form-group select, .form-group textarea {
+    width: 100%;
+    padding: 8px 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.form-group textarea {
+    height: 100px;
+    resize: vertical;
+}
+
+.form-check {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 15px;
+}
+
+.form-check input {
+    margin-right: 10px;
+    margin-top: 3px;
+}
+
+.form-check label {
+    font-size: 12px;
+    color: #666;
+}
+
+.btn-submit {
+    background-color: #0486c2;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 15px;
+    width: 100%;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-submit:hover {
+    background-color: #036b9c;
+}
+
+/* Modal styles */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    max-width: 500px;
+    width: 90%;
+    position: relative;
+}
+
+.modal-header {
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-title {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.modal-close {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #999;
+}
+
+.modal-body {
+    padding: 10px 0;
+}
+
+.modal-footer {
+    border-top: 1px solid #eee;
+    padding-top: 15px;
+    margin-top: 15px;
+    text-align: right;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.fade-in {
+    animation: fadeIn 0.5s;
+}
+
+/* Enquire Now Button */
+.enquire-now-btn {
+    position: fixed;
+    right: -35px;
+    top: 50%;
+    transform: translateY(-50%) rotate(-90deg);
+    background-color: #0486c2;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-weight: bold;
+    z-index: 999;
+    border-radius: 4px 4px 0 0;
+    box-shadow: 0 -2px 5px rgba(0,0,0,0.2);
+    transition: right 0.3s;
+}
+
+.enquire-now-btn:hover {
+    right: -30px;
+}
+
+/* Services section */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.service-card {
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    overflow: hidden;
+    transition: transform 0.3s;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+}
+
+.service-card-image {
+    height: 150px;
+    background-size: cover;
+    background-position: center;
+}
+
+.service-card-content {
+    padding: 15px;
+}
+
+.service-card-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #0486c2;
+}
+
+.service-card-description {
+    font-size: 14px;
+    color: #555;
+    line-height: 1.5;
+}
+
+/* Testimonials */
+.testimonials-section {
+    padding: 20px;
+    background-color: #f9f9f9;
+}
+
+.testimonial-card {
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.testimonial-text {
+    font-style: italic;
+    color: #555;
+    margin-bottom: 15px;
+    line-height: 1.5;
+}
+
+.testimonial-author {
+    font-weight: bold;
+    color: #333;
+}
+
+/* Responsive styles */
+@media (max-width: 992px) {
+    .main-container {
+        flex-direction: column;
+    }
+    
+    .sidebar {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid #ddd;
+    }
+    
+    .sidebar-nav {
+        padding-top: 0;
+        display: flex;
+        overflow-x: auto;
+    }
+    
+    .sidebar a {
+        padding: 10px 15px;
+        white-space: nowrap;
+    }
+    
+    .home-content {
+        flex-direction: column;
+    }
+    
+    .enquire-now-btn {
+        display: none;
+    }
+    
+    .enquiry-form {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .sidebar-nav {
+        flex-wrap: wrap;
+    }
+    
+    .sidebar a {
+        flex: 1 0 auto;
+        text-align: center;
+        border-right: 1px solid #ddd;
+        border-bottom: 1px solid #ddd;
+    }
+    
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .page-title {
+        font-size: 16px;
+        padding: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .chart, .home-image {
+        min-height: 200px;
+    }
+    
+    .advice, .home-text {
+        padding: 10px;
+    }
+    
+    .advice h3 {
+        font-size: 14px;
+    }
+    
+    .advice h4 {
+        font-size: 12px;
+    }
+    
+    .home-text p {
+        font-size: 14px;
+    }
+}
+
+/* About Us page specific styling */
+.about-content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.about-image {
+    flex: 0.3; /* Reduced from 1 to 0.3 to make image smaller */
+    min-height: 200px; /* Reduced from 300px */
+    background-image: url("../images/coin-jar-7.jpg");
+    background-size: cover;
+    background-position: center;
+    background-color: #000; /* Fallback */
+}
+
+.about-text {
+    flex: 0.7; /* Increased from default to give more space for text */
+    padding: 30px;
+    background-color: #f5f5f5;
+    overflow-y: auto; /* Allow scrolling if content is too long */
+}
+
+.about-text h2 {
+    color: #0486c2;
+    margin-bottom: 20px;
+}
+
+.about-text p {
+    margin-bottom: 15px;
+    line-height: 1.6;
+    color: #333;
+    font-size: 15px;
+}
