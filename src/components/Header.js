@@ -28,10 +28,10 @@ const Header = () => {
             </a>
           </div>
           <div className="social-icons flex">
-            <a href="#" className="ml-4" aria-label="Facebook"><i className="fab fa-facebook-f"></i></a>
-            <a href="#" className="ml-4" aria-label="Instagram"><i className="fab fa-instagram"></i></a>
-            <a href="#" className="ml-4" aria-label="Twitter"><i className="fab fa-twitter"></i></a>
-            <a href="#" className="ml-4" aria-label="LinkedIn"><i className="fab fa-linkedin-in"></i></a>
+            <a href="https://facebook.com" className="ml-4" aria-label="Facebook"><i className="fab fa-facebook-f"></i></a>
+            <a href="https://instagram.com" className="ml-4" aria-label="Instagram"><i className="fab fa-instagram"></i></a>
+            <a href="https://twitter.com" className="ml-4" aria-label="Twitter"><i className="fab fa-twitter"></i></a>
+            <a href="https://linkedin.com" className="ml-4" aria-label="LinkedIn"><i className="fab fa-linkedin-in"></i></a>
           </div>
         </div>
       </div>
