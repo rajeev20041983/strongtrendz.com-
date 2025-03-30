@@ -2,10 +2,92 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Strong Trendz</title>
+    <meta name="theme-color" content="#004a8f" />
+    <meta name="description" content="Strong Trendz - Your partner for innovative business solutions" />
+    <meta name="keywords" content="business consulting, digital transformation, software solutions" />
+    <meta property="og:title" content="Strong Trendz " />
+    <meta property="og:description" content="Comprehensive business solutions tailored to your needs" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://strongtrendz.com" />
+    <meta property="og:image" content="%PUBLIC_URL%/logo192.png" />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Raleway:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    
+    <title>Strong Trendz | Business Solutions </title>
+    
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      
+      body {
+        font-family: 'Montserrat', sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        background-color: #f9f9f9;
+      }
+      
+      /* Pre-loader styling */
+      .preloader {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+        transition: opacity 0.5s ease;
+      }
+      
+      .preloader.fade-out {
+        opacity: 0;
+      }
+      
+      .spinner {
+        width: 40px;
+        height: 40px;
+        border: 4px solid rgba(0, 74, 143, 0.1);
+        border-radius: 50%;
+        border-top-color: #004a8f;
+        animation: spin 1s ease-in-out infinite;
+      }
+      
+      @keyframes spin {
+        to { transform: rotate(360deg); }
+      }
+    </style>
   </head>
   <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    
+    <!-- Pre-loader -->
+    <div class="preloader" id="preloader">
+      <div class="spinner"></div>
+    </div>
+    
     <div id="root"></div>
+    
+    <script>
+      // Remove preloader after page load
+      window.addEventListener('load', function() {
+        document.getElementById('preloader').classList.add('fade-out');
+        setTimeout(function() {
+          document.getElementById('preloader').style.display = 'none';
+        }, 500);
+      });
+    </script>
   </body>
 </html>

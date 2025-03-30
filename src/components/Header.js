@@ -27,12 +27,6 @@ const Header = () => {
               <span className="hidden sm:inline">02692-225000</span>
             </a>
           </div>
-          <div className="social-icons flex">
-            <a href="https://facebook.com" className="ml-4" aria-label="Facebook"><i className="fab fa-facebook-f"></i></a>
-            <a href="https://instagram.com" className="ml-4" aria-label="Instagram"><i className="fab fa-instagram"></i></a>
-            <a href="https://twitter.com" className="ml-4" aria-label="Twitter"><i className="fab fa-twitter"></i></a>
-            <a href="https://linkedin.com" className="ml-4" aria-label="LinkedIn"><i className="fab fa-linkedin-in"></i></a>
-          </div>
         </div>
       </div>
       
@@ -41,7 +35,7 @@ const Header = () => {
           <div className="flex justify-between items-center">
             <div className="logo">
               <Link to="/">
-                <img src="/logo.png" alt="Strong Trendz Logo" className="h-12" />
+              <img src="/assets/images/home.jpg" alt="Strong Trendz Logo" className="h-12" />
               </Link>
             </div>
             
@@ -54,7 +48,7 @@ const Header = () => {
             <nav className={`main-nav md:flex ${isMenuOpen ? 'mobile-menu-active' : 'mobile-menu-hidden'}`}>
               <ul className="nav-menu md:flex">
                 <li className="md:ml-6"><Link to="/" className="block py-2 text-primary font-medium hover:text-secondary">Home</Link></li>
-                <li className="md:ml-6"><Link to="/about" className="block py-2 text-primary font-medium hover:text-secondary">About Us</Link></li>
+                <li className="md:ml-6"><Link to="/about">About Us</Link> className="block py-2 text-primary font-medium hover:text-secondary">About Us</Link></li>
                 <li className="md:ml-6"><Link to="/services" className="block py-2 text-primary font-medium hover:text-secondary">Services</Link></li>
                 {currentUser ? (
                   <>
