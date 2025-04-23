@@ -1,0 +1,26 @@
+2025-04-12 14:04:57,399 - INFO: Starting sector-based stock analysis - 2025-04-12
+2025-04-12 14:32:27,826 - INFO: Saved agreement report to C:\Users\Rajee\OneDrive\stock\lab\strongtrendz.com-\.vscode\output\arima_lstm_agreement_20250412_143227.csv
+2025-04-12 14:32:27,841 - INFO: Saved top picks to C:\Users\Rajee\OneDrive\stock\lab\strongtrendz.com-\.vscode\output\top_picks_20250412_143227.csv
+2025-04-12 14:32:27,846 - INFO: Saved sector performance to C:\Users\Rajee\OneDrive\stock\lab\strongtrendz.com-\.vscode\output\sector_performance_20250412_143227.csv
+2025-04-12 14:32:27,873 - INFO: Saved consolidated analysis results to C:\Users\Rajee\OneDrive\stock\lab\strongtrendz.com-\.vscode\output\sector_analysis_20250412_143227.json
+2025-04-12 14:32:27,893 - INFO: 
+--- Analysis Summary ---
+2025-04-12 14:32:27,894 - INFO: Total Stocks Analyzed: 42
+2025-04-12 14:32:27,894 - INFO: Successfully Analyzed: 42
+2025-04-12 14:32:27,894 - INFO: Failed Analyses: 0
+2025-04-12 14:32:27,895 - INFO: Stocks with ARIMA-LSTM agreement: 24 (57.1%)
+2025-04-12 14:32:27,896 - INFO: Top BUY recommendations: 10
+2025-04-12 14:32:27,897 - INFO: Top SELL recommendations: 10
+2025-04-12 14:32:27,898 - INFO: 
+Sector Performance:
+2025-04-12 14:32:27,900 - INFO: NIFTY_METAL: 3.52% (UP)
+2025-04-12 14:32:27,903 - INFO: NIFTY_IT: 3.26% (UP)
+2025-04-12 14:32:27,904 - INFO: UNKNOWN: 2.71% (UP)
+2025-04-12 14:32:27,905 - INFO: NIFTY_PHARMA: 1.90% (UP)
+2025-04-12 14:32:27,907 - INFO: NIFTY_FIN_SERVICE: 0.92% (UP)
+2025-04-12 14:32:27,908 - INFO: NIFTY_OIL_AND_GAS: 0.00% (UP)
+2025-04-12 14:32:27,909 - INFO: NIFTY_BANK: -0.19% (DOWN)
+2025-04-12 14:32:27,909 - INFO: NIFTY_ENERGY: -0.38% (DOWN)
+2025-04-12 14:32:27,910 - INFO: NIFTY_MEDIA: -1.40% (DOWN)
+2025-04-12 14:32:27,911 - INFO: NIFTY_PVT_BANK: -1.83% (DOWN)
+2025-04-12 14:32:27,911 - INFO: NIFTY_CONSUMER: -3.12% (DOWN)

@@ -1,0 +1,3 @@
+@echo off
+echo Starting sector scraper...
+python sector_scraper.py

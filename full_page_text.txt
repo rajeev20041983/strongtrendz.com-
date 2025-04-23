@@ -1,0 +1,154 @@
+Markets
+Intraday
+Futures
+Options
+Eod Scans
+Trade
+ Screener
+Tools
+User
+NIFTY 50
+24328.95 (0.67%)
+NIFTY BANK
+55370.05 (-0.50%)
+NIFTY_MIDCAP_100
+55041.1 (1.18%)
+NIFTY_SMLCAP_100
+16969.75 (0.44%)
+NIFTY_SMLCAP_100
+16969.75 (0.44%)
+NIFTY_FIN_SERVICE
+26446.2 (-0.67%)
+INDIA_VIX
+15.96 (4.79%)
+F&O
+Cash
+
+
+Auto refresh disabled to enable Please Subscribe
+Sector Performance
+Sector Data
+Broader Index
+1D7D30D90D52W
+4.34
+2.38
+1.4
+1.34
+1.33
+1.01
+0.78
+0.69
+0.53
+0.14
+-0.09
+-0.26
+-0.5
+-0.57
+-0.67
+-0.75
+-0.96
+NIFTY_IT
+NIFTY_AUTO
+NIFTY_PHARMA
+NIFTY_HEALTHCARE
+NIFTY_REALTY
+NIFTY_CONSUMPTION
+NIFTY_METAL
+NIFTY_ENERGY
+NIFTY_FMCG
+NIFTY_OIL_AND_GAS
+NIFTY_MEDIA
+NIFTY_FINSRV25_50
+NIFTY BANK
+NIFTY_PSU_BANK
+NIFTY_FIN_SERVICE
+NIFTY_PVT_BANK
+NIFTY_CONSR_DURBL
+AUTOMOBILE Stocks
+SYMBOL
+PRICE
+SONACOMS
+478.45
+ (5.61%)
+TATAMOTORS
+659.9
+ (4.4%)
+ASHOKLEY
+230.68
+ (3.47%)
+M&M
+2917.8
+ (3.45%)
+BHARATFORG
+1135.5
+ (2.81%)
+HEROMOTOCO
+3940.5
+ (2.71%)
+TVSMOTOR
+2806.7
+ (2.43%)
+MOTHERSON
+135.73
+ (1.79%)
+BALKRISIND
+2577
+ (1.62%)
+BAJAJ-AUTO
+8261.5
+ (1.46%)
+MARUTI
+11907
+ (1.45%)
+BOSCHLTD
+28415
+ (1.39%)
+TIINDIA
+2673
+ (0.71%)
+MRF
+127980
+ (0.25%)
+EXIDEIND
+380.8
+ (-0.04%)
+ARE&M
+1009.9
+ (-0.59%)
+EICHERMOT
+5740
+ (-0.77%)
+What is Sector Performance?
+Sector Performance helps to get a birds-eye overview of which stock market sectors are doing well in markets and which sectors are not performing in intraday.
+Usually, when we buy stocks which are sector movers and from sectors that are doing good, it’s highly likely that stock will outperform and give good returns compared to stock which whose other sector peers are not performing.
+How many Sectors are there in Stock Market?
+There are 13 types of sectors in the stock market that are PSU Bank, Pharma sector stocks in india, Media & Entertainment, Construction, Metals, Automobile, Consumption, Consumer Goods, Bank Nifty, Nifty Financial Services, PVT Bank, IT, energy sector stocks in india.
+A sector Performance NSE consists of multiple stocks with similar industries, and we can also compare the performance of the sectors across markets. We have listed 13 different sectors to compare which stock is performing well, and this data can help you to make decisions for your next investment. Sector Wise stocks in NSE helps you observe the industry’s performance and will list the data as per the price changes for the current expiry.
+Features available in Sector Performance
+In the Sector wise Performance, you can find the average value of different sectors, and it also tells us whether the sector is a leader or looser. Here you can find data using sector movers, sector data, border index. The Sector performance is before shown as sector watch in Intraday Screener.
+Sector data show the information about different sector wise stocks NSE like PSU Bank, Bank Nifty, Energy, Consumer goods, Nifty Financial Services, PVT Bank, Consumption, Pharmaceuticals, Construction, IT sector stocks, Media Entertainment, Metals, Auto sector in stocks.
+Broader Indexs show the information about the indices like Bank Nifty, Sensex, Nifty 50, Bank Nifty, Nifty 200, Nifty 500, Nifty Next 50, Midcap 100, MidSmallCap 400, Small Cap 250, Small cap 100, Small cap 50.
+How to see which Stocks of a particular Sector are doing well?
+In Sector Performance, to check the performance of stocks in a particular sector, you need to click on the respective sector bar on the chart and corresponding stocks data will be shown on the right side. If you check the above image, I have clicked on the Automobile bar, It has displayed all the stocks in the Automobile sector.
+When you click on the Broader Index, It will show you the data of all Broader market Indices. The data will be shown of SMALLCAP 250 index, Smallcap 100 index, MidSmallcap 400 index, Smallcap 50 index, Midcap 100 index, Banknifty index, Nifty 500 index, NiftyNext 50 index, Nifty 200 index, Sensex index, Nifty50 index.
+
+
+
+Get connected with us on social networks!
+DISCLAIMER
+This tool is meant to filter stocks based on certain technical parameters and in no way provides any advice to buy or sell stocks. Any one using this tool , will be solely resposible for profits or losses arising from their trades.
+ABOUT US
+Intradayscreener is a stock market Analytics platform that provides complete 360 degree view of markets. Its one of the most advanced stock scanner with hundreds of pre made scans.
+USEFUL LINKS
+Your Account
+Blogs
+Become an Affiliate
+Contact Us
+Partnerships
+Suggest a feature
+CONTACT
+Financial District, Hyderabad
++ 91 9347450030
++ 91 9347450030
+© 2025 IntradayScreener.com
+Made with in India - Investobull Fintech

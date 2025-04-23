@@ -1,0 +1,2 @@
+order_id,ticker,security_id,transaction_type,entry_price,quantity,target_price,stop_loss,timestamp,status
+9125042327212,VBL,18921,BUY,549.55,10,552.3,538.56,2025-04-23 07:35:52,OPEN

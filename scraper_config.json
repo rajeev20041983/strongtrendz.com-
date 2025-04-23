@@ -1,0 +1,10 @@
+{
+    "chrome_debug_port": 9222,
+    "check_interval_seconds": 60,
+    "run_continuously": true,
+    "credentials": {
+      "username": "9087198304",
+      "password": "Gameof#13",
+      "pin": "603591"
+    }
+  }

@@ -1,0 +1,653 @@
+2025-04-23 22:31:30,918 - INFO - Starting sector rank scraper
+2025-04-23 22:31:30,929 - INFO - Configuration loaded successfully
+2025-04-23 22:31:30,930 - INFO - ====== WebDriver manager ======
+2025-04-23 22:31:36,998 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-23 22:31:37,065 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-23 22:31:37,150 - INFO - Driver [C:\Users\Rajee\.wdm\drivers\chromedriver\win64\135.0.7049.114\chromedriver-win32/chromedriver.exe] found in cache
+2025-04-23 22:31:40,587 - INFO - Chrome WebDriver set up successfully
+2025-04-23 22:31:45,072 - INFO - Navigated to login page
+2025-04-23 22:32:34,927 - INFO - Navigated to sector performance page: https://intradayscreener.com/sector-performance
+2025-04-23 22:32:39,996 - INFO - Successfully navigated to sector performance page
+2025-04-23 22:32:54,949 - INFO - Found 16 potential sector elements with selector: //div[contains(., '%')]
+2025-04-23 22:32:56,356 - WARNING - No valid sector data found
+2025-04-23 22:32:56,357 - ERROR - Failed to scrape sector ranks
+2025-04-23 22:32:56,358 - INFO - Waiting 60 seconds until next scrape...
+2025-04-23 22:34:06,106 - INFO - Browser page refreshed
+2025-04-23 22:34:21,354 - INFO - Found 16 potential sector elements with selector: //div[contains(., '%')]
+2025-04-23 22:34:24,894 - WARNING - No valid sector data found
+2025-04-23 22:34:24,907 - ERROR - Failed to scrape sector ranks
+2025-04-23 22:34:24,907 - INFO - Waiting 60 seconds until next scrape...
+2025-04-23 22:35:04,943 - INFO - Scraper stopped by user
+2025-04-23 22:35:05,017 - WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None)': /session/2c91c6f8e7d6a673331c1cdab6851411
+2025-04-23 22:35:13,803 - INFO - Starting debug sector rank scraper
+2025-04-23 22:35:13,821 - INFO - Configuration loaded successfully
+2025-04-23 22:35:13,847 - INFO - ====== WebDriver manager ======
+2025-04-23 22:35:18,556 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-23 22:35:18,637 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-23 22:35:18,685 - INFO - Driver [C:\Users\Rajee\.wdm\drivers\chromedriver\win64\135.0.7049.114\chromedriver-win32/chromedriver.exe] found in cache
+2025-04-23 22:35:22,171 - INFO - Chrome WebDriver set up successfully
+2025-04-23 22:35:26,415 - INFO - Navigated to login page
+2025-04-23 22:36:28,327 - INFO - Navigated to sector performance page: https://intradayscreener.com/sector-performance
+2025-04-23 22:36:33,384 - INFO - Successfully navigated to sector performance page
+2025-04-23 22:36:33,421 - INFO - Found 37 elements containing '%'
+2025-04-23 22:36:33,551 - INFO - Percent element 9: '(0.67%)'
+2025-04-23 22:36:33,587 - INFO -   Parent 9: 'NIFTY 50
+24328.95 (0.67%)'
+2025-04-23 22:36:33,599 - INFO - Percent element 10: '(-0.50%)'
+2025-04-23 22:36:33,629 - INFO -   Parent 10: 'NIFTY BANK
+55370.05 (-0.50%)'
+2025-04-23 22:36:33,646 - INFO - Percent element 11: '(1.18%)'
+2025-04-23 22:36:33,680 - INFO -   Parent 11: 'NIFTY_MIDCAP_100
+55041.1 (1.18%)'
+2025-04-23 22:36:33,696 - INFO - Percent element 12: '(0.44%)'
+2025-04-23 22:36:33,730 - INFO -   Parent 12: 'NIFTY_SMLCAP_100
+16969.75 (0.44%)'
+2025-04-23 22:36:33,746 - INFO - Percent element 13: '(0.44%)'
+2025-04-23 22:36:33,789 - INFO -   Parent 13: 'NIFTY_SMLCAP_100
+16969.75 (0.44%)'
+2025-04-23 22:36:33,805 - INFO - Percent element 14: '(-0.67%)'
+2025-04-23 22:36:33,839 - INFO -   Parent 14: 'NIFTY_FIN_SERVICE
+26446.2 (-0.67%)'
+2025-04-23 22:36:33,857 - INFO - Percent element 15: '(4.79%)'
+2025-04-23 22:36:33,888 - INFO -   Parent 15: 'INDIA_VIX
+15.96 (4.79%)'
+2025-04-23 22:36:33,932 - INFO - Percent element 18: '(5.61%)'
+2025-04-23 22:36:33,962 - INFO -   Parent 18: '478.45
+ (5.61%)'
+2025-04-23 22:36:33,976 - INFO - Percent element 19: '(4.4%)'
+2025-04-23 22:36:34,005 - INFO -   Parent 19: '659.9
+ (4.4%)'
+2025-04-23 22:36:34,024 - INFO - Percent element 20: '(3.47%)'
+2025-04-23 22:36:34,063 - INFO -   Parent 20: '230.68
+ (3.47%)'
+2025-04-23 22:36:34,080 - INFO - Percent element 21: '(3.45%)'
+2025-04-23 22:36:34,115 - INFO -   Parent 21: '2917.8
+ (3.45%)'
+2025-04-23 22:36:34,134 - INFO - Percent element 22: '(2.81%)'
+2025-04-23 22:36:34,164 - INFO -   Parent 22: '1135.5
+ (2.81%)'
+2025-04-23 22:36:34,180 - INFO - Percent element 23: '(2.71%)'
+2025-04-23 22:36:34,213 - INFO -   Parent 23: '3940.5
+ (2.71%)'
+2025-04-23 22:36:34,228 - INFO - Percent element 24: '(2.43%)'
+2025-04-23 22:36:34,256 - INFO -   Parent 24: '2806.7
+ (2.43%)'
+2025-04-23 22:36:34,274 - INFO - Percent element 25: '(1.79%)'
+2025-04-23 22:36:34,337 - INFO -   Parent 25: '135.73
+ (1.79%)'
+2025-04-23 22:36:34,350 - INFO - Percent element 26: '(1.62%)'
+2025-04-23 22:36:34,372 - INFO -   Parent 26: '2577
+ (1.62%)'
+2025-04-23 22:36:34,386 - INFO - Percent element 27: '(1.46%)'
+2025-04-23 22:36:34,413 - INFO -   Parent 27: '8261.5
+ (1.46%)'
+2025-04-23 22:36:34,429 - INFO - Percent element 28: '(1.45%)'
+2025-04-23 22:36:34,465 - INFO -   Parent 28: '11907
+ (1.45%)'
+2025-04-23 22:36:34,500 - INFO - Percent element 29: '(1.39%)'
+2025-04-23 22:36:34,530 - INFO -   Parent 29: '28415
+ (1.39%)'
+2025-04-23 22:36:34,545 - INFO - Percent element 30: '(0.71%)'
+2025-04-23 22:36:34,572 - INFO -   Parent 30: '2673
+ (0.71%)'
+2025-04-23 22:36:34,589 - INFO - Percent element 31: '(0.25%)'
+2025-04-23 22:36:34,621 - INFO -   Parent 31: '127980
+ (0.25%)'
+2025-04-23 22:36:34,638 - INFO - Percent element 32: '(-0.04%)'
+2025-04-23 22:36:34,675 - INFO -   Parent 32: '380.8
+ (-0.04%)'
+2025-04-23 22:36:34,697 - INFO - Percent element 33: '(-0.59%)'
+2025-04-23 22:36:34,866 - INFO -   Parent 33: '1009.9
+ (-0.59%)'
+2025-04-23 22:36:34,886 - INFO - Percent element 34: '(-0.77%)'
+2025-04-23 22:36:34,942 - INFO -   Parent 34: '5740
+ (-0.77%)'
+2025-04-23 22:36:34,989 - INFO - Found 29 elements possibly containing sector names
+2025-04-23 22:36:35,001 - INFO - Possible sector element 0: 'NIFTY 50'
+2025-04-23 22:36:35,016 - INFO - Possible sector element 1: 'NIFTY BANK'
+2025-04-23 22:36:35,028 - INFO - Possible sector element 2: 'NIFTY_MIDCAP_100'
+2025-04-23 22:36:35,040 - INFO - Possible sector element 3: 'NIFTY_SMLCAP_100'
+2025-04-23 22:36:35,053 - INFO - Possible sector element 4: 'NIFTY_SMLCAP_100'
+2025-04-23 22:36:35,066 - INFO - Possible sector element 5: 'NIFTY_FIN_SERVICE'
+2025-04-23 22:36:35,101 - INFO - Possible sector element 8: 'NIFTY_IT'
+2025-04-23 22:36:35,112 - INFO - Possible sector element 9: 'NIFTY_AUTO'
+2025-04-23 22:36:35,123 - INFO - Possible sector element 10: 'NIFTY_PHARMA'
+2025-04-23 22:36:35,136 - INFO - Possible sector element 11: 'NIFTY_HEALTHCARE'
+2025-04-23 22:36:35,150 - INFO - Possible sector element 12: 'NIFTY_REALTY'
+2025-04-23 22:36:35,162 - INFO - Possible sector element 13: 'NIFTY_CONSUMPTION'
+2025-04-23 22:36:35,172 - INFO - Possible sector element 14: 'NIFTY_METAL'
+2025-04-23 22:36:35,188 - INFO - Possible sector element 15: 'NIFTY_ENERGY'
+2025-04-23 22:36:35,203 - INFO - Possible sector element 16: 'NIFTY_FMCG'
+2025-04-23 22:36:35,216 - INFO - Possible sector element 17: 'NIFTY_OIL_AND_GAS'
+2025-04-23 22:36:35,227 - INFO - Possible sector element 18: 'NIFTY_MEDIA'
+2025-04-23 22:36:35,241 - INFO - Possible sector element 19: 'NIFTY_FINSRV25_50'
+2025-04-23 22:36:35,259 - INFO - Possible sector element 20: 'NIFTY BANK'
+2025-04-23 22:36:35,271 - INFO - Possible sector element 21: 'NIFTY_PSU_BANK'
+2025-04-23 22:36:35,284 - INFO - Possible sector element 22: 'NIFTY_FIN_SERVICE'
+2025-04-23 22:36:35,297 - INFO - Possible sector element 23: 'NIFTY_PVT_BANK'
+2025-04-23 22:36:35,307 - INFO - Possible sector element 24: 'NIFTY_CONSR_DURBL'
+2025-04-23 22:36:35,321 - INFO - Possible sector element 25: 'AUTOMOBILE Stocks'
+2025-04-23 22:36:35,332 - INFO - Possible sector element 26: 'BAJAJ-AUTO'
+2025-04-23 22:36:35,345 - INFO - Possible sector element 27: 'There are 13 types of sectors in the stock market that are PSU Bank, Pharma sector stocks in india, Media & Entertainment, Construction, Metals, Automobile, Consumption, Consumer Goods, Bank Nifty, Nifty Financial Services, PVT Bank, IT, energy sector stocks in india.'
+2025-04-23 22:36:35,357 - INFO - Possible sector element 28: 'Sector data show the information about different sector wise stocks NSE like PSU Bank, Bank Nifty, Energy, Consumer goods, Nifty Financial Services, PVT Bank, Consumption, Pharmaceuticals, Construction, IT sector stocks, Media Entertainment, Metals, Auto sector in stocks.'
+2025-04-23 22:36:35,373 - INFO - Found 0 tables on the page
+2025-04-23 22:36:35,396 - INFO - Found 39 card divs
+2025-04-23 22:36:35,636 - INFO - Saved full page text and source for debugging
+2025-04-23 22:36:35,637 - INFO - Page contains 154 text lines
+2025-04-23 22:36:35,637 - INFO - Line 0: 'Markets'
+2025-04-23 22:36:35,637 - INFO - Line 1: 'Intraday'
+2025-04-23 22:36:35,638 - INFO - Line 2: 'Futures'
+2025-04-23 22:36:35,638 - INFO - Line 3: 'Options'
+2025-04-23 22:36:35,638 - INFO - Line 4: 'Eod Scans'
+2025-04-23 22:36:35,639 - INFO - Line 5: 'Trade'
+2025-04-23 22:36:35,639 - INFO - Line 6: 'Screener'
+2025-04-23 22:36:35,639 - INFO - Line 7: 'Tools'
+2025-04-23 22:36:35,640 - INFO - Line 8: 'User'
+2025-04-23 22:36:35,640 - INFO - Line 9: 'NIFTY 50'
+2025-04-23 22:36:35,640 - INFO - Line 10: '24328.95 (0.67%)'
+2025-04-23 22:36:35,641 - INFO - Line 11: 'NIFTY BANK'
+2025-04-23 22:36:35,641 - INFO - Line 12: '55370.05 (-0.50%)'
+2025-04-23 22:36:35,642 - INFO - Line 13: 'NIFTY_MIDCAP_100'
+2025-04-23 22:36:35,643 - INFO - Line 14: '55041.1 (1.18%)'
+2025-04-23 22:36:35,643 - INFO - Line 15: 'NIFTY_SMLCAP_100'
+2025-04-23 22:36:35,644 - INFO - Line 16: '16969.75 (0.44%)'
+2025-04-23 22:36:35,644 - INFO - Line 17: 'NIFTY_SMLCAP_100'
+2025-04-23 22:36:35,645 - INFO - Line 18: '16969.75 (0.44%)'
+2025-04-23 22:36:35,645 - INFO - Line 19: 'NIFTY_FIN_SERVICE'
+2025-04-23 22:36:35,646 - INFO - Line 20: '26446.2 (-0.67%)'
+2025-04-23 22:36:35,647 - INFO - Line 21: 'INDIA_VIX'
+2025-04-23 22:36:35,648 - INFO - Line 22: '15.96 (4.79%)'
+2025-04-23 22:36:35,648 - INFO - Line 23: 'F&O'
+2025-04-23 22:36:35,648 - INFO - Line 24: 'Cash'
+2025-04-23 22:36:35,649 - INFO - Line 27: 'Auto refresh disabled to enable Please Subscribe'
+2025-04-23 22:36:35,649 - INFO - Line 28: 'Sector Performance'
+2025-04-23 22:36:35,649 - INFO - Line 29: 'Sector Data'
+2025-04-23 22:36:35,650 - INFO - Line 30: 'Broader Index'
+2025-04-23 22:36:35,650 - INFO - Line 31: '1D7D30D90D52W'
+2025-04-23 22:36:35,650 - INFO - Line 32: '4.34'
+2025-04-23 22:36:35,651 - INFO - Line 33: '2.38'
+2025-04-23 22:36:35,651 - INFO - Line 34: '1.4'
+2025-04-23 22:36:35,651 - INFO - Line 35: '1.34'
+2025-04-23 22:36:35,652 - INFO - Line 36: '1.33'
+2025-04-23 22:36:35,652 - INFO - Line 37: '1.01'
+2025-04-23 22:36:35,652 - INFO - Line 38: '0.78'
+2025-04-23 22:36:35,652 - INFO - Line 39: '0.69'
+2025-04-23 22:36:35,653 - INFO - Line 40: '0.53'
+2025-04-23 22:36:35,653 - INFO - Line 41: '0.14'
+2025-04-23 22:36:35,653 - INFO - Line 42: '-0.09'
+2025-04-23 22:36:35,654 - INFO - Line 43: '-0.26'
+2025-04-23 22:36:35,654 - INFO - Line 44: '-0.5'
+2025-04-23 22:36:35,654 - INFO - Line 45: '-0.57'
+2025-04-23 22:36:35,655 - INFO - Line 46: '-0.67'
+2025-04-23 22:36:35,655 - INFO - Line 47: '-0.75'
+2025-04-23 22:36:35,655 - INFO - Line 48: '-0.96'
+2025-04-23 22:36:35,655 - INFO - Line 49: 'NIFTY_IT'
+2025-04-23 22:36:35,656 - INFO - Found 24 percentage values in page text
+2025-04-23 22:36:35,657 - INFO - Percentages (sorted): [5.61, 4.79, 4.4, 3.47, 3.45, 2.81, 2.71, 2.43, 1.79, 1.62, 1.46, 1.45, 1.39, 1.18, 0.71, 0.67, 0.44, 0.44, 0.25, -0.04]
+2025-04-23 22:36:35,657 - INFO - Found sector with nearby percentage: NIFTY BANK = 0.67%
+2025-04-23 22:36:35,658 - INFO - Found sector with nearby percentage: NIFTY_FIN_SERVICE = 0.44%
+2025-04-23 22:36:35,659 - INFO - Found 2 sectors with percentages
+2025-04-23 22:36:35,660 - INFO - Found percentages on 24 lines
+2025-04-23 22:36:35,662 - INFO - Final sector data: [{'name': 'NIFTY BANK', 'change_percent': 0.67}, {'name': 'NIFTY_FIN_SERVICE', 'change_percent': 0.44}]
+2025-04-23 22:36:35,663 - INFO - Successfully extracted 2 sector ranks
+2025-04-23 22:36:35,670 - INFO - Saved 2 sector ranks to CSV
+2025-04-23 22:36:35,672 - INFO - Saved sector ranks to text file
+2025-04-23 22:36:35,673 - INFO - Waiting 60 seconds until next scrape...
+2025-04-23 22:37:36,846 - INFO - Browser page refreshed
+2025-04-23 22:37:36,898 - INFO - Found 20 elements containing '%'
+2025-04-23 22:37:37,049 - INFO - Percent element 9: '(0.67%)'
+2025-04-23 22:37:37,078 - INFO -   Parent 9: 'NIFTY 50
+24328.95 (0.67%)'
+2025-04-23 22:37:37,098 - INFO - Percent element 10: '(-0.50%)'
+2025-04-23 22:37:37,130 - INFO -   Parent 10: 'NIFTY BANK
+55370.05 (-0.50%)'
+2025-04-23 22:37:37,147 - INFO - Percent element 11: '(1.18%)'
+2025-04-23 22:37:37,184 - INFO -   Parent 11: 'NIFTY_MIDCAP_100
+55041.1 (1.18%)'
+2025-04-23 22:37:37,213 - INFO - Percent element 12: '(0.44%)'
+2025-04-23 22:37:37,245 - INFO -   Parent 12: 'NIFTY_SMLCAP_100
+16969.75 (0.44%)'
+2025-04-23 22:37:37,263 - INFO - Percent element 13: '(0.44%)'
+2025-04-23 22:37:37,294 - INFO -   Parent 13: 'NIFTY_SMLCAP_100
+16969.75 (0.44%)'
+2025-04-23 22:37:37,309 - INFO - Percent element 14: '(-0.67%)'
+2025-04-23 22:37:37,342 - INFO -   Parent 14: 'NIFTY_FIN_SERVICE
+26446.2 (-0.67%)'
+2025-04-23 22:37:37,361 - INFO - Percent element 15: '(4.79%)'
+2025-04-23 22:37:37,938 - INFO -   Parent 15: 'INDIA_VIX
+15.96 (4.79%)'
+2025-04-23 22:37:38,064 - INFO - Found 29 elements possibly containing sector names
+2025-04-23 22:37:38,083 - INFO - Possible sector element 0: 'NIFTY 50'
+2025-04-23 22:37:38,112 - INFO - Possible sector element 1: 'NIFTY BANK'
+2025-04-23 22:37:38,133 - INFO - Possible sector element 2: 'NIFTY_MIDCAP_100'
+2025-04-23 22:37:38,148 - INFO - Possible sector element 3: 'NIFTY_SMLCAP_100'
+2025-04-23 22:37:38,167 - INFO - Possible sector element 4: 'NIFTY_SMLCAP_100'
+2025-04-23 22:37:38,187 - INFO - Possible sector element 5: 'NIFTY_FIN_SERVICE'
+2025-04-23 22:37:38,250 - INFO - Possible sector element 8: 'NIFTY_IT'
+2025-04-23 22:37:38,269 - INFO - Possible sector element 9: 'NIFTY_AUTO'
+2025-04-23 22:37:38,315 - INFO - Possible sector element 10: 'NIFTY_PHARMA'
+2025-04-23 22:37:38,332 - INFO - Possible sector element 11: 'NIFTY_HEALTHCARE'
+2025-04-23 22:37:38,350 - INFO - Possible sector element 12: 'NIFTY_REALTY'
+2025-04-23 22:37:38,369 - INFO - Possible sector element 13: 'NIFTY_CONSUMPTION'
+2025-04-23 22:37:38,395 - INFO - Possible sector element 14: 'NIFTY_METAL'
+2025-04-23 22:37:38,414 - INFO - Possible sector element 15: 'NIFTY_ENERGY'
+2025-04-23 22:37:38,433 - INFO - Possible sector element 16: 'NIFTY_FMCG'
+2025-04-23 22:37:38,449 - INFO - Possible sector element 17: 'NIFTY_OIL_AND_GAS'
+2025-04-23 22:37:38,466 - INFO - Possible sector element 18: 'NIFTY_MEDIA'
+2025-04-23 22:37:38,482 - INFO - Possible sector element 19: 'NIFTY_FINSRV25_50'
+2025-04-23 22:37:38,496 - INFO - Possible sector element 20: 'NIFTY BANK'
+2025-04-23 22:37:38,510 - INFO - Possible sector element 21: 'NIFTY_PSU_BANK'
+2025-04-23 22:37:38,529 - INFO - Possible sector element 22: 'NIFTY_FIN_SERVICE'
+2025-04-23 22:37:38,553 - INFO - Possible sector element 23: 'NIFTY_PVT_BANK'
+2025-04-23 22:37:38,569 - INFO - Possible sector element 24: 'NIFTY_CONSR_DURBL'
+2025-04-23 22:37:38,583 - INFO - Possible sector element 25: 'AUTOMOBILE Stocks'
+2025-04-23 22:37:38,597 - INFO - Possible sector element 26: 'BAJAJ-AUTO'
+2025-04-23 22:37:38,612 - INFO - Possible sector element 27: 'There are 13 types of sectors in the stock market that are PSU Bank, Pharma sector stocks in india, Media & Entertainment, Construction, Metals, Automobile, Consumption, Consumer Goods, Bank Nifty, Nifty Financial Services, PVT Bank, IT, energy sector stocks in india.'
+2025-04-23 22:37:38,626 - INFO - Possible sector element 28: 'Sector data show the information about different sector wise stocks NSE like PSU Bank, Bank Nifty, Energy, Consumer goods, Nifty Financial Services, PVT Bank, Consumption, Pharmaceuticals, Construction, IT sector stocks, Media Entertainment, Metals, Auto sector in stocks.'
+2025-04-23 22:37:38,640 - INFO - Found 0 tables on the page
+2025-04-23 22:37:38,659 - INFO - Found 39 card divs
+2025-04-23 22:37:38,963 - INFO - Saved full page text and source for debugging
+2025-04-23 22:37:38,964 - INFO - Page contains 154 text lines
+2025-04-23 22:37:38,964 - INFO - Line 0: 'Markets'
+2025-04-23 22:37:38,965 - INFO - Line 1: 'Intraday'
+2025-04-23 22:37:38,966 - INFO - Line 2: 'Futures'
+2025-04-23 22:37:38,966 - INFO - Line 3: 'Options'
+2025-04-23 22:37:38,966 - INFO - Line 4: 'Eod Scans'
+2025-04-23 22:37:38,967 - INFO - Line 5: 'Trade'
+2025-04-23 22:37:38,967 - INFO - Line 6: 'Screener'
+2025-04-23 22:37:38,968 - INFO - Line 7: 'Tools'
+2025-04-23 22:37:38,968 - INFO - Line 8: 'User'
+2025-04-23 22:37:38,969 - INFO - Line 9: 'NIFTY 50'
+2025-04-23 22:37:38,969 - INFO - Line 10: '24328.95 (0.67%)'
+2025-04-23 22:37:38,970 - INFO - Line 11: 'NIFTY BANK'
+2025-04-23 22:37:38,970 - INFO - Line 12: '55370.05 (-0.50%)'
+2025-04-23 22:37:38,971 - INFO - Line 13: 'NIFTY_MIDCAP_100'
+2025-04-23 22:37:38,971 - INFO - Line 14: '55041.1 (1.18%)'
+2025-04-23 22:37:38,971 - INFO - Line 15: 'NIFTY_SMLCAP_100'
+2025-04-23 22:37:38,972 - INFO - Line 16: '16969.75 (0.44%)'
+2025-04-23 22:37:38,973 - INFO - Line 17: 'NIFTY_SMLCAP_100'
+2025-04-23 22:37:38,973 - INFO - Line 18: '16969.75 (0.44%)'
+2025-04-23 22:37:38,974 - INFO - Line 19: 'NIFTY_FIN_SERVICE'
+2025-04-23 22:37:38,974 - INFO - Line 20: '26446.2 (-0.67%)'
+2025-04-23 22:37:38,974 - INFO - Line 21: 'INDIA_VIX'
+2025-04-23 22:37:38,975 - INFO - Line 22: '15.96 (4.79%)'
+2025-04-23 22:37:38,975 - INFO - Line 23: 'F&O'
+2025-04-23 22:37:38,975 - INFO - Line 24: 'Cash'
+2025-04-23 22:37:38,976 - INFO - Line 27: 'Auto refresh disabled to enable Please Subscribe'
+2025-04-23 22:37:38,976 - INFO - Line 28: 'Sector Performance'
+2025-04-23 22:37:38,977 - INFO - Line 29: 'Sector Data'
+2025-04-23 22:37:38,977 - INFO - Line 30: 'Broader Index'
+2025-04-23 22:37:38,979 - INFO - Line 31: '1D7D30D90D52W'
+2025-04-23 22:37:38,980 - INFO - Line 32: '4.34'
+2025-04-23 22:37:38,980 - INFO - Line 33: '2.38'
+2025-04-23 22:37:38,980 - INFO - Line 34: '1.4'
+2025-04-23 22:37:38,981 - INFO - Line 35: '1.34'
+2025-04-23 22:37:38,981 - INFO - Line 36: '1.33'
+2025-04-23 22:37:38,981 - INFO - Line 37: '1.01'
+2025-04-23 22:37:38,982 - INFO - Line 38: '0.78'
+2025-04-23 22:37:38,982 - INFO - Line 39: '0.69'
+2025-04-23 22:37:38,982 - INFO - Line 40: '0.53'
+2025-04-23 22:37:38,983 - INFO - Line 41: '0.14'
+2025-04-23 22:37:38,984 - INFO - Line 42: '-0.09'
+2025-04-23 22:37:38,984 - INFO - Line 43: '-0.26'
+2025-04-23 22:37:38,985 - INFO - Line 44: '-0.5'
+2025-04-23 22:37:38,985 - INFO - Line 45: '-0.57'
+2025-04-23 22:37:38,985 - INFO - Line 46: '-0.67'
+2025-04-23 22:37:38,986 - INFO - Line 47: '-0.75'
+2025-04-23 22:37:38,986 - INFO - Line 48: '-0.96'
+2025-04-23 22:37:38,987 - INFO - Line 49: 'NIFTY_IT'
+2025-04-23 22:37:38,988 - INFO - Found 24 percentage values in page text
+2025-04-23 22:37:38,992 - INFO - Percentages (sorted): [5.61, 4.79, 4.4, 3.47, 3.45, 2.81, 2.71, 2.43, 1.79, 1.62, 1.46, 1.45, 1.39, 1.18, 0.71, 0.67, 0.44, 0.44, 0.25, -0.04]
+2025-04-23 22:37:38,992 - INFO - Found sector with nearby percentage: NIFTY BANK = 0.67%
+2025-04-23 22:37:38,993 - INFO - Found sector with nearby percentage: NIFTY_FIN_SERVICE = 0.44%
+2025-04-23 22:37:38,994 - INFO - Found 2 sectors with percentages
+2025-04-23 22:37:38,996 - INFO - Found percentages on 24 lines
+2025-04-23 22:37:38,997 - INFO - Final sector data: [{'name': 'NIFTY BANK', 'change_percent': 0.67}, {'name': 'NIFTY_FIN_SERVICE', 'change_percent': 0.44}]
+2025-04-23 22:37:38,997 - INFO - Successfully extracted 2 sector ranks
+2025-04-23 22:37:39,001 - INFO - Saved 2 sector ranks to CSV
+2025-04-23 22:37:39,003 - INFO - Saved sector ranks to text file
+2025-04-23 22:37:39,003 - INFO - Waiting 60 seconds until next scrape...
+2025-04-23 22:38:40,137 - INFO - Browser page refreshed
+2025-04-23 22:38:40,157 - INFO - Found 20 elements containing '%'
+2025-04-23 22:38:40,486 - INFO - Percent element 9: '(0.67%)'
+2025-04-23 22:38:40,545 - INFO -   Parent 9: 'NIFTY 50
+24328.95 (0.67%)'
+2025-04-23 22:38:40,570 - INFO - Percent element 10: '(-0.50%)'
+2025-04-23 22:38:40,755 - INFO -   Parent 10: 'NIFTY BANK
+55370.05 (-0.50%)'
+2025-04-23 22:38:40,845 - INFO - Percent element 11: '(1.18%)'
+2025-04-23 22:38:40,929 - INFO -   Parent 11: 'NIFTY_MIDCAP_100
+55041.1 (1.18%)'
+2025-04-23 22:38:40,960 - INFO - Percent element 12: '(0.44%)'
+2025-04-23 22:38:41,044 - INFO -   Parent 12: 'NIFTY_SMLCAP_100
+16969.75 (0.44%)'
+2025-04-23 22:38:41,094 - INFO - Percent element 13: '(0.44%)'
+2025-04-23 22:38:41,134 - INFO -   Parent 13: 'NIFTY_SMLCAP_100
+16969.75 (0.44%)'
+2025-04-23 22:38:41,274 - INFO - Percent element 14: '(-0.67%)'
+2025-04-23 22:38:41,383 - INFO -   Parent 14: 'NIFTY_FIN_SERVICE
+26446.2 (-0.67%)'
+2025-04-23 22:38:41,448 - INFO - Percent element 15: '(4.79%)'
+2025-04-23 22:38:41,546 - INFO -   Parent 15: 'INDIA_VIX
+15.96 (4.79%)'
+2025-04-23 22:38:41,760 - INFO - Found 29 elements possibly containing sector names
+2025-04-23 22:38:41,777 - INFO - Possible sector element 0: 'NIFTY 50'
+2025-04-23 22:38:42,413 - INFO - Possible sector element 1: 'NIFTY BANK'
+2025-04-23 22:38:42,452 - INFO - Possible sector element 2: 'NIFTY_MIDCAP_100'
+2025-04-23 22:38:42,493 - INFO - Possible sector element 3: 'NIFTY_SMLCAP_100'
+2025-04-23 22:38:42,542 - INFO - Possible sector element 4: 'NIFTY_SMLCAP_100'
+2025-04-23 22:38:42,590 - INFO - Possible sector element 5: 'NIFTY_FIN_SERVICE'
+2025-04-23 22:38:42,649 - INFO - Possible sector element 8: 'NIFTY_IT'
+2025-04-23 22:38:42,694 - INFO - Possible sector element 9: 'NIFTY_AUTO'
+2025-04-23 22:38:42,751 - INFO - Possible sector element 10: 'NIFTY_PHARMA'
+2025-04-23 22:38:42,783 - INFO - Possible sector element 11: 'NIFTY_HEALTHCARE'
+2025-04-23 22:38:42,797 - INFO - Possible sector element 12: 'NIFTY_REALTY'
+2025-04-23 22:38:42,840 - INFO - Possible sector element 13: 'NIFTY_CONSUMPTION'
+2025-04-23 22:38:42,875 - INFO - Possible sector element 14: 'NIFTY_METAL'
+2025-04-23 22:38:42,893 - INFO - Possible sector element 15: 'NIFTY_ENERGY'
+2025-04-23 22:38:42,937 - INFO - Possible sector element 16: 'NIFTY_FMCG'
+2025-04-23 22:38:42,999 - INFO - Possible sector element 17: 'NIFTY_OIL_AND_GAS'
+2025-04-23 22:38:43,081 - INFO - Possible sector element 18: 'NIFTY_MEDIA'
+2025-04-23 22:38:43,231 - INFO - Possible sector element 19: 'NIFTY_FINSRV25_50'
+2025-04-23 22:38:43,834 - INFO - Possible sector element 20: 'NIFTY BANK'
+2025-04-23 22:38:43,860 - INFO - Possible sector element 21: 'NIFTY_PSU_BANK'
+2025-04-23 22:38:43,944 - INFO - Possible sector element 22: 'NIFTY_FIN_SERVICE'
+2025-04-23 22:38:44,041 - INFO - Possible sector element 23: 'NIFTY_PVT_BANK'
+2025-04-23 22:38:44,099 - INFO - Possible sector element 24: 'NIFTY_CONSR_DURBL'
+2025-04-23 22:38:44,312 - INFO - Possible sector element 25: 'AUTOMOBILE Stocks'
+2025-04-23 22:38:45,117 - INFO - Possible sector element 26: 'BAJAJ-AUTO'
+2025-04-23 22:38:45,158 - INFO - Possible sector element 27: 'There are 13 types of sectors in the stock market that are PSU Bank, Pharma sector stocks in india, Media & Entertainment, Construction, Metals, Automobile, Consumption, Consumer Goods, Bank Nifty, Nifty Financial Services, PVT Bank, IT, energy sector stocks in india.'
+2025-04-23 22:38:45,217 - INFO - Possible sector element 28: 'Sector data show the information about different sector wise stocks NSE like PSU Bank, Bank Nifty, Energy, Consumer goods, Nifty Financial Services, PVT Bank, Consumption, Pharmaceuticals, Construction, IT sector stocks, Media Entertainment, Metals, Auto sector in stocks.'
+2025-04-23 22:38:45,249 - INFO - Found 0 tables on the page
+2025-04-23 22:38:45,282 - INFO - Found 39 card divs
+2025-04-23 22:38:45,685 - INFO - Saved full page text and source for debugging
+2025-04-23 22:38:45,694 - INFO - Page contains 154 text lines
+2025-04-23 22:38:45,694 - INFO - Line 0: 'Markets'
+2025-04-23 22:38:45,696 - INFO - Line 1: 'Intraday'
+2025-04-23 22:38:45,697 - INFO - Line 2: 'Futures'
+2025-04-23 22:38:45,698 - INFO - Line 3: 'Options'
+2025-04-23 22:38:45,698 - INFO - Line 4: 'Eod Scans'
+2025-04-23 22:38:45,699 - INFO - Line 5: 'Trade'
+2025-04-23 22:38:45,700 - INFO - Line 6: 'Screener'
+2025-04-23 22:38:45,700 - INFO - Line 7: 'Tools'
+2025-04-23 22:38:45,701 - INFO - Line 8: 'User'
+2025-04-23 22:38:45,701 - INFO - Line 9: 'NIFTY 50'
+2025-04-23 22:38:45,701 - INFO - Line 10: '24328.95 (0.67%)'
+2025-04-23 22:38:45,702 - INFO - Line 11: 'NIFTY BANK'
+2025-04-23 22:38:45,702 - INFO - Line 12: '55370.05 (-0.50%)'
+2025-04-23 22:38:45,702 - INFO - Line 13: 'NIFTY_MIDCAP_100'
+2025-04-23 22:38:45,703 - INFO - Line 14: '55041.1 (1.18%)'
+2025-04-23 22:38:45,703 - INFO - Line 15: 'NIFTY_SMLCAP_100'
+2025-04-23 22:38:45,704 - INFO - Line 16: '16969.75 (0.44%)'
+2025-04-23 22:38:45,709 - INFO - Line 17: 'NIFTY_SMLCAP_100'
+2025-04-23 22:38:45,714 - INFO - Line 18: '16969.75 (0.44%)'
+2025-04-23 22:38:45,714 - INFO - Line 19: 'NIFTY_FIN_SERVICE'
+2025-04-23 22:38:45,714 - INFO - Line 20: '26446.2 (-0.67%)'
+2025-04-23 22:38:45,714 - INFO - Line 21: 'INDIA_VIX'
+2025-04-23 22:38:45,714 - INFO - Line 22: '15.96 (4.79%)'
+2025-04-23 22:38:45,714 - INFO - Line 23: 'F&O'
+2025-04-23 22:38:45,714 - INFO - Line 24: 'Cash'
+2025-04-23 22:38:45,714 - INFO - Line 27: 'Auto refresh disabled to enable Please Subscribe'
+2025-04-23 22:38:45,714 - INFO - Line 28: 'Sector Performance'
+2025-04-23 22:38:45,714 - INFO - Line 29: 'Sector Data'
+2025-04-23 22:38:45,714 - INFO - Line 30: 'Broader Index'
+2025-04-23 22:38:45,714 - INFO - Line 31: '1D7D30D90D52W'
+2025-04-23 22:38:45,714 - INFO - Line 32: '4.34'
+2025-04-23 22:38:45,714 - INFO - Line 33: '2.38'
+2025-04-23 22:38:45,714 - INFO - Line 34: '1.4'
+2025-04-23 22:38:45,714 - INFO - Line 35: '1.34'
+2025-04-23 22:38:45,729 - INFO - Line 36: '1.33'
+2025-04-23 22:38:45,729 - INFO - Line 37: '1.01'
+2025-04-23 22:38:45,730 - INFO - Line 38: '0.78'
+2025-04-23 22:38:45,730 - INFO - Line 39: '0.69'
+2025-04-23 22:38:45,730 - INFO - Line 40: '0.53'
+2025-04-23 22:38:45,731 - INFO - Line 41: '0.14'
+2025-04-23 22:38:45,731 - INFO - Line 42: '-0.09'
+2025-04-23 22:38:45,732 - INFO - Line 43: '-0.26'
+2025-04-23 22:38:45,732 - INFO - Line 44: '-0.5'
+2025-04-23 22:38:45,733 - INFO - Line 45: '-0.57'
+2025-04-23 22:38:45,733 - INFO - Line 46: '-0.67'
+2025-04-23 22:38:45,734 - INFO - Line 47: '-0.75'
+2025-04-23 22:38:45,734 - INFO - Line 48: '-0.96'
+2025-04-23 22:38:45,735 - INFO - Line 49: 'NIFTY_IT'
+2025-04-23 22:38:45,736 - INFO - Found 24 percentage values in page text
+2025-04-23 22:38:45,737 - INFO - Percentages (sorted): [5.61, 4.79, 4.4, 3.47, 3.45, 2.81, 2.71, 2.43, 1.79, 1.62, 1.46, 1.45, 1.39, 1.18, 0.71, 0.67, 0.44, 0.44, 0.25, -0.04]
+2025-04-23 22:38:45,738 - INFO - Found sector with nearby percentage: NIFTY BANK = 0.67%
+2025-04-23 22:38:45,738 - INFO - Found sector with nearby percentage: NIFTY_FIN_SERVICE = 0.44%
+2025-04-23 22:38:45,740 - INFO - Found 2 sectors with percentages
+2025-04-23 22:38:45,743 - INFO - Found percentages on 24 lines
+2025-04-23 22:38:45,744 - INFO - Final sector data: [{'name': 'NIFTY BANK', 'change_percent': 0.67}, {'name': 'NIFTY_FIN_SERVICE', 'change_percent': 0.44}]
+2025-04-23 22:38:45,745 - INFO - Successfully extracted 2 sector ranks
+2025-04-23 22:38:45,749 - INFO - Saved 2 sector ranks to CSV
+2025-04-23 22:38:45,750 - INFO - Saved sector ranks to text file
+2025-04-23 22:38:45,751 - INFO - Waiting 60 seconds until next scrape...
+2025-04-23 22:39:46,924 - INFO - Browser page refreshed
+2025-04-23 22:39:46,940 - INFO - Found 20 elements containing '%'
+2025-04-23 22:39:47,081 - INFO - Percent element 9: '(0.67%)'
+2025-04-23 22:39:47,105 - INFO -   Parent 9: 'NIFTY 50
+24328.95 (0.67%)'
+2025-04-23 22:39:47,117 - INFO - Percent element 10: '(-0.50%)'
+2025-04-23 22:39:47,143 - INFO -   Parent 10: 'NIFTY BANK
+55370.05 (-0.50%)'
+2025-04-23 22:39:47,166 - INFO - Percent element 11: '(1.18%)'
+2025-04-23 22:39:47,214 - INFO -   Parent 11: 'NIFTY_MIDCAP_100
+55041.1 (1.18%)'
+2025-04-23 22:39:47,230 - INFO - Percent element 12: '(0.44%)'
+2025-04-23 22:39:47,257 - INFO -   Parent 12: 'NIFTY_SMLCAP_100
+16969.75 (0.44%)'
+2025-04-23 22:39:47,267 - INFO - Percent element 13: '(0.44%)'
+2025-04-23 22:39:47,297 - INFO -   Parent 13: 'NIFTY_SMLCAP_100
+16969.75 (0.44%)'
+2025-04-23 22:39:47,310 - INFO - Percent element 14: '(-0.67%)'
+2025-04-23 22:39:47,507 - INFO -   Parent 14: 'NIFTY_FIN_SERVICE
+26446.2 (-0.67%)'
+2025-04-23 22:39:47,517 - INFO - Percent element 15: '(4.79%)'
+2025-04-23 22:39:47,549 - INFO -   Parent 15: 'INDIA_VIX
+15.96 (4.79%)'
+2025-04-23 22:39:47,659 - INFO - Found 29 elements possibly containing sector names
+2025-04-23 22:39:47,676 - INFO - Possible sector element 0: 'NIFTY 50'
+2025-04-23 22:39:47,698 - INFO - Possible sector element 1: 'NIFTY BANK'
+2025-04-23 22:39:47,718 - INFO - Possible sector element 2: 'NIFTY_MIDCAP_100'
+2025-04-23 22:39:47,744 - INFO - Possible sector element 3: 'NIFTY_SMLCAP_100'
+2025-04-23 22:39:47,764 - INFO - Possible sector element 4: 'NIFTY_SMLCAP_100'
+2025-04-23 22:39:47,783 - INFO - Possible sector element 5: 'NIFTY_FIN_SERVICE'
+2025-04-23 22:39:47,830 - INFO - Possible sector element 8: 'NIFTY_IT'
+2025-04-23 22:39:47,846 - INFO - Possible sector element 9: 'NIFTY_AUTO'
+2025-04-23 22:39:47,879 - INFO - Possible sector element 10: 'NIFTY_PHARMA'
+2025-04-23 22:39:47,914 - INFO - Possible sector element 11: 'NIFTY_HEALTHCARE'
+2025-04-23 22:39:47,964 - INFO - Possible sector element 12: 'NIFTY_REALTY'
+2025-04-23 22:39:47,997 - INFO - Possible sector element 13: 'NIFTY_CONSUMPTION'
+2025-04-23 22:39:48,026 - INFO - Possible sector element 14: 'NIFTY_METAL'
+2025-04-23 22:39:48,077 - INFO - Possible sector element 15: 'NIFTY_ENERGY'
+2025-04-23 22:39:48,111 - INFO - Possible sector element 16: 'NIFTY_FMCG'
+2025-04-23 22:39:48,129 - INFO - Possible sector element 17: 'NIFTY_OIL_AND_GAS'
+2025-04-23 22:39:48,143 - INFO - Possible sector element 18: 'NIFTY_MEDIA'
+2025-04-23 22:39:48,180 - INFO - Possible sector element 19: 'NIFTY_FINSRV25_50'
+2025-04-23 22:39:48,212 - INFO - Possible sector element 20: 'NIFTY BANK'
+2025-04-23 22:39:48,233 - INFO - Possible sector element 21: 'NIFTY_PSU_BANK'
+2025-04-23 22:39:48,263 - INFO - Possible sector element 22: 'NIFTY_FIN_SERVICE'
+2025-04-23 22:39:48,285 - INFO - Possible sector element 23: 'NIFTY_PVT_BANK'
+2025-04-23 22:39:48,331 - INFO - Possible sector element 24: 'NIFTY_CONSR_DURBL'
+2025-04-23 22:39:48,362 - INFO - Possible sector element 25: 'AUTOMOBILE Stocks'
+2025-04-23 22:39:48,394 - INFO - Possible sector element 26: 'BAJAJ-AUTO'
+2025-04-23 22:39:48,411 - INFO - Possible sector element 27: 'There are 13 types of sectors in the stock market that are PSU Bank, Pharma sector stocks in india, Media & Entertainment, Construction, Metals, Automobile, Consumption, Consumer Goods, Bank Nifty, Nifty Financial Services, PVT Bank, IT, energy sector stocks in india.'
+2025-04-23 22:39:48,426 - INFO - Possible sector element 28: 'Sector data show the information about different sector wise stocks NSE like PSU Bank, Bank Nifty, Energy, Consumer goods, Nifty Financial Services, PVT Bank, Consumption, Pharmaceuticals, Construction, IT sector stocks, Media Entertainment, Metals, Auto sector in stocks.'
+2025-04-23 22:39:48,437 - INFO - Found 0 tables on the page
+2025-04-23 22:39:48,457 - INFO - Found 39 card divs
+2025-04-23 22:39:48,889 - INFO - Saved full page text and source for debugging
+2025-04-23 22:39:48,892 - INFO - Page contains 154 text lines
+2025-04-23 22:39:48,892 - INFO - Line 0: 'Markets'
+2025-04-23 22:39:48,893 - INFO - Line 1: 'Intraday'
+2025-04-23 22:39:48,893 - INFO - Line 2: 'Futures'
+2025-04-23 22:39:48,894 - INFO - Line 3: 'Options'
+2025-04-23 22:39:48,894 - INFO - Line 4: 'Eod Scans'
+2025-04-23 22:39:48,894 - INFO - Line 5: 'Trade'
+2025-04-23 22:39:48,894 - INFO - Line 6: 'Screener'
+2025-04-23 22:39:48,895 - INFO - Line 7: 'Tools'
+2025-04-23 22:39:48,895 - INFO - Line 8: 'User'
+2025-04-23 22:39:48,895 - INFO - Line 9: 'NIFTY 50'
+2025-04-23 22:39:48,896 - INFO - Line 10: '24328.95 (0.67%)'
+2025-04-23 22:39:48,896 - INFO - Line 11: 'NIFTY BANK'
+2025-04-23 22:39:48,897 - INFO - Line 12: '55370.05 (-0.50%)'
+2025-04-23 22:39:48,898 - INFO - Line 13: 'NIFTY_MIDCAP_100'
+2025-04-23 22:39:48,899 - INFO - Line 14: '55041.1 (1.18%)'
+2025-04-23 22:39:48,901 - INFO - Line 15: 'NIFTY_SMLCAP_100'
+2025-04-23 22:39:48,903 - INFO - Line 16: '16969.75 (0.44%)'
+2025-04-23 22:39:48,916 - INFO - Line 17: 'NIFTY_SMLCAP_100'
+2025-04-23 22:39:48,916 - INFO - Line 18: '16969.75 (0.44%)'
+2025-04-23 22:39:48,917 - INFO - Line 19: 'NIFTY_FIN_SERVICE'
+2025-04-23 22:39:48,921 - INFO - Line 20: '26446.2 (-0.67%)'
+2025-04-23 22:39:48,922 - INFO - Line 21: 'INDIA_VIX'
+2025-04-23 22:39:48,923 - INFO - Line 22: '15.96 (4.79%)'
+2025-04-23 22:39:48,923 - INFO - Line 23: 'F&O'
+2025-04-23 22:39:48,927 - INFO - Line 24: 'Cash'
+2025-04-23 22:39:48,928 - INFO - Line 27: 'Auto refresh disabled to enable Please Subscribe'
+2025-04-23 22:39:48,929 - INFO - Line 28: 'Sector Performance'
+2025-04-23 22:39:48,929 - INFO - Line 29: 'Sector Data'
+2025-04-23 22:39:48,929 - INFO - Line 30: 'Broader Index'
+2025-04-23 22:39:48,930 - INFO - Line 31: '1D7D30D90D52W'
+2025-04-23 22:39:48,930 - INFO - Line 32: '4.34'
+2025-04-23 22:39:48,930 - INFO - Line 33: '2.38'
+2025-04-23 22:39:48,931 - INFO - Line 34: '1.4'
+2025-04-23 22:39:48,931 - INFO - Line 35: '1.34'
+2025-04-23 22:39:48,931 - INFO - Line 36: '1.33'
+2025-04-23 22:39:48,931 - INFO - Line 37: '1.01'
+2025-04-23 22:39:48,932 - INFO - Line 38: '0.78'
+2025-04-23 22:39:48,932 - INFO - Line 39: '0.69'
+2025-04-23 22:39:48,932 - INFO - Line 40: '0.53'
+2025-04-23 22:39:48,933 - INFO - Line 41: '0.14'
+2025-04-23 22:39:48,933 - INFO - Line 42: '-0.09'
+2025-04-23 22:39:48,933 - INFO - Line 43: '-0.26'
+2025-04-23 22:39:48,934 - INFO - Line 44: '-0.5'
+2025-04-23 22:39:48,938 - INFO - Line 45: '-0.57'
+2025-04-23 22:39:48,940 - INFO - Line 46: '-0.67'
+2025-04-23 22:39:48,940 - INFO - Line 47: '-0.75'
+2025-04-23 22:39:48,946 - INFO - Line 48: '-0.96'
+2025-04-23 22:39:48,948 - INFO - Line 49: 'NIFTY_IT'
+2025-04-23 22:39:48,950 - INFO - Found 24 percentage values in page text
+2025-04-23 22:39:48,951 - INFO - Percentages (sorted): [5.61, 4.79, 4.4, 3.47, 3.45, 2.81, 2.71, 2.43, 1.79, 1.62, 1.46, 1.45, 1.39, 1.18, 0.71, 0.67, 0.44, 0.44, 0.25, -0.04]
+2025-04-23 22:39:48,963 - INFO - Found sector with nearby percentage: NIFTY BANK = 0.67%
+2025-04-23 22:39:48,964 - INFO - Found sector with nearby percentage: NIFTY_FIN_SERVICE = 0.44%
+2025-04-23 22:39:48,966 - INFO - Found 2 sectors with percentages
+2025-04-23 22:39:48,967 - INFO - Found percentages on 24 lines
+2025-04-23 22:39:48,974 - INFO - Final sector data: [{'name': 'NIFTY BANK', 'change_percent': 0.67}, {'name': 'NIFTY_FIN_SERVICE', 'change_percent': 0.44}]
+2025-04-23 22:39:48,975 - INFO - Successfully extracted 2 sector ranks
+2025-04-23 22:39:48,986 - INFO - Saved 2 sector ranks to CSV
+2025-04-23 22:39:48,996 - INFO - Saved sector ranks to text file
+2025-04-23 22:39:48,997 - INFO - Waiting 60 seconds until next scrape...
+2025-04-23 22:40:50,881 - INFO - Browser page refreshed
+2025-04-23 22:40:51,454 - INFO - Found 20 elements containing '%'
+2025-04-23 22:40:53,521 - INFO - Percent element 9: '(0.67%)'
+2025-04-23 22:40:53,936 - INFO -   Parent 9: 'NIFTY 50
+24328.95 (0.67%)'
+2025-04-23 22:40:54,349 - INFO - Percent element 10: '(-0.50%)'
+2025-04-23 22:40:55,048 - INFO -   Parent 10: 'NIFTY BANK
+55370.05 (-0.50%)'
+2025-04-23 22:40:55,325 - INFO - Percent element 11: '(1.18%)'
+2025-04-23 22:40:55,531 - INFO -   Parent 11: 'NIFTY_MIDCAP_100
+55041.1 (1.18%)'
+2025-04-23 22:40:55,609 - INFO - Percent element 12: '(0.44%)'
+2025-04-23 22:40:55,976 - INFO -   Parent 12: 'NIFTY_SMLCAP_100
+16969.75 (0.44%)'
+2025-04-23 22:40:56,154 - INFO - Percent element 13: '(0.44%)'
+2025-04-23 22:40:56,366 - INFO -   Parent 13: 'NIFTY_SMLCAP_100
+16969.75 (0.44%)'
+2025-04-23 22:40:56,406 - INFO - Percent element 14: '(-0.67%)'
+2025-04-23 22:40:56,567 - INFO -   Parent 14: 'NIFTY_FIN_SERVICE
+26446.2 (-0.67%)'
+2025-04-23 22:40:56,822 - INFO - Percent element 15: '(4.79%)'
+2025-04-23 22:40:57,232 - INFO -   Parent 15: 'INDIA_VIX
+15.96 (4.79%)'
+2025-04-23 22:40:59,044 - INFO - Found 29 elements possibly containing sector names
+2025-04-23 22:40:59,094 - INFO - Possible sector element 0: 'NIFTY 50'
+2025-04-23 22:40:59,405 - INFO - Possible sector element 1: 'NIFTY BANK'
+2025-04-23 22:40:59,580 - INFO - Possible sector element 2: 'NIFTY_MIDCAP_100'
+2025-04-23 22:40:59,701 - INFO - Possible sector element 3: 'NIFTY_SMLCAP_100'
+2025-04-23 22:40:59,786 - INFO - Possible sector element 4: 'NIFTY_SMLCAP_100'
+2025-04-23 22:40:59,890 - INFO - Possible sector element 5: 'NIFTY_FIN_SERVICE'
+2025-04-23 22:41:00,552 - INFO - Possible sector element 8: 'NIFTY_IT'
+2025-04-23 22:41:00,665 - INFO - Possible sector element 9: 'NIFTY_AUTO'
+2025-04-23 22:41:00,830 - INFO - Possible sector element 10: 'NIFTY_PHARMA'
+2025-04-23 22:41:00,949 - INFO - Possible sector element 11: 'NIFTY_HEALTHCARE'
+2025-04-23 22:41:01,017 - INFO - Possible sector element 12: 'NIFTY_REALTY'
+2025-04-23 22:41:01,188 - INFO - Possible sector element 13: 'NIFTY_CONSUMPTION'
+2025-04-23 22:41:01,446 - INFO - Possible sector element 14: 'NIFTY_METAL'
+2025-04-23 22:41:01,648 - INFO - Possible sector element 15: 'NIFTY_ENERGY'
+2025-04-23 22:41:01,753 - INFO - Possible sector element 16: 'NIFTY_FMCG'
+2025-04-23 22:41:01,879 - INFO - Possible sector element 17: 'NIFTY_OIL_AND_GAS'
+2025-04-23 22:41:02,052 - INFO - Possible sector element 18: 'NIFTY_MEDIA'
+2025-04-23 22:41:02,183 - INFO - Possible sector element 19: 'NIFTY_FINSRV25_50'
+2025-04-23 22:41:02,323 - INFO - Possible sector element 20: 'NIFTY BANK'
+2025-04-23 22:41:02,435 - INFO - Possible sector element 21: 'NIFTY_PSU_BANK'
+2025-04-23 22:41:02,499 - INFO - Possible sector element 22: 'NIFTY_FIN_SERVICE'
+2025-04-23 22:41:02,634 - INFO - Possible sector element 23: 'NIFTY_PVT_BANK'
+2025-04-23 22:41:02,790 - INFO - Possible sector element 24: 'NIFTY_CONSR_DURBL'
+2025-04-23 22:41:02,965 - INFO - Possible sector element 25: 'AUTOMOBILE Stocks'
+2025-04-23 22:41:03,199 - INFO - Possible sector element 26: 'BAJAJ-AUTO'
+2025-04-23 22:41:03,382 - INFO - Possible sector element 27: 'There are 13 types of sectors in the stock market that are PSU Bank, Pharma sector stocks in india, Media & Entertainment, Construction, Metals, Automobile, Consumption, Consumer Goods, Bank Nifty, Nifty Financial Services, PVT Bank, IT, energy sector stocks in india.'
+2025-04-23 22:41:03,619 - INFO - Possible sector element 28: 'Sector data show the information about different sector wise stocks NSE like PSU Bank, Bank Nifty, Energy, Consumer goods, Nifty Financial Services, PVT Bank, Consumption, Pharmaceuticals, Construction, IT sector stocks, Media Entertainment, Metals, Auto sector in stocks.'
+2025-04-23 22:41:03,818 - INFO - Found 0 tables on the page
+2025-04-23 22:41:03,933 - INFO - Found 39 card divs
+2025-04-23 22:41:06,022 - INFO - Saved full page text and source for debugging
+2025-04-23 22:41:06,051 - INFO - Page contains 154 text lines
+2025-04-23 22:41:06,051 - INFO - Line 0: 'Markets'
+2025-04-23 22:41:06,052 - INFO - Line 1: 'Intraday'
+2025-04-23 22:41:06,052 - INFO - Line 2: 'Futures'
+2025-04-23 22:41:06,052 - INFO - Line 3: 'Options'
+2025-04-23 22:41:06,055 - INFO - Line 4: 'Eod Scans'
+2025-04-23 22:41:06,056 - INFO - Line 5: 'Trade'
+2025-04-23 22:41:06,057 - INFO - Line 6: 'Screener'
+2025-04-23 22:41:06,058 - INFO - Line 7: 'Tools'
+2025-04-23 22:41:06,059 - INFO - Line 8: 'User'
+2025-04-23 22:41:06,059 - INFO - Line 9: 'NIFTY 50'
+2025-04-23 22:41:06,060 - INFO - Line 10: '24328.95 (0.67%)'
+2025-04-23 22:41:06,060 - INFO - Line 11: 'NIFTY BANK'
+2025-04-23 22:41:06,061 - INFO - Line 12: '55370.05 (-0.50%)'
+2025-04-23 22:41:06,062 - INFO - Line 13: 'NIFTY_MIDCAP_100'
+2025-04-23 22:41:06,063 - INFO - Line 14: '55041.1 (1.18%)'
+2025-04-23 22:41:06,064 - INFO - Line 15: 'NIFTY_SMLCAP_100'
+2025-04-23 22:41:06,065 - INFO - Line 16: '16969.75 (0.44%)'
+2025-04-23 22:41:06,087 - INFO - Line 17: 'NIFTY_SMLCAP_100'
+2025-04-23 22:41:06,088 - INFO - Line 18: '16969.75 (0.44%)'
+2025-04-23 22:41:06,088 - INFO - Line 19: 'NIFTY_FIN_SERVICE'
+2025-04-23 22:41:06,089 - INFO - Line 20: '26446.2 (-0.67%)'
+2025-04-23 22:41:06,089 - INFO - Line 21: 'INDIA_VIX'
+2025-04-23 22:41:06,090 - INFO - Line 22: '15.96 (4.79%)'
+2025-04-23 22:41:06,091 - INFO - Line 23: 'F&O'
+2025-04-23 22:41:06,092 - INFO - Line 24: 'Cash'
+2025-04-23 22:41:06,092 - INFO - Line 27: 'Auto refresh disabled to enable Please Subscribe'
+2025-04-23 22:41:06,093 - INFO - Line 28: 'Sector Performance'
+2025-04-23 22:41:06,094 - INFO - Line 29: 'Sector Data'
+2025-04-23 22:41:06,094 - INFO - Line 30: 'Broader Index'
+2025-04-23 22:41:06,095 - INFO - Line 31: '1D7D30D90D52W'
+2025-04-23 22:41:06,097 - INFO - Line 32: '4.34'
+2025-04-23 22:41:06,099 - INFO - Line 33: '2.38'
+2025-04-23 22:41:06,100 - INFO - Line 34: '1.4'
+2025-04-23 22:41:06,119 - INFO - Line 35: '1.34'
+2025-04-23 22:41:06,268 - INFO - Line 36: '1.33'
+2025-04-23 22:41:06,398 - INFO - Line 37: '1.01'
+2025-04-23 22:41:06,444 - INFO - Line 38: '0.78'
+2025-04-23 22:41:06,511 - INFO - Line 39: '0.69'
+2025-04-23 22:41:06,543 - INFO - Line 40: '0.53'
+2025-04-23 22:41:06,544 - INFO - Line 41: '0.14'
+2025-04-23 22:41:06,544 - INFO - Line 42: '-0.09'
+2025-04-23 22:41:06,545 - INFO - Line 43: '-0.26'
+2025-04-23 22:41:06,589 - INFO - Line 44: '-0.5'
+2025-04-23 22:41:06,590 - INFO - Line 45: '-0.57'
+2025-04-23 22:41:06,591 - INFO - Line 46: '-0.67'
+2025-04-23 22:41:06,625 - INFO - Line 47: '-0.75'
+2025-04-23 22:41:06,626 - INFO - Line 48: '-0.96'
+2025-04-23 22:41:06,627 - INFO - Line 49: 'NIFTY_IT'
+2025-04-23 22:41:06,668 - INFO - Found 24 percentage values in page text
+2025-04-23 22:41:06,676 - INFO - Percentages (sorted): [5.61, 4.79, 4.4, 3.47, 3.45, 2.81, 2.71, 2.43, 1.79, 1.62, 1.46, 1.45, 1.39, 1.18, 0.71, 0.67, 0.44, 0.44, 0.25, -0.04]
+2025-04-23 22:41:06,677 - INFO - Found sector with nearby percentage: NIFTY BANK = 0.67%
+2025-04-23 22:41:06,678 - INFO - Found sector with nearby percentage: NIFTY_FIN_SERVICE = 0.44%
+2025-04-23 22:41:06,712 - INFO - Found 2 sectors with percentages
+2025-04-23 22:41:06,743 - INFO - Found percentages on 24 lines
+2025-04-23 22:41:06,774 - INFO - Final sector data: [{'name': 'NIFTY BANK', 'change_percent': 0.67}, {'name': 'NIFTY_FIN_SERVICE', 'change_percent': 0.44}]
+2025-04-23 22:41:06,857 - INFO - Successfully extracted 2 sector ranks
+2025-04-23 22:41:07,003 - INFO - Saved 2 sector ranks to CSV
+2025-04-23 22:41:07,064 - INFO - Saved sector ranks to text file
+2025-04-23 22:41:07,107 - INFO - Waiting 60 seconds until next scrape...
+2025-04-23 22:41:49,629 - INFO - Scraper stopped by user
+2025-04-23 22:41:50,173 - WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None)': /session/a86f76106063dc5bc7d24e7e26e8f2a2

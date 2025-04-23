@@ -1,0 +1,36 @@
+2025-04-16 20:14:36,974 - INFO: Starting sector-based stock analysis - 2025-04-16
+2025-04-16 20:29:00,793 - ERROR: 404 Client Error: Not Found for url: https://query2.finance.yahoo.com/v10/finance/quoteSummary/BAJAJAUTO.NS?modules=financialData%2CquoteType%2CdefaultKeyStatistics%2CassetProfile%2CsummaryDetail&corsDomain=finance.yahoo.com&formatted=false&symbol=BAJAJAUTO.NS&crumb=vb2hEqhRuhk
+2025-04-16 20:29:00,802 - ERROR: 
+1 Failed download:
+2025-04-16 20:29:00,804 - ERROR: ['BAJAJAUTO.NS']: AttributeError("'NoneType' object has no attribute 'update'")
+2025-04-16 20:29:00,829 - WARNING: No meaningful data for BAJAJAUTO.NS
+2025-04-16 21:21:19,615 - INFO: Saved agreement report to C:\Users\Rajee\OneDrive\stock\lab\strongtrendz.com-\.vscode\output\arima_lstm_agreement_20250416_212119.csv
+2025-04-16 21:21:19,628 - INFO: Saved top picks to C:\Users\Rajee\OneDrive\stock\lab\strongtrendz.com-\.vscode\output\top_picks_20250416_212119.csv
+2025-04-16 21:21:19,633 - INFO: Saved sector performance to C:\Users\Rajee\OneDrive\stock\lab\strongtrendz.com-\.vscode\output\sector_performance_20250416_212119.csv
+2025-04-16 21:21:19,673 - INFO: Saved consolidated analysis results to C:\Users\Rajee\OneDrive\stock\lab\strongtrendz.com-\.vscode\output\sector_analysis_20250416_212119.json
+2025-04-16 21:21:19,695 - INFO: 
+--- Analysis Summary ---
+2025-04-16 21:21:19,698 - INFO: Total Stocks Analyzed: 140
+2025-04-16 21:21:19,700 - INFO: Successfully Analyzed: 140
+2025-04-16 21:21:19,701 - INFO: Failed Analyses: 0
+2025-04-16 21:21:19,701 - INFO: Stocks with ARIMA-LSTM agreement: 128 (91.4%)
+2025-04-16 21:21:19,702 - INFO: Top BUY recommendations: 8
+2025-04-16 21:21:19,702 - INFO: Top SELL recommendations: 10
+2025-04-16 21:21:19,702 - INFO: 
+Sector Performance:
+2025-04-16 21:21:19,703 - INFO: NIFTY_IT: -1.63% (DOWN)
+2025-04-16 21:21:19,703 - INFO: NIFTY_PHARMA: -1.88% (DOWN)
+2025-04-16 21:21:19,704 - INFO: NIFTY_OIL_AND_GAS: -2.76% (DOWN)
+2025-04-16 21:21:19,704 - INFO: NIFTY_CONSUMER: -2.88% (DOWN)
+2025-04-16 21:21:19,706 - INFO: NIFTY_METAL: -2.93% (DOWN)
+2025-04-16 21:21:19,707 - INFO: NIFTY_CONSUMPTION: -2.95% (DOWN)
+2025-04-16 21:21:19,707 - INFO: NIFTY_AUTO: -3.58% (DOWN)
+2025-04-16 21:21:19,708 - INFO: NIFTY_HEALTHCARE: -3.63% (DOWN)
+2025-04-16 21:21:19,709 - INFO: UNKNOWN: -3.67% (DOWN)
+2025-04-16 21:21:19,709 - INFO: NIFTY_ENERGY: -3.68% (DOWN)
+2025-04-16 21:21:19,710 - INFO: NIFTY_FIN_SERVICE: -3.70% (DOWN)
+2025-04-16 21:21:19,710 - INFO: NIFTY_PSU_BANK: -4.26% (DOWN)
+2025-04-16 21:21:19,711 - INFO: NIFTY_PVT_BANK: -4.94% (DOWN)
+2025-04-16 21:21:19,711 - INFO: NIFTY_BANK: -5.38% (DOWN)
+2025-04-16 21:21:19,715 - INFO: NIFTY_REALTY: -5.43% (DOWN)
+2025-04-16 21:21:19,717 - INFO: NIFTY_MEDIA: -5.87% (DOWN)
