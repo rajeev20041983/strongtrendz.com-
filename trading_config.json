@@ -1,56 +1,56 @@
 {
     "client_id": "1106497024",
-    "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJkaGFuIiwicGFydG5lcklkIjoiIiwiZXhwIjoxNzQ1NDQxMzc3LCJ0b2tlbkNvbnN1bWVyVHlwZSI6IlNFTEYiLCJ3ZWJob29rVXJsIjoiIiwiZGhhbkNsaWVudElkIjoiMTEwNjQ5NzAyNCJ9.Z_zH-9RsuYd7a7LegqX5a_D94c_deA7-LrzNu3hykN_kMP2jsMiqaLDc0mIV2vQtatxWVNl4Sku8QUkIXW8M0g",
+    "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJkaGFuIiwicGFydG5lcklkIjoiIiwiZXhwIjoxNzQ1OTYxNzIxLCJ0b2tlbkNvbnN1bWVyVHlwZSI6IlNFTEYiLCJ3ZWJob29rVXJsIjoiIiwiZGhhbkNsaWVudElkIjoiMTEwNjQ5NzAyNCJ9.UeErJMmO4UX8-OGV2oCg-qpYaJsAKeoiGcpsfLTfKtUyLG__6Ytqi7kxO0PMYpv5ZA1FHfbOwq-rMmLkP-_RGw",
     "place_new_orders": true,
     "check_interval_seconds": 30,
     "tickers": [
         {
-            "symbol": "NTPC.NS",
-            "entry_price": 362.80,
-            "quantity": 10,
+            "symbol": "SYNGENE.NS",
+            "entry_price": "",
+            "quantity": 1,
             "transaction_type": "BUY",
             "stop_loss_percent": 1.0,
             "target_percent": 1.0,
             "after_market_order": false,
-            "active": false
+            "active": true
         },
         {
-            "symbol": "WIPRO.NS",
-            "entry_price": 240,
-            "quantity":192,
+            "symbol": "ZEEL.NS",
+            "entry_price": "",
+            "quantity":1,
             "transaction_type": "BUY",
             "stop_loss_percent":1,
             "target_percent": 1,
             "after_market_order": false,
-            "active": false
+            "active": true
         },
         {
-            "symbol": "SUNTV.NS",
-            "entry_price": 655,
-            "quantity": 10,
+            "symbol": "GRANULES.NS",
+            "entry_price": "",
+            "quantity": 1,
             "transaction_type": "BUY",
             "stop_loss_percent": 1.0,
             "target_percent": 1.0,
             "after_market_order": false,
-            "active": false
+            "active": true
         },
         {
-            "symbol": "PNB.NS",
-            "entry_price": 102.6,
-            "quantity": 300,
+            "symbol": "SBILIFE.NS",
+            "entry_price": "",
+            "quantity": 1,
             "transaction_type": "SELL",
-            "stop_loss_percent": 2.0,
-            "target_percent": 1.5,
+            "stop_loss_percent": 1.0,
+            "target_percent": 1.0,
             "after_market_order": false,
-            "active": false
+            "active": true
         },
         {
-            "symbol": "VBL.NS",
-            "entry_price": 549.55,
-            "quantity": 10,
-            "transaction_type": "buy",
-            "stop_loss_percent": 2.0,
-            "target_percent": 0.50,
+            "symbol": "RBLBANK.NS",
+            "entry_price":"",
+            "quantity": 1,
+            "transaction_type": "SELL",
+            "stop_loss_percent": 1.0,
+            "target_percent": 1,
             "after_market_order": false,
             "active": true
         }

@@ -1,0 +1,1657 @@
+2025-04-24 06:12:17,431 - INFO - Starting sector scraper (30-second intervals)
+2025-04-24 06:12:17,432 - INFO - Configuration loaded successfully
+2025-04-24 06:12:17,433 - INFO - Sector mapping loaded successfully with 141 tickers
+2025-04-24 06:12:17,433 - INFO - Found 11 unique sectors: Bank, Oil & Gas, IT, Media, Realty, Auto, Consumer Durables, FMCG, Pharma, Metal, Financial Services
+2025-04-24 06:12:17,433 - INFO - Will track 11 sectors: NIFTY BANK, NIFTY_OIL_AND_GAS, NIFTY_IT, NIFTY_MEDIA, NIFTY_REALTY, NIFTY_AUTO, NIFTY_CONSR_DURBL, NIFTY_FMCG, NIFTY_PHARMA, NIFTY_METAL, NIFTY_FIN_SERVICE
+2025-04-24 06:12:17,434 - INFO - ====== WebDriver manager ======
+2025-04-24 06:12:19,418 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-24 06:12:19,533 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-24 06:12:19,576 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-24 06:12:19,694 - INFO - WebDriver version 135.0.7049.114 selected
+2025-04-24 06:12:19,698 - INFO - Modern chrome version https://storage.googleapis.com/chrome-for-testing-public/135.0.7049.114/win32/chromedriver-win32.zip
+2025-04-24 06:12:19,699 - INFO - About to download new driver from https://storage.googleapis.com/chrome-for-testing-public/135.0.7049.114/win32/chromedriver-win32.zip
+2025-04-24 06:12:19,774 - INFO - Driver downloading response is 200
+2025-04-24 06:12:20,153 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-24 06:12:21,280 - INFO - Driver has been saved in cache [C:\Users\Rajee\.wdm\drivers\chromedriver\win64\135.0.7049.114]
+2025-04-24 06:12:26,746 - INFO - Chrome WebDriver set up successfully
+2025-04-24 06:12:29,527 - INFO - Navigated to login page
+2025-04-24 06:17:03,856 - INFO - Starting sector scraper (30-second intervals)
+2025-04-24 06:17:03,858 - INFO - Configuration loaded successfully
+2025-04-24 06:17:03,858 - INFO - Sector mapping loaded successfully with 141 tickers
+2025-04-24 06:17:03,859 - INFO - Found 11 unique sectors: Consumer Durables, Auto, Metal, Pharma, IT, Oil & Gas, Media, FMCG, Bank, Realty, Financial Services
+2025-04-24 06:17:03,859 - INFO - Will track 11 sectors: NIFTY_CONSR_DURBL, NIFTY_AUTO, NIFTY_METAL, NIFTY_PHARMA, NIFTY_IT, NIFTY_OIL_AND_GAS, NIFTY_MEDIA, NIFTY_FMCG, NIFTY BANK, NIFTY_REALTY, NIFTY_FIN_SERVICE
+2025-04-24 06:17:03,859 - INFO - ====== WebDriver manager ======
+2025-04-24 06:17:05,289 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-24 06:17:05,355 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-24 06:17:05,410 - INFO - Driver [C:\Users\Rajee\.wdm\drivers\chromedriver\win64\135.0.7049.114\chromedriver-win32/chromedriver.exe] found in cache
+2025-04-24 06:17:07,375 - INFO - Chrome WebDriver set up successfully
+2025-04-24 06:17:07,376 - INFO - Login attempt 1 of 3
+2025-04-24 06:17:10,157 - INFO - Navigated to login page
+2025-04-24 06:28:11,123 - INFO - Starting sector scraper (30-second intervals)
+2025-04-24 06:28:11,124 - INFO - Configuration loaded successfully
+2025-04-24 06:28:11,125 - INFO - ====== WebDriver manager ======
+2025-04-24 06:28:12,520 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-24 06:28:12,587 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-24 06:28:12,633 - INFO - Driver [C:\Users\Rajee\.wdm\drivers\chromedriver\win64\135.0.7049.114\chromedriver-win32/chromedriver.exe] found in cache
+2025-04-24 06:28:14,777 - INFO - Chrome WebDriver set up successfully
+2025-04-24 06:28:17,786 - INFO - Navigated to login page
+2025-04-24 06:29:11,636 - INFO - Navigated to sector performance page: https://intradayscreener.com/sector-performance
+2025-04-24 06:29:16,647 - INFO - Successfully navigated to sector performance page
+2025-04-24 06:29:16,655 - INFO - Saved cookies for future use
+2025-04-24 06:29:16,805 - INFO - Page contains 69 lines of text
+2025-04-24 06:29:16,805 - INFO - Method 1: Searching by sector name elements
+2025-04-24 06:29:16,998 - INFO - Found NIFTY BANK: -0.04% (from parent)
+2025-04-24 06:29:17,056 - INFO - Found NIFTY_FIN_SERVICE: -0.36% (from parent)
+2025-04-24 06:29:17,080 - INFO - Method 2: Searching by percentage patterns
+2025-04-24 06:29:17,082 - WARNING - Only found 2 sectors, not enough for trading decisions
+2025-04-24 06:29:17,082 - ERROR - Failed to get sector data
+2025-04-24 06:29:17,111 - WARNING - Created empty sector data CSV file to indicate no results
+2025-04-24 06:29:17,114 - INFO - Waiting 60 seconds until next scrape...
+2025-04-24 06:30:17,922 - INFO - Browser page refreshed
+2025-04-24 06:30:18,040 - INFO - Page contains 52 lines of text
+2025-04-24 06:30:18,042 - INFO - Method 1: Searching by sector name elements
+2025-04-24 06:30:18,220 - INFO - Found NIFTY BANK: -0.03% (from parent)
+2025-04-24 06:30:18,272 - INFO - Found NIFTY_FIN_SERVICE: -0.33% (from parent)
+2025-04-24 06:30:18,294 - INFO - Method 2: Searching by percentage patterns
+2025-04-24 06:30:18,295 - WARNING - Only found 2 sectors, not enough for trading decisions
+2025-04-24 06:30:18,296 - ERROR - Failed to get sector data
+2025-04-24 06:30:18,299 - WARNING - Created empty sector data CSV file to indicate no results
+2025-04-24 06:30:18,300 - INFO - Waiting 60 seconds until next scrape...
+2025-04-24 06:31:19,083 - INFO - Browser page refreshed
+2025-04-24 06:31:19,206 - INFO - Page contains 52 lines of text
+2025-04-24 06:31:19,207 - INFO - Method 1: Searching by sector name elements
+2025-04-24 06:31:19,412 - INFO - Found NIFTY BANK: -0.04% (from parent)
+2025-04-24 06:31:19,463 - INFO - Found NIFTY_FIN_SERVICE: -0.33% (from parent)
+2025-04-24 06:31:19,481 - INFO - Method 2: Searching by percentage patterns
+2025-04-24 06:31:19,481 - WARNING - Only found 2 sectors, not enough for trading decisions
+2025-04-24 06:31:19,482 - ERROR - Failed to get sector data
+2025-04-24 06:31:19,485 - WARNING - Created empty sector data CSV file to indicate no results
+2025-04-24 06:31:19,486 - INFO - Waiting 60 seconds until next scrape...
+2025-04-24 06:32:20,396 - INFO - Browser page refreshed
+2025-04-24 06:32:20,602 - INFO - Page contains 52 lines of text
+2025-04-24 06:32:20,602 - INFO - Method 1: Searching by sector name elements
+2025-04-24 06:32:20,908 - INFO - Found NIFTY BANK: -0.07% (from parent)
+2025-04-24 06:32:20,984 - INFO - Found NIFTY_FIN_SERVICE: -0.36% (from parent)
+2025-04-24 06:32:21,004 - INFO - Method 2: Searching by percentage patterns
+2025-04-24 06:32:21,004 - WARNING - Only found 2 sectors, not enough for trading decisions
+2025-04-24 06:32:21,010 - ERROR - Failed to get sector data
+2025-04-24 06:32:21,013 - WARNING - Created empty sector data CSV file to indicate no results
+2025-04-24 06:32:21,018 - INFO - Waiting 60 seconds until next scrape...
+2025-04-24 06:33:22,283 - INFO - Browser page refreshed
+2025-04-24 06:33:22,548 - INFO - Page contains 52 lines of text
+2025-04-24 06:33:22,550 - INFO - Method 1: Searching by sector name elements
+2025-04-24 06:33:22,788 - INFO - Found NIFTY BANK: -0.02% (from parent)
+2025-04-24 06:33:22,855 - INFO - Found NIFTY_FIN_SERVICE: -0.29% (from parent)
+2025-04-24 06:33:22,884 - INFO - Method 2: Searching by percentage patterns
+2025-04-24 06:33:22,886 - WARNING - Only found 2 sectors, not enough for trading decisions
+2025-04-24 06:33:22,887 - ERROR - Failed to get sector data
+2025-04-24 06:33:22,893 - WARNING - Created empty sector data CSV file to indicate no results
+2025-04-24 06:33:22,899 - WARNING - Detected 5 consecutive failures, trying to recover...
+2025-04-24 06:33:25,845 - INFO - ====== WebDriver manager ======
+2025-04-24 06:33:27,600 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-24 06:33:27,641 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-24 06:33:27,676 - INFO - Driver [C:\Users\Rajee\.wdm\drivers\chromedriver\win64\135.0.7049.114\chromedriver-win32/chromedriver.exe] found in cache
+2025-04-24 06:33:29,780 - INFO - Chrome WebDriver set up successfully
+2025-04-24 06:33:29,781 - INFO - Found saved cookies, attempting to use them
+2025-04-24 06:33:38,826 - WARNING - Error using saved cookies: argument of type 'NoneType' is not iterable
+2025-04-24 06:33:38,828 - ERROR - Error during manual login process: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=135.0.7049.96)
+Stacktrace:
+	GetHandleVerifier [0x005DD363+60275]
+	GetHandleVerifier [0x005DD3A4+60340]
+	(No symbol) [0x004106F3]
+	(No symbol) [0x003EFBEE]
+	(No symbol) [0x00483BDE]
+	(No symbol) [0x0049DFE9]
+	(No symbol) [0x0047CE86]
+	(No symbol) [0x0044C623]
+	(No symbol) [0x0044D474]
+	GetHandleVerifier [0x00828FE3+2467827]
+	GetHandleVerifier [0x008245E6+2448886]
+	GetHandleVerifier [0x0083F80C+2560028]
+	GetHandleVerifier [0x005F3DF5+153093]
+	GetHandleVerifier [0x005FA3BD+179149]
+	GetHandleVerifier [0x005E4BB8+91080]
+	GetHandleVerifier [0x005E4D60+91504]
+	GetHandleVerifier [0x005CFA10+4640]
+	BaseThreadInitThunk [0x75C9FCC9+25]
+	RtlGetAppContainerNamedObjectPath [0x777082AE+286]
+	RtlGetAppContainerNamedObjectPath [0x7770827E+238]
+
+2025-04-24 06:33:38,842 - ERROR - Recovery failed
+2025-04-24 06:33:38,842 - INFO - Waiting 60 seconds until next scrape...
+2025-04-24 06:33:42,648 - INFO - Scraper stopped by user
+2025-04-24 06:33:42,655 - WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None)': /session/dd008dc41974f05b47c48df14b259770
+2025-04-24 06:33:58,340 - INFO - Starting final sector scraper
+2025-04-24 06:33:58,341 - INFO - Configuration loaded successfully
+2025-04-24 06:33:58,341 - INFO - ====== WebDriver manager ======
+2025-04-24 06:33:59,532 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-24 06:33:59,580 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-24 06:33:59,625 - INFO - Driver [C:\Users\Rajee\.wdm\drivers\chromedriver\win64\135.0.7049.114\chromedriver-win32/chromedriver.exe] found in cache
+2025-04-24 06:34:01,587 - INFO - Chrome WebDriver set up successfully
+2025-04-24 06:34:02,142 - INFO - Navigated to login page
+2025-04-24 06:34:46,746 - INFO - Navigated to sector performance page: https://intradayscreener.com/sector-performance
+2025-04-24 06:34:51,756 - INFO - Successfully navigated to sector performance page
+2025-04-24 06:34:51,889 - INFO - Page contains 154 lines of text
+2025-04-24 06:34:51,890 - INFO - Method 1: Searching by sector name elements
+2025-04-24 06:34:52,055 - INFO - Found 2 elements for NIFTY BANK
+2025-04-24 06:34:52,093 - INFO - Found NIFTY BANK: -0.02% (from parent)
+2025-04-24 06:34:52,118 - INFO - Found 1 elements for NIFTY_FIN_SERVICE
+2025-04-24 06:34:52,158 - INFO - Found NIFTY_FIN_SERVICE: -0.3% (from parent)
+2025-04-24 06:34:52,198 - INFO - Method 2: Searching by percentage patterns
+2025-04-24 06:34:52,200 - INFO - Found 41 lines with valid percentages
+2025-04-24 06:34:52,201 - INFO - Method 3: Using page structure patterns
+2025-04-24 06:34:52,202 - WARNING - Only found 2 sectors, using default data
+2025-04-24 06:34:52,202 - INFO - Final data contains 17 sectors
+2025-04-24 06:34:52,203 - INFO - Saved sector data to text file: sector_data.txt
+2025-04-24 06:34:52,222 - INFO - Saved sector data to CSV file: sector_data.csv
+2025-04-24 06:34:52,239 - INFO - Waiting 60 seconds until next scrape...
+2025-04-24 06:35:53,541 - INFO - Browser page refreshed
+2025-04-24 06:35:53,680 - INFO - Page contains 52 lines of text
+2025-04-24 06:35:53,680 - INFO - Method 1: Searching by sector name elements
+2025-04-24 06:35:53,831 - INFO - Found 2 elements for NIFTY BANK
+2025-04-24 06:35:53,866 - INFO - Found NIFTY BANK: -0.01% (from parent)
+2025-04-24 06:35:53,888 - INFO - Found 1 elements for NIFTY_FIN_SERVICE
+2025-04-24 06:35:53,936 - INFO - Found NIFTY_FIN_SERVICE: -0.29% (from parent)
+2025-04-24 06:35:53,963 - INFO - Method 2: Searching by percentage patterns
+2025-04-24 06:35:53,964 - INFO - Found 0 lines with valid percentages
+2025-04-24 06:35:53,965 - INFO - Method 3: Using page structure patterns
+2025-04-24 06:35:53,967 - WARNING - Only found 2 sectors, using default data
+2025-04-24 06:35:53,969 - INFO - Final data contains 17 sectors
+2025-04-24 06:35:53,970 - INFO - Saved sector data to text file: sector_data.txt
+2025-04-24 06:35:53,973 - INFO - Saved sector data to CSV file: sector_data.csv
+2025-04-24 06:35:53,990 - INFO - Waiting 60 seconds until next scrape...
+2025-04-24 06:36:55,084 - INFO - Browser page refreshed
+2025-04-24 06:36:55,283 - INFO - Page contains 68 lines of text
+2025-04-24 06:36:55,283 - INFO - Method 1: Searching by sector name elements
+2025-04-24 06:36:55,449 - INFO - Found 2 elements for NIFTY BANK
+2025-04-24 06:36:55,514 - INFO - Found NIFTY BANK: -0.02% (from parent)
+2025-04-24 06:36:55,540 - INFO - Found 1 elements for NIFTY_FIN_SERVICE
+2025-04-24 06:36:55,596 - INFO - Found NIFTY_FIN_SERVICE: -0.32% (from parent)
+2025-04-24 06:36:55,618 - INFO - Method 2: Searching by percentage patterns
+2025-04-24 06:36:55,619 - INFO - Found 7 lines with valid percentages
+2025-04-24 06:36:55,625 - INFO - Method 3: Using page structure patterns
+2025-04-24 06:36:55,626 - WARNING - Only found 2 sectors, using default data
+2025-04-24 06:36:55,627 - INFO - Final data contains 17 sectors
+2025-04-24 06:36:55,628 - INFO - Saved sector data to text file: sector_data.txt
+2025-04-24 06:36:55,631 - INFO - Saved sector data to CSV file: sector_data.csv
+2025-04-24 06:36:55,643 - INFO - Waiting 60 seconds until next scrape...
+2025-04-24 06:37:44,026 - INFO - Scraper stopped by user
+2025-04-24 06:37:44,036 - WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None)': /session/205df9607e30a3887d58b8715419af46
+2025-04-24 06:37:50,195 - INFO - Starting final sector scraper
+2025-04-24 06:37:50,196 - INFO - Configuration loaded successfully
+2025-04-24 06:37:50,196 - INFO - ====== WebDriver manager ======
+2025-04-24 06:37:51,550 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-24 06:37:51,598 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-24 06:37:51,637 - INFO - Driver [C:\Users\Rajee\.wdm\drivers\chromedriver\win64\135.0.7049.114\chromedriver-win32/chromedriver.exe] found in cache
+2025-04-24 06:37:53,453 - INFO - Chrome WebDriver set up successfully
+2025-04-24 06:37:56,008 - INFO - Navigated to login page
+2025-04-24 06:38:42,983 - INFO - Navigated to sector performance page: https://intradayscreener.com/sector-performance
+2025-04-24 06:38:47,999 - INFO - Successfully navigated to sector performance page
+2025-04-24 06:38:48,154 - INFO - Page contains 154 lines of text
+2025-04-24 06:38:48,155 - INFO - Method 1: Searching by sector name elements
+2025-04-24 06:38:48,349 - INFO - Found 2 elements for NIFTY BANK
+2025-04-24 06:38:48,390 - INFO - Found NIFTY BANK: -0.01% (from parent)
+2025-04-24 06:38:48,419 - INFO - Found 1 elements for NIFTY_FIN_SERVICE
+2025-04-24 06:38:48,449 - INFO - Found NIFTY_FIN_SERVICE: -0.3% (from parent)
+2025-04-24 06:38:48,477 - INFO - Method 2: Searching by percentage patterns
+2025-04-24 06:38:48,478 - INFO - Found 40 lines with valid percentages
+2025-04-24 06:38:48,478 - INFO - Method 3: Using page structure patterns
+2025-04-24 06:38:48,478 - WARNING - Only found 2 sectors, using default data
+2025-04-24 06:38:48,479 - INFO - Final data contains 17 sectors
+2025-04-24 06:38:48,480 - INFO - Saved sector data to text file: sector_data.txt
+2025-04-24 06:38:48,485 - INFO - Saved sector data to CSV file: sector_data.csv
+2025-04-24 06:38:48,495 - INFO - Waiting 60 seconds until next scrape...
+2025-04-24 06:39:50,374 - INFO - Browser page refreshed
+2025-04-24 06:39:50,494 - INFO - Page contains 52 lines of text
+2025-04-24 06:39:50,494 - INFO - Method 1: Searching by sector name elements
+2025-04-24 06:39:50,688 - INFO - Found 2 elements for NIFTY BANK
+2025-04-24 06:39:51,070 - INFO - Found NIFTY BANK: 0.01% (from parent)
+2025-04-24 06:39:51,095 - INFO - Found 1 elements for NIFTY_FIN_SERVICE
+2025-04-24 06:39:51,153 - INFO - Found NIFTY_FIN_SERVICE: -0.29% (from parent)
+2025-04-24 06:39:51,188 - INFO - Method 2: Searching by percentage patterns
+2025-04-24 06:39:51,189 - INFO - Found 0 lines with valid percentages
+2025-04-24 06:39:51,189 - INFO - Method 3: Using page structure patterns
+2025-04-24 06:39:51,190 - WARNING - Only found 2 sectors, using default data
+2025-04-24 06:39:51,190 - INFO - Final data contains 17 sectors
+2025-04-24 06:39:51,191 - INFO - Saved sector data to text file: sector_data.txt
+2025-04-24 06:39:51,195 - INFO - Saved sector data to CSV file: sector_data.csv
+2025-04-24 06:39:51,210 - INFO - Waiting 60 seconds until next scrape...
+2025-04-24 06:40:52,437 - INFO - Browser page refreshed
+2025-04-24 06:40:52,641 - INFO - Page contains 68 lines of text
+2025-04-24 06:40:52,642 - INFO - Method 1: Searching by sector name elements
+2025-04-24 06:40:52,795 - INFO - Found 2 elements for NIFTY BANK
+2025-04-24 06:40:52,847 - INFO - Found NIFTY BANK: -0.02% (from parent)
+2025-04-24 06:40:52,869 - INFO - Found 1 elements for NIFTY_FIN_SERVICE
+2025-04-24 06:40:52,907 - INFO - Found NIFTY_FIN_SERVICE: -0.31% (from parent)
+2025-04-24 06:40:52,932 - INFO - Method 2: Searching by percentage patterns
+2025-04-24 06:40:52,933 - INFO - Found 7 lines with valid percentages
+2025-04-24 06:40:52,934 - INFO - Method 3: Using page structure patterns
+2025-04-24 06:40:52,934 - WARNING - Only found 2 sectors, using default data
+2025-04-24 06:40:52,934 - INFO - Final data contains 17 sectors
+2025-04-24 06:40:52,935 - INFO - Saved sector data to text file: sector_data.txt
+2025-04-24 06:40:52,938 - INFO - Saved sector data to CSV file: sector_data.csv
+2025-04-24 06:40:52,952 - INFO - Waiting 60 seconds until next scrape...
+2025-04-24 06:41:53,691 - INFO - Browser page refreshed
+2025-04-24 06:41:53,841 - INFO - Page contains 52 lines of text
+2025-04-24 06:41:53,841 - INFO - Method 1: Searching by sector name elements
+2025-04-24 06:41:53,999 - INFO - Found 2 elements for NIFTY BANK
+2025-04-24 06:41:54,055 - INFO - Found NIFTY BANK: -0.02% (from parent)
+2025-04-24 06:41:54,076 - INFO - Found 1 elements for NIFTY_FIN_SERVICE
+2025-04-24 06:41:54,123 - INFO - Found NIFTY_FIN_SERVICE: -0.31% (from parent)
+2025-04-24 06:41:54,151 - INFO - Method 2: Searching by percentage patterns
+2025-04-24 06:41:54,153 - INFO - Found 0 lines with valid percentages
+2025-04-24 06:41:54,154 - INFO - Method 3: Using page structure patterns
+2025-04-24 06:41:54,156 - WARNING - Only found 2 sectors, using default data
+2025-04-24 06:41:54,157 - INFO - Final data contains 17 sectors
+2025-04-24 06:41:54,160 - INFO - Saved sector data to text file: sector_data.txt
+2025-04-24 06:41:54,163 - INFO - Saved sector data to CSV file: sector_data.csv
+2025-04-24 06:41:54,179 - INFO - Waiting 60 seconds until next scrape...
+2025-04-24 06:42:30,492 - INFO - Scraper stopped by user
+2025-04-24 06:42:30,502 - WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None)': /session/9e47d83b82e2d7dc433070d803a8092a
+2025-04-24 06:42:39,325 - INFO - Starting final sector scraper
+2025-04-24 06:42:39,325 - INFO - Configuration loaded successfully
+2025-04-24 06:42:39,326 - INFO - ====== WebDriver manager ======
+2025-04-24 06:42:40,797 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-24 06:42:40,872 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-24 06:42:40,912 - INFO - Driver [C:\Users\Rajee\.wdm\drivers\chromedriver\win64\135.0.7049.114\chromedriver-win32/chromedriver.exe] found in cache
+2025-04-24 06:42:43,201 - INFO - Chrome WebDriver set up successfully
+2025-04-24 06:42:45,814 - INFO - Trying to access sector page directly: https://intradayscreener.com/sector-performance
+2025-04-24 06:42:50,830 - INFO - Successfully accessed sector performance page without login
+2025-04-24 06:42:50,830 - WARNING - Config had check_interval=60, overriding to 30 seconds
+2025-04-24 06:42:55,866 - ERROR - Error extracting sector data: Message: invalid session id: session deleted as the browser has closed the connection
+from disconnected: not connected to DevTools
+  (Session info: chrome=135.0.7049.96)
+Stacktrace:
+	GetHandleVerifier [0x005DD363+60275]
+	GetHandleVerifier [0x005DD3A4+60340]
+	(No symbol) [0x004106F3]
+	(No symbol) [0x003FFF20]
+	(No symbol) [0x0041DDA2]
+	(No symbol) [0x00483D2F]
+	(No symbol) [0x0049DFE9]
+	(No symbol) [0x0047CE86]
+	(No symbol) [0x0044C623]
+	(No symbol) [0x0044D474]
+	GetHandleVerifier [0x00828FE3+2467827]
+	GetHandleVerifier [0x008245E6+2448886]
+	GetHandleVerifier [0x0083F80C+2560028]
+	GetHandleVerifier [0x005F3DF5+153093]
+	GetHandleVerifier [0x005FA3BD+179149]
+	GetHandleVerifier [0x005E4BB8+91080]
+	GetHandleVerifier [0x005E4D60+91504]
+	GetHandleVerifier [0x005CFA10+4640]
+	BaseThreadInitThunk [0x75C9FCC9+25]
+	RtlGetAppContainerNamedObjectPath [0x777082AE+286]
+	RtlGetAppContainerNamedObjectPath [0x7770827E+238]
+
+2025-04-24 06:42:55,879 - WARNING - Using default data due to error
+2025-04-24 06:42:55,883 - INFO - Saved sector data to text file: sector_data.txt
+2025-04-24 06:42:55,896 - INFO - Saved sector data to CSV file: sector_data.csv
+2025-04-24 06:42:56,010 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 06:43:02,225 - INFO - Scraper stopped by user
+2025-04-24 06:43:02,228 - WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None)': /session/84362629e7b349676b980bd181e61caf
+2025-04-24 06:43:18,617 - INFO - Starting final sector scraper
+2025-04-24 06:43:18,618 - INFO - Configuration loaded successfully
+2025-04-24 06:43:18,618 - INFO - ====== WebDriver manager ======
+2025-04-24 06:43:20,037 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-24 06:43:20,094 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-24 06:43:20,136 - INFO - Driver [C:\Users\Rajee\.wdm\drivers\chromedriver\win64\135.0.7049.114\chromedriver-win32/chromedriver.exe] found in cache
+2025-04-24 06:43:22,400 - INFO - Chrome WebDriver set up successfully
+2025-04-24 06:43:25,075 - INFO - Trying to access sector page directly: https://intradayscreener.com/sector-performance
+2025-04-24 06:43:30,097 - INFO - Successfully accessed sector performance page without login
+2025-04-24 06:43:30,098 - WARNING - Config had check_interval=60, overriding to 30 seconds
+2025-04-24 06:43:35,122 - ERROR - Error extracting sector data: 'NoneType' object has no attribute 'text'
+2025-04-24 06:43:35,123 - WARNING - Using default data due to error
+2025-04-24 06:43:35,124 - INFO - Saved sector data to text file: sector_data.txt
+2025-04-24 06:43:35,131 - INFO - Saved sector data to CSV file: sector_data.csv
+2025-04-24 06:43:35,156 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 06:43:36,224 - INFO - Scraper stopped by user
+2025-04-24 06:43:36,838 - WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None)': /session/a0c758ac0e22e8475d2dfc65a4c249d7
+2025-04-24 06:47:17,261 - INFO - Starting final sector scraper
+2025-04-24 06:47:17,262 - INFO - Configuration loaded successfully
+2025-04-24 06:47:17,262 - INFO - ====== WebDriver manager ======
+2025-04-24 06:47:18,910 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-24 06:47:19,007 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-24 06:47:19,054 - INFO - Driver [C:\Users\Rajee\.wdm\drivers\chromedriver\win64\135.0.7049.114\chromedriver-win32/chromedriver.exe] found in cache
+2025-04-24 06:47:21,269 - INFO - Chrome WebDriver set up successfully
+2025-04-24 06:47:21,767 - INFO - Navigated to login page
+2025-04-24 06:48:13,852 - INFO - Navigated to sector performance page: https://intradayscreener.com/sector-performance
+2025-04-24 06:48:23,869 - INFO - Successfully navigated to sector performance page
+2025-04-24 06:48:24,016 - INFO - Page contains 154 lines of text
+2025-04-24 06:48:24,016 - INFO - Method 1: Searching by sector name elements
+2025-04-24 06:48:24,225 - INFO - Found 2 elements for NIFTY BANK
+2025-04-24 06:48:24,257 - INFO - Found NIFTY BANK: 0.0% (from parent)
+2025-04-24 06:48:24,286 - INFO - Found 1 elements for NIFTY_FIN_SERVICE
+2025-04-24 06:48:24,323 - INFO - Found NIFTY_FIN_SERVICE: -0.3% (from parent)
+2025-04-24 06:48:24,356 - INFO - Method 2: Searching by percentage patterns
+2025-04-24 06:48:24,357 - INFO - Found 41 lines with valid percentages
+2025-04-24 06:48:24,357 - INFO - Final data contains 2 sectors
+2025-04-24 06:48:24,358 - WARNING - Only found 2 sectors, not enough for reliable data
+2025-04-24 06:48:24,358 - ERROR - Failed to get sector data
+2025-04-24 06:48:24,360 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 06:48:55,717 - INFO - Browser page refreshed
+2025-04-24 06:48:55,843 - INFO - Page contains 52 lines of text
+2025-04-24 06:48:55,844 - INFO - Method 1: Searching by sector name elements
+2025-04-24 06:48:56,016 - INFO - Found 2 elements for NIFTY BANK
+2025-04-24 06:48:56,046 - INFO - Found NIFTY BANK: -0.02% (from parent)
+2025-04-24 06:48:56,064 - INFO - Found 1 elements for NIFTY_FIN_SERVICE
+2025-04-24 06:48:56,123 - INFO - Found NIFTY_FIN_SERVICE: -0.33% (from parent)
+2025-04-24 06:48:56,141 - INFO - Method 2: Searching by percentage patterns
+2025-04-24 06:48:56,143 - INFO - Found 0 lines with valid percentages
+2025-04-24 06:48:56,143 - INFO - Final data contains 2 sectors
+2025-04-24 06:48:56,143 - WARNING - Only found 2 sectors, not enough for reliable data
+2025-04-24 06:48:56,143 - ERROR - Failed to get sector data
+2025-04-24 06:48:56,144 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 06:49:26,792 - INFO - Browser page refreshed
+2025-04-24 06:49:26,895 - INFO - Page contains 52 lines of text
+2025-04-24 06:49:26,895 - INFO - Method 1: Searching by sector name elements
+2025-04-24 06:49:27,068 - INFO - Method 2: Searching by percentage patterns
+2025-04-24 06:49:27,068 - INFO - Found 0 lines with valid percentages
+2025-04-24 06:49:27,069 - INFO - Final data contains 0 sectors
+2025-04-24 06:49:27,069 - WARNING - Only found 0 sectors, not enough for reliable data
+2025-04-24 06:49:27,069 - ERROR - Failed to get sector data
+2025-04-24 06:49:27,069 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 06:49:57,766 - INFO - Browser page refreshed
+2025-04-24 06:49:57,873 - INFO - Page contains 52 lines of text
+2025-04-24 06:49:57,873 - INFO - Method 1: Searching by sector name elements
+2025-04-24 06:49:58,050 - INFO - Found 2 elements for NIFTY BANK
+2025-04-24 06:49:58,083 - INFO - Found NIFTY BANK: -0.02% (from parent)
+2025-04-24 06:49:58,124 - INFO - Found 1 elements for NIFTY_FIN_SERVICE
+2025-04-24 06:49:58,179 - INFO - Found NIFTY_FIN_SERVICE: -0.31% (from parent)
+2025-04-24 06:49:58,215 - INFO - Method 2: Searching by percentage patterns
+2025-04-24 06:49:58,217 - INFO - Found 0 lines with valid percentages
+2025-04-24 06:49:58,218 - INFO - Final data contains 2 sectors
+2025-04-24 06:49:58,227 - WARNING - Only found 2 sectors, not enough for reliable data
+2025-04-24 06:49:58,227 - ERROR - Failed to get sector data
+2025-04-24 06:49:58,228 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 06:50:30,166 - INFO - Browser page refreshed
+2025-04-24 06:50:30,438 - INFO - Page contains 69 lines of text
+2025-04-24 06:50:30,438 - INFO - Method 1: Searching by sector name elements
+2025-04-24 06:50:30,749 - INFO - Found 2 elements for NIFTY BANK
+2025-04-24 06:50:30,812 - INFO - Found NIFTY BANK: -0.01% (from parent)
+2025-04-24 06:50:30,846 - INFO - Found 1 elements for NIFTY_FIN_SERVICE
+2025-04-24 06:50:30,929 - INFO - Found NIFTY_FIN_SERVICE: -0.31% (from parent)
+2025-04-24 06:50:30,969 - INFO - Method 2: Searching by percentage patterns
+2025-04-24 06:50:30,978 - INFO - Found 7 lines with valid percentages
+2025-04-24 06:50:30,979 - INFO - Final data contains 2 sectors
+2025-04-24 06:50:30,979 - WARNING - Only found 2 sectors, not enough for reliable data
+2025-04-24 06:50:30,980 - ERROR - Failed to get sector data
+2025-04-24 06:50:30,980 - ERROR - Failed to get data 5 times in a row
+2025-04-24 06:50:33,804 - INFO - ====== WebDriver manager ======
+2025-04-24 06:50:35,108 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-24 06:50:35,149 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-24 06:50:35,197 - INFO - Driver [C:\Users\Rajee\.wdm\drivers\chromedriver\win64\135.0.7049.114\chromedriver-win32/chromedriver.exe] found in cache
+2025-04-24 06:50:39,180 - INFO - Chrome WebDriver set up successfully
+2025-04-24 06:50:41,858 - INFO - Navigated to login page
+2025-04-24 06:57:47,958 - INFO - Scraper stopped by user
+2025-04-24 06:57:47,966 - WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None)': /session/7a22bf7bbe3f4ad9a9e520b614e30573
+2025-04-24 06:57:53,708 - INFO - Starting final sector scraper
+2025-04-24 06:57:53,708 - INFO - Configuration loaded successfully
+2025-04-24 06:57:53,709 - INFO - ====== WebDriver manager ======
+2025-04-24 06:57:55,048 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-24 06:57:55,115 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-24 06:57:55,160 - INFO - Driver [C:\Users\Rajee\.wdm\drivers\chromedriver\win64\135.0.7049.114\chromedriver-win32/chromedriver.exe] found in cache
+2025-04-24 06:57:57,220 - INFO - Chrome WebDriver set up successfully
+2025-04-24 06:57:59,835 - INFO - Navigated to login page
+2025-04-24 06:58:40,185 - INFO - Navigated to sector performance page: https://intradayscreener.com/sector-performance
+2025-04-24 06:58:50,219 - INFO - Successfully navigated to sector performance page
+2025-04-24 06:58:50,369 - INFO - Page contains 154 lines of text
+2025-04-24 06:58:50,370 - INFO - Final data contains 0 sectors
+2025-04-24 06:58:50,370 - WARNING - No sector data found at all
+2025-04-24 06:58:50,370 - ERROR - Failed to get sector data
+2025-04-24 06:58:50,371 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 06:59:21,959 - INFO - Browser page refreshed
+2025-04-24 06:59:22,079 - INFO - Page contains 52 lines of text
+2025-04-24 06:59:22,080 - INFO - Final data contains 0 sectors
+2025-04-24 06:59:22,080 - WARNING - No sector data found at all
+2025-04-24 06:59:22,080 - ERROR - Failed to get sector data
+2025-04-24 06:59:22,081 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 06:59:52,606 - INFO - Browser page refreshed
+2025-04-24 06:59:52,721 - INFO - Page contains 52 lines of text
+2025-04-24 06:59:52,722 - INFO - Final data contains 0 sectors
+2025-04-24 06:59:52,722 - WARNING - No sector data found at all
+2025-04-24 06:59:52,722 - ERROR - Failed to get sector data
+2025-04-24 06:59:52,723 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 07:00:23,519 - INFO - Browser page refreshed
+2025-04-24 07:00:23,623 - INFO - Page contains 52 lines of text
+2025-04-24 07:00:23,624 - INFO - Final data contains 0 sectors
+2025-04-24 07:00:23,624 - WARNING - No sector data found at all
+2025-04-24 07:00:23,624 - ERROR - Failed to get sector data
+2025-04-24 07:00:23,625 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 07:00:54,340 - INFO - Browser page refreshed
+2025-04-24 07:00:54,498 - INFO - Page contains 52 lines of text
+2025-04-24 07:00:54,500 - INFO - Final data contains 0 sectors
+2025-04-24 07:00:54,501 - WARNING - No sector data found at all
+2025-04-24 07:00:54,501 - ERROR - Failed to get sector data
+2025-04-24 07:00:54,501 - ERROR - Failed to get data 5 times in a row
+2025-04-24 07:00:57,268 - INFO - ====== WebDriver manager ======
+2025-04-24 07:00:59,243 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-24 07:00:59,288 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-24 07:00:59,338 - INFO - Driver [C:\Users\Rajee\.wdm\drivers\chromedriver\win64\135.0.7049.114\chromedriver-win32/chromedriver.exe] found in cache
+2025-04-24 07:01:01,180 - INFO - Chrome WebDriver set up successfully
+2025-04-24 07:01:01,789 - INFO - Navigated to login page
+2025-04-24 07:01:14,231 - INFO - Scraper stopped by user
+2025-04-24 07:01:14,307 - WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None)': /session/903fcdf09aa289b07ca71b4df8b0a7ba
+2025-04-24 07:03:23,310 - INFO - Starting final sector scraper
+2025-04-24 07:03:23,311 - INFO - Configuration loaded successfully
+2025-04-24 07:03:23,311 - INFO - ====== WebDriver manager ======
+2025-04-24 07:03:24,747 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-24 07:03:24,802 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-24 07:03:24,846 - INFO - Driver [C:\Users\Rajee\.wdm\drivers\chromedriver\win64\135.0.7049.114\chromedriver-win32/chromedriver.exe] found in cache
+2025-04-24 07:03:26,919 - INFO - Chrome WebDriver set up successfully
+2025-04-24 07:03:29,694 - INFO - Trying direct access to sector page: https://intradayscreener.com/sector-performance
+2025-04-24 07:03:45,231 - INFO - Saved page source to debug_page.html for inspection
+2025-04-24 07:03:45,237 - INFO - Successfully navigated to sector performance page
+2025-04-24 07:03:45,283 - INFO - Found 2 possible chart/bar elements
+2025-04-24 07:03:45,411 - INFO - Found from chart: NIFTY_PHARMA (PHARMA): 47.87%
+2025-04-24 07:03:45,414 - INFO - Found from chart: NIFTY_HEALTHCARE (Nifty Healthcare Index): 47.87%
+2025-04-24 07:03:45,415 - INFO - Found from chart: NIFTY_METAL (METALS): 47.87%
+2025-04-24 07:03:45,416 - INFO - Found from chart: NIFTY_IT (IT): 47.87%
+2025-04-24 07:03:45,427 - INFO - Found from chart: NIFTY_PVT_BANK (PVT Bank): 47.87%
+2025-04-24 07:03:45,442 - INFO - Found from chart: NIFTY BANK (Bank Nifty): 47.87%
+2025-04-24 07:03:45,443 - INFO - Found from chart: NIFTY_ENERGY (Energy): 47.87%
+2025-04-24 07:03:45,459 - INFO - Found from chart: NIFTY_PSU_BANK (PSU Bank): 47.87%
+2025-04-24 07:03:45,493 - INFO - Found from chart: NIFTY_MEDIA (MEDIA & ENTERTAINMENT): 47.87%
+2025-04-24 07:03:45,599 - INFO - Found from chart: NIFTY_AUTO (AUTOMOBILE): 47.87%
+2025-04-24 07:03:45,706 - INFO - Found from chart: NIFTY_FINSRV25_50 (Nifty Financial Services 25/50): 47.87%
+2025-04-24 07:03:45,776 - INFO - Found from chart: NIFTY_FIN_SERVICE (Nifty Financial Services): 47.87%
+2025-04-24 07:03:45,834 - INFO - Found from chart: NIFTY_OIL_AND_GAS (Nifty Oil & Gas): 47.87%
+2025-04-24 07:03:45,849 - INFO - Found from chart: NIFTY_CONSR_DURBL (Nifty Consumer Durables): 47.87%
+2025-04-24 07:03:45,851 - INFO - Found from chart: NIFTY_CONSUMPTION (Consumption): 47.87%
+2025-04-24 07:03:45,852 - INFO - Found from chart: NIFTY_FMCG (CONSUMER GOODS): 47.87%
+2025-04-24 07:03:45,854 - INFO - Found from chart: NIFTY_REALTY (CONSTRUCTION): 47.87%
+2025-04-24 07:03:45,968 - INFO - Found from chart: NIFTY_PHARMA (PHARMA): 47.87%
+2025-04-24 07:03:45,969 - INFO - Found from chart: NIFTY_HEALTHCARE (Nifty Healthcare Index): 47.87%
+2025-04-24 07:03:45,969 - INFO - Found from chart: NIFTY_METAL (METALS): 47.87%
+2025-04-24 07:03:45,970 - INFO - Found from chart: NIFTY_IT (IT): 47.87%
+2025-04-24 07:03:45,970 - INFO - Found from chart: NIFTY_PVT_BANK (PVT Bank): 47.87%
+2025-04-24 07:03:45,970 - INFO - Found from chart: NIFTY BANK (Bank Nifty): 47.87%
+2025-04-24 07:03:45,971 - INFO - Found from chart: NIFTY_ENERGY (Energy): 47.87%
+2025-04-24 07:03:45,971 - INFO - Found from chart: NIFTY_PSU_BANK (PSU Bank): 47.87%
+2025-04-24 07:03:45,977 - INFO - Found from chart: NIFTY_MEDIA (MEDIA & ENTERTAINMENT): 47.87%
+2025-04-24 07:03:45,981 - INFO - Found from chart: NIFTY_AUTO (AUTOMOBILE): 47.87%
+2025-04-24 07:03:45,982 - INFO - Found from chart: NIFTY_FINSRV25_50 (Nifty Financial Services 25/50): 47.87%
+2025-04-24 07:03:45,982 - INFO - Found from chart: NIFTY_FIN_SERVICE (Nifty Financial Services): 47.87%
+2025-04-24 07:03:45,982 - INFO - Found from chart: NIFTY_OIL_AND_GAS (Nifty Oil & Gas): 47.87%
+2025-04-24 07:03:45,983 - INFO - Found from chart: NIFTY_CONSR_DURBL (Nifty Consumer Durables): 47.87%
+2025-04-24 07:03:45,984 - INFO - Found from chart: NIFTY_CONSUMPTION (Consumption): 47.87%
+2025-04-24 07:03:45,985 - INFO - Found from chart: NIFTY_FMCG (CONSUMER GOODS): 47.87%
+2025-04-24 07:03:45,985 - INFO - Found from chart: NIFTY_REALTY (CONSTRUCTION): 47.87%
+2025-04-24 07:03:45,986 - INFO - Final data contains 17 sectors
+2025-04-24 07:03:45,989 - INFO - Saved sector data to text file: sector_data.txt
+2025-04-24 07:03:45,994 - INFO - Saved sector data to CSV file: sector_data.csv
+2025-04-24 07:03:46,005 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 07:03:59,695 - INFO - Scraper stopped by user
+2025-04-24 07:03:59,715 - WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None)': /session/22a4cd02e9c68a027112ce2b83859f54
+2025-04-24 07:06:26,879 - INFO - Starting final sector scraper
+2025-04-24 07:06:26,880 - INFO - Configuration loaded successfully
+2025-04-24 07:06:26,881 - INFO - ====== WebDriver manager ======
+2025-04-24 07:06:28,213 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-24 07:06:28,278 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-24 07:06:28,320 - INFO - Driver [C:\Users\Rajee\.wdm\drivers\chromedriver\win64\135.0.7049.114\chromedriver-win32/chromedriver.exe] found in cache
+2025-04-24 07:06:30,817 - INFO - Chrome WebDriver set up successfully
+2025-04-24 07:06:31,416 - INFO - Navigated to login page
+2025-04-24 07:07:13,535 - INFO - Navigated to sector performance page: https://intradayscreener.com/sector-performance
+2025-04-24 07:07:23,570 - INFO - Saved page source to debug_page.html for inspection
+2025-04-24 07:07:23,577 - INFO - Successfully navigated to sector performance page
+2025-04-24 07:07:23,622 - INFO - Found 1 SVG chart elements
+2025-04-24 07:07:23,643 - INFO - Found 37 text elements in charts
+2025-04-24 07:07:24,040 - INFO - Found 17 percentage values in chart
+2025-04-24 07:07:24,215 - INFO - Found from chart text: NIFTY_PHARMA (PHARMA): 1.18%
+2025-04-24 07:07:24,421 - INFO - Found from chart text: NIFTY_HEALTHCARE (Nifty Healthcare Index): 1.18%
+2025-04-24 07:07:24,642 - INFO - Found from chart text: NIFTY_METAL (METALS): 1.18%
+2025-04-24 07:07:25,007 - INFO - Found from chart text: NIFTY_IT (IT): 1.18%
+2025-04-24 07:07:25,290 - INFO - Found from chart text: NIFTY_PVT_BANK (PVT Bank): 1.18%
+2025-04-24 07:07:25,511 - INFO - Found from chart text: NIFTY BANK (Bank Nifty): 1.18%
+2025-04-24 07:07:25,745 - INFO - Found from chart text: NIFTY_ENERGY (Energy): 1.18%
+2025-04-24 07:07:25,994 - INFO - Found from chart text: NIFTY_PSU_BANK (PSU Bank): 1.18%
+2025-04-24 07:07:26,252 - INFO - Found from chart text: NIFTY_MEDIA (MEDIA & ENTERTAINMENT): 1.18%
+2025-04-24 07:07:26,528 - INFO - Found from chart text: NIFTY_AUTO (AUTOMOBILE): 1.18%
+2025-04-24 07:07:26,795 - INFO - Found from chart text: NIFTY_FINSRV25_50 (Nifty Financial Services 25/50): 1.18%
+2025-04-24 07:07:27,082 - INFO - Found from chart text: NIFTY_FIN_SERVICE (Nifty Financial Services): 1.18%
+2025-04-24 07:07:27,348 - INFO - Found from chart text: NIFTY_OIL_AND_GAS (Nifty Oil & Gas): 1.18%
+2025-04-24 07:07:27,642 - INFO - Found from chart text: NIFTY_CONSR_DURBL (Nifty Consumer Durables): 1.18%
+2025-04-24 07:07:27,972 - INFO - Found from chart text: NIFTY_CONSUMPTION (Consumption): 1.18%
+2025-04-24 07:07:28,311 - INFO - Found from chart text: NIFTY_FMCG (CONSUMER GOODS): 1.18%
+2025-04-24 07:07:28,633 - INFO - Found from chart text: NIFTY_REALTY (CONSTRUCTION): 1.18%
+2025-04-24 07:07:28,634 - INFO - Final data contains 17 sectors
+2025-04-24 07:07:28,635 - INFO - Saved sector data to text file: sector_data.txt
+2025-04-24 07:07:28,640 - INFO - Saved sector data to CSV file: sector_data.csv
+2025-04-24 07:07:28,651 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 07:08:00,444 - INFO - Browser page refreshed
+2025-04-24 07:08:00,673 - INFO - Page contains 52 lines of text
+2025-04-24 07:08:00,708 - INFO - Found 2 data points via JavaScript
+2025-04-24 07:08:00,709 - INFO - Found from JS: NIFTY_PHARMA (PHARMA): 5024260.25%
+2025-04-24 07:08:00,710 - INFO - Found from JS: NIFTY_IT (IT): 5024260.25%
+2025-04-24 07:08:00,712 - INFO - Final data contains 2 sectors
+2025-04-24 07:08:00,713 - INFO - Saved sector data to text file: sector_data.txt
+2025-04-24 07:08:00,716 - INFO - Saved sector data to CSV file: sector_data.csv
+2025-04-24 07:08:00,749 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 07:08:31,809 - INFO - Browser page refreshed
+2025-04-24 07:08:31,973 - INFO - Page contains 52 lines of text
+2025-04-24 07:08:31,990 - INFO - Final data contains 0 sectors
+2025-04-24 07:08:31,991 - WARNING - No sector data found at all
+2025-04-24 07:08:31,991 - ERROR - Failed to get sector data
+2025-04-24 07:08:31,992 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 07:09:02,874 - INFO - Browser page refreshed
+2025-04-24 07:09:03,045 - INFO - Page contains 52 lines of text
+2025-04-24 07:09:03,057 - INFO - Final data contains 0 sectors
+2025-04-24 07:09:03,057 - WARNING - No sector data found at all
+2025-04-24 07:09:03,058 - ERROR - Failed to get sector data
+2025-04-24 07:09:03,059 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 07:09:33,804 - INFO - Browser page refreshed
+2025-04-24 07:09:34,031 - INFO - Page contains 52 lines of text
+2025-04-24 07:09:34,109 - INFO - Found 2 data points via JavaScript
+2025-04-24 07:09:34,111 - INFO - Found from JS: NIFTY_PHARMA (PHARMA): 5024262.75%
+2025-04-24 07:09:34,114 - INFO - Found from JS: NIFTY_IT (IT): 5024262.75%
+2025-04-24 07:09:34,114 - INFO - Final data contains 2 sectors
+2025-04-24 07:09:34,115 - INFO - Saved sector data to text file: sector_data.txt
+2025-04-24 07:09:34,143 - INFO - Saved sector data to CSV file: sector_data.csv
+2025-04-24 07:09:34,154 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 07:10:04,839 - INFO - Browser page refreshed
+2025-04-24 07:10:04,962 - INFO - Page contains 52 lines of text
+2025-04-24 07:10:04,973 - INFO - Final data contains 0 sectors
+2025-04-24 07:10:04,973 - WARNING - No sector data found at all
+2025-04-24 07:10:04,973 - ERROR - Failed to get sector data
+2025-04-24 07:10:04,977 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 07:10:35,630 - INFO - Browser page refreshed
+2025-04-24 07:10:35,759 - INFO - Page contains 52 lines of text
+2025-04-24 07:10:35,783 - INFO - Final data contains 0 sectors
+2025-04-24 07:10:35,784 - WARNING - No sector data found at all
+2025-04-24 07:10:35,784 - ERROR - Failed to get sector data
+2025-04-24 07:10:35,784 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 07:10:59,219 - INFO - Scraper stopped by user
+2025-04-24 07:10:59,242 - WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None)': /session/c39fd6481e5c61275e8f13b4e3ea4495
+2025-04-24 07:11:05,077 - INFO - Starting final sector scraper
+2025-04-24 07:11:05,078 - INFO - Configuration loaded successfully
+2025-04-24 07:11:05,079 - INFO - ====== WebDriver manager ======
+2025-04-24 07:11:06,366 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-24 07:11:06,420 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-24 07:11:06,460 - INFO - Driver [C:\Users\Rajee\.wdm\drivers\chromedriver\win64\135.0.7049.114\chromedriver-win32/chromedriver.exe] found in cache
+2025-04-24 07:11:08,546 - INFO - Chrome WebDriver set up successfully
+2025-04-24 07:11:11,421 - INFO - Navigated to login page
+2025-04-24 07:11:49,126 - INFO - Navigated to sector performance page: https://intradayscreener.com/sector-performance
+2025-04-24 07:11:59,152 - INFO - Saved page source to debug_page.html for inspection
+2025-04-24 07:11:59,158 - INFO - Successfully navigated to sector performance page
+2025-04-24 07:11:59,249 - INFO - Found 36 sector entries via JavaScript
+2025-04-24 07:11:59,250 - INFO - Matched NIFTY_PHARMA (PHARMA): 5024259.9%
+2025-04-24 07:11:59,250 - INFO - Matched NIFTY_IT (IT): 5024259.9%
+2025-04-24 07:11:59,250 - INFO - Matched NIFTY_PHARMA (PHARMA): 5024259.9%
+2025-04-24 07:11:59,251 - INFO - Matched NIFTY_PHARMA (PHARMA): 5024259.9%
+2025-04-24 07:11:59,251 - INFO - Matched NIFTY_PHARMA (PHARMA): 5024259.9%
+2025-04-24 07:11:59,251 - INFO - Matched NIFTY_PHARMA (PHARMA): 24259.9%
+2025-04-24 07:11:59,251 - INFO - Matched NIFTY_PHARMA (PHARMA): -0.28%
+2025-04-24 07:11:59,252 - INFO - Matched NIFTY_AUTO (AUTOMOBILE): 26341.65%
+2025-04-24 07:11:59,252 - INFO - Matched NIFTY_AUTO (AUTOMOBILE): 26341.65%
+2025-04-24 07:11:59,252 - INFO - Matched NIFTY_AUTO (AUTOMOBILE): -0.4%
+2025-04-24 07:11:59,252 - INFO - Matched NIFTY_AUTO (AUTOMOBILE): 16.62%
+2025-04-24 07:11:59,253 - INFO - Matched NIFTY_AUTO (AUTOMOBILE): 16.62%
+2025-04-24 07:11:59,253 - INFO - Matched NIFTY_AUTO (AUTOMOBILE): 4.14%
+2025-04-24 07:11:59,253 - INFO - Matched NIFTY_PHARMA (PHARMA): 5024259.9%
+2025-04-24 07:11:59,253 - INFO - Matched NIFTY_PHARMA (PHARMA): 5024259.9%
+2025-04-24 07:11:59,254 - INFO - Matched NIFTY_PHARMA (PHARMA): 5024259.9%
+2025-04-24 07:11:59,255 - INFO - Matched NIFTY_PHARMA (PHARMA): 5024259.9%
+2025-04-24 07:11:59,256 - INFO - Matched NIFTY_PHARMA (PHARMA): 24259.9%
+2025-04-24 07:11:59,256 - INFO - Matched NIFTY_PHARMA (PHARMA): -0.28%
+2025-04-24 07:11:59,257 - INFO - Matched NIFTY_PHARMA (PHARMA): 55326.8%
+2025-04-24 07:11:59,257 - INFO - Matched NIFTY_PHARMA (PHARMA): 55326.8%
+2025-04-24 07:11:59,257 - INFO - Matched NIFTY_PHARMA (PHARMA): 55326.8%
+2025-04-24 07:11:59,258 - INFO - Matched NIFTY_PHARMA (PHARMA): -0.08%
+2025-04-24 07:11:59,259 - INFO - Matched NIFTY_PHARMA (PHARMA): 11.2%
+2025-04-24 07:11:59,259 - INFO - Matched NIFTY_PHARMA (PHARMA): 11.2%
+2025-04-24 07:11:59,259 - INFO - Matched NIFTY_PHARMA (PHARMA): 11.2%
+2025-04-24 07:11:59,260 - INFO - Matched NIFTY_PHARMA (PHARMA): 11.2%
+2025-04-24 07:11:59,261 - INFO - Matched NIFTY_PHARMA (PHARMA): 11.2%
+2025-04-24 07:11:59,261 - INFO - Matched NIFTY_PHARMA (PHARMA): 11.2%
+2025-04-24 07:11:59,262 - INFO - Matched NIFTY_PHARMA (PHARMA): 11.2%
+2025-04-24 07:11:59,264 - INFO - Matched NIFTY_AUTO (AUTOMOBILE): 1.2%
+2025-04-24 07:11:59,264 - INFO - Matched NIFTY_PHARMA (PHARMA): -1.39%
+2025-04-24 07:11:59,265 - INFO - Matched NIFTY_AUTO (AUTOMOBILE): 666.05%
+2025-04-24 07:11:59,265 - INFO - Matched NIFTY_AUTO (AUTOMOBILE): 666.05%
+2025-04-24 07:11:59,266 - INFO - Matched NIFTY_AUTO (AUTOMOBILE): 666.05%
+2025-04-24 07:11:59,266 - INFO - Matched NIFTY_AUTO (AUTOMOBILE): 666.05%
+2025-04-24 07:12:01,853 - INFO - Final data contains 3 sectors
+2025-04-24 07:12:01,854 - INFO - Saved sector data to text file: sector_data.txt
+2025-04-24 07:12:01,859 - INFO - Saved sector data to CSV file: sector_data.csv
+2025-04-24 07:12:01,880 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 07:12:35,083 - INFO - Browser page refreshed
+2025-04-24 07:12:38,431 - INFO - Final data contains 17 sectors
+2025-04-24 07:12:38,435 - INFO - Saved sector data to text file: sector_data.txt
+2025-04-24 07:12:38,443 - INFO - Saved sector data to CSV file: sector_data.csv
+2025-04-24 07:12:38,492 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 07:13:09,697 - INFO - Browser page refreshed
+2025-04-24 07:13:13,153 - INFO - Final data contains 17 sectors
+2025-04-24 07:13:13,154 - INFO - Saved sector data to text file: sector_data.txt
+2025-04-24 07:13:13,157 - INFO - Saved sector data to CSV file: sector_data.csv
+2025-04-24 07:13:13,173 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 07:13:44,616 - INFO - Browser page refreshed
+2025-04-24 07:13:46,775 - INFO - Final data contains 17 sectors
+2025-04-24 07:13:46,777 - INFO - Saved sector data to text file: sector_data.txt
+2025-04-24 07:13:46,780 - INFO - Saved sector data to CSV file: sector_data.csv
+2025-04-24 07:13:46,787 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 07:14:17,586 - INFO - Browser page refreshed
+2025-04-24 07:14:18,859 - INFO - Final data contains 17 sectors
+2025-04-24 07:14:18,865 - INFO - Saved sector data to text file: sector_data.txt
+2025-04-24 07:14:19,005 - INFO - Saved sector data to CSV file: sector_data.csv
+2025-04-24 07:14:19,244 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 07:14:49,963 - INFO - Browser page refreshed
+2025-04-24 07:14:51,068 - INFO - Final data contains 17 sectors
+2025-04-24 07:14:51,069 - INFO - Saved sector data to text file: sector_data.txt
+2025-04-24 07:14:51,072 - INFO - Saved sector data to CSV file: sector_data.csv
+2025-04-24 07:14:51,081 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 07:15:22,401 - INFO - Browser page refreshed
+2025-04-24 07:15:22,445 - INFO - Found 20 sector entries via JavaScript
+2025-04-24 07:15:22,446 - INFO - Matched NIFTY_IT (IT): 5024264.8%
+2025-04-24 07:15:22,446 - INFO - Matched NIFTY_IT (IT): 5024264.8%
+2025-04-24 07:15:22,464 - INFO - Matched NIFTY_IT (IT): 5024264.8%
+2025-04-24 07:15:22,468 - INFO - Matched NIFTY_IT (IT): 5024264.8%
+2025-04-24 07:15:22,469 - INFO - Matched NIFTY_AUTO (AUTOMOBILE): 26350.05%
+2025-04-24 07:15:22,469 - INFO - Matched NIFTY_AUTO (AUTOMOBILE): 26350.05%
+2025-04-24 07:15:22,469 - INFO - Matched NIFTY_AUTO (AUTOMOBILE): -0.36%
+2025-04-24 07:15:22,470 - INFO - Matched NIFTY_AUTO (AUTOMOBILE): 16.51%
+2025-04-24 07:15:22,470 - INFO - Matched NIFTY_AUTO (AUTOMOBILE): 16.51%
+2025-04-24 07:15:22,471 - INFO - Matched NIFTY_AUTO (AUTOMOBILE): 3.45%
+2025-04-24 07:15:22,471 - INFO - Matched NIFTY_IT (IT): 5024264.8%
+2025-04-24 07:15:22,471 - INFO - Matched NIFTY_IT (IT): 5024264.8%
+2025-04-24 07:15:22,472 - INFO - Matched NIFTY_IT (IT): 5024264.8%
+2025-04-24 07:15:22,472 - INFO - Matched NIFTY_IT (IT): 5024264.8%
+2025-04-24 07:15:22,472 - INFO - Matched NIFTY_IT (IT): 24264.8%
+2025-04-24 07:15:22,472 - INFO - Matched NIFTY_IT (IT): -0.26%
+2025-04-24 07:15:22,473 - INFO - Matched NIFTY_IT (IT): 55345.55%
+2025-04-24 07:15:22,473 - INFO - Matched NIFTY_IT (IT): 55345.55%
+2025-04-24 07:15:22,473 - INFO - Matched NIFTY_IT (IT): 55345.55%
+2025-04-24 07:15:22,474 - INFO - Matched NIFTY_IT (IT): -0.04%
+2025-04-24 07:15:24,026 - INFO - Final data contains 17 sectors
+2025-04-24 07:15:24,028 - INFO - Saved sector data to text file: sector_data.txt
+2025-04-24 07:15:24,030 - INFO - Saved sector data to CSV file: sector_data.csv
+2025-04-24 07:15:24,037 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 07:15:54,797 - INFO - Browser page refreshed
+2025-04-24 07:15:55,675 - INFO - Final data contains 17 sectors
+2025-04-24 07:15:55,677 - INFO - Saved sector data to text file: sector_data.txt
+2025-04-24 07:15:55,682 - INFO - Saved sector data to CSV file: sector_data.csv
+2025-04-24 07:15:55,688 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 07:16:26,468 - INFO - Browser page refreshed
+2025-04-24 07:16:28,852 - INFO - Final data contains 17 sectors
+2025-04-24 07:16:28,853 - INFO - Saved sector data to text file: sector_data.txt
+2025-04-24 07:16:28,856 - INFO - Saved sector data to CSV file: sector_data.csv
+2025-04-24 07:16:28,866 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 07:17:00,104 - INFO - Browser page refreshed
+2025-04-24 07:17:00,198 - INFO - Found 20 sector entries via JavaScript
+2025-04-24 07:17:00,199 - INFO - Matched NIFTY_IT (IT): 5024269.2%
+2025-04-24 07:17:00,199 - INFO - Matched NIFTY_IT (IT): 5024269.2%
+2025-04-24 07:17:00,199 - INFO - Matched NIFTY_IT (IT): 5024269.2%
+2025-04-24 07:17:00,200 - INFO - Matched NIFTY_IT (IT): 5024269.2%
+2025-04-24 07:17:00,200 - INFO - Matched NIFTY_AUTO (AUTOMOBILE): 26346.2%
+2025-04-24 07:17:00,200 - INFO - Matched NIFTY_AUTO (AUTOMOBILE): 26346.2%
+2025-04-24 07:17:00,201 - INFO - Matched NIFTY_AUTO (AUTOMOBILE): -0.38%
+2025-04-24 07:17:00,201 - INFO - Matched NIFTY_AUTO (AUTOMOBILE): 16.49%
+2025-04-24 07:17:00,201 - INFO - Matched NIFTY_AUTO (AUTOMOBILE): 16.49%
+2025-04-24 07:17:00,203 - INFO - Matched NIFTY_AUTO (AUTOMOBILE): 3.32%
+2025-04-24 07:17:00,204 - INFO - Matched NIFTY_IT (IT): 5024269.2%
+2025-04-24 07:17:00,204 - INFO - Matched NIFTY_IT (IT): 5024269.2%
+2025-04-24 07:17:00,205 - INFO - Matched NIFTY_IT (IT): 5024269.2%
+2025-04-24 07:17:00,205 - INFO - Matched NIFTY_IT (IT): 5024269.2%
+2025-04-24 07:17:00,206 - INFO - Matched NIFTY_IT (IT): 24269.2%
+2025-04-24 07:17:00,213 - INFO - Matched NIFTY_IT (IT): -0.25%
+2025-04-24 07:17:00,215 - INFO - Matched NIFTY_IT (IT): 55336.2%
+2025-04-24 07:17:00,215 - INFO - Matched NIFTY_IT (IT): 55336.2%
+2025-04-24 07:17:00,216 - INFO - Matched NIFTY_IT (IT): 55336.2%
+2025-04-24 07:17:00,216 - INFO - Matched NIFTY_IT (IT): -0.06%
+2025-04-24 07:17:02,439 - INFO - Final data contains 17 sectors
+2025-04-24 07:17:02,441 - INFO - Saved sector data to text file: sector_data.txt
+2025-04-24 07:17:02,444 - INFO - Saved sector data to CSV file: sector_data.csv
+2025-04-24 07:17:02,465 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 07:17:33,285 - INFO - Browser page refreshed
+2025-04-24 07:17:34,271 - INFO - Final data contains 17 sectors
+2025-04-24 07:17:34,274 - INFO - Saved sector data to text file: sector_data.txt
+2025-04-24 07:17:34,288 - INFO - Saved sector data to CSV file: sector_data.csv
+2025-04-24 07:17:34,402 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 07:18:05,084 - INFO - Browser page refreshed
+2025-04-24 07:18:05,769 - INFO - Final data contains 17 sectors
+2025-04-24 07:18:05,770 - INFO - Saved sector data to text file: sector_data.txt
+2025-04-24 07:18:05,773 - INFO - Saved sector data to CSV file: sector_data.csv
+2025-04-24 07:18:05,783 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 07:18:36,492 - INFO - Browser page refreshed
+2025-04-24 07:18:37,156 - INFO - Final data contains 17 sectors
+2025-04-24 07:18:37,157 - INFO - Saved sector data to text file: sector_data.txt
+2025-04-24 07:18:37,160 - INFO - Saved sector data to CSV file: sector_data.csv
+2025-04-24 07:18:37,167 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 07:19:07,921 - INFO - Browser page refreshed
+2025-04-24 07:19:08,984 - INFO - Final data contains 17 sectors
+2025-04-24 07:19:08,986 - INFO - Saved sector data to text file: sector_data.txt
+2025-04-24 07:19:08,991 - INFO - Saved sector data to CSV file: sector_data.csv
+2025-04-24 07:19:09,001 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 07:19:39,928 - INFO - Browser page refreshed
+2025-04-24 07:19:41,831 - INFO - Final data contains 17 sectors
+2025-04-24 07:19:41,833 - INFO - Saved sector data to text file: sector_data.txt
+2025-04-24 07:19:41,836 - INFO - Saved sector data to CSV file: sector_data.csv
+2025-04-24 07:19:41,865 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 07:20:13,623 - INFO - Browser page refreshed
+2025-04-24 07:20:13,692 - INFO - Found 20 sector entries via JavaScript
+2025-04-24 07:20:13,692 - INFO - Matched NIFTY_IT (IT): 5024267.3%
+2025-04-24 07:20:13,693 - INFO - Matched NIFTY_IT (IT): 5024267.3%
+2025-04-24 07:20:13,693 - INFO - Matched NIFTY_IT (IT): 5024267.3%
+2025-04-24 07:20:13,694 - INFO - Matched NIFTY_IT (IT): 5024267.3%
+2025-04-24 07:20:13,695 - INFO - Matched NIFTY_AUTO (AUTOMOBILE): 26350.5%
+2025-04-24 07:20:13,696 - INFO - Matched NIFTY_AUTO (AUTOMOBILE): 26350.5%
+2025-04-24 07:20:13,696 - INFO - Matched NIFTY_AUTO (AUTOMOBILE): -0.36%
+2025-04-24 07:20:13,697 - INFO - Matched NIFTY_AUTO (AUTOMOBILE): 16.43%
+2025-04-24 07:20:13,712 - INFO - Matched NIFTY_AUTO (AUTOMOBILE): 16.43%
+2025-04-24 07:20:13,742 - INFO - Matched NIFTY_AUTO (AUTOMOBILE): 2.94%
+2025-04-24 07:20:13,744 - INFO - Matched NIFTY_IT (IT): 5024267.3%
+2025-04-24 07:20:13,745 - INFO - Matched NIFTY_IT (IT): 5024267.3%
+2025-04-24 07:20:13,746 - INFO - Matched NIFTY_IT (IT): 5024267.3%
+2025-04-24 07:20:13,747 - INFO - Matched NIFTY_IT (IT): 5024267.3%
+2025-04-24 07:20:13,757 - INFO - Matched NIFTY_IT (IT): 24267.3%
+2025-04-24 07:20:13,762 - INFO - Matched NIFTY_IT (IT): -0.25%
+2025-04-24 07:20:13,763 - INFO - Matched NIFTY_IT (IT): 55343.55%
+2025-04-24 07:20:13,763 - INFO - Matched NIFTY_IT (IT): 55343.55%
+2025-04-24 07:20:13,764 - INFO - Matched NIFTY_IT (IT): 55343.55%
+2025-04-24 07:20:13,764 - INFO - Matched NIFTY_IT (IT): -0.05%
+2025-04-24 07:20:15,975 - INFO - Final data contains 17 sectors
+2025-04-24 07:20:15,977 - INFO - Saved sector data to text file: sector_data.txt
+2025-04-24 07:20:15,981 - INFO - Saved sector data to CSV file: sector_data.csv
+2025-04-24 07:20:16,017 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 07:20:46,543 - INFO - Browser page refreshed
+2025-04-24 07:20:47,218 - INFO - Final data contains 17 sectors
+2025-04-24 07:20:47,220 - INFO - Saved sector data to text file: sector_data.txt
+2025-04-24 07:20:47,223 - INFO - Saved sector data to CSV file: sector_data.csv
+2025-04-24 07:20:47,243 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 07:21:18,141 - INFO - Browser page refreshed
+2025-04-24 07:21:19,225 - INFO - Final data contains 17 sectors
+2025-04-24 07:21:19,226 - INFO - Saved sector data to text file: sector_data.txt
+2025-04-24 07:21:19,229 - INFO - Saved sector data to CSV file: sector_data.csv
+2025-04-24 07:21:19,243 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 07:21:49,917 - INFO - Browser page refreshed
+2025-04-24 07:21:51,029 - INFO - Final data contains 17 sectors
+2025-04-24 07:21:51,030 - INFO - Saved sector data to text file: sector_data.txt
+2025-04-24 07:21:51,036 - INFO - Saved sector data to CSV file: sector_data.csv
+2025-04-24 07:21:51,045 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 07:22:22,073 - INFO - Browser page refreshed
+2025-04-24 07:22:24,099 - INFO - Final data contains 17 sectors
+2025-04-24 07:22:24,100 - INFO - Saved sector data to text file: sector_data.txt
+2025-04-24 07:22:24,103 - INFO - Saved sector data to CSV file: sector_data.csv
+2025-04-24 07:22:24,112 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 07:22:54,822 - INFO - Browser page refreshed
+2025-04-24 07:22:55,530 - INFO - Final data contains 17 sectors
+2025-04-24 07:22:55,531 - INFO - Saved sector data to text file: sector_data.txt
+2025-04-24 07:22:55,534 - INFO - Saved sector data to CSV file: sector_data.csv
+2025-04-24 07:22:55,547 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 07:23:26,917 - INFO - Browser page refreshed
+2025-04-24 07:23:27,102 - INFO - Found 20 sector entries via JavaScript
+2025-04-24 07:23:27,105 - INFO - Matched NIFTY_IT (IT): 5024264.35%
+2025-04-24 07:23:27,107 - INFO - Matched NIFTY_IT (IT): 5024264.35%
+2025-04-24 07:23:27,108 - INFO - Matched NIFTY_IT (IT): 5024264.35%
+2025-04-24 07:23:27,111 - INFO - Matched NIFTY_IT (IT): 5024264.35%
+2025-04-24 07:23:27,111 - INFO - Matched NIFTY_AUTO (AUTOMOBILE): 26349.65%
+2025-04-24 07:23:27,112 - INFO - Matched NIFTY_AUTO (AUTOMOBILE): 26349.65%
+2025-04-24 07:23:27,113 - INFO - Matched NIFTY_AUTO (AUTOMOBILE): -0.37%
+2025-04-24 07:23:27,113 - INFO - Matched NIFTY_AUTO (AUTOMOBILE): 16.47%
+2025-04-24 07:23:27,114 - INFO - Matched NIFTY_AUTO (AUTOMOBILE): 16.47%
+2025-04-24 07:23:27,115 - INFO - Matched NIFTY_AUTO (AUTOMOBILE): 3.2%
+2025-04-24 07:23:27,118 - INFO - Matched NIFTY_IT (IT): 5024264.35%
+2025-04-24 07:23:27,120 - INFO - Matched NIFTY_IT (IT): 5024264.35%
+2025-04-24 07:23:27,128 - INFO - Matched NIFTY_IT (IT): 5024264.35%
+2025-04-24 07:23:27,129 - INFO - Matched NIFTY_IT (IT): 5024264.35%
+2025-04-24 07:23:27,130 - INFO - Matched NIFTY_IT (IT): 24264.35%
+2025-04-24 07:23:27,130 - INFO - Matched NIFTY_IT (IT): -0.27%
+2025-04-24 07:23:27,131 - INFO - Matched NIFTY_IT (IT): 55354.05%
+2025-04-24 07:23:27,131 - INFO - Matched NIFTY_IT (IT): 55354.05%
+2025-04-24 07:23:27,131 - INFO - Matched NIFTY_IT (IT): 55354.05%
+2025-04-24 07:23:27,132 - INFO - Matched NIFTY_IT (IT): -0.03%
+2025-04-24 07:23:29,542 - INFO - Final data contains 17 sectors
+2025-04-24 07:23:29,545 - INFO - Saved sector data to text file: sector_data.txt
+2025-04-24 07:23:29,556 - INFO - Saved sector data to CSV file: sector_data.csv
+2025-04-24 07:23:29,571 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 07:24:00,605 - INFO - Browser page refreshed
+2025-04-24 07:24:04,238 - INFO - Final data contains 17 sectors
+2025-04-24 07:24:04,239 - INFO - Saved sector data to text file: sector_data.txt
+2025-04-24 07:24:04,243 - INFO - Saved sector data to CSV file: sector_data.csv
+2025-04-24 07:24:04,252 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 07:24:35,889 - INFO - Browser page refreshed
+2025-04-24 07:24:36,974 - INFO - Final data contains 17 sectors
+2025-04-24 07:24:36,975 - INFO - Saved sector data to text file: sector_data.txt
+2025-04-24 07:24:36,982 - INFO - Saved sector data to CSV file: sector_data.csv
+2025-04-24 07:24:37,012 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 07:25:07,857 - INFO - Browser page refreshed
+2025-04-24 07:25:09,476 - INFO - Final data contains 17 sectors
+2025-04-24 07:25:09,477 - INFO - Saved sector data to text file: sector_data.txt
+2025-04-24 07:25:09,481 - INFO - Saved sector data to CSV file: sector_data.csv
+2025-04-24 07:25:09,491 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 07:25:40,179 - INFO - Browser page refreshed
+2025-04-24 07:25:40,842 - INFO - Final data contains 17 sectors
+2025-04-24 07:25:40,845 - INFO - Saved sector data to text file: sector_data.txt
+2025-04-24 07:25:40,848 - INFO - Saved sector data to CSV file: sector_data.csv
+2025-04-24 07:25:40,854 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 07:26:12,502 - INFO - Browser page refreshed
+2025-04-24 07:26:12,567 - INFO - Found 20 sector entries via JavaScript
+2025-04-24 07:26:12,567 - INFO - Matched NIFTY_IT (IT): 5024266.5%
+2025-04-24 07:26:12,568 - INFO - Matched NIFTY_IT (IT): 5024266.5%
+2025-04-24 07:26:12,569 - INFO - Matched NIFTY_IT (IT): 5024266.5%
+2025-04-24 07:26:12,570 - INFO - Matched NIFTY_IT (IT): 5024266.5%
+2025-04-24 07:26:12,570 - INFO - Matched NIFTY_AUTO (AUTOMOBILE): 26350.85%
+2025-04-24 07:26:12,570 - INFO - Matched NIFTY_AUTO (AUTOMOBILE): 26350.85%
+2025-04-24 07:26:12,571 - INFO - Matched NIFTY_AUTO (AUTOMOBILE): -0.36%
+2025-04-24 07:26:12,572 - INFO - Matched NIFTY_AUTO (AUTOMOBILE): 16.43%
+2025-04-24 07:26:12,572 - INFO - Matched NIFTY_AUTO (AUTOMOBILE): 16.43%
+2025-04-24 07:26:12,573 - INFO - Matched NIFTY_AUTO (AUTOMOBILE): 2.94%
+2025-04-24 07:26:12,573 - INFO - Matched NIFTY_IT (IT): 5024266.5%
+2025-04-24 07:26:12,573 - INFO - Matched NIFTY_IT (IT): 5024266.5%
+2025-04-24 07:26:12,574 - INFO - Matched NIFTY_IT (IT): 5024266.5%
+2025-04-24 07:26:12,574 - INFO - Matched NIFTY_IT (IT): 5024266.5%
+2025-04-24 07:26:12,574 - INFO - Matched NIFTY_IT (IT): 24266.5%
+2025-04-24 07:26:12,575 - INFO - Matched NIFTY_IT (IT): -0.26%
+2025-04-24 07:26:12,576 - INFO - Matched NIFTY_IT (IT): 55353.35%
+2025-04-24 07:26:12,577 - INFO - Matched NIFTY_IT (IT): 55353.35%
+2025-04-24 07:26:12,577 - INFO - Matched NIFTY_IT (IT): 55353.35%
+2025-04-24 07:26:12,578 - INFO - Matched NIFTY_IT (IT): -0.03%
+2025-04-24 07:26:13,885 - INFO - Final data contains 17 sectors
+2025-04-24 07:26:13,887 - INFO - Saved sector data to text file: sector_data.txt
+2025-04-24 07:26:13,889 - INFO - Saved sector data to CSV file: sector_data.csv
+2025-04-24 07:26:13,902 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 07:26:44,866 - INFO - Browser page refreshed
+2025-04-24 07:26:47,353 - INFO - Final data contains 17 sectors
+2025-04-24 07:26:47,355 - INFO - Saved sector data to text file: sector_data.txt
+2025-04-24 07:26:47,358 - INFO - Saved sector data to CSV file: sector_data.csv
+2025-04-24 07:26:47,372 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 07:27:18,960 - INFO - Browser page refreshed
+2025-04-24 07:27:18,999 - INFO - Found 20 sector entries via JavaScript
+2025-04-24 07:27:19,001 - INFO - Matched NIFTY_IT (IT): 5024261.6%
+2025-04-24 07:27:19,001 - INFO - Matched NIFTY_IT (IT): 5024261.6%
+2025-04-24 07:27:19,002 - INFO - Matched NIFTY_IT (IT): 5024261.6%
+2025-04-24 07:27:19,002 - INFO - Matched NIFTY_IT (IT): 5024261.6%
+2025-04-24 07:27:19,002 - INFO - Matched NIFTY_AUTO (AUTOMOBILE): 26349.7%
+2025-04-24 07:27:19,003 - INFO - Matched NIFTY_AUTO (AUTOMOBILE): 26349.7%
+2025-04-24 07:27:19,003 - INFO - Matched NIFTY_AUTO (AUTOMOBILE): -0.36%
+2025-04-24 07:27:19,003 - INFO - Matched NIFTY_AUTO (AUTOMOBILE): 16.43%
+2025-04-24 07:27:19,004 - INFO - Matched NIFTY_AUTO (AUTOMOBILE): 16.43%
+2025-04-24 07:27:19,004 - INFO - Matched NIFTY_AUTO (AUTOMOBILE): 2.94%
+2025-04-24 07:27:19,004 - INFO - Matched NIFTY_IT (IT): 5024261.6%
+2025-04-24 07:27:19,004 - INFO - Matched NIFTY_IT (IT): 5024261.6%
+2025-04-24 07:27:19,005 - INFO - Matched NIFTY_IT (IT): 5024261.6%
+2025-04-24 07:27:19,005 - INFO - Matched NIFTY_IT (IT): 5024261.6%
+2025-04-24 07:27:19,005 - INFO - Matched NIFTY_IT (IT): 24261.6%
+2025-04-24 07:27:19,005 - INFO - Matched NIFTY_IT (IT): -0.28%
+2025-04-24 07:27:19,006 - INFO - Matched NIFTY_IT (IT): 55347.65%
+2025-04-24 07:27:19,006 - INFO - Matched NIFTY_IT (IT): 55347.65%
+2025-04-24 07:27:19,006 - INFO - Matched NIFTY_IT (IT): 55347.65%
+2025-04-24 07:27:19,006 - INFO - Matched NIFTY_IT (IT): -0.04%
+2025-04-24 07:27:21,621 - INFO - Final data contains 17 sectors
+2025-04-24 07:27:21,622 - INFO - Saved sector data to text file: sector_data.txt
+2025-04-24 07:27:21,624 - INFO - Saved sector data to CSV file: sector_data.csv
+2025-04-24 07:27:21,631 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 07:27:53,056 - INFO - Browser page refreshed
+2025-04-24 07:27:53,166 - INFO - Found 20 sector entries via JavaScript
+2025-04-24 07:27:53,166 - INFO - Matched NIFTY_IT (IT): 5024260.05%
+2025-04-24 07:27:53,167 - INFO - Matched NIFTY_IT (IT): 5024260.05%
+2025-04-24 07:27:53,167 - INFO - Matched NIFTY_IT (IT): 5024260.05%
+2025-04-24 07:27:53,169 - INFO - Matched NIFTY_IT (IT): 5024260.05%
+2025-04-24 07:27:53,169 - INFO - Matched NIFTY_AUTO (AUTOMOBILE): 26346.15%
+2025-04-24 07:27:53,169 - INFO - Matched NIFTY_AUTO (AUTOMOBILE): 26346.15%
+2025-04-24 07:27:53,170 - INFO - Matched NIFTY_AUTO (AUTOMOBILE): -0.38%
+2025-04-24 07:27:53,170 - INFO - Matched NIFTY_AUTO (AUTOMOBILE): 16.44%
+2025-04-24 07:27:53,170 - INFO - Matched NIFTY_AUTO (AUTOMOBILE): 16.44%
+2025-04-24 07:27:53,170 - INFO - Matched NIFTY_AUTO (AUTOMOBILE): 3.01%
+2025-04-24 07:27:53,171 - INFO - Matched NIFTY_IT (IT): 5024260.05%
+2025-04-24 07:27:53,171 - INFO - Matched NIFTY_IT (IT): 5024260.05%
+2025-04-24 07:27:53,171 - INFO - Matched NIFTY_IT (IT): 5024260.05%
+2025-04-24 07:27:53,172 - INFO - Matched NIFTY_IT (IT): 5024260.05%
+2025-04-24 07:27:53,172 - INFO - Matched NIFTY_IT (IT): 24260.05%
+2025-04-24 07:27:53,173 - INFO - Matched NIFTY_IT (IT): -0.28%
+2025-04-24 07:27:53,173 - INFO - Matched NIFTY_IT (IT): 55345.15%
+2025-04-24 07:27:53,173 - INFO - Matched NIFTY_IT (IT): 55345.15%
+2025-04-24 07:27:53,175 - INFO - Matched NIFTY_IT (IT): 55345.15%
+2025-04-24 07:27:53,181 - INFO - Matched NIFTY_IT (IT): -0.04%
+2025-04-24 07:27:54,503 - INFO - Final data contains 17 sectors
+2025-04-24 07:27:54,504 - INFO - Saved sector data to text file: sector_data.txt
+2025-04-24 07:27:54,506 - INFO - Saved sector data to CSV file: sector_data.csv
+2025-04-24 07:27:54,513 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 07:28:25,425 - INFO - Browser page refreshed
+2025-04-24 07:28:26,516 - INFO - Final data contains 17 sectors
+2025-04-24 07:28:26,517 - INFO - Saved sector data to text file: sector_data.txt
+2025-04-24 07:28:26,520 - INFO - Saved sector data to CSV file: sector_data.csv
+2025-04-24 07:28:26,528 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 07:28:58,022 - INFO - Browser page refreshed
+2025-04-24 07:28:58,256 - INFO - Found 20 sector entries via JavaScript
+2025-04-24 07:28:58,260 - INFO - Matched NIFTY_IT (IT): 5024261.15%
+2025-04-24 07:28:58,260 - INFO - Matched NIFTY_IT (IT): 5024261.15%
+2025-04-24 07:28:58,261 - INFO - Matched NIFTY_IT (IT): 5024261.15%
+2025-04-24 07:28:58,261 - INFO - Matched NIFTY_IT (IT): 5024261.15%
+2025-04-24 07:28:58,262 - INFO - Matched NIFTY_AUTO (AUTOMOBILE): 26345.65%
+2025-04-24 07:28:58,262 - INFO - Matched NIFTY_AUTO (AUTOMOBILE): 26345.65%
+2025-04-24 07:28:58,262 - INFO - Matched NIFTY_AUTO (AUTOMOBILE): -0.38%
+2025-04-24 07:28:58,263 - INFO - Matched NIFTY_AUTO (AUTOMOBILE): 16.42%
+2025-04-24 07:28:58,263 - INFO - Matched NIFTY_AUTO (AUTOMOBILE): 16.42%
+2025-04-24 07:28:58,263 - INFO - Matched NIFTY_AUTO (AUTOMOBILE): 2.88%
+2025-04-24 07:28:58,264 - INFO - Matched NIFTY_IT (IT): 5024261.15%
+2025-04-24 07:28:58,264 - INFO - Matched NIFTY_IT (IT): 5024261.15%
+2025-04-24 07:28:58,264 - INFO - Matched NIFTY_IT (IT): 5024261.15%
+2025-04-24 07:28:58,266 - INFO - Matched NIFTY_IT (IT): 5024261.15%
+2025-04-24 07:28:58,267 - INFO - Matched NIFTY_IT (IT): 24261.15%
+2025-04-24 07:28:58,267 - INFO - Matched NIFTY_IT (IT): -0.28%
+2025-04-24 07:28:58,267 - INFO - Matched NIFTY_IT (IT): 55342.05%
+2025-04-24 07:28:58,268 - INFO - Matched NIFTY_IT (IT): 55342.05%
+2025-04-24 07:28:58,269 - INFO - Matched NIFTY_IT (IT): 55342.05%
+2025-04-24 07:28:58,269 - INFO - Matched NIFTY_IT (IT): -0.05%
+2025-04-24 07:29:02,149 - INFO - Final data contains 17 sectors
+2025-04-24 07:29:02,150 - INFO - Saved sector data to text file: sector_data.txt
+2025-04-24 07:29:02,153 - INFO - Saved sector data to CSV file: sector_data.csv
+2025-04-24 07:29:02,162 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 07:29:33,538 - INFO - Browser page refreshed
+2025-04-24 07:29:34,946 - INFO - Final data contains 17 sectors
+2025-04-24 07:29:34,947 - INFO - Saved sector data to text file: sector_data.txt
+2025-04-24 07:29:34,950 - INFO - Saved sector data to CSV file: sector_data.csv
+2025-04-24 07:29:34,958 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 07:30:05,872 - INFO - Browser page refreshed
+2025-04-24 07:30:06,607 - INFO - Final data contains 17 sectors
+2025-04-24 07:30:06,608 - INFO - Saved sector data to text file: sector_data.txt
+2025-04-24 07:30:06,612 - INFO - Saved sector data to CSV file: sector_data.csv
+2025-04-24 07:30:06,619 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 07:30:37,302 - INFO - Browser page refreshed
+2025-04-24 07:30:38,101 - INFO - Final data contains 17 sectors
+2025-04-24 07:30:38,102 - INFO - Saved sector data to text file: sector_data.txt
+2025-04-24 07:30:38,105 - INFO - Saved sector data to CSV file: sector_data.csv
+2025-04-24 07:30:38,112 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 07:31:09,050 - INFO - Browser page refreshed
+2025-04-24 07:31:10,421 - INFO - Final data contains 17 sectors
+2025-04-24 07:31:10,422 - INFO - Saved sector data to text file: sector_data.txt
+2025-04-24 07:31:10,426 - INFO - Saved sector data to CSV file: sector_data.csv
+2025-04-24 07:31:10,436 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 07:31:41,165 - INFO - Browser page refreshed
+2025-04-24 07:31:42,362 - INFO - Final data contains 17 sectors
+2025-04-24 07:31:42,363 - INFO - Saved sector data to text file: sector_data.txt
+2025-04-24 07:31:42,366 - INFO - Saved sector data to CSV file: sector_data.csv
+2025-04-24 07:31:42,376 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 07:32:13,266 - INFO - Browser page refreshed
+2025-04-24 07:32:13,977 - INFO - Final data contains 17 sectors
+2025-04-24 07:32:13,978 - INFO - Saved sector data to text file: sector_data.txt
+2025-04-24 07:32:13,981 - INFO - Saved sector data to CSV file: sector_data.csv
+2025-04-24 07:32:13,989 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 07:32:44,656 - INFO - Browser page refreshed
+2025-04-24 07:32:45,257 - INFO - Final data contains 17 sectors
+2025-04-24 07:32:45,258 - INFO - Saved sector data to text file: sector_data.txt
+2025-04-24 07:32:45,260 - INFO - Saved sector data to CSV file: sector_data.csv
+2025-04-24 07:32:45,267 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 07:33:15,837 - INFO - Browser page refreshed
+2025-04-24 07:33:16,491 - INFO - Final data contains 17 sectors
+2025-04-24 07:33:16,491 - INFO - Saved sector data to text file: sector_data.txt
+2025-04-24 07:33:16,494 - INFO - Saved sector data to CSV file: sector_data.csv
+2025-04-24 07:33:16,500 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 07:33:47,169 - INFO - Browser page refreshed
+2025-04-24 07:33:47,762 - INFO - Final data contains 17 sectors
+2025-04-24 07:33:47,763 - INFO - Saved sector data to text file: sector_data.txt
+2025-04-24 07:33:47,765 - INFO - Saved sector data to CSV file: sector_data.csv
+2025-04-24 07:33:47,772 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 07:34:18,373 - INFO - Browser page refreshed
+2025-04-24 07:34:18,990 - INFO - Final data contains 17 sectors
+2025-04-24 07:34:18,991 - INFO - Saved sector data to text file: sector_data.txt
+2025-04-24 07:34:18,994 - INFO - Saved sector data to CSV file: sector_data.csv
+2025-04-24 07:34:19,000 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 07:34:49,778 - INFO - Browser page refreshed
+2025-04-24 07:34:50,646 - INFO - Final data contains 17 sectors
+2025-04-24 07:34:50,647 - INFO - Saved sector data to text file: sector_data.txt
+2025-04-24 07:34:50,651 - INFO - Saved sector data to CSV file: sector_data.csv
+2025-04-24 07:34:50,660 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 07:35:21,398 - INFO - Browser page refreshed
+2025-04-24 07:35:22,183 - INFO - Final data contains 17 sectors
+2025-04-24 07:35:22,184 - INFO - Saved sector data to text file: sector_data.txt
+2025-04-24 07:35:22,187 - INFO - Saved sector data to CSV file: sector_data.csv
+2025-04-24 07:35:22,195 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 07:35:52,979 - INFO - Browser page refreshed
+2025-04-24 07:35:53,978 - INFO - Final data contains 17 sectors
+2025-04-24 07:35:53,980 - INFO - Saved sector data to text file: sector_data.txt
+2025-04-24 07:35:53,983 - INFO - Saved sector data to CSV file: sector_data.csv
+2025-04-24 07:35:54,007 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 07:36:24,603 - INFO - Browser page refreshed
+2025-04-24 07:36:25,192 - INFO - Final data contains 17 sectors
+2025-04-24 07:36:25,193 - INFO - Saved sector data to text file: sector_data.txt
+2025-04-24 07:36:25,195 - INFO - Saved sector data to CSV file: sector_data.csv
+2025-04-24 07:36:25,201 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 07:36:55,800 - INFO - Browser page refreshed
+2025-04-24 07:36:56,409 - INFO - Final data contains 17 sectors
+2025-04-24 07:36:56,411 - INFO - Saved sector data to text file: sector_data.txt
+2025-04-24 07:36:56,413 - INFO - Saved sector data to CSV file: sector_data.csv
+2025-04-24 07:36:56,421 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 07:37:27,102 - INFO - Browser page refreshed
+2025-04-24 07:37:27,773 - INFO - Final data contains 17 sectors
+2025-04-24 07:37:27,774 - INFO - Saved sector data to text file: sector_data.txt
+2025-04-24 07:37:27,776 - INFO - Saved sector data to CSV file: sector_data.csv
+2025-04-24 07:37:27,784 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 07:37:58,550 - INFO - Browser page refreshed
+2025-04-24 07:37:59,284 - INFO - Final data contains 17 sectors
+2025-04-24 07:37:59,285 - INFO - Saved sector data to text file: sector_data.txt
+2025-04-24 07:37:59,288 - INFO - Saved sector data to CSV file: sector_data.csv
+2025-04-24 07:37:59,294 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 07:38:30,013 - INFO - Browser page refreshed
+2025-04-24 07:38:30,607 - INFO - Final data contains 17 sectors
+2025-04-24 07:38:30,608 - INFO - Saved sector data to text file: sector_data.txt
+2025-04-24 07:38:30,611 - INFO - Saved sector data to CSV file: sector_data.csv
+2025-04-24 07:38:30,617 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 07:39:01,216 - INFO - Browser page refreshed
+2025-04-24 07:39:01,791 - INFO - Final data contains 17 sectors
+2025-04-24 07:39:01,792 - INFO - Saved sector data to text file: sector_data.txt
+2025-04-24 07:39:01,795 - INFO - Saved sector data to CSV file: sector_data.csv
+2025-04-24 07:39:01,800 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 07:39:32,407 - INFO - Browser page refreshed
+2025-04-24 07:39:32,992 - INFO - Final data contains 17 sectors
+2025-04-24 07:39:32,993 - INFO - Saved sector data to text file: sector_data.txt
+2025-04-24 07:39:32,995 - INFO - Saved sector data to CSV file: sector_data.csv
+2025-04-24 07:39:33,002 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 07:40:03,690 - INFO - Browser page refreshed
+2025-04-24 07:40:04,377 - INFO - Final data contains 17 sectors
+2025-04-24 07:40:04,378 - INFO - Saved sector data to text file: sector_data.txt
+2025-04-24 07:40:04,381 - INFO - Saved sector data to CSV file: sector_data.csv
+2025-04-24 07:40:04,387 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 07:40:34,984 - INFO - Browser page refreshed
+2025-04-24 07:40:35,575 - INFO - Final data contains 17 sectors
+2025-04-24 07:40:35,576 - INFO - Saved sector data to text file: sector_data.txt
+2025-04-24 07:40:35,578 - INFO - Saved sector data to CSV file: sector_data.csv
+2025-04-24 07:40:35,585 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 07:41:06,118 - INFO - Browser page refreshed
+2025-04-24 07:41:06,883 - INFO - Final data contains 17 sectors
+2025-04-24 07:41:06,884 - INFO - Saved sector data to text file: sector_data.txt
+2025-04-24 07:41:06,886 - INFO - Saved sector data to CSV file: sector_data.csv
+2025-04-24 07:41:06,891 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 07:41:37,559 - INFO - Browser page refreshed
+2025-04-24 07:41:38,199 - INFO - Final data contains 17 sectors
+2025-04-24 07:41:38,200 - INFO - Saved sector data to text file: sector_data.txt
+2025-04-24 07:41:38,203 - INFO - Saved sector data to CSV file: sector_data.csv
+2025-04-24 07:41:38,223 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 07:42:08,731 - INFO - Browser page refreshed
+2025-04-24 07:42:09,283 - INFO - Final data contains 17 sectors
+2025-04-24 07:42:09,284 - INFO - Saved sector data to text file: sector_data.txt
+2025-04-24 07:42:09,286 - INFO - Saved sector data to CSV file: sector_data.csv
+2025-04-24 07:42:09,292 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 07:42:40,127 - INFO - Browser page refreshed
+2025-04-24 07:42:40,749 - INFO - Final data contains 17 sectors
+2025-04-24 07:42:40,751 - INFO - Saved sector data to text file: sector_data.txt
+2025-04-24 07:42:40,755 - INFO - Saved sector data to CSV file: sector_data.csv
+2025-04-24 07:42:40,763 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 07:43:13,509 - INFO - Browser page refreshed
+2025-04-24 07:43:13,642 - INFO - Found 42 sector entries via JavaScript
+2025-04-24 07:43:13,642 - INFO - Matched NIFTY_PHARMA (PHARMA): 5024260.35%
+2025-04-24 07:43:13,643 - INFO - Matched NIFTY_IT (IT): 5024260.35%
+2025-04-24 07:43:13,643 - INFO - Matched NIFTY_PHARMA (PHARMA): 5024260.35%
+2025-04-24 07:43:13,643 - INFO - Matched NIFTY_PHARMA (PHARMA): 5024260.35%
+2025-04-24 07:43:13,646 - INFO - Matched NIFTY_PHARMA (PHARMA): 5024260.35%
+2025-04-24 07:43:13,646 - INFO - Matched NIFTY_PHARMA (PHARMA): 24260.35%
+2025-04-24 07:43:13,647 - INFO - Matched NIFTY_PHARMA (PHARMA): -0.28%
+2025-04-24 07:43:13,647 - INFO - Matched NIFTY_PHARMA (PHARMA): 55350.45%
+2025-04-24 07:43:13,647 - INFO - Matched NIFTY_PHARMA (PHARMA): 55350.45%
+2025-04-24 07:43:13,648 - INFO - Matched NIFTY_PHARMA (PHARMA): -0.04%
+2025-04-24 07:43:13,648 - INFO - Matched NIFTY_IT (IT): 10055005.05%
+2025-04-24 07:43:13,649 - INFO - Matched NIFTY_IT (IT): 55005.05%
+2025-04-24 07:43:13,649 - INFO - Matched NIFTY_AUTO (AUTOMOBILE): -0.36%
+2025-04-24 07:43:13,649 - INFO - Matched NIFTY_AUTO (AUTOMOBILE): 16.44%
+2025-04-24 07:43:13,650 - INFO - Matched NIFTY_AUTO (AUTOMOBILE): 16.44%
+2025-04-24 07:43:13,650 - INFO - Matched NIFTY_AUTO (AUTOMOBILE): 3.01%
+2025-04-24 07:43:13,650 - INFO - Matched NIFTY_AUTO (AUTOMOBILE): 79842.08%
+2025-04-24 07:43:13,651 - INFO - Matched NIFTY_AUTO (AUTOMOBILE): 79842.08%
+2025-04-24 07:43:13,651 - INFO - Matched NIFTY_PHARMA (PHARMA): 5024260.35%
+2025-04-24 07:43:13,651 - INFO - Matched NIFTY_PHARMA (PHARMA): 5024260.35%
+2025-04-24 07:43:13,651 - INFO - Matched NIFTY_PHARMA (PHARMA): 5024260.35%
+2025-04-24 07:43:13,652 - INFO - Matched NIFTY_PHARMA (PHARMA): 5024260.35%
+2025-04-24 07:43:13,653 - INFO - Matched NIFTY_PHARMA (PHARMA): 24260.35%
+2025-04-24 07:43:13,653 - INFO - Matched NIFTY_PHARMA (PHARMA): -0.28%
+2025-04-24 07:43:13,654 - INFO - Matched NIFTY_PHARMA (PHARMA): 55350.45%
+2025-04-24 07:43:13,654 - INFO - Matched NIFTY_PHARMA (PHARMA): 55350.45%
+2025-04-24 07:43:13,654 - INFO - Matched NIFTY_PHARMA (PHARMA): 55350.45%
+2025-04-24 07:43:13,654 - INFO - Matched NIFTY_PHARMA (PHARMA): -0.04%
+2025-04-24 07:43:13,655 - INFO - Matched NIFTY_PHARMA (PHARMA): 11.2%
+2025-04-24 07:43:13,655 - INFO - Matched NIFTY_PHARMA (PHARMA): 11.2%
+2025-04-24 07:43:13,655 - INFO - Matched NIFTY_PHARMA (PHARMA): 11.2%
+2025-04-24 07:43:13,656 - INFO - Matched NIFTY_PHARMA (PHARMA): 11.2%
+2025-04-24 07:43:13,656 - INFO - Matched NIFTY_PHARMA (PHARMA): 11.2%
+2025-04-24 07:43:13,656 - INFO - Matched NIFTY_PHARMA (PHARMA): 11.2%
+2025-04-24 07:43:13,656 - INFO - Matched NIFTY_PHARMA (PHARMA): 11.2%
+2025-04-24 07:43:13,657 - INFO - Matched NIFTY_AUTO (AUTOMOBILE): 1.2%
+2025-04-24 07:43:13,657 - INFO - Matched NIFTY_IT (IT): -0.96%
+2025-04-24 07:43:13,657 - INFO - Matched NIFTY_PHARMA (PHARMA): -1.42%
+2025-04-24 07:43:13,658 - INFO - Matched NIFTY_AUTO (AUTOMOBILE): 665.7%
+2025-04-24 07:43:13,658 - INFO - Matched NIFTY_AUTO (AUTOMOBILE): 665.7%
+2025-04-24 07:43:13,658 - INFO - Matched NIFTY_AUTO (AUTOMOBILE): 665.7%
+2025-04-24 07:43:13,659 - INFO - Matched NIFTY_AUTO (AUTOMOBILE): 665.7%
+2025-04-24 07:43:15,710 - INFO - Final data contains 3 sectors
+2025-04-24 07:43:15,711 - INFO - Saved sector data to text file: sector_data.txt
+2025-04-24 07:43:15,713 - INFO - Saved sector data to CSV file: sector_data.csv
+2025-04-24 07:43:15,715 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 07:43:46,409 - INFO - Browser page refreshed
+2025-04-24 07:43:47,159 - INFO - Final data contains 17 sectors
+2025-04-24 07:43:47,160 - INFO - Saved sector data to text file: sector_data.txt
+2025-04-24 07:43:47,163 - INFO - Saved sector data to CSV file: sector_data.csv
+2025-04-24 07:43:47,170 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 07:44:17,903 - INFO - Browser page refreshed
+2025-04-24 07:44:18,684 - INFO - Final data contains 17 sectors
+2025-04-24 07:44:18,685 - INFO - Saved sector data to text file: sector_data.txt
+2025-04-24 07:44:18,688 - INFO - Saved sector data to CSV file: sector_data.csv
+2025-04-24 07:44:18,694 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 07:44:49,740 - INFO - Browser page refreshed
+2025-04-24 07:44:50,428 - INFO - Final data contains 17 sectors
+2025-04-24 07:44:50,430 - INFO - Saved sector data to text file: sector_data.txt
+2025-04-24 07:44:50,432 - INFO - Saved sector data to CSV file: sector_data.csv
+2025-04-24 07:44:50,439 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 07:45:21,183 - INFO - Browser page refreshed
+2025-04-24 07:45:21,870 - INFO - Final data contains 17 sectors
+2025-04-24 07:45:21,872 - INFO - Saved sector data to text file: sector_data.txt
+2025-04-24 07:45:21,874 - INFO - Saved sector data to CSV file: sector_data.csv
+2025-04-24 07:45:21,880 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 07:45:52,538 - INFO - Browser page refreshed
+2025-04-24 07:45:53,181 - INFO - Final data contains 17 sectors
+2025-04-24 07:45:53,183 - INFO - Saved sector data to text file: sector_data.txt
+2025-04-24 07:45:53,186 - INFO - Saved sector data to CSV file: sector_data.csv
+2025-04-24 07:45:53,192 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 07:46:24,010 - INFO - Browser page refreshed
+2025-04-24 07:46:24,763 - INFO - Final data contains 17 sectors
+2025-04-24 07:46:24,766 - INFO - Saved sector data to text file: sector_data.txt
+2025-04-24 07:46:24,768 - INFO - Saved sector data to CSV file: sector_data.csv
+2025-04-24 07:46:24,773 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 07:46:55,396 - INFO - Browser page refreshed
+2025-04-24 07:46:56,025 - INFO - Final data contains 17 sectors
+2025-04-24 07:46:56,026 - INFO - Saved sector data to text file: sector_data.txt
+2025-04-24 07:46:56,029 - INFO - Saved sector data to CSV file: sector_data.csv
+2025-04-24 07:46:56,036 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 07:47:26,837 - INFO - Browser page refreshed
+2025-04-24 07:47:27,435 - INFO - Final data contains 17 sectors
+2025-04-24 07:47:27,436 - INFO - Saved sector data to text file: sector_data.txt
+2025-04-24 07:47:27,439 - INFO - Saved sector data to CSV file: sector_data.csv
+2025-04-24 07:47:27,446 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 07:47:58,427 - INFO - Browser page refreshed
+2025-04-24 07:47:59,435 - INFO - Final data contains 17 sectors
+2025-04-24 07:47:59,436 - INFO - Saved sector data to text file: sector_data.txt
+2025-04-24 07:47:59,438 - INFO - Saved sector data to CSV file: sector_data.csv
+2025-04-24 07:47:59,445 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 07:48:30,130 - INFO - Browser page refreshed
+2025-04-24 07:48:30,739 - INFO - Final data contains 17 sectors
+2025-04-24 07:48:30,740 - INFO - Saved sector data to text file: sector_data.txt
+2025-04-24 07:48:30,742 - INFO - Saved sector data to CSV file: sector_data.csv
+2025-04-24 07:48:30,747 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 07:49:01,344 - INFO - Browser page refreshed
+2025-04-24 07:49:01,952 - INFO - Final data contains 17 sectors
+2025-04-24 07:49:01,953 - INFO - Saved sector data to text file: sector_data.txt
+2025-04-24 07:49:01,955 - INFO - Saved sector data to CSV file: sector_data.csv
+2025-04-24 07:49:01,962 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 07:49:32,576 - INFO - Browser page refreshed
+2025-04-24 07:49:33,192 - INFO - Final data contains 17 sectors
+2025-04-24 07:49:33,194 - INFO - Saved sector data to text file: sector_data.txt
+2025-04-24 07:49:33,197 - INFO - Saved sector data to CSV file: sector_data.csv
+2025-04-24 07:49:33,202 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 07:50:03,918 - INFO - Browser page refreshed
+2025-04-24 07:50:04,663 - INFO - Final data contains 17 sectors
+2025-04-24 07:50:04,664 - INFO - Saved sector data to text file: sector_data.txt
+2025-04-24 07:50:04,666 - INFO - Saved sector data to CSV file: sector_data.csv
+2025-04-24 07:50:04,674 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 07:50:35,309 - INFO - Browser page refreshed
+2025-04-24 07:50:35,922 - INFO - Final data contains 17 sectors
+2025-04-24 07:50:35,924 - INFO - Saved sector data to text file: sector_data.txt
+2025-04-24 07:50:35,926 - INFO - Saved sector data to CSV file: sector_data.csv
+2025-04-24 07:50:35,935 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 07:51:06,479 - INFO - Browser page refreshed
+2025-04-24 07:51:07,095 - INFO - Final data contains 17 sectors
+2025-04-24 07:51:07,096 - INFO - Saved sector data to text file: sector_data.txt
+2025-04-24 07:51:07,098 - INFO - Saved sector data to CSV file: sector_data.csv
+2025-04-24 07:51:07,106 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 07:51:37,750 - INFO - Browser page refreshed
+2025-04-24 07:51:38,967 - INFO - Final data contains 17 sectors
+2025-04-24 07:51:38,968 - INFO - Saved sector data to text file: sector_data.txt
+2025-04-24 07:51:38,971 - INFO - Saved sector data to CSV file: sector_data.csv
+2025-04-24 07:51:38,978 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 07:52:09,495 - INFO - Browser page refreshed
+2025-04-24 07:52:10,124 - INFO - Final data contains 17 sectors
+2025-04-24 07:52:10,125 - INFO - Saved sector data to text file: sector_data.txt
+2025-04-24 07:52:10,128 - INFO - Saved sector data to CSV file: sector_data.csv
+2025-04-24 07:52:10,135 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 07:52:40,781 - INFO - Browser page refreshed
+2025-04-24 07:52:41,406 - INFO - Final data contains 17 sectors
+2025-04-24 07:52:41,407 - INFO - Saved sector data to text file: sector_data.txt
+2025-04-24 07:52:41,409 - INFO - Saved sector data to CSV file: sector_data.csv
+2025-04-24 07:52:41,417 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 07:53:12,084 - INFO - Browser page refreshed
+2025-04-24 07:53:12,695 - INFO - Final data contains 17 sectors
+2025-04-24 07:53:12,696 - INFO - Saved sector data to text file: sector_data.txt
+2025-04-24 07:53:12,698 - INFO - Saved sector data to CSV file: sector_data.csv
+2025-04-24 07:53:12,707 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 07:53:43,343 - INFO - Browser page refreshed
+2025-04-24 07:53:43,969 - INFO - Final data contains 17 sectors
+2025-04-24 07:53:43,971 - INFO - Saved sector data to text file: sector_data.txt
+2025-04-24 07:53:43,974 - INFO - Saved sector data to CSV file: sector_data.csv
+2025-04-24 07:53:43,982 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 07:54:15,030 - INFO - Browser page refreshed
+2025-04-24 07:54:16,283 - INFO - Final data contains 17 sectors
+2025-04-24 07:54:16,284 - INFO - Saved sector data to text file: sector_data.txt
+2025-04-24 07:54:16,286 - INFO - Saved sector data to CSV file: sector_data.csv
+2025-04-24 07:54:16,294 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 07:54:46,942 - INFO - Browser page refreshed
+2025-04-24 07:54:47,923 - INFO - Final data contains 17 sectors
+2025-04-24 07:54:47,924 - INFO - Saved sector data to text file: sector_data.txt
+2025-04-24 07:54:47,926 - INFO - Saved sector data to CSV file: sector_data.csv
+2025-04-24 07:54:47,934 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 07:55:18,682 - INFO - Browser page refreshed
+2025-04-24 07:55:19,437 - INFO - Final data contains 17 sectors
+2025-04-24 07:55:19,438 - INFO - Saved sector data to text file: sector_data.txt
+2025-04-24 07:55:19,440 - INFO - Saved sector data to CSV file: sector_data.csv
+2025-04-24 07:55:19,447 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 07:55:50,053 - INFO - Browser page refreshed
+2025-04-24 07:55:50,820 - INFO - Final data contains 17 sectors
+2025-04-24 07:55:50,821 - INFO - Saved sector data to text file: sector_data.txt
+2025-04-24 07:55:50,823 - INFO - Saved sector data to CSV file: sector_data.csv
+2025-04-24 07:55:50,831 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 07:56:21,713 - INFO - Browser page refreshed
+2025-04-24 07:56:22,425 - INFO - Final data contains 17 sectors
+2025-04-24 07:56:22,425 - INFO - Saved sector data to text file: sector_data.txt
+2025-04-24 07:56:22,428 - INFO - Saved sector data to CSV file: sector_data.csv
+2025-04-24 07:56:22,435 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 07:56:53,073 - INFO - Browser page refreshed
+2025-04-24 07:56:53,810 - INFO - Final data contains 17 sectors
+2025-04-24 07:56:53,811 - INFO - Saved sector data to text file: sector_data.txt
+2025-04-24 07:56:53,814 - INFO - Saved sector data to CSV file: sector_data.csv
+2025-04-24 07:56:53,822 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 07:57:24,480 - INFO - Browser page refreshed
+2025-04-24 07:57:25,198 - INFO - Final data contains 17 sectors
+2025-04-24 07:57:25,200 - INFO - Saved sector data to text file: sector_data.txt
+2025-04-24 07:57:25,203 - INFO - Saved sector data to CSV file: sector_data.csv
+2025-04-24 07:57:25,211 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 07:57:55,856 - INFO - Browser page refreshed
+2025-04-24 07:57:56,502 - INFO - Final data contains 17 sectors
+2025-04-24 07:57:56,503 - INFO - Saved sector data to text file: sector_data.txt
+2025-04-24 07:57:56,505 - INFO - Saved sector data to CSV file: sector_data.csv
+2025-04-24 07:57:56,515 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 07:58:27,341 - INFO - Browser page refreshed
+2025-04-24 07:58:27,969 - INFO - Final data contains 17 sectors
+2025-04-24 07:58:27,971 - INFO - Saved sector data to text file: sector_data.txt
+2025-04-24 07:58:27,973 - INFO - Saved sector data to CSV file: sector_data.csv
+2025-04-24 07:58:27,979 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 07:58:58,791 - INFO - Browser page refreshed
+2025-04-24 07:59:00,008 - INFO - Final data contains 17 sectors
+2025-04-24 07:59:00,009 - INFO - Saved sector data to text file: sector_data.txt
+2025-04-24 07:59:00,013 - INFO - Saved sector data to CSV file: sector_data.csv
+2025-04-24 07:59:00,021 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 07:59:30,743 - INFO - Browser page refreshed
+2025-04-24 07:59:31,358 - INFO - Final data contains 17 sectors
+2025-04-24 07:59:31,359 - INFO - Saved sector data to text file: sector_data.txt
+2025-04-24 07:59:31,361 - INFO - Saved sector data to CSV file: sector_data.csv
+2025-04-24 07:59:31,368 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 08:00:02,195 - INFO - Browser page refreshed
+2025-04-24 08:00:02,789 - INFO - Final data contains 17 sectors
+2025-04-24 08:00:02,790 - INFO - Saved sector data to text file: sector_data.txt
+2025-04-24 08:00:02,793 - INFO - Saved sector data to CSV file: sector_data.csv
+2025-04-24 08:00:02,799 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 08:00:33,418 - INFO - Browser page refreshed
+2025-04-24 08:00:34,142 - INFO - Final data contains 17 sectors
+2025-04-24 08:00:34,143 - INFO - Saved sector data to text file: sector_data.txt
+2025-04-24 08:00:34,146 - INFO - Saved sector data to CSV file: sector_data.csv
+2025-04-24 08:00:34,152 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 08:01:04,756 - INFO - Browser page refreshed
+2025-04-24 08:01:05,721 - INFO - Final data contains 17 sectors
+2025-04-24 08:01:05,722 - INFO - Saved sector data to text file: sector_data.txt
+2025-04-24 08:01:05,724 - INFO - Saved sector data to CSV file: sector_data.csv
+2025-04-24 08:01:05,732 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 08:01:36,559 - INFO - Browser page refreshed
+2025-04-24 08:01:37,217 - INFO - Final data contains 17 sectors
+2025-04-24 08:01:37,218 - INFO - Saved sector data to text file: sector_data.txt
+2025-04-24 08:01:37,220 - INFO - Saved sector data to CSV file: sector_data.csv
+2025-04-24 08:01:37,229 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 08:02:07,894 - INFO - Browser page refreshed
+2025-04-24 08:02:08,673 - INFO - Final data contains 17 sectors
+2025-04-24 08:02:08,674 - INFO - Saved sector data to text file: sector_data.txt
+2025-04-24 08:02:08,677 - INFO - Saved sector data to CSV file: sector_data.csv
+2025-04-24 08:02:08,687 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 08:02:39,348 - INFO - Browser page refreshed
+2025-04-24 08:02:40,103 - INFO - Final data contains 17 sectors
+2025-04-24 08:02:40,104 - INFO - Saved sector data to text file: sector_data.txt
+2025-04-24 08:02:40,106 - INFO - Saved sector data to CSV file: sector_data.csv
+2025-04-24 08:02:40,115 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 08:03:10,868 - INFO - Browser page refreshed
+2025-04-24 08:03:11,525 - INFO - Final data contains 17 sectors
+2025-04-24 08:03:11,526 - INFO - Saved sector data to text file: sector_data.txt
+2025-04-24 08:03:11,529 - INFO - Saved sector data to CSV file: sector_data.csv
+2025-04-24 08:03:11,543 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 08:03:42,136 - INFO - Browser page refreshed
+2025-04-24 08:03:42,761 - INFO - Final data contains 17 sectors
+2025-04-24 08:03:42,762 - INFO - Saved sector data to text file: sector_data.txt
+2025-04-24 08:03:42,765 - INFO - Saved sector data to CSV file: sector_data.csv
+2025-04-24 08:03:42,773 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 08:04:13,573 - INFO - Browser page refreshed
+2025-04-24 08:04:14,208 - INFO - Final data contains 17 sectors
+2025-04-24 08:04:14,209 - INFO - Saved sector data to text file: sector_data.txt
+2025-04-24 08:04:14,211 - INFO - Saved sector data to CSV file: sector_data.csv
+2025-04-24 08:04:14,216 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 08:04:45,097 - INFO - Browser page refreshed
+2025-04-24 08:04:45,695 - INFO - Final data contains 17 sectors
+2025-04-24 08:04:45,696 - INFO - Saved sector data to text file: sector_data.txt
+2025-04-24 08:04:45,700 - INFO - Saved sector data to CSV file: sector_data.csv
+2025-04-24 08:04:45,707 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 08:05:16,577 - INFO - Browser page refreshed
+2025-04-24 08:05:17,203 - INFO - Final data contains 17 sectors
+2025-04-24 08:05:17,204 - INFO - Saved sector data to text file: sector_data.txt
+2025-04-24 08:05:17,206 - INFO - Saved sector data to CSV file: sector_data.csv
+2025-04-24 08:05:17,212 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 08:05:47,924 - INFO - Browser page refreshed
+2025-04-24 08:05:48,620 - INFO - Final data contains 17 sectors
+2025-04-24 08:05:48,621 - INFO - Saved sector data to text file: sector_data.txt
+2025-04-24 08:05:48,623 - INFO - Saved sector data to CSV file: sector_data.csv
+2025-04-24 08:05:48,633 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 08:06:19,360 - INFO - Browser page refreshed
+2025-04-24 08:06:19,942 - INFO - Final data contains 17 sectors
+2025-04-24 08:06:19,943 - INFO - Saved sector data to text file: sector_data.txt
+2025-04-24 08:06:19,945 - INFO - Saved sector data to CSV file: sector_data.csv
+2025-04-24 08:06:19,951 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 08:06:50,777 - INFO - Browser page refreshed
+2025-04-24 08:06:51,469 - INFO - Final data contains 17 sectors
+2025-04-24 08:06:51,470 - INFO - Saved sector data to text file: sector_data.txt
+2025-04-24 08:06:51,473 - INFO - Saved sector data to CSV file: sector_data.csv
+2025-04-24 08:06:51,479 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 08:07:22,057 - INFO - Browser page refreshed
+2025-04-24 08:07:22,678 - INFO - Final data contains 17 sectors
+2025-04-24 08:07:22,679 - INFO - Saved sector data to text file: sector_data.txt
+2025-04-24 08:07:22,682 - INFO - Saved sector data to CSV file: sector_data.csv
+2025-04-24 08:07:22,691 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 08:07:53,290 - INFO - Browser page refreshed
+2025-04-24 08:07:53,917 - INFO - Final data contains 17 sectors
+2025-04-24 08:07:53,918 - INFO - Saved sector data to text file: sector_data.txt
+2025-04-24 08:07:53,920 - INFO - Saved sector data to CSV file: sector_data.csv
+2025-04-24 08:07:53,926 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 08:08:24,573 - INFO - Browser page refreshed
+2025-04-24 08:08:25,193 - INFO - Final data contains 17 sectors
+2025-04-24 08:08:25,194 - INFO - Saved sector data to text file: sector_data.txt
+2025-04-24 08:08:25,196 - INFO - Saved sector data to CSV file: sector_data.csv
+2025-04-24 08:08:25,203 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 08:08:56,044 - INFO - Browser page refreshed
+2025-04-24 08:08:56,671 - INFO - Final data contains 17 sectors
+2025-04-24 08:08:56,672 - INFO - Saved sector data to text file: sector_data.txt
+2025-04-24 08:08:56,675 - INFO - Saved sector data to CSV file: sector_data.csv
+2025-04-24 08:08:56,681 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 08:09:27,365 - INFO - Browser page refreshed
+2025-04-24 08:09:27,990 - INFO - Final data contains 17 sectors
+2025-04-24 08:09:27,991 - INFO - Saved sector data to text file: sector_data.txt
+2025-04-24 08:09:27,993 - INFO - Saved sector data to CSV file: sector_data.csv
+2025-04-24 08:09:27,999 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 08:09:58,679 - INFO - Browser page refreshed
+2025-04-24 08:09:59,470 - INFO - Final data contains 17 sectors
+2025-04-24 08:09:59,471 - INFO - Saved sector data to text file: sector_data.txt
+2025-04-24 08:09:59,473 - INFO - Saved sector data to CSV file: sector_data.csv
+2025-04-24 08:09:59,479 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 08:10:30,318 - INFO - Browser page refreshed
+2025-04-24 08:10:30,936 - INFO - Final data contains 17 sectors
+2025-04-24 08:10:30,937 - INFO - Saved sector data to text file: sector_data.txt
+2025-04-24 08:10:30,939 - INFO - Saved sector data to CSV file: sector_data.csv
+2025-04-24 08:10:30,946 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 08:11:01,491 - INFO - Browser page refreshed
+2025-04-24 08:11:02,139 - INFO - Final data contains 17 sectors
+2025-04-24 08:11:02,140 - INFO - Saved sector data to text file: sector_data.txt
+2025-04-24 08:11:02,143 - INFO - Saved sector data to CSV file: sector_data.csv
+2025-04-24 08:11:02,151 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 08:11:32,717 - INFO - Browser page refreshed
+2025-04-24 08:11:33,356 - INFO - Final data contains 17 sectors
+2025-04-24 08:11:33,357 - INFO - Saved sector data to text file: sector_data.txt
+2025-04-24 08:11:33,359 - INFO - Saved sector data to CSV file: sector_data.csv
+2025-04-24 08:11:33,367 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 08:12:04,038 - INFO - Browser page refreshed
+2025-04-24 08:12:04,846 - INFO - Final data contains 17 sectors
+2025-04-24 08:12:04,847 - INFO - Saved sector data to text file: sector_data.txt
+2025-04-24 08:12:04,850 - INFO - Saved sector data to CSV file: sector_data.csv
+2025-04-24 08:12:04,857 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 08:12:35,514 - INFO - Browser page refreshed
+2025-04-24 08:12:36,129 - INFO - Final data contains 17 sectors
+2025-04-24 08:12:36,130 - INFO - Saved sector data to text file: sector_data.txt
+2025-04-24 08:12:36,132 - INFO - Saved sector data to CSV file: sector_data.csv
+2025-04-24 08:12:36,138 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 08:13:06,776 - INFO - Browser page refreshed
+2025-04-24 08:13:07,419 - INFO - Final data contains 17 sectors
+2025-04-24 08:13:07,420 - INFO - Saved sector data to text file: sector_data.txt
+2025-04-24 08:13:07,422 - INFO - Saved sector data to CSV file: sector_data.csv
+2025-04-24 08:13:07,428 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 08:13:38,047 - INFO - Browser page refreshed
+2025-04-24 08:13:38,672 - INFO - Final data contains 17 sectors
+2025-04-24 08:13:38,674 - INFO - Saved sector data to text file: sector_data.txt
+2025-04-24 08:13:38,677 - INFO - Saved sector data to CSV file: sector_data.csv
+2025-04-24 08:13:38,685 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 08:14:09,417 - INFO - Browser page refreshed
+2025-04-24 08:14:10,049 - INFO - Final data contains 17 sectors
+2025-04-24 08:14:10,049 - INFO - Saved sector data to text file: sector_data.txt
+2025-04-24 08:14:10,052 - INFO - Saved sector data to CSV file: sector_data.csv
+2025-04-24 08:14:10,063 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 08:14:40,868 - INFO - Browser page refreshed
+2025-04-24 08:14:41,508 - INFO - Final data contains 17 sectors
+2025-04-24 08:14:41,509 - INFO - Saved sector data to text file: sector_data.txt
+2025-04-24 08:14:41,512 - INFO - Saved sector data to CSV file: sector_data.csv
+2025-04-24 08:14:41,519 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 08:15:12,136 - INFO - Browser page refreshed
+2025-04-24 08:15:12,779 - INFO - Final data contains 17 sectors
+2025-04-24 08:15:12,780 - INFO - Saved sector data to text file: sector_data.txt
+2025-04-24 08:15:12,782 - INFO - Saved sector data to CSV file: sector_data.csv
+2025-04-24 08:15:12,788 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 08:15:43,441 - INFO - Browser page refreshed
+2025-04-24 08:15:44,061 - INFO - Final data contains 17 sectors
+2025-04-24 08:15:44,063 - INFO - Saved sector data to text file: sector_data.txt
+2025-04-24 08:15:44,065 - INFO - Saved sector data to CSV file: sector_data.csv
+2025-04-24 08:15:44,072 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 08:16:14,889 - INFO - Browser page refreshed
+2025-04-24 08:16:15,514 - INFO - Final data contains 17 sectors
+2025-04-24 08:16:15,515 - INFO - Saved sector data to text file: sector_data.txt
+2025-04-24 08:16:15,518 - INFO - Saved sector data to CSV file: sector_data.csv
+2025-04-24 08:16:15,533 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 08:16:46,308 - INFO - Browser page refreshed
+2025-04-24 08:16:47,041 - INFO - Final data contains 17 sectors
+2025-04-24 08:16:47,042 - INFO - Saved sector data to text file: sector_data.txt
+2025-04-24 08:16:47,045 - INFO - Saved sector data to CSV file: sector_data.csv
+2025-04-24 08:16:47,053 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 08:17:17,627 - INFO - Browser page refreshed
+2025-04-24 08:17:18,385 - INFO - Final data contains 17 sectors
+2025-04-24 08:17:18,386 - INFO - Saved sector data to text file: sector_data.txt
+2025-04-24 08:17:18,388 - INFO - Saved sector data to CSV file: sector_data.csv
+2025-04-24 08:17:18,396 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 08:17:49,326 - INFO - Browser page refreshed
+2025-04-24 08:17:50,386 - INFO - Final data contains 17 sectors
+2025-04-24 08:17:50,387 - INFO - Saved sector data to text file: sector_data.txt
+2025-04-24 08:17:50,390 - INFO - Saved sector data to CSV file: sector_data.csv
+2025-04-24 08:17:50,399 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 08:18:21,058 - INFO - Browser page refreshed
+2025-04-24 08:18:21,879 - INFO - Final data contains 17 sectors
+2025-04-24 08:18:21,880 - INFO - Saved sector data to text file: sector_data.txt
+2025-04-24 08:18:21,882 - INFO - Saved sector data to CSV file: sector_data.csv
+2025-04-24 08:18:21,893 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 08:18:52,687 - INFO - Browser page refreshed
+2025-04-24 08:18:53,606 - INFO - Final data contains 17 sectors
+2025-04-24 08:18:53,607 - INFO - Saved sector data to text file: sector_data.txt
+2025-04-24 08:18:53,610 - INFO - Saved sector data to CSV file: sector_data.csv
+2025-04-24 08:18:53,619 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 08:19:24,427 - INFO - Browser page refreshed
+2025-04-24 08:19:25,027 - INFO - Final data contains 17 sectors
+2025-04-24 08:19:25,028 - INFO - Saved sector data to text file: sector_data.txt
+2025-04-24 08:19:25,031 - INFO - Saved sector data to CSV file: sector_data.csv
+2025-04-24 08:19:25,039 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 08:19:56,200 - INFO - Browser page refreshed
+2025-04-24 08:19:56,937 - INFO - Final data contains 17 sectors
+2025-04-24 08:19:56,938 - INFO - Saved sector data to text file: sector_data.txt
+2025-04-24 08:19:56,941 - INFO - Saved sector data to CSV file: sector_data.csv
+2025-04-24 08:19:56,949 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 08:20:27,600 - INFO - Browser page refreshed
+2025-04-24 08:20:28,227 - INFO - Final data contains 17 sectors
+2025-04-24 08:20:28,228 - INFO - Saved sector data to text file: sector_data.txt
+2025-04-24 08:20:28,230 - INFO - Saved sector data to CSV file: sector_data.csv
+2025-04-24 08:20:28,240 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 08:20:59,120 - INFO - Browser page refreshed
+2025-04-24 08:20:59,967 - INFO - Final data contains 17 sectors
+2025-04-24 08:20:59,968 - INFO - Saved sector data to text file: sector_data.txt
+2025-04-24 08:20:59,970 - INFO - Saved sector data to CSV file: sector_data.csv
+2025-04-24 08:20:59,979 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 08:21:30,616 - INFO - Browser page refreshed
+2025-04-24 08:21:31,240 - INFO - Final data contains 17 sectors
+2025-04-24 08:21:31,241 - INFO - Saved sector data to text file: sector_data.txt
+2025-04-24 08:21:31,245 - INFO - Saved sector data to CSV file: sector_data.csv
+2025-04-24 08:21:31,253 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 08:22:02,148 - INFO - Browser page refreshed
+2025-04-24 08:22:03,186 - INFO - Final data contains 17 sectors
+2025-04-24 08:22:03,187 - INFO - Saved sector data to text file: sector_data.txt
+2025-04-24 08:22:03,190 - INFO - Saved sector data to CSV file: sector_data.csv
+2025-04-24 08:22:03,195 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 08:22:33,893 - INFO - Browser page refreshed
+2025-04-24 08:22:34,531 - INFO - Final data contains 17 sectors
+2025-04-24 08:22:34,532 - INFO - Saved sector data to text file: sector_data.txt
+2025-04-24 08:22:34,534 - INFO - Saved sector data to CSV file: sector_data.csv
+2025-04-24 08:22:34,541 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 08:23:05,359 - INFO - Browser page refreshed
+2025-04-24 08:23:06,095 - INFO - Final data contains 17 sectors
+2025-04-24 08:23:06,096 - INFO - Saved sector data to text file: sector_data.txt
+2025-04-24 08:23:06,099 - INFO - Saved sector data to CSV file: sector_data.csv
+2025-04-24 08:23:06,107 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 08:23:36,723 - INFO - Browser page refreshed
+2025-04-24 08:23:37,464 - INFO - Final data contains 17 sectors
+2025-04-24 08:23:37,465 - INFO - Saved sector data to text file: sector_data.txt
+2025-04-24 08:23:37,467 - INFO - Saved sector data to CSV file: sector_data.csv
+2025-04-24 08:23:37,475 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 08:24:08,304 - INFO - Browser page refreshed
+2025-04-24 08:24:08,957 - INFO - Final data contains 17 sectors
+2025-04-24 08:24:08,958 - INFO - Saved sector data to text file: sector_data.txt
+2025-04-24 08:24:08,960 - INFO - Saved sector data to CSV file: sector_data.csv
+2025-04-24 08:24:08,967 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 08:25:32,301 - INFO - Browser page refreshed
+2025-04-24 08:25:32,351 - INFO - Found 25 sector entries via JavaScript
+2025-04-24 08:25:32,351 - INFO - Matched NIFTY_IT (IT): 5024266.25%
+2025-04-24 08:25:32,352 - INFO - Matched NIFTY_IT (IT): 5024266.25%
+2025-04-24 08:25:32,352 - INFO - Matched NIFTY_IT (IT): 5024266.25%
+2025-04-24 08:25:32,353 - INFO - Matched NIFTY_IT (IT): 5024266.25%
+2025-04-24 08:25:32,353 - INFO - Matched NIFTY_IT (IT): 5024266.25%
+2025-04-24 08:25:32,354 - INFO - Matched NIFTY_IT (IT): 24266.25%
+2025-04-24 08:25:32,354 - INFO - Matched NIFTY_IT (IT): -0.26%
+2025-04-24 08:25:32,354 - INFO - Matched NIFTY_IT (IT): 55338.05%
+2025-04-24 08:25:32,355 - INFO - Matched NIFTY_IT (IT): 55338.05%
+2025-04-24 08:25:32,355 - INFO - Matched NIFTY_AUTO (AUTOMOBILE): -0.32%
+2025-04-24 08:25:32,355 - INFO - Matched NIFTY_AUTO (AUTOMOBILE): 16.26%
+2025-04-24 08:25:32,356 - INFO - Matched NIFTY_AUTO (AUTOMOBILE): 16.26%
+2025-04-24 08:25:32,356 - INFO - Matched NIFTY_AUTO (AUTOMOBILE): 1.88%
+2025-04-24 08:25:32,357 - INFO - Matched NIFTY_AUTO (AUTOMOBILE): 79858.46%
+2025-04-24 08:25:32,357 - INFO - Matched NIFTY_AUTO (AUTOMOBILE): 79858.46%
+2025-04-24 08:25:32,357 - INFO - Matched NIFTY_IT (IT): 5024266.25%
+2025-04-24 08:25:32,358 - INFO - Matched NIFTY_IT (IT): 5024266.25%
+2025-04-24 08:25:32,359 - INFO - Matched NIFTY_IT (IT): 5024266.25%
+2025-04-24 08:25:32,359 - INFO - Matched NIFTY_IT (IT): 5024266.25%
+2025-04-24 08:25:32,360 - INFO - Matched NIFTY_IT (IT): 24266.25%
+2025-04-24 08:25:32,360 - INFO - Matched NIFTY_IT (IT): -0.26%
+2025-04-24 08:25:32,361 - INFO - Matched NIFTY_IT (IT): 55338.05%
+2025-04-24 08:25:32,362 - INFO - Matched NIFTY_IT (IT): 55338.05%
+2025-04-24 08:25:32,362 - INFO - Matched NIFTY_IT (IT): 55338.05%
+2025-04-24 08:25:32,365 - INFO - Matched NIFTY_IT (IT): -0.06%
+2025-04-24 08:25:33,675 - INFO - Final data contains 17 sectors
+2025-04-24 08:25:33,677 - INFO - Saved sector data to text file: sector_data.txt
+2025-04-24 08:25:33,680 - INFO - Saved sector data to CSV file: sector_data.csv
+2025-04-24 08:25:33,687 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 08:26:04,810 - INFO - Browser page refreshed
+2025-04-24 08:26:06,204 - INFO - Final data contains 17 sectors
+2025-04-24 08:26:06,205 - INFO - Saved sector data to text file: sector_data.txt
+2025-04-24 08:26:06,208 - INFO - Saved sector data to CSV file: sector_data.csv
+2025-04-24 08:26:06,218 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 08:26:37,633 - INFO - Browser page refreshed
+2025-04-24 08:26:37,732 - INFO - Found 25 sector entries via JavaScript
+2025-04-24 08:26:37,732 - INFO - Matched NIFTY_IT (IT): 5024266.65%
+2025-04-24 08:26:37,733 - INFO - Matched NIFTY_IT (IT): 5024266.65%
+2025-04-24 08:26:37,733 - INFO - Matched NIFTY_IT (IT): 5024266.65%
+2025-04-24 08:26:37,733 - INFO - Matched NIFTY_IT (IT): 5024266.65%
+2025-04-24 08:26:37,734 - INFO - Matched NIFTY_IT (IT): 5024266.65%
+2025-04-24 08:26:37,734 - INFO - Matched NIFTY_IT (IT): 24266.65%
+2025-04-24 08:26:37,734 - INFO - Matched NIFTY_IT (IT): -0.26%
+2025-04-24 08:26:37,734 - INFO - Matched NIFTY_IT (IT): 55329.55%
+2025-04-24 08:26:37,734 - INFO - Matched NIFTY_IT (IT): 55329.55%
+2025-04-24 08:26:37,735 - INFO - Matched NIFTY_AUTO (AUTOMOBILE): -0.34%
+2025-04-24 08:26:37,735 - INFO - Matched NIFTY_AUTO (AUTOMOBILE): 16.22%
+2025-04-24 08:26:37,735 - INFO - Matched NIFTY_AUTO (AUTOMOBILE): 16.22%
+2025-04-24 08:26:37,736 - INFO - Matched NIFTY_AUTO (AUTOMOBILE): 1.63%
+2025-04-24 08:26:37,736 - INFO - Matched NIFTY_AUTO (AUTOMOBILE): 79849.39%
+2025-04-24 08:26:37,736 - INFO - Matched NIFTY_AUTO (AUTOMOBILE): 79849.39%
+2025-04-24 08:26:37,736 - INFO - Matched NIFTY_IT (IT): 5024266.65%
+2025-04-24 08:26:37,737 - INFO - Matched NIFTY_IT (IT): 5024266.65%
+2025-04-24 08:26:37,738 - INFO - Matched NIFTY_IT (IT): 5024266.65%
+2025-04-24 08:26:37,739 - INFO - Matched NIFTY_IT (IT): 5024266.65%
+2025-04-24 08:26:37,739 - INFO - Matched NIFTY_IT (IT): 24266.65%
+2025-04-24 08:26:37,741 - INFO - Matched NIFTY_IT (IT): -0.26%
+2025-04-24 08:26:37,742 - INFO - Matched NIFTY_IT (IT): 55329.55%
+2025-04-24 08:26:37,742 - INFO - Matched NIFTY_IT (IT): 55329.55%
+2025-04-24 08:26:37,743 - INFO - Matched NIFTY_IT (IT): 55329.55%
+2025-04-24 08:26:37,743 - INFO - Matched NIFTY_IT (IT): -0.07%
+2025-04-24 08:26:39,678 - INFO - Final data contains 17 sectors
+2025-04-24 08:26:39,679 - INFO - Saved sector data to text file: sector_data.txt
+2025-04-24 08:26:39,682 - INFO - Saved sector data to CSV file: sector_data.csv
+2025-04-24 08:26:39,690 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 08:27:11,075 - INFO - Browser page refreshed
+2025-04-24 08:27:12,138 - INFO - Final data contains 17 sectors
+2025-04-24 08:27:12,139 - INFO - Saved sector data to text file: sector_data.txt
+2025-04-24 08:27:12,144 - INFO - Saved sector data to CSV file: sector_data.csv
+2025-04-24 08:27:12,152 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 08:27:13,421 - INFO - Scraper stopped by user
+2025-04-24 08:27:13,473 - WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None)': /session/689e6b047648fa6d9caa5e79306b068f
+2025-04-24 08:27:55,746 - INFO - Starting final sector scraper
+2025-04-24 08:27:55,747 - INFO - Configuration loaded successfully
+2025-04-24 08:27:55,747 - INFO - ====== WebDriver manager ======
+2025-04-24 08:27:58,158 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-24 08:27:58,229 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-24 08:27:58,271 - INFO - Driver [C:\Users\Rajee\.wdm\drivers\chromedriver\win64\135.0.7049.114\chromedriver-win32/chromedriver.exe] found in cache
+2025-04-24 08:28:02,701 - INFO - Chrome WebDriver set up successfully
+2025-04-24 08:28:05,258 - INFO - Navigated to login page
+2025-04-24 08:29:15,736 - INFO - Navigated to sector performance page: https://intradayscreener.com/sector-performance
+2025-04-24 08:29:25,795 - INFO - Saved page source to debug_page.html for inspection
+2025-04-24 08:29:25,812 - INFO - Successfully navigated to sector performance page
+2025-04-24 08:29:25,927 - INFO - Found 36 sector entries via JavaScript
+2025-04-24 08:29:25,928 - INFO - Matched NIFTY_PHARMA (PHARMA): 5024265.8%
+2025-04-24 08:29:25,928 - INFO - Matched NIFTY_IT (IT): 5024265.8%
+2025-04-24 08:29:25,928 - INFO - Matched NIFTY_PHARMA (PHARMA): 5024265.8%
+2025-04-24 08:29:25,928 - INFO - Matched NIFTY_PHARMA (PHARMA): 5024265.8%
+2025-04-24 08:29:25,929 - INFO - Matched NIFTY_PHARMA (PHARMA): 5024265.8%
+2025-04-24 08:29:25,929 - INFO - Matched NIFTY_PHARMA (PHARMA): 24265.8%
+2025-04-24 08:29:25,929 - INFO - Matched NIFTY_PHARMA (PHARMA): -0.26%
+2025-04-24 08:29:25,931 - INFO - Matched NIFTY_AUTO (AUTOMOBILE): 26346.3%
+2025-04-24 08:29:25,932 - INFO - Matched NIFTY_AUTO (AUTOMOBILE): 26346.3%
+2025-04-24 08:29:25,933 - INFO - Matched NIFTY_AUTO (AUTOMOBILE): -0.38%
+2025-04-24 08:29:25,933 - INFO - Matched NIFTY_AUTO (AUTOMOBILE): 16.19%
+2025-04-24 08:29:25,934 - INFO - Matched NIFTY_AUTO (AUTOMOBILE): 16.19%
+2025-04-24 08:29:25,934 - INFO - Matched NIFTY_AUTO (AUTOMOBILE): 1.44%
+2025-04-24 08:29:25,934 - INFO - Matched NIFTY_PHARMA (PHARMA): 5024265.8%
+2025-04-24 08:29:25,934 - INFO - Matched NIFTY_PHARMA (PHARMA): 5024265.8%
+2025-04-24 08:29:25,935 - INFO - Matched NIFTY_PHARMA (PHARMA): 5024265.8%
+2025-04-24 08:29:25,935 - INFO - Matched NIFTY_PHARMA (PHARMA): 5024265.8%
+2025-04-24 08:29:25,935 - INFO - Matched NIFTY_PHARMA (PHARMA): 24265.8%
+2025-04-24 08:29:25,935 - INFO - Matched NIFTY_PHARMA (PHARMA): -0.26%
+2025-04-24 08:29:25,936 - INFO - Matched NIFTY_PHARMA (PHARMA): 55327.9%
+2025-04-24 08:29:25,936 - INFO - Matched NIFTY_PHARMA (PHARMA): 55327.9%
+2025-04-24 08:29:25,936 - INFO - Matched NIFTY_PHARMA (PHARMA): 55327.9%
+2025-04-24 08:29:25,937 - INFO - Matched NIFTY_PHARMA (PHARMA): -0.08%
+2025-04-24 08:29:25,937 - INFO - Matched NIFTY_PHARMA (PHARMA): 11.2%
+2025-04-24 08:29:25,937 - INFO - Matched NIFTY_PHARMA (PHARMA): 11.2%
+2025-04-24 08:29:25,937 - INFO - Matched NIFTY_PHARMA (PHARMA): 11.2%
+2025-04-24 08:29:25,938 - INFO - Matched NIFTY_PHARMA (PHARMA): 11.2%
+2025-04-24 08:29:25,938 - INFO - Matched NIFTY_PHARMA (PHARMA): 11.2%
+2025-04-24 08:29:25,938 - INFO - Matched NIFTY_PHARMA (PHARMA): 11.2%
+2025-04-24 08:29:25,939 - INFO - Matched NIFTY_PHARMA (PHARMA): 11.2%
+2025-04-24 08:29:25,939 - INFO - Matched NIFTY_AUTO (AUTOMOBILE): 1.11%
+2025-04-24 08:29:25,939 - INFO - Matched NIFTY_PHARMA (PHARMA): -1.28%
+2025-04-24 08:29:25,940 - INFO - Matched NIFTY_AUTO (AUTOMOBILE): 663.7%
+2025-04-24 08:29:25,940 - INFO - Matched NIFTY_AUTO (AUTOMOBILE): 663.7%
+2025-04-24 08:29:25,940 - INFO - Matched NIFTY_AUTO (AUTOMOBILE): 663.7%
+2025-04-24 08:29:25,940 - INFO - Matched NIFTY_AUTO (AUTOMOBILE): 663.7%
+2025-04-24 08:29:28,005 - INFO - Final data contains 3 sectors
+2025-04-24 08:29:28,007 - INFO - Saved sector data to text file: sector_data.txt
+2025-04-24 08:29:28,016 - INFO - Saved sector data to CSV file: sector_data.csv
+2025-04-24 08:29:28,024 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 08:29:59,682 - INFO - Browser page refreshed
+2025-04-24 08:30:00,452 - INFO - Final data contains 17 sectors
+2025-04-24 08:30:00,454 - INFO - Saved sector data to text file: sector_data.txt
+2025-04-24 08:30:00,456 - INFO - Saved sector data to CSV file: sector_data.csv
+2025-04-24 08:30:00,470 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 08:30:31,071 - INFO - Browser page refreshed
+2025-04-24 08:30:32,056 - INFO - Final data contains 17 sectors
+2025-04-24 08:30:32,058 - INFO - Saved sector data to text file: sector_data.txt
+2025-04-24 08:30:32,061 - INFO - Saved sector data to CSV file: sector_data.csv
+2025-04-24 08:30:32,071 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 08:31:03,241 - INFO - Browser page refreshed
+2025-04-24 08:31:04,202 - INFO - Final data contains 17 sectors
+2025-04-24 08:31:04,204 - INFO - Saved sector data to text file: sector_data.txt
+2025-04-24 08:31:04,208 - INFO - Saved sector data to CSV file: sector_data.csv
+2025-04-24 08:31:04,217 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 08:31:34,913 - INFO - Browser page refreshed
+2025-04-24 08:31:35,530 - INFO - Final data contains 17 sectors
+2025-04-24 08:31:35,531 - INFO - Saved sector data to text file: sector_data.txt
+2025-04-24 08:31:35,533 - INFO - Saved sector data to CSV file: sector_data.csv
+2025-04-24 08:31:35,540 - INFO - Waiting 30 seconds until next scrape...
+2025-04-24 08:31:59,640 - INFO - Scraper stopped by user
+2025-04-24 08:31:59,658 - WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None)': /session/a24133904fc7975c783e4b1d736def72

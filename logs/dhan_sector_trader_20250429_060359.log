@@ -1,0 +1,37 @@
+2025-04-29 06:03:59,309 - INFO - 
+==================================================
+PROGRAM START
+==================================================
+2025-04-29 06:03:59,310 - INFO - ==========================================
+2025-04-29 06:03:59,310 - INFO - Starting Dhan Sector-Based Trading Program
+2025-04-29 06:03:59,310 - INFO - ==========================================
+2025-04-29 06:03:59,310 - INFO - Current time: 2025-04-29 06:03:59
+2025-04-29 06:03:59,311 - INFO - Step 1: Loading trading configuration...
+2025-04-29 06:03:59,311 - INFO - Loading trading configuration from trading_config.json
+2025-04-29 06:03:59,324 - INFO - Configuration loaded successfully
+2025-04-29 06:03:59,324 - INFO - Found 5 active tickers out of 5 total
+2025-04-29 06:03:59,325 - INFO - Step 2: Initializing Dhan API client...
+2025-04-29 06:03:59,325 - INFO - Initializing Dhan client with client_id: 1106497024
+2025-04-29 06:03:59,325 - INFO - Dhan API client initialized successfully
+2025-04-29 06:03:59,835 - INFO - Dhan API connection test successful
+2025-04-29 06:03:59,836 - INFO - Step 3: Loading sector mapping...
+2025-04-29 06:03:59,836 - INFO - Loading sector mapping from sector_mapping.json
+2025-04-29 06:03:59,850 - INFO - Sector mapping loaded successfully with 176 tickers
+2025-04-29 06:03:59,850 - INFO - Found 14 unique sectors
+2025-04-29 06:03:59,851 - INFO - Step 4: Loading security IDs mapping from Excel...
+2025-04-29 06:03:59,852 - INFO - Loading security IDs from security_ids.xlsx
+2025-04-29 06:04:10,912 - INFO - Successfully read Excel file with 1850 rows
+2025-04-29 06:04:10,913 - INFO - Excel columns: ['SEM_EXM_EXCH_ID', 'SEM_SEGMENT', 'SEM_SMST_SECURITY_ID', 'SEM_INSTRUMENT_NAME', 'SEM_EXPIRY_CODE', 'SEM_TRADING_SYMBOL', 'SEM_LOT_UNITS', 'SEM_CUSTOM_SYMBOL', 'SEM_EXPIRY_DATE', 'SEM_STRIKE_PRICE', 'SEM_OPTION_TYPE', 'SEM_TICK_SIZE', 'SEM_EXPIRY_FLAG', 'SEM_EXCH_INSTRUMENT_TYPE', 'SEM_SERIES', 'SM_SYMBOL_NAME']
+2025-04-29 06:04:10,913 - INFO - Found symbol column: SEM_TRADING_SYMBOL
+2025-04-29 06:04:10,914 - ERROR - Could not find required columns. Here are the first few rows:
+2025-04-29 06:04:10,925 - ERROR -   SEM_EXM_EXCH_ID SEM_SEGMENT  SEM_SMST_SECURITY_ID SEM_INSTRUMENT_NAME  SEM_EXPIRY_CODE SEM_TRADING_SYMBOL  SEM_LOT_UNITS                  SEM_CUSTOM_SYMBOL  SEM_EXPIRY_DATE  SEM_STRIKE_PRICE  SEM_OPTION_TYPE  SEM_TICK_SIZE  SEM_EXPIRY_FLAG SEM_EXCH_INSTRUMENT_TYPE SEM_SERIES             SM_SYMBOL_NAME
+0             NSE           E                   100              EQUITY                0              ARE&M              1       Amara Raja Energy & Mobility              NaN               NaN              NaN             10              NaN                       ES         EQ  AMARA RAJA ENERGY MOB LTD
+1             NSE           E                 10074              EQUITY                0           EMAMIPAP              1                  Emami Paper Mills              NaN               NaN              NaN              1              NaN                       ES         EQ  EMAMI PAPER MILLS LIMITED
+2             NSE           E                  1008              EQUITY                0               FACT              1  Fertilisers & Chemical Travancore              NaN               NaN              NaN              5              NaN                       ES         EQ                   FACT LTD
+3             NSE           E                 10099              EQUITY                0           GODREJCP              1           Godrej Consumer Products              NaN               NaN              NaN             10              NaN                       ES         EQ   GODREJ CONSUMER PRODUCTS
+4             NSE           E                  1011              EQUITY                0         SCHAEFFLER              1                   Schaeffler India              NaN               NaN              NaN             10              NaN                       ES         EQ   SCHAEFFLER INDIA LIMITED
+2025-04-29 06:04:10,928 - ERROR - Failed to load security IDs mapping. Cannot place orders without security IDs.
+2025-04-29 06:04:10,928 - INFO - 
+==================================================
+PROGRAM TERMINATED
+==================================================

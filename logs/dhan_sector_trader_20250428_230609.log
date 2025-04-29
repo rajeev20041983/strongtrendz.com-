@@ -1,0 +1,2065 @@
+2025-04-28 23:06:09,012 - INFO - 
+==================================================
+PROGRAM START
+==================================================
+2025-04-28 23:06:09,015 - INFO - ==========================================
+2025-04-28 23:06:09,015 - INFO - Starting Dhan Sector-Based Trading Program
+2025-04-28 23:06:09,016 - INFO - ==========================================
+2025-04-28 23:06:09,016 - INFO - Current time: 2025-04-28 23:06:09
+2025-04-28 23:06:09,016 - WARNING - Current time (23:06:09) is outside market hours (9:15 - 15:30)
+2025-04-28 23:06:09,019 - INFO - Market is CLOSED
+2025-04-28 23:06:09,019 - INFO - Step 1: Loading trading configuration...
+2025-04-28 23:06:09,020 - INFO - Loading trading configuration from trading_config.json
+2025-04-28 23:06:09,021 - INFO - Configuration loaded: {
+  "client_id": "1106497024",
+  "access_token": "eyJ0eXAiOi...",
+  "place_new_orders": true,
+  "check_interval_seconds": 30,
+  "tickers": [
+    {
+      "symbol": "SYNGENE.NS",
+      "entry_price": "",
+      "quantity": 50,
+      "transaction_type": "BUY",
+      "stop_loss_percent": 1.0,
+      "target_percent": 1.0,
+      "after_market_order": false,
+      "active": true
+    },
+    {
+      "symbol": "ZEEL.NS",
+      "entry_price": "",
+      "quantity": 50,
+      "transaction_type": "BUY",
+      "stop_loss_percent": 1,
+      "target_percent": 1,
+      "after_market_order": false,
+      "active": true
+    },
+    {
+      "symbol": "GRANULES.NS",
+      "entry_price": "",
+      "quantity": 10,
+      "transaction_type": "BUY",
+      "stop_loss_percent": 1.0,
+      "target_percent": 1.0,
+      "after_market_order": false,
+      "active": true
+    },
+    {
+      "symbol": "SBILIFE.NS",
+      "entry_price": "",
+      "quantity": 5,
+      "transaction_type": "SELL",
+      "stop_loss_percent": 2.0,
+      "target_percent": 1.5,
+      "after_market_order": false,
+      "active": true
+    },
+    {
+      "symbol": "RBLBANK.NS",
+      "entry_price": "",
+      "quantity": 20,
+      "transaction_type": "SELL",
+      "stop_loss_percent": 2.0,
+      "target_percent": 1,
+      "after_market_order": false,
+      "active": true
+    }
+  ]
+}
+2025-04-28 23:06:09,029 - INFO - Found 5 active tickers out of 5 total
+2025-04-28 23:06:09,030 - INFO - Step 2: Verifying Dhan API connection...
+2025-04-28 23:06:09,032 - INFO - 
+==================================================
+DHAN CONNECTION TEST
+==================================================
+2025-04-28 23:06:09,033 - INFO - Testing Dhan API connection...
+2025-04-28 23:06:09,034 - INFO - Getting user details...
+2025-04-28 23:06:09,035 - ERROR - Failed to get user details: 'dhanhq' object has no attribute 'get_user_details'
+2025-04-28 23:06:09,036 - INFO - Getting funds information...
+2025-04-28 23:06:09,037 - ERROR - Failed to get funds information: 'dhanhq' object has no attribute 'get_funds'
+2025-04-28 23:06:09,037 - INFO - Getting existing orders...
+2025-04-28 23:06:09,486 - WARNING - Unexpected order list response: {'status': 'success', 'remarks': '', 'data': []}
+2025-04-28 23:06:09,487 - INFO - Getting existing positions...
+2025-04-28 23:06:09,635 - INFO - Positions response: {
+  "status": "success",
+  "remarks": "",
+  "data": []
+}
+2025-04-28 23:06:09,636 - INFO - Dhan API connection test completed successfully
+2025-04-28 23:06:09,636 - INFO - 
+==================================================
+CONNECTION TEST COMPLETE
+==================================================
+2025-04-28 23:06:09,637 - INFO - Step 3: Loading sector mapping...
+2025-04-28 23:06:09,638 - INFO - Loading sector mapping from sector_mapping.json
+2025-04-28 23:06:09,639 - INFO - Sector mapping loaded successfully with 176 tickers
+2025-04-28 23:06:09,639 - INFO - Sample sector mappings: {
+  "LTIM.NS": "IT",
+  "PERSISTENT.NS": "IT",
+  "MPHASIS.NS": "IT",
+  "WIPRO.NS": "IT",
+  "LTTS.NS": "IT"
+}
+2025-04-28 23:06:09,640 - INFO - Found 14 unique sectors: ['Auto', 'Bank', 'Consumer Durables', 'Energy', 'FMCG', 'Financial Services', 'IT', 'Media', 'Metal', 'Oil & Gas', 'PSU Bank', 'PVT Bank', 'Pharma', 'Realty']
+2025-04-28 23:06:09,642 - INFO - Step 4: Loading security IDs mapping...
+2025-04-28 23:06:09,642 - INFO - Loading security IDs from security_ids.json
+2025-04-28 23:06:09,644 - INFO - Security IDs mapping loaded successfully with 141 tickers
+2025-04-28 23:06:09,644 - INFO - Sample security IDs: {
+  "NATIONALUM.NS": "6364",
+  "SAIL.NS": "2963",
+  "HINDALCO.NS": "1363",
+  "TATASTEEL.NS": "3499",
+  "JSL.NS": "11236"
+}
+2025-04-28 23:06:09,645 - INFO - Step 5: Loading existing positions...
+2025-04-28 23:06:09,646 - INFO - Loaded 3 existing positions
+2025-04-28 23:06:09,647 - INFO - Positions: 3 open, 0 closed
+2025-04-28 23:06:09,649 - INFO - Step 6: Starting trading loop (check interval: 30 seconds)...
+2025-04-28 23:06:09,649 - INFO - 
+==================================================
+TRADING CYCLE 1
+==================================================
+2025-04-28 23:06:09,650 - INFO - Trading cycle 1 started at 2025-04-28 23:06:09
+2025-04-28 23:06:09,652 - WARNING - Current time (23:06:09) is outside market hours (9:15 - 15:30)
+2025-04-28 23:06:09,653 - INFO - Market is CLOSED
+2025-04-28 23:06:09,653 - INFO - 
+==================================================
+READING SECTOR PERFORMANCE DATA
+==================================================
+2025-04-28 23:06:09,654 - INFO - Reading sector performance data from sector.csv
+2025-04-28 23:06:09,655 - INFO - File last modified: 2025-04-28 23:05:09
+2025-04-28 23:06:09,658 - INFO - Latest timestamp in data: 2025-04-28 23:05:09
+2025-04-28 23:06:09,658 - INFO - Loaded data for 10 sectors
+2025-04-28 23:06:09,660 - INFO - Top performing sectors:
+2025-04-28 23:06:09,661 - INFO -   PSU Bank: +2.44%
+2025-04-28 23:06:09,662 - INFO -   Pharma: +1.98%
+2025-04-28 23:06:09,662 - INFO -   Energy: +1.71%
+2025-04-28 23:06:09,662 - INFO - Bottom performing sectors:
+2025-04-28 23:06:09,663 - INFO -   Media: +0.79%
+2025-04-28 23:06:09,663 - INFO -   FMCG: +0.16%
+2025-04-28 23:06:09,664 - INFO -   IT: -0.22%
+2025-04-28 23:06:09,669 - INFO - 
+==================================================
+SECTOR DATA READ COMPLETE
+==================================================
+2025-04-28 23:06:09,670 - INFO - 
+==================================================
+PROCESSING SECTOR DATA
+==================================================
+2025-04-28 23:06:09,672 - INFO - Processed performance data for 10 sectors
+2025-04-28 23:06:09,672 - INFO - Processing existing positions for potential exits...
+2025-04-28 23:06:09,673 - INFO - 
+==================================================
+PROCESSING EXISTING POSITIONS
+==================================================
+2025-04-28 23:06:09,673 - INFO - Processing 3 existing positions
+2025-04-28 23:06:09,673 - INFO - Checking position: BUY SYNGENE.NS (Sector: Pharma)
+2025-04-28 23:06:09,674 - INFO - Sector Pharma is POSITIVE with 1.98% change
+2025-04-28 23:06:09,675 - INFO - Checking position: BUY ZEEL.NS (Sector: Media)
+2025-04-28 23:06:09,675 - INFO - Sector Media is POSITIVE with 0.79% change
+2025-04-28 23:06:09,675 - INFO - Checking position: BUY GRANULES.NS (Sector: Pharma)
+2025-04-28 23:06:09,675 - INFO - Sector Pharma is POSITIVE with 1.98% change
+2025-04-28 23:06:09,675 - INFO - No positions needed to be exited
+2025-04-28 23:06:09,676 - INFO - 
+==================================================
+POSITION PROCESSING COMPLETE
+==================================================
+2025-04-28 23:06:09,677 - INFO - Looking for new trading opportunities...
+2025-04-28 23:06:09,677 - INFO - 
+==================================================
+FINDING NEW TRADING OPPORTUNITIES
+==================================================
+2025-04-28 23:06:09,677 - INFO - Found 5 active tickers out of 5 total
+2025-04-28 23:06:09,678 - INFO - Already have open positions for: ['SYNGENE.NS', 'ZEEL.NS', 'GRANULES.NS']
+2025-04-28 23:06:09,678 - INFO - Skipping SYNGENE.NS - already have an open position
+2025-04-28 23:06:09,678 - INFO - Skipping ZEEL.NS - already have an open position
+2025-04-28 23:06:09,678 - INFO - Skipping GRANULES.NS - already have an open position
+2025-04-28 23:06:09,678 - INFO - Evaluating SBILIFE.NS in sector Financial Services (+0.98%)
+2025-04-28 23:06:09,679 - INFO - Not trading SBILIFE.NS - sector performance doesn't match strategy
+2025-04-28 23:06:09,679 - WARNING - No performance data for sector PVT Bank
+2025-04-28 23:06:09,680 - INFO - New positions added: 0
+2025-04-28 23:06:09,680 - INFO - Positions skipped: 5
+2025-04-28 23:06:09,680 - INFO - Positions with errors: 0
+2025-04-28 23:06:09,681 - INFO - 
+==================================================
+NEW OPPORTUNITIES PROCESSING COMPLETE
+==================================================
+2025-04-28 23:06:09,682 - INFO - 
+==================================================
+SECTOR PROCESSING COMPLETE
+==================================================
+2025-04-28 23:06:09,688 - INFO - Saved 3 positions to dhan_positions.json
+2025-04-28 23:06:09,689 - INFO - 
+==================================================
+POSITIONS SUMMARY
+==================================================
+2025-04-28 23:06:09,691 - INFO - Current positions summary:
+2025-04-28 23:06:09,691 - INFO -   Open BUY positions: 3
+2025-04-28 23:06:09,691 - INFO -   Open SELL positions: 0
+2025-04-28 23:06:09,691 - INFO -   Closed positions: 0
+2025-04-28 23:06:09,692 - INFO -   Total positions: 3
+2025-04-28 23:06:09,692 - INFO - Open positions:
+2025-04-28 23:06:09,692 - INFO -   BUY SYNGENE.NS (Sector: Pharma, Entry: 2025-04-28 22:53:18)
+2025-04-28 23:06:09,693 - INFO -   BUY ZEEL.NS (Sector: Media, Entry: 2025-04-28 22:53:19)
+2025-04-28 23:06:09,693 - INFO -   BUY GRANULES.NS (Sector: Pharma, Entry: 2025-04-28 22:53:19)
+2025-04-28 23:06:09,693 - INFO - 
+==================================================
+POSITIONS SUMMARY COMPLETE
+==================================================
+2025-04-28 23:06:09,694 - INFO - Trading cycle 1 completed
+2025-04-28 23:06:09,702 - INFO - Waiting 30 seconds until next check at 23:06:39...
+2025-04-28 23:06:09,703 - INFO - 
+==================================================
+CYCLE 1 COMPLETE
+==================================================
+2025-04-28 23:06:39,714 - INFO - 
+==================================================
+TRADING CYCLE 2
+==================================================
+2025-04-28 23:06:39,715 - INFO - Trading cycle 2 started at 2025-04-28 23:06:39
+2025-04-28 23:06:39,715 - WARNING - Current time (23:06:39) is outside market hours (9:15 - 15:30)
+2025-04-28 23:06:39,715 - INFO - Market is CLOSED
+2025-04-28 23:06:39,716 - INFO - 
+==================================================
+READING SECTOR PERFORMANCE DATA
+==================================================
+2025-04-28 23:06:39,717 - INFO - Reading sector performance data from sector.csv
+2025-04-28 23:06:39,717 - INFO - File last modified: 2025-04-28 23:05:09
+2025-04-28 23:06:39,720 - INFO - Latest timestamp in data: 2025-04-28 23:05:09
+2025-04-28 23:06:39,720 - INFO - Loaded data for 10 sectors
+2025-04-28 23:06:39,721 - INFO - Top performing sectors:
+2025-04-28 23:06:39,723 - INFO -   PSU Bank: +2.44%
+2025-04-28 23:06:39,723 - INFO -   Pharma: +1.98%
+2025-04-28 23:06:39,724 - INFO -   Energy: +1.71%
+2025-04-28 23:06:39,724 - INFO - Bottom performing sectors:
+2025-04-28 23:06:39,726 - INFO -   Media: +0.79%
+2025-04-28 23:06:39,726 - INFO -   FMCG: +0.16%
+2025-04-28 23:06:39,727 - INFO -   IT: -0.22%
+2025-04-28 23:06:39,731 - INFO - 
+==================================================
+SECTOR DATA READ COMPLETE
+==================================================
+2025-04-28 23:06:39,733 - INFO - 
+==================================================
+PROCESSING SECTOR DATA
+==================================================
+2025-04-28 23:06:39,736 - INFO - Processed performance data for 10 sectors
+2025-04-28 23:06:39,736 - INFO - Processing existing positions for potential exits...
+2025-04-28 23:06:39,737 - INFO - 
+==================================================
+PROCESSING EXISTING POSITIONS
+==================================================
+2025-04-28 23:06:39,737 - INFO - Processing 3 existing positions
+2025-04-28 23:06:39,737 - INFO - Checking position: BUY SYNGENE.NS (Sector: Pharma)
+2025-04-28 23:06:39,738 - INFO - Sector Pharma is POSITIVE with 1.98% change
+2025-04-28 23:06:39,739 - INFO - Checking position: BUY ZEEL.NS (Sector: Media)
+2025-04-28 23:06:39,739 - INFO - Sector Media is POSITIVE with 0.79% change
+2025-04-28 23:06:39,739 - INFO - Checking position: BUY GRANULES.NS (Sector: Pharma)
+2025-04-28 23:06:39,739 - INFO - Sector Pharma is POSITIVE with 1.98% change
+2025-04-28 23:06:39,740 - INFO - No positions needed to be exited
+2025-04-28 23:06:39,740 - INFO - 
+==================================================
+POSITION PROCESSING COMPLETE
+==================================================
+2025-04-28 23:06:39,740 - INFO - Looking for new trading opportunities...
+2025-04-28 23:06:39,741 - INFO - 
+==================================================
+FINDING NEW TRADING OPPORTUNITIES
+==================================================
+2025-04-28 23:06:39,742 - INFO - Found 5 active tickers out of 5 total
+2025-04-28 23:06:39,742 - INFO - Already have open positions for: ['SYNGENE.NS', 'ZEEL.NS', 'GRANULES.NS']
+2025-04-28 23:06:39,742 - INFO - Skipping SYNGENE.NS - already have an open position
+2025-04-28 23:06:39,742 - INFO - Skipping ZEEL.NS - already have an open position
+2025-04-28 23:06:39,743 - INFO - Skipping GRANULES.NS - already have an open position
+2025-04-28 23:06:39,743 - INFO - Evaluating SBILIFE.NS in sector Financial Services (+0.98%)
+2025-04-28 23:06:39,743 - INFO - Not trading SBILIFE.NS - sector performance doesn't match strategy
+2025-04-28 23:06:39,756 - WARNING - No performance data for sector PVT Bank
+2025-04-28 23:06:39,757 - INFO - New positions added: 0
+2025-04-28 23:06:39,757 - INFO - Positions skipped: 5
+2025-04-28 23:06:39,758 - INFO - Positions with errors: 0
+2025-04-28 23:06:39,758 - INFO - 
+==================================================
+NEW OPPORTUNITIES PROCESSING COMPLETE
+==================================================
+2025-04-28 23:06:39,758 - INFO - 
+==================================================
+SECTOR PROCESSING COMPLETE
+==================================================
+2025-04-28 23:06:39,761 - INFO - Saved 3 positions to dhan_positions.json
+2025-04-28 23:06:39,768 - INFO - 
+==================================================
+POSITIONS SUMMARY
+==================================================
+2025-04-28 23:06:39,769 - INFO - Current positions summary:
+2025-04-28 23:06:39,770 - INFO -   Open BUY positions: 3
+2025-04-28 23:06:39,770 - INFO -   Open SELL positions: 0
+2025-04-28 23:06:39,770 - INFO -   Closed positions: 0
+2025-04-28 23:06:39,771 - INFO -   Total positions: 3
+2025-04-28 23:06:39,771 - INFO - Open positions:
+2025-04-28 23:06:39,771 - INFO -   BUY SYNGENE.NS (Sector: Pharma, Entry: 2025-04-28 22:53:18)
+2025-04-28 23:06:39,771 - INFO -   BUY ZEEL.NS (Sector: Media, Entry: 2025-04-28 22:53:19)
+2025-04-28 23:06:39,772 - INFO -   BUY GRANULES.NS (Sector: Pharma, Entry: 2025-04-28 22:53:19)
+2025-04-28 23:06:39,772 - INFO - 
+==================================================
+POSITIONS SUMMARY COMPLETE
+==================================================
+2025-04-28 23:06:39,773 - INFO - Trading cycle 2 completed
+2025-04-28 23:06:39,773 - INFO - Waiting 30 seconds until next check at 23:07:09...
+2025-04-28 23:06:39,773 - INFO - 
+==================================================
+CYCLE 2 COMPLETE
+==================================================
+2025-04-28 23:07:09,776 - INFO - 
+==================================================
+TRADING CYCLE 3
+==================================================
+2025-04-28 23:07:09,776 - INFO - Trading cycle 3 started at 2025-04-28 23:07:09
+2025-04-28 23:07:09,776 - WARNING - Current time (23:07:09) is outside market hours (9:15 - 15:30)
+2025-04-28 23:07:09,777 - INFO - Market is CLOSED
+2025-04-28 23:07:09,777 - INFO - 
+==================================================
+READING SECTOR PERFORMANCE DATA
+==================================================
+2025-04-28 23:07:09,777 - INFO - Reading sector performance data from sector.csv
+2025-04-28 23:07:09,778 - INFO - File last modified: 2025-04-28 23:06:51
+2025-04-28 23:07:09,780 - INFO - Latest timestamp in data: 2025-04-28 23:06:51
+2025-04-28 23:07:09,781 - INFO - Loaded data for 10 sectors
+2025-04-28 23:07:09,781 - INFO - Top performing sectors:
+2025-04-28 23:07:09,782 - INFO -   PSU Bank: +2.44%
+2025-04-28 23:07:09,782 - INFO -   Pharma: +1.98%
+2025-04-28 23:07:09,783 - INFO -   Energy: +1.71%
+2025-04-28 23:07:09,784 - INFO - Bottom performing sectors:
+2025-04-28 23:07:09,784 - INFO -   Media: +0.79%
+2025-04-28 23:07:09,785 - INFO -   FMCG: +0.16%
+2025-04-28 23:07:09,785 - INFO -   IT: -0.22%
+2025-04-28 23:07:09,785 - INFO - 
+==================================================
+SECTOR DATA READ COMPLETE
+==================================================
+2025-04-28 23:07:09,786 - INFO - 
+==================================================
+PROCESSING SECTOR DATA
+==================================================
+2025-04-28 23:07:09,789 - INFO - Processed performance data for 10 sectors
+2025-04-28 23:07:09,789 - INFO - Processing existing positions for potential exits...
+2025-04-28 23:07:09,790 - INFO - 
+==================================================
+PROCESSING EXISTING POSITIONS
+==================================================
+2025-04-28 23:07:09,790 - INFO - Processing 3 existing positions
+2025-04-28 23:07:09,790 - INFO - Checking position: BUY SYNGENE.NS (Sector: Pharma)
+2025-04-28 23:07:09,792 - INFO - Sector Pharma is POSITIVE with 1.98% change
+2025-04-28 23:07:09,793 - INFO - Checking position: BUY ZEEL.NS (Sector: Media)
+2025-04-28 23:07:09,793 - INFO - Sector Media is POSITIVE with 0.79% change
+2025-04-28 23:07:09,794 - INFO - Checking position: BUY GRANULES.NS (Sector: Pharma)
+2025-04-28 23:07:09,795 - INFO - Sector Pharma is POSITIVE with 1.98% change
+2025-04-28 23:07:09,795 - INFO - No positions needed to be exited
+2025-04-28 23:07:09,795 - INFO - 
+==================================================
+POSITION PROCESSING COMPLETE
+==================================================
+2025-04-28 23:07:09,795 - INFO - Looking for new trading opportunities...
+2025-04-28 23:07:09,796 - INFO - 
+==================================================
+FINDING NEW TRADING OPPORTUNITIES
+==================================================
+2025-04-28 23:07:09,796 - INFO - Found 5 active tickers out of 5 total
+2025-04-28 23:07:09,796 - INFO - Already have open positions for: ['SYNGENE.NS', 'ZEEL.NS', 'GRANULES.NS']
+2025-04-28 23:07:09,797 - INFO - Skipping SYNGENE.NS - already have an open position
+2025-04-28 23:07:09,798 - INFO - Skipping ZEEL.NS - already have an open position
+2025-04-28 23:07:09,799 - INFO - Skipping GRANULES.NS - already have an open position
+2025-04-28 23:07:09,799 - INFO - Evaluating SBILIFE.NS in sector Financial Services (+0.98%)
+2025-04-28 23:07:09,800 - INFO - Not trading SBILIFE.NS - sector performance doesn't match strategy
+2025-04-28 23:07:09,801 - WARNING - No performance data for sector PVT Bank
+2025-04-28 23:07:09,801 - INFO - New positions added: 0
+2025-04-28 23:07:09,801 - INFO - Positions skipped: 5
+2025-04-28 23:07:09,801 - INFO - Positions with errors: 0
+2025-04-28 23:07:09,802 - INFO - 
+==================================================
+NEW OPPORTUNITIES PROCESSING COMPLETE
+==================================================
+2025-04-28 23:07:09,803 - INFO - 
+==================================================
+SECTOR PROCESSING COMPLETE
+==================================================
+2025-04-28 23:07:09,804 - INFO - Saved 3 positions to dhan_positions.json
+2025-04-28 23:07:09,805 - INFO - 
+==================================================
+POSITIONS SUMMARY
+==================================================
+2025-04-28 23:07:09,806 - INFO - Current positions summary:
+2025-04-28 23:07:09,806 - INFO -   Open BUY positions: 3
+2025-04-28 23:07:09,807 - INFO -   Open SELL positions: 0
+2025-04-28 23:07:09,807 - INFO -   Closed positions: 0
+2025-04-28 23:07:09,807 - INFO -   Total positions: 3
+2025-04-28 23:07:09,808 - INFO - Open positions:
+2025-04-28 23:07:09,809 - INFO -   BUY SYNGENE.NS (Sector: Pharma, Entry: 2025-04-28 22:53:18)
+2025-04-28 23:07:09,810 - INFO -   BUY ZEEL.NS (Sector: Media, Entry: 2025-04-28 22:53:19)
+2025-04-28 23:07:09,810 - INFO -   BUY GRANULES.NS (Sector: Pharma, Entry: 2025-04-28 22:53:19)
+2025-04-28 23:07:09,810 - INFO - 
+==================================================
+POSITIONS SUMMARY COMPLETE
+==================================================
+2025-04-28 23:07:09,812 - INFO - Trading cycle 3 completed
+2025-04-28 23:07:09,812 - INFO - Waiting 30 seconds until next check at 23:07:39...
+2025-04-28 23:07:09,812 - INFO - 
+==================================================
+CYCLE 3 COMPLETE
+==================================================
+2025-04-28 23:07:39,817 - INFO - 
+==================================================
+TRADING CYCLE 4
+==================================================
+2025-04-28 23:07:39,818 - INFO - Trading cycle 4 started at 2025-04-28 23:07:39
+2025-04-28 23:07:39,818 - WARNING - Current time (23:07:39) is outside market hours (9:15 - 15:30)
+2025-04-28 23:07:39,819 - INFO - Market is CLOSED
+2025-04-28 23:07:39,820 - INFO - 
+==================================================
+READING SECTOR PERFORMANCE DATA
+==================================================
+2025-04-28 23:07:39,820 - INFO - Reading sector performance data from sector.csv
+2025-04-28 23:07:39,821 - INFO - File last modified: 2025-04-28 23:06:51
+2025-04-28 23:07:39,825 - INFO - Latest timestamp in data: 2025-04-28 23:06:51
+2025-04-28 23:07:39,825 - INFO - Loaded data for 10 sectors
+2025-04-28 23:07:39,827 - INFO - Top performing sectors:
+2025-04-28 23:07:39,828 - INFO -   PSU Bank: +2.44%
+2025-04-28 23:07:39,828 - INFO -   Pharma: +1.98%
+2025-04-28 23:07:39,829 - INFO -   Energy: +1.71%
+2025-04-28 23:07:39,830 - INFO - Bottom performing sectors:
+2025-04-28 23:07:39,831 - INFO -   Media: +0.79%
+2025-04-28 23:07:39,839 - INFO -   FMCG: +0.16%
+2025-04-28 23:07:39,844 - INFO -   IT: -0.22%
+2025-04-28 23:07:39,845 - INFO - 
+==================================================
+SECTOR DATA READ COMPLETE
+==================================================
+2025-04-28 23:07:39,846 - INFO - 
+==================================================
+PROCESSING SECTOR DATA
+==================================================
+2025-04-28 23:07:39,850 - INFO - Processed performance data for 10 sectors
+2025-04-28 23:07:39,851 - INFO - Processing existing positions for potential exits...
+2025-04-28 23:07:39,857 - INFO - 
+==================================================
+PROCESSING EXISTING POSITIONS
+==================================================
+2025-04-28 23:07:39,859 - INFO - Processing 3 existing positions
+2025-04-28 23:07:39,861 - INFO - Checking position: BUY SYNGENE.NS (Sector: Pharma)
+2025-04-28 23:07:39,862 - INFO - Sector Pharma is POSITIVE with 1.98% change
+2025-04-28 23:07:39,863 - INFO - Checking position: BUY ZEEL.NS (Sector: Media)
+2025-04-28 23:07:39,865 - INFO - Sector Media is POSITIVE with 0.79% change
+2025-04-28 23:07:39,866 - INFO - Checking position: BUY GRANULES.NS (Sector: Pharma)
+2025-04-28 23:07:39,866 - INFO - Sector Pharma is POSITIVE with 1.98% change
+2025-04-28 23:07:39,866 - INFO - No positions needed to be exited
+2025-04-28 23:07:39,867 - INFO - 
+==================================================
+POSITION PROCESSING COMPLETE
+==================================================
+2025-04-28 23:07:39,867 - INFO - Looking for new trading opportunities...
+2025-04-28 23:07:39,867 - INFO - 
+==================================================
+FINDING NEW TRADING OPPORTUNITIES
+==================================================
+2025-04-28 23:07:39,868 - INFO - Found 5 active tickers out of 5 total
+2025-04-28 23:07:39,869 - INFO - Already have open positions for: ['SYNGENE.NS', 'ZEEL.NS', 'GRANULES.NS']
+2025-04-28 23:07:39,869 - INFO - Skipping SYNGENE.NS - already have an open position
+2025-04-28 23:07:39,869 - INFO - Skipping ZEEL.NS - already have an open position
+2025-04-28 23:07:39,869 - INFO - Skipping GRANULES.NS - already have an open position
+2025-04-28 23:07:39,869 - INFO - Evaluating SBILIFE.NS in sector Financial Services (+0.98%)
+2025-04-28 23:07:39,870 - INFO - Not trading SBILIFE.NS - sector performance doesn't match strategy
+2025-04-28 23:07:39,870 - WARNING - No performance data for sector PVT Bank
+2025-04-28 23:07:39,870 - INFO - New positions added: 0
+2025-04-28 23:07:39,870 - INFO - Positions skipped: 5
+2025-04-28 23:07:39,872 - INFO - Positions with errors: 0
+2025-04-28 23:07:39,873 - INFO - 
+==================================================
+NEW OPPORTUNITIES PROCESSING COMPLETE
+==================================================
+2025-04-28 23:07:39,874 - INFO - 
+==================================================
+SECTOR PROCESSING COMPLETE
+==================================================
+2025-04-28 23:07:39,878 - INFO - Saved 3 positions to dhan_positions.json
+2025-04-28 23:07:39,878 - INFO - 
+==================================================
+POSITIONS SUMMARY
+==================================================
+2025-04-28 23:07:39,880 - INFO - Current positions summary:
+2025-04-28 23:07:39,881 - INFO -   Open BUY positions: 3
+2025-04-28 23:07:39,881 - INFO -   Open SELL positions: 0
+2025-04-28 23:07:39,882 - INFO -   Closed positions: 0
+2025-04-28 23:07:39,882 - INFO -   Total positions: 3
+2025-04-28 23:07:39,882 - INFO - Open positions:
+2025-04-28 23:07:39,882 - INFO -   BUY SYNGENE.NS (Sector: Pharma, Entry: 2025-04-28 22:53:18)
+2025-04-28 23:07:39,882 - INFO -   BUY ZEEL.NS (Sector: Media, Entry: 2025-04-28 22:53:19)
+2025-04-28 23:07:39,883 - INFO -   BUY GRANULES.NS (Sector: Pharma, Entry: 2025-04-28 22:53:19)
+2025-04-28 23:07:39,883 - INFO - 
+==================================================
+POSITIONS SUMMARY COMPLETE
+==================================================
+2025-04-28 23:07:39,883 - INFO - Trading cycle 4 completed
+2025-04-28 23:07:39,884 - INFO - Waiting 30 seconds until next check at 23:08:09...
+2025-04-28 23:07:39,884 - INFO - 
+==================================================
+CYCLE 4 COMPLETE
+==================================================
+2025-04-28 23:08:09,891 - INFO - 
+==================================================
+TRADING CYCLE 5
+==================================================
+2025-04-28 23:08:09,892 - INFO - Trading cycle 5 started at 2025-04-28 23:08:09
+2025-04-28 23:08:09,892 - WARNING - Current time (23:08:09) is outside market hours (9:15 - 15:30)
+2025-04-28 23:08:09,893 - INFO - Market is CLOSED
+2025-04-28 23:08:09,893 - INFO - 
+==================================================
+READING SECTOR PERFORMANCE DATA
+==================================================
+2025-04-28 23:08:09,894 - INFO - Reading sector performance data from sector.csv
+2025-04-28 23:08:09,894 - INFO - File last modified: 2025-04-28 23:06:51
+2025-04-28 23:08:09,910 - INFO - Latest timestamp in data: 2025-04-28 23:06:51
+2025-04-28 23:08:09,912 - INFO - Loaded data for 10 sectors
+2025-04-28 23:08:09,913 - INFO - Top performing sectors:
+2025-04-28 23:08:09,914 - INFO -   PSU Bank: +2.44%
+2025-04-28 23:08:09,915 - INFO -   Pharma: +1.98%
+2025-04-28 23:08:09,916 - INFO -   Energy: +1.71%
+2025-04-28 23:08:09,919 - INFO - Bottom performing sectors:
+2025-04-28 23:08:09,921 - INFO -   Media: +0.79%
+2025-04-28 23:08:09,922 - INFO -   FMCG: +0.16%
+2025-04-28 23:08:09,923 - INFO -   IT: -0.22%
+2025-04-28 23:08:09,924 - INFO - 
+==================================================
+SECTOR DATA READ COMPLETE
+==================================================
+2025-04-28 23:08:09,925 - INFO - 
+==================================================
+PROCESSING SECTOR DATA
+==================================================
+2025-04-28 23:08:09,930 - INFO - Processed performance data for 10 sectors
+2025-04-28 23:08:09,931 - INFO - Processing existing positions for potential exits...
+2025-04-28 23:08:09,932 - INFO - 
+==================================================
+PROCESSING EXISTING POSITIONS
+==================================================
+2025-04-28 23:08:09,934 - INFO - Processing 3 existing positions
+2025-04-28 23:08:09,934 - INFO - Checking position: BUY SYNGENE.NS (Sector: Pharma)
+2025-04-28 23:08:09,935 - INFO - Sector Pharma is POSITIVE with 1.98% change
+2025-04-28 23:08:09,942 - INFO - Checking position: BUY ZEEL.NS (Sector: Media)
+2025-04-28 23:08:09,943 - INFO - Sector Media is POSITIVE with 0.79% change
+2025-04-28 23:08:09,945 - INFO - Checking position: BUY GRANULES.NS (Sector: Pharma)
+2025-04-28 23:08:09,946 - INFO - Sector Pharma is POSITIVE with 1.98% change
+2025-04-28 23:08:09,947 - INFO - No positions needed to be exited
+2025-04-28 23:08:09,947 - INFO - 
+==================================================
+POSITION PROCESSING COMPLETE
+==================================================
+2025-04-28 23:08:09,948 - INFO - Looking for new trading opportunities...
+2025-04-28 23:08:09,948 - INFO - 
+==================================================
+FINDING NEW TRADING OPPORTUNITIES
+==================================================
+2025-04-28 23:08:09,949 - INFO - Found 5 active tickers out of 5 total
+2025-04-28 23:08:09,949 - INFO - Already have open positions for: ['SYNGENE.NS', 'ZEEL.NS', 'GRANULES.NS']
+2025-04-28 23:08:09,950 - INFO - Skipping SYNGENE.NS - already have an open position
+2025-04-28 23:08:09,950 - INFO - Skipping ZEEL.NS - already have an open position
+2025-04-28 23:08:09,951 - INFO - Skipping GRANULES.NS - already have an open position
+2025-04-28 23:08:09,951 - INFO - Evaluating SBILIFE.NS in sector Financial Services (+0.98%)
+2025-04-28 23:08:09,955 - INFO - Not trading SBILIFE.NS - sector performance doesn't match strategy
+2025-04-28 23:08:09,955 - WARNING - No performance data for sector PVT Bank
+2025-04-28 23:08:09,955 - INFO - New positions added: 0
+2025-04-28 23:08:09,956 - INFO - Positions skipped: 5
+2025-04-28 23:08:09,956 - INFO - Positions with errors: 0
+2025-04-28 23:08:09,956 - INFO - 
+==================================================
+NEW OPPORTUNITIES PROCESSING COMPLETE
+==================================================
+2025-04-28 23:08:09,957 - INFO - 
+==================================================
+SECTOR PROCESSING COMPLETE
+==================================================
+2025-04-28 23:08:09,962 - INFO - Saved 3 positions to dhan_positions.json
+2025-04-28 23:08:09,964 - INFO - 
+==================================================
+POSITIONS SUMMARY
+==================================================
+2025-04-28 23:08:09,965 - INFO - Current positions summary:
+2025-04-28 23:08:09,965 - INFO -   Open BUY positions: 3
+2025-04-28 23:08:09,966 - INFO -   Open SELL positions: 0
+2025-04-28 23:08:09,967 - INFO -   Closed positions: 0
+2025-04-28 23:08:09,973 - INFO -   Total positions: 3
+2025-04-28 23:08:09,973 - INFO - Open positions:
+2025-04-28 23:08:09,974 - INFO -   BUY SYNGENE.NS (Sector: Pharma, Entry: 2025-04-28 22:53:18)
+2025-04-28 23:08:09,975 - INFO -   BUY ZEEL.NS (Sector: Media, Entry: 2025-04-28 22:53:19)
+2025-04-28 23:08:09,975 - INFO -   BUY GRANULES.NS (Sector: Pharma, Entry: 2025-04-28 22:53:19)
+2025-04-28 23:08:09,975 - INFO - 
+==================================================
+POSITIONS SUMMARY COMPLETE
+==================================================
+2025-04-28 23:08:09,977 - INFO - Trading cycle 5 completed
+2025-04-28 23:08:09,979 - INFO - Waiting 30 seconds until next check at 23:08:39...
+2025-04-28 23:08:09,979 - INFO - 
+==================================================
+CYCLE 5 COMPLETE
+==================================================
+2025-04-28 23:08:39,994 - INFO - 
+==================================================
+TRADING CYCLE 6
+==================================================
+2025-04-28 23:08:39,995 - INFO - Trading cycle 6 started at 2025-04-28 23:08:39
+2025-04-28 23:08:39,995 - WARNING - Current time (23:08:39) is outside market hours (9:15 - 15:30)
+2025-04-28 23:08:39,995 - INFO - Market is CLOSED
+2025-04-28 23:08:39,996 - INFO - 
+==================================================
+READING SECTOR PERFORMANCE DATA
+==================================================
+2025-04-28 23:08:39,997 - INFO - Reading sector performance data from sector.csv
+2025-04-28 23:08:39,997 - INFO - File last modified: 2025-04-28 23:08:33
+2025-04-28 23:08:40,002 - INFO - Latest timestamp in data: 2025-04-28 23:08:33
+2025-04-28 23:08:40,002 - INFO - Loaded data for 10 sectors
+2025-04-28 23:08:40,003 - INFO - Top performing sectors:
+2025-04-28 23:08:40,004 - INFO -   PSU Bank: +2.44%
+2025-04-28 23:08:40,005 - INFO -   Pharma: +1.98%
+2025-04-28 23:08:40,005 - INFO -   Energy: +1.71%
+2025-04-28 23:08:40,005 - INFO - Bottom performing sectors:
+2025-04-28 23:08:40,006 - INFO -   Media: +0.79%
+2025-04-28 23:08:40,006 - INFO -   FMCG: +0.16%
+2025-04-28 23:08:40,007 - INFO -   IT: -0.22%
+2025-04-28 23:08:40,007 - INFO - 
+==================================================
+SECTOR DATA READ COMPLETE
+==================================================
+2025-04-28 23:08:40,008 - INFO - 
+==================================================
+PROCESSING SECTOR DATA
+==================================================
+2025-04-28 23:08:40,010 - INFO - Processed performance data for 10 sectors
+2025-04-28 23:08:40,011 - INFO - Processing existing positions for potential exits...
+2025-04-28 23:08:40,011 - INFO - 
+==================================================
+PROCESSING EXISTING POSITIONS
+==================================================
+2025-04-28 23:08:40,011 - INFO - Processing 3 existing positions
+2025-04-28 23:08:40,012 - INFO - Checking position: BUY SYNGENE.NS (Sector: Pharma)
+2025-04-28 23:08:40,012 - INFO - Sector Pharma is POSITIVE with 1.98% change
+2025-04-28 23:08:40,012 - INFO - Checking position: BUY ZEEL.NS (Sector: Media)
+2025-04-28 23:08:40,013 - INFO - Sector Media is POSITIVE with 0.79% change
+2025-04-28 23:08:40,013 - INFO - Checking position: BUY GRANULES.NS (Sector: Pharma)
+2025-04-28 23:08:40,014 - INFO - Sector Pharma is POSITIVE with 1.98% change
+2025-04-28 23:08:40,014 - INFO - No positions needed to be exited
+2025-04-28 23:08:40,014 - INFO - 
+==================================================
+POSITION PROCESSING COMPLETE
+==================================================
+2025-04-28 23:08:40,016 - INFO - Looking for new trading opportunities...
+2025-04-28 23:08:40,017 - INFO - 
+==================================================
+FINDING NEW TRADING OPPORTUNITIES
+==================================================
+2025-04-28 23:08:40,018 - INFO - Found 5 active tickers out of 5 total
+2025-04-28 23:08:40,019 - INFO - Already have open positions for: ['SYNGENE.NS', 'ZEEL.NS', 'GRANULES.NS']
+2025-04-28 23:08:40,019 - INFO - Skipping SYNGENE.NS - already have an open position
+2025-04-28 23:08:40,020 - INFO - Skipping ZEEL.NS - already have an open position
+2025-04-28 23:08:40,021 - INFO - Skipping GRANULES.NS - already have an open position
+2025-04-28 23:08:40,022 - INFO - Evaluating SBILIFE.NS in sector Financial Services (+0.98%)
+2025-04-28 23:08:40,023 - INFO - Not trading SBILIFE.NS - sector performance doesn't match strategy
+2025-04-28 23:08:40,024 - WARNING - No performance data for sector PVT Bank
+2025-04-28 23:08:40,024 - INFO - New positions added: 0
+2025-04-28 23:08:40,026 - INFO - Positions skipped: 5
+2025-04-28 23:08:40,027 - INFO - Positions with errors: 0
+2025-04-28 23:08:40,028 - INFO - 
+==================================================
+NEW OPPORTUNITIES PROCESSING COMPLETE
+==================================================
+2025-04-28 23:08:40,029 - INFO - 
+==================================================
+SECTOR PROCESSING COMPLETE
+==================================================
+2025-04-28 23:08:40,031 - INFO - Saved 3 positions to dhan_positions.json
+2025-04-28 23:08:40,033 - INFO - 
+==================================================
+POSITIONS SUMMARY
+==================================================
+2025-04-28 23:08:40,035 - INFO - Current positions summary:
+2025-04-28 23:08:40,035 - INFO -   Open BUY positions: 3
+2025-04-28 23:08:40,036 - INFO -   Open SELL positions: 0
+2025-04-28 23:08:40,037 - INFO -   Closed positions: 0
+2025-04-28 23:08:40,037 - INFO -   Total positions: 3
+2025-04-28 23:08:40,037 - INFO - Open positions:
+2025-04-28 23:08:40,037 - INFO -   BUY SYNGENE.NS (Sector: Pharma, Entry: 2025-04-28 22:53:18)
+2025-04-28 23:08:40,038 - INFO -   BUY ZEEL.NS (Sector: Media, Entry: 2025-04-28 22:53:19)
+2025-04-28 23:08:40,038 - INFO -   BUY GRANULES.NS (Sector: Pharma, Entry: 2025-04-28 22:53:19)
+2025-04-28 23:08:40,038 - INFO - 
+==================================================
+POSITIONS SUMMARY COMPLETE
+==================================================
+2025-04-28 23:08:40,040 - INFO - Trading cycle 6 completed
+2025-04-28 23:08:40,042 - INFO - Waiting 30 seconds until next check at 23:09:10...
+2025-04-28 23:08:40,043 - INFO - 
+==================================================
+CYCLE 6 COMPLETE
+==================================================
+2025-04-28 23:09:10,056 - INFO - 
+==================================================
+TRADING CYCLE 7
+==================================================
+2025-04-28 23:09:10,057 - INFO - Trading cycle 7 started at 2025-04-28 23:09:10
+2025-04-28 23:09:10,058 - WARNING - Current time (23:09:10) is outside market hours (9:15 - 15:30)
+2025-04-28 23:09:10,058 - INFO - Market is CLOSED
+2025-04-28 23:09:10,058 - INFO - 
+==================================================
+READING SECTOR PERFORMANCE DATA
+==================================================
+2025-04-28 23:09:10,059 - INFO - Reading sector performance data from sector.csv
+2025-04-28 23:09:10,059 - INFO - File last modified: 2025-04-28 23:08:33
+2025-04-28 23:09:10,063 - INFO - Latest timestamp in data: 2025-04-28 23:08:33
+2025-04-28 23:09:10,063 - INFO - Loaded data for 10 sectors
+2025-04-28 23:09:10,064 - INFO - Top performing sectors:
+2025-04-28 23:09:10,065 - INFO -   PSU Bank: +2.44%
+2025-04-28 23:09:10,066 - INFO -   Pharma: +1.98%
+2025-04-28 23:09:10,067 - INFO -   Energy: +1.71%
+2025-04-28 23:09:10,067 - INFO - Bottom performing sectors:
+2025-04-28 23:09:10,068 - INFO -   Media: +0.79%
+2025-04-28 23:09:10,069 - INFO -   FMCG: +0.16%
+2025-04-28 23:09:10,069 - INFO -   IT: -0.22%
+2025-04-28 23:09:10,070 - INFO - 
+==================================================
+SECTOR DATA READ COMPLETE
+==================================================
+2025-04-28 23:09:10,071 - INFO - 
+==================================================
+PROCESSING SECTOR DATA
+==================================================
+2025-04-28 23:09:10,074 - INFO - Processed performance data for 10 sectors
+2025-04-28 23:09:10,074 - INFO - Processing existing positions for potential exits...
+2025-04-28 23:09:10,075 - INFO - 
+==================================================
+PROCESSING EXISTING POSITIONS
+==================================================
+2025-04-28 23:09:10,076 - INFO - Processing 3 existing positions
+2025-04-28 23:09:10,077 - INFO - Checking position: BUY SYNGENE.NS (Sector: Pharma)
+2025-04-28 23:09:10,077 - INFO - Sector Pharma is POSITIVE with 1.98% change
+2025-04-28 23:09:10,077 - INFO - Checking position: BUY ZEEL.NS (Sector: Media)
+2025-04-28 23:09:10,080 - INFO - Sector Media is POSITIVE with 0.79% change
+2025-04-28 23:09:10,080 - INFO - Checking position: BUY GRANULES.NS (Sector: Pharma)
+2025-04-28 23:09:10,081 - INFO - Sector Pharma is POSITIVE with 1.98% change
+2025-04-28 23:09:10,082 - INFO - No positions needed to be exited
+2025-04-28 23:09:10,082 - INFO - 
+==================================================
+POSITION PROCESSING COMPLETE
+==================================================
+2025-04-28 23:09:10,083 - INFO - Looking for new trading opportunities...
+2025-04-28 23:09:10,083 - INFO - 
+==================================================
+FINDING NEW TRADING OPPORTUNITIES
+==================================================
+2025-04-28 23:09:10,084 - INFO - Found 5 active tickers out of 5 total
+2025-04-28 23:09:10,084 - INFO - Already have open positions for: ['SYNGENE.NS', 'ZEEL.NS', 'GRANULES.NS']
+2025-04-28 23:09:10,085 - INFO - Skipping SYNGENE.NS - already have an open position
+2025-04-28 23:09:10,085 - INFO - Skipping ZEEL.NS - already have an open position
+2025-04-28 23:09:10,085 - INFO - Skipping GRANULES.NS - already have an open position
+2025-04-28 23:09:10,086 - INFO - Evaluating SBILIFE.NS in sector Financial Services (+0.98%)
+2025-04-28 23:09:10,086 - INFO - Not trading SBILIFE.NS - sector performance doesn't match strategy
+2025-04-28 23:09:10,087 - WARNING - No performance data for sector PVT Bank
+2025-04-28 23:09:10,089 - INFO - New positions added: 0
+2025-04-28 23:09:10,090 - INFO - Positions skipped: 5
+2025-04-28 23:09:10,092 - INFO - Positions with errors: 0
+2025-04-28 23:09:10,094 - INFO - 
+==================================================
+NEW OPPORTUNITIES PROCESSING COMPLETE
+==================================================
+2025-04-28 23:09:10,099 - INFO - 
+==================================================
+SECTOR PROCESSING COMPLETE
+==================================================
+2025-04-28 23:09:10,101 - INFO - Saved 3 positions to dhan_positions.json
+2025-04-28 23:09:10,104 - INFO - 
+==================================================
+POSITIONS SUMMARY
+==================================================
+2025-04-28 23:09:10,107 - INFO - Current positions summary:
+2025-04-28 23:09:10,108 - INFO -   Open BUY positions: 3
+2025-04-28 23:09:10,108 - INFO -   Open SELL positions: 0
+2025-04-28 23:09:10,108 - INFO -   Closed positions: 0
+2025-04-28 23:09:10,109 - INFO -   Total positions: 3
+2025-04-28 23:09:10,109 - INFO - Open positions:
+2025-04-28 23:09:10,109 - INFO -   BUY SYNGENE.NS (Sector: Pharma, Entry: 2025-04-28 22:53:18)
+2025-04-28 23:09:10,109 - INFO -   BUY ZEEL.NS (Sector: Media, Entry: 2025-04-28 22:53:19)
+2025-04-28 23:09:10,110 - INFO -   BUY GRANULES.NS (Sector: Pharma, Entry: 2025-04-28 22:53:19)
+2025-04-28 23:09:10,110 - INFO - 
+==================================================
+POSITIONS SUMMARY COMPLETE
+==================================================
+2025-04-28 23:09:10,110 - INFO - Trading cycle 7 completed
+2025-04-28 23:09:10,110 - INFO - Waiting 30 seconds until next check at 23:09:40...
+2025-04-28 23:09:10,112 - INFO - 
+==================================================
+CYCLE 7 COMPLETE
+==================================================
+2025-04-28 23:09:40,172 - INFO - 
+==================================================
+TRADING CYCLE 8
+==================================================
+2025-04-28 23:09:40,186 - INFO - Trading cycle 8 started at 2025-04-28 23:09:40
+2025-04-28 23:09:40,194 - WARNING - Current time (23:09:40) is outside market hours (9:15 - 15:30)
+2025-04-28 23:09:40,196 - INFO - Market is CLOSED
+2025-04-28 23:09:40,202 - INFO - 
+==================================================
+READING SECTOR PERFORMANCE DATA
+==================================================
+2025-04-28 23:09:40,204 - INFO - Reading sector performance data from sector.csv
+2025-04-28 23:09:40,207 - INFO - File last modified: 2025-04-28 23:08:33
+2025-04-28 23:09:40,258 - INFO - Latest timestamp in data: 2025-04-28 23:08:33
+2025-04-28 23:09:40,270 - INFO - Loaded data for 10 sectors
+2025-04-28 23:09:40,273 - INFO - Top performing sectors:
+2025-04-28 23:09:40,274 - INFO -   PSU Bank: +2.44%
+2025-04-28 23:09:40,283 - INFO -   Pharma: +1.98%
+2025-04-28 23:09:40,286 - INFO -   Energy: +1.71%
+2025-04-28 23:09:40,288 - INFO - Bottom performing sectors:
+2025-04-28 23:09:40,290 - INFO -   Media: +0.79%
+2025-04-28 23:09:40,305 - INFO -   FMCG: +0.16%
+2025-04-28 23:09:40,411 - INFO -   IT: -0.22%
+2025-04-28 23:09:40,423 - INFO - 
+==================================================
+SECTOR DATA READ COMPLETE
+==================================================
+2025-04-28 23:09:40,434 - INFO - 
+==================================================
+PROCESSING SECTOR DATA
+==================================================
+2025-04-28 23:09:40,451 - INFO - Processed performance data for 10 sectors
+2025-04-28 23:09:40,455 - INFO - Processing existing positions for potential exits...
+2025-04-28 23:09:40,483 - INFO - 
+==================================================
+PROCESSING EXISTING POSITIONS
+==================================================
+2025-04-28 23:09:40,527 - INFO - Processing 3 existing positions
+2025-04-28 23:09:40,530 - INFO - Checking position: BUY SYNGENE.NS (Sector: Pharma)
+2025-04-28 23:09:40,553 - INFO - Sector Pharma is POSITIVE with 1.98% change
+2025-04-28 23:09:40,554 - INFO - Checking position: BUY ZEEL.NS (Sector: Media)
+2025-04-28 23:09:40,554 - INFO - Sector Media is POSITIVE with 0.79% change
+2025-04-28 23:09:40,555 - INFO - Checking position: BUY GRANULES.NS (Sector: Pharma)
+2025-04-28 23:09:40,571 - INFO - Sector Pharma is POSITIVE with 1.98% change
+2025-04-28 23:09:40,572 - INFO - No positions needed to be exited
+2025-04-28 23:09:40,573 - INFO - 
+==================================================
+POSITION PROCESSING COMPLETE
+==================================================
+2025-04-28 23:09:40,574 - INFO - Looking for new trading opportunities...
+2025-04-28 23:09:40,584 - INFO - 
+==================================================
+FINDING NEW TRADING OPPORTUNITIES
+==================================================
+2025-04-28 23:09:40,585 - INFO - Found 5 active tickers out of 5 total
+2025-04-28 23:09:40,585 - INFO - Already have open positions for: ['SYNGENE.NS', 'ZEEL.NS', 'GRANULES.NS']
+2025-04-28 23:09:40,586 - INFO - Skipping SYNGENE.NS - already have an open position
+2025-04-28 23:09:40,587 - INFO - Skipping ZEEL.NS - already have an open position
+2025-04-28 23:09:40,587 - INFO - Skipping GRANULES.NS - already have an open position
+2025-04-28 23:09:40,588 - INFO - Evaluating SBILIFE.NS in sector Financial Services (+0.98%)
+2025-04-28 23:09:40,588 - INFO - Not trading SBILIFE.NS - sector performance doesn't match strategy
+2025-04-28 23:09:40,589 - WARNING - No performance data for sector PVT Bank
+2025-04-28 23:09:40,590 - INFO - New positions added: 0
+2025-04-28 23:09:40,591 - INFO - Positions skipped: 5
+2025-04-28 23:09:40,591 - INFO - Positions with errors: 0
+2025-04-28 23:09:40,592 - INFO - 
+==================================================
+NEW OPPORTUNITIES PROCESSING COMPLETE
+==================================================
+2025-04-28 23:09:40,606 - INFO - 
+==================================================
+SECTOR PROCESSING COMPLETE
+==================================================
+2025-04-28 23:09:40,664 - INFO - Saved 3 positions to dhan_positions.json
+2025-04-28 23:09:40,685 - INFO - 
+==================================================
+POSITIONS SUMMARY
+==================================================
+2025-04-28 23:09:40,696 - INFO - Current positions summary:
+2025-04-28 23:09:40,698 - INFO -   Open BUY positions: 3
+2025-04-28 23:09:40,699 - INFO -   Open SELL positions: 0
+2025-04-28 23:09:40,700 - INFO -   Closed positions: 0
+2025-04-28 23:09:40,700 - INFO -   Total positions: 3
+2025-04-28 23:09:40,701 - INFO - Open positions:
+2025-04-28 23:09:40,701 - INFO -   BUY SYNGENE.NS (Sector: Pharma, Entry: 2025-04-28 22:53:18)
+2025-04-28 23:09:40,702 - INFO -   BUY ZEEL.NS (Sector: Media, Entry: 2025-04-28 22:53:19)
+2025-04-28 23:09:40,703 - INFO -   BUY GRANULES.NS (Sector: Pharma, Entry: 2025-04-28 22:53:19)
+2025-04-28 23:09:40,703 - INFO - 
+==================================================
+POSITIONS SUMMARY COMPLETE
+==================================================
+2025-04-28 23:09:40,705 - INFO - Trading cycle 8 completed
+2025-04-28 23:09:40,706 - INFO - Waiting 30 seconds until next check at 23:10:10...
+2025-04-28 23:09:40,707 - INFO - 
+==================================================
+CYCLE 8 COMPLETE
+==================================================
+2025-04-28 23:10:10,759 - INFO - 
+==================================================
+TRADING CYCLE 9
+==================================================
+2025-04-28 23:10:10,760 - INFO - Trading cycle 9 started at 2025-04-28 23:10:10
+2025-04-28 23:10:10,760 - WARNING - Current time (23:10:10) is outside market hours (9:15 - 15:30)
+2025-04-28 23:10:10,760 - INFO - Market is CLOSED
+2025-04-28 23:10:10,761 - INFO - 
+==================================================
+READING SECTOR PERFORMANCE DATA
+==================================================
+2025-04-28 23:10:10,762 - INFO - Reading sector performance data from sector.csv
+2025-04-28 23:10:10,762 - INFO - File last modified: 2025-04-28 23:08:33
+2025-04-28 23:10:10,764 - INFO - Latest timestamp in data: 2025-04-28 23:08:33
+2025-04-28 23:10:10,764 - INFO - Loaded data for 10 sectors
+2025-04-28 23:10:10,765 - INFO - Top performing sectors:
+2025-04-28 23:10:10,766 - INFO -   PSU Bank: +2.44%
+2025-04-28 23:10:10,767 - INFO -   Pharma: +1.98%
+2025-04-28 23:10:10,767 - INFO -   Energy: +1.71%
+2025-04-28 23:10:10,768 - INFO - Bottom performing sectors:
+2025-04-28 23:10:10,768 - INFO -   Media: +0.79%
+2025-04-28 23:10:10,769 - INFO -   FMCG: +0.16%
+2025-04-28 23:10:10,770 - INFO -   IT: -0.22%
+2025-04-28 23:10:10,770 - INFO - 
+==================================================
+SECTOR DATA READ COMPLETE
+==================================================
+2025-04-28 23:10:10,771 - INFO - 
+==================================================
+PROCESSING SECTOR DATA
+==================================================
+2025-04-28 23:10:10,774 - INFO - Processed performance data for 10 sectors
+2025-04-28 23:10:10,776 - INFO - Processing existing positions for potential exits...
+2025-04-28 23:10:10,776 - INFO - 
+==================================================
+PROCESSING EXISTING POSITIONS
+==================================================
+2025-04-28 23:10:10,777 - INFO - Processing 3 existing positions
+2025-04-28 23:10:10,777 - INFO - Checking position: BUY SYNGENE.NS (Sector: Pharma)
+2025-04-28 23:10:10,777 - INFO - Sector Pharma is POSITIVE with 1.98% change
+2025-04-28 23:10:10,778 - INFO - Checking position: BUY ZEEL.NS (Sector: Media)
+2025-04-28 23:10:10,778 - INFO - Sector Media is POSITIVE with 0.79% change
+2025-04-28 23:10:10,779 - INFO - Checking position: BUY GRANULES.NS (Sector: Pharma)
+2025-04-28 23:10:10,779 - INFO - Sector Pharma is POSITIVE with 1.98% change
+2025-04-28 23:10:10,779 - INFO - No positions needed to be exited
+2025-04-28 23:10:10,779 - INFO - 
+==================================================
+POSITION PROCESSING COMPLETE
+==================================================
+2025-04-28 23:10:10,780 - INFO - Looking for new trading opportunities...
+2025-04-28 23:10:10,781 - INFO - 
+==================================================
+FINDING NEW TRADING OPPORTUNITIES
+==================================================
+2025-04-28 23:10:10,782 - INFO - Found 5 active tickers out of 5 total
+2025-04-28 23:10:10,783 - INFO - Already have open positions for: ['SYNGENE.NS', 'ZEEL.NS', 'GRANULES.NS']
+2025-04-28 23:10:10,784 - INFO - Skipping SYNGENE.NS - already have an open position
+2025-04-28 23:10:10,785 - INFO - Skipping ZEEL.NS - already have an open position
+2025-04-28 23:10:10,786 - INFO - Skipping GRANULES.NS - already have an open position
+2025-04-28 23:10:10,786 - INFO - Evaluating SBILIFE.NS in sector Financial Services (+0.98%)
+2025-04-28 23:10:10,787 - INFO - Not trading SBILIFE.NS - sector performance doesn't match strategy
+2025-04-28 23:10:10,787 - WARNING - No performance data for sector PVT Bank
+2025-04-28 23:10:10,787 - INFO - New positions added: 0
+2025-04-28 23:10:10,788 - INFO - Positions skipped: 5
+2025-04-28 23:10:10,788 - INFO - Positions with errors: 0
+2025-04-28 23:10:10,789 - INFO - 
+==================================================
+NEW OPPORTUNITIES PROCESSING COMPLETE
+==================================================
+2025-04-28 23:10:10,793 - INFO - 
+==================================================
+SECTOR PROCESSING COMPLETE
+==================================================
+2025-04-28 23:10:10,796 - INFO - Saved 3 positions to dhan_positions.json
+2025-04-28 23:10:10,798 - INFO - 
+==================================================
+POSITIONS SUMMARY
+==================================================
+2025-04-28 23:10:10,800 - INFO - Current positions summary:
+2025-04-28 23:10:10,800 - INFO -   Open BUY positions: 3
+2025-04-28 23:10:10,800 - INFO -   Open SELL positions: 0
+2025-04-28 23:10:10,801 - INFO -   Closed positions: 0
+2025-04-28 23:10:10,801 - INFO -   Total positions: 3
+2025-04-28 23:10:10,801 - INFO - Open positions:
+2025-04-28 23:10:10,801 - INFO -   BUY SYNGENE.NS (Sector: Pharma, Entry: 2025-04-28 22:53:18)
+2025-04-28 23:10:10,801 - INFO -   BUY ZEEL.NS (Sector: Media, Entry: 2025-04-28 22:53:19)
+2025-04-28 23:10:10,801 - INFO -   BUY GRANULES.NS (Sector: Pharma, Entry: 2025-04-28 22:53:19)
+2025-04-28 23:10:10,802 - INFO - 
+==================================================
+POSITIONS SUMMARY COMPLETE
+==================================================
+2025-04-28 23:10:10,803 - INFO - Trading cycle 9 completed
+2025-04-28 23:10:10,803 - INFO - Waiting 30 seconds until next check at 23:10:40...
+2025-04-28 23:10:10,803 - INFO - 
+==================================================
+CYCLE 9 COMPLETE
+==================================================
+2025-04-28 23:10:40,811 - INFO - 
+==================================================
+TRADING CYCLE 10
+==================================================
+2025-04-28 23:10:40,812 - INFO - Trading cycle 10 started at 2025-04-28 23:10:40
+2025-04-28 23:10:40,812 - WARNING - Current time (23:10:40) is outside market hours (9:15 - 15:30)
+2025-04-28 23:10:40,812 - INFO - Market is CLOSED
+2025-04-28 23:10:40,813 - INFO - 
+==================================================
+READING SECTOR PERFORMANCE DATA
+==================================================
+2025-04-28 23:10:40,813 - INFO - Reading sector performance data from sector.csv
+2025-04-28 23:10:40,813 - INFO - File last modified: 2025-04-28 23:10:12
+2025-04-28 23:10:40,816 - INFO - Latest timestamp in data: 2025-04-28 23:10:12
+2025-04-28 23:10:40,817 - INFO - Loaded data for 10 sectors
+2025-04-28 23:10:40,818 - INFO - Top performing sectors:
+2025-04-28 23:10:40,820 - INFO -   PSU Bank: +2.44%
+2025-04-28 23:10:40,820 - INFO -   Pharma: +1.98%
+2025-04-28 23:10:40,821 - INFO -   Energy: +1.71%
+2025-04-28 23:10:40,821 - INFO - Bottom performing sectors:
+2025-04-28 23:10:40,822 - INFO -   Media: +0.79%
+2025-04-28 23:10:40,823 - INFO -   FMCG: +0.16%
+2025-04-28 23:10:40,823 - INFO -   IT: -0.22%
+2025-04-28 23:10:40,824 - INFO - 
+==================================================
+SECTOR DATA READ COMPLETE
+==================================================
+2025-04-28 23:10:40,824 - INFO - 
+==================================================
+PROCESSING SECTOR DATA
+==================================================
+2025-04-28 23:10:40,828 - INFO - Processed performance data for 10 sectors
+2025-04-28 23:10:40,829 - INFO - Processing existing positions for potential exits...
+2025-04-28 23:10:40,830 - INFO - 
+==================================================
+PROCESSING EXISTING POSITIONS
+==================================================
+2025-04-28 23:10:40,830 - INFO - Processing 3 existing positions
+2025-04-28 23:10:40,831 - INFO - Checking position: BUY SYNGENE.NS (Sector: Pharma)
+2025-04-28 23:10:40,831 - INFO - Sector Pharma is POSITIVE with 1.98% change
+2025-04-28 23:10:40,832 - INFO - Checking position: BUY ZEEL.NS (Sector: Media)
+2025-04-28 23:10:40,832 - INFO - Sector Media is POSITIVE with 0.79% change
+2025-04-28 23:10:40,832 - INFO - Checking position: BUY GRANULES.NS (Sector: Pharma)
+2025-04-28 23:10:40,833 - INFO - Sector Pharma is POSITIVE with 1.98% change
+2025-04-28 23:10:40,833 - INFO - No positions needed to be exited
+2025-04-28 23:10:40,833 - INFO - 
+==================================================
+POSITION PROCESSING COMPLETE
+==================================================
+2025-04-28 23:10:40,833 - INFO - Looking for new trading opportunities...
+2025-04-28 23:10:40,834 - INFO - 
+==================================================
+FINDING NEW TRADING OPPORTUNITIES
+==================================================
+2025-04-28 23:10:40,835 - INFO - Found 5 active tickers out of 5 total
+2025-04-28 23:10:40,836 - INFO - Already have open positions for: ['SYNGENE.NS', 'ZEEL.NS', 'GRANULES.NS']
+2025-04-28 23:10:40,837 - INFO - Skipping SYNGENE.NS - already have an open position
+2025-04-28 23:10:40,838 - INFO - Skipping ZEEL.NS - already have an open position
+2025-04-28 23:10:40,838 - INFO - Skipping GRANULES.NS - already have an open position
+2025-04-28 23:10:40,838 - INFO - Evaluating SBILIFE.NS in sector Financial Services (+0.98%)
+2025-04-28 23:10:40,838 - INFO - Not trading SBILIFE.NS - sector performance doesn't match strategy
+2025-04-28 23:10:40,839 - WARNING - No performance data for sector PVT Bank
+2025-04-28 23:10:40,839 - INFO - New positions added: 0
+2025-04-28 23:10:40,839 - INFO - Positions skipped: 5
+2025-04-28 23:10:40,840 - INFO - Positions with errors: 0
+2025-04-28 23:10:40,840 - INFO - 
+==================================================
+NEW OPPORTUNITIES PROCESSING COMPLETE
+==================================================
+2025-04-28 23:10:40,841 - INFO - 
+==================================================
+SECTOR PROCESSING COMPLETE
+==================================================
+2025-04-28 23:10:40,843 - INFO - Saved 3 positions to dhan_positions.json
+2025-04-28 23:10:40,844 - INFO - 
+==================================================
+POSITIONS SUMMARY
+==================================================
+2025-04-28 23:10:40,846 - INFO - Current positions summary:
+2025-04-28 23:10:40,846 - INFO -   Open BUY positions: 3
+2025-04-28 23:10:40,846 - INFO -   Open SELL positions: 0
+2025-04-28 23:10:40,847 - INFO -   Closed positions: 0
+2025-04-28 23:10:40,847 - INFO -   Total positions: 3
+2025-04-28 23:10:40,848 - INFO - Open positions:
+2025-04-28 23:10:40,848 - INFO -   BUY SYNGENE.NS (Sector: Pharma, Entry: 2025-04-28 22:53:18)
+2025-04-28 23:10:40,849 - INFO -   BUY ZEEL.NS (Sector: Media, Entry: 2025-04-28 22:53:19)
+2025-04-28 23:10:40,850 - INFO -   BUY GRANULES.NS (Sector: Pharma, Entry: 2025-04-28 22:53:19)
+2025-04-28 23:10:40,851 - INFO - 
+==================================================
+POSITIONS SUMMARY COMPLETE
+==================================================
+2025-04-28 23:10:40,851 - INFO - Trading cycle 10 completed
+2025-04-28 23:10:40,851 - INFO - Waiting 30 seconds until next check at 23:11:10...
+2025-04-28 23:10:40,853 - INFO - 
+==================================================
+CYCLE 10 COMPLETE
+==================================================
+2025-04-28 23:11:10,862 - INFO - 
+==================================================
+TRADING CYCLE 11
+==================================================
+2025-04-28 23:11:10,865 - INFO - Trading cycle 11 started at 2025-04-28 23:11:10
+2025-04-28 23:11:10,865 - WARNING - Current time (23:11:10) is outside market hours (9:15 - 15:30)
+2025-04-28 23:11:10,867 - INFO - Market is CLOSED
+2025-04-28 23:11:10,868 - INFO - 
+==================================================
+READING SECTOR PERFORMANCE DATA
+==================================================
+2025-04-28 23:11:10,871 - INFO - Reading sector performance data from sector.csv
+2025-04-28 23:11:10,872 - INFO - File last modified: 2025-04-28 23:10:12
+2025-04-28 23:11:10,876 - INFO - Latest timestamp in data: 2025-04-28 23:10:12
+2025-04-28 23:11:10,876 - INFO - Loaded data for 10 sectors
+2025-04-28 23:11:10,878 - INFO - Top performing sectors:
+2025-04-28 23:11:10,879 - INFO -   PSU Bank: +2.44%
+2025-04-28 23:11:10,880 - INFO -   Pharma: +1.98%
+2025-04-28 23:11:10,881 - INFO -   Energy: +1.71%
+2025-04-28 23:11:10,886 - INFO - Bottom performing sectors:
+2025-04-28 23:11:10,888 - INFO -   Media: +0.79%
+2025-04-28 23:11:10,889 - INFO -   FMCG: +0.16%
+2025-04-28 23:11:10,890 - INFO -   IT: -0.22%
+2025-04-28 23:11:10,890 - INFO - 
+==================================================
+SECTOR DATA READ COMPLETE
+==================================================
+2025-04-28 23:11:10,891 - INFO - 
+==================================================
+PROCESSING SECTOR DATA
+==================================================
+2025-04-28 23:11:10,906 - INFO - Processed performance data for 10 sectors
+2025-04-28 23:11:10,909 - INFO - Processing existing positions for potential exits...
+2025-04-28 23:11:10,910 - INFO - 
+==================================================
+PROCESSING EXISTING POSITIONS
+==================================================
+2025-04-28 23:11:10,911 - INFO - Processing 3 existing positions
+2025-04-28 23:11:10,911 - INFO - Checking position: BUY SYNGENE.NS (Sector: Pharma)
+2025-04-28 23:11:10,911 - INFO - Sector Pharma is POSITIVE with 1.98% change
+2025-04-28 23:11:10,912 - INFO - Checking position: BUY ZEEL.NS (Sector: Media)
+2025-04-28 23:11:10,912 - INFO - Sector Media is POSITIVE with 0.79% change
+2025-04-28 23:11:10,913 - INFO - Checking position: BUY GRANULES.NS (Sector: Pharma)
+2025-04-28 23:11:10,913 - INFO - Sector Pharma is POSITIVE with 1.98% change
+2025-04-28 23:11:10,914 - INFO - No positions needed to be exited
+2025-04-28 23:11:10,914 - INFO - 
+==================================================
+POSITION PROCESSING COMPLETE
+==================================================
+2025-04-28 23:11:10,916 - INFO - Looking for new trading opportunities...
+2025-04-28 23:11:10,917 - INFO - 
+==================================================
+FINDING NEW TRADING OPPORTUNITIES
+==================================================
+2025-04-28 23:11:10,921 - INFO - Found 5 active tickers out of 5 total
+2025-04-28 23:11:10,925 - INFO - Already have open positions for: ['SYNGENE.NS', 'ZEEL.NS', 'GRANULES.NS']
+2025-04-28 23:11:10,926 - INFO - Skipping SYNGENE.NS - already have an open position
+2025-04-28 23:11:10,927 - INFO - Skipping ZEEL.NS - already have an open position
+2025-04-28 23:11:10,928 - INFO - Skipping GRANULES.NS - already have an open position
+2025-04-28 23:11:10,928 - INFO - Evaluating SBILIFE.NS in sector Financial Services (+0.98%)
+2025-04-28 23:11:10,929 - INFO - Not trading SBILIFE.NS - sector performance doesn't match strategy
+2025-04-28 23:11:10,929 - WARNING - No performance data for sector PVT Bank
+2025-04-28 23:11:10,930 - INFO - New positions added: 0
+2025-04-28 23:11:10,930 - INFO - Positions skipped: 5
+2025-04-28 23:11:10,930 - INFO - Positions with errors: 0
+2025-04-28 23:11:10,931 - INFO - 
+==================================================
+NEW OPPORTUNITIES PROCESSING COMPLETE
+==================================================
+2025-04-28 23:11:10,931 - INFO - 
+==================================================
+SECTOR PROCESSING COMPLETE
+==================================================
+2025-04-28 23:11:10,937 - INFO - Saved 3 positions to dhan_positions.json
+2025-04-28 23:11:10,940 - INFO - 
+==================================================
+POSITIONS SUMMARY
+==================================================
+2025-04-28 23:11:10,943 - INFO - Current positions summary:
+2025-04-28 23:11:10,943 - INFO -   Open BUY positions: 3
+2025-04-28 23:11:10,943 - INFO -   Open SELL positions: 0
+2025-04-28 23:11:10,943 - INFO -   Closed positions: 0
+2025-04-28 23:11:10,944 - INFO -   Total positions: 3
+2025-04-28 23:11:10,944 - INFO - Open positions:
+2025-04-28 23:11:10,944 - INFO -   BUY SYNGENE.NS (Sector: Pharma, Entry: 2025-04-28 22:53:18)
+2025-04-28 23:11:10,944 - INFO -   BUY ZEEL.NS (Sector: Media, Entry: 2025-04-28 22:53:19)
+2025-04-28 23:11:10,945 - INFO -   BUY GRANULES.NS (Sector: Pharma, Entry: 2025-04-28 22:53:19)
+2025-04-28 23:11:10,945 - INFO - 
+==================================================
+POSITIONS SUMMARY COMPLETE
+==================================================
+2025-04-28 23:11:10,946 - INFO - Trading cycle 11 completed
+2025-04-28 23:11:10,946 - INFO - Waiting 30 seconds until next check at 23:11:40...
+2025-04-28 23:11:10,947 - INFO - 
+==================================================
+CYCLE 11 COMPLETE
+==================================================
+2025-04-28 23:11:40,950 - INFO - 
+==================================================
+TRADING CYCLE 12
+==================================================
+2025-04-28 23:11:40,951 - INFO - Trading cycle 12 started at 2025-04-28 23:11:40
+2025-04-28 23:11:40,952 - WARNING - Current time (23:11:40) is outside market hours (9:15 - 15:30)
+2025-04-28 23:11:40,952 - INFO - Market is CLOSED
+2025-04-28 23:11:40,952 - INFO - 
+==================================================
+READING SECTOR PERFORMANCE DATA
+==================================================
+2025-04-28 23:11:40,953 - INFO - Reading sector performance data from sector.csv
+2025-04-28 23:11:40,954 - INFO - File last modified: 2025-04-28 23:10:12
+2025-04-28 23:11:40,959 - INFO - Latest timestamp in data: 2025-04-28 23:10:12
+2025-04-28 23:11:40,959 - INFO - Loaded data for 10 sectors
+2025-04-28 23:11:40,961 - INFO - Top performing sectors:
+2025-04-28 23:11:40,967 - INFO -   PSU Bank: +2.44%
+2025-04-28 23:11:40,970 - INFO -   Pharma: +1.98%
+2025-04-28 23:11:40,971 - INFO -   Energy: +1.71%
+2025-04-28 23:11:40,972 - INFO - Bottom performing sectors:
+2025-04-28 23:11:40,974 - INFO -   Media: +0.79%
+2025-04-28 23:11:40,975 - INFO -   FMCG: +0.16%
+2025-04-28 23:11:40,976 - INFO -   IT: -0.22%
+2025-04-28 23:11:40,976 - INFO - 
+==================================================
+SECTOR DATA READ COMPLETE
+==================================================
+2025-04-28 23:11:40,977 - INFO - 
+==================================================
+PROCESSING SECTOR DATA
+==================================================
+2025-04-28 23:11:40,986 - INFO - Processed performance data for 10 sectors
+2025-04-28 23:11:40,987 - INFO - Processing existing positions for potential exits...
+2025-04-28 23:11:40,987 - INFO - 
+==================================================
+PROCESSING EXISTING POSITIONS
+==================================================
+2025-04-28 23:11:40,988 - INFO - Processing 3 existing positions
+2025-04-28 23:11:40,989 - INFO - Checking position: BUY SYNGENE.NS (Sector: Pharma)
+2025-04-28 23:11:40,989 - INFO - Sector Pharma is POSITIVE with 1.98% change
+2025-04-28 23:11:40,989 - INFO - Checking position: BUY ZEEL.NS (Sector: Media)
+2025-04-28 23:11:40,989 - INFO - Sector Media is POSITIVE with 0.79% change
+2025-04-28 23:11:40,989 - INFO - Checking position: BUY GRANULES.NS (Sector: Pharma)
+2025-04-28 23:11:40,990 - INFO - Sector Pharma is POSITIVE with 1.98% change
+2025-04-28 23:11:40,990 - INFO - No positions needed to be exited
+2025-04-28 23:11:40,991 - INFO - 
+==================================================
+POSITION PROCESSING COMPLETE
+==================================================
+2025-04-28 23:11:40,991 - INFO - Looking for new trading opportunities...
+2025-04-28 23:11:40,991 - INFO - 
+==================================================
+FINDING NEW TRADING OPPORTUNITIES
+==================================================
+2025-04-28 23:11:40,992 - INFO - Found 5 active tickers out of 5 total
+2025-04-28 23:11:40,993 - INFO - Already have open positions for: ['SYNGENE.NS', 'ZEEL.NS', 'GRANULES.NS']
+2025-04-28 23:11:40,994 - INFO - Skipping SYNGENE.NS - already have an open position
+2025-04-28 23:11:40,994 - INFO - Skipping ZEEL.NS - already have an open position
+2025-04-28 23:11:41,007 - INFO - Skipping GRANULES.NS - already have an open position
+2025-04-28 23:11:41,007 - INFO - Evaluating SBILIFE.NS in sector Financial Services (+0.98%)
+2025-04-28 23:11:41,007 - INFO - Not trading SBILIFE.NS - sector performance doesn't match strategy
+2025-04-28 23:11:41,008 - WARNING - No performance data for sector PVT Bank
+2025-04-28 23:11:41,008 - INFO - New positions added: 0
+2025-04-28 23:11:41,008 - INFO - Positions skipped: 5
+2025-04-28 23:11:41,008 - INFO - Positions with errors: 0
+2025-04-28 23:11:41,009 - INFO - 
+==================================================
+NEW OPPORTUNITIES PROCESSING COMPLETE
+==================================================
+2025-04-28 23:11:41,010 - INFO - 
+==================================================
+SECTOR PROCESSING COMPLETE
+==================================================
+2025-04-28 23:11:41,022 - INFO - Saved 3 positions to dhan_positions.json
+2025-04-28 23:11:41,024 - INFO - 
+==================================================
+POSITIONS SUMMARY
+==================================================
+2025-04-28 23:11:41,026 - INFO - Current positions summary:
+2025-04-28 23:11:41,027 - INFO -   Open BUY positions: 3
+2025-04-28 23:11:41,028 - INFO -   Open SELL positions: 0
+2025-04-28 23:11:41,028 - INFO -   Closed positions: 0
+2025-04-28 23:11:41,028 - INFO -   Total positions: 3
+2025-04-28 23:11:41,033 - INFO - Open positions:
+2025-04-28 23:11:41,034 - INFO -   BUY SYNGENE.NS (Sector: Pharma, Entry: 2025-04-28 22:53:18)
+2025-04-28 23:11:41,055 - INFO -   BUY ZEEL.NS (Sector: Media, Entry: 2025-04-28 22:53:19)
+2025-04-28 23:11:41,056 - INFO -   BUY GRANULES.NS (Sector: Pharma, Entry: 2025-04-28 22:53:19)
+2025-04-28 23:11:41,057 - INFO - 
+==================================================
+POSITIONS SUMMARY COMPLETE
+==================================================
+2025-04-28 23:11:41,058 - INFO - Trading cycle 12 completed
+2025-04-28 23:11:41,059 - INFO - Waiting 30 seconds until next check at 23:12:11...
+2025-04-28 23:11:41,060 - INFO - 
+==================================================
+CYCLE 12 COMPLETE
+==================================================
+2025-04-28 23:12:11,066 - INFO - 
+==================================================
+TRADING CYCLE 13
+==================================================
+2025-04-28 23:12:11,068 - INFO - Trading cycle 13 started at 2025-04-28 23:12:11
+2025-04-28 23:12:11,069 - WARNING - Current time (23:12:11) is outside market hours (9:15 - 15:30)
+2025-04-28 23:12:11,071 - INFO - Market is CLOSED
+2025-04-28 23:12:11,071 - INFO - 
+==================================================
+READING SECTOR PERFORMANCE DATA
+==================================================
+2025-04-28 23:12:11,073 - INFO - Reading sector performance data from sector.csv
+2025-04-28 23:12:11,075 - INFO - File last modified: 2025-04-28 23:11:53
+2025-04-28 23:12:11,083 - INFO - Latest timestamp in data: 2025-04-28 23:11:53
+2025-04-28 23:12:11,084 - INFO - Loaded data for 10 sectors
+2025-04-28 23:12:11,086 - INFO - Top performing sectors:
+2025-04-28 23:12:11,088 - INFO -   PSU Bank: +2.44%
+2025-04-28 23:12:11,089 - INFO -   Pharma: +1.98%
+2025-04-28 23:12:11,090 - INFO -   Energy: +1.71%
+2025-04-28 23:12:11,091 - INFO - Bottom performing sectors:
+2025-04-28 23:12:11,094 - INFO -   Media: +0.79%
+2025-04-28 23:12:11,101 - INFO -   FMCG: +0.16%
+2025-04-28 23:12:11,102 - INFO -   IT: -0.22%
+2025-04-28 23:12:11,103 - INFO - 
+==================================================
+SECTOR DATA READ COMPLETE
+==================================================
+2025-04-28 23:12:11,105 - INFO - 
+==================================================
+PROCESSING SECTOR DATA
+==================================================
+2025-04-28 23:12:11,107 - INFO - Processed performance data for 10 sectors
+2025-04-28 23:12:11,107 - INFO - Processing existing positions for potential exits...
+2025-04-28 23:12:11,108 - INFO - 
+==================================================
+PROCESSING EXISTING POSITIONS
+==================================================
+2025-04-28 23:12:11,108 - INFO - Processing 3 existing positions
+2025-04-28 23:12:11,109 - INFO - Checking position: BUY SYNGENE.NS (Sector: Pharma)
+2025-04-28 23:12:11,114 - INFO - Sector Pharma is POSITIVE with 1.98% change
+2025-04-28 23:12:11,114 - INFO - Checking position: BUY ZEEL.NS (Sector: Media)
+2025-04-28 23:12:11,130 - INFO - Sector Media is POSITIVE with 0.79% change
+2025-04-28 23:12:11,131 - INFO - Checking position: BUY GRANULES.NS (Sector: Pharma)
+2025-04-28 23:12:11,132 - INFO - Sector Pharma is POSITIVE with 1.98% change
+2025-04-28 23:12:11,133 - INFO - No positions needed to be exited
+2025-04-28 23:12:11,133 - INFO - 
+==================================================
+POSITION PROCESSING COMPLETE
+==================================================
+2025-04-28 23:12:11,133 - INFO - Looking for new trading opportunities...
+2025-04-28 23:12:11,134 - INFO - 
+==================================================
+FINDING NEW TRADING OPPORTUNITIES
+==================================================
+2025-04-28 23:12:11,134 - INFO - Found 5 active tickers out of 5 total
+2025-04-28 23:12:11,135 - INFO - Already have open positions for: ['SYNGENE.NS', 'ZEEL.NS', 'GRANULES.NS']
+2025-04-28 23:12:11,136 - INFO - Skipping SYNGENE.NS - already have an open position
+2025-04-28 23:12:11,136 - INFO - Skipping ZEEL.NS - already have an open position
+2025-04-28 23:12:11,136 - INFO - Skipping GRANULES.NS - already have an open position
+2025-04-28 23:12:11,136 - INFO - Evaluating SBILIFE.NS in sector Financial Services (+0.98%)
+2025-04-28 23:12:11,137 - INFO - Not trading SBILIFE.NS - sector performance doesn't match strategy
+2025-04-28 23:12:11,137 - WARNING - No performance data for sector PVT Bank
+2025-04-28 23:12:11,138 - INFO - New positions added: 0
+2025-04-28 23:12:11,138 - INFO - Positions skipped: 5
+2025-04-28 23:12:11,138 - INFO - Positions with errors: 0
+2025-04-28 23:12:11,139 - INFO - 
+==================================================
+NEW OPPORTUNITIES PROCESSING COMPLETE
+==================================================
+2025-04-28 23:12:11,139 - INFO - 
+==================================================
+SECTOR PROCESSING COMPLETE
+==================================================
+2025-04-28 23:12:11,141 - INFO - Saved 3 positions to dhan_positions.json
+2025-04-28 23:12:11,141 - INFO - 
+==================================================
+POSITIONS SUMMARY
+==================================================
+2025-04-28 23:12:11,147 - INFO - Current positions summary:
+2025-04-28 23:12:11,191 - INFO -   Open BUY positions: 3
+2025-04-28 23:12:11,201 - INFO -   Open SELL positions: 0
+2025-04-28 23:12:11,202 - INFO -   Closed positions: 0
+2025-04-28 23:12:11,203 - INFO -   Total positions: 3
+2025-04-28 23:12:11,203 - INFO - Open positions:
+2025-04-28 23:12:11,290 - INFO -   BUY SYNGENE.NS (Sector: Pharma, Entry: 2025-04-28 22:53:18)
+2025-04-28 23:12:11,291 - INFO -   BUY ZEEL.NS (Sector: Media, Entry: 2025-04-28 22:53:19)
+2025-04-28 23:12:11,296 - INFO -   BUY GRANULES.NS (Sector: Pharma, Entry: 2025-04-28 22:53:19)
+2025-04-28 23:12:11,297 - INFO - 
+==================================================
+POSITIONS SUMMARY COMPLETE
+==================================================
+2025-04-28 23:12:11,298 - INFO - Trading cycle 13 completed
+2025-04-28 23:12:11,299 - INFO - Waiting 30 seconds until next check at 23:12:41...
+2025-04-28 23:12:11,300 - INFO - 
+==================================================
+CYCLE 13 COMPLETE
+==================================================
+2025-04-28 23:12:41,305 - INFO - 
+==================================================
+TRADING CYCLE 14
+==================================================
+2025-04-28 23:12:41,307 - INFO - Trading cycle 14 started at 2025-04-28 23:12:41
+2025-04-28 23:12:41,307 - WARNING - Current time (23:12:41) is outside market hours (9:15 - 15:30)
+2025-04-28 23:12:41,308 - INFO - Market is CLOSED
+2025-04-28 23:12:41,308 - INFO - 
+==================================================
+READING SECTOR PERFORMANCE DATA
+==================================================
+2025-04-28 23:12:41,310 - INFO - Reading sector performance data from sector.csv
+2025-04-28 23:12:41,310 - INFO - File last modified: 2025-04-28 23:11:53
+2025-04-28 23:12:41,314 - INFO - Latest timestamp in data: 2025-04-28 23:11:53
+2025-04-28 23:12:41,314 - INFO - Loaded data for 10 sectors
+2025-04-28 23:12:41,315 - INFO - Top performing sectors:
+2025-04-28 23:12:41,316 - INFO -   PSU Bank: +2.44%
+2025-04-28 23:12:41,317 - INFO -   Pharma: +1.98%
+2025-04-28 23:12:41,317 - INFO -   Energy: +1.71%
+2025-04-28 23:12:41,318 - INFO - Bottom performing sectors:
+2025-04-28 23:12:41,318 - INFO -   Media: +0.79%
+2025-04-28 23:12:41,319 - INFO -   FMCG: +0.16%
+2025-04-28 23:12:41,320 - INFO -   IT: -0.22%
+2025-04-28 23:12:41,324 - INFO - 
+==================================================
+SECTOR DATA READ COMPLETE
+==================================================
+2025-04-28 23:12:41,329 - INFO - 
+==================================================
+PROCESSING SECTOR DATA
+==================================================
+2025-04-28 23:12:41,331 - INFO - Processed performance data for 10 sectors
+2025-04-28 23:12:41,333 - INFO - Processing existing positions for potential exits...
+2025-04-28 23:12:41,334 - INFO - 
+==================================================
+PROCESSING EXISTING POSITIONS
+==================================================
+2025-04-28 23:12:41,337 - INFO - Processing 3 existing positions
+2025-04-28 23:12:41,346 - INFO - Checking position: BUY SYNGENE.NS (Sector: Pharma)
+2025-04-28 23:12:41,348 - INFO - Sector Pharma is POSITIVE with 1.98% change
+2025-04-28 23:12:41,350 - INFO - Checking position: BUY ZEEL.NS (Sector: Media)
+2025-04-28 23:12:41,353 - INFO - Sector Media is POSITIVE with 0.79% change
+2025-04-28 23:12:41,363 - INFO - Checking position: BUY GRANULES.NS (Sector: Pharma)
+2025-04-28 23:12:41,364 - INFO - Sector Pharma is POSITIVE with 1.98% change
+2025-04-28 23:12:41,365 - INFO - No positions needed to be exited
+2025-04-28 23:12:41,365 - INFO - 
+==================================================
+POSITION PROCESSING COMPLETE
+==================================================
+2025-04-28 23:12:41,366 - INFO - Looking for new trading opportunities...
+2025-04-28 23:12:41,367 - INFO - 
+==================================================
+FINDING NEW TRADING OPPORTUNITIES
+==================================================
+2025-04-28 23:12:41,369 - INFO - Found 5 active tickers out of 5 total
+2025-04-28 23:12:41,369 - INFO - Already have open positions for: ['SYNGENE.NS', 'ZEEL.NS', 'GRANULES.NS']
+2025-04-28 23:12:41,369 - INFO - Skipping SYNGENE.NS - already have an open position
+2025-04-28 23:12:41,370 - INFO - Skipping ZEEL.NS - already have an open position
+2025-04-28 23:12:41,370 - INFO - Skipping GRANULES.NS - already have an open position
+2025-04-28 23:12:41,372 - INFO - Evaluating SBILIFE.NS in sector Financial Services (+0.98%)
+2025-04-28 23:12:41,377 - INFO - Not trading SBILIFE.NS - sector performance doesn't match strategy
+2025-04-28 23:12:41,378 - WARNING - No performance data for sector PVT Bank
+2025-04-28 23:12:41,379 - INFO - New positions added: 0
+2025-04-28 23:12:41,380 - INFO - Positions skipped: 5
+2025-04-28 23:12:41,380 - INFO - Positions with errors: 0
+2025-04-28 23:12:41,380 - INFO - 
+==================================================
+NEW OPPORTUNITIES PROCESSING COMPLETE
+==================================================
+2025-04-28 23:12:41,381 - INFO - 
+==================================================
+SECTOR PROCESSING COMPLETE
+==================================================
+2025-04-28 23:12:41,383 - INFO - Saved 3 positions to dhan_positions.json
+2025-04-28 23:12:41,384 - INFO - 
+==================================================
+POSITIONS SUMMARY
+==================================================
+2025-04-28 23:12:41,385 - INFO - Current positions summary:
+2025-04-28 23:12:41,386 - INFO -   Open BUY positions: 3
+2025-04-28 23:12:41,387 - INFO -   Open SELL positions: 0
+2025-04-28 23:12:41,387 - INFO -   Closed positions: 0
+2025-04-28 23:12:41,388 - INFO -   Total positions: 3
+2025-04-28 23:12:41,389 - INFO - Open positions:
+2025-04-28 23:12:41,394 - INFO -   BUY SYNGENE.NS (Sector: Pharma, Entry: 2025-04-28 22:53:18)
+2025-04-28 23:12:41,395 - INFO -   BUY ZEEL.NS (Sector: Media, Entry: 2025-04-28 22:53:19)
+2025-04-28 23:12:41,396 - INFO -   BUY GRANULES.NS (Sector: Pharma, Entry: 2025-04-28 22:53:19)
+2025-04-28 23:12:41,396 - INFO - 
+==================================================
+POSITIONS SUMMARY COMPLETE
+==================================================
+2025-04-28 23:12:41,397 - INFO - Trading cycle 14 completed
+2025-04-28 23:12:41,398 - INFO - Waiting 30 seconds until next check at 23:13:11...
+2025-04-28 23:12:41,399 - INFO - 
+==================================================
+CYCLE 14 COMPLETE
+==================================================
+2025-04-28 23:13:11,409 - INFO - 
+==================================================
+TRADING CYCLE 15
+==================================================
+2025-04-28 23:13:11,409 - INFO - Trading cycle 15 started at 2025-04-28 23:13:11
+2025-04-28 23:13:11,410 - WARNING - Current time (23:13:11) is outside market hours (9:15 - 15:30)
+2025-04-28 23:13:11,410 - INFO - Market is CLOSED
+2025-04-28 23:13:11,411 - INFO - 
+==================================================
+READING SECTOR PERFORMANCE DATA
+==================================================
+2025-04-28 23:13:11,411 - INFO - Reading sector performance data from sector.csv
+2025-04-28 23:13:11,412 - INFO - File last modified: 2025-04-28 23:11:53
+2025-04-28 23:13:11,415 - INFO - Latest timestamp in data: 2025-04-28 23:11:53
+2025-04-28 23:13:11,415 - INFO - Loaded data for 10 sectors
+2025-04-28 23:13:11,417 - INFO - Top performing sectors:
+2025-04-28 23:13:11,418 - INFO -   PSU Bank: +2.44%
+2025-04-28 23:13:11,422 - INFO -   Pharma: +1.98%
+2025-04-28 23:13:11,427 - INFO -   Energy: +1.71%
+2025-04-28 23:13:11,428 - INFO - Bottom performing sectors:
+2025-04-28 23:13:11,428 - INFO -   Media: +0.79%
+2025-04-28 23:13:11,429 - INFO -   FMCG: +0.16%
+2025-04-28 23:13:11,430 - INFO -   IT: -0.22%
+2025-04-28 23:13:11,430 - INFO - 
+==================================================
+SECTOR DATA READ COMPLETE
+==================================================
+2025-04-28 23:13:11,431 - INFO - 
+==================================================
+PROCESSING SECTOR DATA
+==================================================
+2025-04-28 23:13:11,433 - INFO - Processed performance data for 10 sectors
+2025-04-28 23:13:11,434 - INFO - Processing existing positions for potential exits...
+2025-04-28 23:13:11,434 - INFO - 
+==================================================
+PROCESSING EXISTING POSITIONS
+==================================================
+2025-04-28 23:13:11,434 - INFO - Processing 3 existing positions
+2025-04-28 23:13:11,434 - INFO - Checking position: BUY SYNGENE.NS (Sector: Pharma)
+2025-04-28 23:13:11,436 - INFO - Sector Pharma is POSITIVE with 1.98% change
+2025-04-28 23:13:11,448 - INFO - Checking position: BUY ZEEL.NS (Sector: Media)
+2025-04-28 23:13:11,448 - INFO - Sector Media is POSITIVE with 0.79% change
+2025-04-28 23:13:11,448 - INFO - Checking position: BUY GRANULES.NS (Sector: Pharma)
+2025-04-28 23:13:11,449 - INFO - Sector Pharma is POSITIVE with 1.98% change
+2025-04-28 23:13:11,449 - INFO - No positions needed to be exited
+2025-04-28 23:13:11,450 - INFO - 
+==================================================
+POSITION PROCESSING COMPLETE
+==================================================
+2025-04-28 23:13:11,450 - INFO - Looking for new trading opportunities...
+2025-04-28 23:13:11,450 - INFO - 
+==================================================
+FINDING NEW TRADING OPPORTUNITIES
+==================================================
+2025-04-28 23:13:11,451 - INFO - Found 5 active tickers out of 5 total
+2025-04-28 23:13:11,451 - INFO - Already have open positions for: ['SYNGENE.NS', 'ZEEL.NS', 'GRANULES.NS']
+2025-04-28 23:13:11,452 - INFO - Skipping SYNGENE.NS - already have an open position
+2025-04-28 23:13:11,455 - INFO - Skipping ZEEL.NS - already have an open position
+2025-04-28 23:13:11,460 - INFO - Skipping GRANULES.NS - already have an open position
+2025-04-28 23:13:11,460 - INFO - Evaluating SBILIFE.NS in sector Financial Services (+0.98%)
+2025-04-28 23:13:11,461 - INFO - Not trading SBILIFE.NS - sector performance doesn't match strategy
+2025-04-28 23:13:11,461 - WARNING - No performance data for sector PVT Bank
+2025-04-28 23:13:11,462 - INFO - New positions added: 0
+2025-04-28 23:13:11,462 - INFO - Positions skipped: 5
+2025-04-28 23:13:11,463 - INFO - Positions with errors: 0
+2025-04-28 23:13:11,463 - INFO - 
+==================================================
+NEW OPPORTUNITIES PROCESSING COMPLETE
+==================================================
+2025-04-28 23:13:11,465 - INFO - 
+==================================================
+SECTOR PROCESSING COMPLETE
+==================================================
+2025-04-28 23:13:11,468 - INFO - Saved 3 positions to dhan_positions.json
+2025-04-28 23:13:11,469 - INFO - 
+==================================================
+POSITIONS SUMMARY
+==================================================
+2025-04-28 23:13:11,477 - INFO - Current positions summary:
+2025-04-28 23:13:11,478 - INFO -   Open BUY positions: 3
+2025-04-28 23:13:11,478 - INFO -   Open SELL positions: 0
+2025-04-28 23:13:11,478 - INFO -   Closed positions: 0
+2025-04-28 23:13:11,479 - INFO -   Total positions: 3
+2025-04-28 23:13:11,480 - INFO - Open positions:
+2025-04-28 23:13:11,480 - INFO -   BUY SYNGENE.NS (Sector: Pharma, Entry: 2025-04-28 22:53:18)
+2025-04-28 23:13:11,480 - INFO -   BUY ZEEL.NS (Sector: Media, Entry: 2025-04-28 22:53:19)
+2025-04-28 23:13:11,480 - INFO -   BUY GRANULES.NS (Sector: Pharma, Entry: 2025-04-28 22:53:19)
+2025-04-28 23:13:11,481 - INFO - 
+==================================================
+POSITIONS SUMMARY COMPLETE
+==================================================
+2025-04-28 23:13:11,482 - INFO - Trading cycle 15 completed
+2025-04-28 23:13:11,482 - INFO - Waiting 30 seconds until next check at 23:13:41...
+2025-04-28 23:13:11,483 - INFO - 
+==================================================
+CYCLE 15 COMPLETE
+==================================================
+2025-04-28 23:13:41,497 - INFO - 
+==================================================
+TRADING CYCLE 16
+==================================================
+2025-04-28 23:13:41,499 - INFO - Trading cycle 16 started at 2025-04-28 23:13:41
+2025-04-28 23:13:41,500 - WARNING - Current time (23:13:41) is outside market hours (9:15 - 15:30)
+2025-04-28 23:13:41,501 - INFO - Market is CLOSED
+2025-04-28 23:13:41,503 - INFO - 
+==================================================
+READING SECTOR PERFORMANCE DATA
+==================================================
+2025-04-28 23:13:41,506 - INFO - Reading sector performance data from sector.csv
+2025-04-28 23:13:41,508 - INFO - File last modified: 2025-04-28 23:13:35
+2025-04-28 23:13:41,511 - INFO - Latest timestamp in data: 2025-04-28 23:13:35
+2025-04-28 23:13:41,512 - INFO - Loaded data for 10 sectors
+2025-04-28 23:13:41,513 - INFO - Top performing sectors:
+2025-04-28 23:13:41,514 - INFO -   PSU Bank: +2.44%
+2025-04-28 23:13:41,515 - INFO -   Pharma: +1.98%
+2025-04-28 23:13:41,516 - INFO -   Energy: +1.71%
+2025-04-28 23:13:41,519 - INFO - Bottom performing sectors:
+2025-04-28 23:13:41,521 - INFO -   Media: +0.79%
+2025-04-28 23:13:41,522 - INFO -   FMCG: +0.16%
+2025-04-28 23:13:41,522 - INFO -   IT: -0.22%
+2025-04-28 23:13:41,523 - INFO - 
+==================================================
+SECTOR DATA READ COMPLETE
+==================================================
+2025-04-28 23:13:41,523 - INFO - 
+==================================================
+PROCESSING SECTOR DATA
+==================================================
+2025-04-28 23:13:41,525 - INFO - Processed performance data for 10 sectors
+2025-04-28 23:13:41,525 - INFO - Processing existing positions for potential exits...
+2025-04-28 23:13:41,525 - INFO - 
+==================================================
+PROCESSING EXISTING POSITIONS
+==================================================
+2025-04-28 23:13:41,526 - INFO - Processing 3 existing positions
+2025-04-28 23:13:41,527 - INFO - Checking position: BUY SYNGENE.NS (Sector: Pharma)
+2025-04-28 23:13:41,527 - INFO - Sector Pharma is POSITIVE with 1.98% change
+2025-04-28 23:13:41,528 - INFO - Checking position: BUY ZEEL.NS (Sector: Media)
+2025-04-28 23:13:41,528 - INFO - Sector Media is POSITIVE with 0.79% change
+2025-04-28 23:13:41,528 - INFO - Checking position: BUY GRANULES.NS (Sector: Pharma)
+2025-04-28 23:13:41,529 - INFO - Sector Pharma is POSITIVE with 1.98% change
+2025-04-28 23:13:41,529 - INFO - No positions needed to be exited
+2025-04-28 23:13:41,529 - INFO - 
+==================================================
+POSITION PROCESSING COMPLETE
+==================================================
+2025-04-28 23:13:41,530 - INFO - Looking for new trading opportunities...
+2025-04-28 23:13:41,530 - INFO - 
+==================================================
+FINDING NEW TRADING OPPORTUNITIES
+==================================================
+2025-04-28 23:13:41,531 - INFO - Found 5 active tickers out of 5 total
+2025-04-28 23:13:41,531 - INFO - Already have open positions for: ['SYNGENE.NS', 'ZEEL.NS', 'GRANULES.NS']
+2025-04-28 23:13:41,532 - INFO - Skipping SYNGENE.NS - already have an open position
+2025-04-28 23:13:41,535 - INFO - Skipping ZEEL.NS - already have an open position
+2025-04-28 23:13:41,536 - INFO - Skipping GRANULES.NS - already have an open position
+2025-04-28 23:13:41,538 - INFO - Evaluating SBILIFE.NS in sector Financial Services (+0.98%)
+2025-04-28 23:13:41,538 - INFO - Not trading SBILIFE.NS - sector performance doesn't match strategy
+2025-04-28 23:13:41,539 - WARNING - No performance data for sector PVT Bank
+2025-04-28 23:13:41,539 - INFO - New positions added: 0
+2025-04-28 23:13:41,539 - INFO - Positions skipped: 5
+2025-04-28 23:13:41,540 - INFO - Positions with errors: 0
+2025-04-28 23:13:41,540 - INFO - 
+==================================================
+NEW OPPORTUNITIES PROCESSING COMPLETE
+==================================================
+2025-04-28 23:13:41,541 - INFO - 
+==================================================
+SECTOR PROCESSING COMPLETE
+==================================================
+2025-04-28 23:13:41,543 - INFO - Saved 3 positions to dhan_positions.json
+2025-04-28 23:13:41,544 - INFO - 
+==================================================
+POSITIONS SUMMARY
+==================================================
+2025-04-28 23:13:41,545 - INFO - Current positions summary:
+2025-04-28 23:13:41,545 - INFO -   Open BUY positions: 3
+2025-04-28 23:13:41,545 - INFO -   Open SELL positions: 0
+2025-04-28 23:13:41,546 - INFO -   Closed positions: 0
+2025-04-28 23:13:41,546 - INFO -   Total positions: 3
+2025-04-28 23:13:41,546 - INFO - Open positions:
+2025-04-28 23:13:41,547 - INFO -   BUY SYNGENE.NS (Sector: Pharma, Entry: 2025-04-28 22:53:18)
+2025-04-28 23:13:41,547 - INFO -   BUY ZEEL.NS (Sector: Media, Entry: 2025-04-28 22:53:19)
+2025-04-28 23:13:41,547 - INFO -   BUY GRANULES.NS (Sector: Pharma, Entry: 2025-04-28 22:53:19)
+2025-04-28 23:13:41,548 - INFO - 
+==================================================
+POSITIONS SUMMARY COMPLETE
+==================================================
+2025-04-28 23:13:41,550 - INFO - Trading cycle 16 completed
+2025-04-28 23:13:41,553 - INFO - Waiting 30 seconds until next check at 23:14:11...
+2025-04-28 23:13:41,554 - INFO - 
+==================================================
+CYCLE 16 COMPLETE
+==================================================
+2025-04-28 23:14:11,564 - INFO - 
+==================================================
+TRADING CYCLE 17
+==================================================
+2025-04-28 23:14:11,565 - INFO - Trading cycle 17 started at 2025-04-28 23:14:11
+2025-04-28 23:14:11,565 - WARNING - Current time (23:14:11) is outside market hours (9:15 - 15:30)
+2025-04-28 23:14:11,566 - INFO - Market is CLOSED
+2025-04-28 23:14:11,566 - INFO - 
+==================================================
+READING SECTOR PERFORMANCE DATA
+==================================================
+2025-04-28 23:14:11,567 - INFO - Reading sector performance data from sector.csv
+2025-04-28 23:14:11,568 - INFO - File last modified: 2025-04-28 23:13:35
+2025-04-28 23:14:11,572 - INFO - Latest timestamp in data: 2025-04-28 23:13:35
+2025-04-28 23:14:11,573 - INFO - Loaded data for 10 sectors
+2025-04-28 23:14:11,573 - INFO - Top performing sectors:
+2025-04-28 23:14:11,575 - INFO -   PSU Bank: +2.44%
+2025-04-28 23:14:11,575 - INFO -   Pharma: +1.98%
+2025-04-28 23:14:11,576 - INFO -   Energy: +1.71%
+2025-04-28 23:14:11,576 - INFO - Bottom performing sectors:
+2025-04-28 23:14:11,577 - INFO -   Media: +0.79%
+2025-04-28 23:14:11,578 - INFO -   FMCG: +0.16%
+2025-04-28 23:14:11,584 - INFO -   IT: -0.22%
+2025-04-28 23:14:11,588 - INFO - 
+==================================================
+SECTOR DATA READ COMPLETE
+==================================================
+2025-04-28 23:14:11,590 - INFO - 
+==================================================
+PROCESSING SECTOR DATA
+==================================================
+2025-04-28 23:14:11,593 - INFO - Processed performance data for 10 sectors
+2025-04-28 23:14:11,593 - INFO - Processing existing positions for potential exits...
+2025-04-28 23:14:11,595 - INFO - 
+==================================================
+PROCESSING EXISTING POSITIONS
+==================================================
+2025-04-28 23:14:11,603 - INFO - Processing 3 existing positions
+2025-04-28 23:14:11,604 - INFO - Checking position: BUY SYNGENE.NS (Sector: Pharma)
+2025-04-28 23:14:11,604 - INFO - Sector Pharma is POSITIVE with 1.98% change
+2025-04-28 23:14:11,605 - INFO - Checking position: BUY ZEEL.NS (Sector: Media)
+2025-04-28 23:14:11,606 - INFO - Sector Media is POSITIVE with 0.79% change
+2025-04-28 23:14:11,606 - INFO - Checking position: BUY GRANULES.NS (Sector: Pharma)
+2025-04-28 23:14:11,606 - INFO - Sector Pharma is POSITIVE with 1.98% change
+2025-04-28 23:14:11,607 - INFO - No positions needed to be exited
+2025-04-28 23:14:11,608 - INFO - 
+==================================================
+POSITION PROCESSING COMPLETE
+==================================================
+2025-04-28 23:14:11,609 - INFO - Looking for new trading opportunities...
+2025-04-28 23:14:11,610 - INFO - 
+==================================================
+FINDING NEW TRADING OPPORTUNITIES
+==================================================
+2025-04-28 23:14:11,611 - INFO - Found 5 active tickers out of 5 total
+2025-04-28 23:14:11,612 - INFO - Already have open positions for: ['SYNGENE.NS', 'ZEEL.NS', 'GRANULES.NS']
+2025-04-28 23:14:11,618 - INFO - Skipping SYNGENE.NS - already have an open position
+2025-04-28 23:14:11,618 - INFO - Skipping ZEEL.NS - already have an open position
+2025-04-28 23:14:11,619 - INFO - Skipping GRANULES.NS - already have an open position
+2025-04-28 23:14:11,619 - INFO - Evaluating SBILIFE.NS in sector Financial Services (+0.98%)
+2025-04-28 23:14:11,619 - INFO - Not trading SBILIFE.NS - sector performance doesn't match strategy
+2025-04-28 23:14:11,621 - WARNING - No performance data for sector PVT Bank
+2025-04-28 23:14:11,622 - INFO - New positions added: 0
+2025-04-28 23:14:11,622 - INFO - Positions skipped: 5
+2025-04-28 23:14:11,622 - INFO - Positions with errors: 0
+2025-04-28 23:14:11,623 - INFO - 
+==================================================
+NEW OPPORTUNITIES PROCESSING COMPLETE
+==================================================
+2025-04-28 23:14:11,624 - INFO - 
+==================================================
+SECTOR PROCESSING COMPLETE
+==================================================
+2025-04-28 23:14:11,627 - INFO - Saved 3 positions to dhan_positions.json
+2025-04-28 23:14:11,633 - INFO - 
+==================================================
+POSITIONS SUMMARY
+==================================================
+2025-04-28 23:14:11,636 - INFO - Current positions summary:
+2025-04-28 23:14:11,636 - INFO -   Open BUY positions: 3
+2025-04-28 23:14:11,637 - INFO -   Open SELL positions: 0
+2025-04-28 23:14:11,637 - INFO -   Closed positions: 0
+2025-04-28 23:14:11,638 - INFO -   Total positions: 3
+2025-04-28 23:14:11,638 - INFO - Open positions:
+2025-04-28 23:14:11,639 - INFO -   BUY SYNGENE.NS (Sector: Pharma, Entry: 2025-04-28 22:53:18)
+2025-04-28 23:14:11,639 - INFO -   BUY ZEEL.NS (Sector: Media, Entry: 2025-04-28 22:53:19)
+2025-04-28 23:14:11,639 - INFO -   BUY GRANULES.NS (Sector: Pharma, Entry: 2025-04-28 22:53:19)
+2025-04-28 23:14:11,641 - INFO - 
+==================================================
+POSITIONS SUMMARY COMPLETE
+==================================================
+2025-04-28 23:14:11,642 - INFO - Trading cycle 17 completed
+2025-04-28 23:14:11,644 - INFO - Waiting 30 seconds until next check at 23:14:41...
+2025-04-28 23:14:11,649 - INFO - 
+==================================================
+CYCLE 17 COMPLETE
+==================================================
+2025-04-28 23:14:41,723 - INFO - 
+==================================================
+TRADING CYCLE 18
+==================================================
+2025-04-28 23:14:41,774 - INFO - Trading cycle 18 started at 2025-04-28 23:14:41
+2025-04-28 23:14:41,817 - WARNING - Current time (23:14:41) is outside market hours (9:15 - 15:30)
+2025-04-28 23:14:41,824 - INFO - Market is CLOSED
+2025-04-28 23:14:41,850 - INFO - 
+==================================================
+READING SECTOR PERFORMANCE DATA
+==================================================
+2025-04-28 23:14:41,854 - INFO - Reading sector performance data from sector.csv
+2025-04-28 23:14:41,856 - INFO - File last modified: 2025-04-28 23:13:35
+2025-04-28 23:14:41,867 - INFO - Latest timestamp in data: 2025-04-28 23:13:35
+2025-04-28 23:14:41,869 - INFO - Loaded data for 10 sectors
+2025-04-28 23:14:41,870 - INFO - Top performing sectors:
+2025-04-28 23:14:41,873 - INFO -   PSU Bank: +2.44%
+2025-04-28 23:14:41,874 - INFO -   Pharma: +1.98%
+2025-04-28 23:14:41,879 - INFO -   Energy: +1.71%
+2025-04-28 23:14:41,882 - INFO - Bottom performing sectors:
+2025-04-28 23:14:41,884 - INFO -   Media: +0.79%
+2025-04-28 23:14:41,885 - INFO -   FMCG: +0.16%
+2025-04-28 23:14:41,886 - INFO -   IT: -0.22%
+2025-04-28 23:14:41,888 - INFO - 
+==================================================
+SECTOR DATA READ COMPLETE
+==================================================
+2025-04-28 23:14:41,890 - INFO - 
+==================================================
+PROCESSING SECTOR DATA
+==================================================
+2025-04-28 23:14:41,900 - INFO - Processed performance data for 10 sectors
+2025-04-28 23:14:41,901 - INFO - Processing existing positions for potential exits...
+2025-04-28 23:14:41,903 - INFO - 
+==================================================
+PROCESSING EXISTING POSITIONS
+==================================================
+2025-04-28 23:14:41,904 - INFO - Processing 3 existing positions
+2025-04-28 23:14:41,905 - INFO - Checking position: BUY SYNGENE.NS (Sector: Pharma)
+2025-04-28 23:14:41,907 - INFO - Sector Pharma is POSITIVE with 1.98% change
+2025-04-28 23:14:41,916 - INFO - Checking position: BUY ZEEL.NS (Sector: Media)
+2025-04-28 23:14:41,918 - INFO - Sector Media is POSITIVE with 0.79% change
+2025-04-28 23:14:41,919 - INFO - Checking position: BUY GRANULES.NS (Sector: Pharma)
+2025-04-28 23:14:41,920 - INFO - Sector Pharma is POSITIVE with 1.98% change
+2025-04-28 23:14:41,921 - INFO - No positions needed to be exited
+2025-04-28 23:14:41,924 - INFO - 
+==================================================
+POSITION PROCESSING COMPLETE
+==================================================
+2025-04-28 23:14:41,936 - INFO - Looking for new trading opportunities...
+2025-04-28 23:14:41,937 - INFO - 
+==================================================
+FINDING NEW TRADING OPPORTUNITIES
+==================================================
+2025-04-28 23:14:41,951 - INFO - Found 5 active tickers out of 5 total
+2025-04-28 23:14:41,953 - INFO - Already have open positions for: ['SYNGENE.NS', 'ZEEL.NS', 'GRANULES.NS']
+2025-04-28 23:14:41,955 - INFO - Skipping SYNGENE.NS - already have an open position
+2025-04-28 23:14:41,956 - INFO - Skipping ZEEL.NS - already have an open position
+2025-04-28 23:14:41,957 - INFO - Skipping GRANULES.NS - already have an open position
+2025-04-28 23:14:41,958 - INFO - Evaluating SBILIFE.NS in sector Financial Services (+0.98%)
+2025-04-28 23:14:41,967 - INFO - Not trading SBILIFE.NS - sector performance doesn't match strategy
+2025-04-28 23:14:41,986 - WARNING - No performance data for sector PVT Bank
+2025-04-28 23:14:41,988 - INFO - New positions added: 0
+2025-04-28 23:14:41,990 - INFO - Positions skipped: 5
+2025-04-28 23:14:42,001 - INFO - Positions with errors: 0
+2025-04-28 23:14:42,003 - INFO - 
+==================================================
+NEW OPPORTUNITIES PROCESSING COMPLETE
+==================================================
+2025-04-28 23:14:42,006 - INFO - 
+==================================================
+SECTOR PROCESSING COMPLETE
+==================================================
+2025-04-28 23:14:42,018 - INFO - Saved 3 positions to dhan_positions.json
+2025-04-28 23:14:42,021 - INFO - 
+==================================================
+POSITIONS SUMMARY
+==================================================
+2025-04-28 23:14:42,023 - INFO - Current positions summary:
+2025-04-28 23:14:42,023 - INFO -   Open BUY positions: 3
+2025-04-28 23:14:42,024 - INFO -   Open SELL positions: 0
+2025-04-28 23:14:42,025 - INFO -   Closed positions: 0
+2025-04-28 23:14:42,035 - INFO -   Total positions: 3
+2025-04-28 23:14:42,036 - INFO - Open positions:
+2025-04-28 23:14:42,036 - INFO -   BUY SYNGENE.NS (Sector: Pharma, Entry: 2025-04-28 22:53:18)
+2025-04-28 23:14:42,038 - INFO -   BUY ZEEL.NS (Sector: Media, Entry: 2025-04-28 22:53:19)
+2025-04-28 23:14:42,039 - INFO -   BUY GRANULES.NS (Sector: Pharma, Entry: 2025-04-28 22:53:19)
+2025-04-28 23:14:42,040 - INFO - 
+==================================================
+POSITIONS SUMMARY COMPLETE
+==================================================
+2025-04-28 23:14:42,042 - INFO - Trading cycle 18 completed
+2025-04-28 23:14:42,050 - INFO - Waiting 30 seconds until next check at 23:15:12...
+2025-04-28 23:14:42,051 - INFO - 
+==================================================
+CYCLE 18 COMPLETE
+==================================================
+2025-04-28 23:15:12,066 - INFO - 
+==================================================
+TRADING CYCLE 19
+==================================================
+2025-04-28 23:15:12,081 - INFO - Trading cycle 19 started at 2025-04-28 23:15:12
+2025-04-28 23:15:12,087 - WARNING - Current time (23:15:12) is outside market hours (9:15 - 15:30)
+2025-04-28 23:15:12,088 - INFO - Market is CLOSED
+2025-04-28 23:15:12,095 - INFO - 
+==================================================
+READING SECTOR PERFORMANCE DATA
+==================================================
+2025-04-28 23:15:12,100 - INFO - Reading sector performance data from sector.csv
+2025-04-28 23:15:12,102 - INFO - File last modified: 2025-04-28 23:13:35
+2025-04-28 23:15:12,116 - INFO - Latest timestamp in data: 2025-04-28 23:13:35
+2025-04-28 23:15:12,117 - INFO - Loaded data for 10 sectors
+2025-04-28 23:15:12,119 - INFO - Top performing sectors:
+2025-04-28 23:15:12,136 - INFO -   PSU Bank: +2.44%
+2025-04-28 23:15:12,148 - INFO -   Pharma: +1.98%
+2025-04-28 23:15:12,150 - INFO -   Energy: +1.71%
+2025-04-28 23:15:12,151 - INFO - Bottom performing sectors:
+2025-04-28 23:15:12,152 - INFO -   Media: +0.79%
+2025-04-28 23:15:12,153 - INFO -   FMCG: +0.16%
+2025-04-28 23:15:12,166 - INFO -   IT: -0.22%
+2025-04-28 23:15:12,167 - INFO - 
+==================================================
+SECTOR DATA READ COMPLETE
+==================================================
+2025-04-28 23:15:12,170 - INFO - 
+==================================================
+PROCESSING SECTOR DATA
+==================================================
+2025-04-28 23:15:12,176 - INFO - Processed performance data for 10 sectors
+2025-04-28 23:15:12,179 - INFO - Processing existing positions for potential exits...
+2025-04-28 23:15:12,180 - INFO - 
+==================================================
+PROCESSING EXISTING POSITIONS
+==================================================
+2025-04-28 23:15:12,181 - INFO - Processing 3 existing positions
+2025-04-28 23:15:12,182 - INFO - Checking position: BUY SYNGENE.NS (Sector: Pharma)
+2025-04-28 23:15:12,182 - INFO - Sector Pharma is POSITIVE with 1.98% change
+2025-04-28 23:15:12,183 - INFO - Checking position: BUY ZEEL.NS (Sector: Media)
+2025-04-28 23:15:12,183 - INFO - Sector Media is POSITIVE with 0.79% change
+2025-04-28 23:15:12,183 - INFO - Checking position: BUY GRANULES.NS (Sector: Pharma)
+2025-04-28 23:15:12,184 - INFO - Sector Pharma is POSITIVE with 1.98% change
+2025-04-28 23:15:12,185 - INFO - No positions needed to be exited
+2025-04-28 23:15:12,185 - INFO - 
+==================================================
+POSITION PROCESSING COMPLETE
+==================================================
+2025-04-28 23:15:12,186 - INFO - Looking for new trading opportunities...
+2025-04-28 23:15:12,187 - INFO - 
+==================================================
+FINDING NEW TRADING OPPORTUNITIES
+==================================================
+2025-04-28 23:15:12,188 - INFO - Found 5 active tickers out of 5 total
+2025-04-28 23:15:12,188 - INFO - Already have open positions for: ['SYNGENE.NS', 'ZEEL.NS', 'GRANULES.NS']
+2025-04-28 23:15:12,198 - INFO - Skipping SYNGENE.NS - already have an open position
+2025-04-28 23:15:12,199 - INFO - Skipping ZEEL.NS - already have an open position
+2025-04-28 23:15:12,199 - INFO - Skipping GRANULES.NS - already have an open position
+2025-04-28 23:15:12,200 - INFO - Evaluating SBILIFE.NS in sector Financial Services (+0.98%)
+2025-04-28 23:15:12,201 - INFO - Not trading SBILIFE.NS - sector performance doesn't match strategy
+2025-04-28 23:15:12,201 - WARNING - No performance data for sector PVT Bank
+2025-04-28 23:15:12,201 - INFO - New positions added: 0
+2025-04-28 23:15:12,202 - INFO - Positions skipped: 5
+2025-04-28 23:15:12,202 - INFO - Positions with errors: 0
+2025-04-28 23:15:12,203 - INFO - 
+==================================================
+NEW OPPORTUNITIES PROCESSING COMPLETE
+==================================================
+2025-04-28 23:15:12,204 - INFO - 
+==================================================
+SECTOR PROCESSING COMPLETE
+==================================================
+2025-04-28 23:15:12,207 - INFO - Saved 3 positions to dhan_positions.json
+2025-04-28 23:15:12,213 - INFO - 
+==================================================
+POSITIONS SUMMARY
+==================================================
+2025-04-28 23:15:12,228 - INFO - Current positions summary:
+2025-04-28 23:15:12,230 - INFO -   Open BUY positions: 3
+2025-04-28 23:15:12,231 - INFO -   Open SELL positions: 0
+2025-04-28 23:15:12,231 - INFO -   Closed positions: 0
+2025-04-28 23:15:12,232 - INFO -   Total positions: 3
+2025-04-28 23:15:12,233 - INFO - Open positions:
+2025-04-28 23:15:12,233 - INFO -   BUY SYNGENE.NS (Sector: Pharma, Entry: 2025-04-28 22:53:18)
+2025-04-28 23:15:12,235 - INFO -   BUY ZEEL.NS (Sector: Media, Entry: 2025-04-28 22:53:19)
+2025-04-28 23:15:12,249 - INFO -   BUY GRANULES.NS (Sector: Pharma, Entry: 2025-04-28 22:53:19)
+2025-04-28 23:15:12,251 - INFO - 
+==================================================
+POSITIONS SUMMARY COMPLETE
+==================================================
+2025-04-28 23:15:12,289 - INFO - Trading cycle 19 completed
+2025-04-28 23:15:12,303 - INFO - Waiting 30 seconds until next check at 23:15:42...
+2025-04-28 23:15:12,312 - INFO - 
+==================================================
+CYCLE 19 COMPLETE
+==================================================
+2025-04-28 23:15:42,325 - INFO - 
+==================================================
+TRADING CYCLE 20
+==================================================
+2025-04-28 23:15:42,326 - INFO - Trading cycle 20 started at 2025-04-28 23:15:42
+2025-04-28 23:15:42,327 - WARNING - Current time (23:15:42) is outside market hours (9:15 - 15:30)
+2025-04-28 23:15:42,328 - INFO - Market is CLOSED
+2025-04-28 23:15:42,328 - INFO - 
+==================================================
+READING SECTOR PERFORMANCE DATA
+==================================================
+2025-04-28 23:15:42,329 - INFO - Reading sector performance data from sector.csv
+2025-04-28 23:15:42,329 - INFO - File last modified: 2025-04-28 23:15:24
+2025-04-28 23:15:42,333 - INFO - Latest timestamp in data: 2025-04-28 23:15:24
+2025-04-28 23:15:42,334 - INFO - Loaded data for 10 sectors
+2025-04-28 23:15:42,335 - INFO - Top performing sectors:
+2025-04-28 23:15:42,336 - INFO -   PSU Bank: +2.44%
+2025-04-28 23:15:42,338 - INFO -   Pharma: +1.98%
+2025-04-28 23:15:42,339 - INFO -   Energy: +1.71%
+2025-04-28 23:15:42,340 - INFO - Bottom performing sectors:
+2025-04-28 23:15:42,341 - INFO -   Media: +0.79%
+2025-04-28 23:15:42,342 - INFO -   FMCG: +0.16%
+2025-04-28 23:15:42,343 - INFO -   IT: -0.22%
+2025-04-28 23:15:42,343 - INFO - 
+==================================================
+SECTOR DATA READ COMPLETE
+==================================================
+2025-04-28 23:15:42,344 - INFO - 
+==================================================
+PROCESSING SECTOR DATA
+==================================================
+2025-04-28 23:15:42,347 - INFO - Processed performance data for 10 sectors
+2025-04-28 23:15:42,348 - INFO - Processing existing positions for potential exits...
+2025-04-28 23:15:42,349 - INFO - 
+==================================================
+PROCESSING EXISTING POSITIONS
+==================================================
+2025-04-28 23:15:42,350 - INFO - Processing 3 existing positions
+2025-04-28 23:15:42,351 - INFO - Checking position: BUY SYNGENE.NS (Sector: Pharma)
+2025-04-28 23:15:42,352 - INFO - Sector Pharma is POSITIVE with 1.98% change
+2025-04-28 23:15:42,352 - INFO - Checking position: BUY ZEEL.NS (Sector: Media)
+2025-04-28 23:15:42,352 - INFO - Sector Media is POSITIVE with 0.79% change
+2025-04-28 23:15:42,353 - INFO - Checking position: BUY GRANULES.NS (Sector: Pharma)
+2025-04-28 23:15:42,355 - INFO - Sector Pharma is POSITIVE with 1.98% change
+2025-04-28 23:15:42,357 - INFO - No positions needed to be exited
+2025-04-28 23:15:42,357 - INFO - 
+==================================================
+POSITION PROCESSING COMPLETE
+==================================================
+2025-04-28 23:15:42,359 - INFO - Looking for new trading opportunities...
+2025-04-28 23:15:42,360 - INFO - 
+==================================================
+FINDING NEW TRADING OPPORTUNITIES
+==================================================
+2025-04-28 23:15:42,361 - INFO - Found 5 active tickers out of 5 total
+2025-04-28 23:15:42,363 - INFO - Already have open positions for: ['SYNGENE.NS', 'ZEEL.NS', 'GRANULES.NS']
+2025-04-28 23:15:42,363 - INFO - Skipping SYNGENE.NS - already have an open position
+2025-04-28 23:15:42,363 - INFO - Skipping ZEEL.NS - already have an open position
+2025-04-28 23:15:42,364 - INFO - Skipping GRANULES.NS - already have an open position
+2025-04-28 23:15:42,365 - INFO - Evaluating SBILIFE.NS in sector Financial Services (+0.98%)
+2025-04-28 23:15:42,365 - INFO - Not trading SBILIFE.NS - sector performance doesn't match strategy
+2025-04-28 23:15:42,366 - WARNING - No performance data for sector PVT Bank
+2025-04-28 23:15:42,366 - INFO - New positions added: 0
+2025-04-28 23:15:42,367 - INFO - Positions skipped: 5
+2025-04-28 23:15:42,368 - INFO - Positions with errors: 0
+2025-04-28 23:15:42,368 - INFO - 
+==================================================
+NEW OPPORTUNITIES PROCESSING COMPLETE
+==================================================
+2025-04-28 23:15:42,369 - INFO - 
+==================================================
+SECTOR PROCESSING COMPLETE
+==================================================
+2025-04-28 23:15:42,379 - INFO - Saved 3 positions to dhan_positions.json
+2025-04-28 23:15:42,380 - INFO - 
+==================================================
+POSITIONS SUMMARY
+==================================================
+2025-04-28 23:15:42,382 - INFO - Current positions summary:
+2025-04-28 23:15:42,383 - INFO -   Open BUY positions: 3
+2025-04-28 23:15:42,383 - INFO -   Open SELL positions: 0
+2025-04-28 23:15:42,384 - INFO -   Closed positions: 0
+2025-04-28 23:15:42,384 - INFO -   Total positions: 3
+2025-04-28 23:15:42,385 - INFO - Open positions:
+2025-04-28 23:15:42,386 - INFO -   BUY SYNGENE.NS (Sector: Pharma, Entry: 2025-04-28 22:53:18)
+2025-04-28 23:15:42,386 - INFO -   BUY ZEEL.NS (Sector: Media, Entry: 2025-04-28 22:53:19)
+2025-04-28 23:15:42,392 - INFO -   BUY GRANULES.NS (Sector: Pharma, Entry: 2025-04-28 22:53:19)
+2025-04-28 23:15:42,393 - INFO - 
+==================================================
+POSITIONS SUMMARY COMPLETE
+==================================================
+2025-04-28 23:15:42,394 - INFO - Trading cycle 20 completed
+2025-04-28 23:15:42,394 - INFO - Waiting 30 seconds until next check at 23:16:12...
+2025-04-28 23:15:42,395 - INFO - 
+==================================================
+CYCLE 20 COMPLETE
+==================================================
+2025-04-28 23:15:47,073 - INFO - Trading program stopped by user
+2025-04-28 23:15:47,076 - INFO - Saved 3 positions to dhan_positions.json
+2025-04-28 23:15:47,077 - INFO - 
+==================================================
+PROGRAM TERMINATED BY USER
+==================================================

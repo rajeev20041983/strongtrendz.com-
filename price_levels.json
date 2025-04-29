@@ -9,7 +9,7 @@
             "buy_price": 1450.00,
             "target_price": 1480.00,
             "stop_loss": 1430.00,
-            "active": true
+            "active": false
         },
         {
             "symbol": "SBIN.NS",
@@ -18,7 +18,7 @@
             "buy_price": 775.50,
             "target_price": 790.00,
             "stop_loss": 760.00,
-            "active": true
+            "active": false
         },
         {
             "symbol": "HCLTECH.NS",

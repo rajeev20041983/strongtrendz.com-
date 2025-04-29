@@ -1,0 +1,421 @@
+2025-04-24 11:53:05,741 - INFO - Starting TradingView sector performance scraper test
+2025-04-24 11:53:05,742 - INFO - Requesting TradingView sector page...
+2025-04-24 11:53:06,276 - INFO - Successfully retrieved page, parsing content...
+2025-04-24 11:53:06,377 - WARNING - Could not find sectors table on the page
+2025-04-24 11:53:06,381 - INFO - Successfully scraped data for 20 sectors
+2025-04-24 11:53:06,382 - INFO -   Technology Services: +2.61%
+2025-04-24 11:53:06,389 - INFO -   Energy Minerals: +2.6%
+2025-04-24 11:53:06,390 - INFO -   Non-Energy Minerals: +1.84%
+2025-04-24 11:53:06,391 - INFO -   Utilities: +1.48%
+2025-04-24 11:53:06,392 - INFO -   Consumer Non-Durables: +1.4%
+2025-04-24 11:53:06,392 - INFO -   Finance: +0.9%
+2025-04-24 11:53:06,393 - INFO -   Consumer Durables: +0.72%
+2025-04-24 11:53:06,393 - INFO -   Miscellaneous: +0.62%
+2025-04-24 11:53:06,393 - INFO -   Industrial Services: +0.61%
+2025-04-24 11:53:06,394 - INFO -   Commercial Services: +0.6%
+2025-04-24 11:53:06,394 - INFO -   Process Industries: +0.59%
+2025-04-24 11:53:06,395 - INFO -   Health Technology: +0.59%
+2025-04-24 11:53:06,395 - INFO -   Producer Manufacturing: +0.53%
+2025-04-24 11:53:06,396 - INFO -   Electronic Technology: +0.49%
+2025-04-24 11:53:06,396 - INFO -   Consumer Services: +0.35%
+2025-04-24 11:53:06,397 - INFO -   Distribution Services: +0.32%
+2025-04-24 11:53:06,397 - INFO -   Transportation: +0.31%
+2025-04-24 11:53:06,399 - INFO -   Communications: +0.29%
+2025-04-24 11:53:06,399 - INFO -   Health Services: +0.16%
+2025-04-24 11:53:06,400 - INFO -   Retail Trade: +0.09%
+2025-04-24 11:53:06,404 - INFO - Saved sector data to tradingview_sectors.csv
+2025-04-24 12:02:18,795 - INFO - Starting TradingView sector performance scraper test
+2025-04-24 12:02:18,796 - INFO - Requesting TradingView sector page...
+2025-04-24 12:02:19,176 - INFO - Successfully retrieved page, parsing content...
+2025-04-24 12:02:19,265 - WARNING - Could not find performance table. Trying alternative approach.
+2025-04-24 12:02:19,266 - ERROR - Could not locate the sectors performance table
+2025-04-24 12:02:19,386 - INFO -   +0.09%: +8.0%
+2025-04-24 12:02:19,389 - INFO -   1.48%: +6.84%
+2025-04-24 12:02:19,391 - INFO -   0.53%: +4.46%
+2025-04-24 12:02:19,391 - INFO -   0.60%: +3.06%
+2025-04-24 12:02:19,399 - INFO -   0.72%: +2.76%
+2025-04-24 12:02:19,400 - INFO -   Energy Minerals: +2.6%
+2025-04-24 12:02:19,404 - INFO -   0.09%: +1.97%
+2025-04-24 12:02:19,404 - INFO -   Finance: +0.9%
+2025-04-24 12:02:19,404 - INFO -   Process Industries: +0.59%
+2025-04-24 12:02:19,405 - INFO -   Transportation: +0.31%
+2025-04-24 12:02:19,406 - INFO -   Health Services: +0.16%
+2025-04-24 12:02:19,431 - INFO -   57: -5.59%
+2025-04-24 12:02:19,432 - INFO -   47: -11.32%
+2025-04-24 12:02:19,433 - INFO -   100: -24.21%
+2025-04-24 12:02:19,433 - INFO -   379: -29.07%
+2025-04-24 12:02:19,434 - INFO -   94: -49.5%
+2025-04-24 12:02:19,438 - INFO - Saved sector data to tradingview_sectors.csv
+2025-04-24 12:05:47,105 - INFO - Starting TradingView sector performance scraper
+2025-04-24 12:05:47,105 - INFO - Starting Chrome in headless mode...
+2025-04-24 12:05:54,493 - INFO - Navigating to https://www.tradingview.com/markets/stocks-india/sectorandindustry-sector/...
+2025-04-24 12:05:56,120 - INFO - Waiting for page to load...
+2025-04-24 12:06:01,157 - INFO - Page loaded and saved for inspection
+2025-04-24 12:06:01,256 - INFO - Found 2 tables on the page
+2025-04-24 12:06:01,257 - INFO - Found sector table (table #1)
+2025-04-24 12:06:03,761 - WARNING - No sector data found
+2025-04-24 12:06:03,761 - ERROR - Failed to scrape sector data
+2025-04-24 12:10:49,152 - INFO - Starting TradingView sector data scraper
+2025-04-24 12:10:49,153 - INFO - Setting up Chrome driver...
+2025-04-24 12:10:49,153 - INFO - ====== WebDriver manager ======
+2025-04-24 12:10:51,137 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-24 12:10:51,194 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-24 12:10:51,237 - INFO - Driver [C:\Users\Rajee\.wdm\drivers\chromedriver\win64\135.0.7049.114\chromedriver-win32/chromedriver.exe] found in cache
+2025-04-24 12:10:53,286 - INFO - Navigating to https://www.tradingview.com/markets/stocks-india/sectorandindustry-sector/
+2025-04-24 12:10:54,796 - INFO - Waiting for page to load (10 seconds)...
+2025-04-24 12:11:09,886 - INFO - Searching for sector data...
+2025-04-24 12:11:15,227 - INFO - Performance tab not found or already active
+2025-04-24 12:11:15,255 - INFO - Found 2 tables on the page
+2025-04-24 12:11:15,256 - INFO - Analyzing table #1
+2025-04-24 12:11:15,375 - INFO - Table headers: ['Sector', 'Market cap', 'Div yield % (indicated)', 'Change %', 'Volume', 'Industries', 'Stocks']
+2025-04-24 12:11:15,375 - INFO - Analyzing table #2
+2025-04-24 12:11:15,465 - INFO - Table headers: ['Sector', 'Market cap', 'Div yield % (indicated)', 'Change %', 'Volume', 'Industries', 'Stocks']
+2025-04-24 12:11:17,933 - ERROR - No sector data found in any table
+2025-04-24 12:11:17,934 - ERROR - Failed to scrape sector data
+2025-04-24 12:15:16,109 - INFO - Starting TradingView sector data scraper
+2025-04-24 12:15:16,110 - INFO - Setting up Chrome driver...
+2025-04-24 12:15:16,110 - INFO - ====== WebDriver manager ======
+2025-04-24 12:15:20,418 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-24 12:15:20,501 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-24 12:15:20,574 - INFO - Driver [C:\Users\Rajee\.wdm\drivers\chromedriver\win64\135.0.7049.114\chromedriver-win32/chromedriver.exe] found in cache
+2025-04-24 12:15:28,710 - INFO - Navigating to https://www.tradingview.com/markets/stocks-india/sectorandindustry-sector/
+2025-04-24 12:15:29,062 - INFO - Waiting for page to load...
+2025-04-24 12:15:44,394 - INFO - Saved screenshot to tradingview_screen.png
+2025-04-24 12:15:44,444 - INFO - Found 20 rows in table
+2025-04-24 12:15:44,602 - INFO - Row data: Finance | −0.56%
+2025-04-24 12:15:44,604 - INFO - Added sector: Finance, Change: -0.56%
+2025-04-24 12:15:44,879 - INFO - Row data: Technology Services | −0.14%
+2025-04-24 12:15:44,882 - INFO - Added sector: Technology Services, Change: -0.14%
+2025-04-24 12:15:46,241 - INFO - Row data: Producer Manufacturing | −0.40%
+2025-04-24 12:15:46,241 - INFO - Added sector: Producer Manufacturing, Change: -0.4%
+2025-04-24 12:15:46,372 - INFO - Row data: Consumer Non-Durables | −1.15%
+2025-04-24 12:15:46,374 - INFO - Added sector: Consumer Non-Durables, Change: -1.15%
+2025-04-24 12:15:46,477 - INFO - Row data: Energy Minerals | +0.00%
+2025-04-24 12:15:46,478 - INFO - Added sector: Energy Minerals, Change: 0.0%
+2025-04-24 12:15:46,620 - INFO - Row data: Non-Energy Minerals | +0.81%
+2025-04-24 12:15:46,620 - INFO - Added sector: Non-Energy Minerals, Change: 0.81%
+2025-04-24 12:15:46,678 - INFO - Row data: Consumer Durables | +0.03%
+2025-04-24 12:15:46,678 - INFO - Added sector: Consumer Durables, Change: 0.03%
+2025-04-24 12:15:46,777 - INFO - Row data: Communications | −1.84%
+2025-04-24 12:15:46,777 - INFO - Added sector: Communications, Change: -1.84%
+2025-04-24 12:15:46,841 - INFO - Row data: Process Industries | +0.26%
+2025-04-24 12:15:46,841 - INFO - Added sector: Process Industries, Change: 0.26%
+2025-04-24 12:15:46,962 - INFO - Row data: Health Technology | +1.13%
+2025-04-24 12:15:46,963 - INFO - Added sector: Health Technology, Change: 1.13%
+2025-04-24 12:15:47,021 - INFO - Row data: Utilities | −0.02%
+2025-04-24 12:15:47,022 - INFO - Added sector: Utilities, Change: -0.02%
+2025-04-24 12:15:47,088 - INFO - Row data: Electronic Technology | −0.68%
+2025-04-24 12:15:47,089 - INFO - Added sector: Electronic Technology, Change: -0.68%
+2025-04-24 12:15:47,145 - INFO - Row data: Transportation | −0.44%
+2025-04-24 12:15:47,145 - INFO - Added sector: Transportation, Change: -0.44%
+2025-04-24 12:15:47,209 - INFO - Row data: Industrial Services | +0.15%
+2025-04-24 12:15:47,210 - INFO - Added sector: Industrial Services, Change: 0.15%
+2025-04-24 12:15:47,280 - INFO - Row data: Retail Trade | −0.39%
+2025-04-24 12:15:47,281 - INFO - Added sector: Retail Trade, Change: -0.39%
+2025-04-24 12:15:47,371 - INFO - Row data: Consumer Services | +0.09%
+2025-04-24 12:15:47,371 - INFO - Added sector: Consumer Services, Change: 0.09%
+2025-04-24 12:15:47,445 - INFO - Row data: Health Services | −0.82%
+2025-04-24 12:15:47,446 - INFO - Added sector: Health Services, Change: -0.82%
+2025-04-24 12:15:47,609 - INFO - Row data: Distribution Services | −0.01%
+2025-04-24 12:15:47,612 - INFO - Added sector: Distribution Services, Change: -0.01%
+2025-04-24 12:15:47,815 - INFO - Row data: Commercial Services | −1.17%
+2025-04-24 12:15:47,817 - INFO - Added sector: Commercial Services, Change: -1.17%
+2025-04-24 12:15:47,927 - INFO - Row data: Miscellaneous | −0.30%
+2025-04-24 12:15:47,930 - INFO - Added sector: Miscellaneous, Change: -0.3%
+2025-04-24 12:15:53,898 - INFO - Successfully scraped data for 20 sectors
+2025-04-24 12:15:53,899 - INFO -   Health Technology: +1.13%
+2025-04-24 12:15:53,899 - INFO -   Non-Energy Minerals: +0.81%
+2025-04-24 12:15:53,900 - INFO -   Process Industries: +0.26%
+2025-04-24 12:15:53,901 - INFO -   Industrial Services: +0.15%
+2025-04-24 12:15:53,903 - INFO -   Consumer Services: +0.09%
+2025-04-24 12:15:53,904 - INFO -   Consumer Durables: +0.03%
+2025-04-24 12:15:53,905 - INFO -   Energy Minerals: +0.0%
+2025-04-24 12:15:53,907 - INFO -   Distribution Services: +-0.01%
+2025-04-24 12:15:53,914 - INFO -   Utilities: +-0.02%
+2025-04-24 12:15:53,917 - INFO -   Technology Services: +-0.14%
+2025-04-24 12:15:53,919 - INFO -   Miscellaneous: +-0.3%
+2025-04-24 12:15:53,922 - INFO -   Retail Trade: +-0.39%
+2025-04-24 12:15:53,930 - INFO -   Producer Manufacturing: +-0.4%
+2025-04-24 12:15:53,930 - INFO -   Transportation: +-0.44%
+2025-04-24 12:15:53,933 - INFO -   Finance: +-0.56%
+2025-04-24 12:15:53,934 - INFO -   Electronic Technology: +-0.68%
+2025-04-24 12:15:53,935 - INFO -   Health Services: +-0.82%
+2025-04-24 12:15:53,935 - INFO -   Consumer Non-Durables: +-1.15%
+2025-04-24 12:15:53,936 - INFO -   Commercial Services: +-1.17%
+2025-04-24 12:15:53,936 - INFO -   Communications: +-1.84%
+2025-04-24 12:15:53,944 - INFO - Saved sector data to sector.csv
+2025-04-24 12:25:19,023 - INFO - Starting TradingView sector data scraper with 30-minute refresh
+2025-04-24 12:25:19,023 - INFO - Running TradingView sector data scraper job
+2025-04-24 12:25:19,024 - INFO - Setting up Chrome driver...
+2025-04-24 12:25:19,024 - INFO - ====== WebDriver manager ======
+2025-04-24 12:25:20,204 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-24 12:25:20,283 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-24 12:25:20,325 - INFO - Driver [C:\Users\Rajee\.wdm\drivers\chromedriver\win64\135.0.7049.114\chromedriver-win32/chromedriver.exe] found in cache
+2025-04-24 12:25:21,930 - INFO - Navigating to https://www.tradingview.com/markets/stocks-india/sectorandindustry-sector/
+2025-04-24 12:25:23,488 - INFO - Waiting for page to load...
+2025-04-24 12:25:38,522 - INFO - Found 20 rows in table
+2025-04-24 12:25:38,575 - INFO - Row data: Finance | −0.56%
+2025-04-24 12:25:38,576 - INFO - Added sector: Finance, Change: -0.56%
+2025-04-24 12:25:38,619 - INFO - Row data: Technology Services | −0.14%
+2025-04-24 12:25:38,620 - INFO - Added sector: Technology Services, Change: -0.14%
+2025-04-24 12:25:38,662 - INFO - Row data: Producer Manufacturing | −0.40%
+2025-04-24 12:25:38,663 - INFO - Added sector: Producer Manufacturing, Change: -0.4%
+2025-04-24 12:25:38,704 - INFO - Row data: Consumer Non-Durables | −1.15%
+2025-04-24 12:25:38,704 - INFO - Added sector: Consumer Non-Durables, Change: -1.15%
+2025-04-24 12:25:38,750 - INFO - Row data: Energy Minerals | +0.00%
+2025-04-24 12:25:38,750 - INFO - Added sector: Energy Minerals, Change: 0.0%
+2025-04-24 12:25:38,788 - INFO - Row data: Non-Energy Minerals | +0.81%
+2025-04-24 12:25:38,788 - INFO - Added sector: Non-Energy Minerals, Change: 0.81%
+2025-04-24 12:25:38,836 - INFO - Row data: Consumer Durables | +0.03%
+2025-04-24 12:25:38,837 - INFO - Added sector: Consumer Durables, Change: 0.03%
+2025-04-24 12:25:38,871 - INFO - Row data: Communications | −1.84%
+2025-04-24 12:25:38,872 - INFO - Added sector: Communications, Change: -1.84%
+2025-04-24 12:25:38,901 - INFO - Row data: Process Industries | +0.26%
+2025-04-24 12:25:38,901 - INFO - Added sector: Process Industries, Change: 0.26%
+2025-04-24 12:25:38,933 - INFO - Row data: Health Technology | +1.13%
+2025-04-24 12:25:38,933 - INFO - Added sector: Health Technology, Change: 1.13%
+2025-04-24 12:25:38,965 - INFO - Row data: Utilities | −0.02%
+2025-04-24 12:25:38,965 - INFO - Added sector: Utilities, Change: -0.02%
+2025-04-24 12:25:38,994 - INFO - Row data: Electronic Technology | −0.68%
+2025-04-24 12:25:38,996 - INFO - Added sector: Electronic Technology, Change: -0.68%
+2025-04-24 12:25:39,031 - INFO - Row data: Transportation | −0.44%
+2025-04-24 12:25:39,031 - INFO - Added sector: Transportation, Change: -0.44%
+2025-04-24 12:25:39,066 - INFO - Row data: Industrial Services | +0.15%
+2025-04-24 12:25:39,067 - INFO - Added sector: Industrial Services, Change: 0.15%
+2025-04-24 12:25:39,099 - INFO - Row data: Retail Trade | −0.39%
+2025-04-24 12:25:39,100 - INFO - Added sector: Retail Trade, Change: -0.39%
+2025-04-24 12:25:39,133 - INFO - Row data: Consumer Services | +0.09%
+2025-04-24 12:25:39,133 - INFO - Added sector: Consumer Services, Change: 0.09%
+2025-04-24 12:25:39,164 - INFO - Row data: Health Services | −0.82%
+2025-04-24 12:25:39,164 - INFO - Added sector: Health Services, Change: -0.82%
+2025-04-24 12:25:39,197 - INFO - Row data: Distribution Services | −0.01%
+2025-04-24 12:25:39,198 - INFO - Added sector: Distribution Services, Change: -0.01%
+2025-04-24 12:25:39,235 - INFO - Row data: Commercial Services | −1.17%
+2025-04-24 12:25:39,235 - INFO - Added sector: Commercial Services, Change: -1.17%
+2025-04-24 12:25:39,272 - INFO - Row data: Miscellaneous | −0.30%
+2025-04-24 12:25:39,274 - INFO - Added sector: Miscellaneous, Change: -0.3%
+2025-04-24 12:25:41,777 - INFO - Successfully scraped data for 20 sectors at 2025-04-24 12:25:41
+2025-04-24 12:25:41,779 - INFO -   Health Technology: +1.13%
+2025-04-24 12:25:41,779 - INFO -   Non-Energy Minerals: +0.81%
+2025-04-24 12:25:41,780 - INFO -   Process Industries: +0.26%
+2025-04-24 12:25:41,781 - INFO -   Industrial Services: +0.15%
+2025-04-24 12:25:41,782 - INFO -   Consumer Services: +0.09%
+2025-04-24 12:25:41,783 - INFO -   Consumer Durables: +0.03%
+2025-04-24 12:25:41,784 - INFO -   Energy Minerals: +0.0%
+2025-04-24 12:25:41,785 - INFO -   Distribution Services: +-0.01%
+2025-04-24 12:25:41,788 - INFO -   Utilities: +-0.02%
+2025-04-24 12:25:41,789 - INFO -   Technology Services: +-0.14%
+2025-04-24 12:25:41,790 - INFO -   Miscellaneous: +-0.3%
+2025-04-24 12:25:41,792 - INFO -   Retail Trade: +-0.39%
+2025-04-24 12:25:41,796 - INFO -   Producer Manufacturing: +-0.4%
+2025-04-24 12:25:41,797 - INFO -   Transportation: +-0.44%
+2025-04-24 12:25:41,798 - INFO -   Finance: +-0.56%
+2025-04-24 12:25:41,799 - INFO -   Electronic Technology: +-0.68%
+2025-04-24 12:25:41,801 - INFO -   Health Services: +-0.82%
+2025-04-24 12:25:41,805 - INFO -   Consumer Non-Durables: +-1.15%
+2025-04-24 12:25:41,806 - INFO -   Commercial Services: +-1.17%
+2025-04-24 12:25:41,806 - INFO -   Communications: +-1.84%
+2025-04-24 12:25:41,810 - INFO - Saved sector data to sector.csv
+2025-04-24 12:28:47,922 - INFO - Scraper stopped by user
+2025-04-25 07:50:51,986 - INFO - Starting TradingView sector data scraper with 30-minute refresh
+2025-04-25 07:50:51,986 - INFO - Running TradingView sector data scraper job
+2025-04-25 07:50:51,987 - INFO - Setting up Chrome driver...
+2025-04-25 07:50:51,987 - INFO - ====== WebDriver manager ======
+2025-04-25 07:50:53,853 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-25 07:50:54,017 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-25 07:50:54,062 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-25 07:50:54,186 - INFO - WebDriver version 135.0.7049.114 selected
+2025-04-25 07:50:54,192 - INFO - Modern chrome version https://storage.googleapis.com/chrome-for-testing-public/135.0.7049.114/win32/chromedriver-win32.zip
+2025-04-25 07:50:54,192 - INFO - About to download new driver from https://storage.googleapis.com/chrome-for-testing-public/135.0.7049.114/win32/chromedriver-win32.zip
+2025-04-25 07:50:54,261 - INFO - Driver downloading response is 200
+2025-04-25 07:50:54,553 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-25 07:50:55,786 - INFO - Driver has been saved in cache [C:\Users\Rajee\.wdm\drivers\chromedriver\win64\135.0.7049.114]
+2025-04-25 07:51:00,460 - INFO - Navigating to https://www.tradingview.com/markets/stocks-india/sectorandindustry-sector/
+2025-04-25 07:51:01,999 - INFO - Waiting for page to load...
+2025-04-25 07:51:17,067 - INFO - Found 20 rows in table
+2025-04-25 07:51:17,140 - INFO - Row data: Finance | −2.09%
+2025-04-25 07:51:17,141 - INFO - Added sector: Finance, Change: -2.09%
+2025-04-25 07:51:17,182 - INFO - Row data: Technology Services | −0.13%
+2025-04-25 07:51:17,182 - INFO - Added sector: Technology Services, Change: -0.13%
+2025-04-25 07:51:17,215 - INFO - Row data: Producer Manufacturing | −2.82%
+2025-04-25 07:51:17,215 - INFO - Added sector: Producer Manufacturing, Change: -2.82%
+2025-04-25 07:51:17,247 - INFO - Row data: Consumer Non-Durables | −1.49%
+2025-04-25 07:51:17,248 - INFO - Added sector: Consumer Non-Durables, Change: -1.49%
+2025-04-25 07:51:17,278 - INFO - Row data: Energy Minerals | −1.07%
+2025-04-25 07:51:17,279 - INFO - Added sector: Energy Minerals, Change: -1.07%
+2025-04-25 07:51:17,310 - INFO - Row data: Non-Energy Minerals | −2.30%
+2025-04-25 07:51:17,310 - INFO - Added sector: Non-Energy Minerals, Change: -2.3%
+2025-04-25 07:51:17,339 - INFO - Row data: Consumer Durables | −1.91%
+2025-04-25 07:51:17,340 - INFO - Added sector: Consumer Durables, Change: -1.91%
+2025-04-25 07:51:17,371 - INFO - Row data: Communications | −2.15%
+2025-04-25 07:51:17,371 - INFO - Added sector: Communications, Change: -2.15%
+2025-04-25 07:51:17,402 - INFO - Row data: Process Industries | −2.64%
+2025-04-25 07:51:17,402 - INFO - Added sector: Process Industries, Change: -2.64%
+2025-04-25 07:51:17,434 - INFO - Row data: Health Technology | −2.64%
+2025-04-25 07:51:17,434 - INFO - Added sector: Health Technology, Change: -2.64%
+2025-04-25 07:51:17,466 - INFO - Row data: Utilities | −3.41%
+2025-04-25 07:51:17,466 - INFO - Added sector: Utilities, Change: -3.41%
+2025-04-25 07:51:17,501 - INFO - Row data: Electronic Technology | −3.13%
+2025-04-25 07:51:17,501 - INFO - Added sector: Electronic Technology, Change: -3.13%
+2025-04-25 07:51:17,537 - INFO - Row data: Transportation | −3.57%
+2025-04-25 07:51:17,539 - INFO - Added sector: Transportation, Change: -3.57%
+2025-04-25 07:51:17,577 - INFO - Row data: Industrial Services | −2.39%
+2025-04-25 07:51:17,577 - INFO - Added sector: Industrial Services, Change: -2.39%
+2025-04-25 07:51:17,606 - INFO - Row data: Retail Trade | −2.90%
+2025-04-25 07:51:17,606 - INFO - Added sector: Retail Trade, Change: -2.9%
+2025-04-25 07:51:17,638 - INFO - Row data: Consumer Services | −3.51%
+2025-04-25 07:51:17,639 - INFO - Added sector: Consumer Services, Change: -3.51%
+2025-04-25 07:51:17,668 - INFO - Row data: Health Services | −2.38%
+2025-04-25 07:51:17,669 - INFO - Added sector: Health Services, Change: -2.38%
+2025-04-25 07:51:17,697 - INFO - Row data: Distribution Services | −3.45%
+2025-04-25 07:51:17,698 - INFO - Added sector: Distribution Services, Change: -3.45%
+2025-04-25 07:51:17,730 - INFO - Row data: Commercial Services | −3.31%
+2025-04-25 07:51:17,730 - INFO - Added sector: Commercial Services, Change: -3.31%
+2025-04-25 07:51:17,760 - INFO - Row data: Miscellaneous | −5.26%
+2025-04-25 07:51:17,761 - INFO - Added sector: Miscellaneous, Change: -5.26%
+2025-04-25 07:51:20,291 - INFO - Successfully scraped data for 20 sectors at 2025-04-25 07:51:20
+2025-04-25 07:51:20,292 - INFO -   Technology Services: +-0.13%
+2025-04-25 07:51:20,293 - INFO -   Energy Minerals: +-1.07%
+2025-04-25 07:51:20,294 - INFO -   Consumer Non-Durables: +-1.49%
+2025-04-25 07:51:20,294 - INFO -   Consumer Durables: +-1.91%
+2025-04-25 07:51:20,295 - INFO -   Finance: +-2.09%
+2025-04-25 07:51:20,295 - INFO -   Communications: +-2.15%
+2025-04-25 07:51:20,296 - INFO -   Non-Energy Minerals: +-2.3%
+2025-04-25 07:51:20,297 - INFO -   Health Services: +-2.38%
+2025-04-25 07:51:20,297 - INFO -   Industrial Services: +-2.39%
+2025-04-25 07:51:20,298 - INFO -   Process Industries: +-2.64%
+2025-04-25 07:51:20,299 - INFO -   Health Technology: +-2.64%
+2025-04-25 07:51:20,300 - INFO -   Producer Manufacturing: +-2.82%
+2025-04-25 07:51:20,301 - INFO -   Retail Trade: +-2.9%
+2025-04-25 07:51:20,302 - INFO -   Electronic Technology: +-3.13%
+2025-04-25 07:51:20,304 - INFO -   Commercial Services: +-3.31%
+2025-04-25 07:51:20,306 - INFO -   Utilities: +-3.41%
+2025-04-25 07:51:20,308 - INFO -   Distribution Services: +-3.45%
+2025-04-25 07:51:20,309 - INFO -   Consumer Services: +-3.51%
+2025-04-25 07:51:20,311 - INFO -   Transportation: +-3.57%
+2025-04-25 07:51:20,313 - INFO -   Miscellaneous: +-5.26%
+2025-04-25 07:51:20,318 - INFO - Saved sector data to sector.csv
+2025-04-25 08:21:21,186 - INFO - Running TradingView sector data scraper job
+2025-04-25 08:21:21,195 - INFO - Setting up Chrome driver...
+2025-04-25 08:21:21,201 - INFO - ====== WebDriver manager ======
+2025-04-25 08:21:22,815 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-25 08:21:22,958 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-25 08:21:23,036 - INFO - Driver [C:\Users\Rajee\.wdm\drivers\chromedriver\win64\135.0.7049.114\chromedriver-win32/chromedriver.exe] found in cache
+2025-04-25 08:21:27,570 - INFO - Navigating to https://www.tradingview.com/markets/stocks-india/sectorandindustry-sector/
+2025-04-25 08:21:27,919 - INFO - Waiting for page to load...
+2025-04-25 08:21:43,021 - INFO - Found 20 rows in table
+2025-04-25 08:21:43,073 - INFO - Row data: Finance | −1.90%
+2025-04-25 08:21:43,075 - INFO - Added sector: Finance, Change: -1.9%
+2025-04-25 08:21:43,118 - INFO - Row data: Technology Services | −0.24%
+2025-04-25 08:21:43,119 - INFO - Added sector: Technology Services, Change: -0.24%
+2025-04-25 08:21:43,160 - INFO - Row data: Producer Manufacturing | −2.46%
+2025-04-25 08:21:43,160 - INFO - Added sector: Producer Manufacturing, Change: -2.46%
+2025-04-25 08:21:43,204 - INFO - Row data: Energy Minerals | −0.85%
+2025-04-25 08:21:43,205 - INFO - Added sector: Energy Minerals, Change: -0.85%
+2025-04-25 08:21:43,254 - INFO - Row data: Consumer Non-Durables | −1.40%
+2025-04-25 08:21:43,255 - INFO - Added sector: Consumer Non-Durables, Change: -1.4%
+2025-04-25 08:21:43,300 - INFO - Row data: Non-Energy Minerals | −1.95%
+2025-04-25 08:21:43,300 - INFO - Added sector: Non-Energy Minerals, Change: -1.95%
+2025-04-25 08:21:43,348 - INFO - Row data: Consumer Durables | −1.74%
+2025-04-25 08:21:43,351 - INFO - Added sector: Consumer Durables, Change: -1.74%
+2025-04-25 08:21:43,413 - INFO - Row data: Communications | −2.13%
+2025-04-25 08:21:43,414 - INFO - Added sector: Communications, Change: -2.13%
+2025-04-25 08:21:43,475 - INFO - Row data: Process Industries | −2.36%
+2025-04-25 08:21:43,477 - INFO - Added sector: Process Industries, Change: -2.36%
+2025-04-25 08:21:43,538 - INFO - Row data: Health Technology | −2.40%
+2025-04-25 08:21:43,539 - INFO - Added sector: Health Technology, Change: -2.4%
+2025-04-25 08:21:43,588 - INFO - Row data: Utilities | −3.15%
+2025-04-25 08:21:43,588 - INFO - Added sector: Utilities, Change: -3.15%
+2025-04-25 08:21:43,639 - INFO - Row data: Electronic Technology | −2.77%
+2025-04-25 08:21:43,640 - INFO - Added sector: Electronic Technology, Change: -2.77%
+2025-04-25 08:21:43,687 - INFO - Row data: Transportation | −3.32%
+2025-04-25 08:21:43,688 - INFO - Added sector: Transportation, Change: -3.32%
+2025-04-25 08:21:43,730 - INFO - Row data: Industrial Services | −1.78%
+2025-04-25 08:21:43,731 - INFO - Added sector: Industrial Services, Change: -1.78%
+2025-04-25 08:21:43,767 - INFO - Row data: Retail Trade | −2.79%
+2025-04-25 08:21:43,767 - INFO - Added sector: Retail Trade, Change: -2.79%
+2025-04-25 08:21:43,800 - INFO - Row data: Consumer Services | −3.19%
+2025-04-25 08:21:43,800 - INFO - Added sector: Consumer Services, Change: -3.19%
+2025-04-25 08:21:43,830 - INFO - Row data: Health Services | −2.20%
+2025-04-25 08:21:43,831 - INFO - Added sector: Health Services, Change: -2.2%
+2025-04-25 08:21:43,864 - INFO - Row data: Distribution Services | −3.28%
+2025-04-25 08:21:43,864 - INFO - Added sector: Distribution Services, Change: -3.28%
+2025-04-25 08:21:43,900 - INFO - Row data: Commercial Services | −3.04%
+2025-04-25 08:21:43,900 - INFO - Added sector: Commercial Services, Change: -3.04%
+2025-04-25 08:21:43,941 - INFO - Row data: Miscellaneous | −4.67%
+2025-04-25 08:21:43,942 - INFO - Added sector: Miscellaneous, Change: -4.67%
+2025-04-25 08:21:46,519 - INFO - Successfully scraped data for 20 sectors at 2025-04-25 08:21:46
+2025-04-25 08:21:46,524 - INFO -   Technology Services: +-0.24%
+2025-04-25 08:21:46,527 - INFO -   Energy Minerals: +-0.85%
+2025-04-25 08:21:46,530 - INFO -   Consumer Non-Durables: +-1.4%
+2025-04-25 08:21:46,532 - INFO -   Consumer Durables: +-1.74%
+2025-04-25 08:21:46,534 - INFO -   Industrial Services: +-1.78%
+2025-04-25 08:21:46,536 - INFO -   Finance: +-1.9%
+2025-04-25 08:21:46,538 - INFO -   Non-Energy Minerals: +-1.95%
+2025-04-25 08:21:46,540 - INFO -   Communications: +-2.13%
+2025-04-25 08:21:46,541 - INFO -   Health Services: +-2.2%
+2025-04-25 08:21:46,542 - INFO -   Process Industries: +-2.36%
+2025-04-25 08:21:46,546 - INFO -   Health Technology: +-2.4%
+2025-04-25 08:21:46,550 - INFO -   Producer Manufacturing: +-2.46%
+2025-04-25 08:21:46,552 - INFO -   Electronic Technology: +-2.77%
+2025-04-25 08:21:46,553 - INFO -   Retail Trade: +-2.79%
+2025-04-25 08:21:46,555 - INFO -   Commercial Services: +-3.04%
+2025-04-25 08:21:46,556 - INFO -   Utilities: +-3.15%
+2025-04-25 08:21:46,557 - INFO -   Consumer Services: +-3.19%
+2025-04-25 08:21:46,558 - INFO -   Distribution Services: +-3.28%
+2025-04-25 08:21:46,559 - INFO -   Transportation: +-3.32%
+2025-04-25 08:21:46,561 - INFO -   Miscellaneous: +-4.67%
+2025-04-25 08:21:46,567 - INFO - Saved sector data to sector.csv
+2025-04-25 08:22:50,993 - INFO - Scraper stopped by user
+2025-04-25 08:34:06,142 - INFO - Starting TradingView sector data scraper
+2025-04-25 08:34:06,142 - INFO - Setting up Chrome driver...
+2025-04-25 08:34:06,142 - INFO - ====== WebDriver manager ======
+2025-04-25 08:34:07,337 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-25 08:34:07,408 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-25 08:34:07,519 - INFO - Driver [C:\Users\Rajee\.wdm\drivers\chromedriver\win64\135.0.7049.114\chromedriver-win32/chromedriver.exe] found in cache
+2025-04-25 08:34:09,796 - INFO - Navigating to https://www.tradingview.com/markets/stocks-india/sectorandindustry-sector/
+2025-04-25 08:34:11,793 - INFO - Waiting for page to load...
+2025-04-25 08:34:26,942 - INFO - Saved screenshot to tradingview_screen.png
+2025-04-25 08:34:26,962 - INFO - Found 20 rows in table
+2025-04-25 08:34:27,078 - INFO - Row data: Finance | −1.67%
+2025-04-25 08:34:27,078 - INFO - Added sector: Finance, Change: -1.67%
+2025-04-25 08:34:27,145 - INFO - Row data: Technology Services | +0.01%
+2025-04-25 08:34:27,146 - INFO - Added sector: Technology Services, Change: 0.01%
+2025-04-25 08:34:27,193 - INFO - Row data: Producer Manufacturing | −2.13%
+2025-04-25 08:34:27,193 - INFO - Added sector: Producer Manufacturing, Change: -2.13%
+2025-04-25 08:34:27,248 - INFO - Row data: Energy Minerals | −0.61%
+2025-04-25 08:34:27,248 - INFO - Added sector: Energy Minerals, Change: -0.61%
+2025-04-25 08:34:27,278 - INFO - Row data: Consumer Non-Durables | −1.22%
+2025-04-25 08:34:27,278 - INFO - Added sector: Consumer Non-Durables, Change: -1.22%
+2025-04-25 08:34:27,310 - INFO - Row data: Non-Energy Minerals | −1.73%
+2025-04-25 08:34:27,310 - INFO - Added sector: Non-Energy Minerals, Change: -1.73%
+2025-04-25 08:34:27,358 - INFO - Row data: Consumer Durables | −1.41%
+2025-04-25 08:34:27,359 - INFO - Added sector: Consumer Durables, Change: -1.41%
+2025-04-25 08:34:27,395 - INFO - Row data: Communications | −1.75%
+2025-04-25 08:34:27,396 - INFO - Added sector: Communications, Change: -1.75%
+2025-04-25 08:34:27,438 - INFO - Row data: Process Industries | −2.13%
+2025-04-25 08:34:27,439 - INFO - Added sector: Process Industries, Change: -2.13%
+2025-04-25 08:34:27,492 - INFO - Row data: Health Technology | −2.09%
+2025-04-25 08:34:27,494 - INFO - Added sector: Health Technology, Change: -2.09%
+2025-04-25 08:34:27,525 - INFO - Row data: Utilities | −2.75%
+2025-04-25 08:34:27,526 - INFO - Added sector: Utilities, Change: -2.75%
+2025-04-25 08:34:27,558 - INFO - Row data: Electronic Technology | −2.45%
+2025-04-25 08:34:27,558 - INFO - Added sector: Electronic Technology, Change: -2.45%
+2025-04-25 08:34:27,599 - INFO - Row data: Transportation | −2.98%
+2025-04-25 08:34:27,599 - INFO - Added sector: Transportation, Change: -2.98%
+2025-04-25 08:34:27,633 - INFO - Row data: Industrial Services | −1.53%
+2025-04-25 08:34:27,634 - INFO - Added sector: Industrial Services, Change: -1.53%
+2025-04-25 08:34:27,673 - INFO - Row data: Retail Trade | −2.61%
+2025-04-25 08:34:27,674 - INFO - Added sector: Retail Trade, Change: -2.61%
+2025-04-25 08:34:27,733 - INFO - Row data: Consumer Services | −2.87%
+2025-04-25 08:34:27,733 - INFO - Added sector: Consumer Services, Change: -2.87%
+2025-04-25 08:34:27,759 - INFO - Row data: Health Services | −1.72%
+2025-04-25 08:34:27,760 - INFO - Added sector: Health Services, Change: -1.72%
+2025-04-25 08:34:27,793 - INFO - Row data: Distribution Services | −2.91%
+2025-04-25 08:34:27,798 - INFO - Added sector: Distribution Services, Change: -2.91%
+2025-04-25 08:34:27,844 - INFO - Row data: Commercial Services | −2.85%
+2025-04-25 08:34:27,845 - INFO - Added sector: Commercial Services, Change: -2.85%
+2025-04-25 08:34:27,886 - INFO - Row data: Miscellaneous | −4.37%
+2025-04-25 08:34:27,889 - INFO - Added sector: Miscellaneous, Change: -4.37%
+2025-04-25 08:34:31,642 - INFO - Successfully scraped data for 20 sectors
+2025-04-25 08:34:31,679 - INFO - Saved sector data to sector.csv

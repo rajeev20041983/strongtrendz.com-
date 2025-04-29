@@ -1,0 +1,533 @@
+2025-04-24 07:29:44,394 - INFO - Configuration loaded successfully from trading_config.json
+2025-04-24 07:29:44,394 - INFO - Security IDs loaded successfully from security_ids.json
+2025-04-24 07:29:44,395 - INFO - Sector mapping loaded successfully with 141 tickers
+2025-04-24 07:29:44,395 - INFO - Price levels configuration loaded successfully with 3 stocks
+2025-04-24 07:29:44,396 - INFO - Dhan API client initialized successfully
+2025-04-24 07:29:44,396 - INFO - Starting trading program with multiple strategies
+2025-04-24 07:29:44,397 - INFO - place_new_orders setting: True
+2025-04-24 07:29:44,397 - INFO - Active tickers in sector-based config: ['PRESTIGE']
+2025-04-24 07:29:44,397 - INFO - Price level strategy enabled: True
+2025-04-24 07:29:44,397 - INFO - Active tickers in price level config: []
+2025-04-24 07:29:44,435 - INFO - Successfully loaded 17 sectors from CSV file
+2025-04-24 07:29:44,435 - INFO - Sector: NIFTY_PHARMA - Change: +1.03%
+2025-04-24 07:29:44,436 - INFO - Sector: NIFTY_HEALTHCARE - Change: +0.32%
+2025-04-24 07:29:44,436 - INFO - Sector: NIFTY_METAL - Change: +0.24%
+2025-04-24 07:29:44,436 - INFO - Sector: NIFTY_IT - Change: +0.19%
+2025-04-24 07:29:44,436 - INFO - Sector: NIFTY_PVT_BANK - Change: +0.08%
+2025-04-24 07:29:44,436 - INFO - Top performing sectors:
+2025-04-24 07:29:44,437 - INFO -   NIFTY_PHARMA: +1.03%
+2025-04-24 07:29:44,437 - INFO -   NIFTY_HEALTHCARE: +0.32%
+2025-04-24 07:29:44,437 - INFO -   NIFTY_METAL: +0.24%
+2025-04-24 07:29:44,439 - INFO - Bottom performing sectors:
+2025-04-24 07:29:44,440 - INFO -   NIFTY_CONSUMPTION: -0.64%
+2025-04-24 07:29:44,440 - INFO -   NIFTY_FMCG: -0.85%
+2025-04-24 07:29:44,440 - INFO -   NIFTY_REALTY: -1.31%
+2025-04-24 07:29:44,441 - INFO - Placing orders based on sector performance
+2025-04-24 07:29:44,441 - INFO - Processing 5 tickers from config
+2025-04-24 07:29:44,442 - INFO - Buy sectors: ['NIFTY_PHARMA', 'NIFTY_HEALTHCARE', 'NIFTY_METAL']
+2025-04-24 07:29:44,442 - INFO - Sell sectors: ['NIFTY_CONSUMPTION', 'NIFTY_FMCG', 'NIFTY_REALTY']
+2025-04-24 07:29:44,442 - INFO - Skipping inactive ticker: NTPC.NS
+2025-04-24 07:29:44,442 - INFO - Skipping inactive ticker: WIPRO.NS
+2025-04-24 07:29:44,444 - INFO - Skipping inactive ticker: SUNTV.NS
+2025-04-24 07:29:44,445 - INFO - Skipping inactive ticker: PNB.NS
+2025-04-24 07:29:44,445 - INFO - Processing active ticker: PRESTIGE
+2025-04-24 07:29:44,445 - INFO - Ticker PRESTIGE belongs to sector: Unknown
+2025-04-24 07:29:44,447 - INFO - No action for PRESTIGE - sector Unknown is not in top/bottom performers
+2025-04-24 07:29:44,448 - INFO - Checking price levels for trading
+2025-04-24 07:29:44,448 - INFO - Checking price levels for 3 stocks
+2025-04-24 07:29:44,449 - INFO - Starting continuous monitoring with 30-second refresh interval...
+2025-04-24 07:29:44,461 - INFO - Successfully loaded 17 sectors from CSV file
+2025-04-24 07:29:44,462 - INFO - Sector: NIFTY_PHARMA - Change: +1.03%
+2025-04-24 07:29:44,466 - INFO - Sector: NIFTY_HEALTHCARE - Change: +0.32%
+2025-04-24 07:29:44,480 - INFO - Sector: NIFTY_METAL - Change: +0.24%
+2025-04-24 07:29:44,480 - INFO - Sector: NIFTY_IT - Change: +0.19%
+2025-04-24 07:29:44,481 - INFO - Sector: NIFTY_PVT_BANK - Change: +0.08%
+2025-04-24 07:29:44,482 - INFO - Placing orders based on updated sector performance
+2025-04-24 07:29:44,482 - INFO - Processing 5 tickers from config
+2025-04-24 07:29:44,482 - INFO - Buy sectors: ['NIFTY_PHARMA', 'NIFTY_HEALTHCARE', 'NIFTY_METAL']
+2025-04-24 07:29:44,482 - INFO - Sell sectors: ['NIFTY_CONSUMPTION', 'NIFTY_FMCG', 'NIFTY_REALTY']
+2025-04-24 07:29:44,483 - INFO - Skipping inactive ticker: NTPC.NS
+2025-04-24 07:29:44,483 - INFO - Skipping inactive ticker: WIPRO.NS
+2025-04-24 07:29:44,483 - INFO - Skipping inactive ticker: SUNTV.NS
+2025-04-24 07:29:44,483 - INFO - Skipping inactive ticker: PNB.NS
+2025-04-24 07:29:44,484 - INFO - Processing active ticker: PRESTIGE
+2025-04-24 07:29:44,484 - INFO - Ticker PRESTIGE belongs to sector: Unknown
+2025-04-24 07:29:44,484 - INFO - No action for PRESTIGE - sector Unknown is not in top/bottom performers
+2025-04-24 07:29:44,485 - INFO - Checking price levels for trading
+2025-04-24 07:29:44,485 - INFO - Checking price levels for 3 stocks
+2025-04-24 07:29:44,486 - INFO - Waiting 30 seconds for next refresh...
+2025-04-24 07:30:14,495 - INFO - Successfully loaded 17 sectors from CSV file
+2025-04-24 07:30:14,496 - INFO - Sector: NIFTY_PHARMA - Change: +1.03%
+2025-04-24 07:30:14,496 - INFO - Sector: NIFTY_HEALTHCARE - Change: +0.32%
+2025-04-24 07:30:14,496 - INFO - Sector: NIFTY_METAL - Change: +0.24%
+2025-04-24 07:30:14,497 - INFO - Sector: NIFTY_IT - Change: +0.19%
+2025-04-24 07:30:14,497 - INFO - Sector: NIFTY_PVT_BANK - Change: +0.08%
+2025-04-24 07:30:14,498 - INFO - Placing orders based on updated sector performance
+2025-04-24 07:30:14,498 - INFO - Processing 5 tickers from config
+2025-04-24 07:30:14,499 - INFO - Buy sectors: ['NIFTY_PHARMA', 'NIFTY_HEALTHCARE', 'NIFTY_METAL']
+2025-04-24 07:30:14,499 - INFO - Sell sectors: ['NIFTY_CONSUMPTION', 'NIFTY_FMCG', 'NIFTY_REALTY']
+2025-04-24 07:30:14,500 - INFO - Skipping inactive ticker: NTPC.NS
+2025-04-24 07:30:14,501 - INFO - Skipping inactive ticker: WIPRO.NS
+2025-04-24 07:30:14,501 - INFO - Skipping inactive ticker: SUNTV.NS
+2025-04-24 07:30:14,502 - INFO - Skipping inactive ticker: PNB.NS
+2025-04-24 07:30:14,503 - INFO - Processing active ticker: PRESTIGE
+2025-04-24 07:30:14,503 - INFO - Ticker PRESTIGE belongs to sector: Unknown
+2025-04-24 07:30:14,504 - INFO - No action for PRESTIGE - sector Unknown is not in top/bottom performers
+2025-04-24 07:30:14,504 - INFO - Checking price levels for trading
+2025-04-24 07:30:14,504 - INFO - Checking price levels for 3 stocks
+2025-04-24 07:30:14,505 - INFO - Waiting 30 seconds for next refresh...
+2025-04-24 07:30:44,522 - INFO - Successfully loaded 17 sectors from CSV file
+2025-04-24 07:30:44,523 - INFO - Sector: NIFTY_PHARMA - Change: +1.03%
+2025-04-24 07:30:44,523 - INFO - Sector: NIFTY_HEALTHCARE - Change: +0.32%
+2025-04-24 07:30:44,524 - INFO - Sector: NIFTY_METAL - Change: +0.24%
+2025-04-24 07:30:44,524 - INFO - Sector: NIFTY_IT - Change: +0.19%
+2025-04-24 07:30:44,524 - INFO - Sector: NIFTY_PVT_BANK - Change: +0.08%
+2025-04-24 07:30:44,525 - INFO - Placing orders based on updated sector performance
+2025-04-24 07:30:44,525 - INFO - Processing 5 tickers from config
+2025-04-24 07:30:44,525 - INFO - Buy sectors: ['NIFTY_PHARMA', 'NIFTY_HEALTHCARE', 'NIFTY_METAL']
+2025-04-24 07:30:44,526 - INFO - Sell sectors: ['NIFTY_CONSUMPTION', 'NIFTY_FMCG', 'NIFTY_REALTY']
+2025-04-24 07:30:44,526 - INFO - Skipping inactive ticker: NTPC.NS
+2025-04-24 07:30:44,527 - INFO - Skipping inactive ticker: WIPRO.NS
+2025-04-24 07:30:44,527 - INFO - Skipping inactive ticker: SUNTV.NS
+2025-04-24 07:30:44,527 - INFO - Skipping inactive ticker: PNB.NS
+2025-04-24 07:30:44,528 - INFO - Processing active ticker: PRESTIGE
+2025-04-24 07:30:44,532 - INFO - Ticker PRESTIGE belongs to sector: Unknown
+2025-04-24 07:30:44,535 - INFO - No action for PRESTIGE - sector Unknown is not in top/bottom performers
+2025-04-24 07:30:44,536 - INFO - Checking price levels for trading
+2025-04-24 07:30:44,536 - INFO - Checking price levels for 3 stocks
+2025-04-24 07:30:44,537 - INFO - Waiting 30 seconds for next refresh...
+2025-04-24 07:31:14,567 - INFO - Successfully loaded 17 sectors from CSV file
+2025-04-24 07:31:14,570 - INFO - Sector: NIFTY_PHARMA - Change: +1.03%
+2025-04-24 07:31:14,572 - INFO - Sector: NIFTY_HEALTHCARE - Change: +0.32%
+2025-04-24 07:31:14,575 - INFO - Sector: NIFTY_METAL - Change: +0.24%
+2025-04-24 07:31:14,582 - INFO - Sector: NIFTY_IT - Change: +0.19%
+2025-04-24 07:31:14,585 - INFO - Sector: NIFTY_PVT_BANK - Change: +0.08%
+2025-04-24 07:31:14,605 - INFO - Placing orders based on updated sector performance
+2025-04-24 07:31:14,622 - INFO - Processing 5 tickers from config
+2025-04-24 07:31:14,673 - INFO - Buy sectors: ['NIFTY_PHARMA', 'NIFTY_HEALTHCARE', 'NIFTY_METAL']
+2025-04-24 07:31:14,896 - INFO - Sell sectors: ['NIFTY_CONSUMPTION', 'NIFTY_FMCG', 'NIFTY_REALTY']
+2025-04-24 07:31:14,934 - INFO - Skipping inactive ticker: NTPC.NS
+2025-04-24 07:31:14,939 - INFO - Skipping inactive ticker: WIPRO.NS
+2025-04-24 07:31:14,943 - INFO - Skipping inactive ticker: SUNTV.NS
+2025-04-24 07:31:15,276 - INFO - Skipping inactive ticker: PNB.NS
+2025-04-24 07:31:15,459 - INFO - Processing active ticker: PRESTIGE
+2025-04-24 07:31:15,503 - INFO - Ticker PRESTIGE belongs to sector: Unknown
+2025-04-24 07:31:15,516 - INFO - No action for PRESTIGE - sector Unknown is not in top/bottom performers
+2025-04-24 07:31:15,525 - INFO - Checking price levels for trading
+2025-04-24 07:31:15,551 - INFO - Checking price levels for 3 stocks
+2025-04-24 07:31:15,569 - INFO - Waiting 30 seconds for next refresh...
+2025-04-24 07:31:45,599 - INFO - Successfully loaded 17 sectors from CSV file
+2025-04-24 07:31:45,600 - INFO - Sector: NIFTY_PHARMA - Change: +1.03%
+2025-04-24 07:31:45,600 - INFO - Sector: NIFTY_HEALTHCARE - Change: +0.32%
+2025-04-24 07:31:45,600 - INFO - Sector: NIFTY_METAL - Change: +0.24%
+2025-04-24 07:31:45,602 - INFO - Sector: NIFTY_IT - Change: +0.19%
+2025-04-24 07:31:45,602 - INFO - Sector: NIFTY_PVT_BANK - Change: +0.08%
+2025-04-24 07:31:45,603 - INFO - Placing orders based on updated sector performance
+2025-04-24 07:31:45,603 - INFO - Processing 5 tickers from config
+2025-04-24 07:31:45,604 - INFO - Buy sectors: ['NIFTY_PHARMA', 'NIFTY_HEALTHCARE', 'NIFTY_METAL']
+2025-04-24 07:31:45,604 - INFO - Sell sectors: ['NIFTY_CONSUMPTION', 'NIFTY_FMCG', 'NIFTY_REALTY']
+2025-04-24 07:31:45,606 - INFO - Skipping inactive ticker: NTPC.NS
+2025-04-24 07:31:45,613 - INFO - Skipping inactive ticker: WIPRO.NS
+2025-04-24 07:31:45,613 - INFO - Skipping inactive ticker: SUNTV.NS
+2025-04-24 07:31:45,614 - INFO - Skipping inactive ticker: PNB.NS
+2025-04-24 07:31:45,614 - INFO - Processing active ticker: PRESTIGE
+2025-04-24 07:31:45,615 - INFO - Ticker PRESTIGE belongs to sector: Unknown
+2025-04-24 07:31:45,615 - INFO - No action for PRESTIGE - sector Unknown is not in top/bottom performers
+2025-04-24 07:31:45,616 - INFO - Checking price levels for trading
+2025-04-24 07:31:45,623 - INFO - Checking price levels for 3 stocks
+2025-04-24 07:31:45,626 - INFO - Waiting 30 seconds for next refresh...
+2025-04-24 07:32:08,666 - INFO - Monitoring stopped by user.
+2025-04-24 07:32:08,666 - INFO - Current positions:
+2025-04-24 07:32:09,126 - INFO - {'status': 'failure', 'remarks': {'error_code': 'DH-901', 'error_type': 'Invalid_Authentication', 'error_message': 'Client ID or user generated access token is invalid or expired.'}, 'data': {'errorType': 'Invalid_Authentication', 'errorCode': 'DH-901', 'errorMessage': 'Client ID or user generated access token is invalid or expired.'}}
+2025-04-24 07:43:23,188 - INFO - Configuration loaded successfully from trading_config.json
+2025-04-24 07:43:23,188 - INFO - Security IDs loaded successfully from security_ids.json
+2025-04-24 07:43:23,189 - INFO - Sector mapping loaded successfully with 141 tickers
+2025-04-24 07:43:23,190 - INFO - Price levels configuration loaded successfully with 3 stocks
+2025-04-24 07:43:23,190 - INFO - Dhan API client initialized successfully
+2025-04-24 07:43:23,191 - INFO - Starting trading program with multiple strategies
+2025-04-24 07:43:23,191 - INFO - place_new_orders setting: True
+2025-04-24 07:43:23,191 - INFO - Active tickers in sector-based config: ['PRESTIGE']
+2025-04-24 07:43:23,191 - INFO - Price level strategy enabled: True
+2025-04-24 07:43:23,193 - INFO - Active tickers in price level config: []
+2025-04-24 07:43:23,196 - INFO - Successfully loaded 3 sectors from CSV file
+2025-04-24 07:43:23,196 - INFO - Sector: Auto - Change: +665.70%
+2025-04-24 07:43:23,197 - INFO - Sector: IT - Change: -0.96%
+2025-04-24 07:43:23,197 - INFO - Sector: Pharma - Change: -1.42%
+2025-04-24 07:43:23,199 - INFO - Top performing sectors:
+2025-04-24 07:43:23,199 - INFO -   Auto: +665.70%
+2025-04-24 07:43:23,200 - INFO -   IT: +-0.96%
+2025-04-24 07:43:23,200 - INFO -   Pharma: +-1.42%
+2025-04-24 07:43:23,200 - INFO - Bottom performing sectors:
+2025-04-24 07:43:23,201 - INFO -   Auto: 665.70%
+2025-04-24 07:43:23,201 - INFO -   IT: -0.96%
+2025-04-24 07:43:23,201 - INFO -   Pharma: -1.42%
+2025-04-24 07:43:23,202 - INFO - Placing orders based on sector performance
+2025-04-24 07:43:23,202 - INFO - Processing 5 tickers from config
+2025-04-24 07:43:23,203 - INFO - Buy sectors: ['Auto', 'IT', 'Pharma']
+2025-04-24 07:43:23,204 - INFO - Sell sectors: ['Auto', 'IT', 'Pharma']
+2025-04-24 07:43:23,204 - INFO - Skipping inactive ticker: NTPC.NS
+2025-04-24 07:43:23,204 - INFO - Skipping inactive ticker: WIPRO.NS
+2025-04-24 07:43:23,205 - INFO - Skipping inactive ticker: SUNTV.NS
+2025-04-24 07:43:23,205 - INFO - Skipping inactive ticker: PNB.NS
+2025-04-24 07:43:23,205 - INFO - Processing active ticker: PRESTIGE
+2025-04-24 07:43:23,205 - INFO - Ticker PRESTIGE belongs to sector: Realty
+2025-04-24 07:43:23,206 - INFO - No action for PRESTIGE - sector Realty is not in top/bottom performers
+2025-04-24 07:43:23,207 - INFO - Checking price levels for trading
+2025-04-24 07:43:23,207 - INFO - Checking price levels for 3 stocks
+2025-04-24 07:43:23,209 - INFO - Starting continuous monitoring with 30-second refresh interval...
+2025-04-24 07:43:23,213 - INFO - Successfully loaded 3 sectors from CSV file
+2025-04-24 07:43:23,213 - INFO - Sector: Auto - Change: +665.70%
+2025-04-24 07:43:23,213 - INFO - Sector: IT - Change: -0.96%
+2025-04-24 07:43:23,215 - INFO - Sector: Pharma - Change: -1.42%
+2025-04-24 07:43:23,215 - INFO - Placing orders based on updated sector performance
+2025-04-24 07:43:23,215 - INFO - Processing 5 tickers from config
+2025-04-24 07:43:23,216 - INFO - Buy sectors: ['Auto', 'IT', 'Pharma']
+2025-04-24 07:43:23,216 - INFO - Sell sectors: ['Auto', 'IT', 'Pharma']
+2025-04-24 07:43:23,217 - INFO - Skipping inactive ticker: NTPC.NS
+2025-04-24 07:43:23,217 - INFO - Skipping inactive ticker: WIPRO.NS
+2025-04-24 07:43:23,218 - INFO - Skipping inactive ticker: SUNTV.NS
+2025-04-24 07:43:23,218 - INFO - Skipping inactive ticker: PNB.NS
+2025-04-24 07:43:23,219 - INFO - Processing active ticker: PRESTIGE
+2025-04-24 07:43:23,220 - INFO - Ticker PRESTIGE belongs to sector: Realty
+2025-04-24 07:43:23,220 - INFO - No action for PRESTIGE - sector Realty is not in top/bottom performers
+2025-04-24 07:43:23,221 - INFO - Checking price levels for trading
+2025-04-24 07:43:23,221 - INFO - Checking price levels for 3 stocks
+2025-04-24 07:43:23,222 - INFO - Waiting 30 seconds for next refresh...
+2025-04-24 07:43:53,232 - INFO - Successfully loaded 17 sectors from CSV file
+2025-04-24 07:43:53,238 - INFO - Sector: Pharma - Change: +1.03%
+2025-04-24 07:43:53,247 - INFO - Sector: NIFTY_HEALTHCARE - Change: +0.32%
+2025-04-24 07:43:53,264 - INFO - Sector: Metal - Change: +0.24%
+2025-04-24 07:43:53,266 - INFO - Sector: IT - Change: +0.19%
+2025-04-24 07:43:53,279 - INFO - Sector: NIFTY_PVT_BANK - Change: +0.08%
+2025-04-24 07:43:53,282 - INFO - Placing orders based on updated sector performance
+2025-04-24 07:43:53,299 - INFO - Processing 5 tickers from config
+2025-04-24 07:43:53,314 - INFO - Buy sectors: ['Pharma', 'NIFTY_HEALTHCARE', 'Metal']
+2025-04-24 07:43:53,314 - INFO - Sell sectors: ['NIFTY_CONSUMPTION', 'FMCG', 'Realty']
+2025-04-24 07:43:53,315 - INFO - Skipping inactive ticker: NTPC.NS
+2025-04-24 07:43:53,316 - INFO - Skipping inactive ticker: WIPRO.NS
+2025-04-24 07:43:53,316 - INFO - Skipping inactive ticker: SUNTV.NS
+2025-04-24 07:43:53,316 - INFO - Skipping inactive ticker: PNB.NS
+2025-04-24 07:43:53,324 - INFO - Processing active ticker: PRESTIGE
+2025-04-24 07:43:53,325 - INFO - Ticker PRESTIGE belongs to sector: Realty
+2025-04-24 07:43:53,326 - INFO - SELL signal for PRESTIGE - sector Realty is in bottom performers
+2025-04-24 07:43:53,326 - INFO - Skipping PRESTIGE: configured for BUY but sector signal is SELL
+2025-04-24 07:43:53,327 - INFO - Checking price levels for trading
+2025-04-24 07:43:53,328 - INFO - Checking price levels for 3 stocks
+2025-04-24 07:43:53,328 - INFO - Waiting 30 seconds for next refresh...
+2025-04-24 07:44:23,346 - INFO - Successfully loaded 17 sectors from CSV file
+2025-04-24 07:44:23,346 - INFO - Sector: Pharma - Change: +1.03%
+2025-04-24 07:44:23,347 - INFO - Sector: NIFTY_HEALTHCARE - Change: +0.32%
+2025-04-24 07:44:23,347 - INFO - Sector: Metal - Change: +0.24%
+2025-04-24 07:44:23,347 - INFO - Sector: IT - Change: +0.19%
+2025-04-24 07:44:23,347 - INFO - Sector: NIFTY_PVT_BANK - Change: +0.08%
+2025-04-24 07:44:23,347 - INFO - Placing orders based on updated sector performance
+2025-04-24 07:44:23,347 - INFO - Processing 5 tickers from config
+2025-04-24 07:44:23,348 - INFO - Buy sectors: ['Pharma', 'NIFTY_HEALTHCARE', 'Metal']
+2025-04-24 07:44:23,348 - INFO - Sell sectors: ['NIFTY_CONSUMPTION', 'FMCG', 'Realty']
+2025-04-24 07:44:23,349 - INFO - Skipping inactive ticker: NTPC.NS
+2025-04-24 07:44:23,349 - INFO - Skipping inactive ticker: WIPRO.NS
+2025-04-24 07:44:23,349 - INFO - Skipping inactive ticker: SUNTV.NS
+2025-04-24 07:44:23,349 - INFO - Skipping inactive ticker: PNB.NS
+2025-04-24 07:44:23,349 - INFO - Processing active ticker: PRESTIGE
+2025-04-24 07:44:23,350 - INFO - Ticker PRESTIGE belongs to sector: Realty
+2025-04-24 07:44:23,350 - INFO - SELL signal for PRESTIGE - sector Realty is in bottom performers
+2025-04-24 07:44:23,350 - INFO - Skipping PRESTIGE: configured for BUY but sector signal is SELL
+2025-04-24 07:44:23,351 - INFO - Checking price levels for trading
+2025-04-24 07:44:23,351 - INFO - Checking price levels for 3 stocks
+2025-04-24 07:44:23,352 - INFO - Waiting 30 seconds for next refresh...
+2025-04-24 07:44:27,129 - INFO - Monitoring stopped by user.
+2025-04-24 07:44:27,129 - INFO - Current positions:
+2025-04-24 07:44:27,581 - INFO - {'status': 'failure', 'remarks': {'error_code': 'DH-901', 'error_type': 'Invalid_Authentication', 'error_message': 'Client ID or user generated access token is invalid or expired.'}, 'data': {'errorType': 'Invalid_Authentication', 'errorCode': 'DH-901', 'errorMessage': 'Client ID or user generated access token is invalid or expired.'}}
+2025-04-24 07:44:55,745 - INFO - Configuration loaded successfully from trading_config.json
+2025-04-24 07:44:55,746 - INFO - Security IDs loaded successfully from security_ids.json
+2025-04-24 07:44:55,747 - INFO - Sector mapping loaded successfully with 141 tickers
+2025-04-24 07:44:55,747 - INFO - Price levels configuration loaded successfully with 3 stocks
+2025-04-24 07:44:55,749 - INFO - Dhan API client initialized successfully
+2025-04-24 07:44:55,749 - INFO - Starting trading program with multiple strategies
+2025-04-24 07:44:55,749 - INFO - place_new_orders setting: True
+2025-04-24 07:44:55,749 - INFO - Active tickers in sector-based config: ['PRESTIGE']
+2025-04-24 07:44:55,750 - INFO - Price level strategy enabled: True
+2025-04-24 07:44:55,750 - INFO - Active tickers in price level config: []
+2025-04-24 07:44:55,755 - INFO - Successfully loaded 17 sectors from CSV file
+2025-04-24 07:44:55,755 - INFO - Sector: Pharma - Change: +1.03%
+2025-04-24 07:44:55,756 - INFO - Sector: NIFTY_HEALTHCARE - Change: +0.32%
+2025-04-24 07:44:55,756 - INFO - Sector: Metal - Change: +0.24%
+2025-04-24 07:44:55,756 - INFO - Sector: IT - Change: +0.19%
+2025-04-24 07:44:55,757 - INFO - Sector: NIFTY_PVT_BANK - Change: +0.08%
+2025-04-24 07:44:55,757 - INFO - Top performing sectors:
+2025-04-24 07:44:55,757 - INFO -   Pharma: +1.03%
+2025-04-24 07:44:55,758 - INFO -   NIFTY_HEALTHCARE: +0.32%
+2025-04-24 07:44:55,758 - INFO -   Metal: +0.24%
+2025-04-24 07:44:55,758 - INFO - Bottom performing sectors:
+2025-04-24 07:44:55,759 - INFO -   NIFTY_CONSUMPTION: -0.64%
+2025-04-24 07:44:55,759 - INFO -   FMCG: -0.85%
+2025-04-24 07:44:55,759 - INFO -   Realty: -1.31%
+2025-04-24 07:44:55,760 - INFO - Placing orders based on sector performance
+2025-04-24 07:44:55,760 - INFO - Processing 5 tickers from config
+2025-04-24 07:44:55,760 - INFO - Buy sectors: ['Pharma', 'NIFTY_HEALTHCARE', 'Metal']
+2025-04-24 07:44:55,760 - INFO - Sell sectors: ['NIFTY_CONSUMPTION', 'FMCG', 'Realty']
+2025-04-24 07:44:55,761 - INFO - Skipping inactive ticker: NTPC.NS
+2025-04-24 07:44:55,761 - INFO - Skipping inactive ticker: WIPRO.NS
+2025-04-24 07:44:55,762 - INFO - Skipping inactive ticker: SUNTV.NS
+2025-04-24 07:44:55,763 - INFO - Skipping inactive ticker: PNB.NS
+2025-04-24 07:44:55,763 - INFO - Processing active ticker: PRESTIGE
+2025-04-24 07:44:55,763 - INFO - Ticker PRESTIGE belongs to sector: Realty
+2025-04-24 07:44:55,765 - INFO - SELL signal for PRESTIGE - sector Realty is in bottom performers
+2025-04-24 07:44:55,765 - INFO - Skipping PRESTIGE: configured for BSELLUY but sector signal is SELL
+2025-04-24 07:44:55,765 - INFO - Checking price levels for trading
+2025-04-24 07:44:55,766 - INFO - Checking price levels for 3 stocks
+2025-04-24 07:44:55,766 - INFO - Starting continuous monitoring with 30-second refresh interval...
+2025-04-24 07:44:55,771 - INFO - Successfully loaded 17 sectors from CSV file
+2025-04-24 07:44:55,772 - INFO - Sector: Pharma - Change: +1.03%
+2025-04-24 07:44:55,772 - INFO - Sector: NIFTY_HEALTHCARE - Change: +0.32%
+2025-04-24 07:44:55,772 - INFO - Sector: Metal - Change: +0.24%
+2025-04-24 07:44:55,773 - INFO - Sector: IT - Change: +0.19%
+2025-04-24 07:44:55,773 - INFO - Sector: NIFTY_PVT_BANK - Change: +0.08%
+2025-04-24 07:44:55,774 - INFO - Placing orders based on updated sector performance
+2025-04-24 07:44:55,774 - INFO - Processing 5 tickers from config
+2025-04-24 07:44:55,774 - INFO - Buy sectors: ['Pharma', 'NIFTY_HEALTHCARE', 'Metal']
+2025-04-24 07:44:55,775 - INFO - Sell sectors: ['NIFTY_CONSUMPTION', 'FMCG', 'Realty']
+2025-04-24 07:44:55,775 - INFO - Skipping inactive ticker: NTPC.NS
+2025-04-24 07:44:55,775 - INFO - Skipping inactive ticker: WIPRO.NS
+2025-04-24 07:44:55,776 - INFO - Skipping inactive ticker: SUNTV.NS
+2025-04-24 07:44:55,777 - INFO - Skipping inactive ticker: PNB.NS
+2025-04-24 07:44:55,778 - INFO - Processing active ticker: PRESTIGE
+2025-04-24 07:44:55,778 - INFO - Ticker PRESTIGE belongs to sector: Realty
+2025-04-24 07:44:55,782 - INFO - SELL signal for PRESTIGE - sector Realty is in bottom performers
+2025-04-24 07:44:55,782 - INFO - Skipping PRESTIGE: configured for BSELLUY but sector signal is SELL
+2025-04-24 07:44:55,783 - INFO - Checking price levels for trading
+2025-04-24 07:44:55,784 - INFO - Checking price levels for 3 stocks
+2025-04-24 07:44:55,784 - INFO - Waiting 30 seconds for next refresh...
+2025-04-24 07:45:13,936 - INFO - Monitoring stopped by user.
+2025-04-24 07:45:13,938 - INFO - Current positions:
+2025-04-24 07:45:14,377 - INFO - {'status': 'failure', 'remarks': {'error_code': 'DH-901', 'error_type': 'Invalid_Authentication', 'error_message': 'Client ID or user generated access token is invalid or expired.'}, 'data': {'errorType': 'Invalid_Authentication', 'errorCode': 'DH-901', 'errorMessage': 'Client ID or user generated access token is invalid or expired.'}}
+2025-04-24 07:45:41,454 - INFO - Configuration loaded successfully from trading_config.json
+2025-04-24 07:45:41,455 - INFO - Security IDs loaded successfully from security_ids.json
+2025-04-24 07:45:41,455 - INFO - Sector mapping loaded successfully with 141 tickers
+2025-04-24 07:45:41,456 - INFO - Price levels configuration loaded successfully with 3 stocks
+2025-04-24 07:45:41,456 - INFO - Dhan API client initialized successfully
+2025-04-24 07:45:41,456 - INFO - Starting trading program with multiple strategies
+2025-04-24 07:45:41,457 - INFO - place_new_orders setting: True
+2025-04-24 07:45:41,457 - INFO - Active tickers in sector-based config: ['PRESTIGE']
+2025-04-24 07:45:41,457 - INFO - Price level strategy enabled: True
+2025-04-24 07:45:41,457 - INFO - Active tickers in price level config: []
+2025-04-24 07:45:41,461 - INFO - Successfully loaded 17 sectors from CSV file
+2025-04-24 07:45:41,461 - INFO - Sector: Pharma - Change: +1.03%
+2025-04-24 07:45:41,462 - INFO - Sector: NIFTY_HEALTHCARE - Change: +0.32%
+2025-04-24 07:45:41,462 - INFO - Sector: Metal - Change: +0.24%
+2025-04-24 07:45:41,462 - INFO - Sector: IT - Change: +0.19%
+2025-04-24 07:45:41,462 - INFO - Sector: NIFTY_PVT_BANK - Change: +0.08%
+2025-04-24 07:45:41,462 - INFO - Top performing sectors:
+2025-04-24 07:45:41,463 - INFO -   Pharma: +1.03%
+2025-04-24 07:45:41,463 - INFO -   NIFTY_HEALTHCARE: +0.32%
+2025-04-24 07:45:41,464 - INFO -   Metal: +0.24%
+2025-04-24 07:45:41,464 - INFO - Bottom performing sectors:
+2025-04-24 07:45:41,464 - INFO -   NIFTY_CONSUMPTION: -0.64%
+2025-04-24 07:45:41,464 - INFO -   FMCG: -0.85%
+2025-04-24 07:45:41,464 - INFO -   Realty: -1.31%
+2025-04-24 07:45:41,465 - INFO - Placing orders based on sector performance
+2025-04-24 07:45:41,465 - INFO - Processing 5 tickers from config
+2025-04-24 07:45:41,465 - INFO - Buy sectors: ['Pharma', 'NIFTY_HEALTHCARE', 'Metal']
+2025-04-24 07:45:41,466 - INFO - Sell sectors: ['NIFTY_CONSUMPTION', 'FMCG', 'Realty']
+2025-04-24 07:45:41,466 - INFO - Skipping inactive ticker: NTPC.NS
+2025-04-24 07:45:41,466 - INFO - Skipping inactive ticker: WIPRO.NS
+2025-04-24 07:45:41,467 - INFO - Skipping inactive ticker: SUNTV.NS
+2025-04-24 07:45:41,467 - INFO - Skipping inactive ticker: PNB.NS
+2025-04-24 07:45:41,467 - INFO - Processing active ticker: PRESTIGE
+2025-04-24 07:45:41,467 - INFO - Ticker PRESTIGE belongs to sector: Realty
+2025-04-24 07:45:41,468 - INFO - SELL signal for PRESTIGE - sector Realty is in bottom performers
+2025-04-24 07:45:41,468 - INFO - Looking up security ID for ticker: PRESTIGE via API
+2025-04-24 07:45:44,016 - WARNING - Could not find security ID for PRESTIGE
+2025-04-24 07:45:44,032 - ERROR - Could not find security ID for PRESTIGE. Skipping this ticker.
+2025-04-24 07:45:44,032 - INFO - Checking price levels for trading
+2025-04-24 07:45:44,032 - INFO - Checking price levels for 3 stocks
+2025-04-24 07:45:44,035 - INFO - Starting continuous monitoring with 30-second refresh interval...
+2025-04-24 07:45:44,041 - INFO - Successfully loaded 17 sectors from CSV file
+2025-04-24 07:45:44,041 - INFO - Sector: Pharma - Change: +1.03%
+2025-04-24 07:45:44,046 - INFO - Sector: NIFTY_HEALTHCARE - Change: +0.32%
+2025-04-24 07:45:44,046 - INFO - Sector: Metal - Change: +0.24%
+2025-04-24 07:45:44,046 - INFO - Sector: IT - Change: +0.19%
+2025-04-24 07:45:44,047 - INFO - Sector: NIFTY_PVT_BANK - Change: +0.08%
+2025-04-24 07:45:44,047 - INFO - Placing orders based on updated sector performance
+2025-04-24 07:45:44,048 - INFO - Processing 5 tickers from config
+2025-04-24 07:45:44,048 - INFO - Buy sectors: ['Pharma', 'NIFTY_HEALTHCARE', 'Metal']
+2025-04-24 07:45:44,048 - INFO - Sell sectors: ['NIFTY_CONSUMPTION', 'FMCG', 'Realty']
+2025-04-24 07:45:44,049 - INFO - Skipping inactive ticker: NTPC.NS
+2025-04-24 07:45:44,049 - INFO - Skipping inactive ticker: WIPRO.NS
+2025-04-24 07:45:44,049 - INFO - Skipping inactive ticker: SUNTV.NS
+2025-04-24 07:45:44,051 - INFO - Skipping inactive ticker: PNB.NS
+2025-04-24 07:45:44,052 - INFO - Processing active ticker: PRESTIGE
+2025-04-24 07:45:44,052 - INFO - Ticker PRESTIGE belongs to sector: Realty
+2025-04-24 07:45:44,053 - INFO - SELL signal for PRESTIGE - sector Realty is in bottom performers
+2025-04-24 07:45:44,053 - INFO - Looking up security ID for ticker: PRESTIGE via API
+2025-04-24 07:45:46,518 - WARNING - Could not find security ID for PRESTIGE
+2025-04-24 07:45:46,533 - ERROR - Could not find security ID for PRESTIGE. Skipping this ticker.
+2025-04-24 07:45:46,533 - INFO - Checking price levels for trading
+2025-04-24 07:45:46,534 - INFO - Checking price levels for 3 stocks
+2025-04-24 07:45:46,534 - INFO - Waiting 30 seconds for next refresh...
+2025-04-24 07:46:02,826 - INFO - Monitoring stopped by user.
+2025-04-24 07:46:02,827 - INFO - Current positions:
+2025-04-24 07:46:03,254 - INFO - {'status': 'failure', 'remarks': {'error_code': 'DH-901', 'error_type': 'Invalid_Authentication', 'error_message': 'Client ID or user generated access token is invalid or expired.'}, 'data': {'errorType': 'Invalid_Authentication', 'errorCode': 'DH-901', 'errorMessage': 'Client ID or user generated access token is invalid or expired.'}}
+2025-04-24 09:55:51,338 - INFO - Configuration loaded successfully from trading_config.json
+2025-04-24 09:55:51,341 - INFO - Security IDs loaded successfully from security_ids.json
+2025-04-24 09:55:51,342 - INFO - Sector mapping loaded successfully with 141 tickers
+2025-04-24 09:55:51,342 - INFO - Dhan API client initialized successfully
+2025-04-24 09:55:51,343 - INFO - Starting trading program with sector-based strategy
+2025-04-24 09:55:51,343 - INFO - Getting security IDs for 141 tickers in sector mapping
+2025-04-24 09:55:51,343 - INFO - All tickers in sector mapping already have security IDs
+2025-04-24 09:55:51,343 - INFO - place_new_orders setting: True
+2025-04-24 09:55:51,344 - INFO - Active tickers in sector-based config: []
+2025-04-24 09:55:51,344 - INFO - Collecting initial sector data...
+2025-04-24 09:55:51,344 - INFO - Getting market data for 141 stocks grouped by sector
+2025-04-24 09:55:51,852 - WARNING - Could not determine current price for NATIONALUM.NS
+2025-04-24 09:55:51,853 - WARNING - Could not determine current price for APLAPOLLO.NS
+2025-04-24 09:55:51,854 - WARNING - Could not determine current price for SAIL.NS
+2025-04-24 09:55:51,854 - WARNING - Could not determine current price for JINDALSTEL.NS
+2025-04-24 09:55:51,855 - WARNING - Could not determine current price for JSL.NS
+2025-04-24 09:55:51,855 - WARNING - Could not determine current price for VEDL.NS
+2025-04-24 09:55:51,856 - WARNING - Could not determine current price for TATASTEEL.NS
+2025-04-24 09:55:51,857 - WARNING - Could not determine current price for HINDALCO.NS
+2025-04-24 09:55:51,858 - WARNING - Could not determine current price for NMDC.NS
+2025-04-24 09:55:51,860 - WARNING - Could not determine current price for COALINDIA.NS
+2025-04-24 09:55:51,998 - WARNING - Could not determine current price for JSWSTEEL.NS
+2025-04-24 09:55:52,002 - WARNING - Could not determine current price for ADANIENT.NS
+2025-04-24 09:55:52,003 - WARNING - Could not determine current price for HINDCOPPER.NS
+2025-04-24 09:55:52,013 - WARNING - Could not determine current price for HAVELLS.NS
+2025-04-24 09:55:52,014 - WARNING - Could not determine current price for CROMPTON.NS
+2025-04-24 09:55:52,015 - WARNING - Could not determine current price for BATAINDIA.NS
+2025-04-24 09:55:52,016 - WARNING - Could not determine current price for TITAN.NS
+2025-04-24 09:55:52,021 - WARNING - Could not determine current price for TIINDIA.NS
+2025-04-24 09:55:52,021 - WARNING - Could not determine current price for DIXON.NS
+2025-04-24 09:55:52,022 - WARNING - Could not determine current price for VOLTAS.NS
+2025-04-24 09:55:52,142 - WARNING - Could not determine current price for MOTHERSON.NS
+2025-04-24 09:55:52,148 - WARNING - Could not determine current price for TVSMOTOR.NS
+2025-04-24 09:55:52,151 - WARNING - Could not determine current price for TATAMOTORS.NS
+2025-04-24 09:55:52,156 - WARNING - Could not determine current price for HEROMOTOCO.NS
+2025-04-24 09:55:52,161 - WARNING - Could not determine current price for EXIDEIND.NS
+2025-04-24 09:55:52,167 - WARNING - Could not determine current price for MARUTI.NS
+2025-04-24 09:55:52,170 - WARNING - Could not determine current price for BOSCHLTD.NS
+2025-04-24 09:55:52,170 - WARNING - Could not determine current price for BHARATFORG.NS
+2025-04-24 09:55:52,171 - WARNING - Could not determine current price for BAJAJAUTO.NS
+2025-04-24 09:55:52,172 - WARNING - Could not determine current price for MRF.NS
+2025-04-24 09:55:52,283 - WARNING - Could not determine current price for ASHOKLEY.NS
+2025-04-24 09:55:52,289 - WARNING - Could not determine current price for EICHERMOT.NS
+2025-04-24 09:55:52,289 - WARNING - Could not determine current price for BALKRISIND.NS
+2025-04-24 09:55:52,301 - WARNING - Could not determine current price for SONACOMS.NS
+2025-04-24 09:55:52,302 - WARNING - Could not determine current price for M&M.NS
+2025-04-24 09:55:52,307 - WARNING - Could not determine current price for ABBOTINDIA.NS
+2025-04-24 09:55:52,317 - WARNING - Could not determine current price for DIVISLAB.NS
+2025-04-24 09:55:52,320 - WARNING - Could not determine current price for APOLLOHOSP.NS
+2025-04-24 09:55:52,320 - WARNING - Could not determine current price for ALKEM.NS
+2025-04-24 09:55:52,321 - WARNING - Could not determine current price for LALPATHLAB.NS
+2025-04-24 09:55:52,421 - WARNING - Could not determine current price for IPCALAB.NS
+2025-04-24 09:55:52,431 - WARNING - Could not determine current price for GLENMARK.NS
+2025-04-24 09:55:52,435 - WARNING - Could not determine current price for DRREDDY.NS
+2025-04-24 09:55:52,443 - WARNING - Could not determine current price for LUPIN.NS
+2025-04-24 09:55:52,444 - WARNING - Could not determine current price for AUROPHARMA.NS
+2025-04-24 09:55:52,447 - WARNING - Could not determine current price for SUNPHARMA.NS
+2025-04-24 09:55:52,457 - WARNING - Could not determine current price for MAXHEALTH.NS
+2025-04-24 09:55:52,462 - WARNING - Could not determine current price for LAURUSLABS.NS
+2025-04-24 09:55:52,463 - WARNING - Could not determine current price for ZYDUSLIFE.NS
+2025-04-24 09:55:52,466 - WARNING - Could not determine current price for TORNTPHARM.NS
+2025-04-24 09:55:52,563 - WARNING - Could not determine current price for GRANULES.NS
+2025-04-24 09:55:52,572 - WARNING - Could not determine current price for BIOCON.NS
+2025-04-24 09:55:52,580 - WARNING - Could not determine current price for CIPLA.NS
+2025-04-24 09:55:52,584 - WARNING - Could not determine current price for METROPOLIS.NS
+2025-04-24 09:55:52,588 - WARNING - Could not determine current price for SYNGENE.NS
+2025-04-24 09:55:52,589 - WARNING - Could not determine current price for COLPAL.NS
+2025-04-24 09:55:52,598 - WARNING - Could not determine current price for GODREJCP.NS
+2025-04-24 09:55:52,605 - WARNING - Could not determine current price for UBL.NS
+2025-04-24 09:55:52,605 - WARNING - Could not determine current price for UNITDSPR.NS
+2025-04-24 09:55:52,607 - WARNING - Could not determine current price for DABUR.NS
+2025-04-24 09:55:52,705 - WARNING - Could not determine current price for MARICO.NS
+2025-04-24 09:55:52,715 - WARNING - Could not determine current price for VBL.NS
+2025-04-24 09:55:52,722 - WARNING - Could not determine current price for ITC.NS
+2025-04-24 09:55:52,728 - WARNING - Could not determine current price for NESTLEIND.NS
+2025-04-24 09:55:52,737 - WARNING - Could not determine current price for TATACONSUM.NS
+2025-04-24 09:55:52,742 - WARNING - Could not determine current price for HINDUNILVR.NS
+2025-04-24 09:55:52,744 - WARNING - Could not determine current price for BRITANNIA.NS
+2025-04-24 09:55:52,751 - WARNING - Could not determine current price for RELIANCE.NS
+2025-04-24 09:55:52,752 - WARNING - Could not determine current price for ADANIGREEN.NS
+2025-04-24 09:55:52,754 - WARNING - Could not determine current price for TATAPOWER.NS
+2025-04-24 09:55:52,843 - WARNING - Could not determine current price for BPCL.NS
+2025-04-24 09:55:52,862 - WARNING - Could not determine current price for ONGC.NS
+2025-04-24 09:55:52,863 - WARNING - Could not determine current price for NTPC.NS
+2025-04-24 09:55:52,867 - WARNING - Could not determine current price for POWERGRID.NS
+2025-04-24 09:55:52,877 - WARNING - Could not determine current price for ADANIENSOL.NS
+2025-04-24 09:55:52,886 - WARNING - Could not determine current price for IOC.NS
+2025-04-24 09:55:52,887 - WARNING - Could not determine current price for GAIL.NS
+2025-04-24 09:55:52,895 - WARNING - Could not determine current price for HINDPETRO.NS
+2025-04-24 09:55:52,896 - WARNING - Could not determine current price for JIOFIN.NS
+2025-04-24 09:55:52,898 - WARNING - Could not determine current price for OIL.NS
+2025-04-24 09:55:52,982 - WARNING - Could not determine current price for IGL.NS
+2025-04-24 09:55:53,005 - WARNING - Could not determine current price for PETRONET.NS
+2025-04-24 09:55:53,006 - WARNING - Could not determine current price for GUJGASLTD.NS
+2025-04-24 09:55:53,007 - WARNING - Could not determine current price for ATGL.NS
+2025-04-24 09:55:53,017 - WARNING - Could not determine current price for MGL.NS
+2025-04-24 09:55:53,026 - WARNING - Could not determine current price for LTTS.NS
+2025-04-24 09:55:53,028 - WARNING - Could not determine current price for COFORGE.NS
+2025-04-24 09:55:53,039 - WARNING - Could not determine current price for MPHASIS.NS
+2025-04-24 09:55:53,040 - WARNING - Could not determine current price for TCS.NS
+2025-04-24 09:55:53,041 - WARNING - Could not determine current price for PERSISTENT.NS
+2025-04-24 09:55:53,122 - WARNING - Could not determine current price for LTIM.NS
+2025-04-24 09:55:53,151 - WARNING - Could not determine current price for BSOFT.NS
+2025-04-24 09:55:53,152 - WARNING - Could not determine current price for HCLTECH.NS
+2025-04-24 09:55:53,153 - WARNING - Could not determine current price for WIPRO.NS
+2025-04-24 09:55:53,158 - WARNING - Could not determine current price for TECHM.NS
+2025-04-24 09:55:53,169 - WARNING - Could not determine current price for SUNTV.NS
+2025-04-24 09:55:53,171 - WARNING - Could not determine current price for INFY.NS
+2025-04-24 09:55:53,182 - WARNING - Could not determine current price for PVRINOX.NS
+2025-04-24 09:55:53,186 - WARNING - Could not determine current price for NAZARA.NS
+2025-04-24 09:55:53,187 - WARNING - Could not determine current price for NETWORK18.NS
+2025-04-24 09:55:53,262 - WARNING - Could not determine current price for SAREGAMA.NS
+2025-04-24 09:55:53,293 - WARNING - Could not determine current price for ZEEL.NS
+2025-04-24 09:55:53,294 - WARNING - Could not determine current price for DISHTV.NS
+2025-04-24 09:55:53,295 - WARNING - Could not determine current price for HATHWAY.NS
+2025-04-24 09:55:53,302 - WARNING - Could not determine current price for SBIN.NS
+2025-04-24 09:55:53,310 - WARNING - Could not determine current price for CANBK.NS
+2025-04-24 09:55:53,312 - WARNING - Could not determine current price for BANKINDIA.NS
+2025-04-24 09:55:53,319 - WARNING - Could not determine current price for PNB.NS
+2025-04-24 09:55:53,326 - WARNING - Could not determine current price for BANKBARODA.NS
+2025-04-24 09:55:53,328 - WARNING - Could not determine current price for UNIONBANK.NS
+2025-04-24 09:55:53,400 - WARNING - Could not determine current price for INDIANB.NS
+2025-04-24 09:55:53,438 - WARNING - Could not determine current price for HDFCBANK.NS
+2025-04-24 09:55:53,441 - WARNING - Could not determine current price for KOTAKBANK.NS
+2025-04-24 09:55:53,444 - WARNING - Could not determine current price for BANDHANBNK.NS
+2025-04-24 09:55:53,446 - WARNING - Could not determine current price for CUB.NS
+2025-04-24 09:55:53,454 - WARNING - Could not determine current price for IDFCFIRSTB.NS
+2025-04-24 09:55:53,455 - WARNING - Could not determine current price for FEDERALBNK.NS
+2025-04-24 09:55:53,459 - WARNING - Could not determine current price for RBLBANK.NS
+2025-04-24 09:55:53,470 - WARNING - Could not determine current price for ICICIBANK.NS
+2025-04-24 09:55:53,471 - WARNING - Could not determine current price for AXISBANK.NS
+2025-04-24 09:55:53,540 - WARNING - Could not determine current price for INDUSINDBK.NS
+2025-04-24 09:55:53,577 - WARNING - Could not determine current price for ICICIGI.NS
+2025-04-24 09:55:53,580 - WARNING - Could not determine current price for SBILIFE.NS
+2025-04-24 09:55:53,584 - WARNING - Could not determine current price for IEX.NS
+2025-04-24 09:55:53,586 - WARNING - Could not determine current price for PEL.NS
+2025-04-24 09:55:53,593 - WARNING - Could not determine current price for HDFCLIFE.NS
+2025-04-24 09:55:53,594 - WARNING - Could not determine current price for PFC.NS
+2025-04-24 09:55:53,601 - WARNING - Could not determine current price for M&MFIN.NS
+2025-04-24 09:55:53,610 - WARNING - Could not determine current price for RECLTD.NS
+2025-04-24 09:55:53,612 - WARNING - Could not determine current price for ICICIPRULI.NS
+2025-04-24 09:55:53,678 - WARNING - Could not determine current price for BAJAJFINSV.NS
+2025-04-24 09:55:53,717 - WARNING - Could not determine current price for BAJFINANCE.NS
+2025-04-24 09:55:53,718 - WARNING - Could not determine current price for MUTHOOTFIN.NS
+2025-04-24 09:55:53,722 - WARNING - Could not determine current price for HDFCAMC.NS
+2025-04-24 09:55:53,727 - WARNING - Could not determine current price for CHOLAFIN.NS
+2025-04-24 09:55:53,734 - WARNING - Could not determine current price for LODHA.NS
+2025-04-24 09:55:53,736 - WARNING - Could not determine current price for GODREJPROP.NS
+2025-04-24 09:55:53,740 - WARNING - Could not determine current price for PRESTIGE.NS
+2025-04-24 09:55:53,752 - WARNING - Could not determine current price for OBEROIRLTY.NS
+2025-04-24 09:55:53,753 - WARNING - Could not determine current price for DLF.NS
+2025-04-24 09:55:53,818 - WARNING - Could not determine current price for HUDCO.NS
+2025-04-24 09:55:53,820 - INFO - Got market data for 0 stocks in 0 sectors
+2025-04-24 09:55:53,823 - ERROR - Failed to get initial sector data. Exiting.
+2025-04-24 09:59:53,267 - INFO - Step 1: Loading configurations...
+2025-04-24 09:59:53,269 - INFO - Configuration loaded successfully from trading_config.json
+2025-04-24 09:59:53,269 - INFO - Security IDs loaded successfully from security_ids.json
+2025-04-24 09:59:53,270 - INFO - Sector mapping loaded successfully with 141 tickers
+2025-04-24 09:59:53,270 - INFO - Loaded configuration with 141 security IDs and 141 sector mappings
+2025-04-24 09:59:53,270 - INFO - Step 2: Connecting to Dhan API...
+2025-04-24 09:59:53,271 - INFO - Dhan API client initialized successfully
+2025-04-24 09:59:53,271 - INFO - Verifying Dhan API connection...
+2025-04-24 09:59:53,271 - ERROR - Failed to connect to Dhan API: 'dhanhq' object has no attribute 'get_user_details'

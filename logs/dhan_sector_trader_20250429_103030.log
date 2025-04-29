@@ -1,0 +1,219 @@
+2025-04-29 10:30:30,075 - INFO - 
+==================================================
+PROGRAM START
+==================================================
+2025-04-29 10:30:30,076 - INFO - ==========================================
+2025-04-29 10:30:30,076 - INFO - Starting Dhan Sector-Based Trading Program
+2025-04-29 10:30:30,077 - INFO - ==========================================
+2025-04-29 10:30:30,077 - INFO - Current time: 2025-04-29 10:30:30
+2025-04-29 10:30:30,077 - INFO - Step 1: Loading trading configuration...
+2025-04-29 10:30:30,078 - INFO - Loading trading configuration from trading_config.json
+2025-04-29 10:30:30,079 - INFO - Configuration loaded successfully
+2025-04-29 10:30:30,080 - INFO - Found 5 active tickers out of 5 total
+2025-04-29 10:30:30,080 - INFO - Step 2: Initializing Dhan API client...
+2025-04-29 10:30:30,081 - INFO - Initializing Dhan client with client_id: 1106497024
+2025-04-29 10:30:30,084 - INFO - Dhan API client initialized successfully
+2025-04-29 10:30:30,593 - INFO - Dhan API connection test successful
+2025-04-29 10:30:30,593 - INFO - Step 3: Loading sector mapping...
+2025-04-29 10:30:30,593 - INFO - Loading sector mapping from sector_mapping.json
+2025-04-29 10:30:30,594 - INFO - Sector mapping loaded successfully with 176 tickers
+2025-04-29 10:30:30,594 - INFO - Found 14 unique sectors
+2025-04-29 10:30:30,594 - INFO - Step 4: Loading security IDs mapping from Excel...
+2025-04-29 10:30:30,595 - INFO - Loading security IDs from security_ids.xlsx
+2025-04-29 10:30:40,822 - INFO - Successfully read Excel file with 1850 rows
+2025-04-29 10:30:40,823 - INFO - Excel columns: ['SEM_EXM_EXCH_ID', 'SEM_SEGMENT', 'SEM_SMST_SECURITY_ID', 'SEM_INSTRUMENT_NAME', 'SEM_EXPIRY_CODE', 'SEM_TRADING_SYMBOL', 'SEM_LOT_UNITS', 'SEM_CUSTOM_SYMBOL', 'SEM_EXPIRY_DATE', 'SEM_STRIKE_PRICE', 'SEM_OPTION_TYPE', 'SEM_TICK_SIZE', 'SEM_EXPIRY_FLAG', 'SEM_EXCH_INSTRUMENT_TYPE', 'SEM_SERIES', 'SM_SYMBOL_NAME']
+2025-04-29 10:30:40,823 - INFO - Using columns: Symbol='SEM_TRADING_SYMBOL', ID='SEM_SMST_SECURITY_ID'
+2025-04-29 10:30:40,823 - INFO - First few rows for debugging:
+2025-04-29 10:30:40,824 - INFO - Row 1: Symbol=ARE&M, ID=100
+2025-04-29 10:30:40,824 - INFO - Row 2: Symbol=EMAMIPAP, ID=10074
+2025-04-29 10:30:40,827 - INFO - Row 3: Symbol=FACT, ID=1008
+2025-04-29 10:30:40,827 - INFO - Row 4: Symbol=GODREJCP, ID=10099
+2025-04-29 10:30:40,829 - INFO - Row 5: Symbol=SCHAEFFLER, ID=1011
+2025-04-29 10:30:40,988 - INFO - Security IDs mapping created with 3700 entries
+2025-04-29 10:30:40,988 - INFO - Checking for critical symbols:
+2025-04-29 10:30:40,988 - INFO - Found ID for SYNGENE: 10243
+2025-04-29 10:30:40,989 - INFO - Found ID for SYNGENE.NS: 10243
+2025-04-29 10:30:40,989 - INFO - Found ID for GRANULES: 11872
+2025-04-29 10:30:40,989 - INFO - Found ID for GRANULES.NS: 11872
+2025-04-29 10:30:40,989 - INFO - Found ID for ZEEL: 3812
+2025-04-29 10:30:40,989 - INFO - Found ID for ZEEL.NS: 3812
+2025-04-29 10:30:40,990 - INFO - Found ID for SBILIFE: 21808
+2025-04-29 10:30:40,990 - INFO - Found ID for SBILIFE.NS: 21808
+2025-04-29 10:30:40,991 - INFO - Found ID for RBLBANK: 18391
+2025-04-29 10:30:40,991 - INFO - Found ID for RBLBANK.NS: 18391
+2025-04-29 10:30:40,992 - INFO - Sample security IDs: [('ARE&M', '100'), ('ARE&M.NS', '100'), ('EMAMIPAP', '10074'), ('EMAMIPAP.NS', '10074'), ('FACT', '1008'), ('FACT.NS', '1008'), ('GODREJCP', '10099'), ('GODREJCP.NS', '10099'), ('SCHAEFFLER', '1011'), ('SCHAEFFLER.NS', '1011')]
+2025-04-29 10:30:40,993 - INFO - Step 4.5: Validating security IDs for active tickers...
+2025-04-29 10:30:40,994 - INFO - 
+==================================================
+VALIDATING SECURITY IDS
+==================================================
+2025-04-29 10:30:40,994 - INFO - Found 5 active tickers to validate
+2025-04-29 10:30:40,995 - INFO - Found security ID for SYNGENE.NS via SYNGENE.NS: 10243
+2025-04-29 10:30:40,995 - INFO - Found security ID for ZEEL.NS via ZEEL.NS: 3812
+2025-04-29 10:30:40,995 - INFO - Found security ID for GRANULES.NS via GRANULES.NS: 11872
+2025-04-29 10:30:40,996 - INFO - Found security ID for SBILIFE.NS via SBILIFE.NS: 21808
+2025-04-29 10:30:40,996 - INFO - Found security ID for RBLBANK.NS via RBLBANK.NS: 18391
+2025-04-29 10:30:40,997 - INFO - All active tickers have security IDs
+2025-04-29 10:30:40,997 - INFO - Step 5: Loading existing positions...
+2025-04-29 10:30:40,998 - INFO - No existing positions file found, starting fresh
+2025-04-29 10:30:40,998 - INFO - Step 6: Starting trading loop (check interval: 30 seconds)...
+2025-04-29 10:30:40,998 - INFO - 
+==================================================
+TRADING CYCLE 1
+==================================================
+2025-04-29 10:30:41,000 - INFO - Trading cycle 1 started at 2025-04-29 10:30:41
+2025-04-29 10:30:41,000 - INFO - 
+==================================================
+READING SECTOR PERFORMANCE DATA
+==================================================
+2025-04-29 10:30:41,001 - INFO - Reading sector performance data from sector.csv
+2025-04-29 10:30:41,002 - INFO - File last modified: 2025-04-29 10:29:20
+2025-04-29 10:30:41,005 - INFO - Latest timestamp in data: 2025-04-29 10:29:20
+2025-04-29 10:30:41,006 - INFO - Loaded data for 10 sectors
+2025-04-29 10:30:41,006 - INFO - Sector performance details:
+2025-04-29 10:30:41,007 - INFO -   IT: POSITIVE (1.77%)
+2025-04-29 10:30:41,007 - INFO -   PSU Bank: POSITIVE (0.36%)
+2025-04-29 10:30:41,008 - INFO -   FMCG: NEGATIVE (-0.12%)
+2025-04-29 10:30:41,009 - INFO -   Auto: NEGATIVE (-0.15%)
+2025-04-29 10:30:41,013 - INFO -   Energy: NEGATIVE (-0.18%)
+2025-04-29 10:30:41,014 - INFO -   Realty: NEGATIVE (-0.33%)
+2025-04-29 10:30:41,015 - INFO -   Financial Services: NEGATIVE (-0.35%)
+2025-04-29 10:30:41,016 - INFO -   Media: NEGATIVE (-0.56%)
+2025-04-29 10:30:41,017 - INFO -   Metal: NEGATIVE (-0.76%)
+2025-04-29 10:30:41,017 - INFO -   Pharma: NEGATIVE (-0.83%)
+2025-04-29 10:30:41,017 - INFO - 
+==================================================
+SECTOR DATA READ COMPLETE
+==================================================
+2025-04-29 10:30:41,018 - INFO - 
+==================================================
+PROCESSING SECTOR DATA
+==================================================
+2025-04-29 10:30:41,020 - INFO - Processed performance data for 10 sectors
+2025-04-29 10:30:41,021 - INFO - Processing existing positions for potential exits...
+2025-04-29 10:30:41,021 - INFO - 
+==================================================
+PROCESSING EXISTING POSITIONS
+==================================================
+2025-04-29 10:30:41,022 - INFO - No existing positions to process
+2025-04-29 10:30:41,022 - INFO - 
+==================================================
+POSITION PROCESSING COMPLETE
+==================================================
+2025-04-29 10:30:41,023 - INFO - Looking for new trading opportunities...
+2025-04-29 10:30:41,023 - INFO - 
+==================================================
+FINDING NEW TRADING OPPORTUNITIES
+==================================================
+2025-04-29 10:30:41,024 - INFO - Found 5 active tickers out of 5 total
+2025-04-29 10:30:41,024 - INFO - Processing tickers in order: ['SYNGENE.NS', 'ZEEL.NS', 'GRANULES.NS', 'SBILIFE.NS', 'RBLBANK.NS']
+2025-04-29 10:30:41,025 - INFO - Already have open positions for: []
+2025-04-29 10:30:41,025 - INFO - Current sector performances:
+2025-04-29 10:30:41,026 - INFO -   Sector IT: POSITIVE (1.77%)
+2025-04-29 10:30:41,028 - INFO -   Sector PSU Bank: POSITIVE (0.36%)
+2025-04-29 10:30:41,029 - INFO -   Sector FMCG: NEGATIVE (-0.12%)
+2025-04-29 10:30:41,032 - INFO -   Sector Auto: NEGATIVE (-0.15%)
+2025-04-29 10:30:41,032 - INFO -   Sector Energy: NEGATIVE (-0.18%)
+2025-04-29 10:30:41,032 - INFO -   Sector Realty: NEGATIVE (-0.33%)
+2025-04-29 10:30:41,033 - INFO -   Sector Financial Services: NEGATIVE (-0.35%)
+2025-04-29 10:30:41,033 - INFO -   Sector Media: NEGATIVE (-0.56%)
+2025-04-29 10:30:41,033 - INFO -   Sector Metal: NEGATIVE (-0.76%)
+2025-04-29 10:30:41,034 - INFO -   Sector Pharma: NEGATIVE (-0.83%)
+2025-04-29 10:30:41,035 - INFO - Processing ticker 1: SYNGENE.NS
+2025-04-29 10:30:41,035 - INFO - Found sector Pharma for SYNGENE.NS
+2025-04-29 10:30:41,035 - INFO - Evaluating SYNGENE.NS in sector Pharma (-0.83%)
+2025-04-29 10:30:41,035 - INFO - Not trading SYNGENE.NS - sector performance doesn't match strategy
+2025-04-29 10:30:41,036 - INFO -   Transaction type: BUY
+2025-04-29 10:30:41,036 - INFO -   Sector is_positive: False
+2025-04-29 10:30:41,036 - INFO - Processing ticker 2: ZEEL.NS
+2025-04-29 10:30:41,036 - INFO - Found sector Media for ZEEL.NS
+2025-04-29 10:30:41,037 - INFO - Evaluating ZEEL.NS in sector Media (-0.56%)
+2025-04-29 10:30:41,037 - INFO - Not trading ZEEL.NS - sector performance doesn't match strategy
+2025-04-29 10:30:41,037 - INFO -   Transaction type: BUY
+2025-04-29 10:30:41,037 - INFO -   Sector is_positive: False
+2025-04-29 10:30:41,038 - INFO - Processing ticker 3: GRANULES.NS
+2025-04-29 10:30:41,038 - INFO - Found sector Pharma for GRANULES.NS
+2025-04-29 10:30:41,039 - INFO - Evaluating GRANULES.NS in sector Pharma (-0.83%)
+2025-04-29 10:30:41,039 - INFO - Not trading GRANULES.NS - sector performance doesn't match strategy
+2025-04-29 10:30:41,039 - INFO -   Transaction type: BUY
+2025-04-29 10:30:41,039 - INFO -   Sector is_positive: False
+2025-04-29 10:30:41,040 - INFO - Processing ticker 4: SBILIFE.NS
+2025-04-29 10:30:41,040 - INFO - Found sector Financial Services for SBILIFE.NS
+2025-04-29 10:30:41,040 - INFO - Evaluating SBILIFE.NS in sector Financial Services (-0.35%)
+2025-04-29 10:30:41,041 - INFO - Should SELL SBILIFE.NS because sector Financial Services is negative
+2025-04-29 10:30:41,042 - INFO - SECURITY ID LOOKUP: Searching for SBILIFE.NS
+2025-04-29 10:30:41,042 - INFO - Trying exact match for 'SBILIFE.NS'
+2025-04-29 10:30:41,042 - INFO - FOUND EXACT MATCH: ID 21808 for SBILIFE.NS
+2025-04-29 10:30:41,043 - INFO - Placing SELL order for 1 shares of SBILIFE.NS: Negative sector performance: -0.35%
+2025-04-29 10:30:41,044 - INFO - Executing SELL order for 1 shares of SBILIFE.NS with up to 3 retries
+2025-04-29 10:30:41,045 - INFO - ORDER ATTEMPT: SELL 1 shares of SBILIFE.NS
+2025-04-29 10:30:41,048 - INFO - Using security ID: 21808
+2025-04-29 10:30:41,048 - INFO - ORDER PARAMS: security_id: 21808, exchange_segment: NSE_EQ, transaction_type: SELL, quantity: 1, order_type: MARKET, product_type: INTRADAY, price: 0
+2025-04-29 10:30:41,049 - INFO - About to call dhan.place_order for SBILIFE.NS...
+2025-04-29 10:30:41,229 - INFO - Response type: <class 'dict'>
+2025-04-29 10:30:41,229 - INFO - COMPLETE ORDER RESPONSE:
+{
+  "status": "success",
+  "remarks": "",
+  "data": {
+    "orderId": "9125042936342",
+    "orderStatus": "TRANSIT"
+  }
+}
+2025-04-29 10:30:41,231 - INFO - Response status: success
+2025-04-29 10:30:41,231 - INFO - SUCCESS: Got order ID 9125042936342 for SBILIFE.NS
+2025-04-29 10:30:41,231 - INFO - Order executed successfully for SBILIFE.NS, order ID: 9125042936342
+2025-04-29 10:30:41,232 - INFO - Getting current market price for SBILIFE.NS
+2025-04-29 10:30:41,232 - INFO - Failed to get quote using symbol: 'dhanhq' object has no attribute 'get_quote'
+2025-04-29 10:30:41,232 - INFO - Failed to get LTP using security_id: 'dhanhq' object has no attribute 'get_ltp'
+2025-04-29 10:30:41,233 - INFO - Failed to get price from candles: 'dhanhq' object has no attribute 'intraday_daily_minute_charts'
+2025-04-29 10:30:41,233 - ERROR - Could not get current market price for SBILIFE.NS
+2025-04-29 10:30:41,234 - WARNING - Could not determine execution price for SBILIFE.NS
+2025-04-29 10:30:41,234 - INFO - Waiting 2 seconds for order execution...
+2025-04-29 10:30:43,236 - INFO - Getting execution price for order ID: 9125042936342
+2025-04-29 10:30:43,405 - WARNING - Order 9125042936342 not executed yet. Status: success
+2025-04-29 10:30:43,406 - INFO - New SELL position for SBILIFE.NS: Negative sector performance: -0.35%
+2025-04-29 10:30:43,406 - INFO - Waiting 10 seconds before next order to avoid rate limiting...
+2025-04-29 10:30:53,420 - INFO - Processing ticker 5: RBLBANK.NS
+2025-04-29 10:30:53,420 - INFO - Found sector PVT Bank for RBLBANK.NS
+2025-04-29 10:30:53,421 - WARNING - No performance data for sector PVT Bank
+2025-04-29 10:30:53,422 - INFO - Ticker processing summary:
+2025-04-29 10:30:53,423 - INFO -   Total tickers considered: 5
+2025-04-29 10:30:53,424 - INFO -   Tickers with sector data: 5
+2025-04-29 10:30:53,424 - INFO -   Tickers matching strategy: 1
+2025-04-29 10:30:53,424 - INFO -   Tickers with security ID: 1
+2025-04-29 10:30:53,425 - INFO -   Orders successfully placed: 1
+2025-04-29 10:30:53,425 - INFO - New positions added: 1
+2025-04-29 10:30:53,426 - INFO - Positions skipped: 4
+2025-04-29 10:30:53,426 - INFO - Positions with errors: 0
+2025-04-29 10:30:53,426 - INFO - Added 1 new positions based on sector performance
+2025-04-29 10:30:53,427 - INFO - 
+==================================================
+NEW OPPORTUNITIES PROCESSING COMPLETE
+==================================================
+2025-04-29 10:30:53,427 - INFO - 
+==================================================
+SECTOR PROCESSING COMPLETE
+==================================================
+2025-04-29 10:30:53,431 - INFO - Saved 1 positions to dhan_positions.json
+2025-04-29 10:30:53,432 - INFO - 
+==================================================
+POSITIONS SUMMARY
+==================================================
+2025-04-29 10:30:53,435 - INFO - Current positions summary:
+2025-04-29 10:30:53,435 - INFO -   Open BUY positions: 0
+2025-04-29 10:30:53,436 - INFO -   Open SELL positions: 1
+2025-04-29 10:30:53,436 - INFO -   Closed positions: 0
+2025-04-29 10:30:53,436 - INFO -   Total positions: 1
+2025-04-29 10:30:53,436 - INFO - Open positions:
+2025-04-29 10:30:53,437 - INFO -   SELL SBILIFE.NS (Sector: Financial Services, Entry: 2025-04-29 10:30:43, Order ID: 9125042936342, SL%: 1.0%, Target%: 1.0%)
+2025-04-29 10:30:53,437 - INFO - 
+==================================================
+POSITIONS SUMMARY COMPLETE
+==================================================
+2025-04-29 10:30:53,437 - INFO - Trading cycle 1 completed
+2025-04-29 10:30:53,440 - INFO - Waiting 30 seconds until next check at 10:31:23...
+2025-04-29 10:30:53,445 - INFO - 
+==================================================
+CYCLE 1 COMPLETE
+==================================================

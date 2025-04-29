@@ -1,0 +1,1608 @@
+2025-04-29 10:17:18,913 - INFO - 
+==================================================
+PROGRAM START
+==================================================
+2025-04-29 10:17:18,914 - INFO - ==========================================
+2025-04-29 10:17:18,914 - INFO - Starting Dhan Sector-Based Trading Program
+2025-04-29 10:17:18,914 - INFO - ==========================================
+2025-04-29 10:17:18,915 - INFO - Current time: 2025-04-29 10:17:18
+2025-04-29 10:17:18,915 - INFO - Step 1: Loading trading configuration...
+2025-04-29 10:17:18,915 - INFO - Loading trading configuration from trading_config.json
+2025-04-29 10:17:18,916 - INFO - Configuration loaded successfully
+2025-04-29 10:17:18,916 - INFO - Found 5 active tickers out of 5 total
+2025-04-29 10:17:18,917 - INFO - Step 2: Initializing Dhan API client...
+2025-04-29 10:17:18,917 - INFO - Initializing Dhan client with client_id: 1106497024
+2025-04-29 10:17:18,917 - INFO - Dhan API client initialized successfully
+2025-04-29 10:17:19,416 - INFO - Dhan API connection test successful
+2025-04-29 10:17:19,416 - INFO - Step 3: Loading sector mapping...
+2025-04-29 10:17:19,416 - INFO - Loading sector mapping from sector_mapping.json
+2025-04-29 10:17:19,417 - INFO - Sector mapping loaded successfully with 176 tickers
+2025-04-29 10:17:19,417 - INFO - Found 14 unique sectors
+2025-04-29 10:17:19,418 - INFO - Step 4: Loading security IDs mapping from Excel...
+2025-04-29 10:17:19,418 - INFO - Loading security IDs from security_ids.xlsx
+2025-04-29 10:17:28,129 - INFO - Successfully read Excel file with 1850 rows
+2025-04-29 10:17:28,129 - INFO - Excel columns: ['SEM_EXM_EXCH_ID', 'SEM_SEGMENT', 'SEM_SMST_SECURITY_ID', 'SEM_INSTRUMENT_NAME', 'SEM_EXPIRY_CODE', 'SEM_TRADING_SYMBOL', 'SEM_LOT_UNITS', 'SEM_CUSTOM_SYMBOL', 'SEM_EXPIRY_DATE', 'SEM_STRIKE_PRICE', 'SEM_OPTION_TYPE', 'SEM_TICK_SIZE', 'SEM_EXPIRY_FLAG', 'SEM_EXCH_INSTRUMENT_TYPE', 'SEM_SERIES', 'SM_SYMBOL_NAME']
+2025-04-29 10:17:28,130 - INFO - Using columns: Symbol='SEM_TRADING_SYMBOL', ID='SEM_SMST_SECURITY_ID'
+2025-04-29 10:17:28,130 - INFO - First few rows for debugging:
+2025-04-29 10:17:28,131 - INFO - Row 1: Symbol=ARE&M, ID=100
+2025-04-29 10:17:28,131 - INFO - Row 2: Symbol=EMAMIPAP, ID=10074
+2025-04-29 10:17:28,132 - INFO - Row 3: Symbol=FACT, ID=1008
+2025-04-29 10:17:28,133 - INFO - Row 4: Symbol=GODREJCP, ID=10099
+2025-04-29 10:17:28,133 - INFO - Row 5: Symbol=SCHAEFFLER, ID=1011
+2025-04-29 10:17:28,283 - INFO - Security IDs mapping created with 3700 entries
+2025-04-29 10:17:28,284 - INFO - Checking for critical symbols:
+2025-04-29 10:17:28,284 - INFO - Found ID for SYNGENE: 10243
+2025-04-29 10:17:28,284 - INFO - Found ID for SYNGENE.NS: 10243
+2025-04-29 10:17:28,284 - INFO - Found ID for GRANULES: 11872
+2025-04-29 10:17:28,285 - INFO - Found ID for GRANULES.NS: 11872
+2025-04-29 10:17:28,286 - INFO - Found ID for ZEEL: 3812
+2025-04-29 10:17:28,286 - INFO - Found ID for ZEEL.NS: 3812
+2025-04-29 10:17:28,286 - INFO - Found ID for SBILIFE: 21808
+2025-04-29 10:17:28,286 - INFO - Found ID for SBILIFE.NS: 21808
+2025-04-29 10:17:28,286 - INFO - Found ID for RBLBANK: 18391
+2025-04-29 10:17:28,287 - INFO - Found ID for RBLBANK.NS: 18391
+2025-04-29 10:17:28,287 - INFO - Sample security IDs: [('ARE&M', '100'), ('ARE&M.NS', '100'), ('EMAMIPAP', '10074'), ('EMAMIPAP.NS', '10074'), ('FACT', '1008'), ('FACT.NS', '1008'), ('GODREJCP', '10099'), ('GODREJCP.NS', '10099'), ('SCHAEFFLER', '1011'), ('SCHAEFFLER.NS', '1011')]
+2025-04-29 10:17:28,288 - INFO - Step 4.5: Validating security IDs for active tickers...
+2025-04-29 10:17:28,289 - INFO - 
+==================================================
+VALIDATING SECURITY IDS
+==================================================
+2025-04-29 10:17:28,289 - INFO - Found 5 active tickers to validate
+2025-04-29 10:17:28,290 - INFO - Found security ID for SYNGENE.NS via SYNGENE.NS: 10243
+2025-04-29 10:17:28,290 - INFO - Found security ID for ZEEL.NS via ZEEL.NS: 3812
+2025-04-29 10:17:28,290 - INFO - Found security ID for GRANULES.NS via GRANULES.NS: 11872
+2025-04-29 10:17:28,293 - INFO - Found security ID for SBILIFE.NS via SBILIFE.NS: 21808
+2025-04-29 10:17:28,295 - INFO - Found security ID for RBLBANK.NS via RBLBANK.NS: 18391
+2025-04-29 10:17:28,296 - INFO - All active tickers have security IDs
+2025-04-29 10:17:28,297 - INFO - Step 5: Loading existing positions...
+2025-04-29 10:17:28,298 - INFO - Loaded 2 existing positions
+2025-04-29 10:17:28,299 - INFO - Positions: 1 open, 1 closed
+2025-04-29 10:17:28,299 - INFO - Open positions:
+2025-04-29 10:17:28,299 - INFO -   SELL SBILIFE.NS (Order ID: 9125042916552)
+2025-04-29 10:17:28,299 - INFO - Step 6: Starting trading loop (check interval: 30 seconds)...
+2025-04-29 10:17:28,300 - INFO - 
+==================================================
+TRADING CYCLE 1
+==================================================
+2025-04-29 10:17:28,301 - INFO - Trading cycle 1 started at 2025-04-29 10:17:28
+2025-04-29 10:17:28,302 - INFO - 
+==================================================
+READING SECTOR PERFORMANCE DATA
+==================================================
+2025-04-29 10:17:28,305 - INFO - Reading sector performance data from sector.csv
+2025-04-29 10:17:28,306 - INFO - File last modified: 2025-04-29 09:46:13
+2025-04-29 10:17:28,309 - INFO - Latest timestamp in data: 2025-04-29 09:46:13
+2025-04-29 10:17:28,310 - INFO - Loaded data for 10 sectors
+2025-04-29 10:17:28,310 - INFO - Sector performance details:
+2025-04-29 10:17:28,312 - INFO -   IT: POSITIVE (1.68%)
+2025-04-29 10:17:28,312 - INFO -   PSU Bank: POSITIVE (0.46%)
+2025-04-29 10:17:28,313 - INFO -   Energy: NEGATIVE (-0.06%)
+2025-04-29 10:17:28,314 - INFO -   Auto: NEGATIVE (-0.18%)
+2025-04-29 10:17:28,315 - INFO -   FMCG: NEGATIVE (-0.21%)
+2025-04-29 10:17:28,315 - INFO -   Realty: NEGATIVE (-0.28%)
+2025-04-29 10:17:28,317 - INFO -   Financial Services: NEGATIVE (-0.39%)
+2025-04-29 10:17:28,318 - INFO -   Media: NEGATIVE (-0.54%)
+2025-04-29 10:17:28,320 - INFO -   Metal: NEGATIVE (-0.69%)
+2025-04-29 10:17:28,323 - INFO -   Pharma: NEGATIVE (-0.84%)
+2025-04-29 10:17:28,324 - INFO - 
+==================================================
+SECTOR DATA READ COMPLETE
+==================================================
+2025-04-29 10:17:28,324 - INFO - 
+==================================================
+PROCESSING SECTOR DATA
+==================================================
+2025-04-29 10:17:28,325 - INFO - Processed performance data for 10 sectors
+2025-04-29 10:17:28,325 - INFO - Processing existing positions for potential exits...
+2025-04-29 10:17:28,326 - INFO - 
+==================================================
+PROCESSING EXISTING POSITIONS
+==================================================
+2025-04-29 10:17:28,327 - INFO - Processing 2 existing positions
+2025-04-29 10:17:28,327 - INFO - Skipping already closed position for ZEEL.NS
+2025-04-29 10:17:28,327 - INFO - Checking position: SELL SBILIFE.NS (Sector: Financial Services)
+2025-04-29 10:17:28,327 - INFO - SECURITY ID LOOKUP: Searching for SBILIFE.NS
+2025-04-29 10:17:28,327 - INFO - Trying exact match for 'SBILIFE.NS'
+2025-04-29 10:17:28,328 - INFO - FOUND EXACT MATCH: ID 21808 for SBILIFE.NS
+2025-04-29 10:17:28,328 - INFO - Sector Financial Services is NEGATIVE with -0.39% change
+2025-04-29 10:17:28,328 - INFO - Getting current market price for SBILIFE.NS
+2025-04-29 10:17:28,329 - INFO - Failed to get quote using symbol: 'dhanhq' object has no attribute 'get_quote'
+2025-04-29 10:17:28,329 - INFO - Failed to get LTP using security_id: 'dhanhq' object has no attribute 'get_ltp'
+2025-04-29 10:17:28,329 - INFO - Failed to get price from candles: 'dhanhq' object has no attribute 'intraday_daily_minute_charts'
+2025-04-29 10:17:28,330 - ERROR - Could not get current market price for SBILIFE.NS
+2025-04-29 10:17:28,330 - WARNING - Could not get current market price for SBILIFE.NS
+2025-04-29 10:17:28,330 - INFO - No positions needed to be exited
+2025-04-29 10:17:28,330 - INFO - 
+==================================================
+POSITION PROCESSING COMPLETE
+==================================================
+2025-04-29 10:17:28,331 - INFO - Looking for new trading opportunities...
+2025-04-29 10:17:28,331 - INFO - 
+==================================================
+FINDING NEW TRADING OPPORTUNITIES
+==================================================
+2025-04-29 10:17:28,331 - INFO - Found 5 active tickers out of 5 total
+2025-04-29 10:17:28,332 - INFO - Processing tickers in order: ['SYNGENE.NS', 'ZEEL.NS', 'GRANULES.NS', 'SBILIFE.NS', 'RBLBANK.NS']
+2025-04-29 10:17:28,332 - INFO - Already have open positions for: ['SBILIFE.NS']
+2025-04-29 10:17:28,332 - INFO - Current sector performances:
+2025-04-29 10:17:28,332 - INFO -   Sector IT: POSITIVE (1.68%)
+2025-04-29 10:17:28,333 - INFO -   Sector PSU Bank: POSITIVE (0.46%)
+2025-04-29 10:17:28,334 - INFO -   Sector Energy: NEGATIVE (-0.06%)
+2025-04-29 10:17:28,334 - INFO -   Sector Auto: NEGATIVE (-0.18%)
+2025-04-29 10:17:28,334 - INFO -   Sector FMCG: NEGATIVE (-0.21%)
+2025-04-29 10:17:28,336 - INFO -   Sector Realty: NEGATIVE (-0.28%)
+2025-04-29 10:17:28,337 - INFO -   Sector Financial Services: NEGATIVE (-0.39%)
+2025-04-29 10:17:28,338 - INFO -   Sector Media: NEGATIVE (-0.54%)
+2025-04-29 10:17:28,339 - INFO -   Sector Metal: NEGATIVE (-0.69%)
+2025-04-29 10:17:28,339 - INFO -   Sector Pharma: NEGATIVE (-0.84%)
+2025-04-29 10:17:28,340 - INFO - Processing ticker 1: SYNGENE.NS
+2025-04-29 10:17:28,340 - INFO - Found sector Pharma for SYNGENE.NS
+2025-04-29 10:17:28,340 - INFO - Evaluating SYNGENE.NS in sector Pharma (-0.84%)
+2025-04-29 10:17:28,341 - INFO - Not trading SYNGENE.NS - sector performance doesn't match strategy
+2025-04-29 10:17:28,341 - INFO -   Transaction type: BUY
+2025-04-29 10:17:28,341 - INFO -   Sector is_positive: False
+2025-04-29 10:17:28,341 - INFO - Processing ticker 2: ZEEL.NS
+2025-04-29 10:17:28,341 - INFO - Found sector Media for ZEEL.NS
+2025-04-29 10:17:28,342 - INFO - Evaluating ZEEL.NS in sector Media (-0.54%)
+2025-04-29 10:17:28,342 - INFO - Not trading ZEEL.NS - sector performance doesn't match strategy
+2025-04-29 10:17:28,342 - INFO -   Transaction type: BUY
+2025-04-29 10:17:28,342 - INFO -   Sector is_positive: False
+2025-04-29 10:17:28,343 - INFO - Processing ticker 3: GRANULES.NS
+2025-04-29 10:17:28,343 - INFO - Found sector Pharma for GRANULES.NS
+2025-04-29 10:17:28,343 - INFO - Evaluating GRANULES.NS in sector Pharma (-0.84%)
+2025-04-29 10:17:28,343 - INFO - Not trading GRANULES.NS - sector performance doesn't match strategy
+2025-04-29 10:17:28,344 - INFO -   Transaction type: BUY
+2025-04-29 10:17:28,344 - INFO -   Sector is_positive: False
+2025-04-29 10:17:28,345 - INFO - Processing ticker 4: SBILIFE.NS
+2025-04-29 10:17:28,345 - INFO - Skipping SBILIFE.NS - already have an open position
+2025-04-29 10:17:28,345 - INFO - Processing ticker 5: RBLBANK.NS
+2025-04-29 10:17:28,345 - INFO - Found sector PVT Bank for RBLBANK.NS
+2025-04-29 10:17:28,345 - WARNING - No performance data for sector PVT Bank
+2025-04-29 10:17:28,346 - INFO - Ticker processing summary:
+2025-04-29 10:17:28,346 - INFO -   Total tickers considered: 5
+2025-04-29 10:17:28,346 - INFO -   Tickers with sector data: 4
+2025-04-29 10:17:28,346 - INFO -   Tickers matching strategy: 0
+2025-04-29 10:17:28,346 - INFO -   Tickers with security ID: 0
+2025-04-29 10:17:28,347 - INFO -   Orders successfully placed: 0
+2025-04-29 10:17:28,347 - INFO - New positions added: 0
+2025-04-29 10:17:28,347 - INFO - Positions skipped: 5
+2025-04-29 10:17:28,347 - INFO - Positions with errors: 0
+2025-04-29 10:17:28,347 - INFO - 
+==================================================
+NEW OPPORTUNITIES PROCESSING COMPLETE
+==================================================
+2025-04-29 10:17:28,348 - INFO - 
+==================================================
+SECTOR PROCESSING COMPLETE
+==================================================
+2025-04-29 10:17:28,351 - INFO - Saved 2 positions to dhan_positions.json
+2025-04-29 10:17:28,353 - INFO - 
+==================================================
+POSITIONS SUMMARY
+==================================================
+2025-04-29 10:17:28,356 - INFO - Current positions summary:
+2025-04-29 10:17:28,356 - INFO -   Open BUY positions: 0
+2025-04-29 10:17:28,357 - INFO -   Open SELL positions: 1
+2025-04-29 10:17:28,357 - INFO -   Closed positions: 1
+2025-04-29 10:17:28,357 - INFO -   Total positions: 2
+2025-04-29 10:17:28,357 - INFO - Open positions:
+2025-04-29 10:17:28,357 - INFO -   SELL SBILIFE.NS (Sector: Financial Services, Entry: 2025-04-29 06:11:17, Order ID: 9125042916552, SL%: 1.0%, Target%: 1.5%)
+2025-04-29 10:17:28,358 - INFO - Total P&L for closed positions: 0.0
+2025-04-29 10:17:28,358 - INFO - Recently closed positions:
+2025-04-29 10:17:28,358 - INFO -   BUY ZEEL.NS - Closed at 2025-04-29 07:33:48, Reason: Sector turned negative, P&L: Unknown
+2025-04-29 10:17:28,358 - INFO - 
+==================================================
+POSITIONS SUMMARY COMPLETE
+==================================================
+2025-04-29 10:17:28,359 - INFO - Trading cycle 1 completed
+2025-04-29 10:17:28,360 - INFO - Waiting 30 seconds until next check at 10:17:58...
+2025-04-29 10:17:28,360 - INFO - 
+==================================================
+CYCLE 1 COMPLETE
+==================================================
+2025-04-29 10:17:58,366 - INFO - 
+==================================================
+TRADING CYCLE 2
+==================================================
+2025-04-29 10:17:58,368 - INFO - Trading cycle 2 started at 2025-04-29 10:17:58
+2025-04-29 10:17:58,369 - INFO - 
+==================================================
+READING SECTOR PERFORMANCE DATA
+==================================================
+2025-04-29 10:17:58,369 - INFO - Reading sector performance data from sector.csv
+2025-04-29 10:17:58,369 - INFO - File last modified: 2025-04-29 09:46:13
+2025-04-29 10:17:58,372 - INFO - Latest timestamp in data: 2025-04-29 09:46:13
+2025-04-29 10:17:58,372 - INFO - Loaded data for 10 sectors
+2025-04-29 10:17:58,373 - INFO - Sector performance details:
+2025-04-29 10:17:58,374 - INFO -   IT: POSITIVE (1.68%)
+2025-04-29 10:17:58,374 - INFO -   PSU Bank: POSITIVE (0.46%)
+2025-04-29 10:17:58,375 - INFO -   Energy: NEGATIVE (-0.06%)
+2025-04-29 10:17:58,375 - INFO -   Auto: NEGATIVE (-0.18%)
+2025-04-29 10:17:58,376 - INFO -   FMCG: NEGATIVE (-0.21%)
+2025-04-29 10:17:58,376 - INFO -   Realty: NEGATIVE (-0.28%)
+2025-04-29 10:17:58,376 - INFO -   Financial Services: NEGATIVE (-0.39%)
+2025-04-29 10:17:58,377 - INFO -   Media: NEGATIVE (-0.54%)
+2025-04-29 10:17:58,378 - INFO -   Metal: NEGATIVE (-0.69%)
+2025-04-29 10:17:58,379 - INFO -   Pharma: NEGATIVE (-0.84%)
+2025-04-29 10:17:58,379 - INFO - 
+==================================================
+SECTOR DATA READ COMPLETE
+==================================================
+2025-04-29 10:17:58,385 - INFO - 
+==================================================
+PROCESSING SECTOR DATA
+==================================================
+2025-04-29 10:17:58,388 - INFO - Processed performance data for 10 sectors
+2025-04-29 10:17:58,388 - INFO - Processing existing positions for potential exits...
+2025-04-29 10:17:58,388 - INFO - 
+==================================================
+PROCESSING EXISTING POSITIONS
+==================================================
+2025-04-29 10:17:58,389 - INFO - Processing 2 existing positions
+2025-04-29 10:17:58,391 - INFO - Skipping already closed position for ZEEL.NS
+2025-04-29 10:17:58,392 - INFO - Checking position: SELL SBILIFE.NS (Sector: Financial Services)
+2025-04-29 10:17:58,392 - INFO - SECURITY ID LOOKUP: Searching for SBILIFE.NS
+2025-04-29 10:17:58,393 - INFO - Trying exact match for 'SBILIFE.NS'
+2025-04-29 10:17:58,393 - INFO - FOUND EXACT MATCH: ID 21808 for SBILIFE.NS
+2025-04-29 10:17:58,395 - INFO - Sector Financial Services is NEGATIVE with -0.39% change
+2025-04-29 10:17:58,396 - INFO - Getting current market price for SBILIFE.NS
+2025-04-29 10:17:58,402 - INFO - Failed to get quote using symbol: 'dhanhq' object has no attribute 'get_quote'
+2025-04-29 10:17:58,403 - INFO - Failed to get LTP using security_id: 'dhanhq' object has no attribute 'get_ltp'
+2025-04-29 10:17:58,406 - INFO - Failed to get price from candles: 'dhanhq' object has no attribute 'intraday_daily_minute_charts'
+2025-04-29 10:17:58,407 - ERROR - Could not get current market price for SBILIFE.NS
+2025-04-29 10:17:58,408 - WARNING - Could not get current market price for SBILIFE.NS
+2025-04-29 10:17:58,409 - INFO - No positions needed to be exited
+2025-04-29 10:17:58,409 - INFO - 
+==================================================
+POSITION PROCESSING COMPLETE
+==================================================
+2025-04-29 10:17:58,410 - INFO - Looking for new trading opportunities...
+2025-04-29 10:17:58,410 - INFO - 
+==================================================
+FINDING NEW TRADING OPPORTUNITIES
+==================================================
+2025-04-29 10:17:58,410 - INFO - Found 5 active tickers out of 5 total
+2025-04-29 10:17:58,411 - INFO - Processing tickers in order: ['SYNGENE.NS', 'ZEEL.NS', 'GRANULES.NS', 'SBILIFE.NS', 'RBLBANK.NS']
+2025-04-29 10:17:58,413 - INFO - Already have open positions for: ['SBILIFE.NS']
+2025-04-29 10:17:58,413 - INFO - Current sector performances:
+2025-04-29 10:17:58,420 - INFO -   Sector IT: POSITIVE (1.68%)
+2025-04-29 10:17:58,420 - INFO -   Sector PSU Bank: POSITIVE (0.46%)
+2025-04-29 10:17:58,421 - INFO -   Sector Energy: NEGATIVE (-0.06%)
+2025-04-29 10:17:58,422 - INFO -   Sector Auto: NEGATIVE (-0.18%)
+2025-04-29 10:17:58,422 - INFO -   Sector FMCG: NEGATIVE (-0.21%)
+2025-04-29 10:17:58,423 - INFO -   Sector Realty: NEGATIVE (-0.28%)
+2025-04-29 10:17:58,423 - INFO -   Sector Financial Services: NEGATIVE (-0.39%)
+2025-04-29 10:17:58,424 - INFO -   Sector Media: NEGATIVE (-0.54%)
+2025-04-29 10:17:58,425 - INFO -   Sector Metal: NEGATIVE (-0.69%)
+2025-04-29 10:17:58,425 - INFO -   Sector Pharma: NEGATIVE (-0.84%)
+2025-04-29 10:17:58,425 - INFO - Processing ticker 1: SYNGENE.NS
+2025-04-29 10:17:58,426 - INFO - Found sector Pharma for SYNGENE.NS
+2025-04-29 10:17:58,426 - INFO - Evaluating SYNGENE.NS in sector Pharma (-0.84%)
+2025-04-29 10:17:58,426 - INFO - Not trading SYNGENE.NS - sector performance doesn't match strategy
+2025-04-29 10:17:58,427 - INFO -   Transaction type: BUY
+2025-04-29 10:17:58,428 - INFO -   Sector is_positive: False
+2025-04-29 10:17:58,428 - INFO - Processing ticker 2: ZEEL.NS
+2025-04-29 10:17:58,428 - INFO - Found sector Media for ZEEL.NS
+2025-04-29 10:17:58,429 - INFO - Evaluating ZEEL.NS in sector Media (-0.54%)
+2025-04-29 10:17:58,430 - INFO - Not trading ZEEL.NS - sector performance doesn't match strategy
+2025-04-29 10:17:58,430 - INFO -   Transaction type: BUY
+2025-04-29 10:17:58,436 - INFO -   Sector is_positive: False
+2025-04-29 10:17:58,437 - INFO - Processing ticker 3: GRANULES.NS
+2025-04-29 10:17:58,437 - INFO - Found sector Pharma for GRANULES.NS
+2025-04-29 10:17:58,437 - INFO - Evaluating GRANULES.NS in sector Pharma (-0.84%)
+2025-04-29 10:17:58,438 - INFO - Not trading GRANULES.NS - sector performance doesn't match strategy
+2025-04-29 10:17:58,438 - INFO -   Transaction type: BUY
+2025-04-29 10:17:58,438 - INFO -   Sector is_positive: False
+2025-04-29 10:17:58,439 - INFO - Processing ticker 4: SBILIFE.NS
+2025-04-29 10:17:58,440 - INFO - Skipping SBILIFE.NS - already have an open position
+2025-04-29 10:17:58,441 - INFO - Processing ticker 5: RBLBANK.NS
+2025-04-29 10:17:58,442 - INFO - Found sector PVT Bank for RBLBANK.NS
+2025-04-29 10:17:58,443 - WARNING - No performance data for sector PVT Bank
+2025-04-29 10:17:58,444 - INFO - Ticker processing summary:
+2025-04-29 10:17:58,445 - INFO -   Total tickers considered: 5
+2025-04-29 10:17:58,445 - INFO -   Tickers with sector data: 4
+2025-04-29 10:17:58,445 - INFO -   Tickers matching strategy: 0
+2025-04-29 10:17:58,446 - INFO -   Tickers with security ID: 0
+2025-04-29 10:17:58,446 - INFO -   Orders successfully placed: 0
+2025-04-29 10:17:58,451 - INFO - New positions added: 0
+2025-04-29 10:17:58,452 - INFO - Positions skipped: 5
+2025-04-29 10:17:58,453 - INFO - Positions with errors: 0
+2025-04-29 10:17:58,453 - INFO - 
+==================================================
+NEW OPPORTUNITIES PROCESSING COMPLETE
+==================================================
+2025-04-29 10:17:58,455 - INFO - 
+==================================================
+SECTOR PROCESSING COMPLETE
+==================================================
+2025-04-29 10:17:58,457 - INFO - Saved 2 positions to dhan_positions.json
+2025-04-29 10:17:58,460 - INFO - 
+==================================================
+POSITIONS SUMMARY
+==================================================
+2025-04-29 10:17:58,460 - INFO - Current positions summary:
+2025-04-29 10:17:58,461 - INFO -   Open BUY positions: 0
+2025-04-29 10:17:58,461 - INFO -   Open SELL positions: 1
+2025-04-29 10:17:58,462 - INFO -   Closed positions: 1
+2025-04-29 10:17:58,462 - INFO -   Total positions: 2
+2025-04-29 10:17:58,462 - INFO - Open positions:
+2025-04-29 10:17:58,463 - INFO -   SELL SBILIFE.NS (Sector: Financial Services, Entry: 2025-04-29 06:11:17, Order ID: 9125042916552, SL%: 1.0%, Target%: 1.5%)
+2025-04-29 10:17:58,463 - INFO - Total P&L for closed positions: 0.0
+2025-04-29 10:17:58,470 - INFO - Recently closed positions:
+2025-04-29 10:17:58,472 - INFO -   BUY ZEEL.NS - Closed at 2025-04-29 07:33:48, Reason: Sector turned negative, P&L: Unknown
+2025-04-29 10:17:58,473 - INFO - 
+==================================================
+POSITIONS SUMMARY COMPLETE
+==================================================
+2025-04-29 10:17:58,474 - INFO - Trading cycle 2 completed
+2025-04-29 10:17:58,475 - INFO - Waiting 30 seconds until next check at 10:18:28...
+2025-04-29 10:17:58,475 - INFO - 
+==================================================
+CYCLE 2 COMPLETE
+==================================================
+2025-04-29 10:18:28,476 - INFO - 
+==================================================
+TRADING CYCLE 3
+==================================================
+2025-04-29 10:18:28,479 - INFO - Trading cycle 3 started at 2025-04-29 10:18:28
+2025-04-29 10:18:28,479 - INFO - 
+==================================================
+READING SECTOR PERFORMANCE DATA
+==================================================
+2025-04-29 10:18:28,480 - INFO - Reading sector performance data from sector.csv
+2025-04-29 10:18:28,480 - INFO - File last modified: 2025-04-29 10:18:20
+2025-04-29 10:18:28,483 - INFO - Latest timestamp in data: 2025-04-29 10:18:20
+2025-04-29 10:18:28,483 - INFO - Loaded data for 10 sectors
+2025-04-29 10:18:28,483 - INFO - Sector performance details:
+2025-04-29 10:18:28,484 - INFO -   IT: POSITIVE (1.77%)
+2025-04-29 10:18:28,484 - INFO -   PSU Bank: POSITIVE (0.36%)
+2025-04-29 10:18:28,486 - INFO -   FMCG: NEGATIVE (-0.12%)
+2025-04-29 10:18:28,486 - INFO -   Auto: NEGATIVE (-0.15%)
+2025-04-29 10:18:28,487 - INFO -   Energy: NEGATIVE (-0.18%)
+2025-04-29 10:18:28,487 - INFO -   Realty: NEGATIVE (-0.33%)
+2025-04-29 10:18:28,487 - INFO -   Financial Services: NEGATIVE (-0.35%)
+2025-04-29 10:18:28,488 - INFO -   Media: NEGATIVE (-0.56%)
+2025-04-29 10:18:28,489 - INFO -   Metal: NEGATIVE (-0.76%)
+2025-04-29 10:18:28,490 - INFO -   Pharma: NEGATIVE (-0.83%)
+2025-04-29 10:18:28,490 - INFO - 
+==================================================
+SECTOR DATA READ COMPLETE
+==================================================
+2025-04-29 10:18:28,490 - INFO - 
+==================================================
+PROCESSING SECTOR DATA
+==================================================
+2025-04-29 10:18:28,492 - INFO - Processed performance data for 10 sectors
+2025-04-29 10:18:28,492 - INFO - Processing existing positions for potential exits...
+2025-04-29 10:18:28,493 - INFO - 
+==================================================
+PROCESSING EXISTING POSITIONS
+==================================================
+2025-04-29 10:18:28,493 - INFO - Processing 2 existing positions
+2025-04-29 10:18:28,495 - INFO - Skipping already closed position for ZEEL.NS
+2025-04-29 10:18:28,496 - INFO - Checking position: SELL SBILIFE.NS (Sector: Financial Services)
+2025-04-29 10:18:28,496 - INFO - SECURITY ID LOOKUP: Searching for SBILIFE.NS
+2025-04-29 10:18:28,496 - INFO - Trying exact match for 'SBILIFE.NS'
+2025-04-29 10:18:28,497 - INFO - FOUND EXACT MATCH: ID 21808 for SBILIFE.NS
+2025-04-29 10:18:28,497 - INFO - Sector Financial Services is NEGATIVE with -0.35% change
+2025-04-29 10:18:28,497 - INFO - Getting current market price for SBILIFE.NS
+2025-04-29 10:18:28,498 - INFO - Failed to get quote using symbol: 'dhanhq' object has no attribute 'get_quote'
+2025-04-29 10:18:28,498 - INFO - Failed to get LTP using security_id: 'dhanhq' object has no attribute 'get_ltp'
+2025-04-29 10:18:28,499 - INFO - Failed to get price from candles: 'dhanhq' object has no attribute 'intraday_daily_minute_charts'
+2025-04-29 10:18:28,499 - ERROR - Could not get current market price for SBILIFE.NS
+2025-04-29 10:18:28,499 - WARNING - Could not get current market price for SBILIFE.NS
+2025-04-29 10:18:28,500 - INFO - No positions needed to be exited
+2025-04-29 10:18:28,500 - INFO - 
+==================================================
+POSITION PROCESSING COMPLETE
+==================================================
+2025-04-29 10:18:28,500 - INFO - Looking for new trading opportunities...
+2025-04-29 10:18:28,501 - INFO - 
+==================================================
+FINDING NEW TRADING OPPORTUNITIES
+==================================================
+2025-04-29 10:18:28,504 - INFO - Found 5 active tickers out of 5 total
+2025-04-29 10:18:28,505 - INFO - Processing tickers in order: ['SYNGENE.NS', 'ZEEL.NS', 'GRANULES.NS', 'SBILIFE.NS', 'RBLBANK.NS']
+2025-04-29 10:18:28,552 - INFO - Already have open positions for: ['SBILIFE.NS']
+2025-04-29 10:18:28,587 - INFO - Current sector performances:
+2025-04-29 10:18:28,610 - INFO -   Sector IT: POSITIVE (1.77%)
+2025-04-29 10:18:28,615 - INFO -   Sector PSU Bank: POSITIVE (0.36%)
+2025-04-29 10:18:28,617 - INFO -   Sector FMCG: NEGATIVE (-0.12%)
+2025-04-29 10:18:28,618 - INFO -   Sector Auto: NEGATIVE (-0.15%)
+2025-04-29 10:18:28,618 - INFO -   Sector Energy: NEGATIVE (-0.18%)
+2025-04-29 10:18:28,618 - INFO -   Sector Realty: NEGATIVE (-0.33%)
+2025-04-29 10:18:28,619 - INFO -   Sector Financial Services: NEGATIVE (-0.35%)
+2025-04-29 10:18:28,620 - INFO -   Sector Media: NEGATIVE (-0.56%)
+2025-04-29 10:18:28,620 - INFO -   Sector Metal: NEGATIVE (-0.76%)
+2025-04-29 10:18:28,621 - INFO -   Sector Pharma: NEGATIVE (-0.83%)
+2025-04-29 10:18:28,653 - INFO - Processing ticker 1: SYNGENE.NS
+2025-04-29 10:18:28,654 - INFO - Found sector Pharma for SYNGENE.NS
+2025-04-29 10:18:28,655 - INFO - Evaluating SYNGENE.NS in sector Pharma (-0.83%)
+2025-04-29 10:18:28,655 - INFO - Not trading SYNGENE.NS - sector performance doesn't match strategy
+2025-04-29 10:18:28,656 - INFO -   Transaction type: BUY
+2025-04-29 10:18:28,656 - INFO -   Sector is_positive: False
+2025-04-29 10:18:28,657 - INFO - Processing ticker 2: ZEEL.NS
+2025-04-29 10:18:28,657 - INFO - Found sector Media for ZEEL.NS
+2025-04-29 10:18:28,658 - INFO - Evaluating ZEEL.NS in sector Media (-0.56%)
+2025-04-29 10:18:28,658 - INFO - Not trading ZEEL.NS - sector performance doesn't match strategy
+2025-04-29 10:18:28,658 - INFO -   Transaction type: BUY
+2025-04-29 10:18:28,659 - INFO -   Sector is_positive: False
+2025-04-29 10:18:28,659 - INFO - Processing ticker 3: GRANULES.NS
+2025-04-29 10:18:28,660 - INFO - Found sector Pharma for GRANULES.NS
+2025-04-29 10:18:28,662 - INFO - Evaluating GRANULES.NS in sector Pharma (-0.83%)
+2025-04-29 10:18:28,662 - INFO - Not trading GRANULES.NS - sector performance doesn't match strategy
+2025-04-29 10:18:28,663 - INFO -   Transaction type: BUY
+2025-04-29 10:18:28,663 - INFO -   Sector is_positive: False
+2025-04-29 10:18:28,664 - INFO - Processing ticker 4: SBILIFE.NS
+2025-04-29 10:18:28,665 - INFO - Skipping SBILIFE.NS - already have an open position
+2025-04-29 10:18:28,665 - INFO - Processing ticker 5: RBLBANK.NS
+2025-04-29 10:18:28,666 - INFO - Found sector PVT Bank for RBLBANK.NS
+2025-04-29 10:18:28,667 - WARNING - No performance data for sector PVT Bank
+2025-04-29 10:18:28,667 - INFO - Ticker processing summary:
+2025-04-29 10:18:28,667 - INFO -   Total tickers considered: 5
+2025-04-29 10:18:28,668 - INFO -   Tickers with sector data: 4
+2025-04-29 10:18:28,668 - INFO -   Tickers matching strategy: 0
+2025-04-29 10:18:28,668 - INFO -   Tickers with security ID: 0
+2025-04-29 10:18:28,669 - INFO -   Orders successfully placed: 0
+2025-04-29 10:18:28,670 - INFO - New positions added: 0
+2025-04-29 10:18:28,707 - INFO - Positions skipped: 5
+2025-04-29 10:18:28,713 - INFO - Positions with errors: 0
+2025-04-29 10:18:28,714 - INFO - 
+==================================================
+NEW OPPORTUNITIES PROCESSING COMPLETE
+==================================================
+2025-04-29 10:18:28,716 - INFO - 
+==================================================
+SECTOR PROCESSING COMPLETE
+==================================================
+2025-04-29 10:18:28,719 - INFO - Saved 2 positions to dhan_positions.json
+2025-04-29 10:18:28,720 - INFO - 
+==================================================
+POSITIONS SUMMARY
+==================================================
+2025-04-29 10:18:28,721 - INFO - Current positions summary:
+2025-04-29 10:18:28,721 - INFO -   Open BUY positions: 0
+2025-04-29 10:18:28,723 - INFO -   Open SELL positions: 1
+2025-04-29 10:18:28,724 - INFO -   Closed positions: 1
+2025-04-29 10:18:28,724 - INFO -   Total positions: 2
+2025-04-29 10:18:28,725 - INFO - Open positions:
+2025-04-29 10:18:28,725 - INFO -   SELL SBILIFE.NS (Sector: Financial Services, Entry: 2025-04-29 06:11:17, Order ID: 9125042916552, SL%: 1.0%, Target%: 1.5%)
+2025-04-29 10:18:28,726 - INFO - Total P&L for closed positions: 0.0
+2025-04-29 10:18:28,726 - INFO - Recently closed positions:
+2025-04-29 10:18:28,728 - INFO -   BUY ZEEL.NS - Closed at 2025-04-29 07:33:48, Reason: Sector turned negative, P&L: Unknown
+2025-04-29 10:18:28,729 - INFO - 
+==================================================
+POSITIONS SUMMARY COMPLETE
+==================================================
+2025-04-29 10:18:28,731 - INFO - Trading cycle 3 completed
+2025-04-29 10:18:28,732 - INFO - Waiting 30 seconds until next check at 10:18:58...
+2025-04-29 10:18:28,732 - INFO - 
+==================================================
+CYCLE 3 COMPLETE
+==================================================
+2025-04-29 10:18:58,745 - INFO - 
+==================================================
+TRADING CYCLE 4
+==================================================
+2025-04-29 10:18:58,747 - INFO - Trading cycle 4 started at 2025-04-29 10:18:58
+2025-04-29 10:18:58,747 - INFO - 
+==================================================
+READING SECTOR PERFORMANCE DATA
+==================================================
+2025-04-29 10:18:58,747 - INFO - Reading sector performance data from sector.csv
+2025-04-29 10:18:58,748 - INFO - File last modified: 2025-04-29 10:18:20
+2025-04-29 10:18:58,751 - INFO - Latest timestamp in data: 2025-04-29 10:18:20
+2025-04-29 10:18:58,751 - INFO - Loaded data for 10 sectors
+2025-04-29 10:18:58,751 - INFO - Sector performance details:
+2025-04-29 10:18:58,752 - INFO -   IT: POSITIVE (1.77%)
+2025-04-29 10:18:58,753 - INFO -   PSU Bank: POSITIVE (0.36%)
+2025-04-29 10:18:58,754 - INFO -   FMCG: NEGATIVE (-0.12%)
+2025-04-29 10:18:58,755 - INFO -   Auto: NEGATIVE (-0.15%)
+2025-04-29 10:18:58,755 - INFO -   Energy: NEGATIVE (-0.18%)
+2025-04-29 10:18:58,756 - INFO -   Realty: NEGATIVE (-0.33%)
+2025-04-29 10:18:58,756 - INFO -   Financial Services: NEGATIVE (-0.35%)
+2025-04-29 10:18:58,760 - INFO -   Media: NEGATIVE (-0.56%)
+2025-04-29 10:18:58,760 - INFO -   Metal: NEGATIVE (-0.76%)
+2025-04-29 10:18:58,762 - INFO -   Pharma: NEGATIVE (-0.83%)
+2025-04-29 10:18:58,762 - INFO - 
+==================================================
+SECTOR DATA READ COMPLETE
+==================================================
+2025-04-29 10:18:58,763 - INFO - 
+==================================================
+PROCESSING SECTOR DATA
+==================================================
+2025-04-29 10:18:58,769 - INFO - Processed performance data for 10 sectors
+2025-04-29 10:18:58,769 - INFO - Processing existing positions for potential exits...
+2025-04-29 10:18:58,770 - INFO - 
+==================================================
+PROCESSING EXISTING POSITIONS
+==================================================
+2025-04-29 10:18:58,770 - INFO - Processing 2 existing positions
+2025-04-29 10:18:58,771 - INFO - Skipping already closed position for ZEEL.NS
+2025-04-29 10:18:58,772 - INFO - Checking position: SELL SBILIFE.NS (Sector: Financial Services)
+2025-04-29 10:18:58,772 - INFO - SECURITY ID LOOKUP: Searching for SBILIFE.NS
+2025-04-29 10:18:58,772 - INFO - Trying exact match for 'SBILIFE.NS'
+2025-04-29 10:18:58,773 - INFO - FOUND EXACT MATCH: ID 21808 for SBILIFE.NS
+2025-04-29 10:18:58,773 - INFO - Sector Financial Services is NEGATIVE with -0.35% change
+2025-04-29 10:18:58,773 - INFO - Getting current market price for SBILIFE.NS
+2025-04-29 10:18:58,782 - INFO - Failed to get quote using symbol: 'dhanhq' object has no attribute 'get_quote'
+2025-04-29 10:18:58,783 - INFO - Failed to get LTP using security_id: 'dhanhq' object has no attribute 'get_ltp'
+2025-04-29 10:18:58,784 - INFO - Failed to get price from candles: 'dhanhq' object has no attribute 'intraday_daily_minute_charts'
+2025-04-29 10:18:58,786 - ERROR - Could not get current market price for SBILIFE.NS
+2025-04-29 10:18:58,788 - WARNING - Could not get current market price for SBILIFE.NS
+2025-04-29 10:18:58,803 - INFO - No positions needed to be exited
+2025-04-29 10:18:58,805 - INFO - 
+==================================================
+POSITION PROCESSING COMPLETE
+==================================================
+2025-04-29 10:18:58,806 - INFO - Looking for new trading opportunities...
+2025-04-29 10:18:58,812 - INFO - 
+==================================================
+FINDING NEW TRADING OPPORTUNITIES
+==================================================
+2025-04-29 10:18:58,813 - INFO - Found 5 active tickers out of 5 total
+2025-04-29 10:18:58,814 - INFO - Processing tickers in order: ['SYNGENE.NS', 'ZEEL.NS', 'GRANULES.NS', 'SBILIFE.NS', 'RBLBANK.NS']
+2025-04-29 10:18:58,814 - INFO - Already have open positions for: ['SBILIFE.NS']
+2025-04-29 10:18:58,815 - INFO - Current sector performances:
+2025-04-29 10:18:58,815 - INFO -   Sector IT: POSITIVE (1.77%)
+2025-04-29 10:18:58,815 - INFO -   Sector PSU Bank: POSITIVE (0.36%)
+2025-04-29 10:18:58,816 - INFO -   Sector FMCG: NEGATIVE (-0.12%)
+2025-04-29 10:18:58,816 - INFO -   Sector Auto: NEGATIVE (-0.15%)
+2025-04-29 10:18:58,816 - INFO -   Sector Energy: NEGATIVE (-0.18%)
+2025-04-29 10:18:58,817 - INFO -   Sector Realty: NEGATIVE (-0.33%)
+2025-04-29 10:18:58,817 - INFO -   Sector Financial Services: NEGATIVE (-0.35%)
+2025-04-29 10:18:58,818 - INFO -   Sector Media: NEGATIVE (-0.56%)
+2025-04-29 10:18:58,818 - INFO -   Sector Metal: NEGATIVE (-0.76%)
+2025-04-29 10:18:58,819 - INFO -   Sector Pharma: NEGATIVE (-0.83%)
+2025-04-29 10:18:58,819 - INFO - Processing ticker 1: SYNGENE.NS
+2025-04-29 10:18:58,819 - INFO - Found sector Pharma for SYNGENE.NS
+2025-04-29 10:18:58,820 - INFO - Evaluating SYNGENE.NS in sector Pharma (-0.83%)
+2025-04-29 10:18:58,821 - INFO - Not trading SYNGENE.NS - sector performance doesn't match strategy
+2025-04-29 10:18:58,821 - INFO -   Transaction type: BUY
+2025-04-29 10:18:58,821 - INFO -   Sector is_positive: False
+2025-04-29 10:18:58,822 - INFO - Processing ticker 2: ZEEL.NS
+2025-04-29 10:18:58,822 - INFO - Found sector Media for ZEEL.NS
+2025-04-29 10:18:58,823 - INFO - Evaluating ZEEL.NS in sector Media (-0.56%)
+2025-04-29 10:18:58,828 - INFO - Not trading ZEEL.NS - sector performance doesn't match strategy
+2025-04-29 10:18:58,829 - INFO -   Transaction type: BUY
+2025-04-29 10:18:58,829 - INFO -   Sector is_positive: False
+2025-04-29 10:18:58,830 - INFO - Processing ticker 3: GRANULES.NS
+2025-04-29 10:18:58,830 - INFO - Found sector Pharma for GRANULES.NS
+2025-04-29 10:18:58,830 - INFO - Evaluating GRANULES.NS in sector Pharma (-0.83%)
+2025-04-29 10:18:58,831 - INFO - Not trading GRANULES.NS - sector performance doesn't match strategy
+2025-04-29 10:18:58,831 - INFO -   Transaction type: BUY
+2025-04-29 10:18:58,832 - INFO -   Sector is_positive: False
+2025-04-29 10:18:58,832 - INFO - Processing ticker 4: SBILIFE.NS
+2025-04-29 10:18:58,833 - INFO - Skipping SBILIFE.NS - already have an open position
+2025-04-29 10:18:58,834 - INFO - Processing ticker 5: RBLBANK.NS
+2025-04-29 10:18:58,835 - INFO - Found sector PVT Bank for RBLBANK.NS
+2025-04-29 10:18:58,835 - WARNING - No performance data for sector PVT Bank
+2025-04-29 10:18:58,836 - INFO - Ticker processing summary:
+2025-04-29 10:18:58,837 - INFO -   Total tickers considered: 5
+2025-04-29 10:18:58,837 - INFO -   Tickers with sector data: 4
+2025-04-29 10:18:58,837 - INFO -   Tickers matching strategy: 0
+2025-04-29 10:18:58,838 - INFO -   Tickers with security ID: 0
+2025-04-29 10:18:58,838 - INFO -   Orders successfully placed: 0
+2025-04-29 10:18:58,838 - INFO - New positions added: 0
+2025-04-29 10:18:58,839 - INFO - Positions skipped: 5
+2025-04-29 10:18:58,839 - INFO - Positions with errors: 0
+2025-04-29 10:18:58,845 - INFO - 
+==================================================
+NEW OPPORTUNITIES PROCESSING COMPLETE
+==================================================
+2025-04-29 10:18:58,847 - INFO - 
+==================================================
+SECTOR PROCESSING COMPLETE
+==================================================
+2025-04-29 10:18:58,850 - INFO - Saved 2 positions to dhan_positions.json
+2025-04-29 10:18:58,852 - INFO - 
+==================================================
+POSITIONS SUMMARY
+==================================================
+2025-04-29 10:18:58,854 - INFO - Current positions summary:
+2025-04-29 10:18:58,855 - INFO -   Open BUY positions: 0
+2025-04-29 10:18:58,855 - INFO -   Open SELL positions: 1
+2025-04-29 10:18:58,855 - INFO -   Closed positions: 1
+2025-04-29 10:18:58,856 - INFO -   Total positions: 2
+2025-04-29 10:18:58,856 - INFO - Open positions:
+2025-04-29 10:18:58,856 - INFO -   SELL SBILIFE.NS (Sector: Financial Services, Entry: 2025-04-29 06:11:17, Order ID: 9125042916552, SL%: 1.0%, Target%: 1.5%)
+2025-04-29 10:18:58,876 - INFO - Total P&L for closed positions: 0.0
+2025-04-29 10:18:58,877 - INFO - Recently closed positions:
+2025-04-29 10:18:58,878 - INFO -   BUY ZEEL.NS - Closed at 2025-04-29 07:33:48, Reason: Sector turned negative, P&L: Unknown
+2025-04-29 10:18:58,879 - INFO - 
+==================================================
+POSITIONS SUMMARY COMPLETE
+==================================================
+2025-04-29 10:18:58,881 - INFO - Trading cycle 4 completed
+2025-04-29 10:18:58,882 - INFO - Waiting 30 seconds until next check at 10:19:28...
+2025-04-29 10:18:58,882 - INFO - 
+==================================================
+CYCLE 4 COMPLETE
+==================================================
+2025-04-29 10:19:28,896 - INFO - 
+==================================================
+TRADING CYCLE 5
+==================================================
+2025-04-29 10:19:28,897 - INFO - Trading cycle 5 started at 2025-04-29 10:19:28
+2025-04-29 10:19:28,898 - INFO - 
+==================================================
+READING SECTOR PERFORMANCE DATA
+==================================================
+2025-04-29 10:19:28,899 - INFO - Reading sector performance data from sector.csv
+2025-04-29 10:19:28,900 - INFO - File last modified: 2025-04-29 10:18:20
+2025-04-29 10:19:28,907 - INFO - Latest timestamp in data: 2025-04-29 10:18:20
+2025-04-29 10:19:28,908 - INFO - Loaded data for 10 sectors
+2025-04-29 10:19:28,909 - INFO - Sector performance details:
+2025-04-29 10:19:28,910 - INFO -   IT: POSITIVE (1.77%)
+2025-04-29 10:19:28,911 - INFO -   PSU Bank: POSITIVE (0.36%)
+2025-04-29 10:19:28,913 - INFO -   FMCG: NEGATIVE (-0.12%)
+2025-04-29 10:19:28,913 - INFO -   Auto: NEGATIVE (-0.15%)
+2025-04-29 10:19:28,914 - INFO -   Energy: NEGATIVE (-0.18%)
+2025-04-29 10:19:28,916 - INFO -   Realty: NEGATIVE (-0.33%)
+2025-04-29 10:19:28,916 - INFO -   Financial Services: NEGATIVE (-0.35%)
+2025-04-29 10:19:28,917 - INFO -   Media: NEGATIVE (-0.56%)
+2025-04-29 10:19:28,919 - INFO -   Metal: NEGATIVE (-0.76%)
+2025-04-29 10:19:28,926 - INFO -   Pharma: NEGATIVE (-0.83%)
+2025-04-29 10:19:28,926 - INFO - 
+==================================================
+SECTOR DATA READ COMPLETE
+==================================================
+2025-04-29 10:19:28,928 - INFO - 
+==================================================
+PROCESSING SECTOR DATA
+==================================================
+2025-04-29 10:19:28,931 - INFO - Processed performance data for 10 sectors
+2025-04-29 10:19:28,932 - INFO - Processing existing positions for potential exits...
+2025-04-29 10:19:28,932 - INFO - 
+==================================================
+PROCESSING EXISTING POSITIONS
+==================================================
+2025-04-29 10:19:28,934 - INFO - Processing 2 existing positions
+2025-04-29 10:19:28,935 - INFO - Skipping already closed position for ZEEL.NS
+2025-04-29 10:19:28,935 - INFO - Checking position: SELL SBILIFE.NS (Sector: Financial Services)
+2025-04-29 10:19:28,936 - INFO - SECURITY ID LOOKUP: Searching for SBILIFE.NS
+2025-04-29 10:19:28,943 - INFO - Trying exact match for 'SBILIFE.NS'
+2025-04-29 10:19:28,944 - INFO - FOUND EXACT MATCH: ID 21808 for SBILIFE.NS
+2025-04-29 10:19:28,945 - INFO - Sector Financial Services is NEGATIVE with -0.35% change
+2025-04-29 10:19:28,946 - INFO - Getting current market price for SBILIFE.NS
+2025-04-29 10:19:28,947 - INFO - Failed to get quote using symbol: 'dhanhq' object has no attribute 'get_quote'
+2025-04-29 10:19:28,947 - INFO - Failed to get LTP using security_id: 'dhanhq' object has no attribute 'get_ltp'
+2025-04-29 10:19:28,948 - INFO - Failed to get price from candles: 'dhanhq' object has no attribute 'intraday_daily_minute_charts'
+2025-04-29 10:19:28,949 - ERROR - Could not get current market price for SBILIFE.NS
+2025-04-29 10:19:28,951 - WARNING - Could not get current market price for SBILIFE.NS
+2025-04-29 10:19:28,966 - INFO - No positions needed to be exited
+2025-04-29 10:19:28,966 - INFO - 
+==================================================
+POSITION PROCESSING COMPLETE
+==================================================
+2025-04-29 10:19:28,967 - INFO - Looking for new trading opportunities...
+2025-04-29 10:19:28,968 - INFO - 
+==================================================
+FINDING NEW TRADING OPPORTUNITIES
+==================================================
+2025-04-29 10:19:28,969 - INFO - Found 5 active tickers out of 5 total
+2025-04-29 10:19:28,969 - INFO - Processing tickers in order: ['SYNGENE.NS', 'ZEEL.NS', 'GRANULES.NS', 'SBILIFE.NS', 'RBLBANK.NS']
+2025-04-29 10:19:28,970 - INFO - Already have open positions for: ['SBILIFE.NS']
+2025-04-29 10:19:28,975 - INFO - Current sector performances:
+2025-04-29 10:19:28,975 - INFO -   Sector IT: POSITIVE (1.77%)
+2025-04-29 10:19:28,976 - INFO -   Sector PSU Bank: POSITIVE (0.36%)
+2025-04-29 10:19:28,976 - INFO -   Sector FMCG: NEGATIVE (-0.12%)
+2025-04-29 10:19:28,977 - INFO -   Sector Auto: NEGATIVE (-0.15%)
+2025-04-29 10:19:28,979 - INFO -   Sector Energy: NEGATIVE (-0.18%)
+2025-04-29 10:19:28,980 - INFO -   Sector Realty: NEGATIVE (-0.33%)
+2025-04-29 10:19:28,980 - INFO -   Sector Financial Services: NEGATIVE (-0.35%)
+2025-04-29 10:19:28,980 - INFO -   Sector Media: NEGATIVE (-0.56%)
+2025-04-29 10:19:28,981 - INFO -   Sector Metal: NEGATIVE (-0.76%)
+2025-04-29 10:19:28,981 - INFO -   Sector Pharma: NEGATIVE (-0.83%)
+2025-04-29 10:19:28,982 - INFO - Processing ticker 1: SYNGENE.NS
+2025-04-29 10:19:28,983 - INFO - Found sector Pharma for SYNGENE.NS
+2025-04-29 10:19:28,983 - INFO - Evaluating SYNGENE.NS in sector Pharma (-0.83%)
+2025-04-29 10:19:28,984 - INFO - Not trading SYNGENE.NS - sector performance doesn't match strategy
+2025-04-29 10:19:28,984 - INFO -   Transaction type: BUY
+2025-04-29 10:19:28,984 - INFO -   Sector is_positive: False
+2025-04-29 10:19:28,984 - INFO - Processing ticker 2: ZEEL.NS
+2025-04-29 10:19:28,985 - INFO - Found sector Media for ZEEL.NS
+2025-04-29 10:19:28,985 - INFO - Evaluating ZEEL.NS in sector Media (-0.56%)
+2025-04-29 10:19:28,985 - INFO - Not trading ZEEL.NS - sector performance doesn't match strategy
+2025-04-29 10:19:28,986 - INFO -   Transaction type: BUY
+2025-04-29 10:19:28,993 - INFO -   Sector is_positive: False
+2025-04-29 10:19:28,994 - INFO - Processing ticker 3: GRANULES.NS
+2025-04-29 10:19:29,000 - INFO - Found sector Pharma for GRANULES.NS
+2025-04-29 10:19:29,000 - INFO - Evaluating GRANULES.NS in sector Pharma (-0.83%)
+2025-04-29 10:19:29,001 - INFO - Not trading GRANULES.NS - sector performance doesn't match strategy
+2025-04-29 10:19:29,002 - INFO -   Transaction type: BUY
+2025-04-29 10:19:29,002 - INFO -   Sector is_positive: False
+2025-04-29 10:19:29,003 - INFO - Processing ticker 4: SBILIFE.NS
+2025-04-29 10:19:29,008 - INFO - Skipping SBILIFE.NS - already have an open position
+2025-04-29 10:19:29,009 - INFO - Processing ticker 5: RBLBANK.NS
+2025-04-29 10:19:29,010 - INFO - Found sector PVT Bank for RBLBANK.NS
+2025-04-29 10:19:29,010 - WARNING - No performance data for sector PVT Bank
+2025-04-29 10:19:29,011 - INFO - Ticker processing summary:
+2025-04-29 10:19:29,011 - INFO -   Total tickers considered: 5
+2025-04-29 10:19:29,011 - INFO -   Tickers with sector data: 4
+2025-04-29 10:19:29,013 - INFO -   Tickers matching strategy: 0
+2025-04-29 10:19:29,013 - INFO -   Tickers with security ID: 0
+2025-04-29 10:19:29,014 - INFO -   Orders successfully placed: 0
+2025-04-29 10:19:29,014 - INFO - New positions added: 0
+2025-04-29 10:19:29,015 - INFO - Positions skipped: 5
+2025-04-29 10:19:29,016 - INFO - Positions with errors: 0
+2025-04-29 10:19:29,016 - INFO - 
+==================================================
+NEW OPPORTUNITIES PROCESSING COMPLETE
+==================================================
+2025-04-29 10:19:29,017 - INFO - 
+==================================================
+SECTOR PROCESSING COMPLETE
+==================================================
+2025-04-29 10:19:29,026 - INFO - Saved 2 positions to dhan_positions.json
+2025-04-29 10:19:29,031 - INFO - 
+==================================================
+POSITIONS SUMMARY
+==================================================
+2025-04-29 10:19:29,032 - INFO - Current positions summary:
+2025-04-29 10:19:29,033 - INFO -   Open BUY positions: 0
+2025-04-29 10:19:29,033 - INFO -   Open SELL positions: 1
+2025-04-29 10:19:29,034 - INFO -   Closed positions: 1
+2025-04-29 10:19:29,035 - INFO -   Total positions: 2
+2025-04-29 10:19:29,036 - INFO - Open positions:
+2025-04-29 10:19:29,042 - INFO -   SELL SBILIFE.NS (Sector: Financial Services, Entry: 2025-04-29 06:11:17, Order ID: 9125042916552, SL%: 1.0%, Target%: 1.5%)
+2025-04-29 10:19:29,044 - INFO - Total P&L for closed positions: 0.0
+2025-04-29 10:19:29,045 - INFO - Recently closed positions:
+2025-04-29 10:19:29,046 - INFO -   BUY ZEEL.NS - Closed at 2025-04-29 07:33:48, Reason: Sector turned negative, P&L: Unknown
+2025-04-29 10:19:29,047 - INFO - 
+==================================================
+POSITIONS SUMMARY COMPLETE
+==================================================
+2025-04-29 10:19:29,048 - INFO - Trading cycle 5 completed
+2025-04-29 10:19:29,049 - INFO - Waiting 30 seconds until next check at 10:19:59...
+2025-04-29 10:19:29,049 - INFO - 
+==================================================
+CYCLE 5 COMPLETE
+==================================================
+2025-04-29 10:19:59,054 - INFO - 
+==================================================
+TRADING CYCLE 6
+==================================================
+2025-04-29 10:19:59,054 - INFO - Trading cycle 6 started at 2025-04-29 10:19:59
+2025-04-29 10:19:59,055 - INFO - 
+==================================================
+READING SECTOR PERFORMANCE DATA
+==================================================
+2025-04-29 10:19:59,055 - INFO - Reading sector performance data from sector.csv
+2025-04-29 10:19:59,056 - INFO - File last modified: 2025-04-29 10:18:20
+2025-04-29 10:19:59,059 - INFO - Latest timestamp in data: 2025-04-29 10:18:20
+2025-04-29 10:19:59,059 - INFO - Loaded data for 10 sectors
+2025-04-29 10:19:59,060 - INFO - Sector performance details:
+2025-04-29 10:19:59,061 - INFO -   IT: POSITIVE (1.77%)
+2025-04-29 10:19:59,062 - INFO -   PSU Bank: POSITIVE (0.36%)
+2025-04-29 10:19:59,062 - INFO -   FMCG: NEGATIVE (-0.12%)
+2025-04-29 10:19:59,063 - INFO -   Auto: NEGATIVE (-0.15%)
+2025-04-29 10:19:59,064 - INFO -   Energy: NEGATIVE (-0.18%)
+2025-04-29 10:19:59,064 - INFO -   Realty: NEGATIVE (-0.33%)
+2025-04-29 10:19:59,069 - INFO -   Financial Services: NEGATIVE (-0.35%)
+2025-04-29 10:19:59,071 - INFO -   Media: NEGATIVE (-0.56%)
+2025-04-29 10:19:59,072 - INFO -   Metal: NEGATIVE (-0.76%)
+2025-04-29 10:19:59,073 - INFO -   Pharma: NEGATIVE (-0.83%)
+2025-04-29 10:19:59,073 - INFO - 
+==================================================
+SECTOR DATA READ COMPLETE
+==================================================
+2025-04-29 10:19:59,075 - INFO - 
+==================================================
+PROCESSING SECTOR DATA
+==================================================
+2025-04-29 10:19:59,078 - INFO - Processed performance data for 10 sectors
+2025-04-29 10:19:59,078 - INFO - Processing existing positions for potential exits...
+2025-04-29 10:19:59,080 - INFO - 
+==================================================
+PROCESSING EXISTING POSITIONS
+==================================================
+2025-04-29 10:19:59,082 - INFO - Processing 2 existing positions
+2025-04-29 10:19:59,083 - INFO - Skipping already closed position for ZEEL.NS
+2025-04-29 10:19:59,089 - INFO - Checking position: SELL SBILIFE.NS (Sector: Financial Services)
+2025-04-29 10:19:59,090 - INFO - SECURITY ID LOOKUP: Searching for SBILIFE.NS
+2025-04-29 10:19:59,090 - INFO - Trying exact match for 'SBILIFE.NS'
+2025-04-29 10:19:59,092 - INFO - FOUND EXACT MATCH: ID 21808 for SBILIFE.NS
+2025-04-29 10:19:59,094 - INFO - Sector Financial Services is NEGATIVE with -0.35% change
+2025-04-29 10:19:59,095 - INFO - Getting current market price for SBILIFE.NS
+2025-04-29 10:19:59,096 - INFO - Failed to get quote using symbol: 'dhanhq' object has no attribute 'get_quote'
+2025-04-29 10:19:59,097 - INFO - Failed to get LTP using security_id: 'dhanhq' object has no attribute 'get_ltp'
+2025-04-29 10:19:59,097 - INFO - Failed to get price from candles: 'dhanhq' object has no attribute 'intraday_daily_minute_charts'
+2025-04-29 10:19:59,098 - ERROR - Could not get current market price for SBILIFE.NS
+2025-04-29 10:19:59,098 - WARNING - Could not get current market price for SBILIFE.NS
+2025-04-29 10:19:59,098 - INFO - No positions needed to be exited
+2025-04-29 10:19:59,099 - INFO - 
+==================================================
+POSITION PROCESSING COMPLETE
+==================================================
+2025-04-29 10:19:59,100 - INFO - Looking for new trading opportunities...
+2025-04-29 10:19:59,104 - INFO - 
+==================================================
+FINDING NEW TRADING OPPORTUNITIES
+==================================================
+2025-04-29 10:19:59,106 - INFO - Found 5 active tickers out of 5 total
+2025-04-29 10:19:59,106 - INFO - Processing tickers in order: ['SYNGENE.NS', 'ZEEL.NS', 'GRANULES.NS', 'SBILIFE.NS', 'RBLBANK.NS']
+2025-04-29 10:19:59,106 - INFO - Already have open positions for: ['SBILIFE.NS']
+2025-04-29 10:19:59,107 - INFO - Current sector performances:
+2025-04-29 10:19:59,107 - INFO -   Sector IT: POSITIVE (1.77%)
+2025-04-29 10:19:59,108 - INFO -   Sector PSU Bank: POSITIVE (0.36%)
+2025-04-29 10:19:59,109 - INFO -   Sector FMCG: NEGATIVE (-0.12%)
+2025-04-29 10:19:59,111 - INFO -   Sector Auto: NEGATIVE (-0.15%)
+2025-04-29 10:19:59,112 - INFO -   Sector Energy: NEGATIVE (-0.18%)
+2025-04-29 10:19:59,112 - INFO -   Sector Realty: NEGATIVE (-0.33%)
+2025-04-29 10:19:59,112 - INFO -   Sector Financial Services: NEGATIVE (-0.35%)
+2025-04-29 10:19:59,113 - INFO -   Sector Media: NEGATIVE (-0.56%)
+2025-04-29 10:19:59,113 - INFO -   Sector Metal: NEGATIVE (-0.76%)
+2025-04-29 10:19:59,113 - INFO -   Sector Pharma: NEGATIVE (-0.83%)
+2025-04-29 10:19:59,114 - INFO - Processing ticker 1: SYNGENE.NS
+2025-04-29 10:19:59,114 - INFO - Found sector Pharma for SYNGENE.NS
+2025-04-29 10:19:59,115 - INFO - Evaluating SYNGENE.NS in sector Pharma (-0.83%)
+2025-04-29 10:19:59,115 - INFO - Not trading SYNGENE.NS - sector performance doesn't match strategy
+2025-04-29 10:19:59,116 - INFO -   Transaction type: BUY
+2025-04-29 10:19:59,116 - INFO -   Sector is_positive: False
+2025-04-29 10:19:59,116 - INFO - Processing ticker 2: ZEEL.NS
+2025-04-29 10:19:59,117 - INFO - Found sector Media for ZEEL.NS
+2025-04-29 10:19:59,120 - INFO - Evaluating ZEEL.NS in sector Media (-0.56%)
+2025-04-29 10:19:59,121 - INFO - Not trading ZEEL.NS - sector performance doesn't match strategy
+2025-04-29 10:19:59,122 - INFO -   Transaction type: BUY
+2025-04-29 10:19:59,122 - INFO -   Sector is_positive: False
+2025-04-29 10:19:59,123 - INFO - Processing ticker 3: GRANULES.NS
+2025-04-29 10:19:59,123 - INFO - Found sector Pharma for GRANULES.NS
+2025-04-29 10:19:59,123 - INFO - Evaluating GRANULES.NS in sector Pharma (-0.83%)
+2025-04-29 10:19:59,125 - INFO - Not trading GRANULES.NS - sector performance doesn't match strategy
+2025-04-29 10:19:59,125 - INFO -   Transaction type: BUY
+2025-04-29 10:19:59,126 - INFO -   Sector is_positive: False
+2025-04-29 10:19:59,126 - INFO - Processing ticker 4: SBILIFE.NS
+2025-04-29 10:19:59,128 - INFO - Skipping SBILIFE.NS - already have an open position
+2025-04-29 10:19:59,128 - INFO - Processing ticker 5: RBLBANK.NS
+2025-04-29 10:19:59,128 - INFO - Found sector PVT Bank for RBLBANK.NS
+2025-04-29 10:19:59,129 - WARNING - No performance data for sector PVT Bank
+2025-04-29 10:19:59,129 - INFO - Ticker processing summary:
+2025-04-29 10:19:59,129 - INFO -   Total tickers considered: 5
+2025-04-29 10:19:59,129 - INFO -   Tickers with sector data: 4
+2025-04-29 10:19:59,131 - INFO -   Tickers matching strategy: 0
+2025-04-29 10:19:59,132 - INFO -   Tickers with security ID: 0
+2025-04-29 10:19:59,132 - INFO -   Orders successfully placed: 0
+2025-04-29 10:19:59,133 - INFO - New positions added: 0
+2025-04-29 10:19:59,133 - INFO - Positions skipped: 5
+2025-04-29 10:19:59,134 - INFO - Positions with errors: 0
+2025-04-29 10:19:59,137 - INFO - 
+==================================================
+NEW OPPORTUNITIES PROCESSING COMPLETE
+==================================================
+2025-04-29 10:19:59,138 - INFO - 
+==================================================
+SECTOR PROCESSING COMPLETE
+==================================================
+2025-04-29 10:19:59,142 - INFO - Saved 2 positions to dhan_positions.json
+2025-04-29 10:19:59,144 - INFO - 
+==================================================
+POSITIONS SUMMARY
+==================================================
+2025-04-29 10:19:59,146 - INFO - Current positions summary:
+2025-04-29 10:19:59,146 - INFO -   Open BUY positions: 0
+2025-04-29 10:19:59,146 - INFO -   Open SELL positions: 1
+2025-04-29 10:19:59,147 - INFO -   Closed positions: 1
+2025-04-29 10:19:59,147 - INFO -   Total positions: 2
+2025-04-29 10:19:59,148 - INFO - Open positions:
+2025-04-29 10:19:59,148 - INFO -   SELL SBILIFE.NS (Sector: Financial Services, Entry: 2025-04-29 06:11:17, Order ID: 9125042916552, SL%: 1.0%, Target%: 1.5%)
+2025-04-29 10:19:59,148 - INFO - Total P&L for closed positions: 0.0
+2025-04-29 10:19:59,149 - INFO - Recently closed positions:
+2025-04-29 10:19:59,149 - INFO -   BUY ZEEL.NS - Closed at 2025-04-29 07:33:48, Reason: Sector turned negative, P&L: Unknown
+2025-04-29 10:19:59,153 - INFO - 
+==================================================
+POSITIONS SUMMARY COMPLETE
+==================================================
+2025-04-29 10:19:59,156 - INFO - Trading cycle 6 completed
+2025-04-29 10:19:59,159 - INFO - Waiting 30 seconds until next check at 10:20:29...
+2025-04-29 10:19:59,161 - INFO - 
+==================================================
+CYCLE 6 COMPLETE
+==================================================
+2025-04-29 10:20:29,171 - INFO - 
+==================================================
+TRADING CYCLE 7
+==================================================
+2025-04-29 10:20:29,173 - INFO - Trading cycle 7 started at 2025-04-29 10:20:29
+2025-04-29 10:20:29,173 - INFO - 
+==================================================
+READING SECTOR PERFORMANCE DATA
+==================================================
+2025-04-29 10:20:29,173 - INFO - Reading sector performance data from sector.csv
+2025-04-29 10:20:29,174 - INFO - File last modified: 2025-04-29 10:20:05
+2025-04-29 10:20:29,176 - INFO - Latest timestamp in data: 2025-04-29 10:20:05
+2025-04-29 10:20:29,176 - INFO - Loaded data for 10 sectors
+2025-04-29 10:20:29,176 - INFO - Sector performance details:
+2025-04-29 10:20:29,177 - INFO -   IT: POSITIVE (1.77%)
+2025-04-29 10:20:29,178 - INFO -   PSU Bank: POSITIVE (0.36%)
+2025-04-29 10:20:29,178 - INFO -   FMCG: NEGATIVE (-0.12%)
+2025-04-29 10:20:29,179 - INFO -   Auto: NEGATIVE (-0.15%)
+2025-04-29 10:20:29,179 - INFO -   Energy: NEGATIVE (-0.18%)
+2025-04-29 10:20:29,180 - INFO -   Realty: NEGATIVE (-0.33%)
+2025-04-29 10:20:29,182 - INFO -   Financial Services: NEGATIVE (-0.35%)
+2025-04-29 10:20:29,183 - INFO -   Media: NEGATIVE (-0.56%)
+2025-04-29 10:20:29,184 - INFO -   Metal: NEGATIVE (-0.76%)
+2025-04-29 10:20:29,185 - INFO -   Pharma: NEGATIVE (-0.83%)
+2025-04-29 10:20:29,186 - INFO - 
+==================================================
+SECTOR DATA READ COMPLETE
+==================================================
+2025-04-29 10:20:29,187 - INFO - 
+==================================================
+PROCESSING SECTOR DATA
+==================================================
+2025-04-29 10:20:29,189 - INFO - Processed performance data for 10 sectors
+2025-04-29 10:20:29,189 - INFO - Processing existing positions for potential exits...
+2025-04-29 10:20:29,190 - INFO - 
+==================================================
+PROCESSING EXISTING POSITIONS
+==================================================
+2025-04-29 10:20:29,190 - INFO - Processing 2 existing positions
+2025-04-29 10:20:29,190 - INFO - Skipping already closed position for ZEEL.NS
+2025-04-29 10:20:29,191 - INFO - Checking position: SELL SBILIFE.NS (Sector: Financial Services)
+2025-04-29 10:20:29,192 - INFO - SECURITY ID LOOKUP: Searching for SBILIFE.NS
+2025-04-29 10:20:29,192 - INFO - Trying exact match for 'SBILIFE.NS'
+2025-04-29 10:20:29,192 - INFO - FOUND EXACT MATCH: ID 21808 for SBILIFE.NS
+2025-04-29 10:20:29,193 - INFO - Sector Financial Services is NEGATIVE with -0.35% change
+2025-04-29 10:20:29,193 - INFO - Getting current market price for SBILIFE.NS
+2025-04-29 10:20:29,193 - INFO - Failed to get quote using symbol: 'dhanhq' object has no attribute 'get_quote'
+2025-04-29 10:20:29,194 - INFO - Failed to get LTP using security_id: 'dhanhq' object has no attribute 'get_ltp'
+2025-04-29 10:20:29,195 - INFO - Failed to get price from candles: 'dhanhq' object has no attribute 'intraday_daily_minute_charts'
+2025-04-29 10:20:29,195 - ERROR - Could not get current market price for SBILIFE.NS
+2025-04-29 10:20:29,196 - WARNING - Could not get current market price for SBILIFE.NS
+2025-04-29 10:20:29,196 - INFO - No positions needed to be exited
+2025-04-29 10:20:29,196 - INFO - 
+==================================================
+POSITION PROCESSING COMPLETE
+==================================================
+2025-04-29 10:20:29,197 - INFO - Looking for new trading opportunities...
+2025-04-29 10:20:29,199 - INFO - 
+==================================================
+FINDING NEW TRADING OPPORTUNITIES
+==================================================
+2025-04-29 10:20:29,202 - INFO - Found 5 active tickers out of 5 total
+2025-04-29 10:20:29,203 - INFO - Processing tickers in order: ['SYNGENE.NS', 'ZEEL.NS', 'GRANULES.NS', 'SBILIFE.NS', 'RBLBANK.NS']
+2025-04-29 10:20:29,203 - INFO - Already have open positions for: ['SBILIFE.NS']
+2025-04-29 10:20:29,204 - INFO - Current sector performances:
+2025-04-29 10:20:29,204 - INFO -   Sector IT: POSITIVE (1.77%)
+2025-04-29 10:20:29,205 - INFO -   Sector PSU Bank: POSITIVE (0.36%)
+2025-04-29 10:20:29,205 - INFO -   Sector FMCG: NEGATIVE (-0.12%)
+2025-04-29 10:20:29,206 - INFO -   Sector Auto: NEGATIVE (-0.15%)
+2025-04-29 10:20:29,206 - INFO -   Sector Energy: NEGATIVE (-0.18%)
+2025-04-29 10:20:29,207 - INFO -   Sector Realty: NEGATIVE (-0.33%)
+2025-04-29 10:20:29,207 - INFO -   Sector Financial Services: NEGATIVE (-0.35%)
+2025-04-29 10:20:29,207 - INFO -   Sector Media: NEGATIVE (-0.56%)
+2025-04-29 10:20:29,207 - INFO -   Sector Metal: NEGATIVE (-0.76%)
+2025-04-29 10:20:29,208 - INFO -   Sector Pharma: NEGATIVE (-0.83%)
+2025-04-29 10:20:29,208 - INFO - Processing ticker 1: SYNGENE.NS
+2025-04-29 10:20:29,208 - INFO - Found sector Pharma for SYNGENE.NS
+2025-04-29 10:20:29,208 - INFO - Evaluating SYNGENE.NS in sector Pharma (-0.83%)
+2025-04-29 10:20:29,209 - INFO - Not trading SYNGENE.NS - sector performance doesn't match strategy
+2025-04-29 10:20:29,209 - INFO -   Transaction type: BUY
+2025-04-29 10:20:29,210 - INFO -   Sector is_positive: False
+2025-04-29 10:20:29,210 - INFO - Processing ticker 2: ZEEL.NS
+2025-04-29 10:20:29,210 - INFO - Found sector Media for ZEEL.NS
+2025-04-29 10:20:29,210 - INFO - Evaluating ZEEL.NS in sector Media (-0.56%)
+2025-04-29 10:20:29,211 - INFO - Not trading ZEEL.NS - sector performance doesn't match strategy
+2025-04-29 10:20:29,211 - INFO -   Transaction type: BUY
+2025-04-29 10:20:29,212 - INFO -   Sector is_positive: False
+2025-04-29 10:20:29,212 - INFO - Processing ticker 3: GRANULES.NS
+2025-04-29 10:20:29,213 - INFO - Found sector Pharma for GRANULES.NS
+2025-04-29 10:20:29,213 - INFO - Evaluating GRANULES.NS in sector Pharma (-0.83%)
+2025-04-29 10:20:29,213 - INFO - Not trading GRANULES.NS - sector performance doesn't match strategy
+2025-04-29 10:20:29,213 - INFO -   Transaction type: BUY
+2025-04-29 10:20:29,214 - INFO -   Sector is_positive: False
+2025-04-29 10:20:29,218 - INFO - Processing ticker 4: SBILIFE.NS
+2025-04-29 10:20:29,221 - INFO - Skipping SBILIFE.NS - already have an open position
+2025-04-29 10:20:29,222 - INFO - Processing ticker 5: RBLBANK.NS
+2025-04-29 10:20:29,223 - INFO - Found sector PVT Bank for RBLBANK.NS
+2025-04-29 10:20:29,224 - WARNING - No performance data for sector PVT Bank
+2025-04-29 10:20:29,224 - INFO - Ticker processing summary:
+2025-04-29 10:20:29,225 - INFO -   Total tickers considered: 5
+2025-04-29 10:20:29,225 - INFO -   Tickers with sector data: 4
+2025-04-29 10:20:29,226 - INFO -   Tickers matching strategy: 0
+2025-04-29 10:20:29,227 - INFO -   Tickers with security ID: 0
+2025-04-29 10:20:29,227 - INFO -   Orders successfully placed: 0
+2025-04-29 10:20:29,227 - INFO - New positions added: 0
+2025-04-29 10:20:29,228 - INFO - Positions skipped: 5
+2025-04-29 10:20:29,229 - INFO - Positions with errors: 0
+2025-04-29 10:20:29,229 - INFO - 
+==================================================
+NEW OPPORTUNITIES PROCESSING COMPLETE
+==================================================
+2025-04-29 10:20:29,230 - INFO - 
+==================================================
+SECTOR PROCESSING COMPLETE
+==================================================
+2025-04-29 10:20:29,245 - INFO - Saved 2 positions to dhan_positions.json
+2025-04-29 10:20:29,247 - INFO - 
+==================================================
+POSITIONS SUMMARY
+==================================================
+2025-04-29 10:20:29,341 - INFO - Current positions summary:
+2025-04-29 10:20:29,386 - INFO -   Open BUY positions: 0
+2025-04-29 10:20:29,416 - INFO -   Open SELL positions: 1
+2025-04-29 10:20:29,420 - INFO -   Closed positions: 1
+2025-04-29 10:20:29,427 - INFO -   Total positions: 2
+2025-04-29 10:20:29,436 - INFO - Open positions:
+2025-04-29 10:20:29,440 - INFO -   SELL SBILIFE.NS (Sector: Financial Services, Entry: 2025-04-29 06:11:17, Order ID: 9125042916552, SL%: 1.0%, Target%: 1.5%)
+2025-04-29 10:20:29,446 - INFO - Total P&L for closed positions: 0.0
+2025-04-29 10:20:29,446 - INFO - Recently closed positions:
+2025-04-29 10:20:29,447 - INFO -   BUY ZEEL.NS - Closed at 2025-04-29 07:33:48, Reason: Sector turned negative, P&L: Unknown
+2025-04-29 10:20:29,454 - INFO - 
+==================================================
+POSITIONS SUMMARY COMPLETE
+==================================================
+2025-04-29 10:20:29,456 - INFO - Trading cycle 7 completed
+2025-04-29 10:20:29,457 - INFO - Waiting 30 seconds until next check at 10:20:59...
+2025-04-29 10:20:29,457 - INFO - 
+==================================================
+CYCLE 7 COMPLETE
+==================================================
+2025-04-29 10:20:59,460 - INFO - 
+==================================================
+TRADING CYCLE 8
+==================================================
+2025-04-29 10:20:59,463 - INFO - Trading cycle 8 started at 2025-04-29 10:20:59
+2025-04-29 10:20:59,464 - INFO - 
+==================================================
+READING SECTOR PERFORMANCE DATA
+==================================================
+2025-04-29 10:20:59,464 - INFO - Reading sector performance data from sector.csv
+2025-04-29 10:20:59,467 - INFO - File last modified: 2025-04-29 10:20:05
+2025-04-29 10:20:59,469 - INFO - Latest timestamp in data: 2025-04-29 10:20:05
+2025-04-29 10:20:59,470 - INFO - Loaded data for 10 sectors
+2025-04-29 10:20:59,470 - INFO - Sector performance details:
+2025-04-29 10:20:59,470 - INFO -   IT: POSITIVE (1.77%)
+2025-04-29 10:20:59,471 - INFO -   PSU Bank: POSITIVE (0.36%)
+2025-04-29 10:20:59,472 - INFO -   FMCG: NEGATIVE (-0.12%)
+2025-04-29 10:20:59,472 - INFO -   Auto: NEGATIVE (-0.15%)
+2025-04-29 10:20:59,472 - INFO -   Energy: NEGATIVE (-0.18%)
+2025-04-29 10:20:59,473 - INFO -   Realty: NEGATIVE (-0.33%)
+2025-04-29 10:20:59,473 - INFO -   Financial Services: NEGATIVE (-0.35%)
+2025-04-29 10:20:59,474 - INFO -   Media: NEGATIVE (-0.56%)
+2025-04-29 10:20:59,475 - INFO -   Metal: NEGATIVE (-0.76%)
+2025-04-29 10:20:59,475 - INFO -   Pharma: NEGATIVE (-0.83%)
+2025-04-29 10:20:59,476 - INFO - 
+==================================================
+SECTOR DATA READ COMPLETE
+==================================================
+2025-04-29 10:20:59,476 - INFO - 
+==================================================
+PROCESSING SECTOR DATA
+==================================================
+2025-04-29 10:20:59,479 - INFO - Processed performance data for 10 sectors
+2025-04-29 10:20:59,479 - INFO - Processing existing positions for potential exits...
+2025-04-29 10:20:59,480 - INFO - 
+==================================================
+PROCESSING EXISTING POSITIONS
+==================================================
+2025-04-29 10:20:59,480 - INFO - Processing 2 existing positions
+2025-04-29 10:20:59,481 - INFO - Skipping already closed position for ZEEL.NS
+2025-04-29 10:20:59,481 - INFO - Checking position: SELL SBILIFE.NS (Sector: Financial Services)
+2025-04-29 10:20:59,482 - INFO - SECURITY ID LOOKUP: Searching for SBILIFE.NS
+2025-04-29 10:20:59,482 - INFO - Trying exact match for 'SBILIFE.NS'
+2025-04-29 10:20:59,482 - INFO - FOUND EXACT MATCH: ID 21808 for SBILIFE.NS
+2025-04-29 10:20:59,482 - INFO - Sector Financial Services is NEGATIVE with -0.35% change
+2025-04-29 10:20:59,483 - INFO - Getting current market price for SBILIFE.NS
+2025-04-29 10:20:59,483 - INFO - Failed to get quote using symbol: 'dhanhq' object has no attribute 'get_quote'
+2025-04-29 10:20:59,483 - INFO - Failed to get LTP using security_id: 'dhanhq' object has no attribute 'get_ltp'
+2025-04-29 10:20:59,484 - INFO - Failed to get price from candles: 'dhanhq' object has no attribute 'intraday_daily_minute_charts'
+2025-04-29 10:20:59,484 - ERROR - Could not get current market price for SBILIFE.NS
+2025-04-29 10:20:59,484 - WARNING - Could not get current market price for SBILIFE.NS
+2025-04-29 10:20:59,485 - INFO - No positions needed to be exited
+2025-04-29 10:20:59,486 - INFO - 
+==================================================
+POSITION PROCESSING COMPLETE
+==================================================
+2025-04-29 10:20:59,486 - INFO - Looking for new trading opportunities...
+2025-04-29 10:20:59,486 - INFO - 
+==================================================
+FINDING NEW TRADING OPPORTUNITIES
+==================================================
+2025-04-29 10:20:59,487 - INFO - Found 5 active tickers out of 5 total
+2025-04-29 10:20:59,487 - INFO - Processing tickers in order: ['SYNGENE.NS', 'ZEEL.NS', 'GRANULES.NS', 'SBILIFE.NS', 'RBLBANK.NS']
+2025-04-29 10:20:59,487 - INFO - Already have open positions for: ['SBILIFE.NS']
+2025-04-29 10:20:59,488 - INFO - Current sector performances:
+2025-04-29 10:20:59,488 - INFO -   Sector IT: POSITIVE (1.77%)
+2025-04-29 10:20:59,489 - INFO -   Sector PSU Bank: POSITIVE (0.36%)
+2025-04-29 10:20:59,489 - INFO -   Sector FMCG: NEGATIVE (-0.12%)
+2025-04-29 10:20:59,489 - INFO -   Sector Auto: NEGATIVE (-0.15%)
+2025-04-29 10:20:59,489 - INFO -   Sector Energy: NEGATIVE (-0.18%)
+2025-04-29 10:20:59,489 - INFO -   Sector Realty: NEGATIVE (-0.33%)
+2025-04-29 10:20:59,490 - INFO -   Sector Financial Services: NEGATIVE (-0.35%)
+2025-04-29 10:20:59,490 - INFO -   Sector Media: NEGATIVE (-0.56%)
+2025-04-29 10:20:59,490 - INFO -   Sector Metal: NEGATIVE (-0.76%)
+2025-04-29 10:20:59,491 - INFO -   Sector Pharma: NEGATIVE (-0.83%)
+2025-04-29 10:20:59,492 - INFO - Processing ticker 1: SYNGENE.NS
+2025-04-29 10:20:59,492 - INFO - Found sector Pharma for SYNGENE.NS
+2025-04-29 10:20:59,492 - INFO - Evaluating SYNGENE.NS in sector Pharma (-0.83%)
+2025-04-29 10:20:59,492 - INFO - Not trading SYNGENE.NS - sector performance doesn't match strategy
+2025-04-29 10:20:59,493 - INFO -   Transaction type: BUY
+2025-04-29 10:20:59,493 - INFO -   Sector is_positive: False
+2025-04-29 10:20:59,493 - INFO - Processing ticker 2: ZEEL.NS
+2025-04-29 10:20:59,493 - INFO - Found sector Media for ZEEL.NS
+2025-04-29 10:20:59,494 - INFO - Evaluating ZEEL.NS in sector Media (-0.56%)
+2025-04-29 10:20:59,496 - INFO - Not trading ZEEL.NS - sector performance doesn't match strategy
+2025-04-29 10:20:59,496 - INFO -   Transaction type: BUY
+2025-04-29 10:20:59,497 - INFO -   Sector is_positive: False
+2025-04-29 10:20:59,498 - INFO - Processing ticker 3: GRANULES.NS
+2025-04-29 10:20:59,498 - INFO - Found sector Pharma for GRANULES.NS
+2025-04-29 10:20:59,499 - INFO - Evaluating GRANULES.NS in sector Pharma (-0.83%)
+2025-04-29 10:20:59,500 - INFO - Not trading GRANULES.NS - sector performance doesn't match strategy
+2025-04-29 10:20:59,501 - INFO -   Transaction type: BUY
+2025-04-29 10:20:59,501 - INFO -   Sector is_positive: False
+2025-04-29 10:20:59,501 - INFO - Processing ticker 4: SBILIFE.NS
+2025-04-29 10:20:59,501 - INFO - Skipping SBILIFE.NS - already have an open position
+2025-04-29 10:20:59,502 - INFO - Processing ticker 5: RBLBANK.NS
+2025-04-29 10:20:59,502 - INFO - Found sector PVT Bank for RBLBANK.NS
+2025-04-29 10:20:59,502 - WARNING - No performance data for sector PVT Bank
+2025-04-29 10:20:59,502 - INFO - Ticker processing summary:
+2025-04-29 10:20:59,502 - INFO -   Total tickers considered: 5
+2025-04-29 10:20:59,503 - INFO -   Tickers with sector data: 4
+2025-04-29 10:20:59,503 - INFO -   Tickers matching strategy: 0
+2025-04-29 10:20:59,503 - INFO -   Tickers with security ID: 0
+2025-04-29 10:20:59,504 - INFO -   Orders successfully placed: 0
+2025-04-29 10:20:59,505 - INFO - New positions added: 0
+2025-04-29 10:20:59,505 - INFO - Positions skipped: 5
+2025-04-29 10:20:59,506 - INFO - Positions with errors: 0
+2025-04-29 10:20:59,507 - INFO - 
+==================================================
+NEW OPPORTUNITIES PROCESSING COMPLETE
+==================================================
+2025-04-29 10:20:59,507 - INFO - 
+==================================================
+SECTOR PROCESSING COMPLETE
+==================================================
+2025-04-29 10:20:59,509 - INFO - Saved 2 positions to dhan_positions.json
+2025-04-29 10:20:59,509 - INFO - 
+==================================================
+POSITIONS SUMMARY
+==================================================
+2025-04-29 10:20:59,510 - INFO - Current positions summary:
+2025-04-29 10:20:59,512 - INFO -   Open BUY positions: 0
+2025-04-29 10:20:59,513 - INFO -   Open SELL positions: 1
+2025-04-29 10:20:59,513 - INFO -   Closed positions: 1
+2025-04-29 10:20:59,513 - INFO -   Total positions: 2
+2025-04-29 10:20:59,513 - INFO - Open positions:
+2025-04-29 10:20:59,514 - INFO -   SELL SBILIFE.NS (Sector: Financial Services, Entry: 2025-04-29 06:11:17, Order ID: 9125042916552, SL%: 1.0%, Target%: 1.5%)
+2025-04-29 10:20:59,514 - INFO - Total P&L for closed positions: 0.0
+2025-04-29 10:20:59,515 - INFO - Recently closed positions:
+2025-04-29 10:20:59,515 - INFO -   BUY ZEEL.NS - Closed at 2025-04-29 07:33:48, Reason: Sector turned negative, P&L: Unknown
+2025-04-29 10:20:59,515 - INFO - 
+==================================================
+POSITIONS SUMMARY COMPLETE
+==================================================
+2025-04-29 10:20:59,516 - INFO - Trading cycle 8 completed
+2025-04-29 10:20:59,516 - INFO - Waiting 30 seconds until next check at 10:21:29...
+2025-04-29 10:20:59,516 - INFO - 
+==================================================
+CYCLE 8 COMPLETE
+==================================================
+2025-04-29 10:21:29,530 - INFO - 
+==================================================
+TRADING CYCLE 9
+==================================================
+2025-04-29 10:21:29,532 - INFO - Trading cycle 9 started at 2025-04-29 10:21:29
+2025-04-29 10:21:29,532 - INFO - 
+==================================================
+READING SECTOR PERFORMANCE DATA
+==================================================
+2025-04-29 10:21:29,533 - INFO - Reading sector performance data from sector.csv
+2025-04-29 10:21:29,534 - INFO - File last modified: 2025-04-29 10:20:05
+2025-04-29 10:21:29,539 - INFO - Latest timestamp in data: 2025-04-29 10:20:05
+2025-04-29 10:21:29,539 - INFO - Loaded data for 10 sectors
+2025-04-29 10:21:29,539 - INFO - Sector performance details:
+2025-04-29 10:21:29,543 - INFO -   IT: POSITIVE (1.77%)
+2025-04-29 10:21:29,544 - INFO -   PSU Bank: POSITIVE (0.36%)
+2025-04-29 10:21:29,547 - INFO -   FMCG: NEGATIVE (-0.12%)
+2025-04-29 10:21:29,548 - INFO -   Auto: NEGATIVE (-0.15%)
+2025-04-29 10:21:29,549 - INFO -   Energy: NEGATIVE (-0.18%)
+2025-04-29 10:21:29,549 - INFO -   Realty: NEGATIVE (-0.33%)
+2025-04-29 10:21:29,549 - INFO -   Financial Services: NEGATIVE (-0.35%)
+2025-04-29 10:21:29,550 - INFO -   Media: NEGATIVE (-0.56%)
+2025-04-29 10:21:29,552 - INFO -   Metal: NEGATIVE (-0.76%)
+2025-04-29 10:21:29,552 - INFO -   Pharma: NEGATIVE (-0.83%)
+2025-04-29 10:21:29,553 - INFO - 
+==================================================
+SECTOR DATA READ COMPLETE
+==================================================
+2025-04-29 10:21:29,553 - INFO - 
+==================================================
+PROCESSING SECTOR DATA
+==================================================
+2025-04-29 10:21:29,556 - INFO - Processed performance data for 10 sectors
+2025-04-29 10:21:29,556 - INFO - Processing existing positions for potential exits...
+2025-04-29 10:21:29,557 - INFO - 
+==================================================
+PROCESSING EXISTING POSITIONS
+==================================================
+2025-04-29 10:21:29,562 - INFO - Processing 2 existing positions
+2025-04-29 10:21:29,563 - INFO - Skipping already closed position for ZEEL.NS
+2025-04-29 10:21:29,563 - INFO - Checking position: SELL SBILIFE.NS (Sector: Financial Services)
+2025-04-29 10:21:29,564 - INFO - SECURITY ID LOOKUP: Searching for SBILIFE.NS
+2025-04-29 10:21:29,564 - INFO - Trying exact match for 'SBILIFE.NS'
+2025-04-29 10:21:29,566 - INFO - FOUND EXACT MATCH: ID 21808 for SBILIFE.NS
+2025-04-29 10:21:29,568 - INFO - Sector Financial Services is NEGATIVE with -0.35% change
+2025-04-29 10:21:29,568 - INFO - Getting current market price for SBILIFE.NS
+2025-04-29 10:21:29,568 - INFO - Failed to get quote using symbol: 'dhanhq' object has no attribute 'get_quote'
+2025-04-29 10:21:29,570 - INFO - Failed to get LTP using security_id: 'dhanhq' object has no attribute 'get_ltp'
+2025-04-29 10:21:29,570 - INFO - Failed to get price from candles: 'dhanhq' object has no attribute 'intraday_daily_minute_charts'
+2025-04-29 10:21:29,570 - ERROR - Could not get current market price for SBILIFE.NS
+2025-04-29 10:21:29,570 - WARNING - Could not get current market price for SBILIFE.NS
+2025-04-29 10:21:29,571 - INFO - No positions needed to be exited
+2025-04-29 10:21:29,571 - INFO - 
+==================================================
+POSITION PROCESSING COMPLETE
+==================================================
+2025-04-29 10:21:29,572 - INFO - Looking for new trading opportunities...
+2025-04-29 10:21:29,572 - INFO - 
+==================================================
+FINDING NEW TRADING OPPORTUNITIES
+==================================================
+2025-04-29 10:21:29,573 - INFO - Found 5 active tickers out of 5 total
+2025-04-29 10:21:29,573 - INFO - Processing tickers in order: ['SYNGENE.NS', 'ZEEL.NS', 'GRANULES.NS', 'SBILIFE.NS', 'RBLBANK.NS']
+2025-04-29 10:21:29,581 - INFO - Already have open positions for: ['SBILIFE.NS']
+2025-04-29 10:21:29,582 - INFO - Current sector performances:
+2025-04-29 10:21:29,583 - INFO -   Sector IT: POSITIVE (1.77%)
+2025-04-29 10:21:29,585 - INFO -   Sector PSU Bank: POSITIVE (0.36%)
+2025-04-29 10:21:29,586 - INFO -   Sector FMCG: NEGATIVE (-0.12%)
+2025-04-29 10:21:29,587 - INFO -   Sector Auto: NEGATIVE (-0.15%)
+2025-04-29 10:21:29,587 - INFO -   Sector Energy: NEGATIVE (-0.18%)
+2025-04-29 10:21:29,587 - INFO -   Sector Realty: NEGATIVE (-0.33%)
+2025-04-29 10:21:29,588 - INFO -   Sector Financial Services: NEGATIVE (-0.35%)
+2025-04-29 10:21:29,588 - INFO -   Sector Media: NEGATIVE (-0.56%)
+2025-04-29 10:21:29,588 - INFO -   Sector Metal: NEGATIVE (-0.76%)
+2025-04-29 10:21:29,589 - INFO -   Sector Pharma: NEGATIVE (-0.83%)
+2025-04-29 10:21:29,589 - INFO - Processing ticker 1: SYNGENE.NS
+2025-04-29 10:21:29,590 - INFO - Found sector Pharma for SYNGENE.NS
+2025-04-29 10:21:29,590 - INFO - Evaluating SYNGENE.NS in sector Pharma (-0.83%)
+2025-04-29 10:21:29,600 - INFO - Not trading SYNGENE.NS - sector performance doesn't match strategy
+2025-04-29 10:21:29,600 - INFO -   Transaction type: BUY
+2025-04-29 10:21:29,600 - INFO -   Sector is_positive: False
+2025-04-29 10:21:29,601 - INFO - Processing ticker 2: ZEEL.NS
+2025-04-29 10:21:29,602 - INFO - Found sector Media for ZEEL.NS
+2025-04-29 10:21:29,602 - INFO - Evaluating ZEEL.NS in sector Media (-0.56%)
+2025-04-29 10:21:29,603 - INFO - Not trading ZEEL.NS - sector performance doesn't match strategy
+2025-04-29 10:21:29,603 - INFO -   Transaction type: BUY
+2025-04-29 10:21:29,604 - INFO -   Sector is_positive: False
+2025-04-29 10:21:29,606 - INFO - Processing ticker 3: GRANULES.NS
+2025-04-29 10:21:29,607 - INFO - Found sector Pharma for GRANULES.NS
+2025-04-29 10:21:29,608 - INFO - Evaluating GRANULES.NS in sector Pharma (-0.83%)
+2025-04-29 10:21:29,613 - INFO - Not trading GRANULES.NS - sector performance doesn't match strategy
+2025-04-29 10:21:29,614 - INFO -   Transaction type: BUY
+2025-04-29 10:21:29,616 - INFO -   Sector is_positive: False
+2025-04-29 10:21:29,617 - INFO - Processing ticker 4: SBILIFE.NS
+2025-04-29 10:21:29,617 - INFO - Skipping SBILIFE.NS - already have an open position
+2025-04-29 10:21:29,618 - INFO - Processing ticker 5: RBLBANK.NS
+2025-04-29 10:21:29,619 - INFO - Found sector PVT Bank for RBLBANK.NS
+2025-04-29 10:21:29,620 - WARNING - No performance data for sector PVT Bank
+2025-04-29 10:21:29,621 - INFO - Ticker processing summary:
+2025-04-29 10:21:29,622 - INFO -   Total tickers considered: 5
+2025-04-29 10:21:29,623 - INFO -   Tickers with sector data: 4
+2025-04-29 10:21:29,623 - INFO -   Tickers matching strategy: 0
+2025-04-29 10:21:29,631 - INFO -   Tickers with security ID: 0
+2025-04-29 10:21:29,632 - INFO -   Orders successfully placed: 0
+2025-04-29 10:21:29,632 - INFO - New positions added: 0
+2025-04-29 10:21:29,633 - INFO - Positions skipped: 5
+2025-04-29 10:21:29,634 - INFO - Positions with errors: 0
+2025-04-29 10:21:29,636 - INFO - 
+==================================================
+NEW OPPORTUNITIES PROCESSING COMPLETE
+==================================================
+2025-04-29 10:21:29,638 - INFO - 
+==================================================
+SECTOR PROCESSING COMPLETE
+==================================================
+2025-04-29 10:21:29,641 - INFO - Saved 2 positions to dhan_positions.json
+2025-04-29 10:21:29,649 - INFO - 
+==================================================
+POSITIONS SUMMARY
+==================================================
+2025-04-29 10:21:29,651 - INFO - Current positions summary:
+2025-04-29 10:21:29,652 - INFO -   Open BUY positions: 0
+2025-04-29 10:21:29,652 - INFO -   Open SELL positions: 1
+2025-04-29 10:21:29,652 - INFO -   Closed positions: 1
+2025-04-29 10:21:29,652 - INFO -   Total positions: 2
+2025-04-29 10:21:29,652 - INFO - Open positions:
+2025-04-29 10:21:29,653 - INFO -   SELL SBILIFE.NS (Sector: Financial Services, Entry: 2025-04-29 06:11:17, Order ID: 9125042916552, SL%: 1.0%, Target%: 1.5%)
+2025-04-29 10:21:29,656 - INFO - Total P&L for closed positions: 0.0
+2025-04-29 10:21:29,656 - INFO - Recently closed positions:
+2025-04-29 10:21:29,657 - INFO -   BUY ZEEL.NS - Closed at 2025-04-29 07:33:48, Reason: Sector turned negative, P&L: Unknown
+2025-04-29 10:21:29,657 - INFO - 
+==================================================
+POSITIONS SUMMARY COMPLETE
+==================================================
+2025-04-29 10:21:29,662 - INFO - Trading cycle 9 completed
+2025-04-29 10:21:29,663 - INFO - Waiting 30 seconds until next check at 10:21:59...
+2025-04-29 10:21:29,664 - INFO - 
+==================================================
+CYCLE 9 COMPLETE
+==================================================
+2025-04-29 10:21:59,670 - INFO - 
+==================================================
+TRADING CYCLE 10
+==================================================
+2025-04-29 10:21:59,675 - INFO - Trading cycle 10 started at 2025-04-29 10:21:59
+2025-04-29 10:21:59,676 - INFO - 
+==================================================
+READING SECTOR PERFORMANCE DATA
+==================================================
+2025-04-29 10:21:59,677 - INFO - Reading sector performance data from sector.csv
+2025-04-29 10:21:59,679 - INFO - File last modified: 2025-04-29 10:21:54
+2025-04-29 10:21:59,682 - INFO - Latest timestamp in data: 2025-04-29 10:21:54
+2025-04-29 10:21:59,687 - INFO - Loaded data for 10 sectors
+2025-04-29 10:21:59,687 - INFO - Sector performance details:
+2025-04-29 10:21:59,689 - INFO -   IT: POSITIVE (1.77%)
+2025-04-29 10:21:59,690 - INFO -   PSU Bank: POSITIVE (0.36%)
+2025-04-29 10:21:59,694 - INFO -   FMCG: NEGATIVE (-0.12%)
+2025-04-29 10:21:59,695 - INFO -   Auto: NEGATIVE (-0.15%)
+2025-04-29 10:21:59,697 - INFO -   Energy: NEGATIVE (-0.18%)
+2025-04-29 10:21:59,698 - INFO -   Realty: NEGATIVE (-0.33%)
+2025-04-29 10:21:59,700 - INFO -   Financial Services: NEGATIVE (-0.35%)
+2025-04-29 10:21:59,702 - INFO -   Media: NEGATIVE (-0.56%)
+2025-04-29 10:21:59,703 - INFO -   Metal: NEGATIVE (-0.76%)
+2025-04-29 10:21:59,703 - INFO -   Pharma: NEGATIVE (-0.83%)
+2025-04-29 10:21:59,709 - INFO - 
+==================================================
+SECTOR DATA READ COMPLETE
+==================================================
+2025-04-29 10:21:59,710 - INFO - 
+==================================================
+PROCESSING SECTOR DATA
+==================================================
+2025-04-29 10:21:59,712 - INFO - Processed performance data for 10 sectors
+2025-04-29 10:21:59,714 - INFO - Processing existing positions for potential exits...
+2025-04-29 10:21:59,720 - INFO - 
+==================================================
+PROCESSING EXISTING POSITIONS
+==================================================
+2025-04-29 10:21:59,721 - INFO - Processing 2 existing positions
+2025-04-29 10:21:59,725 - INFO - Skipping already closed position for ZEEL.NS
+2025-04-29 10:21:59,726 - INFO - Checking position: SELL SBILIFE.NS (Sector: Financial Services)
+2025-04-29 10:21:59,727 - INFO - SECURITY ID LOOKUP: Searching for SBILIFE.NS
+2025-04-29 10:21:59,727 - INFO - Trying exact match for 'SBILIFE.NS'
+2025-04-29 10:21:59,727 - INFO - FOUND EXACT MATCH: ID 21808 for SBILIFE.NS
+2025-04-29 10:21:59,728 - INFO - Sector Financial Services is NEGATIVE with -0.35% change
+2025-04-29 10:21:59,728 - INFO - Getting current market price for SBILIFE.NS
+2025-04-29 10:21:59,729 - INFO - Failed to get quote using symbol: 'dhanhq' object has no attribute 'get_quote'
+2025-04-29 10:21:59,730 - INFO - Failed to get LTP using security_id: 'dhanhq' object has no attribute 'get_ltp'
+2025-04-29 10:21:59,731 - INFO - Failed to get price from candles: 'dhanhq' object has no attribute 'intraday_daily_minute_charts'
+2025-04-29 10:21:59,733 - ERROR - Could not get current market price for SBILIFE.NS
+2025-04-29 10:21:59,733 - WARNING - Could not get current market price for SBILIFE.NS
+2025-04-29 10:21:59,734 - INFO - No positions needed to be exited
+2025-04-29 10:21:59,734 - INFO - 
+==================================================
+POSITION PROCESSING COMPLETE
+==================================================
+2025-04-29 10:21:59,736 - INFO - Looking for new trading opportunities...
+2025-04-29 10:21:59,736 - INFO - 
+==================================================
+FINDING NEW TRADING OPPORTUNITIES
+==================================================
+2025-04-29 10:21:59,738 - INFO - Found 5 active tickers out of 5 total
+2025-04-29 10:21:59,741 - INFO - Processing tickers in order: ['SYNGENE.NS', 'ZEEL.NS', 'GRANULES.NS', 'SBILIFE.NS', 'RBLBANK.NS']
+2025-04-29 10:21:59,742 - INFO - Already have open positions for: ['SBILIFE.NS']
+2025-04-29 10:21:59,744 - INFO - Current sector performances:
+2025-04-29 10:21:59,745 - INFO -   Sector IT: POSITIVE (1.77%)
+2025-04-29 10:21:59,746 - INFO -   Sector PSU Bank: POSITIVE (0.36%)
+2025-04-29 10:21:59,747 - INFO -   Sector FMCG: NEGATIVE (-0.12%)
+2025-04-29 10:21:59,747 - INFO -   Sector Auto: NEGATIVE (-0.15%)
+2025-04-29 10:21:59,748 - INFO -   Sector Energy: NEGATIVE (-0.18%)
+2025-04-29 10:21:59,748 - INFO -   Sector Realty: NEGATIVE (-0.33%)
+2025-04-29 10:21:59,748 - INFO -   Sector Financial Services: NEGATIVE (-0.35%)
+2025-04-29 10:21:59,749 - INFO -   Sector Media: NEGATIVE (-0.56%)
+2025-04-29 10:21:59,749 - INFO -   Sector Metal: NEGATIVE (-0.76%)
+2025-04-29 10:21:59,750 - INFO -   Sector Pharma: NEGATIVE (-0.83%)
+2025-04-29 10:21:59,750 - INFO - Processing ticker 1: SYNGENE.NS
+2025-04-29 10:21:59,751 - INFO - Found sector Pharma for SYNGENE.NS
+2025-04-29 10:21:59,751 - INFO - Evaluating SYNGENE.NS in sector Pharma (-0.83%)
+2025-04-29 10:21:59,751 - INFO - Not trading SYNGENE.NS - sector performance doesn't match strategy
+2025-04-29 10:21:59,752 - INFO -   Transaction type: BUY
+2025-04-29 10:21:59,752 - INFO -   Sector is_positive: False
+2025-04-29 10:21:59,752 - INFO - Processing ticker 2: ZEEL.NS
+2025-04-29 10:21:59,752 - INFO - Found sector Media for ZEEL.NS
+2025-04-29 10:21:59,753 - INFO - Evaluating ZEEL.NS in sector Media (-0.56%)
+2025-04-29 10:21:59,753 - INFO - Not trading ZEEL.NS - sector performance doesn't match strategy
+2025-04-29 10:21:59,753 - INFO -   Transaction type: BUY
+2025-04-29 10:21:59,754 - INFO -   Sector is_positive: False
+2025-04-29 10:21:59,759 - INFO - Processing ticker 3: GRANULES.NS
+2025-04-29 10:21:59,760 - INFO - Found sector Pharma for GRANULES.NS
+2025-04-29 10:21:59,761 - INFO - Evaluating GRANULES.NS in sector Pharma (-0.83%)
+2025-04-29 10:21:59,762 - INFO - Not trading GRANULES.NS - sector performance doesn't match strategy
+2025-04-29 10:21:59,762 - INFO -   Transaction type: BUY
+2025-04-29 10:21:59,763 - INFO -   Sector is_positive: False
+2025-04-29 10:21:59,764 - INFO - Processing ticker 4: SBILIFE.NS
+2025-04-29 10:21:59,764 - INFO - Skipping SBILIFE.NS - already have an open position
+2025-04-29 10:21:59,765 - INFO - Processing ticker 5: RBLBANK.NS
+2025-04-29 10:21:59,765 - INFO - Found sector PVT Bank for RBLBANK.NS
+2025-04-29 10:21:59,766 - WARNING - No performance data for sector PVT Bank
+2025-04-29 10:21:59,767 - INFO - Ticker processing summary:
+2025-04-29 10:21:59,767 - INFO -   Total tickers considered: 5
+2025-04-29 10:21:59,767 - INFO -   Tickers with sector data: 4
+2025-04-29 10:21:59,768 - INFO -   Tickers matching strategy: 0
+2025-04-29 10:21:59,768 - INFO -   Tickers with security ID: 0
+2025-04-29 10:21:59,768 - INFO -   Orders successfully placed: 0
+2025-04-29 10:21:59,768 - INFO - New positions added: 0
+2025-04-29 10:21:59,769 - INFO - Positions skipped: 5
+2025-04-29 10:21:59,769 - INFO - Positions with errors: 0
+2025-04-29 10:21:59,770 - INFO - 
+==================================================
+NEW OPPORTUNITIES PROCESSING COMPLETE
+==================================================
+2025-04-29 10:21:59,770 - INFO - 
+==================================================
+SECTOR PROCESSING COMPLETE
+==================================================
+2025-04-29 10:21:59,779 - INFO - Saved 2 positions to dhan_positions.json
+2025-04-29 10:21:59,780 - INFO - 
+==================================================
+POSITIONS SUMMARY
+==================================================
+2025-04-29 10:21:59,781 - INFO - Current positions summary:
+2025-04-29 10:21:59,781 - INFO -   Open BUY positions: 0
+2025-04-29 10:21:59,781 - INFO -   Open SELL positions: 1
+2025-04-29 10:21:59,782 - INFO -   Closed positions: 1
+2025-04-29 10:21:59,782 - INFO -   Total positions: 2
+2025-04-29 10:21:59,782 - INFO - Open positions:
+2025-04-29 10:21:59,783 - INFO -   SELL SBILIFE.NS (Sector: Financial Services, Entry: 2025-04-29 06:11:17, Order ID: 9125042916552, SL%: 1.0%, Target%: 1.5%)
+2025-04-29 10:21:59,784 - INFO - Total P&L for closed positions: 0.0
+2025-04-29 10:21:59,785 - INFO - Recently closed positions:
+2025-04-29 10:21:59,785 - INFO -   BUY ZEEL.NS - Closed at 2025-04-29 07:33:48, Reason: Sector turned negative, P&L: Unknown
+2025-04-29 10:21:59,785 - INFO - 
+==================================================
+POSITIONS SUMMARY COMPLETE
+==================================================
+2025-04-29 10:21:59,786 - INFO - Trading cycle 10 completed
+2025-04-29 10:21:59,787 - INFO - Waiting 30 seconds until next check at 10:22:29...
+2025-04-29 10:21:59,787 - INFO - 
+==================================================
+CYCLE 10 COMPLETE
+==================================================
+2025-04-29 10:22:29,795 - INFO - 
+==================================================
+TRADING CYCLE 11
+==================================================
+2025-04-29 10:22:29,797 - INFO - Trading cycle 11 started at 2025-04-29 10:22:29
+2025-04-29 10:22:29,798 - INFO - 
+==================================================
+READING SECTOR PERFORMANCE DATA
+==================================================
+2025-04-29 10:22:29,799 - INFO - Reading sector performance data from sector.csv
+2025-04-29 10:22:29,800 - INFO - File last modified: 2025-04-29 10:21:54
+2025-04-29 10:22:29,807 - INFO - Latest timestamp in data: 2025-04-29 10:21:54
+2025-04-29 10:22:29,808 - INFO - Loaded data for 10 sectors
+2025-04-29 10:22:29,808 - INFO - Sector performance details:
+2025-04-29 10:22:29,809 - INFO -   IT: POSITIVE (1.77%)
+2025-04-29 10:22:29,809 - INFO -   PSU Bank: POSITIVE (0.36%)
+2025-04-29 10:22:29,810 - INFO -   FMCG: NEGATIVE (-0.12%)
+2025-04-29 10:22:29,810 - INFO -   Auto: NEGATIVE (-0.15%)
+2025-04-29 10:22:29,811 - INFO -   Energy: NEGATIVE (-0.18%)
+2025-04-29 10:22:29,812 - INFO -   Realty: NEGATIVE (-0.33%)
+2025-04-29 10:22:29,813 - INFO -   Financial Services: NEGATIVE (-0.35%)
+2025-04-29 10:22:29,815 - INFO -   Media: NEGATIVE (-0.56%)
+2025-04-29 10:22:29,816 - INFO -   Metal: NEGATIVE (-0.76%)
+2025-04-29 10:22:29,816 - INFO -   Pharma: NEGATIVE (-0.83%)
+2025-04-29 10:22:29,817 - INFO - 
+==================================================
+SECTOR DATA READ COMPLETE
+==================================================
+2025-04-29 10:22:29,817 - INFO - 
+==================================================
+PROCESSING SECTOR DATA
+==================================================
+2025-04-29 10:22:29,827 - INFO - Processed performance data for 10 sectors
+2025-04-29 10:22:29,828 - INFO - Processing existing positions for potential exits...
+2025-04-29 10:22:29,829 - INFO - 
+==================================================
+PROCESSING EXISTING POSITIONS
+==================================================
+2025-04-29 10:22:29,829 - INFO - Processing 2 existing positions
+2025-04-29 10:22:29,830 - INFO - Skipping already closed position for ZEEL.NS
+2025-04-29 10:22:29,830 - INFO - Checking position: SELL SBILIFE.NS (Sector: Financial Services)
+2025-04-29 10:22:29,830 - INFO - SECURITY ID LOOKUP: Searching for SBILIFE.NS
+2025-04-29 10:22:29,830 - INFO - Trying exact match for 'SBILIFE.NS'
+2025-04-29 10:22:29,831 - INFO - FOUND EXACT MATCH: ID 21808 for SBILIFE.NS
+2025-04-29 10:22:29,832 - INFO - Sector Financial Services is NEGATIVE with -0.35% change
+2025-04-29 10:22:29,832 - INFO - Getting current market price for SBILIFE.NS
+2025-04-29 10:22:29,832 - INFO - Failed to get quote using symbol: 'dhanhq' object has no attribute 'get_quote'
+2025-04-29 10:22:29,832 - INFO - Failed to get LTP using security_id: 'dhanhq' object has no attribute 'get_ltp'
+2025-04-29 10:22:29,832 - INFO - Failed to get price from candles: 'dhanhq' object has no attribute 'intraday_daily_minute_charts'
+2025-04-29 10:22:29,833 - ERROR - Could not get current market price for SBILIFE.NS
+2025-04-29 10:22:29,833 - WARNING - Could not get current market price for SBILIFE.NS
+2025-04-29 10:22:29,833 - INFO - No positions needed to be exited
+2025-04-29 10:22:29,833 - INFO - 
+==================================================
+POSITION PROCESSING COMPLETE
+==================================================
+2025-04-29 10:22:29,836 - INFO - Looking for new trading opportunities...
+2025-04-29 10:22:29,837 - INFO - 
+==================================================
+FINDING NEW TRADING OPPORTUNITIES
+==================================================
+2025-04-29 10:22:29,839 - INFO - Found 5 active tickers out of 5 total
+2025-04-29 10:22:29,839 - INFO - Processing tickers in order: ['SYNGENE.NS', 'ZEEL.NS', 'GRANULES.NS', 'SBILIFE.NS', 'RBLBANK.NS']
+2025-04-29 10:22:29,841 - INFO - Already have open positions for: ['SBILIFE.NS']
+2025-04-29 10:22:29,841 - INFO - Current sector performances:
+2025-04-29 10:22:29,841 - INFO -   Sector IT: POSITIVE (1.77%)
+2025-04-29 10:22:29,841 - INFO -   Sector PSU Bank: POSITIVE (0.36%)
+2025-04-29 10:22:29,842 - INFO -   Sector FMCG: NEGATIVE (-0.12%)
+2025-04-29 10:22:29,842 - INFO -   Sector Auto: NEGATIVE (-0.15%)
+2025-04-29 10:22:29,842 - INFO -   Sector Energy: NEGATIVE (-0.18%)
+2025-04-29 10:22:29,842 - INFO -   Sector Realty: NEGATIVE (-0.33%)
+2025-04-29 10:22:29,842 - INFO -   Sector Financial Services: NEGATIVE (-0.35%)
+2025-04-29 10:22:29,842 - INFO -   Sector Media: NEGATIVE (-0.56%)
+2025-04-29 10:22:29,843 - INFO -   Sector Metal: NEGATIVE (-0.76%)
+2025-04-29 10:22:29,843 - INFO -   Sector Pharma: NEGATIVE (-0.83%)
+2025-04-29 10:22:29,843 - INFO - Processing ticker 1: SYNGENE.NS
+2025-04-29 10:22:29,844 - INFO - Found sector Pharma for SYNGENE.NS
+2025-04-29 10:22:29,844 - INFO - Evaluating SYNGENE.NS in sector Pharma (-0.83%)
+2025-04-29 10:22:29,845 - INFO - Not trading SYNGENE.NS - sector performance doesn't match strategy
+2025-04-29 10:22:29,845 - INFO -   Transaction type: BUY
+2025-04-29 10:22:29,846 - INFO -   Sector is_positive: False
+2025-04-29 10:22:29,846 - INFO - Processing ticker 2: ZEEL.NS
+2025-04-29 10:22:29,846 - INFO - Found sector Media for ZEEL.NS
+2025-04-29 10:22:29,846 - INFO - Evaluating ZEEL.NS in sector Media (-0.56%)
+2025-04-29 10:22:29,847 - INFO - Not trading ZEEL.NS - sector performance doesn't match strategy
+2025-04-29 10:22:29,847 - INFO -   Transaction type: BUY
+2025-04-29 10:22:29,847 - INFO -   Sector is_positive: False
+2025-04-29 10:22:29,847 - INFO - Processing ticker 3: GRANULES.NS
+2025-04-29 10:22:29,848 - INFO - Found sector Pharma for GRANULES.NS
+2025-04-29 10:22:29,848 - INFO - Evaluating GRANULES.NS in sector Pharma (-0.83%)
+2025-04-29 10:22:29,848 - INFO - Not trading GRANULES.NS - sector performance doesn't match strategy
+2025-04-29 10:22:29,849 - INFO -   Transaction type: BUY
+2025-04-29 10:22:29,849 - INFO -   Sector is_positive: False
+2025-04-29 10:22:29,849 - INFO - Processing ticker 4: SBILIFE.NS
+2025-04-29 10:22:29,849 - INFO - Skipping SBILIFE.NS - already have an open position
+2025-04-29 10:22:29,850 - INFO - Processing ticker 5: RBLBANK.NS
+2025-04-29 10:22:29,850 - INFO - Found sector PVT Bank for RBLBANK.NS
+2025-04-29 10:22:29,850 - WARNING - No performance data for sector PVT Bank
+2025-04-29 10:22:29,852 - INFO - Ticker processing summary:
+2025-04-29 10:22:29,852 - INFO -   Total tickers considered: 5
+2025-04-29 10:22:29,853 - INFO -   Tickers with sector data: 4
+2025-04-29 10:22:29,858 - INFO -   Tickers matching strategy: 0
+2025-04-29 10:22:29,859 - INFO -   Tickers with security ID: 0
+2025-04-29 10:22:29,860 - INFO -   Orders successfully placed: 0
+2025-04-29 10:22:29,860 - INFO - New positions added: 0
+2025-04-29 10:22:29,860 - INFO - Positions skipped: 5
+2025-04-29 10:22:29,861 - INFO - Positions with errors: 0
+2025-04-29 10:22:29,861 - INFO - 
+==================================================
+NEW OPPORTUNITIES PROCESSING COMPLETE
+==================================================
+2025-04-29 10:22:29,861 - INFO - 
+==================================================
+SECTOR PROCESSING COMPLETE
+==================================================
+2025-04-29 10:22:29,864 - INFO - Saved 2 positions to dhan_positions.json
+2025-04-29 10:22:29,866 - INFO - 
+==================================================
+POSITIONS SUMMARY
+==================================================
+2025-04-29 10:22:29,866 - INFO - Current positions summary:
+2025-04-29 10:22:29,867 - INFO -   Open BUY positions: 0
+2025-04-29 10:22:29,867 - INFO -   Open SELL positions: 1
+2025-04-29 10:22:29,867 - INFO -   Closed positions: 1
+2025-04-29 10:22:29,869 - INFO -   Total positions: 2
+2025-04-29 10:22:29,870 - INFO - Open positions:
+2025-04-29 10:22:29,872 - INFO -   SELL SBILIFE.NS (Sector: Financial Services, Entry: 2025-04-29 06:11:17, Order ID: 9125042916552, SL%: 1.0%, Target%: 1.5%)
+2025-04-29 10:22:29,872 - INFO - Total P&L for closed positions: 0.0
+2025-04-29 10:22:29,873 - INFO - Recently closed positions:
+2025-04-29 10:22:29,874 - INFO -   BUY ZEEL.NS - Closed at 2025-04-29 07:33:48, Reason: Sector turned negative, P&L: Unknown
+2025-04-29 10:22:29,875 - INFO - 
+==================================================
+POSITIONS SUMMARY COMPLETE
+==================================================
+2025-04-29 10:22:29,876 - INFO - Trading cycle 11 completed
+2025-04-29 10:22:29,877 - INFO - Waiting 30 seconds until next check at 10:22:59...
+2025-04-29 10:22:29,877 - INFO - 
+==================================================
+CYCLE 11 COMPLETE
+==================================================
+2025-04-29 10:22:56,486 - INFO - Trading program stopped by user
+2025-04-29 10:22:56,488 - INFO - Saved 2 positions to dhan_positions.json
+2025-04-29 10:22:56,488 - INFO - 
+==================================================
+PROGRAM TERMINATED BY USER
+==================================================

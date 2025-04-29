@@ -1,0 +1,606 @@
+2025-04-29 04:56:19,573 - INFO - 
+==================================================
+PROGRAM START
+==================================================
+2025-04-29 04:56:19,574 - INFO - ==========================================
+2025-04-29 04:56:19,574 - INFO - Starting Dhan Sector-Based Trading Program
+2025-04-29 04:56:19,574 - INFO - ==========================================
+2025-04-29 04:56:19,574 - INFO - Current time: 2025-04-29 04:56:19
+2025-04-29 04:56:19,575 - WARNING - Current time (04:56:19) is outside market hours (9:30 - 15:30)
+2025-04-29 04:56:19,576 - INFO - Market is CLOSED
+2025-04-29 04:56:19,576 - INFO - Step 1: Loading trading configuration...
+2025-04-29 04:56:19,576 - INFO - Loading trading configuration from trading_config.json
+2025-04-29 04:56:19,577 - INFO - Configuration loaded successfully
+2025-04-29 04:56:19,577 - INFO - Found 5 active tickers out of 5 total
+2025-04-29 04:56:19,577 - INFO - Step 2: Verifying Dhan API connection...
+2025-04-29 04:56:19,577 - INFO - 
+==================================================
+DHAN CONNECTION TEST
+==================================================
+2025-04-29 04:56:19,578 - INFO - Testing Dhan API connection...
+2025-04-29 04:56:20,024 - INFO - Successfully connected to Dhan API
+2025-04-29 04:56:20,024 - INFO - Step 3: Loading sector mapping...
+2025-04-29 04:56:20,026 - INFO - Loading sector mapping from sector_mapping.json
+2025-04-29 04:56:20,026 - INFO - Sector mapping loaded successfully with 176 tickers
+2025-04-29 04:56:20,027 - INFO - Found 14 unique sectors
+2025-04-29 04:56:20,027 - INFO - Step 4: Loading security IDs mapping...
+2025-04-29 04:56:20,028 - INFO - Loading security IDs from security_ids.json
+2025-04-29 04:56:20,028 - INFO - Security IDs mapping loaded successfully with 141 tickers
+2025-04-29 04:56:20,029 - INFO - Step 5: Loading existing positions...
+2025-04-29 04:56:20,029 - INFO - Loaded 3 existing positions
+2025-04-29 04:56:20,029 - INFO - Positions: 3 open, 0 closed
+2025-04-29 04:56:20,030 - INFO - Step 6: Starting trading loop (check interval: 30 seconds)...
+2025-04-29 04:56:20,031 - INFO - 
+==================================================
+TRADING CYCLE 1
+==================================================
+2025-04-29 04:56:20,032 - INFO - Trading cycle 1 started at 2025-04-29 04:56:20
+2025-04-29 04:56:20,032 - WARNING - Current time (04:56:20) is outside market hours (9:30 - 15:30)
+2025-04-29 04:56:20,032 - INFO - Market is CLOSED
+2025-04-29 04:56:20,033 - INFO - 
+==================================================
+READING SECTOR PERFORMANCE DATA
+==================================================
+2025-04-29 04:56:20,036 - INFO - Reading sector performance data from sector.csv
+2025-04-29 04:56:20,038 - INFO - File last modified: 2025-04-29 04:56:17
+2025-04-29 04:56:20,044 - INFO - Latest timestamp in data: 2025-04-29 04:56:17
+2025-04-29 04:56:20,048 - INFO - Loaded data for 10 sectors
+2025-04-29 04:56:20,049 - INFO - 
+==================================================
+SECTOR DATA READ COMPLETE
+==================================================
+2025-04-29 04:56:20,050 - INFO - 
+==================================================
+PROCESSING SECTOR DATA
+==================================================
+2025-04-29 04:56:20,052 - INFO - Processed performance data for 10 sectors
+2025-04-29 04:56:20,053 - INFO - Processing existing positions for potential exits...
+2025-04-29 04:56:20,053 - INFO - 
+==================================================
+PROCESSING EXISTING POSITIONS
+==================================================
+2025-04-29 04:56:20,055 - INFO - Processing 3 existing positions
+2025-04-29 04:56:20,055 - INFO - Checking position: BUY SYNGENE.NS (Sector: Pharma)
+2025-04-29 04:56:20,057 - INFO - Sector Pharma is POSITIVE with 1.98% change
+2025-04-29 04:56:20,059 - INFO - Checking position: BUY ZEEL.NS (Sector: Media)
+2025-04-29 04:56:20,059 - INFO - Sector Media is POSITIVE with 0.79% change
+2025-04-29 04:56:20,060 - INFO - Checking position: BUY GRANULES.NS (Sector: Pharma)
+2025-04-29 04:56:20,061 - INFO - Sector Pharma is POSITIVE with 1.98% change
+2025-04-29 04:56:20,061 - INFO - No positions needed to be exited
+2025-04-29 04:56:20,061 - INFO - 
+==================================================
+POSITION PROCESSING COMPLETE
+==================================================
+2025-04-29 04:56:20,062 - WARNING - Current time (04:56:20) is outside market hours (9:30 - 15:30)
+2025-04-29 04:56:20,062 - WARNING - Outside market hours (9:30 AM - 3:30 PM) - Not placing new orders
+2025-04-29 04:56:20,063 - INFO - 
+==================================================
+SECTOR PROCESSING COMPLETE
+==================================================
+2025-04-29 04:56:20,065 - INFO - Saved 3 positions to dhan_positions.json
+2025-04-29 04:56:20,066 - INFO - 
+==================================================
+POSITIONS SUMMARY
+==================================================
+2025-04-29 04:56:20,067 - INFO - Current positions summary:
+2025-04-29 04:56:20,068 - INFO -   Open BUY positions: 3
+2025-04-29 04:56:20,068 - INFO -   Open SELL positions: 0
+2025-04-29 04:56:20,068 - INFO -   Closed positions: 0
+2025-04-29 04:56:20,068 - INFO -   Total positions: 3
+2025-04-29 04:56:20,069 - INFO - Open positions:
+2025-04-29 04:56:20,069 - INFO -   BUY SYNGENE.NS (Sector: Pharma, Entry: 2025-04-28 22:53:18)
+2025-04-29 04:56:20,069 - INFO -   BUY ZEEL.NS (Sector: Media, Entry: 2025-04-28 22:53:19)
+2025-04-29 04:56:20,069 - INFO -   BUY GRANULES.NS (Sector: Pharma, Entry: 2025-04-28 22:53:19)
+2025-04-29 04:56:20,070 - INFO - 
+==================================================
+POSITIONS SUMMARY COMPLETE
+==================================================
+2025-04-29 04:56:20,071 - INFO - Trading cycle 1 completed
+2025-04-29 04:56:20,077 - INFO - Waiting 30 seconds until next check at 04:56:50...
+2025-04-29 04:56:20,077 - INFO - 
+==================================================
+CYCLE 1 COMPLETE
+==================================================
+2025-04-29 04:56:50,093 - INFO - 
+==================================================
+TRADING CYCLE 2
+==================================================
+2025-04-29 04:56:50,094 - INFO - Trading cycle 2 started at 2025-04-29 04:56:50
+2025-04-29 04:56:50,094 - WARNING - Current time (04:56:50) is outside market hours (9:30 - 15:30)
+2025-04-29 04:56:50,095 - INFO - Market is CLOSED
+2025-04-29 04:56:50,095 - INFO - 
+==================================================
+READING SECTOR PERFORMANCE DATA
+==================================================
+2025-04-29 04:56:50,096 - INFO - Reading sector performance data from sector.csv
+2025-04-29 04:56:50,096 - INFO - File last modified: 2025-04-29 04:56:17
+2025-04-29 04:56:50,099 - INFO - Latest timestamp in data: 2025-04-29 04:56:17
+2025-04-29 04:56:50,099 - INFO - Loaded data for 10 sectors
+2025-04-29 04:56:50,099 - INFO - 
+==================================================
+SECTOR DATA READ COMPLETE
+==================================================
+2025-04-29 04:56:50,101 - INFO - 
+==================================================
+PROCESSING SECTOR DATA
+==================================================
+2025-04-29 04:56:50,103 - INFO - Processed performance data for 10 sectors
+2025-04-29 04:56:50,103 - INFO - Processing existing positions for potential exits...
+2025-04-29 04:56:50,104 - INFO - 
+==================================================
+PROCESSING EXISTING POSITIONS
+==================================================
+2025-04-29 04:56:50,105 - INFO - Processing 3 existing positions
+2025-04-29 04:56:50,105 - INFO - Checking position: BUY SYNGENE.NS (Sector: Pharma)
+2025-04-29 04:56:50,106 - INFO - Sector Pharma is POSITIVE with 1.98% change
+2025-04-29 04:56:50,107 - INFO - Checking position: BUY ZEEL.NS (Sector: Media)
+2025-04-29 04:56:50,107 - INFO - Sector Media is POSITIVE with 0.79% change
+2025-04-29 04:56:50,108 - INFO - Checking position: BUY GRANULES.NS (Sector: Pharma)
+2025-04-29 04:56:50,109 - INFO - Sector Pharma is POSITIVE with 1.98% change
+2025-04-29 04:56:50,110 - INFO - No positions needed to be exited
+2025-04-29 04:56:50,110 - INFO - 
+==================================================
+POSITION PROCESSING COMPLETE
+==================================================
+2025-04-29 04:56:50,111 - WARNING - Current time (04:56:50) is outside market hours (9:30 - 15:30)
+2025-04-29 04:56:50,111 - WARNING - Outside market hours (9:30 AM - 3:30 PM) - Not placing new orders
+2025-04-29 04:56:50,112 - INFO - 
+==================================================
+SECTOR PROCESSING COMPLETE
+==================================================
+2025-04-29 04:56:50,114 - INFO - Saved 3 positions to dhan_positions.json
+2025-04-29 04:56:50,114 - INFO - 
+==================================================
+POSITIONS SUMMARY
+==================================================
+2025-04-29 04:56:50,116 - INFO - Current positions summary:
+2025-04-29 04:56:50,116 - INFO -   Open BUY positions: 3
+2025-04-29 04:56:50,119 - INFO -   Open SELL positions: 0
+2025-04-29 04:56:50,121 - INFO -   Closed positions: 0
+2025-04-29 04:56:50,121 - INFO -   Total positions: 3
+2025-04-29 04:56:50,122 - INFO - Open positions:
+2025-04-29 04:56:50,122 - INFO -   BUY SYNGENE.NS (Sector: Pharma, Entry: 2025-04-28 22:53:18)
+2025-04-29 04:56:50,123 - INFO -   BUY ZEEL.NS (Sector: Media, Entry: 2025-04-28 22:53:19)
+2025-04-29 04:56:50,123 - INFO -   BUY GRANULES.NS (Sector: Pharma, Entry: 2025-04-28 22:53:19)
+2025-04-29 04:56:50,123 - INFO - 
+==================================================
+POSITIONS SUMMARY COMPLETE
+==================================================
+2025-04-29 04:56:50,125 - INFO - Trading cycle 2 completed
+2025-04-29 04:56:50,125 - INFO - Waiting 30 seconds until next check at 04:57:20...
+2025-04-29 04:56:50,126 - INFO - 
+==================================================
+CYCLE 2 COMPLETE
+==================================================
+2025-04-29 04:57:20,144 - INFO - 
+==================================================
+TRADING CYCLE 3
+==================================================
+2025-04-29 04:57:20,146 - INFO - Trading cycle 3 started at 2025-04-29 04:57:20
+2025-04-29 04:57:20,153 - WARNING - Current time (04:57:20) is outside market hours (9:30 - 15:30)
+2025-04-29 04:57:20,163 - INFO - Market is CLOSED
+2025-04-29 04:57:20,177 - INFO - 
+==================================================
+READING SECTOR PERFORMANCE DATA
+==================================================
+2025-04-29 04:57:20,193 - INFO - Reading sector performance data from sector.csv
+2025-04-29 04:57:20,211 - INFO - File last modified: 2025-04-29 04:56:17
+2025-04-29 04:57:20,230 - INFO - Latest timestamp in data: 2025-04-29 04:56:17
+2025-04-29 04:57:20,293 - INFO - Loaded data for 10 sectors
+2025-04-29 04:57:20,336 - INFO - 
+==================================================
+SECTOR DATA READ COMPLETE
+==================================================
+2025-04-29 04:57:20,436 - INFO - 
+==================================================
+PROCESSING SECTOR DATA
+==================================================
+2025-04-29 04:57:20,473 - INFO - Processed performance data for 10 sectors
+2025-04-29 04:57:20,525 - INFO - Processing existing positions for potential exits...
+2025-04-29 04:57:20,525 - INFO - 
+==================================================
+PROCESSING EXISTING POSITIONS
+==================================================
+2025-04-29 04:57:20,560 - INFO - Processing 3 existing positions
+2025-04-29 04:57:20,561 - INFO - Checking position: BUY SYNGENE.NS (Sector: Pharma)
+2025-04-29 04:57:20,562 - INFO - Sector Pharma is POSITIVE with 1.98% change
+2025-04-29 04:57:20,563 - INFO - Checking position: BUY ZEEL.NS (Sector: Media)
+2025-04-29 04:57:20,573 - INFO - Sector Media is POSITIVE with 0.79% change
+2025-04-29 04:57:20,574 - INFO - Checking position: BUY GRANULES.NS (Sector: Pharma)
+2025-04-29 04:57:20,575 - INFO - Sector Pharma is POSITIVE with 1.98% change
+2025-04-29 04:57:20,576 - INFO - No positions needed to be exited
+2025-04-29 04:57:20,576 - INFO - 
+==================================================
+POSITION PROCESSING COMPLETE
+==================================================
+2025-04-29 04:57:20,578 - WARNING - Current time (04:57:20) is outside market hours (9:30 - 15:30)
+2025-04-29 04:57:20,579 - WARNING - Outside market hours (9:30 AM - 3:30 PM) - Not placing new orders
+2025-04-29 04:57:20,579 - INFO - 
+==================================================
+SECTOR PROCESSING COMPLETE
+==================================================
+2025-04-29 04:57:20,593 - INFO - Saved 3 positions to dhan_positions.json
+2025-04-29 04:57:20,594 - INFO - 
+==================================================
+POSITIONS SUMMARY
+==================================================
+2025-04-29 04:57:20,595 - INFO - Current positions summary:
+2025-04-29 04:57:20,596 - INFO -   Open BUY positions: 3
+2025-04-29 04:57:20,596 - INFO -   Open SELL positions: 0
+2025-04-29 04:57:20,608 - INFO -   Closed positions: 0
+2025-04-29 04:57:20,610 - INFO -   Total positions: 3
+2025-04-29 04:57:20,610 - INFO - Open positions:
+2025-04-29 04:57:20,611 - INFO -   BUY SYNGENE.NS (Sector: Pharma, Entry: 2025-04-28 22:53:18)
+2025-04-29 04:57:20,612 - INFO -   BUY ZEEL.NS (Sector: Media, Entry: 2025-04-28 22:53:19)
+2025-04-29 04:57:20,612 - INFO -   BUY GRANULES.NS (Sector: Pharma, Entry: 2025-04-28 22:53:19)
+2025-04-29 04:57:20,613 - INFO - 
+==================================================
+POSITIONS SUMMARY COMPLETE
+==================================================
+2025-04-29 04:57:20,626 - INFO - Trading cycle 3 completed
+2025-04-29 04:57:20,627 - INFO - Waiting 30 seconds until next check at 04:57:50...
+2025-04-29 04:57:20,628 - INFO - 
+==================================================
+CYCLE 3 COMPLETE
+==================================================
+2025-04-29 04:57:50,659 - INFO - 
+==================================================
+TRADING CYCLE 4
+==================================================
+2025-04-29 04:57:50,660 - INFO - Trading cycle 4 started at 2025-04-29 04:57:50
+2025-04-29 04:57:50,660 - WARNING - Current time (04:57:50) is outside market hours (9:30 - 15:30)
+2025-04-29 04:57:50,661 - INFO - Market is CLOSED
+2025-04-29 04:57:50,662 - INFO - 
+==================================================
+READING SECTOR PERFORMANCE DATA
+==================================================
+2025-04-29 04:57:50,663 - INFO - Reading sector performance data from sector.csv
+2025-04-29 04:57:50,664 - INFO - File last modified: 2025-04-29 04:56:17
+2025-04-29 04:57:50,668 - INFO - Latest timestamp in data: 2025-04-29 04:56:17
+2025-04-29 04:57:50,669 - INFO - Loaded data for 10 sectors
+2025-04-29 04:57:50,669 - INFO - 
+==================================================
+SECTOR DATA READ COMPLETE
+==================================================
+2025-04-29 04:57:50,671 - INFO - 
+==================================================
+PROCESSING SECTOR DATA
+==================================================
+2025-04-29 04:57:50,675 - INFO - Processed performance data for 10 sectors
+2025-04-29 04:57:50,675 - INFO - Processing existing positions for potential exits...
+2025-04-29 04:57:50,675 - INFO - 
+==================================================
+PROCESSING EXISTING POSITIONS
+==================================================
+2025-04-29 04:57:50,676 - INFO - Processing 3 existing positions
+2025-04-29 04:57:50,677 - INFO - Checking position: BUY SYNGENE.NS (Sector: Pharma)
+2025-04-29 04:57:50,677 - INFO - Sector Pharma is POSITIVE with 1.98% change
+2025-04-29 04:57:50,680 - INFO - Checking position: BUY ZEEL.NS (Sector: Media)
+2025-04-29 04:57:50,681 - INFO - Sector Media is POSITIVE with 0.79% change
+2025-04-29 04:57:50,681 - INFO - Checking position: BUY GRANULES.NS (Sector: Pharma)
+2025-04-29 04:57:50,682 - INFO - Sector Pharma is POSITIVE with 1.98% change
+2025-04-29 04:57:50,683 - INFO - No positions needed to be exited
+2025-04-29 04:57:50,683 - INFO - 
+==================================================
+POSITION PROCESSING COMPLETE
+==================================================
+2025-04-29 04:57:50,684 - WARNING - Current time (04:57:50) is outside market hours (9:30 - 15:30)
+2025-04-29 04:57:50,685 - WARNING - Outside market hours (9:30 AM - 3:30 PM) - Not placing new orders
+2025-04-29 04:57:50,685 - INFO - 
+==================================================
+SECTOR PROCESSING COMPLETE
+==================================================
+2025-04-29 04:57:50,692 - INFO - Saved 3 positions to dhan_positions.json
+2025-04-29 04:57:50,693 - INFO - 
+==================================================
+POSITIONS SUMMARY
+==================================================
+2025-04-29 04:57:50,695 - INFO - Current positions summary:
+2025-04-29 04:57:50,696 - INFO -   Open BUY positions: 3
+2025-04-29 04:57:50,697 - INFO -   Open SELL positions: 0
+2025-04-29 04:57:50,697 - INFO -   Closed positions: 0
+2025-04-29 04:57:50,698 - INFO -   Total positions: 3
+2025-04-29 04:57:50,698 - INFO - Open positions:
+2025-04-29 04:57:50,699 - INFO -   BUY SYNGENE.NS (Sector: Pharma, Entry: 2025-04-28 22:53:18)
+2025-04-29 04:57:50,699 - INFO -   BUY ZEEL.NS (Sector: Media, Entry: 2025-04-28 22:53:19)
+2025-04-29 04:57:50,699 - INFO -   BUY GRANULES.NS (Sector: Pharma, Entry: 2025-04-28 22:53:19)
+2025-04-29 04:57:50,700 - INFO - 
+==================================================
+POSITIONS SUMMARY COMPLETE
+==================================================
+2025-04-29 04:57:50,701 - INFO - Trading cycle 4 completed
+2025-04-29 04:57:50,701 - INFO - Waiting 30 seconds until next check at 04:58:20...
+2025-04-29 04:57:50,702 - INFO - 
+==================================================
+CYCLE 4 COMPLETE
+==================================================
+2025-04-29 04:58:20,711 - INFO - 
+==================================================
+TRADING CYCLE 5
+==================================================
+2025-04-29 04:58:20,712 - INFO - Trading cycle 5 started at 2025-04-29 04:58:20
+2025-04-29 04:58:20,712 - WARNING - Current time (04:58:20) is outside market hours (9:30 - 15:30)
+2025-04-29 04:58:20,713 - INFO - Market is CLOSED
+2025-04-29 04:58:20,713 - INFO - 
+==================================================
+READING SECTOR PERFORMANCE DATA
+==================================================
+2025-04-29 04:58:20,714 - INFO - Reading sector performance data from sector.csv
+2025-04-29 04:58:20,715 - INFO - File last modified: 2025-04-29 04:58:09
+2025-04-29 04:58:20,726 - INFO - Latest timestamp in data: 2025-04-29 04:58:09
+2025-04-29 04:58:20,731 - INFO - Loaded data for 10 sectors
+2025-04-29 04:58:20,732 - INFO - 
+==================================================
+SECTOR DATA READ COMPLETE
+==================================================
+2025-04-29 04:58:20,736 - INFO - 
+==================================================
+PROCESSING SECTOR DATA
+==================================================
+2025-04-29 04:58:20,746 - INFO - Processed performance data for 10 sectors
+2025-04-29 04:58:20,753 - INFO - Processing existing positions for potential exits...
+2025-04-29 04:58:20,754 - INFO - 
+==================================================
+PROCESSING EXISTING POSITIONS
+==================================================
+2025-04-29 04:58:20,755 - INFO - Processing 3 existing positions
+2025-04-29 04:58:20,764 - INFO - Checking position: BUY SYNGENE.NS (Sector: Pharma)
+2025-04-29 04:58:20,769 - INFO - Sector Pharma is POSITIVE with 1.98% change
+2025-04-29 04:58:20,771 - INFO - Checking position: BUY ZEEL.NS (Sector: Media)
+2025-04-29 04:58:20,772 - INFO - Sector Media is POSITIVE with 0.79% change
+2025-04-29 04:58:20,773 - INFO - Checking position: BUY GRANULES.NS (Sector: Pharma)
+2025-04-29 04:58:20,773 - INFO - Sector Pharma is POSITIVE with 1.98% change
+2025-04-29 04:58:20,784 - INFO - No positions needed to be exited
+2025-04-29 04:58:20,785 - INFO - 
+==================================================
+POSITION PROCESSING COMPLETE
+==================================================
+2025-04-29 04:58:20,786 - WARNING - Current time (04:58:20) is outside market hours (9:30 - 15:30)
+2025-04-29 04:58:20,786 - WARNING - Outside market hours (9:30 AM - 3:30 PM) - Not placing new orders
+2025-04-29 04:58:20,787 - INFO - 
+==================================================
+SECTOR PROCESSING COMPLETE
+==================================================
+2025-04-29 04:58:20,790 - INFO - Saved 3 positions to dhan_positions.json
+2025-04-29 04:58:20,790 - INFO - 
+==================================================
+POSITIONS SUMMARY
+==================================================
+2025-04-29 04:58:20,794 - INFO - Current positions summary:
+2025-04-29 04:58:20,795 - INFO -   Open BUY positions: 3
+2025-04-29 04:58:20,796 - INFO -   Open SELL positions: 0
+2025-04-29 04:58:20,796 - INFO -   Closed positions: 0
+2025-04-29 04:58:20,797 - INFO -   Total positions: 3
+2025-04-29 04:58:20,798 - INFO - Open positions:
+2025-04-29 04:58:20,800 - INFO -   BUY SYNGENE.NS (Sector: Pharma, Entry: 2025-04-28 22:53:18)
+2025-04-29 04:58:20,817 - INFO -   BUY ZEEL.NS (Sector: Media, Entry: 2025-04-28 22:53:19)
+2025-04-29 04:58:20,818 - INFO -   BUY GRANULES.NS (Sector: Pharma, Entry: 2025-04-28 22:53:19)
+2025-04-29 04:58:20,819 - INFO - 
+==================================================
+POSITIONS SUMMARY COMPLETE
+==================================================
+2025-04-29 04:58:20,821 - INFO - Trading cycle 5 completed
+2025-04-29 04:58:20,821 - INFO - Waiting 30 seconds until next check at 04:58:50...
+2025-04-29 04:58:20,829 - INFO - 
+==================================================
+CYCLE 5 COMPLETE
+==================================================
+2025-04-29 04:58:50,833 - INFO - 
+==================================================
+TRADING CYCLE 6
+==================================================
+2025-04-29 04:58:50,834 - INFO - Trading cycle 6 started at 2025-04-29 04:58:50
+2025-04-29 04:58:50,835 - WARNING - Current time (04:58:50) is outside market hours (9:30 - 15:30)
+2025-04-29 04:58:50,835 - INFO - Market is CLOSED
+2025-04-29 04:58:50,835 - INFO - 
+==================================================
+READING SECTOR PERFORMANCE DATA
+==================================================
+2025-04-29 04:58:50,836 - INFO - Reading sector performance data from sector.csv
+2025-04-29 04:58:50,837 - INFO - File last modified: 2025-04-29 04:58:09
+2025-04-29 04:58:50,844 - INFO - Latest timestamp in data: 2025-04-29 04:58:09
+2025-04-29 04:58:50,845 - INFO - Loaded data for 10 sectors
+2025-04-29 04:58:50,869 - INFO - 
+==================================================
+SECTOR DATA READ COMPLETE
+==================================================
+2025-04-29 04:58:50,878 - INFO - 
+==================================================
+PROCESSING SECTOR DATA
+==================================================
+2025-04-29 04:58:50,881 - INFO - Processed performance data for 10 sectors
+2025-04-29 04:58:50,881 - INFO - Processing existing positions for potential exits...
+2025-04-29 04:58:50,882 - INFO - 
+==================================================
+PROCESSING EXISTING POSITIONS
+==================================================
+2025-04-29 04:58:50,883 - INFO - Processing 3 existing positions
+2025-04-29 04:58:50,885 - INFO - Checking position: BUY SYNGENE.NS (Sector: Pharma)
+2025-04-29 04:58:50,886 - INFO - Sector Pharma is POSITIVE with 1.98% change
+2025-04-29 04:58:50,886 - INFO - Checking position: BUY ZEEL.NS (Sector: Media)
+2025-04-29 04:58:50,887 - INFO - Sector Media is POSITIVE with 0.79% change
+2025-04-29 04:58:50,897 - INFO - Checking position: BUY GRANULES.NS (Sector: Pharma)
+2025-04-29 04:58:50,899 - INFO - Sector Pharma is POSITIVE with 1.98% change
+2025-04-29 04:58:50,900 - INFO - No positions needed to be exited
+2025-04-29 04:58:50,901 - INFO - 
+==================================================
+POSITION PROCESSING COMPLETE
+==================================================
+2025-04-29 04:58:50,903 - WARNING - Current time (04:58:50) is outside market hours (9:30 - 15:30)
+2025-04-29 04:58:50,904 - WARNING - Outside market hours (9:30 AM - 3:30 PM) - Not placing new orders
+2025-04-29 04:58:50,909 - INFO - 
+==================================================
+SECTOR PROCESSING COMPLETE
+==================================================
+2025-04-29 04:58:50,915 - INFO - Saved 3 positions to dhan_positions.json
+2025-04-29 04:58:50,918 - INFO - 
+==================================================
+POSITIONS SUMMARY
+==================================================
+2025-04-29 04:58:50,919 - INFO - Current positions summary:
+2025-04-29 04:58:50,919 - INFO -   Open BUY positions: 3
+2025-04-29 04:58:50,920 - INFO -   Open SELL positions: 0
+2025-04-29 04:58:50,927 - INFO -   Closed positions: 0
+2025-04-29 04:58:50,928 - INFO -   Total positions: 3
+2025-04-29 04:58:50,929 - INFO - Open positions:
+2025-04-29 04:58:50,930 - INFO -   BUY SYNGENE.NS (Sector: Pharma, Entry: 2025-04-28 22:53:18)
+2025-04-29 04:58:50,932 - INFO -   BUY ZEEL.NS (Sector: Media, Entry: 2025-04-28 22:53:19)
+2025-04-29 04:58:50,933 - INFO -   BUY GRANULES.NS (Sector: Pharma, Entry: 2025-04-28 22:53:19)
+2025-04-29 04:58:50,933 - INFO - 
+==================================================
+POSITIONS SUMMARY COMPLETE
+==================================================
+2025-04-29 04:58:50,935 - INFO - Trading cycle 6 completed
+2025-04-29 04:58:50,935 - INFO - Waiting 30 seconds until next check at 04:59:20...
+2025-04-29 04:58:50,936 - INFO - 
+==================================================
+CYCLE 6 COMPLETE
+==================================================
+2025-04-29 04:59:20,954 - INFO - 
+==================================================
+TRADING CYCLE 7
+==================================================
+2025-04-29 04:59:20,957 - INFO - Trading cycle 7 started at 2025-04-29 04:59:20
+2025-04-29 04:59:20,964 - WARNING - Current time (04:59:20) is outside market hours (9:30 - 15:30)
+2025-04-29 04:59:20,974 - INFO - Market is CLOSED
+2025-04-29 04:59:20,976 - INFO - 
+==================================================
+READING SECTOR PERFORMANCE DATA
+==================================================
+2025-04-29 04:59:20,980 - INFO - Reading sector performance data from sector.csv
+2025-04-29 04:59:20,981 - INFO - File last modified: 2025-04-29 04:58:09
+2025-04-29 04:59:21,000 - INFO - Latest timestamp in data: 2025-04-29 04:58:09
+2025-04-29 04:59:21,015 - INFO - Loaded data for 10 sectors
+2025-04-29 04:59:21,016 - INFO - 
+==================================================
+SECTOR DATA READ COMPLETE
+==================================================
+2025-04-29 04:59:21,024 - INFO - 
+==================================================
+PROCESSING SECTOR DATA
+==================================================
+2025-04-29 04:59:21,031 - INFO - Processed performance data for 10 sectors
+2025-04-29 04:59:21,031 - INFO - Processing existing positions for potential exits...
+2025-04-29 04:59:21,032 - INFO - 
+==================================================
+PROCESSING EXISTING POSITIONS
+==================================================
+2025-04-29 04:59:21,033 - INFO - Processing 3 existing positions
+2025-04-29 04:59:21,034 - INFO - Checking position: BUY SYNGENE.NS (Sector: Pharma)
+2025-04-29 04:59:21,042 - INFO - Sector Pharma is POSITIVE with 1.98% change
+2025-04-29 04:59:21,042 - INFO - Checking position: BUY ZEEL.NS (Sector: Media)
+2025-04-29 04:59:21,048 - INFO - Sector Media is POSITIVE with 0.79% change
+2025-04-29 04:59:21,049 - INFO - Checking position: BUY GRANULES.NS (Sector: Pharma)
+2025-04-29 04:59:21,050 - INFO - Sector Pharma is POSITIVE with 1.98% change
+2025-04-29 04:59:21,050 - INFO - No positions needed to be exited
+2025-04-29 04:59:21,051 - INFO - 
+==================================================
+POSITION PROCESSING COMPLETE
+==================================================
+2025-04-29 04:59:21,064 - WARNING - Current time (04:59:21) is outside market hours (9:30 - 15:30)
+2025-04-29 04:59:21,066 - WARNING - Outside market hours (9:30 AM - 3:30 PM) - Not placing new orders
+2025-04-29 04:59:21,072 - INFO - 
+==================================================
+SECTOR PROCESSING COMPLETE
+==================================================
+2025-04-29 04:59:21,076 - INFO - Saved 3 positions to dhan_positions.json
+2025-04-29 04:59:21,097 - INFO - 
+==================================================
+POSITIONS SUMMARY
+==================================================
+2025-04-29 04:59:21,110 - INFO - Current positions summary:
+2025-04-29 04:59:21,112 - INFO -   Open BUY positions: 3
+2025-04-29 04:59:21,113 - INFO -   Open SELL positions: 0
+2025-04-29 04:59:21,113 - INFO -   Closed positions: 0
+2025-04-29 04:59:21,114 - INFO -   Total positions: 3
+2025-04-29 04:59:21,114 - INFO - Open positions:
+2025-04-29 04:59:21,115 - INFO -   BUY SYNGENE.NS (Sector: Pharma, Entry: 2025-04-28 22:53:18)
+2025-04-29 04:59:21,116 - INFO -   BUY ZEEL.NS (Sector: Media, Entry: 2025-04-28 22:53:19)
+2025-04-29 04:59:21,132 - INFO -   BUY GRANULES.NS (Sector: Pharma, Entry: 2025-04-28 22:53:19)
+2025-04-29 04:59:21,148 - INFO - 
+==================================================
+POSITIONS SUMMARY COMPLETE
+==================================================
+2025-04-29 04:59:21,164 - INFO - Trading cycle 7 completed
+2025-04-29 04:59:21,167 - INFO - Waiting 30 seconds until next check at 04:59:51...
+2025-04-29 04:59:21,182 - INFO - 
+==================================================
+CYCLE 7 COMPLETE
+==================================================
+2025-04-29 04:59:51,202 - INFO - 
+==================================================
+TRADING CYCLE 8
+==================================================
+2025-04-29 04:59:51,204 - INFO - Trading cycle 8 started at 2025-04-29 04:59:51
+2025-04-29 04:59:51,205 - WARNING - Current time (04:59:51) is outside market hours (9:30 - 15:30)
+2025-04-29 04:59:51,205 - INFO - Market is CLOSED
+2025-04-29 04:59:51,206 - INFO - 
+==================================================
+READING SECTOR PERFORMANCE DATA
+==================================================
+2025-04-29 04:59:51,207 - INFO - Reading sector performance data from sector.csv
+2025-04-29 04:59:51,207 - INFO - File last modified: 2025-04-29 04:58:09
+2025-04-29 04:59:51,212 - INFO - Latest timestamp in data: 2025-04-29 04:58:09
+2025-04-29 04:59:51,213 - INFO - Loaded data for 10 sectors
+2025-04-29 04:59:51,213 - INFO - 
+==================================================
+SECTOR DATA READ COMPLETE
+==================================================
+2025-04-29 04:59:51,214 - INFO - 
+==================================================
+PROCESSING SECTOR DATA
+==================================================
+2025-04-29 04:59:51,220 - INFO - Processed performance data for 10 sectors
+2025-04-29 04:59:51,221 - INFO - Processing existing positions for potential exits...
+2025-04-29 04:59:51,222 - INFO - 
+==================================================
+PROCESSING EXISTING POSITIONS
+==================================================
+2025-04-29 04:59:51,223 - INFO - Processing 3 existing positions
+2025-04-29 04:59:51,223 - INFO - Checking position: BUY SYNGENE.NS (Sector: Pharma)
+2025-04-29 04:59:51,224 - INFO - Sector Pharma is POSITIVE with 1.98% change
+2025-04-29 04:59:51,225 - INFO - Checking position: BUY ZEEL.NS (Sector: Media)
+2025-04-29 04:59:51,226 - INFO - Sector Media is POSITIVE with 0.79% change
+2025-04-29 04:59:51,226 - INFO - Checking position: BUY GRANULES.NS (Sector: Pharma)
+2025-04-29 04:59:51,226 - INFO - Sector Pharma is POSITIVE with 1.98% change
+2025-04-29 04:59:51,227 - INFO - No positions needed to be exited
+2025-04-29 04:59:51,228 - INFO - 
+==================================================
+POSITION PROCESSING COMPLETE
+==================================================
+2025-04-29 04:59:51,229 - WARNING - Current time (04:59:51) is outside market hours (9:30 - 15:30)
+2025-04-29 04:59:51,229 - WARNING - Outside market hours (9:30 AM - 3:30 PM) - Not placing new orders
+2025-04-29 04:59:51,230 - INFO - 
+==================================================
+SECTOR PROCESSING COMPLETE
+==================================================
+2025-04-29 04:59:51,244 - INFO - Saved 3 positions to dhan_positions.json
+2025-04-29 04:59:51,245 - INFO - 
+==================================================
+POSITIONS SUMMARY
+==================================================
+2025-04-29 04:59:51,247 - INFO - Current positions summary:
+2025-04-29 04:59:51,247 - INFO -   Open BUY positions: 3
+2025-04-29 04:59:51,247 - INFO -   Open SELL positions: 0
+2025-04-29 04:59:51,248 - INFO -   Closed positions: 0
+2025-04-29 04:59:51,251 - INFO -   Total positions: 3
+2025-04-29 04:59:51,253 - INFO - Open positions:
+2025-04-29 04:59:51,253 - INFO -   BUY SYNGENE.NS (Sector: Pharma, Entry: 2025-04-28 22:53:18)
+2025-04-29 04:59:51,254 - INFO -   BUY ZEEL.NS (Sector: Media, Entry: 2025-04-28 22:53:19)
+2025-04-29 04:59:51,254 - INFO -   BUY GRANULES.NS (Sector: Pharma, Entry: 2025-04-28 22:53:19)
+2025-04-29 04:59:51,254 - INFO - 
+==================================================
+POSITIONS SUMMARY COMPLETE
+==================================================
+2025-04-29 04:59:51,255 - INFO - Trading cycle 8 completed
+2025-04-29 04:59:51,256 - INFO - Waiting 30 seconds until next check at 05:00:21...
+2025-04-29 04:59:51,257 - INFO - 
+==================================================
+CYCLE 8 COMPLETE
+==================================================
+2025-04-29 05:00:06,095 - INFO - Trading program stopped by user
+2025-04-29 05:00:06,099 - INFO - Saved 3 positions to dhan_positions.json
+2025-04-29 05:00:06,103 - INFO - 
+==================================================
+PROGRAM TERMINATED BY USER
+==================================================

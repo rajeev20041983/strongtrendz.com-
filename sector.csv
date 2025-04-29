@@ -1,0 +1,11 @@
+sector,sector_percent_change,is_positive,timestamp
+IT,1.77,True,2025-04-29 10:29:20
+PSU Bank,0.36,True,2025-04-29 10:29:20
+FMCG,-0.12,False,2025-04-29 10:29:20
+Auto,-0.15,False,2025-04-29 10:29:20
+Energy,-0.18,False,2025-04-29 10:29:20
+Realty,-0.33,False,2025-04-29 10:29:20
+Financial Services,-0.35,False,2025-04-29 10:29:20
+Media,-0.56,False,2025-04-29 10:29:20
+Metal,-0.76,False,2025-04-29 10:29:20
+Pharma,-0.83,False,2025-04-29 10:29:20

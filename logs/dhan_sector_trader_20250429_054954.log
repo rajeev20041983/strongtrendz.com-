@@ -1,0 +1,1832 @@
+2025-04-29 05:49:54,068 - INFO - 
+==================================================
+PROGRAM START
+==================================================
+2025-04-29 05:49:54,068 - INFO - ==========================================
+2025-04-29 05:49:54,068 - INFO - Starting Dhan Sector-Based Trading Program
+2025-04-29 05:49:54,069 - INFO - ==========================================
+2025-04-29 05:49:54,069 - INFO - Current time: 2025-04-29 05:49:54
+2025-04-29 05:49:54,069 - INFO - Step 1: Loading trading configuration...
+2025-04-29 05:49:54,069 - INFO - Loading trading configuration from trading_config.json
+2025-04-29 05:49:54,070 - INFO - Configuration loaded successfully
+2025-04-29 05:49:54,071 - INFO - Found 5 active tickers out of 5 total
+2025-04-29 05:49:54,071 - INFO - Step 2: Initializing Dhan API client...
+2025-04-29 05:49:54,071 - INFO - Initializing Dhan client with client_id: 1106497024
+2025-04-29 05:49:54,072 - INFO - Dhan API client initialized successfully
+2025-04-29 05:49:54,540 - INFO - Dhan API connection test successful
+2025-04-29 05:49:54,540 - INFO - Step 3: Loading sector mapping...
+2025-04-29 05:49:54,540 - INFO - Loading sector mapping from sector_mapping.json
+2025-04-29 05:49:54,541 - INFO - Sector mapping loaded successfully with 176 tickers
+2025-04-29 05:49:54,541 - INFO - Found 14 unique sectors
+2025-04-29 05:49:54,541 - INFO - Step 4: Loading security IDs mapping from Excel...
+2025-04-29 05:49:54,542 - INFO - Loading security IDs from security_ids.xlsx
+2025-04-29 05:50:04,796 - INFO - Successfully read Excel file with 1850 rows
+2025-04-29 05:50:04,798 - INFO - Excel columns: ['SEM_EXM_EXCH_ID', 'SEM_SEGMENT', 'SEM_SMST_SECURITY_ID', 'SEM_INSTRUMENT_NAME', 'SEM_EXPIRY_CODE', 'SEM_TRADING_SYMBOL', 'SEM_LOT_UNITS', 'SEM_CUSTOM_SYMBOL', 'SEM_EXPIRY_DATE', 'SEM_STRIKE_PRICE', 'SEM_OPTION_TYPE', 'SEM_TICK_SIZE', 'SEM_EXPIRY_FLAG', 'SEM_EXCH_INSTRUMENT_TYPE', 'SEM_SERIES', 'SM_SYMBOL_NAME']
+2025-04-29 05:50:04,799 - INFO - First few rows of the Excel file:
+2025-04-29 05:50:04,820 - INFO -   SEM_EXM_EXCH_ID SEM_SEGMENT  SEM_SMST_SECURITY_ID SEM_INSTRUMENT_NAME  SEM_EXPIRY_CODE SEM_TRADING_SYMBOL  SEM_LOT_UNITS                  SEM_CUSTOM_SYMBOL  SEM_EXPIRY_DATE  SEM_STRIKE_PRICE  SEM_OPTION_TYPE  SEM_TICK_SIZE  SEM_EXPIRY_FLAG SEM_EXCH_INSTRUMENT_TYPE SEM_SERIES             SM_SYMBOL_NAME
+0             NSE           E                   100              EQUITY                0              ARE&M              1       Amara Raja Energy & Mobility              NaN               NaN              NaN             10              NaN                       ES         EQ  AMARA RAJA ENERGY MOB LTD
+1             NSE           E                 10074              EQUITY                0           EMAMIPAP              1                  Emami Paper Mills              NaN               NaN              NaN              1              NaN                       ES         EQ  EMAMI PAPER MILLS LIMITED
+2             NSE           E                  1008              EQUITY                0               FACT              1  Fertilisers & Chemical Travancore              NaN               NaN              NaN              5              NaN                       ES         EQ                   FACT LTD
+3             NSE           E                 10099              EQUITY                0           GODREJCP              1           Godrej Consumer Products              NaN               NaN              NaN             10              NaN                       ES         EQ   GODREJ CONSUMER PRODUCTS
+4             NSE           E                  1011              EQUITY                0         SCHAEFFLER              1                   Schaeffler India              NaN               NaN              NaN             10              NaN                       ES         EQ   SCHAEFFLER INDIA LIMITED
+2025-04-29 05:50:04,830 - INFO - Inferred symbol column: SEM_EXM_EXCH_ID
+2025-04-29 05:50:04,833 - INFO - Inferred ID column: SEM_SMST_SECURITY_ID
+2025-04-29 05:50:05,059 - INFO - Security IDs mapping created successfully with 2 entries
+2025-04-29 05:50:05,059 - INFO - Sample security IDs: [('NSE', '999'), ('NSE.NS', '999')]
+2025-04-29 05:50:05,062 - WARNING - Critical symbol SYNGENE NOT FOUND in security IDs
+2025-04-29 05:50:05,062 - WARNING - Critical symbol SYNGENE.NS NOT FOUND in security IDs
+2025-04-29 05:50:05,063 - WARNING - Critical symbol GRANULES NOT FOUND in security IDs
+2025-04-29 05:50:05,063 - WARNING - Critical symbol GRANULES.NS NOT FOUND in security IDs
+2025-04-29 05:50:05,064 - WARNING - Critical symbol ZEE NOT FOUND in security IDs
+2025-04-29 05:50:05,065 - WARNING - Critical symbol ZEE.NS NOT FOUND in security IDs
+2025-04-29 05:50:05,066 - INFO - Step 4.5: Validating security IDs for active tickers...
+2025-04-29 05:50:05,067 - INFO - 
+==================================================
+VALIDATING SECURITY IDS
+==================================================
+2025-04-29 05:50:05,068 - INFO - Found 5 active tickers to validate
+2025-04-29 05:50:05,069 - ERROR - No security ID found for SYNGENE.NS
+2025-04-29 05:50:05,069 - ERROR - No security ID found for ZEEL.NS
+2025-04-29 05:50:05,070 - ERROR - No security ID found for GRANULES.NS
+2025-04-29 05:50:05,073 - ERROR - No security ID found for SBILIFE.NS
+2025-04-29 05:50:05,074 - ERROR - No security ID found for RBLBANK.NS
+2025-04-29 05:50:05,074 - ERROR - Missing security IDs for 5 tickers: ['SYNGENE.NS', 'ZEEL.NS', 'GRANULES.NS', 'SBILIFE.NS', 'RBLBANK.NS']
+2025-04-29 05:50:05,075 - WARNING - Some tickers are missing security IDs: ['SYNGENE.NS', 'ZEEL.NS', 'GRANULES.NS', 'SBILIFE.NS', 'RBLBANK.NS']
+2025-04-29 05:50:05,075 - WARNING - These tickers will be skipped during trading!
+2025-04-29 05:50:05,076 - INFO - Step 5: Loading existing positions...
+2025-04-29 05:50:05,083 - INFO - No existing positions file found, starting fresh
+2025-04-29 05:50:05,084 - INFO - Step 6: Starting trading loop (check interval: 30 seconds)...
+2025-04-29 05:50:05,084 - INFO - 
+==================================================
+TRADING CYCLE 1
+==================================================
+2025-04-29 05:50:05,085 - INFO - Trading cycle 1 started at 2025-04-29 05:50:05
+2025-04-29 05:50:05,086 - INFO - 
+==================================================
+READING SECTOR PERFORMANCE DATA
+==================================================
+2025-04-29 05:50:05,088 - INFO - Reading sector performance data from sector.csv
+2025-04-29 05:50:05,091 - INFO - File last modified: 2025-04-29 05:47:08
+2025-04-29 05:50:05,098 - INFO - Latest timestamp in data: 2025-04-29 05:47:08
+2025-04-29 05:50:05,099 - INFO - Loaded data for 10 sectors
+2025-04-29 05:50:05,099 - INFO - Sector performance details:
+2025-04-29 05:50:05,101 - INFO -   PSU Bank: POSITIVE (0.80%)
+2025-04-29 05:50:05,101 - INFO -   Realty: POSITIVE (0.54%)
+2025-04-29 05:50:05,102 - INFO -   Energy: POSITIVE (0.40%)
+2025-04-29 05:50:05,104 - INFO -   Auto: POSITIVE (0.31%)
+2025-04-29 05:50:05,105 - INFO -   IT: POSITIVE (0.16%)
+2025-04-29 05:50:05,105 - INFO -   Media: POSITIVE (0.13%)
+2025-04-29 05:50:05,107 - INFO -   Metal: POSITIVE (0.03%)
+2025-04-29 05:50:05,107 - INFO -   Financial Services: NEGATIVE (-0.12%)
+2025-04-29 05:50:05,108 - INFO -   FMCG: NEGATIVE (-0.58%)
+2025-04-29 05:50:05,109 - INFO -   Pharma: NEGATIVE (-1.38%)
+2025-04-29 05:50:05,110 - INFO - 
+==================================================
+SECTOR DATA READ COMPLETE
+==================================================
+2025-04-29 05:50:05,114 - INFO - 
+==================================================
+PROCESSING SECTOR DATA
+==================================================
+2025-04-29 05:50:05,117 - INFO - Processed performance data for 10 sectors
+2025-04-29 05:50:05,117 - INFO - Processing existing positions for potential exits...
+2025-04-29 05:50:05,118 - INFO - 
+==================================================
+PROCESSING EXISTING POSITIONS
+==================================================
+2025-04-29 05:50:05,118 - INFO - No existing positions to process
+2025-04-29 05:50:05,119 - INFO - 
+==================================================
+POSITION PROCESSING COMPLETE
+==================================================
+2025-04-29 05:50:05,120 - INFO - Looking for new trading opportunities...
+2025-04-29 05:50:05,120 - INFO - 
+==================================================
+FINDING NEW TRADING OPPORTUNITIES
+==================================================
+2025-04-29 05:50:05,121 - INFO - Found 5 active tickers out of 5 total
+2025-04-29 05:50:05,121 - INFO - Processing tickers in order: ['SYNGENE.NS', 'GRANULES.NS', 'ZEEL.NS', 'SBILIFE.NS', 'RBLBANK.NS']
+2025-04-29 05:50:05,122 - INFO - Already have open positions for: []
+2025-04-29 05:50:05,123 - INFO - Current sector performances:
+2025-04-29 05:50:05,123 - INFO -   Sector PSU Bank: POSITIVE (0.80%)
+2025-04-29 05:50:05,123 - INFO -   Sector Realty: POSITIVE (0.54%)
+2025-04-29 05:50:05,124 - INFO -   Sector Energy: POSITIVE (0.40%)
+2025-04-29 05:50:05,124 - INFO -   Sector Auto: POSITIVE (0.31%)
+2025-04-29 05:50:05,124 - INFO -   Sector IT: POSITIVE (0.16%)
+2025-04-29 05:50:05,124 - INFO -   Sector Media: POSITIVE (0.13%)
+2025-04-29 05:50:05,125 - INFO -   Sector Metal: POSITIVE (0.03%)
+2025-04-29 05:50:05,125 - INFO -   Sector Financial Services: NEGATIVE (-0.12%)
+2025-04-29 05:50:05,126 - INFO -   Sector FMCG: NEGATIVE (-0.58%)
+2025-04-29 05:50:05,126 - INFO -   Sector Pharma: NEGATIVE (-1.38%)
+2025-04-29 05:50:05,126 - INFO - Processing ticker 1: SYNGENE.NS
+2025-04-29 05:50:05,127 - INFO - Found sector Pharma for SYNGENE.NS
+2025-04-29 05:50:05,129 - INFO - Evaluating SYNGENE.NS in sector Pharma (-1.38%)
+2025-04-29 05:50:05,129 - INFO - Not trading SYNGENE.NS - sector performance doesn't match strategy
+2025-04-29 05:50:05,130 - INFO -   Transaction type: BUY
+2025-04-29 05:50:05,130 - INFO -   Sector is_positive: False
+2025-04-29 05:50:05,130 - INFO - Processing ticker 2: GRANULES.NS
+2025-04-29 05:50:05,131 - INFO - Found sector Pharma for GRANULES.NS
+2025-04-29 05:50:05,132 - INFO - Evaluating GRANULES.NS in sector Pharma (-1.38%)
+2025-04-29 05:50:05,132 - INFO - Not trading GRANULES.NS - sector performance doesn't match strategy
+2025-04-29 05:50:05,134 - INFO -   Transaction type: BUY
+2025-04-29 05:50:05,134 - INFO -   Sector is_positive: False
+2025-04-29 05:50:05,135 - INFO - Processing ticker 3: ZEEL.NS
+2025-04-29 05:50:05,135 - INFO - Found sector Media for ZEEL.NS
+2025-04-29 05:50:05,136 - INFO - Evaluating ZEEL.NS in sector Media (+0.13%)
+2025-04-29 05:50:05,138 - INFO - Should BUY ZEEL.NS because sector Media is positive
+2025-04-29 05:50:05,138 - INFO - SECURITY ID LOOKUP: Searching for ZEEL.NS
+2025-04-29 05:50:05,140 - INFO - Trying exact match for 'ZEEL.NS'
+2025-04-29 05:50:05,140 - INFO - Trying with .NS: 'ZEEL.NS'
+2025-04-29 05:50:05,141 - INFO - Trying without .NS: 'ZEEL'
+2025-04-29 05:50:05,141 - ERROR - SECURITY ID NOT FOUND for ZEEL.NS
+2025-04-29 05:50:05,142 - INFO - Sample security IDs available: ['NSE', 'NSE.NS']
+2025-04-29 05:50:05,143 - ERROR - Could not find security ID for ZEEL.NS. Skipping.
+2025-04-29 05:50:05,143 - INFO - Processing ticker 4: SBILIFE.NS
+2025-04-29 05:50:05,143 - INFO - Found sector Financial Services for SBILIFE.NS
+2025-04-29 05:50:05,143 - INFO - Evaluating SBILIFE.NS in sector Financial Services (-0.12%)
+2025-04-29 05:50:05,146 - INFO - Should SELL SBILIFE.NS because sector Financial Services is negative
+2025-04-29 05:50:05,147 - INFO - SECURITY ID LOOKUP: Searching for SBILIFE.NS
+2025-04-29 05:50:05,147 - INFO - Trying exact match for 'SBILIFE.NS'
+2025-04-29 05:50:05,147 - INFO - Trying with .NS: 'SBILIFE.NS'
+2025-04-29 05:50:05,148 - INFO - Trying without .NS: 'SBILIFE'
+2025-04-29 05:50:05,148 - ERROR - SECURITY ID NOT FOUND for SBILIFE.NS
+2025-04-29 05:50:05,148 - INFO - Sample security IDs available: ['NSE', 'NSE.NS']
+2025-04-29 05:50:05,149 - ERROR - Could not find security ID for SBILIFE.NS. Skipping.
+2025-04-29 05:50:05,149 - INFO - Processing ticker 5: RBLBANK.NS
+2025-04-29 05:50:05,150 - INFO - Found sector PVT Bank for RBLBANK.NS
+2025-04-29 05:50:05,150 - WARNING - No performance data for sector PVT Bank
+2025-04-29 05:50:05,151 - INFO - Ticker processing summary:
+2025-04-29 05:50:05,151 - INFO -   Total tickers considered: 5
+2025-04-29 05:50:05,151 - INFO -   Tickers with sector data: 5
+2025-04-29 05:50:05,152 - INFO -   Tickers matching strategy: 2
+2025-04-29 05:50:05,152 - INFO -   Tickers with security ID: 0
+2025-04-29 05:50:05,152 - INFO -   Orders successfully placed: 0
+2025-04-29 05:50:05,153 - INFO - New positions added: 0
+2025-04-29 05:50:05,154 - INFO - Positions skipped: 5
+2025-04-29 05:50:05,154 - INFO - Positions with errors: 0
+2025-04-29 05:50:05,154 - INFO - 
+==================================================
+NEW OPPORTUNITIES PROCESSING COMPLETE
+==================================================
+2025-04-29 05:50:05,155 - INFO - 
+==================================================
+SECTOR PROCESSING COMPLETE
+==================================================
+2025-04-29 05:50:05,157 - INFO - Saved 0 positions to dhan_positions.json
+2025-04-29 05:50:05,158 - INFO - 
+==================================================
+POSITIONS SUMMARY
+==================================================
+2025-04-29 05:50:05,159 - INFO - Current positions summary:
+2025-04-29 05:50:05,160 - INFO -   Open BUY positions: 0
+2025-04-29 05:50:05,160 - INFO -   Open SELL positions: 0
+2025-04-29 05:50:05,160 - INFO -   Closed positions: 0
+2025-04-29 05:50:05,165 - INFO -   Total positions: 0
+2025-04-29 05:50:05,166 - INFO - 
+==================================================
+POSITIONS SUMMARY COMPLETE
+==================================================
+2025-04-29 05:50:05,167 - INFO - Trading cycle 1 completed
+2025-04-29 05:50:05,168 - INFO - Waiting 30 seconds until next check at 05:50:35...
+2025-04-29 05:50:05,169 - INFO - 
+==================================================
+CYCLE 1 COMPLETE
+==================================================
+2025-04-29 05:50:35,179 - INFO - 
+==================================================
+TRADING CYCLE 2
+==================================================
+2025-04-29 05:50:35,181 - INFO - Trading cycle 2 started at 2025-04-29 05:50:35
+2025-04-29 05:50:35,182 - INFO - 
+==================================================
+READING SECTOR PERFORMANCE DATA
+==================================================
+2025-04-29 05:50:35,183 - INFO - Reading sector performance data from sector.csv
+2025-04-29 05:50:35,183 - INFO - File last modified: 2025-04-29 05:47:08
+2025-04-29 05:50:35,187 - INFO - Latest timestamp in data: 2025-04-29 05:47:08
+2025-04-29 05:50:35,188 - INFO - Loaded data for 10 sectors
+2025-04-29 05:50:35,189 - INFO - Sector performance details:
+2025-04-29 05:50:35,190 - INFO -   PSU Bank: POSITIVE (0.80%)
+2025-04-29 05:50:35,192 - INFO -   Realty: POSITIVE (0.54%)
+2025-04-29 05:50:35,193 - INFO -   Energy: POSITIVE (0.40%)
+2025-04-29 05:50:35,194 - INFO -   Auto: POSITIVE (0.31%)
+2025-04-29 05:50:35,195 - INFO -   IT: POSITIVE (0.16%)
+2025-04-29 05:50:35,196 - INFO -   Media: POSITIVE (0.13%)
+2025-04-29 05:50:35,197 - INFO -   Metal: POSITIVE (0.03%)
+2025-04-29 05:50:35,199 - INFO -   Financial Services: NEGATIVE (-0.12%)
+2025-04-29 05:50:35,200 - INFO -   FMCG: NEGATIVE (-0.58%)
+2025-04-29 05:50:35,201 - INFO -   Pharma: NEGATIVE (-1.38%)
+2025-04-29 05:50:35,201 - INFO - 
+==================================================
+SECTOR DATA READ COMPLETE
+==================================================
+2025-04-29 05:50:35,203 - INFO - 
+==================================================
+PROCESSING SECTOR DATA
+==================================================
+2025-04-29 05:50:35,211 - INFO - Processed performance data for 10 sectors
+2025-04-29 05:50:35,216 - INFO - Processing existing positions for potential exits...
+2025-04-29 05:50:35,217 - INFO - 
+==================================================
+PROCESSING EXISTING POSITIONS
+==================================================
+2025-04-29 05:50:35,219 - INFO - No existing positions to process
+2025-04-29 05:50:35,220 - INFO - 
+==================================================
+POSITION PROCESSING COMPLETE
+==================================================
+2025-04-29 05:50:35,220 - INFO - Looking for new trading opportunities...
+2025-04-29 05:50:35,221 - INFO - 
+==================================================
+FINDING NEW TRADING OPPORTUNITIES
+==================================================
+2025-04-29 05:50:35,221 - INFO - Found 5 active tickers out of 5 total
+2025-04-29 05:50:35,222 - INFO - Processing tickers in order: ['SYNGENE.NS', 'GRANULES.NS', 'ZEEL.NS', 'SBILIFE.NS', 'RBLBANK.NS']
+2025-04-29 05:50:35,223 - INFO - Already have open positions for: []
+2025-04-29 05:50:35,223 - INFO - Current sector performances:
+2025-04-29 05:50:35,223 - INFO -   Sector PSU Bank: POSITIVE (0.80%)
+2025-04-29 05:50:35,223 - INFO -   Sector Realty: POSITIVE (0.54%)
+2025-04-29 05:50:35,224 - INFO -   Sector Energy: POSITIVE (0.40%)
+2025-04-29 05:50:35,229 - INFO -   Sector Auto: POSITIVE (0.31%)
+2025-04-29 05:50:35,229 - INFO -   Sector IT: POSITIVE (0.16%)
+2025-04-29 05:50:35,229 - INFO -   Sector Media: POSITIVE (0.13%)
+2025-04-29 05:50:35,230 - INFO -   Sector Metal: POSITIVE (0.03%)
+2025-04-29 05:50:35,230 - INFO -   Sector Financial Services: NEGATIVE (-0.12%)
+2025-04-29 05:50:35,230 - INFO -   Sector FMCG: NEGATIVE (-0.58%)
+2025-04-29 05:50:35,230 - INFO -   Sector Pharma: NEGATIVE (-1.38%)
+2025-04-29 05:50:35,231 - INFO - Processing ticker 1: SYNGENE.NS
+2025-04-29 05:50:35,231 - INFO - Found sector Pharma for SYNGENE.NS
+2025-04-29 05:50:35,232 - INFO - Evaluating SYNGENE.NS in sector Pharma (-1.38%)
+2025-04-29 05:50:35,233 - INFO - Not trading SYNGENE.NS - sector performance doesn't match strategy
+2025-04-29 05:50:35,234 - INFO -   Transaction type: BUY
+2025-04-29 05:50:35,234 - INFO -   Sector is_positive: False
+2025-04-29 05:50:35,234 - INFO - Processing ticker 2: GRANULES.NS
+2025-04-29 05:50:35,234 - INFO - Found sector Pharma for GRANULES.NS
+2025-04-29 05:50:35,234 - INFO - Evaluating GRANULES.NS in sector Pharma (-1.38%)
+2025-04-29 05:50:35,235 - INFO - Not trading GRANULES.NS - sector performance doesn't match strategy
+2025-04-29 05:50:35,235 - INFO -   Transaction type: BUY
+2025-04-29 05:50:35,236 - INFO -   Sector is_positive: False
+2025-04-29 05:50:35,236 - INFO - Processing ticker 3: ZEEL.NS
+2025-04-29 05:50:35,236 - INFO - Found sector Media for ZEEL.NS
+2025-04-29 05:50:35,236 - INFO - Evaluating ZEEL.NS in sector Media (+0.13%)
+2025-04-29 05:50:35,237 - INFO - Should BUY ZEEL.NS because sector Media is positive
+2025-04-29 05:50:35,237 - INFO - SECURITY ID LOOKUP: Searching for ZEEL.NS
+2025-04-29 05:50:35,237 - INFO - Trying exact match for 'ZEEL.NS'
+2025-04-29 05:50:35,237 - INFO - Trying with .NS: 'ZEEL.NS'
+2025-04-29 05:50:35,238 - INFO - Trying without .NS: 'ZEEL'
+2025-04-29 05:50:35,238 - ERROR - SECURITY ID NOT FOUND for ZEEL.NS
+2025-04-29 05:50:35,239 - INFO - Sample security IDs available: ['NSE', 'NSE.NS']
+2025-04-29 05:50:35,239 - ERROR - Could not find security ID for ZEEL.NS. Skipping.
+2025-04-29 05:50:35,240 - INFO - Processing ticker 4: SBILIFE.NS
+2025-04-29 05:50:35,240 - INFO - Found sector Financial Services for SBILIFE.NS
+2025-04-29 05:50:35,250 - INFO - Evaluating SBILIFE.NS in sector Financial Services (-0.12%)
+2025-04-29 05:50:35,251 - INFO - Should SELL SBILIFE.NS because sector Financial Services is negative
+2025-04-29 05:50:35,252 - INFO - SECURITY ID LOOKUP: Searching for SBILIFE.NS
+2025-04-29 05:50:35,252 - INFO - Trying exact match for 'SBILIFE.NS'
+2025-04-29 05:50:35,252 - INFO - Trying with .NS: 'SBILIFE.NS'
+2025-04-29 05:50:35,253 - INFO - Trying without .NS: 'SBILIFE'
+2025-04-29 05:50:35,254 - ERROR - SECURITY ID NOT FOUND for SBILIFE.NS
+2025-04-29 05:50:35,254 - INFO - Sample security IDs available: ['NSE', 'NSE.NS']
+2025-04-29 05:50:35,255 - ERROR - Could not find security ID for SBILIFE.NS. Skipping.
+2025-04-29 05:50:35,256 - INFO - Processing ticker 5: RBLBANK.NS
+2025-04-29 05:50:35,257 - INFO - Found sector PVT Bank for RBLBANK.NS
+2025-04-29 05:50:35,262 - WARNING - No performance data for sector PVT Bank
+2025-04-29 05:50:35,263 - INFO - Ticker processing summary:
+2025-04-29 05:50:35,264 - INFO -   Total tickers considered: 5
+2025-04-29 05:50:35,264 - INFO -   Tickers with sector data: 5
+2025-04-29 05:50:35,265 - INFO -   Tickers matching strategy: 2
+2025-04-29 05:50:35,266 - INFO -   Tickers with security ID: 0
+2025-04-29 05:50:35,266 - INFO -   Orders successfully placed: 0
+2025-04-29 05:50:35,267 - INFO - New positions added: 0
+2025-04-29 05:50:35,268 - INFO - Positions skipped: 5
+2025-04-29 05:50:35,268 - INFO - Positions with errors: 0
+2025-04-29 05:50:35,269 - INFO - 
+==================================================
+NEW OPPORTUNITIES PROCESSING COMPLETE
+==================================================
+2025-04-29 05:50:35,270 - INFO - 
+==================================================
+SECTOR PROCESSING COMPLETE
+==================================================
+2025-04-29 05:50:35,280 - INFO - Saved 0 positions to dhan_positions.json
+2025-04-29 05:50:35,282 - INFO - 
+==================================================
+POSITIONS SUMMARY
+==================================================
+2025-04-29 05:50:35,284 - INFO - Current positions summary:
+2025-04-29 05:50:35,285 - INFO -   Open BUY positions: 0
+2025-04-29 05:50:35,285 - INFO -   Open SELL positions: 0
+2025-04-29 05:50:35,286 - INFO -   Closed positions: 0
+2025-04-29 05:50:35,287 - INFO -   Total positions: 0
+2025-04-29 05:50:35,288 - INFO - 
+==================================================
+POSITIONS SUMMARY COMPLETE
+==================================================
+2025-04-29 05:50:35,289 - INFO - Trading cycle 2 completed
+2025-04-29 05:50:35,290 - INFO - Waiting 30 seconds until next check at 05:51:05...
+2025-04-29 05:50:35,297 - INFO - 
+==================================================
+CYCLE 2 COMPLETE
+==================================================
+2025-04-29 05:51:05,323 - INFO - 
+==================================================
+TRADING CYCLE 3
+==================================================
+2025-04-29 05:51:05,328 - INFO - Trading cycle 3 started at 2025-04-29 05:51:05
+2025-04-29 05:51:05,328 - INFO - 
+==================================================
+READING SECTOR PERFORMANCE DATA
+==================================================
+2025-04-29 05:51:05,329 - INFO - Reading sector performance data from sector.csv
+2025-04-29 05:51:05,330 - INFO - File last modified: 2025-04-29 05:50:48
+2025-04-29 05:51:05,333 - INFO - Latest timestamp in data: 2025-04-29 05:50:48
+2025-04-29 05:51:05,334 - INFO - Loaded data for 10 sectors
+2025-04-29 05:51:05,334 - INFO - Sector performance details:
+2025-04-29 05:51:05,335 - INFO -   PSU Bank: POSITIVE (0.80%)
+2025-04-29 05:51:05,336 - INFO -   Realty: POSITIVE (0.54%)
+2025-04-29 05:51:05,338 - INFO -   Energy: POSITIVE (0.40%)
+2025-04-29 05:51:05,339 - INFO -   Auto: POSITIVE (0.31%)
+2025-04-29 05:51:05,339 - INFO -   IT: POSITIVE (0.16%)
+2025-04-29 05:51:05,339 - INFO -   Media: POSITIVE (0.13%)
+2025-04-29 05:51:05,340 - INFO -   Metal: POSITIVE (0.03%)
+2025-04-29 05:51:05,341 - INFO -   Financial Services: NEGATIVE (-0.12%)
+2025-04-29 05:51:05,341 - INFO -   FMCG: NEGATIVE (-0.58%)
+2025-04-29 05:51:05,341 - INFO -   Pharma: NEGATIVE (-1.38%)
+2025-04-29 05:51:05,342 - INFO - 
+==================================================
+SECTOR DATA READ COMPLETE
+==================================================
+2025-04-29 05:51:05,342 - INFO - 
+==================================================
+PROCESSING SECTOR DATA
+==================================================
+2025-04-29 05:51:05,343 - INFO - Processed performance data for 10 sectors
+2025-04-29 05:51:05,343 - INFO - Processing existing positions for potential exits...
+2025-04-29 05:51:05,344 - INFO - 
+==================================================
+PROCESSING EXISTING POSITIONS
+==================================================
+2025-04-29 05:51:05,344 - INFO - No existing positions to process
+2025-04-29 05:51:05,344 - INFO - 
+==================================================
+POSITION PROCESSING COMPLETE
+==================================================
+2025-04-29 05:51:05,344 - INFO - Looking for new trading opportunities...
+2025-04-29 05:51:05,345 - INFO - 
+==================================================
+FINDING NEW TRADING OPPORTUNITIES
+==================================================
+2025-04-29 05:51:05,345 - INFO - Found 5 active tickers out of 5 total
+2025-04-29 05:51:05,345 - INFO - Processing tickers in order: ['SYNGENE.NS', 'GRANULES.NS', 'ZEEL.NS', 'SBILIFE.NS', 'RBLBANK.NS']
+2025-04-29 05:51:05,345 - INFO - Already have open positions for: []
+2025-04-29 05:51:05,346 - INFO - Current sector performances:
+2025-04-29 05:51:05,346 - INFO -   Sector PSU Bank: POSITIVE (0.80%)
+2025-04-29 05:51:05,346 - INFO -   Sector Realty: POSITIVE (0.54%)
+2025-04-29 05:51:05,346 - INFO -   Sector Energy: POSITIVE (0.40%)
+2025-04-29 05:51:05,346 - INFO -   Sector Auto: POSITIVE (0.31%)
+2025-04-29 05:51:05,346 - INFO -   Sector IT: POSITIVE (0.16%)
+2025-04-29 05:51:05,347 - INFO -   Sector Media: POSITIVE (0.13%)
+2025-04-29 05:51:05,347 - INFO -   Sector Metal: POSITIVE (0.03%)
+2025-04-29 05:51:05,347 - INFO -   Sector Financial Services: NEGATIVE (-0.12%)
+2025-04-29 05:51:05,347 - INFO -   Sector FMCG: NEGATIVE (-0.58%)
+2025-04-29 05:51:05,348 - INFO -   Sector Pharma: NEGATIVE (-1.38%)
+2025-04-29 05:51:05,348 - INFO - Processing ticker 1: SYNGENE.NS
+2025-04-29 05:51:05,348 - INFO - Found sector Pharma for SYNGENE.NS
+2025-04-29 05:51:05,348 - INFO - Evaluating SYNGENE.NS in sector Pharma (-1.38%)
+2025-04-29 05:51:05,349 - INFO - Not trading SYNGENE.NS - sector performance doesn't match strategy
+2025-04-29 05:51:05,349 - INFO -   Transaction type: BUY
+2025-04-29 05:51:05,350 - INFO -   Sector is_positive: False
+2025-04-29 05:51:05,350 - INFO - Processing ticker 2: GRANULES.NS
+2025-04-29 05:51:05,350 - INFO - Found sector Pharma for GRANULES.NS
+2025-04-29 05:51:05,350 - INFO - Evaluating GRANULES.NS in sector Pharma (-1.38%)
+2025-04-29 05:51:05,351 - INFO - Not trading GRANULES.NS - sector performance doesn't match strategy
+2025-04-29 05:51:05,351 - INFO -   Transaction type: BUY
+2025-04-29 05:51:05,351 - INFO -   Sector is_positive: False
+2025-04-29 05:51:05,352 - INFO - Processing ticker 3: ZEEL.NS
+2025-04-29 05:51:05,352 - INFO - Found sector Media for ZEEL.NS
+2025-04-29 05:51:05,352 - INFO - Evaluating ZEEL.NS in sector Media (+0.13%)
+2025-04-29 05:51:05,352 - INFO - Should BUY ZEEL.NS because sector Media is positive
+2025-04-29 05:51:05,353 - INFO - SECURITY ID LOOKUP: Searching for ZEEL.NS
+2025-04-29 05:51:05,353 - INFO - Trying exact match for 'ZEEL.NS'
+2025-04-29 05:51:05,354 - INFO - Trying with .NS: 'ZEEL.NS'
+2025-04-29 05:51:05,354 - INFO - Trying without .NS: 'ZEEL'
+2025-04-29 05:51:05,356 - ERROR - SECURITY ID NOT FOUND for ZEEL.NS
+2025-04-29 05:51:05,357 - INFO - Sample security IDs available: ['NSE', 'NSE.NS']
+2025-04-29 05:51:05,358 - ERROR - Could not find security ID for ZEEL.NS. Skipping.
+2025-04-29 05:51:05,358 - INFO - Processing ticker 4: SBILIFE.NS
+2025-04-29 05:51:05,359 - INFO - Found sector Financial Services for SBILIFE.NS
+2025-04-29 05:51:05,359 - INFO - Evaluating SBILIFE.NS in sector Financial Services (-0.12%)
+2025-04-29 05:51:05,360 - INFO - Should SELL SBILIFE.NS because sector Financial Services is negative
+2025-04-29 05:51:05,360 - INFO - SECURITY ID LOOKUP: Searching for SBILIFE.NS
+2025-04-29 05:51:05,361 - INFO - Trying exact match for 'SBILIFE.NS'
+2025-04-29 05:51:05,361 - INFO - Trying with .NS: 'SBILIFE.NS'
+2025-04-29 05:51:05,361 - INFO - Trying without .NS: 'SBILIFE'
+2025-04-29 05:51:05,362 - ERROR - SECURITY ID NOT FOUND for SBILIFE.NS
+2025-04-29 05:51:05,362 - INFO - Sample security IDs available: ['NSE', 'NSE.NS']
+2025-04-29 05:51:05,362 - ERROR - Could not find security ID for SBILIFE.NS. Skipping.
+2025-04-29 05:51:05,363 - INFO - Processing ticker 5: RBLBANK.NS
+2025-04-29 05:51:05,363 - INFO - Found sector PVT Bank for RBLBANK.NS
+2025-04-29 05:51:05,363 - WARNING - No performance data for sector PVT Bank
+2025-04-29 05:51:05,364 - INFO - Ticker processing summary:
+2025-04-29 05:51:05,364 - INFO -   Total tickers considered: 5
+2025-04-29 05:51:05,364 - INFO -   Tickers with sector data: 5
+2025-04-29 05:51:05,364 - INFO -   Tickers matching strategy: 2
+2025-04-29 05:51:05,365 - INFO -   Tickers with security ID: 0
+2025-04-29 05:51:05,365 - INFO -   Orders successfully placed: 0
+2025-04-29 05:51:05,365 - INFO - New positions added: 0
+2025-04-29 05:51:05,365 - INFO - Positions skipped: 5
+2025-04-29 05:51:05,366 - INFO - Positions with errors: 0
+2025-04-29 05:51:05,366 - INFO - 
+==================================================
+NEW OPPORTUNITIES PROCESSING COMPLETE
+==================================================
+2025-04-29 05:51:05,367 - INFO - 
+==================================================
+SECTOR PROCESSING COMPLETE
+==================================================
+2025-04-29 05:51:05,369 - INFO - Saved 0 positions to dhan_positions.json
+2025-04-29 05:51:05,374 - INFO - 
+==================================================
+POSITIONS SUMMARY
+==================================================
+2025-04-29 05:51:05,375 - INFO - Current positions summary:
+2025-04-29 05:51:05,375 - INFO -   Open BUY positions: 0
+2025-04-29 05:51:05,376 - INFO -   Open SELL positions: 0
+2025-04-29 05:51:05,376 - INFO -   Closed positions: 0
+2025-04-29 05:51:05,376 - INFO -   Total positions: 0
+2025-04-29 05:51:05,376 - INFO - 
+==================================================
+POSITIONS SUMMARY COMPLETE
+==================================================
+2025-04-29 05:51:05,377 - INFO - Trading cycle 3 completed
+2025-04-29 05:51:05,378 - INFO - Waiting 30 seconds until next check at 05:51:35...
+2025-04-29 05:51:05,378 - INFO - 
+==================================================
+CYCLE 3 COMPLETE
+==================================================
+2025-04-29 05:51:35,382 - INFO - 
+==================================================
+TRADING CYCLE 4
+==================================================
+2025-04-29 05:51:35,383 - INFO - Trading cycle 4 started at 2025-04-29 05:51:35
+2025-04-29 05:51:35,383 - INFO - 
+==================================================
+READING SECTOR PERFORMANCE DATA
+==================================================
+2025-04-29 05:51:35,386 - INFO - Reading sector performance data from sector.csv
+2025-04-29 05:51:35,388 - INFO - File last modified: 2025-04-29 05:50:48
+2025-04-29 05:51:35,392 - INFO - Latest timestamp in data: 2025-04-29 05:50:48
+2025-04-29 05:51:35,393 - INFO - Loaded data for 10 sectors
+2025-04-29 05:51:35,393 - INFO - Sector performance details:
+2025-04-29 05:51:35,393 - INFO -   PSU Bank: POSITIVE (0.80%)
+2025-04-29 05:51:35,394 - INFO -   Realty: POSITIVE (0.54%)
+2025-04-29 05:51:35,395 - INFO -   Energy: POSITIVE (0.40%)
+2025-04-29 05:51:35,395 - INFO -   Auto: POSITIVE (0.31%)
+2025-04-29 05:51:35,396 - INFO -   IT: POSITIVE (0.16%)
+2025-04-29 05:51:35,396 - INFO -   Media: POSITIVE (0.13%)
+2025-04-29 05:51:35,396 - INFO -   Metal: POSITIVE (0.03%)
+2025-04-29 05:51:35,397 - INFO -   Financial Services: NEGATIVE (-0.12%)
+2025-04-29 05:51:35,398 - INFO -   FMCG: NEGATIVE (-0.58%)
+2025-04-29 05:51:35,400 - INFO -   Pharma: NEGATIVE (-1.38%)
+2025-04-29 05:51:35,402 - INFO - 
+==================================================
+SECTOR DATA READ COMPLETE
+==================================================
+2025-04-29 05:51:35,404 - INFO - 
+==================================================
+PROCESSING SECTOR DATA
+==================================================
+2025-04-29 05:51:35,406 - INFO - Processed performance data for 10 sectors
+2025-04-29 05:51:35,406 - INFO - Processing existing positions for potential exits...
+2025-04-29 05:51:35,406 - INFO - 
+==================================================
+PROCESSING EXISTING POSITIONS
+==================================================
+2025-04-29 05:51:35,408 - INFO - No existing positions to process
+2025-04-29 05:51:35,408 - INFO - 
+==================================================
+POSITION PROCESSING COMPLETE
+==================================================
+2025-04-29 05:51:35,409 - INFO - Looking for new trading opportunities...
+2025-04-29 05:51:35,410 - INFO - 
+==================================================
+FINDING NEW TRADING OPPORTUNITIES
+==================================================
+2025-04-29 05:51:35,411 - INFO - Found 5 active tickers out of 5 total
+2025-04-29 05:51:35,412 - INFO - Processing tickers in order: ['SYNGENE.NS', 'GRANULES.NS', 'ZEEL.NS', 'SBILIFE.NS', 'RBLBANK.NS']
+2025-04-29 05:51:35,412 - INFO - Already have open positions for: []
+2025-04-29 05:51:35,413 - INFO - Current sector performances:
+2025-04-29 05:51:35,413 - INFO -   Sector PSU Bank: POSITIVE (0.80%)
+2025-04-29 05:51:35,413 - INFO -   Sector Realty: POSITIVE (0.54%)
+2025-04-29 05:51:35,413 - INFO -   Sector Energy: POSITIVE (0.40%)
+2025-04-29 05:51:35,414 - INFO -   Sector Auto: POSITIVE (0.31%)
+2025-04-29 05:51:35,414 - INFO -   Sector IT: POSITIVE (0.16%)
+2025-04-29 05:51:35,415 - INFO -   Sector Media: POSITIVE (0.13%)
+2025-04-29 05:51:35,415 - INFO -   Sector Metal: POSITIVE (0.03%)
+2025-04-29 05:51:35,415 - INFO -   Sector Financial Services: NEGATIVE (-0.12%)
+2025-04-29 05:51:35,415 - INFO -   Sector FMCG: NEGATIVE (-0.58%)
+2025-04-29 05:51:35,416 - INFO -   Sector Pharma: NEGATIVE (-1.38%)
+2025-04-29 05:51:35,416 - INFO - Processing ticker 1: SYNGENE.NS
+2025-04-29 05:51:35,416 - INFO - Found sector Pharma for SYNGENE.NS
+2025-04-29 05:51:35,416 - INFO - Evaluating SYNGENE.NS in sector Pharma (-1.38%)
+2025-04-29 05:51:35,417 - INFO - Not trading SYNGENE.NS - sector performance doesn't match strategy
+2025-04-29 05:51:35,417 - INFO -   Transaction type: BUY
+2025-04-29 05:51:35,419 - INFO -   Sector is_positive: False
+2025-04-29 05:51:35,419 - INFO - Processing ticker 2: GRANULES.NS
+2025-04-29 05:51:35,420 - INFO - Found sector Pharma for GRANULES.NS
+2025-04-29 05:51:35,421 - INFO - Evaluating GRANULES.NS in sector Pharma (-1.38%)
+2025-04-29 05:51:35,422 - INFO - Not trading GRANULES.NS - sector performance doesn't match strategy
+2025-04-29 05:51:35,423 - INFO -   Transaction type: BUY
+2025-04-29 05:51:35,423 - INFO -   Sector is_positive: False
+2025-04-29 05:51:35,423 - INFO - Processing ticker 3: ZEEL.NS
+2025-04-29 05:51:35,424 - INFO - Found sector Media for ZEEL.NS
+2025-04-29 05:51:35,427 - INFO - Evaluating ZEEL.NS in sector Media (+0.13%)
+2025-04-29 05:51:35,431 - INFO - Should BUY ZEEL.NS because sector Media is positive
+2025-04-29 05:51:35,431 - INFO - SECURITY ID LOOKUP: Searching for ZEEL.NS
+2025-04-29 05:51:35,432 - INFO - Trying exact match for 'ZEEL.NS'
+2025-04-29 05:51:35,433 - INFO - Trying with .NS: 'ZEEL.NS'
+2025-04-29 05:51:35,435 - INFO - Trying without .NS: 'ZEEL'
+2025-04-29 05:51:35,436 - ERROR - SECURITY ID NOT FOUND for ZEEL.NS
+2025-04-29 05:51:35,437 - INFO - Sample security IDs available: ['NSE', 'NSE.NS']
+2025-04-29 05:51:35,438 - ERROR - Could not find security ID for ZEEL.NS. Skipping.
+2025-04-29 05:51:35,438 - INFO - Processing ticker 4: SBILIFE.NS
+2025-04-29 05:51:35,439 - INFO - Found sector Financial Services for SBILIFE.NS
+2025-04-29 05:51:35,439 - INFO - Evaluating SBILIFE.NS in sector Financial Services (-0.12%)
+2025-04-29 05:51:35,439 - INFO - Should SELL SBILIFE.NS because sector Financial Services is negative
+2025-04-29 05:51:35,440 - INFO - SECURITY ID LOOKUP: Searching for SBILIFE.NS
+2025-04-29 05:51:35,440 - INFO - Trying exact match for 'SBILIFE.NS'
+2025-04-29 05:51:35,440 - INFO - Trying with .NS: 'SBILIFE.NS'
+2025-04-29 05:51:35,441 - INFO - Trying without .NS: 'SBILIFE'
+2025-04-29 05:51:35,441 - ERROR - SECURITY ID NOT FOUND for SBILIFE.NS
+2025-04-29 05:51:35,443 - INFO - Sample security IDs available: ['NSE', 'NSE.NS']
+2025-04-29 05:51:35,444 - ERROR - Could not find security ID for SBILIFE.NS. Skipping.
+2025-04-29 05:51:35,444 - INFO - Processing ticker 5: RBLBANK.NS
+2025-04-29 05:51:35,444 - INFO - Found sector PVT Bank for RBLBANK.NS
+2025-04-29 05:51:35,445 - WARNING - No performance data for sector PVT Bank
+2025-04-29 05:51:35,445 - INFO - Ticker processing summary:
+2025-04-29 05:51:35,445 - INFO -   Total tickers considered: 5
+2025-04-29 05:51:35,446 - INFO -   Tickers with sector data: 5
+2025-04-29 05:51:35,446 - INFO -   Tickers matching strategy: 2
+2025-04-29 05:51:35,446 - INFO -   Tickers with security ID: 0
+2025-04-29 05:51:35,447 - INFO -   Orders successfully placed: 0
+2025-04-29 05:51:35,447 - INFO - New positions added: 0
+2025-04-29 05:51:35,447 - INFO - Positions skipped: 5
+2025-04-29 05:51:35,448 - INFO - Positions with errors: 0
+2025-04-29 05:51:35,448 - INFO - 
+==================================================
+NEW OPPORTUNITIES PROCESSING COMPLETE
+==================================================
+2025-04-29 05:51:35,449 - INFO - 
+==================================================
+SECTOR PROCESSING COMPLETE
+==================================================
+2025-04-29 05:51:35,454 - INFO - Saved 0 positions to dhan_positions.json
+2025-04-29 05:51:35,455 - INFO - 
+==================================================
+POSITIONS SUMMARY
+==================================================
+2025-04-29 05:51:35,456 - INFO - Current positions summary:
+2025-04-29 05:51:35,458 - INFO -   Open BUY positions: 0
+2025-04-29 05:51:35,459 - INFO -   Open SELL positions: 0
+2025-04-29 05:51:35,460 - INFO -   Closed positions: 0
+2025-04-29 05:51:35,462 - INFO -   Total positions: 0
+2025-04-29 05:51:35,463 - INFO - 
+==================================================
+POSITIONS SUMMARY COMPLETE
+==================================================
+2025-04-29 05:51:35,463 - INFO - Trading cycle 4 completed
+2025-04-29 05:51:35,464 - INFO - Waiting 30 seconds until next check at 05:52:05...
+2025-04-29 05:51:35,465 - INFO - 
+==================================================
+CYCLE 4 COMPLETE
+==================================================
+2025-04-29 05:52:05,478 - INFO - 
+==================================================
+TRADING CYCLE 5
+==================================================
+2025-04-29 05:52:05,479 - INFO - Trading cycle 5 started at 2025-04-29 05:52:05
+2025-04-29 05:52:05,479 - INFO - 
+==================================================
+READING SECTOR PERFORMANCE DATA
+==================================================
+2025-04-29 05:52:05,480 - INFO - Reading sector performance data from sector.csv
+2025-04-29 05:52:05,480 - INFO - File last modified: 2025-04-29 05:50:48
+2025-04-29 05:52:05,484 - INFO - Latest timestamp in data: 2025-04-29 05:50:48
+2025-04-29 05:52:05,484 - INFO - Loaded data for 10 sectors
+2025-04-29 05:52:05,485 - INFO - Sector performance details:
+2025-04-29 05:52:05,486 - INFO -   PSU Bank: POSITIVE (0.80%)
+2025-04-29 05:52:05,487 - INFO -   Realty: POSITIVE (0.54%)
+2025-04-29 05:52:05,488 - INFO -   Energy: POSITIVE (0.40%)
+2025-04-29 05:52:05,489 - INFO -   Auto: POSITIVE (0.31%)
+2025-04-29 05:52:05,489 - INFO -   IT: POSITIVE (0.16%)
+2025-04-29 05:52:05,491 - INFO -   Media: POSITIVE (0.13%)
+2025-04-29 05:52:05,492 - INFO -   Metal: POSITIVE (0.03%)
+2025-04-29 05:52:05,493 - INFO -   Financial Services: NEGATIVE (-0.12%)
+2025-04-29 05:52:05,493 - INFO -   FMCG: NEGATIVE (-0.58%)
+2025-04-29 05:52:05,494 - INFO -   Pharma: NEGATIVE (-1.38%)
+2025-04-29 05:52:05,494 - INFO - 
+==================================================
+SECTOR DATA READ COMPLETE
+==================================================
+2025-04-29 05:52:05,495 - INFO - 
+==================================================
+PROCESSING SECTOR DATA
+==================================================
+2025-04-29 05:52:05,498 - INFO - Processed performance data for 10 sectors
+2025-04-29 05:52:05,499 - INFO - Processing existing positions for potential exits...
+2025-04-29 05:52:05,500 - INFO - 
+==================================================
+PROCESSING EXISTING POSITIONS
+==================================================
+2025-04-29 05:52:05,501 - INFO - No existing positions to process
+2025-04-29 05:52:05,501 - INFO - 
+==================================================
+POSITION PROCESSING COMPLETE
+==================================================
+2025-04-29 05:52:05,502 - INFO - Looking for new trading opportunities...
+2025-04-29 05:52:05,503 - INFO - 
+==================================================
+FINDING NEW TRADING OPPORTUNITIES
+==================================================
+2025-04-29 05:52:05,504 - INFO - Found 5 active tickers out of 5 total
+2025-04-29 05:52:05,504 - INFO - Processing tickers in order: ['SYNGENE.NS', 'GRANULES.NS', 'ZEEL.NS', 'SBILIFE.NS', 'RBLBANK.NS']
+2025-04-29 05:52:05,504 - INFO - Already have open positions for: []
+2025-04-29 05:52:05,505 - INFO - Current sector performances:
+2025-04-29 05:52:05,506 - INFO -   Sector PSU Bank: POSITIVE (0.80%)
+2025-04-29 05:52:05,508 - INFO -   Sector Realty: POSITIVE (0.54%)
+2025-04-29 05:52:05,510 - INFO -   Sector Energy: POSITIVE (0.40%)
+2025-04-29 05:52:05,512 - INFO -   Sector Auto: POSITIVE (0.31%)
+2025-04-29 05:52:05,512 - INFO -   Sector IT: POSITIVE (0.16%)
+2025-04-29 05:52:05,513 - INFO -   Sector Media: POSITIVE (0.13%)
+2025-04-29 05:52:05,513 - INFO -   Sector Metal: POSITIVE (0.03%)
+2025-04-29 05:52:05,513 - INFO -   Sector Financial Services: NEGATIVE (-0.12%)
+2025-04-29 05:52:05,514 - INFO -   Sector FMCG: NEGATIVE (-0.58%)
+2025-04-29 05:52:05,515 - INFO -   Sector Pharma: NEGATIVE (-1.38%)
+2025-04-29 05:52:05,516 - INFO - Processing ticker 1: SYNGENE.NS
+2025-04-29 05:52:05,517 - INFO - Found sector Pharma for SYNGENE.NS
+2025-04-29 05:52:05,517 - INFO - Evaluating SYNGENE.NS in sector Pharma (-1.38%)
+2025-04-29 05:52:05,518 - INFO - Not trading SYNGENE.NS - sector performance doesn't match strategy
+2025-04-29 05:52:05,519 - INFO -   Transaction type: BUY
+2025-04-29 05:52:05,519 - INFO -   Sector is_positive: False
+2025-04-29 05:52:05,520 - INFO - Processing ticker 2: GRANULES.NS
+2025-04-29 05:52:05,521 - INFO - Found sector Pharma for GRANULES.NS
+2025-04-29 05:52:05,524 - INFO - Evaluating GRANULES.NS in sector Pharma (-1.38%)
+2025-04-29 05:52:05,525 - INFO - Not trading GRANULES.NS - sector performance doesn't match strategy
+2025-04-29 05:52:05,525 - INFO -   Transaction type: BUY
+2025-04-29 05:52:05,525 - INFO -   Sector is_positive: False
+2025-04-29 05:52:05,526 - INFO - Processing ticker 3: ZEEL.NS
+2025-04-29 05:52:05,526 - INFO - Found sector Media for ZEEL.NS
+2025-04-29 05:52:05,527 - INFO - Evaluating ZEEL.NS in sector Media (+0.13%)
+2025-04-29 05:52:05,527 - INFO - Should BUY ZEEL.NS because sector Media is positive
+2025-04-29 05:52:05,527 - INFO - SECURITY ID LOOKUP: Searching for ZEEL.NS
+2025-04-29 05:52:05,527 - INFO - Trying exact match for 'ZEEL.NS'
+2025-04-29 05:52:05,528 - INFO - Trying with .NS: 'ZEEL.NS'
+2025-04-29 05:52:05,528 - INFO - Trying without .NS: 'ZEEL'
+2025-04-29 05:52:05,529 - ERROR - SECURITY ID NOT FOUND for ZEEL.NS
+2025-04-29 05:52:05,529 - INFO - Sample security IDs available: ['NSE', 'NSE.NS']
+2025-04-29 05:52:05,530 - ERROR - Could not find security ID for ZEEL.NS. Skipping.
+2025-04-29 05:52:05,530 - INFO - Processing ticker 4: SBILIFE.NS
+2025-04-29 05:52:05,531 - INFO - Found sector Financial Services for SBILIFE.NS
+2025-04-29 05:52:05,532 - INFO - Evaluating SBILIFE.NS in sector Financial Services (-0.12%)
+2025-04-29 05:52:05,532 - INFO - Should SELL SBILIFE.NS because sector Financial Services is negative
+2025-04-29 05:52:05,534 - INFO - SECURITY ID LOOKUP: Searching for SBILIFE.NS
+2025-04-29 05:52:05,535 - INFO - Trying exact match for 'SBILIFE.NS'
+2025-04-29 05:52:05,535 - INFO - Trying with .NS: 'SBILIFE.NS'
+2025-04-29 05:52:05,535 - INFO - Trying without .NS: 'SBILIFE'
+2025-04-29 05:52:05,536 - ERROR - SECURITY ID NOT FOUND for SBILIFE.NS
+2025-04-29 05:52:05,537 - INFO - Sample security IDs available: ['NSE', 'NSE.NS']
+2025-04-29 05:52:05,541 - ERROR - Could not find security ID for SBILIFE.NS. Skipping.
+2025-04-29 05:52:05,542 - INFO - Processing ticker 5: RBLBANK.NS
+2025-04-29 05:52:05,543 - INFO - Found sector PVT Bank for RBLBANK.NS
+2025-04-29 05:52:05,543 - WARNING - No performance data for sector PVT Bank
+2025-04-29 05:52:05,544 - INFO - Ticker processing summary:
+2025-04-29 05:52:05,545 - INFO -   Total tickers considered: 5
+2025-04-29 05:52:05,545 - INFO -   Tickers with sector data: 5
+2025-04-29 05:52:05,545 - INFO -   Tickers matching strategy: 2
+2025-04-29 05:52:05,546 - INFO -   Tickers with security ID: 0
+2025-04-29 05:52:05,546 - INFO -   Orders successfully placed: 0
+2025-04-29 05:52:05,547 - INFO - New positions added: 0
+2025-04-29 05:52:05,551 - INFO - Positions skipped: 5
+2025-04-29 05:52:05,552 - INFO - Positions with errors: 0
+2025-04-29 05:52:05,553 - INFO - 
+==================================================
+NEW OPPORTUNITIES PROCESSING COMPLETE
+==================================================
+2025-04-29 05:52:05,554 - INFO - 
+==================================================
+SECTOR PROCESSING COMPLETE
+==================================================
+2025-04-29 05:52:05,560 - INFO - Saved 0 positions to dhan_positions.json
+2025-04-29 05:52:05,561 - INFO - 
+==================================================
+POSITIONS SUMMARY
+==================================================
+2025-04-29 05:52:05,563 - INFO - Current positions summary:
+2025-04-29 05:52:05,567 - INFO -   Open BUY positions: 0
+2025-04-29 05:52:05,568 - INFO -   Open SELL positions: 0
+2025-04-29 05:52:05,568 - INFO -   Closed positions: 0
+2025-04-29 05:52:05,569 - INFO -   Total positions: 0
+2025-04-29 05:52:05,572 - INFO - 
+==================================================
+POSITIONS SUMMARY COMPLETE
+==================================================
+2025-04-29 05:52:05,573 - INFO - Trading cycle 5 completed
+2025-04-29 05:52:05,574 - INFO - Waiting 30 seconds until next check at 05:52:35...
+2025-04-29 05:52:05,575 - INFO - 
+==================================================
+CYCLE 5 COMPLETE
+==================================================
+2025-04-29 05:52:35,587 - INFO - 
+==================================================
+TRADING CYCLE 6
+==================================================
+2025-04-29 05:52:35,591 - INFO - Trading cycle 6 started at 2025-04-29 05:52:35
+2025-04-29 05:52:35,592 - INFO - 
+==================================================
+READING SECTOR PERFORMANCE DATA
+==================================================
+2025-04-29 05:52:35,624 - INFO - Reading sector performance data from sector.csv
+2025-04-29 05:52:35,643 - INFO - File last modified: 2025-04-29 05:52:30
+2025-04-29 05:52:35,663 - INFO - Latest timestamp in data: 2025-04-29 05:52:30
+2025-04-29 05:52:35,668 - INFO - Loaded data for 10 sectors
+2025-04-29 05:52:35,669 - INFO - Sector performance details:
+2025-04-29 05:52:35,671 - INFO -   PSU Bank: POSITIVE (0.80%)
+2025-04-29 05:52:35,671 - INFO -   Realty: POSITIVE (0.54%)
+2025-04-29 05:52:35,672 - INFO -   Energy: POSITIVE (0.40%)
+2025-04-29 05:52:35,674 - INFO -   Auto: POSITIVE (0.31%)
+2025-04-29 05:52:35,676 - INFO -   IT: POSITIVE (0.16%)
+2025-04-29 05:52:35,685 - INFO -   Media: POSITIVE (0.13%)
+2025-04-29 05:52:35,688 - INFO -   Metal: POSITIVE (0.03%)
+2025-04-29 05:52:35,690 - INFO -   Financial Services: NEGATIVE (-0.12%)
+2025-04-29 05:52:35,693 - INFO -   FMCG: NEGATIVE (-0.58%)
+2025-04-29 05:52:35,699 - INFO -   Pharma: NEGATIVE (-1.38%)
+2025-04-29 05:52:35,704 - INFO - 
+==================================================
+SECTOR DATA READ COMPLETE
+==================================================
+2025-04-29 05:52:35,709 - INFO - 
+==================================================
+PROCESSING SECTOR DATA
+==================================================
+2025-04-29 05:52:35,727 - INFO - Processed performance data for 10 sectors
+2025-04-29 05:52:35,748 - INFO - Processing existing positions for potential exits...
+2025-04-29 05:52:35,754 - INFO - 
+==================================================
+PROCESSING EXISTING POSITIONS
+==================================================
+2025-04-29 05:52:35,774 - INFO - No existing positions to process
+2025-04-29 05:52:35,789 - INFO - 
+==================================================
+POSITION PROCESSING COMPLETE
+==================================================
+2025-04-29 05:52:35,793 - INFO - Looking for new trading opportunities...
+2025-04-29 05:52:35,794 - INFO - 
+==================================================
+FINDING NEW TRADING OPPORTUNITIES
+==================================================
+2025-04-29 05:52:35,798 - INFO - Found 5 active tickers out of 5 total
+2025-04-29 05:52:35,799 - INFO - Processing tickers in order: ['SYNGENE.NS', 'GRANULES.NS', 'ZEEL.NS', 'SBILIFE.NS', 'RBLBANK.NS']
+2025-04-29 05:52:35,801 - INFO - Already have open positions for: []
+2025-04-29 05:52:35,803 - INFO - Current sector performances:
+2025-04-29 05:52:35,804 - INFO -   Sector PSU Bank: POSITIVE (0.80%)
+2025-04-29 05:52:35,804 - INFO -   Sector Realty: POSITIVE (0.54%)
+2025-04-29 05:52:35,805 - INFO -   Sector Energy: POSITIVE (0.40%)
+2025-04-29 05:52:35,805 - INFO -   Sector Auto: POSITIVE (0.31%)
+2025-04-29 05:52:35,806 - INFO -   Sector IT: POSITIVE (0.16%)
+2025-04-29 05:52:35,806 - INFO -   Sector Media: POSITIVE (0.13%)
+2025-04-29 05:52:35,806 - INFO -   Sector Metal: POSITIVE (0.03%)
+2025-04-29 05:52:35,807 - INFO -   Sector Financial Services: NEGATIVE (-0.12%)
+2025-04-29 05:52:35,807 - INFO -   Sector FMCG: NEGATIVE (-0.58%)
+2025-04-29 05:52:35,808 - INFO -   Sector Pharma: NEGATIVE (-1.38%)
+2025-04-29 05:52:35,808 - INFO - Processing ticker 1: SYNGENE.NS
+2025-04-29 05:52:35,809 - INFO - Found sector Pharma for SYNGENE.NS
+2025-04-29 05:52:35,810 - INFO - Evaluating SYNGENE.NS in sector Pharma (-1.38%)
+2025-04-29 05:52:35,814 - INFO - Not trading SYNGENE.NS - sector performance doesn't match strategy
+2025-04-29 05:52:35,816 - INFO -   Transaction type: BUY
+2025-04-29 05:52:35,820 - INFO -   Sector is_positive: False
+2025-04-29 05:52:35,823 - INFO - Processing ticker 2: GRANULES.NS
+2025-04-29 05:52:35,824 - INFO - Found sector Pharma for GRANULES.NS
+2025-04-29 05:52:35,825 - INFO - Evaluating GRANULES.NS in sector Pharma (-1.38%)
+2025-04-29 05:52:35,827 - INFO - Not trading GRANULES.NS - sector performance doesn't match strategy
+2025-04-29 05:52:35,836 - INFO -   Transaction type: BUY
+2025-04-29 05:52:35,839 - INFO -   Sector is_positive: False
+2025-04-29 05:52:35,840 - INFO - Processing ticker 3: ZEEL.NS
+2025-04-29 05:52:35,840 - INFO - Found sector Media for ZEEL.NS
+2025-04-29 05:52:35,841 - INFO - Evaluating ZEEL.NS in sector Media (+0.13%)
+2025-04-29 05:52:35,841 - INFO - Should BUY ZEEL.NS because sector Media is positive
+2025-04-29 05:52:35,842 - INFO - SECURITY ID LOOKUP: Searching for ZEEL.NS
+2025-04-29 05:52:35,842 - INFO - Trying exact match for 'ZEEL.NS'
+2025-04-29 05:52:35,843 - INFO - Trying with .NS: 'ZEEL.NS'
+2025-04-29 05:52:35,843 - INFO - Trying without .NS: 'ZEEL'
+2025-04-29 05:52:35,845 - ERROR - SECURITY ID NOT FOUND for ZEEL.NS
+2025-04-29 05:52:35,847 - INFO - Sample security IDs available: ['NSE', 'NSE.NS']
+2025-04-29 05:52:35,848 - ERROR - Could not find security ID for ZEEL.NS. Skipping.
+2025-04-29 05:52:35,848 - INFO - Processing ticker 4: SBILIFE.NS
+2025-04-29 05:52:35,849 - INFO - Found sector Financial Services for SBILIFE.NS
+2025-04-29 05:52:35,850 - INFO - Evaluating SBILIFE.NS in sector Financial Services (-0.12%)
+2025-04-29 05:52:35,851 - INFO - Should SELL SBILIFE.NS because sector Financial Services is negative
+2025-04-29 05:52:35,853 - INFO - SECURITY ID LOOKUP: Searching for SBILIFE.NS
+2025-04-29 05:52:35,853 - INFO - Trying exact match for 'SBILIFE.NS'
+2025-04-29 05:52:35,854 - INFO - Trying with .NS: 'SBILIFE.NS'
+2025-04-29 05:52:35,854 - INFO - Trying without .NS: 'SBILIFE'
+2025-04-29 05:52:35,855 - ERROR - SECURITY ID NOT FOUND for SBILIFE.NS
+2025-04-29 05:52:35,855 - INFO - Sample security IDs available: ['NSE', 'NSE.NS']
+2025-04-29 05:52:35,855 - ERROR - Could not find security ID for SBILIFE.NS. Skipping.
+2025-04-29 05:52:35,856 - INFO - Processing ticker 5: RBLBANK.NS
+2025-04-29 05:52:35,856 - INFO - Found sector PVT Bank for RBLBANK.NS
+2025-04-29 05:52:35,856 - WARNING - No performance data for sector PVT Bank
+2025-04-29 05:52:35,857 - INFO - Ticker processing summary:
+2025-04-29 05:52:35,857 - INFO -   Total tickers considered: 5
+2025-04-29 05:52:35,858 - INFO -   Tickers with sector data: 5
+2025-04-29 05:52:35,858 - INFO -   Tickers matching strategy: 2
+2025-04-29 05:52:35,858 - INFO -   Tickers with security ID: 0
+2025-04-29 05:52:35,859 - INFO -   Orders successfully placed: 0
+2025-04-29 05:52:35,860 - INFO - New positions added: 0
+2025-04-29 05:52:35,860 - INFO - Positions skipped: 5
+2025-04-29 05:52:35,860 - INFO - Positions with errors: 0
+2025-04-29 05:52:35,862 - INFO - 
+==================================================
+NEW OPPORTUNITIES PROCESSING COMPLETE
+==================================================
+2025-04-29 05:52:35,864 - INFO - 
+==================================================
+SECTOR PROCESSING COMPLETE
+==================================================
+2025-04-29 05:52:35,867 - INFO - Saved 0 positions to dhan_positions.json
+2025-04-29 05:52:35,868 - INFO - 
+==================================================
+POSITIONS SUMMARY
+==================================================
+2025-04-29 05:52:35,872 - INFO - Current positions summary:
+2025-04-29 05:52:35,872 - INFO -   Open BUY positions: 0
+2025-04-29 05:52:35,873 - INFO -   Open SELL positions: 0
+2025-04-29 05:52:35,873 - INFO -   Closed positions: 0
+2025-04-29 05:52:35,874 - INFO -   Total positions: 0
+2025-04-29 05:52:35,874 - INFO - 
+==================================================
+POSITIONS SUMMARY COMPLETE
+==================================================
+2025-04-29 05:52:35,875 - INFO - Trading cycle 6 completed
+2025-04-29 05:52:35,876 - INFO - Waiting 30 seconds until next check at 05:53:05...
+2025-04-29 05:52:35,876 - INFO - 
+==================================================
+CYCLE 6 COMPLETE
+==================================================
+2025-04-29 05:53:05,884 - INFO - 
+==================================================
+TRADING CYCLE 7
+==================================================
+2025-04-29 05:53:05,885 - INFO - Trading cycle 7 started at 2025-04-29 05:53:05
+2025-04-29 05:53:05,885 - INFO - 
+==================================================
+READING SECTOR PERFORMANCE DATA
+==================================================
+2025-04-29 05:53:05,886 - INFO - Reading sector performance data from sector.csv
+2025-04-29 05:53:05,886 - INFO - File last modified: 2025-04-29 05:52:30
+2025-04-29 05:53:05,888 - INFO - Latest timestamp in data: 2025-04-29 05:52:30
+2025-04-29 05:53:05,889 - INFO - Loaded data for 10 sectors
+2025-04-29 05:53:05,889 - INFO - Sector performance details:
+2025-04-29 05:53:05,891 - INFO -   PSU Bank: POSITIVE (0.80%)
+2025-04-29 05:53:05,893 - INFO -   Realty: POSITIVE (0.54%)
+2025-04-29 05:53:05,894 - INFO -   Energy: POSITIVE (0.40%)
+2025-04-29 05:53:05,894 - INFO -   Auto: POSITIVE (0.31%)
+2025-04-29 05:53:05,895 - INFO -   IT: POSITIVE (0.16%)
+2025-04-29 05:53:05,896 - INFO -   Media: POSITIVE (0.13%)
+2025-04-29 05:53:05,897 - INFO -   Metal: POSITIVE (0.03%)
+2025-04-29 05:53:05,898 - INFO -   Financial Services: NEGATIVE (-0.12%)
+2025-04-29 05:53:05,899 - INFO -   FMCG: NEGATIVE (-0.58%)
+2025-04-29 05:53:05,901 - INFO -   Pharma: NEGATIVE (-1.38%)
+2025-04-29 05:53:05,901 - INFO - 
+==================================================
+SECTOR DATA READ COMPLETE
+==================================================
+2025-04-29 05:53:05,902 - INFO - 
+==================================================
+PROCESSING SECTOR DATA
+==================================================
+2025-04-29 05:53:05,903 - INFO - Processed performance data for 10 sectors
+2025-04-29 05:53:05,904 - INFO - Processing existing positions for potential exits...
+2025-04-29 05:53:05,904 - INFO - 
+==================================================
+PROCESSING EXISTING POSITIONS
+==================================================
+2025-04-29 05:53:05,904 - INFO - No existing positions to process
+2025-04-29 05:53:05,904 - INFO - 
+==================================================
+POSITION PROCESSING COMPLETE
+==================================================
+2025-04-29 05:53:05,906 - INFO - Looking for new trading opportunities...
+2025-04-29 05:53:05,906 - INFO - 
+==================================================
+FINDING NEW TRADING OPPORTUNITIES
+==================================================
+2025-04-29 05:53:05,907 - INFO - Found 5 active tickers out of 5 total
+2025-04-29 05:53:05,907 - INFO - Processing tickers in order: ['SYNGENE.NS', 'GRANULES.NS', 'ZEEL.NS', 'SBILIFE.NS', 'RBLBANK.NS']
+2025-04-29 05:53:05,907 - INFO - Already have open positions for: []
+2025-04-29 05:53:05,908 - INFO - Current sector performances:
+2025-04-29 05:53:05,909 - INFO -   Sector PSU Bank: POSITIVE (0.80%)
+2025-04-29 05:53:05,909 - INFO -   Sector Realty: POSITIVE (0.54%)
+2025-04-29 05:53:05,910 - INFO -   Sector Energy: POSITIVE (0.40%)
+2025-04-29 05:53:05,910 - INFO -   Sector Auto: POSITIVE (0.31%)
+2025-04-29 05:53:05,911 - INFO -   Sector IT: POSITIVE (0.16%)
+2025-04-29 05:53:05,911 - INFO -   Sector Media: POSITIVE (0.13%)
+2025-04-29 05:53:05,911 - INFO -   Sector Metal: POSITIVE (0.03%)
+2025-04-29 05:53:05,912 - INFO -   Sector Financial Services: NEGATIVE (-0.12%)
+2025-04-29 05:53:05,913 - INFO -   Sector FMCG: NEGATIVE (-0.58%)
+2025-04-29 05:53:05,913 - INFO -   Sector Pharma: NEGATIVE (-1.38%)
+2025-04-29 05:53:05,913 - INFO - Processing ticker 1: SYNGENE.NS
+2025-04-29 05:53:05,914 - INFO - Found sector Pharma for SYNGENE.NS
+2025-04-29 05:53:05,914 - INFO - Evaluating SYNGENE.NS in sector Pharma (-1.38%)
+2025-04-29 05:53:05,914 - INFO - Not trading SYNGENE.NS - sector performance doesn't match strategy
+2025-04-29 05:53:05,917 - INFO -   Transaction type: BUY
+2025-04-29 05:53:05,919 - INFO -   Sector is_positive: False
+2025-04-29 05:53:05,920 - INFO - Processing ticker 2: GRANULES.NS
+2025-04-29 05:53:05,921 - INFO - Found sector Pharma for GRANULES.NS
+2025-04-29 05:53:05,921 - INFO - Evaluating GRANULES.NS in sector Pharma (-1.38%)
+2025-04-29 05:53:05,922 - INFO - Not trading GRANULES.NS - sector performance doesn't match strategy
+2025-04-29 05:53:05,923 - INFO -   Transaction type: BUY
+2025-04-29 05:53:05,923 - INFO -   Sector is_positive: False
+2025-04-29 05:53:05,923 - INFO - Processing ticker 3: ZEEL.NS
+2025-04-29 05:53:05,924 - INFO - Found sector Media for ZEEL.NS
+2025-04-29 05:53:05,924 - INFO - Evaluating ZEEL.NS in sector Media (+0.13%)
+2025-04-29 05:53:05,926 - INFO - Should BUY ZEEL.NS because sector Media is positive
+2025-04-29 05:53:05,927 - INFO - SECURITY ID LOOKUP: Searching for ZEEL.NS
+2025-04-29 05:53:05,928 - INFO - Trying exact match for 'ZEEL.NS'
+2025-04-29 05:53:05,929 - INFO - Trying with .NS: 'ZEEL.NS'
+2025-04-29 05:53:05,929 - INFO - Trying without .NS: 'ZEEL'
+2025-04-29 05:53:05,935 - ERROR - SECURITY ID NOT FOUND for ZEEL.NS
+2025-04-29 05:53:05,935 - INFO - Sample security IDs available: ['NSE', 'NSE.NS']
+2025-04-29 05:53:05,936 - ERROR - Could not find security ID for ZEEL.NS. Skipping.
+2025-04-29 05:53:05,937 - INFO - Processing ticker 4: SBILIFE.NS
+2025-04-29 05:53:05,938 - INFO - Found sector Financial Services for SBILIFE.NS
+2025-04-29 05:53:05,938 - INFO - Evaluating SBILIFE.NS in sector Financial Services (-0.12%)
+2025-04-29 05:53:05,938 - INFO - Should SELL SBILIFE.NS because sector Financial Services is negative
+2025-04-29 05:53:05,939 - INFO - SECURITY ID LOOKUP: Searching for SBILIFE.NS
+2025-04-29 05:53:05,939 - INFO - Trying exact match for 'SBILIFE.NS'
+2025-04-29 05:53:05,939 - INFO - Trying with .NS: 'SBILIFE.NS'
+2025-04-29 05:53:05,939 - INFO - Trying without .NS: 'SBILIFE'
+2025-04-29 05:53:05,940 - ERROR - SECURITY ID NOT FOUND for SBILIFE.NS
+2025-04-29 05:53:05,940 - INFO - Sample security IDs available: ['NSE', 'NSE.NS']
+2025-04-29 05:53:05,941 - ERROR - Could not find security ID for SBILIFE.NS. Skipping.
+2025-04-29 05:53:05,941 - INFO - Processing ticker 5: RBLBANK.NS
+2025-04-29 05:53:05,942 - INFO - Found sector PVT Bank for RBLBANK.NS
+2025-04-29 05:53:05,942 - WARNING - No performance data for sector PVT Bank
+2025-04-29 05:53:05,943 - INFO - Ticker processing summary:
+2025-04-29 05:53:05,943 - INFO -   Total tickers considered: 5
+2025-04-29 05:53:05,944 - INFO -   Tickers with sector data: 5
+2025-04-29 05:53:05,944 - INFO -   Tickers matching strategy: 2
+2025-04-29 05:53:05,944 - INFO -   Tickers with security ID: 0
+2025-04-29 05:53:05,945 - INFO -   Orders successfully placed: 0
+2025-04-29 05:53:05,947 - INFO - New positions added: 0
+2025-04-29 05:53:05,947 - INFO - Positions skipped: 5
+2025-04-29 05:53:05,949 - INFO - Positions with errors: 0
+2025-04-29 05:53:05,951 - INFO - 
+==================================================
+NEW OPPORTUNITIES PROCESSING COMPLETE
+==================================================
+2025-04-29 05:53:05,956 - INFO - 
+==================================================
+SECTOR PROCESSING COMPLETE
+==================================================
+2025-04-29 05:53:05,960 - INFO - Saved 0 positions to dhan_positions.json
+2025-04-29 05:53:05,964 - INFO - 
+==================================================
+POSITIONS SUMMARY
+==================================================
+2025-04-29 05:53:05,965 - INFO - Current positions summary:
+2025-04-29 05:53:05,967 - INFO -   Open BUY positions: 0
+2025-04-29 05:53:05,967 - INFO -   Open SELL positions: 0
+2025-04-29 05:53:05,968 - INFO -   Closed positions: 0
+2025-04-29 05:53:05,968 - INFO -   Total positions: 0
+2025-04-29 05:53:05,969 - INFO - 
+==================================================
+POSITIONS SUMMARY COMPLETE
+==================================================
+2025-04-29 05:53:05,972 - INFO - Trading cycle 7 completed
+2025-04-29 05:53:05,972 - INFO - Waiting 30 seconds until next check at 05:53:35...
+2025-04-29 05:53:05,973 - INFO - 
+==================================================
+CYCLE 7 COMPLETE
+==================================================
+2025-04-29 05:53:36,013 - INFO - 
+==================================================
+TRADING CYCLE 8
+==================================================
+2025-04-29 05:53:36,018 - INFO - Trading cycle 8 started at 2025-04-29 05:53:36
+2025-04-29 05:53:36,019 - INFO - 
+==================================================
+READING SECTOR PERFORMANCE DATA
+==================================================
+2025-04-29 05:53:36,021 - INFO - Reading sector performance data from sector.csv
+2025-04-29 05:53:36,025 - INFO - File last modified: 2025-04-29 05:52:30
+2025-04-29 05:53:36,033 - INFO - Latest timestamp in data: 2025-04-29 05:52:30
+2025-04-29 05:53:36,033 - INFO - Loaded data for 10 sectors
+2025-04-29 05:53:36,034 - INFO - Sector performance details:
+2025-04-29 05:53:36,035 - INFO -   PSU Bank: POSITIVE (0.80%)
+2025-04-29 05:53:36,035 - INFO -   Realty: POSITIVE (0.54%)
+2025-04-29 05:53:36,036 - INFO -   Energy: POSITIVE (0.40%)
+2025-04-29 05:53:36,037 - INFO -   Auto: POSITIVE (0.31%)
+2025-04-29 05:53:36,066 - INFO -   IT: POSITIVE (0.16%)
+2025-04-29 05:53:36,070 - INFO -   Media: POSITIVE (0.13%)
+2025-04-29 05:53:36,073 - INFO -   Metal: POSITIVE (0.03%)
+2025-04-29 05:53:36,080 - INFO -   Financial Services: NEGATIVE (-0.12%)
+2025-04-29 05:53:36,088 - INFO -   FMCG: NEGATIVE (-0.58%)
+2025-04-29 05:53:36,096 - INFO -   Pharma: NEGATIVE (-1.38%)
+2025-04-29 05:53:36,097 - INFO - 
+==================================================
+SECTOR DATA READ COMPLETE
+==================================================
+2025-04-29 05:53:36,098 - INFO - 
+==================================================
+PROCESSING SECTOR DATA
+==================================================
+2025-04-29 05:53:36,102 - INFO - Processed performance data for 10 sectors
+2025-04-29 05:53:36,102 - INFO - Processing existing positions for potential exits...
+2025-04-29 05:53:36,104 - INFO - 
+==================================================
+PROCESSING EXISTING POSITIONS
+==================================================
+2025-04-29 05:53:36,106 - INFO - No existing positions to process
+2025-04-29 05:53:36,117 - INFO - 
+==================================================
+POSITION PROCESSING COMPLETE
+==================================================
+2025-04-29 05:53:36,132 - INFO - Looking for new trading opportunities...
+2025-04-29 05:53:36,135 - INFO - 
+==================================================
+FINDING NEW TRADING OPPORTUNITIES
+==================================================
+2025-04-29 05:53:36,136 - INFO - Found 5 active tickers out of 5 total
+2025-04-29 05:53:36,142 - INFO - Processing tickers in order: ['SYNGENE.NS', 'GRANULES.NS', 'ZEEL.NS', 'SBILIFE.NS', 'RBLBANK.NS']
+2025-04-29 05:53:36,142 - INFO - Already have open positions for: []
+2025-04-29 05:53:36,143 - INFO - Current sector performances:
+2025-04-29 05:53:36,151 - INFO -   Sector PSU Bank: POSITIVE (0.80%)
+2025-04-29 05:53:36,161 - INFO -   Sector Realty: POSITIVE (0.54%)
+2025-04-29 05:53:36,169 - INFO -   Sector Energy: POSITIVE (0.40%)
+2025-04-29 05:53:36,177 - INFO -   Sector Auto: POSITIVE (0.31%)
+2025-04-29 05:53:36,179 - INFO -   Sector IT: POSITIVE (0.16%)
+2025-04-29 05:53:36,181 - INFO -   Sector Media: POSITIVE (0.13%)
+2025-04-29 05:53:36,182 - INFO -   Sector Metal: POSITIVE (0.03%)
+2025-04-29 05:53:36,182 - INFO -   Sector Financial Services: NEGATIVE (-0.12%)
+2025-04-29 05:53:36,183 - INFO -   Sector FMCG: NEGATIVE (-0.58%)
+2025-04-29 05:53:36,183 - INFO -   Sector Pharma: NEGATIVE (-1.38%)
+2025-04-29 05:53:36,185 - INFO - Processing ticker 1: SYNGENE.NS
+2025-04-29 05:53:36,185 - INFO - Found sector Pharma for SYNGENE.NS
+2025-04-29 05:53:36,186 - INFO - Evaluating SYNGENE.NS in sector Pharma (-1.38%)
+2025-04-29 05:53:36,186 - INFO - Not trading SYNGENE.NS - sector performance doesn't match strategy
+2025-04-29 05:53:36,186 - INFO -   Transaction type: BUY
+2025-04-29 05:53:36,187 - INFO -   Sector is_positive: False
+2025-04-29 05:53:36,187 - INFO - Processing ticker 2: GRANULES.NS
+2025-04-29 05:53:36,188 - INFO - Found sector Pharma for GRANULES.NS
+2025-04-29 05:53:36,191 - INFO - Evaluating GRANULES.NS in sector Pharma (-1.38%)
+2025-04-29 05:53:36,192 - INFO - Not trading GRANULES.NS - sector performance doesn't match strategy
+2025-04-29 05:53:36,199 - INFO -   Transaction type: BUY
+2025-04-29 05:53:36,202 - INFO -   Sector is_positive: False
+2025-04-29 05:53:36,203 - INFO - Processing ticker 3: ZEEL.NS
+2025-04-29 05:53:36,204 - INFO - Found sector Media for ZEEL.NS
+2025-04-29 05:53:36,208 - INFO - Evaluating ZEEL.NS in sector Media (+0.13%)
+2025-04-29 05:53:36,209 - INFO - Should BUY ZEEL.NS because sector Media is positive
+2025-04-29 05:53:36,210 - INFO - SECURITY ID LOOKUP: Searching for ZEEL.NS
+2025-04-29 05:53:36,212 - INFO - Trying exact match for 'ZEEL.NS'
+2025-04-29 05:53:36,212 - INFO - Trying with .NS: 'ZEEL.NS'
+2025-04-29 05:53:36,215 - INFO - Trying without .NS: 'ZEEL'
+2025-04-29 05:53:36,216 - ERROR - SECURITY ID NOT FOUND for ZEEL.NS
+2025-04-29 05:53:36,216 - INFO - Sample security IDs available: ['NSE', 'NSE.NS']
+2025-04-29 05:53:36,218 - ERROR - Could not find security ID for ZEEL.NS. Skipping.
+2025-04-29 05:53:36,218 - INFO - Processing ticker 4: SBILIFE.NS
+2025-04-29 05:53:36,219 - INFO - Found sector Financial Services for SBILIFE.NS
+2025-04-29 05:53:36,219 - INFO - Evaluating SBILIFE.NS in sector Financial Services (-0.12%)
+2025-04-29 05:53:36,219 - INFO - Should SELL SBILIFE.NS because sector Financial Services is negative
+2025-04-29 05:53:36,220 - INFO - SECURITY ID LOOKUP: Searching for SBILIFE.NS
+2025-04-29 05:53:36,226 - INFO - Trying exact match for 'SBILIFE.NS'
+2025-04-29 05:53:36,234 - INFO - Trying with .NS: 'SBILIFE.NS'
+2025-04-29 05:53:36,235 - INFO - Trying without .NS: 'SBILIFE'
+2025-04-29 05:53:36,237 - ERROR - SECURITY ID NOT FOUND for SBILIFE.NS
+2025-04-29 05:53:36,239 - INFO - Sample security IDs available: ['NSE', 'NSE.NS']
+2025-04-29 05:53:36,241 - ERROR - Could not find security ID for SBILIFE.NS. Skipping.
+2025-04-29 05:53:36,242 - INFO - Processing ticker 5: RBLBANK.NS
+2025-04-29 05:53:36,250 - INFO - Found sector PVT Bank for RBLBANK.NS
+2025-04-29 05:53:36,250 - WARNING - No performance data for sector PVT Bank
+2025-04-29 05:53:36,251 - INFO - Ticker processing summary:
+2025-04-29 05:53:36,252 - INFO -   Total tickers considered: 5
+2025-04-29 05:53:36,252 - INFO -   Tickers with sector data: 5
+2025-04-29 05:53:36,253 - INFO -   Tickers matching strategy: 2
+2025-04-29 05:53:36,254 - INFO -   Tickers with security ID: 0
+2025-04-29 05:53:36,254 - INFO -   Orders successfully placed: 0
+2025-04-29 05:53:36,254 - INFO - New positions added: 0
+2025-04-29 05:53:36,256 - INFO - Positions skipped: 5
+2025-04-29 05:53:36,257 - INFO - Positions with errors: 0
+2025-04-29 05:53:36,260 - INFO - 
+==================================================
+NEW OPPORTUNITIES PROCESSING COMPLETE
+==================================================
+2025-04-29 05:53:36,265 - INFO - 
+==================================================
+SECTOR PROCESSING COMPLETE
+==================================================
+2025-04-29 05:53:36,269 - INFO - Saved 0 positions to dhan_positions.json
+2025-04-29 05:53:36,286 - INFO - 
+==================================================
+POSITIONS SUMMARY
+==================================================
+2025-04-29 05:53:36,300 - INFO - Current positions summary:
+2025-04-29 05:53:36,302 - INFO -   Open BUY positions: 0
+2025-04-29 05:53:36,318 - INFO -   Open SELL positions: 0
+2025-04-29 05:53:36,319 - INFO -   Closed positions: 0
+2025-04-29 05:53:36,320 - INFO -   Total positions: 0
+2025-04-29 05:53:36,320 - INFO - 
+==================================================
+POSITIONS SUMMARY COMPLETE
+==================================================
+2025-04-29 05:53:36,321 - INFO - Trading cycle 8 completed
+2025-04-29 05:53:36,326 - INFO - Waiting 30 seconds until next check at 05:54:06...
+2025-04-29 05:53:36,327 - INFO - 
+==================================================
+CYCLE 8 COMPLETE
+==================================================
+2025-04-29 05:54:06,337 - INFO - 
+==================================================
+TRADING CYCLE 9
+==================================================
+2025-04-29 05:54:06,338 - INFO - Trading cycle 9 started at 2025-04-29 05:54:06
+2025-04-29 05:54:06,338 - INFO - 
+==================================================
+READING SECTOR PERFORMANCE DATA
+==================================================
+2025-04-29 05:54:06,339 - INFO - Reading sector performance data from sector.csv
+2025-04-29 05:54:06,340 - INFO - File last modified: 2025-04-29 05:52:30
+2025-04-29 05:54:06,342 - INFO - Latest timestamp in data: 2025-04-29 05:52:30
+2025-04-29 05:54:06,343 - INFO - Loaded data for 10 sectors
+2025-04-29 05:54:06,344 - INFO - Sector performance details:
+2025-04-29 05:54:06,346 - INFO -   PSU Bank: POSITIVE (0.80%)
+2025-04-29 05:54:06,347 - INFO -   Realty: POSITIVE (0.54%)
+2025-04-29 05:54:06,348 - INFO -   Energy: POSITIVE (0.40%)
+2025-04-29 05:54:06,349 - INFO -   Auto: POSITIVE (0.31%)
+2025-04-29 05:54:06,351 - INFO -   IT: POSITIVE (0.16%)
+2025-04-29 05:54:06,354 - INFO -   Media: POSITIVE (0.13%)
+2025-04-29 05:54:06,355 - INFO -   Metal: POSITIVE (0.03%)
+2025-04-29 05:54:06,357 - INFO -   Financial Services: NEGATIVE (-0.12%)
+2025-04-29 05:54:06,358 - INFO -   FMCG: NEGATIVE (-0.58%)
+2025-04-29 05:54:06,359 - INFO -   Pharma: NEGATIVE (-1.38%)
+2025-04-29 05:54:06,359 - INFO - 
+==================================================
+SECTOR DATA READ COMPLETE
+==================================================
+2025-04-29 05:54:06,361 - INFO - 
+==================================================
+PROCESSING SECTOR DATA
+==================================================
+2025-04-29 05:54:06,366 - INFO - Processed performance data for 10 sectors
+2025-04-29 05:54:06,366 - INFO - Processing existing positions for potential exits...
+2025-04-29 05:54:06,366 - INFO - 
+==================================================
+PROCESSING EXISTING POSITIONS
+==================================================
+2025-04-29 05:54:06,369 - INFO - No existing positions to process
+2025-04-29 05:54:06,371 - INFO - 
+==================================================
+POSITION PROCESSING COMPLETE
+==================================================
+2025-04-29 05:54:06,373 - INFO - Looking for new trading opportunities...
+2025-04-29 05:54:06,375 - INFO - 
+==================================================
+FINDING NEW TRADING OPPORTUNITIES
+==================================================
+2025-04-29 05:54:06,376 - INFO - Found 5 active tickers out of 5 total
+2025-04-29 05:54:06,377 - INFO - Processing tickers in order: ['SYNGENE.NS', 'GRANULES.NS', 'ZEEL.NS', 'SBILIFE.NS', 'RBLBANK.NS']
+2025-04-29 05:54:06,379 - INFO - Already have open positions for: []
+2025-04-29 05:54:06,379 - INFO - Current sector performances:
+2025-04-29 05:54:06,379 - INFO -   Sector PSU Bank: POSITIVE (0.80%)
+2025-04-29 05:54:06,380 - INFO -   Sector Realty: POSITIVE (0.54%)
+2025-04-29 05:54:06,380 - INFO -   Sector Energy: POSITIVE (0.40%)
+2025-04-29 05:54:06,381 - INFO -   Sector Auto: POSITIVE (0.31%)
+2025-04-29 05:54:06,381 - INFO -   Sector IT: POSITIVE (0.16%)
+2025-04-29 05:54:06,381 - INFO -   Sector Media: POSITIVE (0.13%)
+2025-04-29 05:54:06,382 - INFO -   Sector Metal: POSITIVE (0.03%)
+2025-04-29 05:54:06,382 - INFO -   Sector Financial Services: NEGATIVE (-0.12%)
+2025-04-29 05:54:06,382 - INFO -   Sector FMCG: NEGATIVE (-0.58%)
+2025-04-29 05:54:06,383 - INFO -   Sector Pharma: NEGATIVE (-1.38%)
+2025-04-29 05:54:06,384 - INFO - Processing ticker 1: SYNGENE.NS
+2025-04-29 05:54:06,396 - INFO - Found sector Pharma for SYNGENE.NS
+2025-04-29 05:54:06,396 - INFO - Evaluating SYNGENE.NS in sector Pharma (-1.38%)
+2025-04-29 05:54:06,396 - INFO - Not trading SYNGENE.NS - sector performance doesn't match strategy
+2025-04-29 05:54:06,397 - INFO -   Transaction type: BUY
+2025-04-29 05:54:06,398 - INFO -   Sector is_positive: False
+2025-04-29 05:54:06,399 - INFO - Processing ticker 2: GRANULES.NS
+2025-04-29 05:54:06,399 - INFO - Found sector Pharma for GRANULES.NS
+2025-04-29 05:54:06,399 - INFO - Evaluating GRANULES.NS in sector Pharma (-1.38%)
+2025-04-29 05:54:06,400 - INFO - Not trading GRANULES.NS - sector performance doesn't match strategy
+2025-04-29 05:54:06,400 - INFO -   Transaction type: BUY
+2025-04-29 05:54:06,401 - INFO -   Sector is_positive: False
+2025-04-29 05:54:06,408 - INFO - Processing ticker 3: ZEEL.NS
+2025-04-29 05:54:06,409 - INFO - Found sector Media for ZEEL.NS
+2025-04-29 05:54:06,409 - INFO - Evaluating ZEEL.NS in sector Media (+0.13%)
+2025-04-29 05:54:06,409 - INFO - Should BUY ZEEL.NS because sector Media is positive
+2025-04-29 05:54:06,409 - INFO - SECURITY ID LOOKUP: Searching for ZEEL.NS
+2025-04-29 05:54:06,410 - INFO - Trying exact match for 'ZEEL.NS'
+2025-04-29 05:54:06,411 - INFO - Trying with .NS: 'ZEEL.NS'
+2025-04-29 05:54:06,411 - INFO - Trying without .NS: 'ZEEL'
+2025-04-29 05:54:06,411 - ERROR - SECURITY ID NOT FOUND for ZEEL.NS
+2025-04-29 05:54:06,411 - INFO - Sample security IDs available: ['NSE', 'NSE.NS']
+2025-04-29 05:54:06,412 - ERROR - Could not find security ID for ZEEL.NS. Skipping.
+2025-04-29 05:54:06,412 - INFO - Processing ticker 4: SBILIFE.NS
+2025-04-29 05:54:06,412 - INFO - Found sector Financial Services for SBILIFE.NS
+2025-04-29 05:54:06,412 - INFO - Evaluating SBILIFE.NS in sector Financial Services (-0.12%)
+2025-04-29 05:54:06,414 - INFO - Should SELL SBILIFE.NS because sector Financial Services is negative
+2025-04-29 05:54:06,415 - INFO - SECURITY ID LOOKUP: Searching for SBILIFE.NS
+2025-04-29 05:54:06,415 - INFO - Trying exact match for 'SBILIFE.NS'
+2025-04-29 05:54:06,415 - INFO - Trying with .NS: 'SBILIFE.NS'
+2025-04-29 05:54:06,415 - INFO - Trying without .NS: 'SBILIFE'
+2025-04-29 05:54:06,416 - ERROR - SECURITY ID NOT FOUND for SBILIFE.NS
+2025-04-29 05:54:06,416 - INFO - Sample security IDs available: ['NSE', 'NSE.NS']
+2025-04-29 05:54:06,416 - ERROR - Could not find security ID for SBILIFE.NS. Skipping.
+2025-04-29 05:54:06,417 - INFO - Processing ticker 5: RBLBANK.NS
+2025-04-29 05:54:06,418 - INFO - Found sector PVT Bank for RBLBANK.NS
+2025-04-29 05:54:06,418 - WARNING - No performance data for sector PVT Bank
+2025-04-29 05:54:06,422 - INFO - Ticker processing summary:
+2025-04-29 05:54:06,424 - INFO -   Total tickers considered: 5
+2025-04-29 05:54:06,425 - INFO -   Tickers with sector data: 5
+2025-04-29 05:54:06,425 - INFO -   Tickers matching strategy: 2
+2025-04-29 05:54:06,425 - INFO -   Tickers with security ID: 0
+2025-04-29 05:54:06,425 - INFO -   Orders successfully placed: 0
+2025-04-29 05:54:06,426 - INFO - New positions added: 0
+2025-04-29 05:54:06,426 - INFO - Positions skipped: 5
+2025-04-29 05:54:06,426 - INFO - Positions with errors: 0
+2025-04-29 05:54:06,426 - INFO - 
+==================================================
+NEW OPPORTUNITIES PROCESSING COMPLETE
+==================================================
+2025-04-29 05:54:06,427 - INFO - 
+==================================================
+SECTOR PROCESSING COMPLETE
+==================================================
+2025-04-29 05:54:06,429 - INFO - Saved 0 positions to dhan_positions.json
+2025-04-29 05:54:06,430 - INFO - 
+==================================================
+POSITIONS SUMMARY
+==================================================
+2025-04-29 05:54:06,431 - INFO - Current positions summary:
+2025-04-29 05:54:06,431 - INFO -   Open BUY positions: 0
+2025-04-29 05:54:06,432 - INFO -   Open SELL positions: 0
+2025-04-29 05:54:06,432 - INFO -   Closed positions: 0
+2025-04-29 05:54:06,432 - INFO -   Total positions: 0
+2025-04-29 05:54:06,433 - INFO - 
+==================================================
+POSITIONS SUMMARY COMPLETE
+==================================================
+2025-04-29 05:54:06,434 - INFO - Trading cycle 9 completed
+2025-04-29 05:54:06,434 - INFO - Waiting 30 seconds until next check at 05:54:36...
+2025-04-29 05:54:06,434 - INFO - 
+==================================================
+CYCLE 9 COMPLETE
+==================================================
+2025-04-29 05:54:36,444 - INFO - 
+==================================================
+TRADING CYCLE 10
+==================================================
+2025-04-29 05:54:36,445 - INFO - Trading cycle 10 started at 2025-04-29 05:54:36
+2025-04-29 05:54:36,445 - INFO - 
+==================================================
+READING SECTOR PERFORMANCE DATA
+==================================================
+2025-04-29 05:54:36,446 - INFO - Reading sector performance data from sector.csv
+2025-04-29 05:54:36,446 - INFO - File last modified: 2025-04-29 05:54:12
+2025-04-29 05:54:36,450 - INFO - Latest timestamp in data: 2025-04-29 05:54:12
+2025-04-29 05:54:36,451 - INFO - Loaded data for 10 sectors
+2025-04-29 05:54:36,451 - INFO - Sector performance details:
+2025-04-29 05:54:36,452 - INFO -   PSU Bank: POSITIVE (0.80%)
+2025-04-29 05:54:36,453 - INFO -   Realty: POSITIVE (0.54%)
+2025-04-29 05:54:36,454 - INFO -   Energy: POSITIVE (0.40%)
+2025-04-29 05:54:36,455 - INFO -   Auto: POSITIVE (0.31%)
+2025-04-29 05:54:36,456 - INFO -   IT: POSITIVE (0.16%)
+2025-04-29 05:54:36,456 - INFO -   Media: POSITIVE (0.13%)
+2025-04-29 05:54:36,457 - INFO -   Metal: POSITIVE (0.03%)
+2025-04-29 05:54:36,457 - INFO -   Financial Services: NEGATIVE (-0.12%)
+2025-04-29 05:54:36,458 - INFO -   FMCG: NEGATIVE (-0.58%)
+2025-04-29 05:54:36,458 - INFO -   Pharma: NEGATIVE (-1.38%)
+2025-04-29 05:54:36,459 - INFO - 
+==================================================
+SECTOR DATA READ COMPLETE
+==================================================
+2025-04-29 05:54:36,459 - INFO - 
+==================================================
+PROCESSING SECTOR DATA
+==================================================
+2025-04-29 05:54:36,461 - INFO - Processed performance data for 10 sectors
+2025-04-29 05:54:36,461 - INFO - Processing existing positions for potential exits...
+2025-04-29 05:54:36,462 - INFO - 
+==================================================
+PROCESSING EXISTING POSITIONS
+==================================================
+2025-04-29 05:54:36,463 - INFO - No existing positions to process
+2025-04-29 05:54:36,463 - INFO - 
+==================================================
+POSITION PROCESSING COMPLETE
+==================================================
+2025-04-29 05:54:36,463 - INFO - Looking for new trading opportunities...
+2025-04-29 05:54:36,464 - INFO - 
+==================================================
+FINDING NEW TRADING OPPORTUNITIES
+==================================================
+2025-04-29 05:54:36,464 - INFO - Found 5 active tickers out of 5 total
+2025-04-29 05:54:36,464 - INFO - Processing tickers in order: ['SYNGENE.NS', 'GRANULES.NS', 'ZEEL.NS', 'SBILIFE.NS', 'RBLBANK.NS']
+2025-04-29 05:54:36,471 - INFO - Already have open positions for: []
+2025-04-29 05:54:36,471 - INFO - Current sector performances:
+2025-04-29 05:54:36,472 - INFO -   Sector PSU Bank: POSITIVE (0.80%)
+2025-04-29 05:54:36,472 - INFO -   Sector Realty: POSITIVE (0.54%)
+2025-04-29 05:54:36,472 - INFO -   Sector Energy: POSITIVE (0.40%)
+2025-04-29 05:54:36,473 - INFO -   Sector Auto: POSITIVE (0.31%)
+2025-04-29 05:54:36,474 - INFO -   Sector IT: POSITIVE (0.16%)
+2025-04-29 05:54:36,474 - INFO -   Sector Media: POSITIVE (0.13%)
+2025-04-29 05:54:36,474 - INFO -   Sector Metal: POSITIVE (0.03%)
+2025-04-29 05:54:36,475 - INFO -   Sector Financial Services: NEGATIVE (-0.12%)
+2025-04-29 05:54:36,475 - INFO -   Sector FMCG: NEGATIVE (-0.58%)
+2025-04-29 05:54:36,477 - INFO -   Sector Pharma: NEGATIVE (-1.38%)
+2025-04-29 05:54:36,495 - INFO - Processing ticker 1: SYNGENE.NS
+2025-04-29 05:54:36,496 - INFO - Found sector Pharma for SYNGENE.NS
+2025-04-29 05:54:36,496 - INFO - Evaluating SYNGENE.NS in sector Pharma (-1.38%)
+2025-04-29 05:54:36,497 - INFO - Not trading SYNGENE.NS - sector performance doesn't match strategy
+2025-04-29 05:54:36,497 - INFO -   Transaction type: BUY
+2025-04-29 05:54:36,503 - INFO -   Sector is_positive: False
+2025-04-29 05:54:36,505 - INFO - Processing ticker 2: GRANULES.NS
+2025-04-29 05:54:36,505 - INFO - Found sector Pharma for GRANULES.NS
+2025-04-29 05:54:36,505 - INFO - Evaluating GRANULES.NS in sector Pharma (-1.38%)
+2025-04-29 05:54:36,505 - INFO - Not trading GRANULES.NS - sector performance doesn't match strategy
+2025-04-29 05:54:36,506 - INFO -   Transaction type: BUY
+2025-04-29 05:54:36,506 - INFO -   Sector is_positive: False
+2025-04-29 05:54:36,507 - INFO - Processing ticker 3: ZEEL.NS
+2025-04-29 05:54:36,508 - INFO - Found sector Media for ZEEL.NS
+2025-04-29 05:54:36,508 - INFO - Evaluating ZEEL.NS in sector Media (+0.13%)
+2025-04-29 05:54:36,508 - INFO - Should BUY ZEEL.NS because sector Media is positive
+2025-04-29 05:54:36,509 - INFO - SECURITY ID LOOKUP: Searching for ZEEL.NS
+2025-04-29 05:54:36,509 - INFO - Trying exact match for 'ZEEL.NS'
+2025-04-29 05:54:36,510 - INFO - Trying with .NS: 'ZEEL.NS'
+2025-04-29 05:54:36,511 - INFO - Trying without .NS: 'ZEEL'
+2025-04-29 05:54:36,511 - ERROR - SECURITY ID NOT FOUND for ZEEL.NS
+2025-04-29 05:54:36,512 - INFO - Sample security IDs available: ['NSE', 'NSE.NS']
+2025-04-29 05:54:36,512 - ERROR - Could not find security ID for ZEEL.NS. Skipping.
+2025-04-29 05:54:36,512 - INFO - Processing ticker 4: SBILIFE.NS
+2025-04-29 05:54:36,513 - INFO - Found sector Financial Services for SBILIFE.NS
+2025-04-29 05:54:36,513 - INFO - Evaluating SBILIFE.NS in sector Financial Services (-0.12%)
+2025-04-29 05:54:36,514 - INFO - Should SELL SBILIFE.NS because sector Financial Services is negative
+2025-04-29 05:54:36,515 - INFO - SECURITY ID LOOKUP: Searching for SBILIFE.NS
+2025-04-29 05:54:36,517 - INFO - Trying exact match for 'SBILIFE.NS'
+2025-04-29 05:54:36,518 - INFO - Trying with .NS: 'SBILIFE.NS'
+2025-04-29 05:54:36,519 - INFO - Trying without .NS: 'SBILIFE'
+2025-04-29 05:54:36,519 - ERROR - SECURITY ID NOT FOUND for SBILIFE.NS
+2025-04-29 05:54:36,519 - INFO - Sample security IDs available: ['NSE', 'NSE.NS']
+2025-04-29 05:54:36,520 - ERROR - Could not find security ID for SBILIFE.NS. Skipping.
+2025-04-29 05:54:36,520 - INFO - Processing ticker 5: RBLBANK.NS
+2025-04-29 05:54:36,520 - INFO - Found sector PVT Bank for RBLBANK.NS
+2025-04-29 05:54:36,520 - WARNING - No performance data for sector PVT Bank
+2025-04-29 05:54:36,521 - INFO - Ticker processing summary:
+2025-04-29 05:54:36,522 - INFO -   Total tickers considered: 5
+2025-04-29 05:54:36,523 - INFO -   Tickers with sector data: 5
+2025-04-29 05:54:36,523 - INFO -   Tickers matching strategy: 2
+2025-04-29 05:54:36,524 - INFO -   Tickers with security ID: 0
+2025-04-29 05:54:36,524 - INFO -   Orders successfully placed: 0
+2025-04-29 05:54:36,524 - INFO - New positions added: 0
+2025-04-29 05:54:36,525 - INFO - Positions skipped: 5
+2025-04-29 05:54:36,526 - INFO - Positions with errors: 0
+2025-04-29 05:54:36,526 - INFO - 
+==================================================
+NEW OPPORTUNITIES PROCESSING COMPLETE
+==================================================
+2025-04-29 05:54:36,527 - INFO - 
+==================================================
+SECTOR PROCESSING COMPLETE
+==================================================
+2025-04-29 05:54:36,528 - INFO - Saved 0 positions to dhan_positions.json
+2025-04-29 05:54:36,530 - INFO - 
+==================================================
+POSITIONS SUMMARY
+==================================================
+2025-04-29 05:54:36,531 - INFO - Current positions summary:
+2025-04-29 05:54:36,535 - INFO -   Open BUY positions: 0
+2025-04-29 05:54:36,537 - INFO -   Open SELL positions: 0
+2025-04-29 05:54:36,538 - INFO -   Closed positions: 0
+2025-04-29 05:54:36,539 - INFO -   Total positions: 0
+2025-04-29 05:54:36,540 - INFO - 
+==================================================
+POSITIONS SUMMARY COMPLETE
+==================================================
+2025-04-29 05:54:36,541 - INFO - Trading cycle 10 completed
+2025-04-29 05:54:36,542 - INFO - Waiting 30 seconds until next check at 05:55:06...
+2025-04-29 05:54:36,542 - INFO - 
+==================================================
+CYCLE 10 COMPLETE
+==================================================
+2025-04-29 05:55:06,558 - INFO - 
+==================================================
+TRADING CYCLE 11
+==================================================
+2025-04-29 05:55:06,560 - INFO - Trading cycle 11 started at 2025-04-29 05:55:06
+2025-04-29 05:55:06,560 - INFO - 
+==================================================
+READING SECTOR PERFORMANCE DATA
+==================================================
+2025-04-29 05:55:06,570 - INFO - Reading sector performance data from sector.csv
+2025-04-29 05:55:06,576 - INFO - File last modified: 2025-04-29 05:54:12
+2025-04-29 05:55:06,595 - INFO - Latest timestamp in data: 2025-04-29 05:54:12
+2025-04-29 05:55:06,599 - INFO - Loaded data for 10 sectors
+2025-04-29 05:55:06,600 - INFO - Sector performance details:
+2025-04-29 05:55:06,601 - INFO -   PSU Bank: POSITIVE (0.80%)
+2025-04-29 05:55:06,602 - INFO -   Realty: POSITIVE (0.54%)
+2025-04-29 05:55:06,602 - INFO -   Energy: POSITIVE (0.40%)
+2025-04-29 05:55:06,603 - INFO -   Auto: POSITIVE (0.31%)
+2025-04-29 05:55:06,604 - INFO -   IT: POSITIVE (0.16%)
+2025-04-29 05:55:06,605 - INFO -   Media: POSITIVE (0.13%)
+2025-04-29 05:55:06,605 - INFO -   Metal: POSITIVE (0.03%)
+2025-04-29 05:55:06,606 - INFO -   Financial Services: NEGATIVE (-0.12%)
+2025-04-29 05:55:06,606 - INFO -   FMCG: NEGATIVE (-0.58%)
+2025-04-29 05:55:06,607 - INFO -   Pharma: NEGATIVE (-1.38%)
+2025-04-29 05:55:06,607 - INFO - 
+==================================================
+SECTOR DATA READ COMPLETE
+==================================================
+2025-04-29 05:55:06,608 - INFO - 
+==================================================
+PROCESSING SECTOR DATA
+==================================================
+2025-04-29 05:55:06,611 - INFO - Processed performance data for 10 sectors
+2025-04-29 05:55:06,611 - INFO - Processing existing positions for potential exits...
+2025-04-29 05:55:06,611 - INFO - 
+==================================================
+PROCESSING EXISTING POSITIONS
+==================================================
+2025-04-29 05:55:06,628 - INFO - No existing positions to process
+2025-04-29 05:55:06,644 - INFO - 
+==================================================
+POSITION PROCESSING COMPLETE
+==================================================
+2025-04-29 05:55:06,657 - INFO - Looking for new trading opportunities...
+2025-04-29 05:55:06,658 - INFO - 
+==================================================
+FINDING NEW TRADING OPPORTUNITIES
+==================================================
+2025-04-29 05:55:06,660 - INFO - Found 5 active tickers out of 5 total
+2025-04-29 05:55:06,661 - INFO - Processing tickers in order: ['SYNGENE.NS', 'GRANULES.NS', 'ZEEL.NS', 'SBILIFE.NS', 'RBLBANK.NS']
+2025-04-29 05:55:06,669 - INFO - Already have open positions for: []
+2025-04-29 05:55:06,672 - INFO - Current sector performances:
+2025-04-29 05:55:06,676 - INFO -   Sector PSU Bank: POSITIVE (0.80%)
+2025-04-29 05:55:06,677 - INFO -   Sector Realty: POSITIVE (0.54%)
+2025-04-29 05:55:06,677 - INFO -   Sector Energy: POSITIVE (0.40%)
+2025-04-29 05:55:06,678 - INFO -   Sector Auto: POSITIVE (0.31%)
+2025-04-29 05:55:06,704 - INFO -   Sector IT: POSITIVE (0.16%)
+2025-04-29 05:55:06,707 - INFO -   Sector Media: POSITIVE (0.13%)
+2025-04-29 05:55:06,707 - INFO -   Sector Metal: POSITIVE (0.03%)
+2025-04-29 05:55:06,708 - INFO -   Sector Financial Services: NEGATIVE (-0.12%)
+2025-04-29 05:55:06,709 - INFO -   Sector FMCG: NEGATIVE (-0.58%)
+2025-04-29 05:55:06,710 - INFO -   Sector Pharma: NEGATIVE (-1.38%)
+2025-04-29 05:55:06,727 - INFO - Processing ticker 1: SYNGENE.NS
+2025-04-29 05:55:06,738 - INFO - Found sector Pharma for SYNGENE.NS
+2025-04-29 05:55:06,739 - INFO - Evaluating SYNGENE.NS in sector Pharma (-1.38%)
+2025-04-29 05:55:06,743 - INFO - Not trading SYNGENE.NS - sector performance doesn't match strategy
+2025-04-29 05:55:06,744 - INFO -   Transaction type: BUY
+2025-04-29 05:55:06,744 - INFO -   Sector is_positive: False
+2025-04-29 05:55:06,745 - INFO - Processing ticker 2: GRANULES.NS
+2025-04-29 05:55:06,757 - INFO - Found sector Pharma for GRANULES.NS
+2025-04-29 05:55:06,760 - INFO - Evaluating GRANULES.NS in sector Pharma (-1.38%)
+2025-04-29 05:55:06,761 - INFO - Not trading GRANULES.NS - sector performance doesn't match strategy
+2025-04-29 05:55:06,761 - INFO -   Transaction type: BUY
+2025-04-29 05:55:06,811 - INFO -   Sector is_positive: False
+2025-04-29 05:55:06,820 - INFO - Processing ticker 3: ZEEL.NS
+2025-04-29 05:55:06,824 - INFO - Found sector Media for ZEEL.NS
+2025-04-29 05:55:06,824 - INFO - Evaluating ZEEL.NS in sector Media (+0.13%)
+2025-04-29 05:55:06,826 - INFO - Should BUY ZEEL.NS because sector Media is positive
+2025-04-29 05:55:06,840 - INFO - SECURITY ID LOOKUP: Searching for ZEEL.NS
+2025-04-29 05:55:06,850 - INFO - Trying exact match for 'ZEEL.NS'
+2025-04-29 05:55:06,851 - INFO - Trying with .NS: 'ZEEL.NS'
+2025-04-29 05:55:06,852 - INFO - Trying without .NS: 'ZEEL'
+2025-04-29 05:55:06,856 - ERROR - SECURITY ID NOT FOUND for ZEEL.NS
+2025-04-29 05:55:06,856 - INFO - Sample security IDs available: ['NSE', 'NSE.NS']
+2025-04-29 05:55:06,857 - ERROR - Could not find security ID for ZEEL.NS. Skipping.
+2025-04-29 05:55:06,860 - INFO - Processing ticker 4: SBILIFE.NS
+2025-04-29 05:55:06,861 - INFO - Found sector Financial Services for SBILIFE.NS
+2025-04-29 05:55:06,876 - INFO - Evaluating SBILIFE.NS in sector Financial Services (-0.12%)
+2025-04-29 05:55:06,877 - INFO - Should SELL SBILIFE.NS because sector Financial Services is negative
+2025-04-29 05:55:06,878 - INFO - SECURITY ID LOOKUP: Searching for SBILIFE.NS
+2025-04-29 05:55:06,879 - INFO - Trying exact match for 'SBILIFE.NS'
+2025-04-29 05:55:06,894 - INFO - Trying with .NS: 'SBILIFE.NS'
+2025-04-29 05:55:06,894 - INFO - Trying without .NS: 'SBILIFE'
+2025-04-29 05:55:06,895 - ERROR - SECURITY ID NOT FOUND for SBILIFE.NS
+2025-04-29 05:55:06,902 - INFO - Sample security IDs available: ['NSE', 'NSE.NS']
+2025-04-29 05:55:06,902 - ERROR - Could not find security ID for SBILIFE.NS. Skipping.
+2025-04-29 05:55:06,904 - INFO - Processing ticker 5: RBLBANK.NS
+2025-04-29 05:55:06,908 - INFO - Found sector PVT Bank for RBLBANK.NS
+2025-04-29 05:55:06,910 - WARNING - No performance data for sector PVT Bank
+2025-04-29 05:55:06,911 - INFO - Ticker processing summary:
+2025-04-29 05:55:06,911 - INFO -   Total tickers considered: 5
+2025-04-29 05:55:06,912 - INFO -   Tickers with sector data: 5
+2025-04-29 05:55:06,926 - INFO -   Tickers matching strategy: 2
+2025-04-29 05:55:06,927 - INFO -   Tickers with security ID: 0
+2025-04-29 05:55:06,928 - INFO -   Orders successfully placed: 0
+2025-04-29 05:55:06,928 - INFO - New positions added: 0
+2025-04-29 05:55:06,943 - INFO - Positions skipped: 5
+2025-04-29 05:55:06,944 - INFO - Positions with errors: 0
+2025-04-29 05:55:06,945 - INFO - 
+==================================================
+NEW OPPORTUNITIES PROCESSING COMPLETE
+==================================================
+2025-04-29 05:55:06,961 - INFO - 
+==================================================
+SECTOR PROCESSING COMPLETE
+==================================================
+2025-04-29 05:55:06,974 - INFO - Saved 0 positions to dhan_positions.json
+2025-04-29 05:55:06,974 - INFO - 
+==================================================
+POSITIONS SUMMARY
+==================================================
+2025-04-29 05:55:06,976 - INFO - Current positions summary:
+2025-04-29 05:55:06,977 - INFO -   Open BUY positions: 0
+2025-04-29 05:55:06,978 - INFO -   Open SELL positions: 0
+2025-04-29 05:55:06,978 - INFO -   Closed positions: 0
+2025-04-29 05:55:07,050 - INFO -   Total positions: 0
+2025-04-29 05:55:07,069 - INFO - 
+==================================================
+POSITIONS SUMMARY COMPLETE
+==================================================
+2025-04-29 05:55:07,070 - INFO - Trading cycle 11 completed
+2025-04-29 05:55:07,072 - INFO - Waiting 30 seconds until next check at 05:55:37...
+2025-04-29 05:55:07,072 - INFO - 
+==================================================
+CYCLE 11 COMPLETE
+==================================================
+2025-04-29 05:55:37,225 - INFO - 
+==================================================
+TRADING CYCLE 12
+==================================================
+2025-04-29 05:55:37,367 - INFO - Trading cycle 12 started at 2025-04-29 05:55:37
+2025-04-29 05:55:37,439 - INFO - 
+==================================================
+READING SECTOR PERFORMANCE DATA
+==================================================
+2025-04-29 05:55:37,588 - INFO - Reading sector performance data from sector.csv
+2025-04-29 05:55:37,653 - INFO - File last modified: 2025-04-29 05:54:12
+2025-04-29 05:55:37,692 - INFO - Latest timestamp in data: 2025-04-29 05:54:12
+2025-04-29 05:55:37,698 - INFO - Loaded data for 10 sectors
+2025-04-29 05:55:37,699 - INFO - Sector performance details:
+2025-04-29 05:55:37,702 - INFO -   PSU Bank: POSITIVE (0.80%)
+2025-04-29 05:55:37,739 - INFO -   Realty: POSITIVE (0.54%)
+2025-04-29 05:55:37,774 - INFO -   Energy: POSITIVE (0.40%)
+2025-04-29 05:55:37,799 - INFO -   Auto: POSITIVE (0.31%)
+2025-04-29 05:55:37,824 - INFO -   IT: POSITIVE (0.16%)
+2025-04-29 05:55:37,842 - INFO -   Media: POSITIVE (0.13%)
+2025-04-29 05:55:37,856 - INFO -   Metal: POSITIVE (0.03%)
+2025-04-29 05:55:37,868 - INFO -   Financial Services: NEGATIVE (-0.12%)
+2025-04-29 05:55:37,869 - INFO -   FMCG: NEGATIVE (-0.58%)
+2025-04-29 05:55:37,871 - INFO -   Pharma: NEGATIVE (-1.38%)
+2025-04-29 05:55:37,872 - INFO - 
+==================================================
+SECTOR DATA READ COMPLETE
+==================================================
+2025-04-29 05:55:37,873 - INFO - 
+==================================================
+PROCESSING SECTOR DATA
+==================================================
+2025-04-29 05:55:37,887 - INFO - Processed performance data for 10 sectors
+2025-04-29 05:55:37,888 - INFO - Processing existing positions for potential exits...
+2025-04-29 05:55:37,890 - INFO - 
+==================================================
+PROCESSING EXISTING POSITIONS
+==================================================
+2025-04-29 05:55:37,892 - INFO - No existing positions to process
+2025-04-29 05:55:37,902 - INFO - 
+==================================================
+POSITION PROCESSING COMPLETE
+==================================================
+2025-04-29 05:55:37,905 - INFO - Looking for new trading opportunities...
+2025-04-29 05:55:37,906 - INFO - 
+==================================================
+FINDING NEW TRADING OPPORTUNITIES
+==================================================
+2025-04-29 05:55:37,908 - INFO - Found 5 active tickers out of 5 total
+2025-04-29 05:55:37,916 - INFO - Processing tickers in order: ['SYNGENE.NS', 'GRANULES.NS', 'ZEEL.NS', 'SBILIFE.NS', 'RBLBANK.NS']
+2025-04-29 05:55:37,918 - INFO - Already have open positions for: []
+2025-04-29 05:55:37,919 - INFO - Current sector performances:
+2025-04-29 05:55:37,920 - INFO -   Sector PSU Bank: POSITIVE (0.80%)
+2025-04-29 05:55:37,922 - INFO -   Sector Realty: POSITIVE (0.54%)
+2025-04-29 05:55:37,923 - INFO -   Sector Energy: POSITIVE (0.40%)
+2025-04-29 05:55:37,925 - INFO -   Sector Auto: POSITIVE (0.31%)
+2025-04-29 05:55:37,942 - INFO -   Sector IT: POSITIVE (0.16%)
+2025-04-29 05:55:38,015 - INFO -   Sector Media: POSITIVE (0.13%)
+2025-04-29 05:55:38,022 - INFO -   Sector Metal: POSITIVE (0.03%)
+2025-04-29 05:55:38,023 - INFO -   Sector Financial Services: NEGATIVE (-0.12%)
+2025-04-29 05:55:38,024 - INFO -   Sector FMCG: NEGATIVE (-0.58%)
+2025-04-29 05:55:38,024 - INFO -   Sector Pharma: NEGATIVE (-1.38%)
+2025-04-29 05:55:38,025 - INFO - Processing ticker 1: SYNGENE.NS
+2025-04-29 05:55:38,025 - INFO - Found sector Pharma for SYNGENE.NS
+2025-04-29 05:55:38,026 - INFO - Evaluating SYNGENE.NS in sector Pharma (-1.38%)
+2025-04-29 05:55:38,039 - INFO - Not trading SYNGENE.NS - sector performance doesn't match strategy
+2025-04-29 05:55:38,043 - INFO -   Transaction type: BUY
+2025-04-29 05:55:38,059 - INFO -   Sector is_positive: False
+2025-04-29 05:55:38,069 - INFO - Processing ticker 2: GRANULES.NS
+2025-04-29 05:55:38,070 - INFO - Found sector Pharma for GRANULES.NS
+2025-04-29 05:55:38,071 - INFO - Evaluating GRANULES.NS in sector Pharma (-1.38%)
+2025-04-29 05:55:38,072 - INFO - Not trading GRANULES.NS - sector performance doesn't match strategy
+2025-04-29 05:55:38,072 - INFO -   Transaction type: BUY
+2025-04-29 05:55:38,073 - INFO -   Sector is_positive: False
+2025-04-29 05:55:38,075 - INFO - Processing ticker 3: ZEEL.NS
+2025-04-29 05:55:38,086 - INFO - Found sector Media for ZEEL.NS
+2025-04-29 05:55:38,087 - INFO - Evaluating ZEEL.NS in sector Media (+0.13%)
+2025-04-29 05:55:38,087 - INFO - Should BUY ZEEL.NS because sector Media is positive
+2025-04-29 05:55:38,088 - INFO - SECURITY ID LOOKUP: Searching for ZEEL.NS
+2025-04-29 05:55:38,089 - INFO - Trying exact match for 'ZEEL.NS'
+2025-04-29 05:55:38,089 - INFO - Trying with .NS: 'ZEEL.NS'
+2025-04-29 05:55:38,089 - INFO - Trying without .NS: 'ZEEL'
+2025-04-29 05:55:38,091 - ERROR - SECURITY ID NOT FOUND for ZEEL.NS
+2025-04-29 05:55:38,093 - INFO - Sample security IDs available: ['NSE', 'NSE.NS']
+2025-04-29 05:55:38,093 - ERROR - Could not find security ID for ZEEL.NS. Skipping.
+2025-04-29 05:55:38,109 - INFO - Processing ticker 4: SBILIFE.NS
+2025-04-29 05:55:38,122 - INFO - Found sector Financial Services for SBILIFE.NS
+2025-04-29 05:55:38,124 - INFO - Evaluating SBILIFE.NS in sector Financial Services (-0.12%)
+2025-04-29 05:55:38,126 - INFO - Should SELL SBILIFE.NS because sector Financial Services is negative
+2025-04-29 05:55:38,137 - INFO - SECURITY ID LOOKUP: Searching for SBILIFE.NS
+2025-04-29 05:55:38,138 - INFO - Trying exact match for 'SBILIFE.NS'
+2025-04-29 05:55:38,139 - INFO - Trying with .NS: 'SBILIFE.NS'
+2025-04-29 05:55:38,140 - INFO - Trying without .NS: 'SBILIFE'
+2025-04-29 05:55:38,141 - ERROR - SECURITY ID NOT FOUND for SBILIFE.NS
+2025-04-29 05:55:38,143 - INFO - Sample security IDs available: ['NSE', 'NSE.NS']
+2025-04-29 05:55:38,147 - ERROR - Could not find security ID for SBILIFE.NS. Skipping.
+2025-04-29 05:55:38,149 - INFO - Processing ticker 5: RBLBANK.NS
+2025-04-29 05:55:38,151 - INFO - Found sector PVT Bank for RBLBANK.NS
+2025-04-29 05:55:38,152 - WARNING - No performance data for sector PVT Bank
+2025-04-29 05:55:38,153 - INFO - Ticker processing summary:
+2025-04-29 05:55:38,153 - INFO -   Total tickers considered: 5
+2025-04-29 05:55:38,154 - INFO -   Tickers with sector data: 5
+2025-04-29 05:55:38,154 - INFO -   Tickers matching strategy: 2
+2025-04-29 05:55:38,155 - INFO -   Tickers with security ID: 0
+2025-04-29 05:55:38,155 - INFO -   Orders successfully placed: 0
+2025-04-29 05:55:38,157 - INFO - New positions added: 0
+2025-04-29 05:55:38,158 - INFO - Positions skipped: 5
+2025-04-29 05:55:38,159 - INFO - Positions with errors: 0
+2025-04-29 05:55:38,167 - INFO - 
+==================================================
+NEW OPPORTUNITIES PROCESSING COMPLETE
+==================================================
+2025-04-29 05:55:38,169 - INFO - 
+==================================================
+SECTOR PROCESSING COMPLETE
+==================================================
+2025-04-29 05:55:38,174 - INFO - Saved 0 positions to dhan_positions.json
+2025-04-29 05:55:38,175 - INFO - 
+==================================================
+POSITIONS SUMMARY
+==================================================
+2025-04-29 05:55:38,176 - INFO - Current positions summary:
+2025-04-29 05:55:38,184 - INFO -   Open BUY positions: 0
+2025-04-29 05:55:38,185 - INFO -   Open SELL positions: 0
+2025-04-29 05:55:38,193 - INFO -   Closed positions: 0
+2025-04-29 05:55:38,259 - INFO -   Total positions: 0
+2025-04-29 05:55:38,301 - INFO - 
+==================================================
+POSITIONS SUMMARY COMPLETE
+==================================================
+2025-04-29 05:55:38,339 - INFO - Trading cycle 12 completed
+2025-04-29 05:55:38,346 - INFO - Waiting 30 seconds until next check at 05:56:08...
+2025-04-29 05:55:38,354 - INFO - 
+==================================================
+CYCLE 12 COMPLETE
+==================================================
+2025-04-29 05:56:08,373 - INFO - 
+==================================================
+TRADING CYCLE 13
+==================================================
+2025-04-29 05:56:08,378 - INFO - Trading cycle 13 started at 2025-04-29 05:56:08
+2025-04-29 05:56:08,384 - INFO - 
+==================================================
+READING SECTOR PERFORMANCE DATA
+==================================================
+2025-04-29 05:56:08,388 - INFO - Reading sector performance data from sector.csv
+2025-04-29 05:56:08,393 - INFO - File last modified: 2025-04-29 05:54:12
+2025-04-29 05:56:08,401 - INFO - Latest timestamp in data: 2025-04-29 05:54:12
+2025-04-29 05:56:08,405 - INFO - Loaded data for 10 sectors
+2025-04-29 05:56:08,420 - INFO - Sector performance details:
+2025-04-29 05:56:08,434 - INFO -   PSU Bank: POSITIVE (0.80%)
+2025-04-29 05:56:08,447 - INFO -   Realty: POSITIVE (0.54%)
+2025-04-29 05:56:08,451 - INFO -   Energy: POSITIVE (0.40%)
+2025-04-29 05:56:08,454 - INFO -   Auto: POSITIVE (0.31%)
+2025-04-29 05:56:08,455 - INFO -   IT: POSITIVE (0.16%)
+2025-04-29 05:56:08,456 - INFO -   Media: POSITIVE (0.13%)
+2025-04-29 05:56:08,465 - INFO -   Metal: POSITIVE (0.03%)
+2025-04-29 05:56:08,485 - INFO -   Financial Services: NEGATIVE (-0.12%)
+2025-04-29 05:56:08,495 - INFO -   FMCG: NEGATIVE (-0.58%)
+2025-04-29 05:56:08,581 - INFO -   Pharma: NEGATIVE (-1.38%)
+2025-04-29 05:56:08,637 - INFO - 
+==================================================
+SECTOR DATA READ COMPLETE
+==================================================
+2025-04-29 05:56:08,645 - INFO - 
+==================================================
+PROCESSING SECTOR DATA
+==================================================
+2025-04-29 05:56:08,689 - INFO - Processed performance data for 10 sectors
+2025-04-29 05:56:08,703 - INFO - Processing existing positions for potential exits...
+2025-04-29 05:56:08,721 - INFO - 
+==================================================
+PROCESSING EXISTING POSITIONS
+==================================================
+2025-04-29 05:56:08,737 - INFO - No existing positions to process
+2025-04-29 05:56:08,755 - INFO - 
+==================================================
+POSITION PROCESSING COMPLETE
+==================================================
+2025-04-29 05:56:08,830 - INFO - Looking for new trading opportunities...
+2025-04-29 05:56:08,842 - INFO - 
+==================================================
+FINDING NEW TRADING OPPORTUNITIES
+==================================================
+2025-04-29 05:56:08,868 - INFO - Found 5 active tickers out of 5 total
+2025-04-29 05:56:08,885 - INFO - Processing tickers in order: ['SYNGENE.NS', 'GRANULES.NS', 'ZEEL.NS', 'SBILIFE.NS', 'RBLBANK.NS']
+2025-04-29 05:56:08,890 - INFO - Already have open positions for: []
+2025-04-29 05:56:08,933 - INFO - Current sector performances:
+2025-04-29 05:56:08,951 - INFO -   Sector PSU Bank: POSITIVE (0.80%)
+2025-04-29 05:56:08,970 - INFO -   Sector Realty: POSITIVE (0.54%)
+2025-04-29 05:56:08,987 - INFO -   Sector Energy: POSITIVE (0.40%)
+2025-04-29 05:56:09,022 - INFO -   Sector Auto: POSITIVE (0.31%)
+2025-04-29 05:56:09,030 - INFO -   Sector IT: POSITIVE (0.16%)
+2025-04-29 05:56:09,038 - INFO -   Sector Media: POSITIVE (0.13%)
+2025-04-29 05:56:09,115 - INFO -   Sector Metal: POSITIVE (0.03%)
+2025-04-29 05:56:09,136 - INFO -   Sector Financial Services: NEGATIVE (-0.12%)
+2025-04-29 05:56:09,173 - INFO -   Sector FMCG: NEGATIVE (-0.58%)
+2025-04-29 05:56:09,189 - INFO -   Sector Pharma: NEGATIVE (-1.38%)
+2025-04-29 05:56:09,218 - INFO - Processing ticker 1: SYNGENE.NS
+2025-04-29 05:56:09,237 - INFO - Found sector Pharma for SYNGENE.NS
+2025-04-29 05:56:09,239 - INFO - Evaluating SYNGENE.NS in sector Pharma (-1.38%)
+2025-04-29 05:56:09,249 - INFO - Not trading SYNGENE.NS - sector performance doesn't match strategy
+2025-04-29 05:56:09,254 - INFO -   Transaction type: BUY
+2025-04-29 05:56:09,257 - INFO -   Sector is_positive: False
+2025-04-29 05:56:09,272 - INFO - Processing ticker 2: GRANULES.NS
+2025-04-29 05:56:09,286 - INFO - Found sector Pharma for GRANULES.NS
+2025-04-29 05:56:09,304 - INFO - Evaluating GRANULES.NS in sector Pharma (-1.38%)
+2025-04-29 05:56:09,321 - INFO - Not trading GRANULES.NS - sector performance doesn't match strategy
+2025-04-29 05:56:09,328 - INFO -   Transaction type: BUY
+2025-04-29 05:56:09,351 - INFO -   Sector is_positive: False
+2025-04-29 05:56:09,399 - INFO - Processing ticker 3: ZEEL.NS
+2025-04-29 05:56:09,471 - INFO - Found sector Media for ZEEL.NS
+2025-04-29 05:56:09,486 - INFO - Evaluating ZEEL.NS in sector Media (+0.13%)
+2025-04-29 05:56:09,503 - INFO - Should BUY ZEEL.NS because sector Media is positive
+2025-04-29 05:56:09,513 - INFO - SECURITY ID LOOKUP: Searching for ZEEL.NS
+2025-04-29 05:56:09,517 - INFO - Trying exact match for 'ZEEL.NS'
+2025-04-29 05:56:09,532 - INFO - Trying with .NS: 'ZEEL.NS'
+2025-04-29 05:56:09,536 - INFO - Trying without .NS: 'ZEEL'
+2025-04-29 05:56:09,541 - ERROR - SECURITY ID NOT FOUND for ZEEL.NS
+2025-04-29 05:56:09,548 - INFO - Sample security IDs available: ['NSE', 'NSE.NS']
+2025-04-29 05:56:09,554 - ERROR - Could not find security ID for ZEEL.NS. Skipping.
+2025-04-29 05:56:09,564 - INFO - Processing ticker 4: SBILIFE.NS
+2025-04-29 05:56:09,572 - INFO - Found sector Financial Services for SBILIFE.NS
+2025-04-29 05:56:09,582 - INFO - Evaluating SBILIFE.NS in sector Financial Services (-0.12%)
+2025-04-29 05:56:09,591 - INFO - Should SELL SBILIFE.NS because sector Financial Services is negative
+2025-04-29 05:56:09,618 - INFO - SECURITY ID LOOKUP: Searching for SBILIFE.NS
+2025-04-29 05:56:09,654 - INFO - Trying exact match for 'SBILIFE.NS'
+2025-04-29 05:56:09,681 - INFO - Trying with .NS: 'SBILIFE.NS'
+2025-04-29 05:56:09,691 - INFO - Trying without .NS: 'SBILIFE'
+2025-04-29 05:56:09,718 - ERROR - SECURITY ID NOT FOUND for SBILIFE.NS
+2025-04-29 05:56:09,750 - INFO - Sample security IDs available: ['NSE', 'NSE.NS']
+2025-04-29 05:56:09,768 - ERROR - Could not find security ID for SBILIFE.NS. Skipping.
+2025-04-29 05:56:09,794 - INFO - Processing ticker 5: RBLBANK.NS
+2025-04-29 05:56:09,814 - INFO - Found sector PVT Bank for RBLBANK.NS
+2025-04-29 05:56:09,823 - WARNING - No performance data for sector PVT Bank
+2025-04-29 05:56:09,831 - INFO - Ticker processing summary:
+2025-04-29 05:56:09,837 - INFO -   Total tickers considered: 5
+2025-04-29 05:56:09,852 - INFO -   Tickers with sector data: 5
+2025-04-29 05:56:09,886 - INFO -   Tickers matching strategy: 2
+2025-04-29 05:56:09,915 - INFO -   Tickers with security ID: 0
+2025-04-29 05:56:09,950 - INFO -   Orders successfully placed: 0
+2025-04-29 05:56:09,982 - INFO - New positions added: 0
+2025-04-29 05:56:10,008 - INFO - Positions skipped: 5
+2025-04-29 05:56:10,022 - INFO - Positions with errors: 0
+2025-04-29 05:56:10,033 - INFO - 
+==================================================
+NEW OPPORTUNITIES PROCESSING COMPLETE
+==================================================
+2025-04-29 05:56:10,035 - INFO - 
+==================================================
+SECTOR PROCESSING COMPLETE
+==================================================
+2025-04-29 05:56:10,048 - INFO - Saved 0 positions to dhan_positions.json
+2025-04-29 05:56:10,052 - INFO - 
+==================================================
+POSITIONS SUMMARY
+==================================================
+2025-04-29 05:56:10,068 - INFO - Current positions summary:
+2025-04-29 05:56:10,069 - INFO -   Open BUY positions: 0
+2025-04-29 05:56:10,074 - INFO -   Open SELL positions: 0
+2025-04-29 05:56:10,087 - INFO -   Closed positions: 0
+2025-04-29 05:56:10,089 - INFO -   Total positions: 0
+2025-04-29 05:56:10,101 - INFO - 
+==================================================
+POSITIONS SUMMARY COMPLETE
+==================================================
+2025-04-29 05:56:10,119 - INFO - Trading cycle 13 completed
+2025-04-29 05:56:10,125 - INFO - Waiting 30 seconds until next check at 05:56:40...
+2025-04-29 05:56:10,158 - INFO - 
+==================================================
+CYCLE 13 COMPLETE
+==================================================
+2025-04-29 05:56:33,214 - INFO - Trading program stopped by user
+2025-04-29 05:56:33,215 - INFO - Saved 0 positions to dhan_positions.json
+2025-04-29 05:56:33,217 - INFO - 
+==================================================
+PROGRAM TERMINATED BY USER
+==================================================
