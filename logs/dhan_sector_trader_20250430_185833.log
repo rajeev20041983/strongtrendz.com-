@@ -1,0 +1,706 @@
+2025-04-30 18:58:33,130 - INFO - 
+==================================================
+PROGRAM START
+==================================================
+2025-04-30 18:58:33,131 - INFO - ==========================================
+2025-04-30 18:58:33,131 - INFO - Starting Dhan Sector-Based Trading Program
+2025-04-30 18:58:33,132 - INFO - ==========================================
+2025-04-30 18:58:33,133 - INFO - Current time: 2025-04-30 18:58:33
+2025-04-30 18:58:33,134 - INFO - Sector data file exists: sector.csv
+2025-04-30 18:58:33,135 - INFO - Sector data file from today found: sector.csv
+2025-04-30 18:58:33,195 - INFO - Step 1: Loading trading configuration...
+2025-04-30 18:58:33,289 - INFO - Loading trading configuration from trading_config.json
+2025-04-30 18:58:33,353 - INFO - Configuration loaded successfully
+2025-04-30 18:58:33,406 - INFO - Found 0 active tickers out of 9 total
+2025-04-30 18:58:33,411 - INFO - Step 2: Initializing Dhan API client...
+2025-04-30 18:58:33,411 - INFO - Initializing Dhan client with client_id: 1106497024
+2025-04-30 18:58:33,412 - INFO - Dhan API client initialized successfully
+2025-04-30 18:58:34,111 - INFO - Dhan API connection test successful
+2025-04-30 18:58:34,112 - INFO - Step 3: Loading sector mapping...
+2025-04-30 18:58:34,113 - INFO - Loading sector mapping from sector_mapping.json
+2025-04-30 18:58:34,132 - INFO - Sector mapping loaded successfully with 176 tickers
+2025-04-30 18:58:34,145 - INFO - Found 14 unique sectors
+2025-04-30 18:58:34,146 - INFO - Step 4: Loading security IDs mapping from Excel...
+2025-04-30 18:58:34,147 - INFO - Loading security IDs from security_ids.xlsx
+2025-04-30 18:59:06,283 - INFO - Successfully read Excel file with 1850 rows
+2025-04-30 18:59:06,284 - INFO - Excel columns: ['SEM_EXM_EXCH_ID', 'SEM_SEGMENT', 'SEM_SMST_SECURITY_ID', 'SEM_INSTRUMENT_NAME', 'SEM_EXPIRY_CODE', 'SEM_TRADING_SYMBOL', 'SEM_LOT_UNITS', 'SEM_CUSTOM_SYMBOL', 'SEM_EXPIRY_DATE', 'SEM_STRIKE_PRICE', 'SEM_OPTION_TYPE', 'SEM_TICK_SIZE', 'SEM_EXPIRY_FLAG', 'SEM_EXCH_INSTRUMENT_TYPE', 'SEM_SERIES', 'SM_SYMBOL_NAME']
+2025-04-30 18:59:06,286 - INFO - Using columns: Symbol='SEM_TRADING_SYMBOL', ID='SEM_SMST_SECURITY_ID'
+2025-04-30 18:59:06,754 - INFO - Security IDs mapping created with 3700 entries
+2025-04-30 18:59:06,756 - INFO - Checking for critical symbols:
+2025-04-30 18:59:06,757 - INFO - Found ID for SYNGENE: 10243
+2025-04-30 18:59:06,757 - INFO - Found ID for SYNGENE.NS: 10243
+2025-04-30 18:59:06,757 - INFO - Found ID for GRANULES: 11872
+2025-04-30 18:59:06,758 - INFO - Found ID for GRANULES.NS: 11872
+2025-04-30 18:59:06,758 - INFO - Found ID for ZEEL: 3812
+2025-04-30 18:59:06,764 - INFO - Found ID for ZEEL.NS: 3812
+2025-04-30 18:59:06,788 - INFO - Found ID for SBILIFE: 21808
+2025-04-30 18:59:06,790 - INFO - Found ID for SBILIFE.NS: 21808
+2025-04-30 18:59:06,790 - INFO - Found ID for RBLBANK: 18391
+2025-04-30 18:59:06,792 - INFO - Found ID for RBLBANK.NS: 18391
+2025-04-30 18:59:06,795 - INFO - Step 4.5: Validating security IDs for active tickers...
+2025-04-30 18:59:06,795 - INFO - 
+==================================================
+VALIDATING SECURITY IDS
+==================================================
+2025-04-30 18:59:06,796 - INFO - Found 0 active tickers to validate
+2025-04-30 18:59:06,796 - INFO - All active tickers have security IDs
+2025-04-30 18:59:06,797 - INFO - Step 5: Loading existing positions...
+2025-04-30 18:59:06,798 - INFO - No existing positions file found, starting fresh
+2025-04-30 18:59:06,798 - INFO - Step 6: Starting trading loop (check interval: 30 seconds)...
+2025-04-30 18:59:06,798 - INFO - 
+==================================================
+TRADING CYCLE 1
+==================================================
+2025-04-30 18:59:06,801 - INFO - Trading cycle 1 started at 2025-04-30 18:59:06
+2025-04-30 18:59:06,828 - INFO - Found fresh sector.csv file modified today
+2025-04-30 18:59:06,832 - INFO - 
+==================================================
+READING SECTOR PERFORMANCE DATA
+==================================================
+2025-04-30 18:59:06,870 - ERROR - Error reading sector performance data: local variable 'SECTOR_PERFORMANCE_FILE' referenced before assignment
+2025-04-30 18:59:06,873 - ERROR - Traceback (most recent call last):
+  File "C:\Users\Rajee\OneDrive\stock\lab\strongtrendz.com-\dhan_sector_trader.py", line 855, in get_latest_sector_performance
+    logger.info(f"Reading sector performance data from {SECTOR_PERFORMANCE_FILE}")
+UnboundLocalError: local variable 'SECTOR_PERFORMANCE_FILE' referenced before assignment
+
+2025-04-30 18:59:06,876 - INFO - 
+==================================================
+SECTOR DATA READ FAILED
+==================================================
+2025-04-30 18:59:06,880 - WARNING - No sector data available, skipping this cycle
+2025-04-30 18:59:06,883 - INFO - Trading cycle 1 completed
+2025-04-30 18:59:06,898 - INFO - Waiting 30 seconds until next check at 18:59:36...
+2025-04-30 18:59:06,914 - INFO - 
+==================================================
+CYCLE 1 COMPLETE
+==================================================
+2025-04-30 18:59:36,916 - INFO - 
+==================================================
+TRADING CYCLE 2
+==================================================
+2025-04-30 18:59:36,920 - INFO - Trading cycle 2 started at 2025-04-30 18:59:36
+2025-04-30 18:59:36,921 - INFO - 
+==================================================
+READING SECTOR PERFORMANCE DATA
+==================================================
+2025-04-30 18:59:36,922 - ERROR - Error reading sector performance data: local variable 'SECTOR_PERFORMANCE_FILE' referenced before assignment
+2025-04-30 18:59:36,925 - ERROR - Traceback (most recent call last):
+  File "C:\Users\Rajee\OneDrive\stock\lab\strongtrendz.com-\dhan_sector_trader.py", line 855, in get_latest_sector_performance
+    logger.info(f"Reading sector performance data from {SECTOR_PERFORMANCE_FILE}")
+UnboundLocalError: local variable 'SECTOR_PERFORMANCE_FILE' referenced before assignment
+
+2025-04-30 18:59:36,928 - INFO - 
+==================================================
+SECTOR DATA READ FAILED
+==================================================
+2025-04-30 18:59:36,935 - WARNING - No sector data available, skipping this cycle
+2025-04-30 18:59:36,936 - INFO - Trading cycle 2 completed
+2025-04-30 18:59:36,937 - INFO - Waiting 30 seconds until next check at 19:00:06...
+2025-04-30 18:59:36,937 - INFO - 
+==================================================
+CYCLE 2 COMPLETE
+==================================================
+2025-04-30 19:00:06,951 - INFO - 
+==================================================
+TRADING CYCLE 3
+==================================================
+2025-04-30 19:00:06,953 - INFO - Trading cycle 3 started at 2025-04-30 19:00:06
+2025-04-30 19:00:06,954 - INFO - 
+==================================================
+READING SECTOR PERFORMANCE DATA
+==================================================
+2025-04-30 19:00:07,019 - ERROR - Error reading sector performance data: local variable 'SECTOR_PERFORMANCE_FILE' referenced before assignment
+2025-04-30 19:00:07,023 - ERROR - Traceback (most recent call last):
+  File "C:\Users\Rajee\OneDrive\stock\lab\strongtrendz.com-\dhan_sector_trader.py", line 855, in get_latest_sector_performance
+    logger.info(f"Reading sector performance data from {SECTOR_PERFORMANCE_FILE}")
+UnboundLocalError: local variable 'SECTOR_PERFORMANCE_FILE' referenced before assignment
+
+2025-04-30 19:00:07,115 - INFO - 
+==================================================
+SECTOR DATA READ FAILED
+==================================================
+2025-04-30 19:00:07,117 - WARNING - No sector data available, skipping this cycle
+2025-04-30 19:00:07,157 - INFO - Trading cycle 3 completed
+2025-04-30 19:00:07,158 - INFO - Waiting 30 seconds until next check at 19:00:37...
+2025-04-30 19:00:07,159 - INFO - 
+==================================================
+CYCLE 3 COMPLETE
+==================================================
+2025-04-30 19:00:37,236 - INFO - 
+==================================================
+TRADING CYCLE 4
+==================================================
+2025-04-30 19:00:37,237 - INFO - Trading cycle 4 started at 2025-04-30 19:00:37
+2025-04-30 19:00:37,323 - INFO - 
+==================================================
+READING SECTOR PERFORMANCE DATA
+==================================================
+2025-04-30 19:00:37,382 - ERROR - Error reading sector performance data: local variable 'SECTOR_PERFORMANCE_FILE' referenced before assignment
+2025-04-30 19:00:37,386 - ERROR - Traceback (most recent call last):
+  File "C:\Users\Rajee\OneDrive\stock\lab\strongtrendz.com-\dhan_sector_trader.py", line 855, in get_latest_sector_performance
+    logger.info(f"Reading sector performance data from {SECTOR_PERFORMANCE_FILE}")
+UnboundLocalError: local variable 'SECTOR_PERFORMANCE_FILE' referenced before assignment
+
+2025-04-30 19:00:37,417 - INFO - 
+==================================================
+SECTOR DATA READ FAILED
+==================================================
+2025-04-30 19:00:37,421 - WARNING - No sector data available, skipping this cycle
+2025-04-30 19:00:37,465 - INFO - Trading cycle 4 completed
+2025-04-30 19:00:37,466 - INFO - Waiting 30 seconds until next check at 19:01:07...
+2025-04-30 19:00:37,467 - INFO - 
+==================================================
+CYCLE 4 COMPLETE
+==================================================
+2025-04-30 19:01:07,508 - INFO - 
+==================================================
+TRADING CYCLE 5
+==================================================
+2025-04-30 19:01:07,513 - INFO - Trading cycle 5 started at 2025-04-30 19:01:07
+2025-04-30 19:01:07,515 - INFO - 
+==================================================
+READING SECTOR PERFORMANCE DATA
+==================================================
+2025-04-30 19:01:07,516 - ERROR - Error reading sector performance data: local variable 'SECTOR_PERFORMANCE_FILE' referenced before assignment
+2025-04-30 19:01:07,517 - ERROR - Traceback (most recent call last):
+  File "C:\Users\Rajee\OneDrive\stock\lab\strongtrendz.com-\dhan_sector_trader.py", line 855, in get_latest_sector_performance
+    logger.info(f"Reading sector performance data from {SECTOR_PERFORMANCE_FILE}")
+UnboundLocalError: local variable 'SECTOR_PERFORMANCE_FILE' referenced before assignment
+
+2025-04-30 19:01:07,551 - INFO - 
+==================================================
+SECTOR DATA READ FAILED
+==================================================
+2025-04-30 19:01:07,552 - WARNING - No sector data available, skipping this cycle
+2025-04-30 19:01:07,560 - INFO - Trading cycle 5 completed
+2025-04-30 19:01:07,597 - INFO - Waiting 30 seconds until next check at 19:01:37...
+2025-04-30 19:01:07,600 - INFO - 
+==================================================
+CYCLE 5 COMPLETE
+==================================================
+2025-04-30 19:01:37,629 - INFO - 
+==================================================
+TRADING CYCLE 6
+==================================================
+2025-04-30 19:01:37,645 - INFO - Trading cycle 6 started at 2025-04-30 19:01:37
+2025-04-30 19:01:37,710 - INFO - 
+==================================================
+READING SECTOR PERFORMANCE DATA
+==================================================
+2025-04-30 19:01:37,716 - ERROR - Error reading sector performance data: local variable 'SECTOR_PERFORMANCE_FILE' referenced before assignment
+2025-04-30 19:01:37,778 - ERROR - Traceback (most recent call last):
+  File "C:\Users\Rajee\OneDrive\stock\lab\strongtrendz.com-\dhan_sector_trader.py", line 855, in get_latest_sector_performance
+    logger.info(f"Reading sector performance data from {SECTOR_PERFORMANCE_FILE}")
+UnboundLocalError: local variable 'SECTOR_PERFORMANCE_FILE' referenced before assignment
+
+2025-04-30 19:01:37,828 - INFO - 
+==================================================
+SECTOR DATA READ FAILED
+==================================================
+2025-04-30 19:01:37,840 - WARNING - No sector data available, skipping this cycle
+2025-04-30 19:01:37,840 - INFO - Trading cycle 6 completed
+2025-04-30 19:01:37,898 - INFO - Waiting 30 seconds until next check at 19:02:07...
+2025-04-30 19:01:37,980 - INFO - 
+==================================================
+CYCLE 6 COMPLETE
+==================================================
+2025-04-30 19:02:08,076 - INFO - 
+==================================================
+TRADING CYCLE 7
+==================================================
+2025-04-30 19:02:08,077 - INFO - Trading cycle 7 started at 2025-04-30 19:02:08
+2025-04-30 19:02:08,078 - INFO - 
+==================================================
+READING SECTOR PERFORMANCE DATA
+==================================================
+2025-04-30 19:02:08,080 - ERROR - Error reading sector performance data: local variable 'SECTOR_PERFORMANCE_FILE' referenced before assignment
+2025-04-30 19:02:08,127 - ERROR - Traceback (most recent call last):
+  File "C:\Users\Rajee\OneDrive\stock\lab\strongtrendz.com-\dhan_sector_trader.py", line 855, in get_latest_sector_performance
+    logger.info(f"Reading sector performance data from {SECTOR_PERFORMANCE_FILE}")
+UnboundLocalError: local variable 'SECTOR_PERFORMANCE_FILE' referenced before assignment
+
+2025-04-30 19:02:08,128 - INFO - 
+==================================================
+SECTOR DATA READ FAILED
+==================================================
+2025-04-30 19:02:08,245 - WARNING - No sector data available, skipping this cycle
+2025-04-30 19:02:08,310 - INFO - Trading cycle 7 completed
+2025-04-30 19:02:08,416 - INFO - Waiting 30 seconds until next check at 19:02:38...
+2025-04-30 19:02:08,571 - INFO - 
+==================================================
+CYCLE 7 COMPLETE
+==================================================
+2025-04-30 19:02:38,703 - INFO - 
+==================================================
+TRADING CYCLE 8
+==================================================
+2025-04-30 19:02:38,704 - INFO - Trading cycle 8 started at 2025-04-30 19:02:38
+2025-04-30 19:02:38,704 - INFO - 
+==================================================
+READING SECTOR PERFORMANCE DATA
+==================================================
+2025-04-30 19:02:38,705 - ERROR - Error reading sector performance data: local variable 'SECTOR_PERFORMANCE_FILE' referenced before assignment
+2025-04-30 19:02:38,706 - ERROR - Traceback (most recent call last):
+  File "C:\Users\Rajee\OneDrive\stock\lab\strongtrendz.com-\dhan_sector_trader.py", line 855, in get_latest_sector_performance
+    logger.info(f"Reading sector performance data from {SECTOR_PERFORMANCE_FILE}")
+UnboundLocalError: local variable 'SECTOR_PERFORMANCE_FILE' referenced before assignment
+
+2025-04-30 19:02:38,724 - INFO - 
+==================================================
+SECTOR DATA READ FAILED
+==================================================
+2025-04-30 19:02:38,726 - WARNING - No sector data available, skipping this cycle
+2025-04-30 19:02:38,727 - INFO - Trading cycle 8 completed
+2025-04-30 19:02:38,729 - INFO - Waiting 30 seconds until next check at 19:03:08...
+2025-04-30 19:02:38,758 - INFO - 
+==================================================
+CYCLE 8 COMPLETE
+==================================================
+2025-04-30 19:03:08,771 - INFO - 
+==================================================
+TRADING CYCLE 9
+==================================================
+2025-04-30 19:03:08,772 - INFO - Trading cycle 9 started at 2025-04-30 19:03:08
+2025-04-30 19:03:08,772 - INFO - 
+==================================================
+READING SECTOR PERFORMANCE DATA
+==================================================
+2025-04-30 19:03:08,774 - ERROR - Error reading sector performance data: local variable 'SECTOR_PERFORMANCE_FILE' referenced before assignment
+2025-04-30 19:03:08,783 - ERROR - Traceback (most recent call last):
+  File "C:\Users\Rajee\OneDrive\stock\lab\strongtrendz.com-\dhan_sector_trader.py", line 855, in get_latest_sector_performance
+    logger.info(f"Reading sector performance data from {SECTOR_PERFORMANCE_FILE}")
+UnboundLocalError: local variable 'SECTOR_PERFORMANCE_FILE' referenced before assignment
+
+2025-04-30 19:03:08,786 - INFO - 
+==================================================
+SECTOR DATA READ FAILED
+==================================================
+2025-04-30 19:03:08,788 - WARNING - No sector data available, skipping this cycle
+2025-04-30 19:03:08,839 - INFO - Trading cycle 9 completed
+2025-04-30 19:03:08,852 - INFO - Waiting 30 seconds until next check at 19:03:38...
+2025-04-30 19:03:08,855 - INFO - 
+==================================================
+CYCLE 9 COMPLETE
+==================================================
+2025-04-30 19:03:38,873 - INFO - 
+==================================================
+TRADING CYCLE 10
+==================================================
+2025-04-30 19:03:38,874 - INFO - Trading cycle 10 started at 2025-04-30 19:03:38
+2025-04-30 19:03:38,876 - INFO - 
+==================================================
+READING SECTOR PERFORMANCE DATA
+==================================================
+2025-04-30 19:03:38,878 - ERROR - Error reading sector performance data: local variable 'SECTOR_PERFORMANCE_FILE' referenced before assignment
+2025-04-30 19:03:38,882 - ERROR - Traceback (most recent call last):
+  File "C:\Users\Rajee\OneDrive\stock\lab\strongtrendz.com-\dhan_sector_trader.py", line 855, in get_latest_sector_performance
+    logger.info(f"Reading sector performance data from {SECTOR_PERFORMANCE_FILE}")
+UnboundLocalError: local variable 'SECTOR_PERFORMANCE_FILE' referenced before assignment
+
+2025-04-30 19:03:38,914 - INFO - 
+==================================================
+SECTOR DATA READ FAILED
+==================================================
+2025-04-30 19:03:38,918 - WARNING - No sector data available, skipping this cycle
+2025-04-30 19:03:38,921 - INFO - Trading cycle 10 completed
+2025-04-30 19:03:38,935 - INFO - Waiting 30 seconds until next check at 19:04:08...
+2025-04-30 19:03:38,936 - INFO - 
+==================================================
+CYCLE 10 COMPLETE
+==================================================
+2025-04-30 19:04:08,946 - INFO - 
+==================================================
+TRADING CYCLE 11
+==================================================
+2025-04-30 19:04:08,946 - INFO - Trading cycle 11 started at 2025-04-30 19:04:08
+2025-04-30 19:04:08,947 - INFO - 
+==================================================
+READING SECTOR PERFORMANCE DATA
+==================================================
+2025-04-30 19:04:08,948 - ERROR - Error reading sector performance data: local variable 'SECTOR_PERFORMANCE_FILE' referenced before assignment
+2025-04-30 19:04:08,967 - ERROR - Traceback (most recent call last):
+  File "C:\Users\Rajee\OneDrive\stock\lab\strongtrendz.com-\dhan_sector_trader.py", line 855, in get_latest_sector_performance
+    logger.info(f"Reading sector performance data from {SECTOR_PERFORMANCE_FILE}")
+UnboundLocalError: local variable 'SECTOR_PERFORMANCE_FILE' referenced before assignment
+
+2025-04-30 19:04:08,972 - INFO - 
+==================================================
+SECTOR DATA READ FAILED
+==================================================
+2025-04-30 19:04:09,124 - WARNING - No sector data available, skipping this cycle
+2025-04-30 19:04:09,178 - INFO - Trading cycle 11 completed
+2025-04-30 19:04:09,179 - INFO - Waiting 30 seconds until next check at 19:04:39...
+2025-04-30 19:04:09,216 - INFO - 
+==================================================
+CYCLE 11 COMPLETE
+==================================================
+2025-04-30 19:04:39,264 - INFO - 
+==================================================
+TRADING CYCLE 12
+==================================================
+2025-04-30 19:04:39,276 - INFO - Trading cycle 12 started at 2025-04-30 19:04:39
+2025-04-30 19:04:39,277 - INFO - 
+==================================================
+READING SECTOR PERFORMANCE DATA
+==================================================
+2025-04-30 19:04:39,278 - ERROR - Error reading sector performance data: local variable 'SECTOR_PERFORMANCE_FILE' referenced before assignment
+2025-04-30 19:04:39,307 - ERROR - Traceback (most recent call last):
+  File "C:\Users\Rajee\OneDrive\stock\lab\strongtrendz.com-\dhan_sector_trader.py", line 855, in get_latest_sector_performance
+    logger.info(f"Reading sector performance data from {SECTOR_PERFORMANCE_FILE}")
+UnboundLocalError: local variable 'SECTOR_PERFORMANCE_FILE' referenced before assignment
+
+2025-04-30 19:04:39,321 - INFO - 
+==================================================
+SECTOR DATA READ FAILED
+==================================================
+2025-04-30 19:04:39,348 - WARNING - No sector data available, skipping this cycle
+2025-04-30 19:04:39,362 - INFO - Trading cycle 12 completed
+2025-04-30 19:04:39,363 - INFO - Waiting 30 seconds until next check at 19:05:09...
+2025-04-30 19:04:39,376 - INFO - 
+==================================================
+CYCLE 12 COMPLETE
+==================================================
+2025-04-30 19:05:09,392 - INFO - 
+==================================================
+TRADING CYCLE 13
+==================================================
+2025-04-30 19:05:09,392 - INFO - Trading cycle 13 started at 2025-04-30 19:05:09
+2025-04-30 19:05:09,393 - INFO - 
+==================================================
+READING SECTOR PERFORMANCE DATA
+==================================================
+2025-04-30 19:05:09,393 - ERROR - Error reading sector performance data: local variable 'SECTOR_PERFORMANCE_FILE' referenced before assignment
+2025-04-30 19:05:09,394 - ERROR - Traceback (most recent call last):
+  File "C:\Users\Rajee\OneDrive\stock\lab\strongtrendz.com-\dhan_sector_trader.py", line 855, in get_latest_sector_performance
+    logger.info(f"Reading sector performance data from {SECTOR_PERFORMANCE_FILE}")
+UnboundLocalError: local variable 'SECTOR_PERFORMANCE_FILE' referenced before assignment
+
+2025-04-30 19:05:09,399 - INFO - 
+==================================================
+SECTOR DATA READ FAILED
+==================================================
+2025-04-30 19:05:09,401 - WARNING - No sector data available, skipping this cycle
+2025-04-30 19:05:09,402 - INFO - Trading cycle 13 completed
+2025-04-30 19:05:09,402 - INFO - Waiting 30 seconds until next check at 19:05:39...
+2025-04-30 19:05:09,403 - INFO - 
+==================================================
+CYCLE 13 COMPLETE
+==================================================
+2025-04-30 19:05:39,414 - INFO - 
+==================================================
+TRADING CYCLE 14
+==================================================
+2025-04-30 19:05:39,415 - INFO - Trading cycle 14 started at 2025-04-30 19:05:39
+2025-04-30 19:05:39,416 - INFO - 
+==================================================
+READING SECTOR PERFORMANCE DATA
+==================================================
+2025-04-30 19:05:39,417 - ERROR - Error reading sector performance data: local variable 'SECTOR_PERFORMANCE_FILE' referenced before assignment
+2025-04-30 19:05:39,446 - ERROR - Traceback (most recent call last):
+  File "C:\Users\Rajee\OneDrive\stock\lab\strongtrendz.com-\dhan_sector_trader.py", line 855, in get_latest_sector_performance
+    logger.info(f"Reading sector performance data from {SECTOR_PERFORMANCE_FILE}")
+UnboundLocalError: local variable 'SECTOR_PERFORMANCE_FILE' referenced before assignment
+
+2025-04-30 19:05:39,448 - INFO - 
+==================================================
+SECTOR DATA READ FAILED
+==================================================
+2025-04-30 19:05:39,456 - WARNING - No sector data available, skipping this cycle
+2025-04-30 19:05:39,472 - INFO - Trading cycle 14 completed
+2025-04-30 19:05:39,473 - INFO - Waiting 30 seconds until next check at 19:06:09...
+2025-04-30 19:05:39,473 - INFO - 
+==================================================
+CYCLE 14 COMPLETE
+==================================================
+2025-04-30 19:06:09,491 - INFO - 
+==================================================
+TRADING CYCLE 15
+==================================================
+2025-04-30 19:06:09,495 - INFO - Trading cycle 15 started at 2025-04-30 19:06:09
+2025-04-30 19:06:09,497 - INFO - 
+==================================================
+READING SECTOR PERFORMANCE DATA
+==================================================
+2025-04-30 19:06:09,511 - ERROR - Error reading sector performance data: local variable 'SECTOR_PERFORMANCE_FILE' referenced before assignment
+2025-04-30 19:06:09,533 - ERROR - Traceback (most recent call last):
+  File "C:\Users\Rajee\OneDrive\stock\lab\strongtrendz.com-\dhan_sector_trader.py", line 855, in get_latest_sector_performance
+    logger.info(f"Reading sector performance data from {SECTOR_PERFORMANCE_FILE}")
+UnboundLocalError: local variable 'SECTOR_PERFORMANCE_FILE' referenced before assignment
+
+2025-04-30 19:06:09,546 - INFO - 
+==================================================
+SECTOR DATA READ FAILED
+==================================================
+2025-04-30 19:06:09,551 - WARNING - No sector data available, skipping this cycle
+2025-04-30 19:06:09,554 - INFO - Trading cycle 15 completed
+2025-04-30 19:06:09,565 - INFO - Waiting 30 seconds until next check at 19:06:39...
+2025-04-30 19:06:09,582 - INFO - 
+==================================================
+CYCLE 15 COMPLETE
+==================================================
+2025-04-30 19:06:39,597 - INFO - 
+==================================================
+TRADING CYCLE 16
+==================================================
+2025-04-30 19:06:39,598 - INFO - Trading cycle 16 started at 2025-04-30 19:06:39
+2025-04-30 19:06:39,600 - INFO - 
+==================================================
+READING SECTOR PERFORMANCE DATA
+==================================================
+2025-04-30 19:06:39,641 - ERROR - Error reading sector performance data: local variable 'SECTOR_PERFORMANCE_FILE' referenced before assignment
+2025-04-30 19:06:39,646 - ERROR - Traceback (most recent call last):
+  File "C:\Users\Rajee\OneDrive\stock\lab\strongtrendz.com-\dhan_sector_trader.py", line 855, in get_latest_sector_performance
+    logger.info(f"Reading sector performance data from {SECTOR_PERFORMANCE_FILE}")
+UnboundLocalError: local variable 'SECTOR_PERFORMANCE_FILE' referenced before assignment
+
+2025-04-30 19:06:39,667 - INFO - 
+==================================================
+SECTOR DATA READ FAILED
+==================================================
+2025-04-30 19:06:39,699 - WARNING - No sector data available, skipping this cycle
+2025-04-30 19:06:39,701 - INFO - Trading cycle 16 completed
+2025-04-30 19:06:39,755 - INFO - Waiting 30 seconds until next check at 19:07:09...
+2025-04-30 19:06:39,757 - INFO - 
+==================================================
+CYCLE 16 COMPLETE
+==================================================
+2025-04-30 19:07:09,838 - INFO - 
+==================================================
+TRADING CYCLE 17
+==================================================
+2025-04-30 19:07:09,839 - INFO - Trading cycle 17 started at 2025-04-30 19:07:09
+2025-04-30 19:07:09,929 - INFO - 
+==================================================
+READING SECTOR PERFORMANCE DATA
+==================================================
+2025-04-30 19:07:09,942 - ERROR - Error reading sector performance data: local variable 'SECTOR_PERFORMANCE_FILE' referenced before assignment
+2025-04-30 19:07:09,944 - ERROR - Traceback (most recent call last):
+  File "C:\Users\Rajee\OneDrive\stock\lab\strongtrendz.com-\dhan_sector_trader.py", line 855, in get_latest_sector_performance
+    logger.info(f"Reading sector performance data from {SECTOR_PERFORMANCE_FILE}")
+UnboundLocalError: local variable 'SECTOR_PERFORMANCE_FILE' referenced before assignment
+
+2025-04-30 19:07:09,973 - INFO - 
+==================================================
+SECTOR DATA READ FAILED
+==================================================
+2025-04-30 19:07:09,980 - WARNING - No sector data available, skipping this cycle
+2025-04-30 19:07:09,991 - INFO - Trading cycle 17 completed
+2025-04-30 19:07:10,011 - INFO - Waiting 30 seconds until next check at 19:07:40...
+2025-04-30 19:07:10,013 - INFO - 
+==================================================
+CYCLE 17 COMPLETE
+==================================================
+2025-04-30 19:07:40,059 - INFO - 
+==================================================
+TRADING CYCLE 18
+==================================================
+2025-04-30 19:07:40,107 - INFO - Trading cycle 18 started at 2025-04-30 19:07:40
+2025-04-30 19:07:40,123 - INFO - 
+==================================================
+READING SECTOR PERFORMANCE DATA
+==================================================
+2025-04-30 19:07:40,161 - ERROR - Error reading sector performance data: local variable 'SECTOR_PERFORMANCE_FILE' referenced before assignment
+2025-04-30 19:07:40,183 - ERROR - Traceback (most recent call last):
+  File "C:\Users\Rajee\OneDrive\stock\lab\strongtrendz.com-\dhan_sector_trader.py", line 855, in get_latest_sector_performance
+    logger.info(f"Reading sector performance data from {SECTOR_PERFORMANCE_FILE}")
+UnboundLocalError: local variable 'SECTOR_PERFORMANCE_FILE' referenced before assignment
+
+2025-04-30 19:07:40,184 - INFO - 
+==================================================
+SECTOR DATA READ FAILED
+==================================================
+2025-04-30 19:07:40,195 - WARNING - No sector data available, skipping this cycle
+2025-04-30 19:07:40,218 - INFO - Trading cycle 18 completed
+2025-04-30 19:07:40,221 - INFO - Waiting 30 seconds until next check at 19:08:10...
+2025-04-30 19:07:40,221 - INFO - 
+==================================================
+CYCLE 18 COMPLETE
+==================================================
+2025-04-30 19:08:10,233 - INFO - 
+==================================================
+TRADING CYCLE 19
+==================================================
+2025-04-30 19:08:10,236 - INFO - Trading cycle 19 started at 2025-04-30 19:08:10
+2025-04-30 19:08:10,237 - INFO - 
+==================================================
+READING SECTOR PERFORMANCE DATA
+==================================================
+2025-04-30 19:08:10,238 - ERROR - Error reading sector performance data: local variable 'SECTOR_PERFORMANCE_FILE' referenced before assignment
+2025-04-30 19:08:10,238 - ERROR - Traceback (most recent call last):
+  File "C:\Users\Rajee\OneDrive\stock\lab\strongtrendz.com-\dhan_sector_trader.py", line 855, in get_latest_sector_performance
+    logger.info(f"Reading sector performance data from {SECTOR_PERFORMANCE_FILE}")
+UnboundLocalError: local variable 'SECTOR_PERFORMANCE_FILE' referenced before assignment
+
+2025-04-30 19:08:10,240 - INFO - 
+==================================================
+SECTOR DATA READ FAILED
+==================================================
+2025-04-30 19:08:10,241 - WARNING - No sector data available, skipping this cycle
+2025-04-30 19:08:10,242 - INFO - Trading cycle 19 completed
+2025-04-30 19:08:10,243 - INFO - Waiting 30 seconds until next check at 19:08:40...
+2025-04-30 19:08:10,244 - INFO - 
+==================================================
+CYCLE 19 COMPLETE
+==================================================
+2025-04-30 19:08:40,259 - INFO - 
+==================================================
+TRADING CYCLE 20
+==================================================
+2025-04-30 19:08:40,328 - INFO - Trading cycle 20 started at 2025-04-30 19:08:40
+2025-04-30 19:08:40,370 - INFO - 
+==================================================
+READING SECTOR PERFORMANCE DATA
+==================================================
+2025-04-30 19:08:40,383 - ERROR - Error reading sector performance data: local variable 'SECTOR_PERFORMANCE_FILE' referenced before assignment
+2025-04-30 19:08:40,397 - ERROR - Traceback (most recent call last):
+  File "C:\Users\Rajee\OneDrive\stock\lab\strongtrendz.com-\dhan_sector_trader.py", line 855, in get_latest_sector_performance
+    logger.info(f"Reading sector performance data from {SECTOR_PERFORMANCE_FILE}")
+UnboundLocalError: local variable 'SECTOR_PERFORMANCE_FILE' referenced before assignment
+
+2025-04-30 19:08:40,416 - INFO - 
+==================================================
+SECTOR DATA READ FAILED
+==================================================
+2025-04-30 19:08:40,466 - WARNING - No sector data available, skipping this cycle
+2025-04-30 19:08:40,499 - INFO - Trading cycle 20 completed
+2025-04-30 19:08:40,519 - INFO - Waiting 30 seconds until next check at 19:09:10...
+2025-04-30 19:08:40,520 - INFO - 
+==================================================
+CYCLE 20 COMPLETE
+==================================================
+2025-04-30 19:09:10,698 - INFO - 
+==================================================
+TRADING CYCLE 21
+==================================================
+2025-04-30 19:09:11,035 - INFO - Trading cycle 21 started at 2025-04-30 19:09:11
+2025-04-30 19:09:11,302 - INFO - 
+==================================================
+READING SECTOR PERFORMANCE DATA
+==================================================
+2025-04-30 19:09:11,443 - ERROR - Error reading sector performance data: local variable 'SECTOR_PERFORMANCE_FILE' referenced before assignment
+2025-04-30 19:09:11,685 - ERROR - Traceback (most recent call last):
+  File "C:\Users\Rajee\OneDrive\stock\lab\strongtrendz.com-\dhan_sector_trader.py", line 855, in get_latest_sector_performance
+    logger.info(f"Reading sector performance data from {SECTOR_PERFORMANCE_FILE}")
+UnboundLocalError: local variable 'SECTOR_PERFORMANCE_FILE' referenced before assignment
+
+2025-04-30 19:09:11,942 - INFO - 
+==================================================
+SECTOR DATA READ FAILED
+==================================================
+2025-04-30 19:09:12,029 - WARNING - No sector data available, skipping this cycle
+2025-04-30 19:09:12,142 - INFO - Trading cycle 21 completed
+2025-04-30 19:09:12,196 - INFO - Waiting 30 seconds until next check at 19:09:42...
+2025-04-30 19:09:12,339 - INFO - 
+==================================================
+CYCLE 21 COMPLETE
+==================================================
+2025-04-30 19:09:42,463 - INFO - 
+==================================================
+TRADING CYCLE 22
+==================================================
+2025-04-30 19:09:42,528 - INFO - Trading cycle 22 started at 2025-04-30 19:09:42
+2025-04-30 19:09:42,615 - INFO - 
+==================================================
+READING SECTOR PERFORMANCE DATA
+==================================================
+2025-04-30 19:09:42,777 - ERROR - Error reading sector performance data: local variable 'SECTOR_PERFORMANCE_FILE' referenced before assignment
+2025-04-30 19:09:42,862 - ERROR - Traceback (most recent call last):
+  File "C:\Users\Rajee\OneDrive\stock\lab\strongtrendz.com-\dhan_sector_trader.py", line 855, in get_latest_sector_performance
+    logger.info(f"Reading sector performance data from {SECTOR_PERFORMANCE_FILE}")
+UnboundLocalError: local variable 'SECTOR_PERFORMANCE_FILE' referenced before assignment
+
+2025-04-30 19:09:42,962 - INFO - 
+==================================================
+SECTOR DATA READ FAILED
+==================================================
+2025-04-30 19:09:43,038 - WARNING - No sector data available, skipping this cycle
+2025-04-30 19:09:43,113 - INFO - Trading cycle 22 completed
+2025-04-30 19:09:43,166 - INFO - Waiting 30 seconds until next check at 19:10:13...
+2025-04-30 19:09:43,241 - INFO - 
+==================================================
+CYCLE 22 COMPLETE
+==================================================
+2025-04-30 19:10:13,334 - INFO - 
+==================================================
+TRADING CYCLE 23
+==================================================
+2025-04-30 19:10:13,335 - INFO - Trading cycle 23 started at 2025-04-30 19:10:13
+2025-04-30 19:10:13,336 - INFO - 
+==================================================
+READING SECTOR PERFORMANCE DATA
+==================================================
+2025-04-30 19:10:13,353 - ERROR - Error reading sector performance data: local variable 'SECTOR_PERFORMANCE_FILE' referenced before assignment
+2025-04-30 19:10:13,355 - ERROR - Traceback (most recent call last):
+  File "C:\Users\Rajee\OneDrive\stock\lab\strongtrendz.com-\dhan_sector_trader.py", line 855, in get_latest_sector_performance
+    logger.info(f"Reading sector performance data from {SECTOR_PERFORMANCE_FILE}")
+UnboundLocalError: local variable 'SECTOR_PERFORMANCE_FILE' referenced before assignment
+
+2025-04-30 19:10:13,357 - INFO - 
+==================================================
+SECTOR DATA READ FAILED
+==================================================
+2025-04-30 19:10:13,364 - WARNING - No sector data available, skipping this cycle
+2025-04-30 19:10:13,365 - INFO - Trading cycle 23 completed
+2025-04-30 19:10:13,409 - INFO - Waiting 30 seconds until next check at 19:10:43...
+2025-04-30 19:10:13,413 - INFO - 
+==================================================
+CYCLE 23 COMPLETE
+==================================================
+2025-04-30 19:10:43,441 - INFO - 
+==================================================
+TRADING CYCLE 24
+==================================================
+2025-04-30 19:10:43,461 - INFO - Trading cycle 24 started at 2025-04-30 19:10:43
+2025-04-30 19:10:43,740 - INFO - 
+==================================================
+READING SECTOR PERFORMANCE DATA
+==================================================
+2025-04-30 19:10:43,926 - ERROR - Error reading sector performance data: local variable 'SECTOR_PERFORMANCE_FILE' referenced before assignment
+2025-04-30 19:10:43,991 - ERROR - Traceback (most recent call last):
+  File "C:\Users\Rajee\OneDrive\stock\lab\strongtrendz.com-\dhan_sector_trader.py", line 855, in get_latest_sector_performance
+    logger.info(f"Reading sector performance data from {SECTOR_PERFORMANCE_FILE}")
+UnboundLocalError: local variable 'SECTOR_PERFORMANCE_FILE' referenced before assignment
+
+2025-04-30 19:10:44,060 - INFO - 
+==================================================
+SECTOR DATA READ FAILED
+==================================================
+2025-04-30 19:10:44,075 - WARNING - No sector data available, skipping this cycle
+2025-04-30 19:10:44,104 - INFO - Trading cycle 24 completed
+2025-04-30 19:10:44,110 - INFO - Waiting 30 seconds until next check at 19:11:14...
+2025-04-30 19:10:44,117 - INFO - 
+==================================================
+CYCLE 24 COMPLETE
+==================================================
+2025-04-30 19:11:14,147 - INFO - 
+==================================================
+TRADING CYCLE 25
+==================================================
+2025-04-30 19:11:14,150 - INFO - Trading cycle 25 started at 2025-04-30 19:11:14
+2025-04-30 19:11:14,172 - INFO - 
+==================================================
+READING SECTOR PERFORMANCE DATA
+==================================================
+2025-04-30 19:11:14,266 - ERROR - Error reading sector performance data: local variable 'SECTOR_PERFORMANCE_FILE' referenced before assignment
+2025-04-30 19:11:14,291 - ERROR - Traceback (most recent call last):
+  File "C:\Users\Rajee\OneDrive\stock\lab\strongtrendz.com-\dhan_sector_trader.py", line 855, in get_latest_sector_performance
+    logger.info(f"Reading sector performance data from {SECTOR_PERFORMANCE_FILE}")
+UnboundLocalError: local variable 'SECTOR_PERFORMANCE_FILE' referenced before assignment
+
+2025-04-30 19:11:14,333 - INFO - 
+==================================================
+SECTOR DATA READ FAILED
+==================================================
+2025-04-30 19:11:14,341 - WARNING - No sector data available, skipping this cycle
+2025-04-30 19:11:14,388 - INFO - Trading cycle 25 completed
+2025-04-30 19:11:14,390 - INFO - Waiting 30 seconds until next check at 19:11:44...
+2025-04-30 19:11:14,402 - INFO - 
+==================================================
+CYCLE 25 COMPLETE
+==================================================
+2025-04-30 19:11:19,436 - INFO - Trading program stopped by user
+2025-04-30 19:11:19,438 - INFO - Saved 0 positions to dhan_positions.json
+2025-04-30 19:11:19,454 - INFO - 
+==================================================
+PROGRAM TERMINATED BY USER
+==================================================

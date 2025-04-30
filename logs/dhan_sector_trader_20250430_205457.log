@@ -1,0 +1,219 @@
+2025-04-30 20:54:57,501 - INFO - 
+==================================================
+PROGRAM START
+==================================================
+2025-04-30 20:54:57,502 - INFO - ==========================================
+2025-04-30 20:54:57,503 - INFO - Starting Dhan Sector-Based Trading Program
+2025-04-30 20:54:57,503 - INFO - ==========================================
+2025-04-30 20:54:57,503 - INFO - Current time: 2025-04-30 20:54:57
+2025-04-30 20:54:57,504 - INFO - Found generic sector.csv file
+2025-04-30 20:54:57,504 - INFO - File was modified today - marking as fresh data
+2025-04-30 20:54:57,506 - INFO - Step 1: Loading trading configuration...
+2025-04-30 20:54:57,506 - INFO - Loading trading configuration from trading_config.json
+2025-04-30 20:54:57,507 - INFO - Configuration loaded successfully
+2025-04-30 20:54:57,507 - WARNING - No active tickers found in configuration! All 9 tickers are inactive.
+2025-04-30 20:54:57,507 - WARNING - IMPORTANT: Set 'active': true for tickers you want to trade.
+2025-04-30 20:54:57,508 - WARNING - WARNING: No active tickers found in configuration!
+2025-04-30 20:54:57,509 - WARNING - You need to set 'active': true for the tickers you want to trade.
+2025-04-30 20:54:57,510 - WARNING - The program will continue but no trades will be placed.
+2025-04-30 20:54:57,510 - INFO - Step 2: Initializing Dhan API client...
+2025-04-30 20:54:57,510 - INFO - Initializing Dhan client with client_id: 1106497024
+2025-04-30 20:54:57,511 - INFO - Dhan API client initialized successfully
+2025-04-30 20:54:58,287 - INFO - Dhan API connection test successful
+2025-04-30 20:54:58,287 - INFO - Step 3: Loading sector mapping...
+2025-04-30 20:54:58,288 - INFO - Loading sector mapping from sector_mapping.json
+2025-04-30 20:54:58,289 - INFO - Sector mapping loaded successfully with 176 tickers
+2025-04-30 20:54:58,289 - INFO - Found 14 unique sectors
+2025-04-30 20:54:58,290 - INFO - Step 4: Loading security IDs mapping from Excel...
+2025-04-30 20:54:58,290 - INFO - Loading security IDs from security_ids.xlsx
+2025-04-30 20:55:06,699 - INFO - Successfully read Excel file with 1850 rows
+2025-04-30 20:55:06,701 - INFO - Excel columns: ['SEM_EXM_EXCH_ID', 'SEM_SEGMENT', 'SEM_SMST_SECURITY_ID', 'SEM_INSTRUMENT_NAME', 'SEM_EXPIRY_CODE', 'SEM_TRADING_SYMBOL', 'SEM_LOT_UNITS', 'SEM_CUSTOM_SYMBOL', 'SEM_EXPIRY_DATE', 'SEM_STRIKE_PRICE', 'SEM_OPTION_TYPE', 'SEM_TICK_SIZE', 'SEM_EXPIRY_FLAG', 'SEM_EXCH_INSTRUMENT_TYPE', 'SEM_SERIES', 'SM_SYMBOL_NAME']
+2025-04-30 20:55:06,702 - INFO - Using columns: Symbol='SEM_TRADING_SYMBOL', ID='SEM_SMST_SECURITY_ID'
+2025-04-30 20:55:06,897 - INFO - Security IDs mapping created with 3700 entries
+2025-04-30 20:55:06,898 - INFO - Checking for critical symbols:
+2025-04-30 20:55:06,898 - INFO - Found ID for SYNGENE: 10243
+2025-04-30 20:55:06,898 - INFO - Found ID for SYNGENE.NS: 10243
+2025-04-30 20:55:06,898 - INFO - Found ID for GRANULES: 11872
+2025-04-30 20:55:06,899 - INFO - Found ID for GRANULES.NS: 11872
+2025-04-30 20:55:06,899 - INFO - Found ID for ZEEL: 3812
+2025-04-30 20:55:06,899 - INFO - Found ID for ZEEL.NS: 3812
+2025-04-30 20:55:06,899 - INFO - Found ID for SBILIFE: 21808
+2025-04-30 20:55:06,900 - INFO - Found ID for SBILIFE.NS: 21808
+2025-04-30 20:55:06,900 - INFO - Found ID for RBLBANK: 18391
+2025-04-30 20:55:06,900 - INFO - Found ID for RBLBANK.NS: 18391
+2025-04-30 20:55:06,901 - INFO - Step 4.5: Validating security IDs for active tickers...
+2025-04-30 20:55:06,901 - INFO - 
+==================================================
+VALIDATING SECURITY IDS
+==================================================
+2025-04-30 20:55:06,902 - WARNING - No active tickers to validate. Make sure to set 'active': true for tickers you want to trade.
+2025-04-30 20:55:06,902 - INFO - Step 5: Loading existing positions...
+2025-04-30 20:55:06,902 - INFO - Loaded 0 existing positions
+2025-04-30 20:55:06,903 - INFO - Positions: 0 open, 0 closed
+2025-04-30 20:55:06,903 - INFO - Step 6: Starting trading loop (check interval: 30 seconds)...
+2025-04-30 20:55:06,903 - INFO - 
+==================================================
+TRADING CYCLE 1
+==================================================
+2025-04-30 20:55:06,904 - INFO - Trading cycle 1 started at 2025-04-30 20:55:06
+2025-04-30 20:55:06,905 - INFO - 
+==================================================
+READING SECTOR PERFORMANCE DATA
+==================================================
+2025-04-30 20:55:06,906 - INFO - Reading sector performance data from sector.csv
+2025-04-30 20:55:06,906 - INFO - File last modified: 2025-04-30 06:07:15
+2025-04-30 20:55:06,911 - INFO - Adding sector rankings to data
+2025-04-30 20:55:06,917 - INFO - Sector rankings:
+2025-04-30 20:55:06,918 - INFO - Rank 1: Realty (+3.02%) - TOP
+2025-04-30 20:55:06,918 - INFO - Rank 2: Pharma (+1.01%) - TOP
+2025-04-30 20:55:06,919 - INFO - Rank 3: Metal (+0.68%) - TOP
+2025-04-30 20:55:06,919 - INFO - Rank 4: FMCG (+0.51%) - MIDDLE
+2025-04-30 20:55:06,920 - INFO - Rank 5: Energy (+0.50%) - MIDDLE
+2025-04-30 20:55:06,920 - INFO - Rank 6: IT (+0.25%) - MIDDLE
+2025-04-30 20:55:06,920 - INFO - Rank 7: Financial Services (+0.18%) - MIDDLE
+2025-04-30 20:55:06,921 - INFO - Rank 8: Auto (+0.01%) - BOTTOM
+2025-04-30 20:55:06,921 - INFO - Rank 9: Media (-0.27%) - BOTTOM
+2025-04-30 20:55:06,921 - INFO - Rank 10: PSU Bank (-0.90%) - BOTTOM
+2025-04-30 20:55:06,922 - INFO - Latest timestamp in data: 2025-04-30 06:07:15
+2025-04-30 20:55:06,922 - INFO - Loaded data for 10 sectors
+2025-04-30 20:55:06,922 - INFO - Sector performance details:
+2025-04-30 20:55:06,923 - INFO -   Rank 1: Realty - POSITIVE (3.02%) - TOP
+2025-04-30 20:55:06,924 - INFO -   Rank 2: Pharma - POSITIVE (1.01%) - TOP
+2025-04-30 20:55:06,924 - INFO -   Rank 3: Metal - POSITIVE (0.68%) - TOP
+2025-04-30 20:55:06,925 - INFO -   Rank 4: FMCG - POSITIVE (0.51%) - MIDDLE
+2025-04-30 20:55:06,925 - INFO -   Rank 5: Energy - POSITIVE (0.50%) - MIDDLE
+2025-04-30 20:55:06,925 - INFO -   Rank 6: IT - POSITIVE (0.25%) - MIDDLE
+2025-04-30 20:55:06,926 - INFO -   Rank 7: Financial Services - POSITIVE (0.18%) - MIDDLE
+2025-04-30 20:55:06,926 - INFO -   Rank 8: Auto - POSITIVE (0.01%) - BOTTOM
+2025-04-30 20:55:06,927 - INFO -   Rank 9: Media - NEGATIVE (-0.27%) - BOTTOM
+2025-04-30 20:55:06,927 - INFO -   Rank 10: PSU Bank - NEGATIVE (-0.90%) - BOTTOM
+2025-04-30 20:55:06,927 - INFO - 
+==================================================
+SECTOR DATA READ COMPLETE
+==================================================
+2025-04-30 20:55:06,928 - INFO - 
+==================================================
+PROCESSING SECTOR DATA
+==================================================
+2025-04-30 20:55:06,929 - INFO - Processing existing positions for potential exits...
+2025-04-30 20:55:06,929 - INFO - 
+==================================================
+PROCESSING EXISTING POSITIONS
+==================================================
+2025-04-30 20:55:06,932 - INFO - No existing positions to process
+2025-04-30 20:55:06,933 - INFO - 
+==================================================
+POSITION PROCESSING COMPLETE
+==================================================
+2025-04-30 20:55:06,934 - WARNING - No active tickers found in configuration! Set 'active': true for tickers you want to trade.
+2025-04-30 20:55:06,934 - WARNING - Skipping new trades due to no active tickers.
+2025-04-30 20:55:06,934 - INFO - Initial trades have been executed - no more new trades will be placed today
+2025-04-30 20:55:06,935 - INFO - 
+==================================================
+SECTOR PROCESSING COMPLETE
+==================================================
+2025-04-30 20:55:06,937 - INFO - Saved 0 positions to dhan_positions.json
+2025-04-30 20:55:06,937 - INFO - 
+==================================================
+POSITIONS SUMMARY
+==================================================
+2025-04-30 20:55:06,939 - INFO - Current positions summary:
+2025-04-30 20:55:06,940 - INFO -   Open BUY positions: 0
+2025-04-30 20:55:06,941 - INFO -   Open SELL positions: 0
+2025-04-30 20:55:06,941 - INFO -   Closed positions: 0
+2025-04-30 20:55:06,941 - INFO -   Total positions: 0
+2025-04-30 20:55:06,941 - INFO - 
+==================================================
+POSITIONS SUMMARY COMPLETE
+==================================================
+2025-04-30 20:55:06,942 - INFO - Trading cycle 1 completed
+2025-04-30 20:55:06,942 - INFO - Waiting 30 seconds until next check at 20:55:36...
+2025-04-30 20:55:06,943 - INFO - 
+==================================================
+CYCLE 1 COMPLETE
+==================================================
+2025-04-30 20:55:36,952 - INFO - 
+==================================================
+TRADING CYCLE 2
+==================================================
+2025-04-30 20:55:36,953 - INFO - Trading cycle 2 started at 2025-04-30 20:55:36
+2025-04-30 20:55:36,953 - INFO - 
+==================================================
+READING SECTOR PERFORMANCE DATA
+==================================================
+2025-04-30 20:55:36,953 - INFO - Reading sector performance data from sector.csv
+2025-04-30 20:55:36,954 - INFO - File last modified: 2025-04-30 06:07:15
+2025-04-30 20:55:36,956 - INFO - Adding sector rankings to data
+2025-04-30 20:55:36,958 - INFO - Sector rankings:
+2025-04-30 20:55:36,958 - INFO - Rank 1: Realty (+3.02%) - TOP
+2025-04-30 20:55:36,961 - INFO - Rank 2: Pharma (+1.01%) - TOP
+2025-04-30 20:55:36,963 - INFO - Rank 3: Metal (+0.68%) - TOP
+2025-04-30 20:55:36,964 - INFO - Rank 4: FMCG (+0.51%) - MIDDLE
+2025-04-30 20:55:36,964 - INFO - Rank 5: Energy (+0.50%) - MIDDLE
+2025-04-30 20:55:36,964 - INFO - Rank 6: IT (+0.25%) - MIDDLE
+2025-04-30 20:55:36,965 - INFO - Rank 7: Financial Services (+0.18%) - MIDDLE
+2025-04-30 20:55:36,966 - INFO - Rank 8: Auto (+0.01%) - BOTTOM
+2025-04-30 20:55:36,967 - INFO - Rank 9: Media (-0.27%) - BOTTOM
+2025-04-30 20:55:36,969 - INFO - Rank 10: PSU Bank (-0.90%) - BOTTOM
+2025-04-30 20:55:36,969 - INFO - Latest timestamp in data: 2025-04-30 06:07:15
+2025-04-30 20:55:36,970 - INFO - Loaded data for 10 sectors
+2025-04-30 20:55:36,970 - INFO - Sector performance details:
+2025-04-30 20:55:36,971 - INFO -   Rank 1: Realty - POSITIVE (3.02%) - TOP
+2025-04-30 20:55:36,971 - INFO -   Rank 2: Pharma - POSITIVE (1.01%) - TOP
+2025-04-30 20:55:36,972 - INFO -   Rank 3: Metal - POSITIVE (0.68%) - TOP
+2025-04-30 20:55:36,972 - INFO -   Rank 4: FMCG - POSITIVE (0.51%) - MIDDLE
+2025-04-30 20:55:36,972 - INFO -   Rank 5: Energy - POSITIVE (0.50%) - MIDDLE
+2025-04-30 20:55:36,973 - INFO -   Rank 6: IT - POSITIVE (0.25%) - MIDDLE
+2025-04-30 20:55:36,973 - INFO -   Rank 7: Financial Services - POSITIVE (0.18%) - MIDDLE
+2025-04-30 20:55:36,973 - INFO -   Rank 8: Auto - POSITIVE (0.01%) - BOTTOM
+2025-04-30 20:55:36,974 - INFO -   Rank 9: Media - NEGATIVE (-0.27%) - BOTTOM
+2025-04-30 20:55:36,975 - INFO -   Rank 10: PSU Bank - NEGATIVE (-0.90%) - BOTTOM
+2025-04-30 20:55:36,976 - INFO - 
+==================================================
+SECTOR DATA READ COMPLETE
+==================================================
+2025-04-30 20:55:36,977 - INFO - 
+==================================================
+PROCESSING SECTOR DATA
+==================================================
+2025-04-30 20:55:36,978 - INFO - Processing existing positions for potential exits...
+2025-04-30 20:55:36,979 - INFO - 
+==================================================
+PROCESSING EXISTING POSITIONS
+==================================================
+2025-04-30 20:55:36,980 - INFO - No existing positions to process
+2025-04-30 20:55:36,980 - INFO - 
+==================================================
+POSITION PROCESSING COMPLETE
+==================================================
+2025-04-30 20:55:36,981 - INFO - Initial trades already executed today - skipping new trade opportunities
+2025-04-30 20:55:36,981 - INFO - 
+==================================================
+SECTOR PROCESSING COMPLETE
+==================================================
+2025-04-30 20:55:36,984 - INFO - Saved 0 positions to dhan_positions.json
+2025-04-30 20:55:36,987 - INFO - 
+==================================================
+POSITIONS SUMMARY
+==================================================
+2025-04-30 20:55:36,988 - INFO - Current positions summary:
+2025-04-30 20:55:36,989 - INFO -   Open BUY positions: 0
+2025-04-30 20:55:36,990 - INFO -   Open SELL positions: 0
+2025-04-30 20:55:36,991 - INFO -   Closed positions: 0
+2025-04-30 20:55:36,992 - INFO -   Total positions: 0
+2025-04-30 20:55:36,992 - INFO - 
+==================================================
+POSITIONS SUMMARY COMPLETE
+==================================================
+2025-04-30 20:55:36,995 - INFO - Trading cycle 2 completed
+2025-04-30 20:55:36,995 - INFO - Waiting 30 seconds until next check at 20:56:06...
+2025-04-30 20:55:36,996 - INFO - 
+==================================================
+CYCLE 2 COMPLETE
+==================================================
+2025-04-30 20:55:53,619 - INFO - Trading program stopped by user
+2025-04-30 20:55:53,621 - INFO - Saved 0 positions to dhan_positions.json
+2025-04-30 20:55:53,623 - INFO - 
+==================================================
+PROGRAM TERMINATED BY USER
+==================================================

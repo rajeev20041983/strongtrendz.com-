@@ -1,0 +1,2133 @@
+2025-04-30 19:44:51,911 - INFO - 
+==================================================
+PROGRAM START
+==================================================
+2025-04-30 19:44:51,912 - INFO - ==========================================
+2025-04-30 19:44:51,915 - INFO - Starting Dhan Sector-Based Trading Program
+2025-04-30 19:44:51,916 - INFO - ==========================================
+2025-04-30 19:44:51,916 - INFO - Current time: 2025-04-30 19:44:51
+2025-04-30 19:44:51,917 - INFO - Found generic sector.csv file
+2025-04-30 19:44:51,917 - INFO - File was modified today - marking as fresh data
+2025-04-30 19:44:51,929 - INFO - Step 1: Loading trading configuration...
+2025-04-30 19:44:51,931 - INFO - Loading trading configuration from trading_config.json
+2025-04-30 19:44:51,932 - INFO - Configuration loaded successfully
+2025-04-30 19:44:51,933 - WARNING - No active tickers found in configuration! All 9 tickers are inactive.
+2025-04-30 19:44:51,934 - WARNING - IMPORTANT: Set 'active': true for tickers you want to trade.
+2025-04-30 19:44:51,936 - WARNING - WARNING: No active tickers found in configuration!
+2025-04-30 19:44:51,936 - WARNING - You need to set 'active': true for the tickers you want to trade.
+2025-04-30 19:44:51,937 - WARNING - The program will continue but no trades will be placed.
+2025-04-30 19:44:51,937 - INFO - Step 2: Initializing Dhan API client...
+2025-04-30 19:44:51,937 - INFO - Initializing Dhan client with client_id: 1106497024
+2025-04-30 19:44:51,938 - INFO - Dhan API client initialized successfully
+2025-04-30 19:44:52,648 - INFO - Dhan API connection test successful
+2025-04-30 19:44:52,649 - INFO - Step 3: Loading sector mapping...
+2025-04-30 19:44:52,649 - INFO - Loading sector mapping from sector_mapping.json
+2025-04-30 19:44:52,650 - INFO - Sector mapping loaded successfully with 176 tickers
+2025-04-30 19:44:52,651 - INFO - Found 14 unique sectors
+2025-04-30 19:44:52,652 - INFO - Step 4: Loading security IDs mapping from Excel...
+2025-04-30 19:44:52,653 - INFO - Loading security IDs from security_ids.xlsx
+2025-04-30 19:45:21,399 - INFO - Successfully read Excel file with 1850 rows
+2025-04-30 19:45:21,402 - INFO - Excel columns: ['SEM_EXM_EXCH_ID', 'SEM_SEGMENT', 'SEM_SMST_SECURITY_ID', 'SEM_INSTRUMENT_NAME', 'SEM_EXPIRY_CODE', 'SEM_TRADING_SYMBOL', 'SEM_LOT_UNITS', 'SEM_CUSTOM_SYMBOL', 'SEM_EXPIRY_DATE', 'SEM_STRIKE_PRICE', 'SEM_OPTION_TYPE', 'SEM_TICK_SIZE', 'SEM_EXPIRY_FLAG', 'SEM_EXCH_INSTRUMENT_TYPE', 'SEM_SERIES', 'SM_SYMBOL_NAME']
+2025-04-30 19:45:21,443 - INFO - Using columns: Symbol='SEM_TRADING_SYMBOL', ID='SEM_SMST_SECURITY_ID'
+2025-04-30 19:45:22,221 - INFO - Security IDs mapping created with 3700 entries
+2025-04-30 19:45:22,228 - INFO - Checking for critical symbols:
+2025-04-30 19:45:22,229 - INFO - Found ID for SYNGENE: 10243
+2025-04-30 19:45:22,229 - INFO - Found ID for SYNGENE.NS: 10243
+2025-04-30 19:45:22,230 - INFO - Found ID for GRANULES: 11872
+2025-04-30 19:45:22,237 - INFO - Found ID for GRANULES.NS: 11872
+2025-04-30 19:45:22,311 - INFO - Found ID for ZEEL: 3812
+2025-04-30 19:45:22,410 - INFO - Found ID for ZEEL.NS: 3812
+2025-04-30 19:45:22,543 - INFO - Found ID for SBILIFE: 21808
+2025-04-30 19:45:22,644 - INFO - Found ID for SBILIFE.NS: 21808
+2025-04-30 19:45:22,662 - INFO - Found ID for RBLBANK: 18391
+2025-04-30 19:45:22,680 - INFO - Found ID for RBLBANK.NS: 18391
+2025-04-30 19:45:22,737 - INFO - Step 4.5: Validating security IDs for active tickers...
+2025-04-30 19:45:22,780 - INFO - 
+==================================================
+VALIDATING SECURITY IDS
+==================================================
+2025-04-30 19:45:22,799 - WARNING - No active tickers to validate. Make sure to set 'active': true for tickers you want to trade.
+2025-04-30 19:45:22,830 - INFO - Step 5: Loading existing positions...
+2025-04-30 19:45:22,846 - INFO - Loaded 0 existing positions
+2025-04-30 19:45:22,883 - INFO - Positions: 0 open, 0 closed
+2025-04-30 19:45:22,916 - INFO - Step 6: Starting trading loop (check interval: 30 seconds)...
+2025-04-30 19:45:22,917 - INFO - 
+==================================================
+TRADING CYCLE 1
+==================================================
+2025-04-30 19:45:22,918 - INFO - Trading cycle 1 started at 2025-04-30 19:45:22
+2025-04-30 19:45:22,953 - INFO - 
+==================================================
+READING SECTOR PERFORMANCE DATA
+==================================================
+2025-04-30 19:45:22,955 - INFO - Reading sector performance data from sector.csv
+2025-04-30 19:45:22,968 - INFO - File last modified: 2025-04-30 06:07:15
+2025-04-30 19:45:23,091 - INFO - Adding sector rankings to data
+2025-04-30 19:45:23,168 - ERROR - Error adding sector rankings: module 'pandas' has no attribute 'np'
+2025-04-30 19:45:23,266 - ERROR - Traceback (most recent call last):
+  File "C:\Users\Rajee\OneDrive\stock\lab\strongtrendz.com-\dhan_sector_trader.py", line 317, in add_sector_rankings
+    df['ranking_category'] = pd.np.select(conditions, choices, default='MIDDLE')
+AttributeError: module 'pandas' has no attribute 'np'
+
+2025-04-30 19:45:23,307 - INFO - Latest timestamp in data: 2025-04-30 06:07:15
+2025-04-30 19:45:23,344 - INFO - Loaded data for 10 sectors
+2025-04-30 19:45:23,369 - INFO - Sector performance details:
+2025-04-30 19:45:23,414 - INFO -   Rank 1: Realty - POSITIVE (3.02%) - MIDDLE
+2025-04-30 19:45:23,416 - INFO -   Rank 2: Pharma - POSITIVE (1.01%) - MIDDLE
+2025-04-30 19:45:23,452 - INFO -   Rank 3: Metal - POSITIVE (0.68%) - MIDDLE
+2025-04-30 19:45:23,453 - INFO -   Rank 4: FMCG - POSITIVE (0.51%) - MIDDLE
+2025-04-30 19:45:23,464 - INFO -   Rank 5: Energy - POSITIVE (0.50%) - MIDDLE
+2025-04-30 19:45:23,464 - INFO -   Rank 6: IT - POSITIVE (0.25%) - MIDDLE
+2025-04-30 19:45:23,498 - INFO -   Rank 7: Financial Services - POSITIVE (0.18%) - MIDDLE
+2025-04-30 19:45:23,520 - INFO -   Rank 8: Auto - POSITIVE (0.01%) - MIDDLE
+2025-04-30 19:45:23,521 - INFO -   Rank 9: Media - NEGATIVE (-0.27%) - MIDDLE
+2025-04-30 19:45:23,563 - INFO -   Rank 10: PSU Bank - NEGATIVE (-0.90%) - MIDDLE
+2025-04-30 19:45:23,564 - INFO - 
+==================================================
+SECTOR DATA READ COMPLETE
+==================================================
+2025-04-30 19:45:23,600 - INFO - 
+==================================================
+PROCESSING SECTOR DATA
+==================================================
+2025-04-30 19:45:23,638 - INFO - Processing existing positions for potential exits...
+2025-04-30 19:45:23,642 - INFO - 
+==================================================
+PROCESSING EXISTING POSITIONS
+==================================================
+2025-04-30 19:45:23,680 - INFO - No existing positions to process
+2025-04-30 19:45:23,681 - INFO - 
+==================================================
+POSITION PROCESSING COMPLETE
+==================================================
+2025-04-30 19:45:23,683 - WARNING - No active tickers found in configuration! Set 'active': true for tickers you want to trade.
+2025-04-30 19:45:23,720 - WARNING - Skipping new trades due to no active tickers.
+2025-04-30 19:45:23,720 - INFO - Initial trades have been executed - no more new trades will be placed today
+2025-04-30 19:45:23,721 - INFO - 
+==================================================
+SECTOR PROCESSING COMPLETE
+==================================================
+2025-04-30 19:45:23,755 - INFO - Saved 0 positions to dhan_positions.json
+2025-04-30 19:45:23,766 - INFO - 
+==================================================
+POSITIONS SUMMARY
+==================================================
+2025-04-30 19:45:23,767 - INFO - Current positions summary:
+2025-04-30 19:45:23,768 - INFO -   Open BUY positions: 0
+2025-04-30 19:45:23,769 - INFO -   Open SELL positions: 0
+2025-04-30 19:45:23,769 - INFO -   Closed positions: 0
+2025-04-30 19:45:23,769 - INFO -   Total positions: 0
+2025-04-30 19:45:23,770 - INFO - 
+==================================================
+POSITIONS SUMMARY COMPLETE
+==================================================
+2025-04-30 19:45:23,822 - INFO - Trading cycle 1 completed
+2025-04-30 19:45:23,822 - INFO - Waiting 30 seconds until next check at 19:45:53...
+2025-04-30 19:45:23,829 - INFO - 
+==================================================
+CYCLE 1 COMPLETE
+==================================================
+2025-04-30 19:45:53,896 - INFO - 
+==================================================
+TRADING CYCLE 2
+==================================================
+2025-04-30 19:45:53,898 - INFO - Trading cycle 2 started at 2025-04-30 19:45:53
+2025-04-30 19:45:53,917 - INFO - 
+==================================================
+READING SECTOR PERFORMANCE DATA
+==================================================
+2025-04-30 19:45:53,933 - INFO - Reading sector performance data from sector.csv
+2025-04-30 19:45:53,940 - INFO - File last modified: 2025-04-30 06:07:15
+2025-04-30 19:45:53,985 - INFO - Adding sector rankings to data
+2025-04-30 19:45:54,017 - ERROR - Error adding sector rankings: module 'pandas' has no attribute 'np'
+2025-04-30 19:45:54,050 - ERROR - Traceback (most recent call last):
+  File "C:\Users\Rajee\OneDrive\stock\lab\strongtrendz.com-\dhan_sector_trader.py", line 317, in add_sector_rankings
+    df['ranking_category'] = pd.np.select(conditions, choices, default='MIDDLE')
+AttributeError: module 'pandas' has no attribute 'np'
+
+2025-04-30 19:45:54,065 - INFO - Latest timestamp in data: 2025-04-30 06:07:15
+2025-04-30 19:45:54,099 - INFO - Loaded data for 10 sectors
+2025-04-30 19:45:54,099 - INFO - Sector performance details:
+2025-04-30 19:45:54,100 - INFO -   Rank 1: Realty - POSITIVE (3.02%) - MIDDLE
+2025-04-30 19:45:54,146 - INFO -   Rank 2: Pharma - POSITIVE (1.01%) - MIDDLE
+2025-04-30 19:45:54,194 - INFO -   Rank 3: Metal - POSITIVE (0.68%) - MIDDLE
+2025-04-30 19:45:54,198 - INFO -   Rank 4: FMCG - POSITIVE (0.51%) - MIDDLE
+2025-04-30 19:45:54,199 - INFO -   Rank 5: Energy - POSITIVE (0.50%) - MIDDLE
+2025-04-30 19:45:54,249 - INFO -   Rank 6: IT - POSITIVE (0.25%) - MIDDLE
+2025-04-30 19:45:54,294 - INFO -   Rank 7: Financial Services - POSITIVE (0.18%) - MIDDLE
+2025-04-30 19:45:54,297 - INFO -   Rank 8: Auto - POSITIVE (0.01%) - MIDDLE
+2025-04-30 19:45:54,349 - INFO -   Rank 9: Media - NEGATIVE (-0.27%) - MIDDLE
+2025-04-30 19:45:54,350 - INFO -   Rank 10: PSU Bank - NEGATIVE (-0.90%) - MIDDLE
+2025-04-30 19:45:54,350 - INFO - 
+==================================================
+SECTOR DATA READ COMPLETE
+==================================================
+2025-04-30 19:45:54,352 - INFO - 
+==================================================
+PROCESSING SECTOR DATA
+==================================================
+2025-04-30 19:45:54,379 - INFO - Processing existing positions for potential exits...
+2025-04-30 19:45:54,401 - INFO - 
+==================================================
+PROCESSING EXISTING POSITIONS
+==================================================
+2025-04-30 19:45:54,402 - INFO - No existing positions to process
+2025-04-30 19:45:54,414 - INFO - 
+==================================================
+POSITION PROCESSING COMPLETE
+==================================================
+2025-04-30 19:45:54,415 - INFO - Initial trades already executed today - skipping new trade opportunities
+2025-04-30 19:45:54,433 - INFO - 
+==================================================
+SECTOR PROCESSING COMPLETE
+==================================================
+2025-04-30 19:45:54,435 - INFO - Saved 0 positions to dhan_positions.json
+2025-04-30 19:45:54,479 - INFO - 
+==================================================
+POSITIONS SUMMARY
+==================================================
+2025-04-30 19:45:54,517 - INFO - Current positions summary:
+2025-04-30 19:45:54,579 - INFO -   Open BUY positions: 0
+2025-04-30 19:45:54,581 - INFO -   Open SELL positions: 0
+2025-04-30 19:45:54,598 - INFO -   Closed positions: 0
+2025-04-30 19:45:54,618 - INFO -   Total positions: 0
+2025-04-30 19:45:54,636 - INFO - 
+==================================================
+POSITIONS SUMMARY COMPLETE
+==================================================
+2025-04-30 19:45:54,651 - INFO - Trading cycle 2 completed
+2025-04-30 19:45:54,696 - INFO - Waiting 30 seconds until next check at 19:46:24...
+2025-04-30 19:45:54,698 - INFO - 
+==================================================
+CYCLE 2 COMPLETE
+==================================================
+2025-04-30 19:46:24,782 - INFO - 
+==================================================
+TRADING CYCLE 3
+==================================================
+2025-04-30 19:46:24,857 - INFO - Trading cycle 3 started at 2025-04-30 19:46:24
+2025-04-30 19:46:24,987 - INFO - 
+==================================================
+READING SECTOR PERFORMANCE DATA
+==================================================
+2025-04-30 19:46:25,120 - INFO - Reading sector performance data from sector.csv
+2025-04-30 19:46:25,212 - INFO - File last modified: 2025-04-30 06:07:15
+2025-04-30 19:46:25,271 - INFO - Adding sector rankings to data
+2025-04-30 19:46:25,364 - ERROR - Error adding sector rankings: module 'pandas' has no attribute 'np'
+2025-04-30 19:46:25,475 - ERROR - Traceback (most recent call last):
+  File "C:\Users\Rajee\OneDrive\stock\lab\strongtrendz.com-\dhan_sector_trader.py", line 317, in add_sector_rankings
+    df['ranking_category'] = pd.np.select(conditions, choices, default='MIDDLE')
+AttributeError: module 'pandas' has no attribute 'np'
+
+2025-04-30 19:46:25,572 - INFO - Latest timestamp in data: 2025-04-30 06:07:15
+2025-04-30 19:46:25,639 - INFO - Loaded data for 10 sectors
+2025-04-30 19:46:25,707 - INFO - Sector performance details:
+2025-04-30 19:46:25,772 - INFO -   Rank 1: Realty - POSITIVE (3.02%) - MIDDLE
+2025-04-30 19:46:25,897 - INFO -   Rank 2: Pharma - POSITIVE (1.01%) - MIDDLE
+2025-04-30 19:46:25,977 - INFO -   Rank 3: Metal - POSITIVE (0.68%) - MIDDLE
+2025-04-30 19:46:26,035 - INFO -   Rank 4: FMCG - POSITIVE (0.51%) - MIDDLE
+2025-04-30 19:46:26,146 - INFO -   Rank 5: Energy - POSITIVE (0.50%) - MIDDLE
+2025-04-30 19:46:26,201 - INFO -   Rank 6: IT - POSITIVE (0.25%) - MIDDLE
+2025-04-30 19:46:26,265 - INFO -   Rank 7: Financial Services - POSITIVE (0.18%) - MIDDLE
+2025-04-30 19:46:26,365 - INFO -   Rank 8: Auto - POSITIVE (0.01%) - MIDDLE
+2025-04-30 19:46:26,396 - INFO -   Rank 9: Media - NEGATIVE (-0.27%) - MIDDLE
+2025-04-30 19:46:26,446 - INFO -   Rank 10: PSU Bank - NEGATIVE (-0.90%) - MIDDLE
+2025-04-30 19:46:26,499 - INFO - 
+==================================================
+SECTOR DATA READ COMPLETE
+==================================================
+2025-04-30 19:46:26,549 - INFO - 
+==================================================
+PROCESSING SECTOR DATA
+==================================================
+2025-04-30 19:46:26,608 - INFO - Processing existing positions for potential exits...
+2025-04-30 19:46:26,667 - INFO - 
+==================================================
+PROCESSING EXISTING POSITIONS
+==================================================
+2025-04-30 19:46:26,741 - INFO - No existing positions to process
+2025-04-30 19:46:26,767 - INFO - 
+==================================================
+POSITION PROCESSING COMPLETE
+==================================================
+2025-04-30 19:46:26,835 - INFO - Initial trades already executed today - skipping new trade opportunities
+2025-04-30 19:46:26,892 - INFO - 
+==================================================
+SECTOR PROCESSING COMPLETE
+==================================================
+2025-04-30 19:46:26,911 - INFO - Saved 0 positions to dhan_positions.json
+2025-04-30 19:46:26,956 - INFO - 
+==================================================
+POSITIONS SUMMARY
+==================================================
+2025-04-30 19:46:27,004 - INFO - Current positions summary:
+2025-04-30 19:46:27,192 - INFO -   Open BUY positions: 0
+2025-04-30 19:46:27,292 - INFO -   Open SELL positions: 0
+2025-04-30 19:46:27,347 - INFO -   Closed positions: 0
+2025-04-30 19:46:27,362 - INFO -   Total positions: 0
+2025-04-30 19:46:27,428 - INFO - 
+==================================================
+POSITIONS SUMMARY COMPLETE
+==================================================
+2025-04-30 19:46:27,484 - INFO - Trading cycle 3 completed
+2025-04-30 19:46:27,526 - INFO - Waiting 30 seconds until next check at 19:46:57...
+2025-04-30 19:46:27,531 - INFO - 
+==================================================
+CYCLE 3 COMPLETE
+==================================================
+2025-04-30 19:46:57,588 - INFO - 
+==================================================
+TRADING CYCLE 4
+==================================================
+2025-04-30 19:46:57,588 - INFO - Trading cycle 4 started at 2025-04-30 19:46:57
+2025-04-30 19:46:57,588 - INFO - 
+==================================================
+READING SECTOR PERFORMANCE DATA
+==================================================
+2025-04-30 19:46:57,589 - INFO - Reading sector performance data from sector.csv
+2025-04-30 19:46:57,590 - INFO - File last modified: 2025-04-30 06:07:15
+2025-04-30 19:46:57,592 - INFO - Adding sector rankings to data
+2025-04-30 19:46:57,593 - ERROR - Error adding sector rankings: module 'pandas' has no attribute 'np'
+2025-04-30 19:46:57,594 - ERROR - Traceback (most recent call last):
+  File "C:\Users\Rajee\OneDrive\stock\lab\strongtrendz.com-\dhan_sector_trader.py", line 317, in add_sector_rankings
+    df['ranking_category'] = pd.np.select(conditions, choices, default='MIDDLE')
+AttributeError: module 'pandas' has no attribute 'np'
+
+2025-04-30 19:46:57,596 - INFO - Latest timestamp in data: 2025-04-30 06:07:15
+2025-04-30 19:46:57,596 - INFO - Loaded data for 10 sectors
+2025-04-30 19:46:57,597 - INFO - Sector performance details:
+2025-04-30 19:46:57,599 - INFO -   Rank 1: Realty - POSITIVE (3.02%) - MIDDLE
+2025-04-30 19:46:57,604 - INFO -   Rank 2: Pharma - POSITIVE (1.01%) - MIDDLE
+2025-04-30 19:46:57,606 - INFO -   Rank 3: Metal - POSITIVE (0.68%) - MIDDLE
+2025-04-30 19:46:57,607 - INFO -   Rank 4: FMCG - POSITIVE (0.51%) - MIDDLE
+2025-04-30 19:46:57,608 - INFO -   Rank 5: Energy - POSITIVE (0.50%) - MIDDLE
+2025-04-30 19:46:57,608 - INFO -   Rank 6: IT - POSITIVE (0.25%) - MIDDLE
+2025-04-30 19:46:57,609 - INFO -   Rank 7: Financial Services - POSITIVE (0.18%) - MIDDLE
+2025-04-30 19:46:57,610 - INFO -   Rank 8: Auto - POSITIVE (0.01%) - MIDDLE
+2025-04-30 19:46:57,610 - INFO -   Rank 9: Media - NEGATIVE (-0.27%) - MIDDLE
+2025-04-30 19:46:57,611 - INFO -   Rank 10: PSU Bank - NEGATIVE (-0.90%) - MIDDLE
+2025-04-30 19:46:57,611 - INFO - 
+==================================================
+SECTOR DATA READ COMPLETE
+==================================================
+2025-04-30 19:46:57,612 - INFO - 
+==================================================
+PROCESSING SECTOR DATA
+==================================================
+2025-04-30 19:46:57,613 - INFO - Processing existing positions for potential exits...
+2025-04-30 19:46:57,613 - INFO - 
+==================================================
+PROCESSING EXISTING POSITIONS
+==================================================
+2025-04-30 19:46:57,613 - INFO - No existing positions to process
+2025-04-30 19:46:57,614 - INFO - 
+==================================================
+POSITION PROCESSING COMPLETE
+==================================================
+2025-04-30 19:46:57,614 - INFO - Initial trades already executed today - skipping new trade opportunities
+2025-04-30 19:46:57,615 - INFO - 
+==================================================
+SECTOR PROCESSING COMPLETE
+==================================================
+2025-04-30 19:46:57,618 - INFO - Saved 0 positions to dhan_positions.json
+2025-04-30 19:46:57,623 - INFO - 
+==================================================
+POSITIONS SUMMARY
+==================================================
+2025-04-30 19:46:57,624 - INFO - Current positions summary:
+2025-04-30 19:46:57,624 - INFO -   Open BUY positions: 0
+2025-04-30 19:46:57,624 - INFO -   Open SELL positions: 0
+2025-04-30 19:46:57,624 - INFO -   Closed positions: 0
+2025-04-30 19:46:57,625 - INFO -   Total positions: 0
+2025-04-30 19:46:57,625 - INFO - 
+==================================================
+POSITIONS SUMMARY COMPLETE
+==================================================
+2025-04-30 19:46:57,626 - INFO - Trading cycle 4 completed
+2025-04-30 19:46:57,626 - INFO - Waiting 30 seconds until next check at 19:47:27...
+2025-04-30 19:46:57,627 - INFO - 
+==================================================
+CYCLE 4 COMPLETE
+==================================================
+2025-04-30 19:47:27,633 - INFO - 
+==================================================
+TRADING CYCLE 5
+==================================================
+2025-04-30 19:47:27,634 - INFO - Trading cycle 5 started at 2025-04-30 19:47:27
+2025-04-30 19:47:27,634 - INFO - 
+==================================================
+READING SECTOR PERFORMANCE DATA
+==================================================
+2025-04-30 19:47:27,642 - INFO - Reading sector performance data from sector.csv
+2025-04-30 19:47:27,643 - INFO - File last modified: 2025-04-30 06:07:15
+2025-04-30 19:47:27,659 - INFO - Adding sector rankings to data
+2025-04-30 19:47:27,663 - ERROR - Error adding sector rankings: module 'pandas' has no attribute 'np'
+2025-04-30 19:47:27,675 - ERROR - Traceback (most recent call last):
+  File "C:\Users\Rajee\OneDrive\stock\lab\strongtrendz.com-\dhan_sector_trader.py", line 317, in add_sector_rankings
+    df['ranking_category'] = pd.np.select(conditions, choices, default='MIDDLE')
+AttributeError: module 'pandas' has no attribute 'np'
+
+2025-04-30 19:47:27,676 - INFO - Latest timestamp in data: 2025-04-30 06:07:15
+2025-04-30 19:47:27,677 - INFO - Loaded data for 10 sectors
+2025-04-30 19:47:27,677 - INFO - Sector performance details:
+2025-04-30 19:47:27,678 - INFO -   Rank 1: Realty - POSITIVE (3.02%) - MIDDLE
+2025-04-30 19:47:27,679 - INFO -   Rank 2: Pharma - POSITIVE (1.01%) - MIDDLE
+2025-04-30 19:47:27,680 - INFO -   Rank 3: Metal - POSITIVE (0.68%) - MIDDLE
+2025-04-30 19:47:27,682 - INFO -   Rank 4: FMCG - POSITIVE (0.51%) - MIDDLE
+2025-04-30 19:47:27,684 - INFO -   Rank 5: Energy - POSITIVE (0.50%) - MIDDLE
+2025-04-30 19:47:27,686 - INFO -   Rank 6: IT - POSITIVE (0.25%) - MIDDLE
+2025-04-30 19:47:27,686 - INFO -   Rank 7: Financial Services - POSITIVE (0.18%) - MIDDLE
+2025-04-30 19:47:27,687 - INFO -   Rank 8: Auto - POSITIVE (0.01%) - MIDDLE
+2025-04-30 19:47:27,688 - INFO -   Rank 9: Media - NEGATIVE (-0.27%) - MIDDLE
+2025-04-30 19:47:27,688 - INFO -   Rank 10: PSU Bank - NEGATIVE (-0.90%) - MIDDLE
+2025-04-30 19:47:27,689 - INFO - 
+==================================================
+SECTOR DATA READ COMPLETE
+==================================================
+2025-04-30 19:47:27,690 - INFO - 
+==================================================
+PROCESSING SECTOR DATA
+==================================================
+2025-04-30 19:47:27,691 - INFO - Processing existing positions for potential exits...
+2025-04-30 19:47:27,691 - INFO - 
+==================================================
+PROCESSING EXISTING POSITIONS
+==================================================
+2025-04-30 19:47:27,692 - INFO - No existing positions to process
+2025-04-30 19:47:27,693 - INFO - 
+==================================================
+POSITION PROCESSING COMPLETE
+==================================================
+2025-04-30 19:47:27,694 - INFO - Initial trades already executed today - skipping new trade opportunities
+2025-04-30 19:47:27,695 - INFO - 
+==================================================
+SECTOR PROCESSING COMPLETE
+==================================================
+2025-04-30 19:47:27,702 - INFO - Saved 0 positions to dhan_positions.json
+2025-04-30 19:47:27,705 - INFO - 
+==================================================
+POSITIONS SUMMARY
+==================================================
+2025-04-30 19:47:27,706 - INFO - Current positions summary:
+2025-04-30 19:47:27,706 - INFO -   Open BUY positions: 0
+2025-04-30 19:47:27,707 - INFO -   Open SELL positions: 0
+2025-04-30 19:47:27,707 - INFO -   Closed positions: 0
+2025-04-30 19:47:27,708 - INFO -   Total positions: 0
+2025-04-30 19:47:27,708 - INFO - 
+==================================================
+POSITIONS SUMMARY COMPLETE
+==================================================
+2025-04-30 19:47:27,709 - INFO - Trading cycle 5 completed
+2025-04-30 19:47:27,709 - INFO - Waiting 30 seconds until next check at 19:47:57...
+2025-04-30 19:47:27,709 - INFO - 
+==================================================
+CYCLE 5 COMPLETE
+==================================================
+2025-04-30 19:47:57,781 - INFO - 
+==================================================
+TRADING CYCLE 6
+==================================================
+2025-04-30 19:47:57,865 - INFO - Trading cycle 6 started at 2025-04-30 19:47:57
+2025-04-30 19:47:57,933 - INFO - 
+==================================================
+READING SECTOR PERFORMANCE DATA
+==================================================
+2025-04-30 19:47:57,936 - INFO - Reading sector performance data from sector.csv
+2025-04-30 19:47:57,937 - INFO - File last modified: 2025-04-30 06:07:15
+2025-04-30 19:47:58,041 - INFO - Adding sector rankings to data
+2025-04-30 19:47:58,068 - ERROR - Error adding sector rankings: module 'pandas' has no attribute 'np'
+2025-04-30 19:47:58,086 - ERROR - Traceback (most recent call last):
+  File "C:\Users\Rajee\OneDrive\stock\lab\strongtrendz.com-\dhan_sector_trader.py", line 317, in add_sector_rankings
+    df['ranking_category'] = pd.np.select(conditions, choices, default='MIDDLE')
+AttributeError: module 'pandas' has no attribute 'np'
+
+2025-04-30 19:47:58,103 - INFO - Latest timestamp in data: 2025-04-30 06:07:15
+2025-04-30 19:47:58,104 - INFO - Loaded data for 10 sectors
+2025-04-30 19:47:58,105 - INFO - Sector performance details:
+2025-04-30 19:47:58,141 - INFO -   Rank 1: Realty - POSITIVE (3.02%) - MIDDLE
+2025-04-30 19:47:58,153 - INFO -   Rank 2: Pharma - POSITIVE (1.01%) - MIDDLE
+2025-04-30 19:47:58,157 - INFO -   Rank 3: Metal - POSITIVE (0.68%) - MIDDLE
+2025-04-30 19:47:58,158 - INFO -   Rank 4: FMCG - POSITIVE (0.51%) - MIDDLE
+2025-04-30 19:47:58,190 - INFO -   Rank 5: Energy - POSITIVE (0.50%) - MIDDLE
+2025-04-30 19:47:58,191 - INFO -   Rank 6: IT - POSITIVE (0.25%) - MIDDLE
+2025-04-30 19:47:58,251 - INFO -   Rank 7: Financial Services - POSITIVE (0.18%) - MIDDLE
+2025-04-30 19:47:58,252 - INFO -   Rank 8: Auto - POSITIVE (0.01%) - MIDDLE
+2025-04-30 19:47:58,273 - INFO -   Rank 9: Media - NEGATIVE (-0.27%) - MIDDLE
+2025-04-30 19:47:58,285 - INFO -   Rank 10: PSU Bank - NEGATIVE (-0.90%) - MIDDLE
+2025-04-30 19:47:58,288 - INFO - 
+==================================================
+SECTOR DATA READ COMPLETE
+==================================================
+2025-04-30 19:47:58,291 - INFO - 
+==================================================
+PROCESSING SECTOR DATA
+==================================================
+2025-04-30 19:47:58,307 - INFO - Processing existing positions for potential exits...
+2025-04-30 19:47:58,316 - INFO - 
+==================================================
+PROCESSING EXISTING POSITIONS
+==================================================
+2025-04-30 19:47:58,321 - INFO - No existing positions to process
+2025-04-30 19:47:58,322 - INFO - 
+==================================================
+POSITION PROCESSING COMPLETE
+==================================================
+2025-04-30 19:47:58,338 - INFO - Initial trades already executed today - skipping new trade opportunities
+2025-04-30 19:47:58,339 - INFO - 
+==================================================
+SECTOR PROCESSING COMPLETE
+==================================================
+2025-04-30 19:47:58,351 - INFO - Saved 0 positions to dhan_positions.json
+2025-04-30 19:47:58,354 - INFO - 
+==================================================
+POSITIONS SUMMARY
+==================================================
+2025-04-30 19:47:58,355 - INFO - Current positions summary:
+2025-04-30 19:47:58,356 - INFO -   Open BUY positions: 0
+2025-04-30 19:47:58,370 - INFO -   Open SELL positions: 0
+2025-04-30 19:47:58,371 - INFO -   Closed positions: 0
+2025-04-30 19:47:58,372 - INFO -   Total positions: 0
+2025-04-30 19:47:58,403 - INFO - 
+==================================================
+POSITIONS SUMMARY COMPLETE
+==================================================
+2025-04-30 19:47:58,405 - INFO - Trading cycle 6 completed
+2025-04-30 19:47:58,422 - INFO - Waiting 30 seconds until next check at 19:48:28...
+2025-04-30 19:47:58,423 - INFO - 
+==================================================
+CYCLE 6 COMPLETE
+==================================================
+2025-04-30 19:48:28,461 - INFO - 
+==================================================
+TRADING CYCLE 7
+==================================================
+2025-04-30 19:48:28,463 - INFO - Trading cycle 7 started at 2025-04-30 19:48:28
+2025-04-30 19:48:28,463 - INFO - 
+==================================================
+READING SECTOR PERFORMANCE DATA
+==================================================
+2025-04-30 19:48:28,465 - INFO - Reading sector performance data from sector.csv
+2025-04-30 19:48:28,466 - INFO - File last modified: 2025-04-30 06:07:15
+2025-04-30 19:48:28,470 - INFO - Adding sector rankings to data
+2025-04-30 19:48:28,503 - ERROR - Error adding sector rankings: module 'pandas' has no attribute 'np'
+2025-04-30 19:48:28,505 - ERROR - Traceback (most recent call last):
+  File "C:\Users\Rajee\OneDrive\stock\lab\strongtrendz.com-\dhan_sector_trader.py", line 317, in add_sector_rankings
+    df['ranking_category'] = pd.np.select(conditions, choices, default='MIDDLE')
+AttributeError: module 'pandas' has no attribute 'np'
+
+2025-04-30 19:48:28,515 - INFO - Latest timestamp in data: 2025-04-30 06:07:15
+2025-04-30 19:48:28,516 - INFO - Loaded data for 10 sectors
+2025-04-30 19:48:28,517 - INFO - Sector performance details:
+2025-04-30 19:48:28,519 - INFO -   Rank 1: Realty - POSITIVE (3.02%) - MIDDLE
+2025-04-30 19:48:28,520 - INFO -   Rank 2: Pharma - POSITIVE (1.01%) - MIDDLE
+2025-04-30 19:48:28,521 - INFO -   Rank 3: Metal - POSITIVE (0.68%) - MIDDLE
+2025-04-30 19:48:28,532 - INFO -   Rank 4: FMCG - POSITIVE (0.51%) - MIDDLE
+2025-04-30 19:48:28,535 - INFO -   Rank 5: Energy - POSITIVE (0.50%) - MIDDLE
+2025-04-30 19:48:28,549 - INFO -   Rank 6: IT - POSITIVE (0.25%) - MIDDLE
+2025-04-30 19:48:28,550 - INFO -   Rank 7: Financial Services - POSITIVE (0.18%) - MIDDLE
+2025-04-30 19:48:28,551 - INFO -   Rank 8: Auto - POSITIVE (0.01%) - MIDDLE
+2025-04-30 19:48:28,554 - INFO -   Rank 9: Media - NEGATIVE (-0.27%) - MIDDLE
+2025-04-30 19:48:28,555 - INFO -   Rank 10: PSU Bank - NEGATIVE (-0.90%) - MIDDLE
+2025-04-30 19:48:28,556 - INFO - 
+==================================================
+SECTOR DATA READ COMPLETE
+==================================================
+2025-04-30 19:48:28,569 - INFO - 
+==================================================
+PROCESSING SECTOR DATA
+==================================================
+2025-04-30 19:48:28,570 - INFO - Processing existing positions for potential exits...
+2025-04-30 19:48:28,571 - INFO - 
+==================================================
+PROCESSING EXISTING POSITIONS
+==================================================
+2025-04-30 19:48:28,583 - INFO - No existing positions to process
+2025-04-30 19:48:28,584 - INFO - 
+==================================================
+POSITION PROCESSING COMPLETE
+==================================================
+2025-04-30 19:48:28,585 - INFO - Initial trades already executed today - skipping new trade opportunities
+2025-04-30 19:48:28,586 - INFO - 
+==================================================
+SECTOR PROCESSING COMPLETE
+==================================================
+2025-04-30 19:48:28,605 - INFO - Saved 0 positions to dhan_positions.json
+2025-04-30 19:48:28,615 - INFO - 
+==================================================
+POSITIONS SUMMARY
+==================================================
+2025-04-30 19:48:28,617 - INFO - Current positions summary:
+2025-04-30 19:48:28,619 - INFO -   Open BUY positions: 0
+2025-04-30 19:48:28,620 - INFO -   Open SELL positions: 0
+2025-04-30 19:48:28,621 - INFO -   Closed positions: 0
+2025-04-30 19:48:28,623 - INFO -   Total positions: 0
+2025-04-30 19:48:28,635 - INFO - 
+==================================================
+POSITIONS SUMMARY COMPLETE
+==================================================
+2025-04-30 19:48:28,636 - INFO - Trading cycle 7 completed
+2025-04-30 19:48:28,636 - INFO - Waiting 30 seconds until next check at 19:48:58...
+2025-04-30 19:48:28,637 - INFO - 
+==================================================
+CYCLE 7 COMPLETE
+==================================================
+2025-04-30 19:48:58,650 - INFO - 
+==================================================
+TRADING CYCLE 8
+==================================================
+2025-04-30 19:48:58,651 - INFO - Trading cycle 8 started at 2025-04-30 19:48:58
+2025-04-30 19:48:58,651 - INFO - 
+==================================================
+READING SECTOR PERFORMANCE DATA
+==================================================
+2025-04-30 19:48:58,652 - INFO - Reading sector performance data from sector.csv
+2025-04-30 19:48:58,653 - INFO - File last modified: 2025-04-30 06:07:15
+2025-04-30 19:48:58,664 - INFO - Adding sector rankings to data
+2025-04-30 19:48:58,676 - ERROR - Error adding sector rankings: module 'pandas' has no attribute 'np'
+2025-04-30 19:48:58,679 - ERROR - Traceback (most recent call last):
+  File "C:\Users\Rajee\OneDrive\stock\lab\strongtrendz.com-\dhan_sector_trader.py", line 317, in add_sector_rankings
+    df['ranking_category'] = pd.np.select(conditions, choices, default='MIDDLE')
+AttributeError: module 'pandas' has no attribute 'np'
+
+2025-04-30 19:48:58,680 - INFO - Latest timestamp in data: 2025-04-30 06:07:15
+2025-04-30 19:48:58,680 - INFO - Loaded data for 10 sectors
+2025-04-30 19:48:58,684 - INFO - Sector performance details:
+2025-04-30 19:48:58,686 - INFO -   Rank 1: Realty - POSITIVE (3.02%) - MIDDLE
+2025-04-30 19:48:58,690 - INFO -   Rank 2: Pharma - POSITIVE (1.01%) - MIDDLE
+2025-04-30 19:48:58,693 - INFO -   Rank 3: Metal - POSITIVE (0.68%) - MIDDLE
+2025-04-30 19:48:58,694 - INFO -   Rank 4: FMCG - POSITIVE (0.51%) - MIDDLE
+2025-04-30 19:48:58,695 - INFO -   Rank 5: Energy - POSITIVE (0.50%) - MIDDLE
+2025-04-30 19:48:58,695 - INFO -   Rank 6: IT - POSITIVE (0.25%) - MIDDLE
+2025-04-30 19:48:58,732 - INFO -   Rank 7: Financial Services - POSITIVE (0.18%) - MIDDLE
+2025-04-30 19:48:58,734 - INFO -   Rank 8: Auto - POSITIVE (0.01%) - MIDDLE
+2025-04-30 19:48:58,735 - INFO -   Rank 9: Media - NEGATIVE (-0.27%) - MIDDLE
+2025-04-30 19:48:58,782 - INFO -   Rank 10: PSU Bank - NEGATIVE (-0.90%) - MIDDLE
+2025-04-30 19:48:58,782 - INFO - 
+==================================================
+SECTOR DATA READ COMPLETE
+==================================================
+2025-04-30 19:48:58,783 - INFO - 
+==================================================
+PROCESSING SECTOR DATA
+==================================================
+2025-04-30 19:48:58,833 - INFO - Processing existing positions for potential exits...
+2025-04-30 19:48:58,837 - INFO - 
+==================================================
+PROCESSING EXISTING POSITIONS
+==================================================
+2025-04-30 19:48:58,879 - INFO - No existing positions to process
+2025-04-30 19:48:58,880 - INFO - 
+==================================================
+POSITION PROCESSING COMPLETE
+==================================================
+2025-04-30 19:48:58,881 - INFO - Initial trades already executed today - skipping new trade opportunities
+2025-04-30 19:48:58,898 - INFO - 
+==================================================
+SECTOR PROCESSING COMPLETE
+==================================================
+2025-04-30 19:48:58,903 - INFO - Saved 0 positions to dhan_positions.json
+2025-04-30 19:48:58,909 - INFO - 
+==================================================
+POSITIONS SUMMARY
+==================================================
+2025-04-30 19:48:58,910 - INFO - Current positions summary:
+2025-04-30 19:48:58,911 - INFO -   Open BUY positions: 0
+2025-04-30 19:48:58,911 - INFO -   Open SELL positions: 0
+2025-04-30 19:48:58,911 - INFO -   Closed positions: 0
+2025-04-30 19:48:58,912 - INFO -   Total positions: 0
+2025-04-30 19:48:58,913 - INFO - 
+==================================================
+POSITIONS SUMMARY COMPLETE
+==================================================
+2025-04-30 19:48:58,913 - INFO - Trading cycle 8 completed
+2025-04-30 19:48:58,915 - INFO - Waiting 30 seconds until next check at 19:49:28...
+2025-04-30 19:48:58,915 - INFO - 
+==================================================
+CYCLE 8 COMPLETE
+==================================================
+2025-04-30 19:49:28,931 - INFO - 
+==================================================
+TRADING CYCLE 9
+==================================================
+2025-04-30 19:49:28,936 - INFO - Trading cycle 9 started at 2025-04-30 19:49:28
+2025-04-30 19:49:28,937 - INFO - 
+==================================================
+READING SECTOR PERFORMANCE DATA
+==================================================
+2025-04-30 19:49:28,950 - INFO - Reading sector performance data from sector.csv
+2025-04-30 19:49:28,960 - INFO - File last modified: 2025-04-30 06:07:15
+2025-04-30 19:49:28,981 - INFO - Adding sector rankings to data
+2025-04-30 19:49:29,008 - ERROR - Error adding sector rankings: module 'pandas' has no attribute 'np'
+2025-04-30 19:49:29,011 - ERROR - Traceback (most recent call last):
+  File "C:\Users\Rajee\OneDrive\stock\lab\strongtrendz.com-\dhan_sector_trader.py", line 317, in add_sector_rankings
+    df['ranking_category'] = pd.np.select(conditions, choices, default='MIDDLE')
+AttributeError: module 'pandas' has no attribute 'np'
+
+2025-04-30 19:49:29,017 - INFO - Latest timestamp in data: 2025-04-30 06:07:15
+2025-04-30 19:49:29,029 - INFO - Loaded data for 10 sectors
+2025-04-30 19:49:29,030 - INFO - Sector performance details:
+2025-04-30 19:49:29,044 - INFO -   Rank 1: Realty - POSITIVE (3.02%) - MIDDLE
+2025-04-30 19:49:29,050 - INFO -   Rank 2: Pharma - POSITIVE (1.01%) - MIDDLE
+2025-04-30 19:49:29,056 - INFO -   Rank 3: Metal - POSITIVE (0.68%) - MIDDLE
+2025-04-30 19:49:29,061 - INFO -   Rank 4: FMCG - POSITIVE (0.51%) - MIDDLE
+2025-04-30 19:49:29,067 - INFO -   Rank 5: Energy - POSITIVE (0.50%) - MIDDLE
+2025-04-30 19:49:29,083 - INFO -   Rank 6: IT - POSITIVE (0.25%) - MIDDLE
+2025-04-30 19:49:29,091 - INFO -   Rank 7: Financial Services - POSITIVE (0.18%) - MIDDLE
+2025-04-30 19:49:29,097 - INFO -   Rank 8: Auto - POSITIVE (0.01%) - MIDDLE
+2025-04-30 19:49:29,099 - INFO -   Rank 9: Media - NEGATIVE (-0.27%) - MIDDLE
+2025-04-30 19:49:29,102 - INFO -   Rank 10: PSU Bank - NEGATIVE (-0.90%) - MIDDLE
+2025-04-30 19:49:29,104 - INFO - 
+==================================================
+SECTOR DATA READ COMPLETE
+==================================================
+2025-04-30 19:49:29,112 - INFO - 
+==================================================
+PROCESSING SECTOR DATA
+==================================================
+2025-04-30 19:49:29,116 - INFO - Processing existing positions for potential exits...
+2025-04-30 19:49:29,126 - INFO - 
+==================================================
+PROCESSING EXISTING POSITIONS
+==================================================
+2025-04-30 19:49:29,131 - INFO - No existing positions to process
+2025-04-30 19:49:29,132 - INFO - 
+==================================================
+POSITION PROCESSING COMPLETE
+==================================================
+2025-04-30 19:49:29,133 - INFO - Initial trades already executed today - skipping new trade opportunities
+2025-04-30 19:49:29,139 - INFO - 
+==================================================
+SECTOR PROCESSING COMPLETE
+==================================================
+2025-04-30 19:49:29,143 - INFO - Saved 0 positions to dhan_positions.json
+2025-04-30 19:49:29,147 - INFO - 
+==================================================
+POSITIONS SUMMARY
+==================================================
+2025-04-30 19:49:29,149 - INFO - Current positions summary:
+2025-04-30 19:49:29,150 - INFO -   Open BUY positions: 0
+2025-04-30 19:49:29,155 - INFO -   Open SELL positions: 0
+2025-04-30 19:49:29,160 - INFO -   Closed positions: 0
+2025-04-30 19:49:29,163 - INFO -   Total positions: 0
+2025-04-30 19:49:29,164 - INFO - 
+==================================================
+POSITIONS SUMMARY COMPLETE
+==================================================
+2025-04-30 19:49:29,168 - INFO - Trading cycle 9 completed
+2025-04-30 19:49:29,175 - INFO - Waiting 30 seconds until next check at 19:49:59...
+2025-04-30 19:49:29,178 - INFO - 
+==================================================
+CYCLE 9 COMPLETE
+==================================================
+2025-04-30 19:49:59,180 - INFO - 
+==================================================
+TRADING CYCLE 10
+==================================================
+2025-04-30 19:49:59,180 - INFO - Trading cycle 10 started at 2025-04-30 19:49:59
+2025-04-30 19:49:59,181 - INFO - 
+==================================================
+READING SECTOR PERFORMANCE DATA
+==================================================
+2025-04-30 19:49:59,183 - INFO - Reading sector performance data from sector.csv
+2025-04-30 19:49:59,185 - INFO - File last modified: 2025-04-30 06:07:15
+2025-04-30 19:49:59,188 - INFO - Adding sector rankings to data
+2025-04-30 19:49:59,192 - ERROR - Error adding sector rankings: module 'pandas' has no attribute 'np'
+2025-04-30 19:49:59,193 - ERROR - Traceback (most recent call last):
+  File "C:\Users\Rajee\OneDrive\stock\lab\strongtrendz.com-\dhan_sector_trader.py", line 317, in add_sector_rankings
+    df['ranking_category'] = pd.np.select(conditions, choices, default='MIDDLE')
+AttributeError: module 'pandas' has no attribute 'np'
+
+2025-04-30 19:49:59,194 - INFO - Latest timestamp in data: 2025-04-30 06:07:15
+2025-04-30 19:49:59,195 - INFO - Loaded data for 10 sectors
+2025-04-30 19:49:59,195 - INFO - Sector performance details:
+2025-04-30 19:49:59,196 - INFO -   Rank 1: Realty - POSITIVE (3.02%) - MIDDLE
+2025-04-30 19:49:59,196 - INFO -   Rank 2: Pharma - POSITIVE (1.01%) - MIDDLE
+2025-04-30 19:49:59,197 - INFO -   Rank 3: Metal - POSITIVE (0.68%) - MIDDLE
+2025-04-30 19:49:59,197 - INFO -   Rank 4: FMCG - POSITIVE (0.51%) - MIDDLE
+2025-04-30 19:49:59,199 - INFO -   Rank 5: Energy - POSITIVE (0.50%) - MIDDLE
+2025-04-30 19:49:59,201 - INFO -   Rank 6: IT - POSITIVE (0.25%) - MIDDLE
+2025-04-30 19:49:59,202 - INFO -   Rank 7: Financial Services - POSITIVE (0.18%) - MIDDLE
+2025-04-30 19:49:59,203 - INFO -   Rank 8: Auto - POSITIVE (0.01%) - MIDDLE
+2025-04-30 19:49:59,204 - INFO -   Rank 9: Media - NEGATIVE (-0.27%) - MIDDLE
+2025-04-30 19:49:59,204 - INFO -   Rank 10: PSU Bank - NEGATIVE (-0.90%) - MIDDLE
+2025-04-30 19:49:59,204 - INFO - 
+==================================================
+SECTOR DATA READ COMPLETE
+==================================================
+2025-04-30 19:49:59,205 - INFO - 
+==================================================
+PROCESSING SECTOR DATA
+==================================================
+2025-04-30 19:49:59,206 - INFO - Processing existing positions for potential exits...
+2025-04-30 19:49:59,210 - INFO - 
+==================================================
+PROCESSING EXISTING POSITIONS
+==================================================
+2025-04-30 19:49:59,211 - INFO - No existing positions to process
+2025-04-30 19:49:59,211 - INFO - 
+==================================================
+POSITION PROCESSING COMPLETE
+==================================================
+2025-04-30 19:49:59,212 - INFO - Initial trades already executed today - skipping new trade opportunities
+2025-04-30 19:49:59,212 - INFO - 
+==================================================
+SECTOR PROCESSING COMPLETE
+==================================================
+2025-04-30 19:49:59,214 - INFO - Saved 0 positions to dhan_positions.json
+2025-04-30 19:49:59,216 - INFO - 
+==================================================
+POSITIONS SUMMARY
+==================================================
+2025-04-30 19:49:59,218 - INFO - Current positions summary:
+2025-04-30 19:49:59,219 - INFO -   Open BUY positions: 0
+2025-04-30 19:49:59,219 - INFO -   Open SELL positions: 0
+2025-04-30 19:49:59,220 - INFO -   Closed positions: 0
+2025-04-30 19:49:59,221 - INFO -   Total positions: 0
+2025-04-30 19:49:59,221 - INFO - 
+==================================================
+POSITIONS SUMMARY COMPLETE
+==================================================
+2025-04-30 19:49:59,222 - INFO - Trading cycle 10 completed
+2025-04-30 19:49:59,223 - INFO - Waiting 30 seconds until next check at 19:50:29...
+2025-04-30 19:49:59,224 - INFO - 
+==================================================
+CYCLE 10 COMPLETE
+==================================================
+2025-04-30 19:50:29,238 - INFO - 
+==================================================
+TRADING CYCLE 11
+==================================================
+2025-04-30 19:50:29,239 - INFO - Trading cycle 11 started at 2025-04-30 19:50:29
+2025-04-30 19:50:29,241 - INFO - 
+==================================================
+READING SECTOR PERFORMANCE DATA
+==================================================
+2025-04-30 19:50:29,241 - INFO - Reading sector performance data from sector.csv
+2025-04-30 19:50:29,242 - INFO - File last modified: 2025-04-30 06:07:15
+2025-04-30 19:50:29,250 - INFO - Adding sector rankings to data
+2025-04-30 19:50:29,253 - ERROR - Error adding sector rankings: module 'pandas' has no attribute 'np'
+2025-04-30 19:50:29,274 - ERROR - Traceback (most recent call last):
+  File "C:\Users\Rajee\OneDrive\stock\lab\strongtrendz.com-\dhan_sector_trader.py", line 317, in add_sector_rankings
+    df['ranking_category'] = pd.np.select(conditions, choices, default='MIDDLE')
+AttributeError: module 'pandas' has no attribute 'np'
+
+2025-04-30 19:50:29,275 - INFO - Latest timestamp in data: 2025-04-30 06:07:15
+2025-04-30 19:50:29,276 - INFO - Loaded data for 10 sectors
+2025-04-30 19:50:29,287 - INFO - Sector performance details:
+2025-04-30 19:50:29,288 - INFO -   Rank 1: Realty - POSITIVE (3.02%) - MIDDLE
+2025-04-30 19:50:29,289 - INFO -   Rank 2: Pharma - POSITIVE (1.01%) - MIDDLE
+2025-04-30 19:50:29,290 - INFO -   Rank 3: Metal - POSITIVE (0.68%) - MIDDLE
+2025-04-30 19:50:29,290 - INFO -   Rank 4: FMCG - POSITIVE (0.51%) - MIDDLE
+2025-04-30 19:50:29,291 - INFO -   Rank 5: Energy - POSITIVE (0.50%) - MIDDLE
+2025-04-30 19:50:29,292 - INFO -   Rank 6: IT - POSITIVE (0.25%) - MIDDLE
+2025-04-30 19:50:29,294 - INFO -   Rank 7: Financial Services - POSITIVE (0.18%) - MIDDLE
+2025-04-30 19:50:29,294 - INFO -   Rank 8: Auto - POSITIVE (0.01%) - MIDDLE
+2025-04-30 19:50:29,296 - INFO -   Rank 9: Media - NEGATIVE (-0.27%) - MIDDLE
+2025-04-30 19:50:29,327 - INFO -   Rank 10: PSU Bank - NEGATIVE (-0.90%) - MIDDLE
+2025-04-30 19:50:29,327 - INFO - 
+==================================================
+SECTOR DATA READ COMPLETE
+==================================================
+2025-04-30 19:50:29,331 - INFO - 
+==================================================
+PROCESSING SECTOR DATA
+==================================================
+2025-04-30 19:50:29,336 - INFO - Processing existing positions for potential exits...
+2025-04-30 19:50:29,337 - INFO - 
+==================================================
+PROCESSING EXISTING POSITIONS
+==================================================
+2025-04-30 19:50:29,338 - INFO - No existing positions to process
+2025-04-30 19:50:29,338 - INFO - 
+==================================================
+POSITION PROCESSING COMPLETE
+==================================================
+2025-04-30 19:50:29,341 - INFO - Initial trades already executed today - skipping new trade opportunities
+2025-04-30 19:50:29,344 - INFO - 
+==================================================
+SECTOR PROCESSING COMPLETE
+==================================================
+2025-04-30 19:50:29,346 - INFO - Saved 0 positions to dhan_positions.json
+2025-04-30 19:50:29,355 - INFO - 
+==================================================
+POSITIONS SUMMARY
+==================================================
+2025-04-30 19:50:29,356 - INFO - Current positions summary:
+2025-04-30 19:50:29,356 - INFO -   Open BUY positions: 0
+2025-04-30 19:50:29,356 - INFO -   Open SELL positions: 0
+2025-04-30 19:50:29,357 - INFO -   Closed positions: 0
+2025-04-30 19:50:29,358 - INFO -   Total positions: 0
+2025-04-30 19:50:29,359 - INFO - 
+==================================================
+POSITIONS SUMMARY COMPLETE
+==================================================
+2025-04-30 19:50:29,360 - INFO - Trading cycle 11 completed
+2025-04-30 19:50:29,360 - INFO - Waiting 30 seconds until next check at 19:50:59...
+2025-04-30 19:50:29,361 - INFO - 
+==================================================
+CYCLE 11 COMPLETE
+==================================================
+2025-04-30 19:50:59,378 - INFO - 
+==================================================
+TRADING CYCLE 12
+==================================================
+2025-04-30 19:50:59,379 - INFO - Trading cycle 12 started at 2025-04-30 19:50:59
+2025-04-30 19:50:59,379 - INFO - 
+==================================================
+READING SECTOR PERFORMANCE DATA
+==================================================
+2025-04-30 19:50:59,380 - INFO - Reading sector performance data from sector.csv
+2025-04-30 19:50:59,380 - INFO - File last modified: 2025-04-30 06:07:15
+2025-04-30 19:50:59,382 - INFO - Adding sector rankings to data
+2025-04-30 19:50:59,397 - ERROR - Error adding sector rankings: module 'pandas' has no attribute 'np'
+2025-04-30 19:50:59,398 - ERROR - Traceback (most recent call last):
+  File "C:\Users\Rajee\OneDrive\stock\lab\strongtrendz.com-\dhan_sector_trader.py", line 317, in add_sector_rankings
+    df['ranking_category'] = pd.np.select(conditions, choices, default='MIDDLE')
+AttributeError: module 'pandas' has no attribute 'np'
+
+2025-04-30 19:50:59,399 - INFO - Latest timestamp in data: 2025-04-30 06:07:15
+2025-04-30 19:50:59,400 - INFO - Loaded data for 10 sectors
+2025-04-30 19:50:59,400 - INFO - Sector performance details:
+2025-04-30 19:50:59,401 - INFO -   Rank 1: Realty - POSITIVE (3.02%) - MIDDLE
+2025-04-30 19:50:59,402 - INFO -   Rank 2: Pharma - POSITIVE (1.01%) - MIDDLE
+2025-04-30 19:50:59,403 - INFO -   Rank 3: Metal - POSITIVE (0.68%) - MIDDLE
+2025-04-30 19:50:59,403 - INFO -   Rank 4: FMCG - POSITIVE (0.51%) - MIDDLE
+2025-04-30 19:50:59,404 - INFO -   Rank 5: Energy - POSITIVE (0.50%) - MIDDLE
+2025-04-30 19:50:59,404 - INFO -   Rank 6: IT - POSITIVE (0.25%) - MIDDLE
+2025-04-30 19:50:59,406 - INFO -   Rank 7: Financial Services - POSITIVE (0.18%) - MIDDLE
+2025-04-30 19:50:59,407 - INFO -   Rank 8: Auto - POSITIVE (0.01%) - MIDDLE
+2025-04-30 19:50:59,408 - INFO -   Rank 9: Media - NEGATIVE (-0.27%) - MIDDLE
+2025-04-30 19:50:59,419 - INFO -   Rank 10: PSU Bank - NEGATIVE (-0.90%) - MIDDLE
+2025-04-30 19:50:59,419 - INFO - 
+==================================================
+SECTOR DATA READ COMPLETE
+==================================================
+2025-04-30 19:50:59,420 - INFO - 
+==================================================
+PROCESSING SECTOR DATA
+==================================================
+2025-04-30 19:50:59,421 - INFO - Processing existing positions for potential exits...
+2025-04-30 19:50:59,434 - INFO - 
+==================================================
+PROCESSING EXISTING POSITIONS
+==================================================
+2025-04-30 19:50:59,435 - INFO - No existing positions to process
+2025-04-30 19:50:59,436 - INFO - 
+==================================================
+POSITION PROCESSING COMPLETE
+==================================================
+2025-04-30 19:50:59,436 - INFO - Initial trades already executed today - skipping new trade opportunities
+2025-04-30 19:50:59,437 - INFO - 
+==================================================
+SECTOR PROCESSING COMPLETE
+==================================================
+2025-04-30 19:50:59,439 - INFO - Saved 0 positions to dhan_positions.json
+2025-04-30 19:50:59,440 - INFO - 
+==================================================
+POSITIONS SUMMARY
+==================================================
+2025-04-30 19:50:59,452 - INFO - Current positions summary:
+2025-04-30 19:50:59,455 - INFO -   Open BUY positions: 0
+2025-04-30 19:50:59,456 - INFO -   Open SELL positions: 0
+2025-04-30 19:50:59,456 - INFO -   Closed positions: 0
+2025-04-30 19:50:59,456 - INFO -   Total positions: 0
+2025-04-30 19:50:59,456 - INFO - 
+==================================================
+POSITIONS SUMMARY COMPLETE
+==================================================
+2025-04-30 19:50:59,457 - INFO - Trading cycle 12 completed
+2025-04-30 19:50:59,470 - INFO - Waiting 30 seconds until next check at 19:51:29...
+2025-04-30 19:50:59,470 - INFO - 
+==================================================
+CYCLE 12 COMPLETE
+==================================================
+2025-04-30 19:51:29,479 - INFO - 
+==================================================
+TRADING CYCLE 13
+==================================================
+2025-04-30 19:51:29,483 - INFO - Trading cycle 13 started at 2025-04-30 19:51:29
+2025-04-30 19:51:29,484 - INFO - 
+==================================================
+READING SECTOR PERFORMANCE DATA
+==================================================
+2025-04-30 19:51:29,484 - INFO - Reading sector performance data from sector.csv
+2025-04-30 19:51:29,485 - INFO - File last modified: 2025-04-30 06:07:15
+2025-04-30 19:51:29,490 - INFO - Adding sector rankings to data
+2025-04-30 19:51:29,499 - ERROR - Error adding sector rankings: module 'pandas' has no attribute 'np'
+2025-04-30 19:51:29,499 - ERROR - Traceback (most recent call last):
+  File "C:\Users\Rajee\OneDrive\stock\lab\strongtrendz.com-\dhan_sector_trader.py", line 317, in add_sector_rankings
+    df['ranking_category'] = pd.np.select(conditions, choices, default='MIDDLE')
+AttributeError: module 'pandas' has no attribute 'np'
+
+2025-04-30 19:51:29,503 - INFO - Latest timestamp in data: 2025-04-30 06:07:15
+2025-04-30 19:51:29,504 - INFO - Loaded data for 10 sectors
+2025-04-30 19:51:29,515 - INFO - Sector performance details:
+2025-04-30 19:51:29,516 - INFO -   Rank 1: Realty - POSITIVE (3.02%) - MIDDLE
+2025-04-30 19:51:29,517 - INFO -   Rank 2: Pharma - POSITIVE (1.01%) - MIDDLE
+2025-04-30 19:51:29,517 - INFO -   Rank 3: Metal - POSITIVE (0.68%) - MIDDLE
+2025-04-30 19:51:29,518 - INFO -   Rank 4: FMCG - POSITIVE (0.51%) - MIDDLE
+2025-04-30 19:51:29,523 - INFO -   Rank 5: Energy - POSITIVE (0.50%) - MIDDLE
+2025-04-30 19:51:29,532 - INFO -   Rank 6: IT - POSITIVE (0.25%) - MIDDLE
+2025-04-30 19:51:29,533 - INFO -   Rank 7: Financial Services - POSITIVE (0.18%) - MIDDLE
+2025-04-30 19:51:29,534 - INFO -   Rank 8: Auto - POSITIVE (0.01%) - MIDDLE
+2025-04-30 19:51:29,535 - INFO -   Rank 9: Media - NEGATIVE (-0.27%) - MIDDLE
+2025-04-30 19:51:29,535 - INFO -   Rank 10: PSU Bank - NEGATIVE (-0.90%) - MIDDLE
+2025-04-30 19:51:29,536 - INFO - 
+==================================================
+SECTOR DATA READ COMPLETE
+==================================================
+2025-04-30 19:51:29,537 - INFO - 
+==================================================
+PROCESSING SECTOR DATA
+==================================================
+2025-04-30 19:51:29,537 - INFO - Processing existing positions for potential exits...
+2025-04-30 19:51:29,545 - INFO - 
+==================================================
+PROCESSING EXISTING POSITIONS
+==================================================
+2025-04-30 19:51:29,546 - INFO - No existing positions to process
+2025-04-30 19:51:29,547 - INFO - 
+==================================================
+POSITION PROCESSING COMPLETE
+==================================================
+2025-04-30 19:51:29,549 - INFO - Initial trades already executed today - skipping new trade opportunities
+2025-04-30 19:51:29,551 - INFO - 
+==================================================
+SECTOR PROCESSING COMPLETE
+==================================================
+2025-04-30 19:51:29,553 - INFO - Saved 0 positions to dhan_positions.json
+2025-04-30 19:51:29,563 - INFO - 
+==================================================
+POSITIONS SUMMARY
+==================================================
+2025-04-30 19:51:29,567 - INFO - Current positions summary:
+2025-04-30 19:51:29,568 - INFO -   Open BUY positions: 0
+2025-04-30 19:51:29,568 - INFO -   Open SELL positions: 0
+2025-04-30 19:51:29,569 - INFO -   Closed positions: 0
+2025-04-30 19:51:29,569 - INFO -   Total positions: 0
+2025-04-30 19:51:29,569 - INFO - 
+==================================================
+POSITIONS SUMMARY COMPLETE
+==================================================
+2025-04-30 19:51:29,570 - INFO - Trading cycle 13 completed
+2025-04-30 19:51:29,571 - INFO - Waiting 30 seconds until next check at 19:51:59...
+2025-04-30 19:51:29,585 - INFO - 
+==================================================
+CYCLE 13 COMPLETE
+==================================================
+2025-04-30 19:51:59,595 - INFO - 
+==================================================
+TRADING CYCLE 14
+==================================================
+2025-04-30 19:51:59,604 - INFO - Trading cycle 14 started at 2025-04-30 19:51:59
+2025-04-30 19:51:59,605 - INFO - 
+==================================================
+READING SECTOR PERFORMANCE DATA
+==================================================
+2025-04-30 19:51:59,631 - INFO - Reading sector performance data from sector.csv
+2025-04-30 19:51:59,633 - INFO - File last modified: 2025-04-30 06:07:15
+2025-04-30 19:51:59,649 - INFO - Adding sector rankings to data
+2025-04-30 19:51:59,672 - ERROR - Error adding sector rankings: module 'pandas' has no attribute 'np'
+2025-04-30 19:51:59,679 - ERROR - Traceback (most recent call last):
+  File "C:\Users\Rajee\OneDrive\stock\lab\strongtrendz.com-\dhan_sector_trader.py", line 317, in add_sector_rankings
+    df['ranking_category'] = pd.np.select(conditions, choices, default='MIDDLE')
+AttributeError: module 'pandas' has no attribute 'np'
+
+2025-04-30 19:51:59,682 - INFO - Latest timestamp in data: 2025-04-30 06:07:15
+2025-04-30 19:51:59,695 - INFO - Loaded data for 10 sectors
+2025-04-30 19:51:59,729 - INFO - Sector performance details:
+2025-04-30 19:51:59,758 - INFO -   Rank 1: Realty - POSITIVE (3.02%) - MIDDLE
+2025-04-30 19:51:59,800 - INFO -   Rank 2: Pharma - POSITIVE (1.01%) - MIDDLE
+2025-04-30 19:51:59,818 - INFO -   Rank 3: Metal - POSITIVE (0.68%) - MIDDLE
+2025-04-30 19:51:59,824 - INFO -   Rank 4: FMCG - POSITIVE (0.51%) - MIDDLE
+2025-04-30 19:51:59,828 - INFO -   Rank 5: Energy - POSITIVE (0.50%) - MIDDLE
+2025-04-30 19:51:59,829 - INFO -   Rank 6: IT - POSITIVE (0.25%) - MIDDLE
+2025-04-30 19:51:59,830 - INFO -   Rank 7: Financial Services - POSITIVE (0.18%) - MIDDLE
+2025-04-30 19:51:59,846 - INFO -   Rank 8: Auto - POSITIVE (0.01%) - MIDDLE
+2025-04-30 19:51:59,847 - INFO -   Rank 9: Media - NEGATIVE (-0.27%) - MIDDLE
+2025-04-30 19:51:59,861 - INFO -   Rank 10: PSU Bank - NEGATIVE (-0.90%) - MIDDLE
+2025-04-30 19:51:59,861 - INFO - 
+==================================================
+SECTOR DATA READ COMPLETE
+==================================================
+2025-04-30 19:51:59,863 - INFO - 
+==================================================
+PROCESSING SECTOR DATA
+==================================================
+2025-04-30 19:51:59,868 - INFO - Processing existing positions for potential exits...
+2025-04-30 19:51:59,874 - INFO - 
+==================================================
+PROCESSING EXISTING POSITIONS
+==================================================
+2025-04-30 19:51:59,881 - INFO - No existing positions to process
+2025-04-30 19:51:59,881 - INFO - 
+==================================================
+POSITION PROCESSING COMPLETE
+==================================================
+2025-04-30 19:51:59,882 - INFO - Initial trades already executed today - skipping new trade opportunities
+2025-04-30 19:51:59,883 - INFO - 
+==================================================
+SECTOR PROCESSING COMPLETE
+==================================================
+2025-04-30 19:51:59,900 - INFO - Saved 0 positions to dhan_positions.json
+2025-04-30 19:51:59,903 - INFO - 
+==================================================
+POSITIONS SUMMARY
+==================================================
+2025-04-30 19:51:59,912 - INFO - Current positions summary:
+2025-04-30 19:51:59,913 - INFO -   Open BUY positions: 0
+2025-04-30 19:51:59,918 - INFO -   Open SELL positions: 0
+2025-04-30 19:51:59,927 - INFO -   Closed positions: 0
+2025-04-30 19:51:59,930 - INFO -   Total positions: 0
+2025-04-30 19:51:59,932 - INFO - 
+==================================================
+POSITIONS SUMMARY COMPLETE
+==================================================
+2025-04-30 19:51:59,933 - INFO - Trading cycle 14 completed
+2025-04-30 19:51:59,934 - INFO - Waiting 30 seconds until next check at 19:52:29...
+2025-04-30 19:51:59,934 - INFO - 
+==================================================
+CYCLE 14 COMPLETE
+==================================================
+2025-04-30 19:52:29,960 - INFO - 
+==================================================
+TRADING CYCLE 15
+==================================================
+2025-04-30 19:52:29,963 - INFO - Trading cycle 15 started at 2025-04-30 19:52:29
+2025-04-30 19:52:29,963 - INFO - 
+==================================================
+READING SECTOR PERFORMANCE DATA
+==================================================
+2025-04-30 19:52:29,972 - INFO - Reading sector performance data from sector.csv
+2025-04-30 19:52:29,972 - INFO - File last modified: 2025-04-30 06:07:15
+2025-04-30 19:52:30,014 - INFO - Adding sector rankings to data
+2025-04-30 19:52:30,028 - ERROR - Error adding sector rankings: module 'pandas' has no attribute 'np'
+2025-04-30 19:52:30,046 - ERROR - Traceback (most recent call last):
+  File "C:\Users\Rajee\OneDrive\stock\lab\strongtrendz.com-\dhan_sector_trader.py", line 317, in add_sector_rankings
+    df['ranking_category'] = pd.np.select(conditions, choices, default='MIDDLE')
+AttributeError: module 'pandas' has no attribute 'np'
+
+2025-04-30 19:52:30,071 - INFO - Latest timestamp in data: 2025-04-30 06:07:15
+2025-04-30 19:52:30,080 - INFO - Loaded data for 10 sectors
+2025-04-30 19:52:30,081 - INFO - Sector performance details:
+2025-04-30 19:52:30,081 - INFO -   Rank 1: Realty - POSITIVE (3.02%) - MIDDLE
+2025-04-30 19:52:30,097 - INFO -   Rank 2: Pharma - POSITIVE (1.01%) - MIDDLE
+2025-04-30 19:52:30,106 - INFO -   Rank 3: Metal - POSITIVE (0.68%) - MIDDLE
+2025-04-30 19:52:30,112 - INFO -   Rank 4: FMCG - POSITIVE (0.51%) - MIDDLE
+2025-04-30 19:52:30,115 - INFO -   Rank 5: Energy - POSITIVE (0.50%) - MIDDLE
+2025-04-30 19:52:30,122 - INFO -   Rank 6: IT - POSITIVE (0.25%) - MIDDLE
+2025-04-30 19:52:30,130 - INFO -   Rank 7: Financial Services - POSITIVE (0.18%) - MIDDLE
+2025-04-30 19:52:30,131 - INFO -   Rank 8: Auto - POSITIVE (0.01%) - MIDDLE
+2025-04-30 19:52:30,140 - INFO -   Rank 9: Media - NEGATIVE (-0.27%) - MIDDLE
+2025-04-30 19:52:30,146 - INFO -   Rank 10: PSU Bank - NEGATIVE (-0.90%) - MIDDLE
+2025-04-30 19:52:30,148 - INFO - 
+==================================================
+SECTOR DATA READ COMPLETE
+==================================================
+2025-04-30 19:52:30,156 - INFO - 
+==================================================
+PROCESSING SECTOR DATA
+==================================================
+2025-04-30 19:52:30,158 - INFO - Processing existing positions for potential exits...
+2025-04-30 19:52:30,160 - INFO - 
+==================================================
+PROCESSING EXISTING POSITIONS
+==================================================
+2025-04-30 19:52:30,161 - INFO - No existing positions to process
+2025-04-30 19:52:30,162 - INFO - 
+==================================================
+POSITION PROCESSING COMPLETE
+==================================================
+2025-04-30 19:52:30,179 - INFO - Initial trades already executed today - skipping new trade opportunities
+2025-04-30 19:52:30,180 - INFO - 
+==================================================
+SECTOR PROCESSING COMPLETE
+==================================================
+2025-04-30 19:52:30,181 - INFO - Saved 0 positions to dhan_positions.json
+2025-04-30 19:52:30,196 - INFO - 
+==================================================
+POSITIONS SUMMARY
+==================================================
+2025-04-30 19:52:30,197 - INFO - Current positions summary:
+2025-04-30 19:52:30,197 - INFO -   Open BUY positions: 0
+2025-04-30 19:52:30,197 - INFO -   Open SELL positions: 0
+2025-04-30 19:52:30,198 - INFO -   Closed positions: 0
+2025-04-30 19:52:30,245 - INFO -   Total positions: 0
+2025-04-30 19:52:30,247 - INFO - 
+==================================================
+POSITIONS SUMMARY COMPLETE
+==================================================
+2025-04-30 19:52:30,258 - INFO - Trading cycle 15 completed
+2025-04-30 19:52:30,277 - INFO - Waiting 30 seconds until next check at 19:53:00...
+2025-04-30 19:52:30,278 - INFO - 
+==================================================
+CYCLE 15 COMPLETE
+==================================================
+2025-04-30 19:53:00,314 - INFO - 
+==================================================
+TRADING CYCLE 16
+==================================================
+2025-04-30 19:53:00,315 - INFO - Trading cycle 16 started at 2025-04-30 19:53:00
+2025-04-30 19:53:00,315 - INFO - 
+==================================================
+READING SECTOR PERFORMANCE DATA
+==================================================
+2025-04-30 19:53:00,316 - INFO - Reading sector performance data from sector.csv
+2025-04-30 19:53:00,316 - INFO - File last modified: 2025-04-30 06:07:15
+2025-04-30 19:53:00,318 - INFO - Adding sector rankings to data
+2025-04-30 19:53:00,320 - ERROR - Error adding sector rankings: module 'pandas' has no attribute 'np'
+2025-04-30 19:53:00,321 - ERROR - Traceback (most recent call last):
+  File "C:\Users\Rajee\OneDrive\stock\lab\strongtrendz.com-\dhan_sector_trader.py", line 317, in add_sector_rankings
+    df['ranking_category'] = pd.np.select(conditions, choices, default='MIDDLE')
+AttributeError: module 'pandas' has no attribute 'np'
+
+2025-04-30 19:53:00,323 - INFO - Latest timestamp in data: 2025-04-30 06:07:15
+2025-04-30 19:53:00,323 - INFO - Loaded data for 10 sectors
+2025-04-30 19:53:00,324 - INFO - Sector performance details:
+2025-04-30 19:53:00,324 - INFO -   Rank 1: Realty - POSITIVE (3.02%) - MIDDLE
+2025-04-30 19:53:00,325 - INFO -   Rank 2: Pharma - POSITIVE (1.01%) - MIDDLE
+2025-04-30 19:53:00,326 - INFO -   Rank 3: Metal - POSITIVE (0.68%) - MIDDLE
+2025-04-30 19:53:00,326 - INFO -   Rank 4: FMCG - POSITIVE (0.51%) - MIDDLE
+2025-04-30 19:53:00,328 - INFO -   Rank 5: Energy - POSITIVE (0.50%) - MIDDLE
+2025-04-30 19:53:00,330 - INFO -   Rank 6: IT - POSITIVE (0.25%) - MIDDLE
+2025-04-30 19:53:00,332 - INFO -   Rank 7: Financial Services - POSITIVE (0.18%) - MIDDLE
+2025-04-30 19:53:00,333 - INFO -   Rank 8: Auto - POSITIVE (0.01%) - MIDDLE
+2025-04-30 19:53:00,334 - INFO -   Rank 9: Media - NEGATIVE (-0.27%) - MIDDLE
+2025-04-30 19:53:00,336 - INFO -   Rank 10: PSU Bank - NEGATIVE (-0.90%) - MIDDLE
+2025-04-30 19:53:00,336 - INFO - 
+==================================================
+SECTOR DATA READ COMPLETE
+==================================================
+2025-04-30 19:53:00,337 - INFO - 
+==================================================
+PROCESSING SECTOR DATA
+==================================================
+2025-04-30 19:53:00,338 - INFO - Processing existing positions for potential exits...
+2025-04-30 19:53:00,339 - INFO - 
+==================================================
+PROCESSING EXISTING POSITIONS
+==================================================
+2025-04-30 19:53:00,341 - INFO - No existing positions to process
+2025-04-30 19:53:00,342 - INFO - 
+==================================================
+POSITION PROCESSING COMPLETE
+==================================================
+2025-04-30 19:53:00,344 - INFO - Initial trades already executed today - skipping new trade opportunities
+2025-04-30 19:53:00,349 - INFO - 
+==================================================
+SECTOR PROCESSING COMPLETE
+==================================================
+2025-04-30 19:53:00,353 - INFO - Saved 0 positions to dhan_positions.json
+2025-04-30 19:53:00,354 - INFO - 
+==================================================
+POSITIONS SUMMARY
+==================================================
+2025-04-30 19:53:00,355 - INFO - Current positions summary:
+2025-04-30 19:53:00,356 - INFO -   Open BUY positions: 0
+2025-04-30 19:53:00,356 - INFO -   Open SELL positions: 0
+2025-04-30 19:53:00,356 - INFO -   Closed positions: 0
+2025-04-30 19:53:00,356 - INFO -   Total positions: 0
+2025-04-30 19:53:00,357 - INFO - 
+==================================================
+POSITIONS SUMMARY COMPLETE
+==================================================
+2025-04-30 19:53:00,357 - INFO - Trading cycle 16 completed
+2025-04-30 19:53:00,358 - INFO - Waiting 30 seconds until next check at 19:53:30...
+2025-04-30 19:53:00,358 - INFO - 
+==================================================
+CYCLE 16 COMPLETE
+==================================================
+2025-04-30 19:53:30,368 - INFO - 
+==================================================
+TRADING CYCLE 17
+==================================================
+2025-04-30 19:53:30,371 - INFO - Trading cycle 17 started at 2025-04-30 19:53:30
+2025-04-30 19:53:30,371 - INFO - 
+==================================================
+READING SECTOR PERFORMANCE DATA
+==================================================
+2025-04-30 19:53:30,373 - INFO - Reading sector performance data from sector.csv
+2025-04-30 19:53:30,374 - INFO - File last modified: 2025-04-30 06:07:15
+2025-04-30 19:53:30,385 - INFO - Adding sector rankings to data
+2025-04-30 19:53:30,389 - ERROR - Error adding sector rankings: module 'pandas' has no attribute 'np'
+2025-04-30 19:53:30,395 - ERROR - Traceback (most recent call last):
+  File "C:\Users\Rajee\OneDrive\stock\lab\strongtrendz.com-\dhan_sector_trader.py", line 317, in add_sector_rankings
+    df['ranking_category'] = pd.np.select(conditions, choices, default='MIDDLE')
+AttributeError: module 'pandas' has no attribute 'np'
+
+2025-04-30 19:53:30,399 - INFO - Latest timestamp in data: 2025-04-30 06:07:15
+2025-04-30 19:53:30,400 - INFO - Loaded data for 10 sectors
+2025-04-30 19:53:30,400 - INFO - Sector performance details:
+2025-04-30 19:53:30,401 - INFO -   Rank 1: Realty - POSITIVE (3.02%) - MIDDLE
+2025-04-30 19:53:30,402 - INFO -   Rank 2: Pharma - POSITIVE (1.01%) - MIDDLE
+2025-04-30 19:53:30,403 - INFO -   Rank 3: Metal - POSITIVE (0.68%) - MIDDLE
+2025-04-30 19:53:30,404 - INFO -   Rank 4: FMCG - POSITIVE (0.51%) - MIDDLE
+2025-04-30 19:53:30,405 - INFO -   Rank 5: Energy - POSITIVE (0.50%) - MIDDLE
+2025-04-30 19:53:30,405 - INFO -   Rank 6: IT - POSITIVE (0.25%) - MIDDLE
+2025-04-30 19:53:30,406 - INFO -   Rank 7: Financial Services - POSITIVE (0.18%) - MIDDLE
+2025-04-30 19:53:30,414 - INFO -   Rank 8: Auto - POSITIVE (0.01%) - MIDDLE
+2025-04-30 19:53:30,415 - INFO -   Rank 9: Media - NEGATIVE (-0.27%) - MIDDLE
+2025-04-30 19:53:30,416 - INFO -   Rank 10: PSU Bank - NEGATIVE (-0.90%) - MIDDLE
+2025-04-30 19:53:30,417 - INFO - 
+==================================================
+SECTOR DATA READ COMPLETE
+==================================================
+2025-04-30 19:53:30,418 - INFO - 
+==================================================
+PROCESSING SECTOR DATA
+==================================================
+2025-04-30 19:53:30,420 - INFO - Processing existing positions for potential exits...
+2025-04-30 19:53:30,421 - INFO - 
+==================================================
+PROCESSING EXISTING POSITIONS
+==================================================
+2025-04-30 19:53:30,432 - INFO - No existing positions to process
+2025-04-30 19:53:30,433 - INFO - 
+==================================================
+POSITION PROCESSING COMPLETE
+==================================================
+2025-04-30 19:53:30,434 - INFO - Initial trades already executed today - skipping new trade opportunities
+2025-04-30 19:53:30,434 - INFO - 
+==================================================
+SECTOR PROCESSING COMPLETE
+==================================================
+2025-04-30 19:53:30,448 - INFO - Saved 0 positions to dhan_positions.json
+2025-04-30 19:53:30,449 - INFO - 
+==================================================
+POSITIONS SUMMARY
+==================================================
+2025-04-30 19:53:30,450 - INFO - Current positions summary:
+2025-04-30 19:53:30,450 - INFO -   Open BUY positions: 0
+2025-04-30 19:53:30,451 - INFO -   Open SELL positions: 0
+2025-04-30 19:53:30,451 - INFO -   Closed positions: 0
+2025-04-30 19:53:30,452 - INFO -   Total positions: 0
+2025-04-30 19:53:30,453 - INFO - 
+==================================================
+POSITIONS SUMMARY COMPLETE
+==================================================
+2025-04-30 19:53:30,455 - INFO - Trading cycle 17 completed
+2025-04-30 19:53:30,456 - INFO - Waiting 30 seconds until next check at 19:54:00...
+2025-04-30 19:53:30,457 - INFO - 
+==================================================
+CYCLE 17 COMPLETE
+==================================================
+2025-04-30 19:54:00,478 - INFO - 
+==================================================
+TRADING CYCLE 18
+==================================================
+2025-04-30 19:54:00,479 - INFO - Trading cycle 18 started at 2025-04-30 19:54:00
+2025-04-30 19:54:00,479 - INFO - 
+==================================================
+READING SECTOR PERFORMANCE DATA
+==================================================
+2025-04-30 19:54:00,480 - INFO - Reading sector performance data from sector.csv
+2025-04-30 19:54:00,481 - INFO - File last modified: 2025-04-30 06:07:15
+2025-04-30 19:54:00,483 - INFO - Adding sector rankings to data
+2025-04-30 19:54:00,486 - ERROR - Error adding sector rankings: module 'pandas' has no attribute 'np'
+2025-04-30 19:54:00,487 - ERROR - Traceback (most recent call last):
+  File "C:\Users\Rajee\OneDrive\stock\lab\strongtrendz.com-\dhan_sector_trader.py", line 317, in add_sector_rankings
+    df['ranking_category'] = pd.np.select(conditions, choices, default='MIDDLE')
+AttributeError: module 'pandas' has no attribute 'np'
+
+2025-04-30 19:54:00,488 - INFO - Latest timestamp in data: 2025-04-30 06:07:15
+2025-04-30 19:54:00,489 - INFO - Loaded data for 10 sectors
+2025-04-30 19:54:00,490 - INFO - Sector performance details:
+2025-04-30 19:54:00,491 - INFO -   Rank 1: Realty - POSITIVE (3.02%) - MIDDLE
+2025-04-30 19:54:00,492 - INFO -   Rank 2: Pharma - POSITIVE (1.01%) - MIDDLE
+2025-04-30 19:54:00,495 - INFO -   Rank 3: Metal - POSITIVE (0.68%) - MIDDLE
+2025-04-30 19:54:00,497 - INFO -   Rank 4: FMCG - POSITIVE (0.51%) - MIDDLE
+2025-04-30 19:54:00,499 - INFO -   Rank 5: Energy - POSITIVE (0.50%) - MIDDLE
+2025-04-30 19:54:00,500 - INFO -   Rank 6: IT - POSITIVE (0.25%) - MIDDLE
+2025-04-30 19:54:00,501 - INFO -   Rank 7: Financial Services - POSITIVE (0.18%) - MIDDLE
+2025-04-30 19:54:00,501 - INFO -   Rank 8: Auto - POSITIVE (0.01%) - MIDDLE
+2025-04-30 19:54:00,502 - INFO -   Rank 9: Media - NEGATIVE (-0.27%) - MIDDLE
+2025-04-30 19:54:00,502 - INFO -   Rank 10: PSU Bank - NEGATIVE (-0.90%) - MIDDLE
+2025-04-30 19:54:00,503 - INFO - 
+==================================================
+SECTOR DATA READ COMPLETE
+==================================================
+2025-04-30 19:54:00,503 - INFO - 
+==================================================
+PROCESSING SECTOR DATA
+==================================================
+2025-04-30 19:54:00,504 - INFO - Processing existing positions for potential exits...
+2025-04-30 19:54:00,504 - INFO - 
+==================================================
+PROCESSING EXISTING POSITIONS
+==================================================
+2025-04-30 19:54:00,508 - INFO - No existing positions to process
+2025-04-30 19:54:00,508 - INFO - 
+==================================================
+POSITION PROCESSING COMPLETE
+==================================================
+2025-04-30 19:54:00,509 - INFO - Initial trades already executed today - skipping new trade opportunities
+2025-04-30 19:54:00,509 - INFO - 
+==================================================
+SECTOR PROCESSING COMPLETE
+==================================================
+2025-04-30 19:54:00,511 - INFO - Saved 0 positions to dhan_positions.json
+2025-04-30 19:54:00,511 - INFO - 
+==================================================
+POSITIONS SUMMARY
+==================================================
+2025-04-30 19:54:00,513 - INFO - Current positions summary:
+2025-04-30 19:54:00,513 - INFO -   Open BUY positions: 0
+2025-04-30 19:54:00,514 - INFO -   Open SELL positions: 0
+2025-04-30 19:54:00,514 - INFO -   Closed positions: 0
+2025-04-30 19:54:00,514 - INFO -   Total positions: 0
+2025-04-30 19:54:00,515 - INFO - 
+==================================================
+POSITIONS SUMMARY COMPLETE
+==================================================
+2025-04-30 19:54:00,515 - INFO - Trading cycle 18 completed
+2025-04-30 19:54:00,516 - INFO - Waiting 30 seconds until next check at 19:54:30...
+2025-04-30 19:54:00,516 - INFO - 
+==================================================
+CYCLE 18 COMPLETE
+==================================================
+2025-04-30 19:54:30,527 - INFO - 
+==================================================
+TRADING CYCLE 19
+==================================================
+2025-04-30 19:54:30,527 - INFO - Trading cycle 19 started at 2025-04-30 19:54:30
+2025-04-30 19:54:30,528 - INFO - 
+==================================================
+READING SECTOR PERFORMANCE DATA
+==================================================
+2025-04-30 19:54:30,529 - INFO - Reading sector performance data from sector.csv
+2025-04-30 19:54:30,530 - INFO - File last modified: 2025-04-30 06:07:15
+2025-04-30 19:54:30,533 - INFO - Adding sector rankings to data
+2025-04-30 19:54:30,541 - ERROR - Error adding sector rankings: module 'pandas' has no attribute 'np'
+2025-04-30 19:54:30,542 - ERROR - Traceback (most recent call last):
+  File "C:\Users\Rajee\OneDrive\stock\lab\strongtrendz.com-\dhan_sector_trader.py", line 317, in add_sector_rankings
+    df['ranking_category'] = pd.np.select(conditions, choices, default='MIDDLE')
+AttributeError: module 'pandas' has no attribute 'np'
+
+2025-04-30 19:54:30,543 - INFO - Latest timestamp in data: 2025-04-30 06:07:15
+2025-04-30 19:54:30,543 - INFO - Loaded data for 10 sectors
+2025-04-30 19:54:30,544 - INFO - Sector performance details:
+2025-04-30 19:54:30,545 - INFO -   Rank 1: Realty - POSITIVE (3.02%) - MIDDLE
+2025-04-30 19:54:30,545 - INFO -   Rank 2: Pharma - POSITIVE (1.01%) - MIDDLE
+2025-04-30 19:54:30,546 - INFO -   Rank 3: Metal - POSITIVE (0.68%) - MIDDLE
+2025-04-30 19:54:30,546 - INFO -   Rank 4: FMCG - POSITIVE (0.51%) - MIDDLE
+2025-04-30 19:54:30,547 - INFO -   Rank 5: Energy - POSITIVE (0.50%) - MIDDLE
+2025-04-30 19:54:30,548 - INFO -   Rank 6: IT - POSITIVE (0.25%) - MIDDLE
+2025-04-30 19:54:30,549 - INFO -   Rank 7: Financial Services - POSITIVE (0.18%) - MIDDLE
+2025-04-30 19:54:30,549 - INFO -   Rank 8: Auto - POSITIVE (0.01%) - MIDDLE
+2025-04-30 19:54:30,550 - INFO -   Rank 9: Media - NEGATIVE (-0.27%) - MIDDLE
+2025-04-30 19:54:30,551 - INFO -   Rank 10: PSU Bank - NEGATIVE (-0.90%) - MIDDLE
+2025-04-30 19:54:30,551 - INFO - 
+==================================================
+SECTOR DATA READ COMPLETE
+==================================================
+2025-04-30 19:54:30,552 - INFO - 
+==================================================
+PROCESSING SECTOR DATA
+==================================================
+2025-04-30 19:54:30,552 - INFO - Processing existing positions for potential exits...
+2025-04-30 19:54:30,565 - INFO - 
+==================================================
+PROCESSING EXISTING POSITIONS
+==================================================
+2025-04-30 19:54:30,566 - INFO - No existing positions to process
+2025-04-30 19:54:30,566 - INFO - 
+==================================================
+POSITION PROCESSING COMPLETE
+==================================================
+2025-04-30 19:54:30,567 - INFO - Initial trades already executed today - skipping new trade opportunities
+2025-04-30 19:54:30,567 - INFO - 
+==================================================
+SECTOR PROCESSING COMPLETE
+==================================================
+2025-04-30 19:54:30,578 - INFO - Saved 0 positions to dhan_positions.json
+2025-04-30 19:54:30,580 - INFO - 
+==================================================
+POSITIONS SUMMARY
+==================================================
+2025-04-30 19:54:30,581 - INFO - Current positions summary:
+2025-04-30 19:54:30,581 - INFO -   Open BUY positions: 0
+2025-04-30 19:54:30,582 - INFO -   Open SELL positions: 0
+2025-04-30 19:54:30,582 - INFO -   Closed positions: 0
+2025-04-30 19:54:30,582 - INFO -   Total positions: 0
+2025-04-30 19:54:30,583 - INFO - 
+==================================================
+POSITIONS SUMMARY COMPLETE
+==================================================
+2025-04-30 19:54:30,583 - INFO - Trading cycle 19 completed
+2025-04-30 19:54:30,584 - INFO - Waiting 30 seconds until next check at 19:55:00...
+2025-04-30 19:54:30,584 - INFO - 
+==================================================
+CYCLE 19 COMPLETE
+==================================================
+2025-04-30 19:55:00,600 - INFO - 
+==================================================
+TRADING CYCLE 20
+==================================================
+2025-04-30 19:55:00,608 - INFO - Trading cycle 20 started at 2025-04-30 19:55:00
+2025-04-30 19:55:00,608 - INFO - 
+==================================================
+READING SECTOR PERFORMANCE DATA
+==================================================
+2025-04-30 19:55:00,608 - INFO - Reading sector performance data from sector.csv
+2025-04-30 19:55:00,609 - INFO - File last modified: 2025-04-30 06:07:15
+2025-04-30 19:55:00,613 - INFO - Adding sector rankings to data
+2025-04-30 19:55:00,623 - ERROR - Error adding sector rankings: module 'pandas' has no attribute 'np'
+2025-04-30 19:55:00,625 - ERROR - Traceback (most recent call last):
+  File "C:\Users\Rajee\OneDrive\stock\lab\strongtrendz.com-\dhan_sector_trader.py", line 317, in add_sector_rankings
+    df['ranking_category'] = pd.np.select(conditions, choices, default='MIDDLE')
+AttributeError: module 'pandas' has no attribute 'np'
+
+2025-04-30 19:55:00,626 - INFO - Latest timestamp in data: 2025-04-30 06:07:15
+2025-04-30 19:55:00,626 - INFO - Loaded data for 10 sectors
+2025-04-30 19:55:00,627 - INFO - Sector performance details:
+2025-04-30 19:55:00,628 - INFO -   Rank 1: Realty - POSITIVE (3.02%) - MIDDLE
+2025-04-30 19:55:00,628 - INFO -   Rank 2: Pharma - POSITIVE (1.01%) - MIDDLE
+2025-04-30 19:55:00,629 - INFO -   Rank 3: Metal - POSITIVE (0.68%) - MIDDLE
+2025-04-30 19:55:00,640 - INFO -   Rank 4: FMCG - POSITIVE (0.51%) - MIDDLE
+2025-04-30 19:55:00,641 - INFO -   Rank 5: Energy - POSITIVE (0.50%) - MIDDLE
+2025-04-30 19:55:00,641 - INFO -   Rank 6: IT - POSITIVE (0.25%) - MIDDLE
+2025-04-30 19:55:00,642 - INFO -   Rank 7: Financial Services - POSITIVE (0.18%) - MIDDLE
+2025-04-30 19:55:00,643 - INFO -   Rank 8: Auto - POSITIVE (0.01%) - MIDDLE
+2025-04-30 19:55:00,644 - INFO -   Rank 9: Media - NEGATIVE (-0.27%) - MIDDLE
+2025-04-30 19:55:00,644 - INFO -   Rank 10: PSU Bank - NEGATIVE (-0.90%) - MIDDLE
+2025-04-30 19:55:00,645 - INFO - 
+==================================================
+SECTOR DATA READ COMPLETE
+==================================================
+2025-04-30 19:55:00,646 - INFO - 
+==================================================
+PROCESSING SECTOR DATA
+==================================================
+2025-04-30 19:55:00,646 - INFO - Processing existing positions for potential exits...
+2025-04-30 19:55:00,647 - INFO - 
+==================================================
+PROCESSING EXISTING POSITIONS
+==================================================
+2025-04-30 19:55:00,649 - INFO - No existing positions to process
+2025-04-30 19:55:00,657 - INFO - 
+==================================================
+POSITION PROCESSING COMPLETE
+==================================================
+2025-04-30 19:55:00,657 - INFO - Initial trades already executed today - skipping new trade opportunities
+2025-04-30 19:55:00,658 - INFO - 
+==================================================
+SECTOR PROCESSING COMPLETE
+==================================================
+2025-04-30 19:55:00,660 - INFO - Saved 0 positions to dhan_positions.json
+2025-04-30 19:55:00,660 - INFO - 
+==================================================
+POSITIONS SUMMARY
+==================================================
+2025-04-30 19:55:00,661 - INFO - Current positions summary:
+2025-04-30 19:55:00,661 - INFO -   Open BUY positions: 0
+2025-04-30 19:55:00,662 - INFO -   Open SELL positions: 0
+2025-04-30 19:55:00,662 - INFO -   Closed positions: 0
+2025-04-30 19:55:00,662 - INFO -   Total positions: 0
+2025-04-30 19:55:00,663 - INFO - 
+==================================================
+POSITIONS SUMMARY COMPLETE
+==================================================
+2025-04-30 19:55:00,664 - INFO - Trading cycle 20 completed
+2025-04-30 19:55:00,664 - INFO - Waiting 30 seconds until next check at 19:55:30...
+2025-04-30 19:55:00,664 - INFO - 
+==================================================
+CYCLE 20 COMPLETE
+==================================================
+2025-04-30 19:55:30,667 - INFO - 
+==================================================
+TRADING CYCLE 21
+==================================================
+2025-04-30 19:55:30,669 - INFO - Trading cycle 21 started at 2025-04-30 19:55:30
+2025-04-30 19:55:30,669 - INFO - 
+==================================================
+READING SECTOR PERFORMANCE DATA
+==================================================
+2025-04-30 19:55:30,670 - INFO - Reading sector performance data from sector.csv
+2025-04-30 19:55:30,670 - INFO - File last modified: 2025-04-30 06:07:15
+2025-04-30 19:55:30,674 - INFO - Adding sector rankings to data
+2025-04-30 19:55:30,685 - ERROR - Error adding sector rankings: module 'pandas' has no attribute 'np'
+2025-04-30 19:55:30,694 - ERROR - Traceback (most recent call last):
+  File "C:\Users\Rajee\OneDrive\stock\lab\strongtrendz.com-\dhan_sector_trader.py", line 317, in add_sector_rankings
+    df['ranking_category'] = pd.np.select(conditions, choices, default='MIDDLE')
+AttributeError: module 'pandas' has no attribute 'np'
+
+2025-04-30 19:55:30,696 - INFO - Latest timestamp in data: 2025-04-30 06:07:15
+2025-04-30 19:55:30,703 - INFO - Loaded data for 10 sectors
+2025-04-30 19:55:30,703 - INFO - Sector performance details:
+2025-04-30 19:55:30,704 - INFO -   Rank 1: Realty - POSITIVE (3.02%) - MIDDLE
+2025-04-30 19:55:30,705 - INFO -   Rank 2: Pharma - POSITIVE (1.01%) - MIDDLE
+2025-04-30 19:55:30,706 - INFO -   Rank 3: Metal - POSITIVE (0.68%) - MIDDLE
+2025-04-30 19:55:30,707 - INFO -   Rank 4: FMCG - POSITIVE (0.51%) - MIDDLE
+2025-04-30 19:55:30,707 - INFO -   Rank 5: Energy - POSITIVE (0.50%) - MIDDLE
+2025-04-30 19:55:30,709 - INFO -   Rank 6: IT - POSITIVE (0.25%) - MIDDLE
+2025-04-30 19:55:30,711 - INFO -   Rank 7: Financial Services - POSITIVE (0.18%) - MIDDLE
+2025-04-30 19:55:30,711 - INFO -   Rank 8: Auto - POSITIVE (0.01%) - MIDDLE
+2025-04-30 19:55:30,718 - INFO -   Rank 9: Media - NEGATIVE (-0.27%) - MIDDLE
+2025-04-30 19:55:30,719 - INFO -   Rank 10: PSU Bank - NEGATIVE (-0.90%) - MIDDLE
+2025-04-30 19:55:30,720 - INFO - 
+==================================================
+SECTOR DATA READ COMPLETE
+==================================================
+2025-04-30 19:55:30,721 - INFO - 
+==================================================
+PROCESSING SECTOR DATA
+==================================================
+2025-04-30 19:55:30,722 - INFO - Processing existing positions for potential exits...
+2025-04-30 19:55:30,723 - INFO - 
+==================================================
+PROCESSING EXISTING POSITIONS
+==================================================
+2025-04-30 19:55:30,724 - INFO - No existing positions to process
+2025-04-30 19:55:30,724 - INFO - 
+==================================================
+POSITION PROCESSING COMPLETE
+==================================================
+2025-04-30 19:55:30,725 - INFO - Initial trades already executed today - skipping new trade opportunities
+2025-04-30 19:55:30,726 - INFO - 
+==================================================
+SECTOR PROCESSING COMPLETE
+==================================================
+2025-04-30 19:55:30,740 - INFO - Saved 0 positions to dhan_positions.json
+2025-04-30 19:55:30,741 - INFO - 
+==================================================
+POSITIONS SUMMARY
+==================================================
+2025-04-30 19:55:30,743 - INFO - Current positions summary:
+2025-04-30 19:55:30,743 - INFO -   Open BUY positions: 0
+2025-04-30 19:55:30,770 - INFO -   Open SELL positions: 0
+2025-04-30 19:55:30,772 - INFO -   Closed positions: 0
+2025-04-30 19:55:30,811 - INFO -   Total positions: 0
+2025-04-30 19:55:30,812 - INFO - 
+==================================================
+POSITIONS SUMMARY COMPLETE
+==================================================
+2025-04-30 19:55:30,821 - INFO - Trading cycle 21 completed
+2025-04-30 19:55:30,823 - INFO - Waiting 30 seconds until next check at 19:56:00...
+2025-04-30 19:55:30,823 - INFO - 
+==================================================
+CYCLE 21 COMPLETE
+==================================================
+2025-04-30 19:56:00,837 - INFO - 
+==================================================
+TRADING CYCLE 22
+==================================================
+2025-04-30 19:56:00,844 - INFO - Trading cycle 22 started at 2025-04-30 19:56:00
+2025-04-30 19:56:00,845 - INFO - 
+==================================================
+READING SECTOR PERFORMANCE DATA
+==================================================
+2025-04-30 19:56:00,848 - INFO - Reading sector performance data from sector.csv
+2025-04-30 19:56:00,849 - INFO - File last modified: 2025-04-30 06:07:15
+2025-04-30 19:56:00,889 - INFO - Adding sector rankings to data
+2025-04-30 19:56:00,957 - ERROR - Error adding sector rankings: module 'pandas' has no attribute 'np'
+2025-04-30 19:56:00,989 - ERROR - Traceback (most recent call last):
+  File "C:\Users\Rajee\OneDrive\stock\lab\strongtrendz.com-\dhan_sector_trader.py", line 317, in add_sector_rankings
+    df['ranking_category'] = pd.np.select(conditions, choices, default='MIDDLE')
+AttributeError: module 'pandas' has no attribute 'np'
+
+2025-04-30 19:56:01,019 - INFO - Latest timestamp in data: 2025-04-30 06:07:15
+2025-04-30 19:56:01,071 - INFO - Loaded data for 10 sectors
+2025-04-30 19:56:01,128 - INFO - Sector performance details:
+2025-04-30 19:56:01,175 - INFO -   Rank 1: Realty - POSITIVE (3.02%) - MIDDLE
+2025-04-30 19:56:01,214 - INFO -   Rank 2: Pharma - POSITIVE (1.01%) - MIDDLE
+2025-04-30 19:56:01,220 - INFO -   Rank 3: Metal - POSITIVE (0.68%) - MIDDLE
+2025-04-30 19:56:01,266 - INFO -   Rank 4: FMCG - POSITIVE (0.51%) - MIDDLE
+2025-04-30 19:56:01,302 - INFO -   Rank 5: Energy - POSITIVE (0.50%) - MIDDLE
+2025-04-30 19:56:01,337 - INFO -   Rank 6: IT - POSITIVE (0.25%) - MIDDLE
+2025-04-30 19:56:01,375 - INFO -   Rank 7: Financial Services - POSITIVE (0.18%) - MIDDLE
+2025-04-30 19:56:01,397 - INFO -   Rank 8: Auto - POSITIVE (0.01%) - MIDDLE
+2025-04-30 19:56:01,423 - INFO -   Rank 9: Media - NEGATIVE (-0.27%) - MIDDLE
+2025-04-30 19:56:01,471 - INFO -   Rank 10: PSU Bank - NEGATIVE (-0.90%) - MIDDLE
+2025-04-30 19:56:01,507 - INFO - 
+==================================================
+SECTOR DATA READ COMPLETE
+==================================================
+2025-04-30 19:56:01,517 - INFO - 
+==================================================
+PROCESSING SECTOR DATA
+==================================================
+2025-04-30 19:56:01,533 - INFO - Processing existing positions for potential exits...
+2025-04-30 19:56:01,540 - INFO - 
+==================================================
+PROCESSING EXISTING POSITIONS
+==================================================
+2025-04-30 19:56:01,580 - INFO - No existing positions to process
+2025-04-30 19:56:01,597 - INFO - 
+==================================================
+POSITION PROCESSING COMPLETE
+==================================================
+2025-04-30 19:56:01,635 - INFO - Initial trades already executed today - skipping new trade opportunities
+2025-04-30 19:56:01,729 - INFO - 
+==================================================
+SECTOR PROCESSING COMPLETE
+==================================================
+2025-04-30 19:56:01,751 - INFO - Saved 0 positions to dhan_positions.json
+2025-04-30 19:56:01,783 - INFO - 
+==================================================
+POSITIONS SUMMARY
+==================================================
+2025-04-30 19:56:01,820 - INFO - Current positions summary:
+2025-04-30 19:56:02,037 - INFO -   Open BUY positions: 0
+2025-04-30 19:56:02,171 - INFO -   Open SELL positions: 0
+2025-04-30 19:56:02,175 - INFO -   Closed positions: 0
+2025-04-30 19:56:02,214 - INFO -   Total positions: 0
+2025-04-30 19:56:02,257 - INFO - 
+==================================================
+POSITIONS SUMMARY COMPLETE
+==================================================
+2025-04-30 19:56:02,292 - INFO - Trading cycle 22 completed
+2025-04-30 19:56:02,331 - INFO - Waiting 30 seconds until next check at 19:56:32...
+2025-04-30 19:56:02,346 - INFO - 
+==================================================
+CYCLE 22 COMPLETE
+==================================================
+2025-04-30 19:56:32,386 - INFO - 
+==================================================
+TRADING CYCLE 23
+==================================================
+2025-04-30 19:56:32,388 - INFO - Trading cycle 23 started at 2025-04-30 19:56:32
+2025-04-30 19:56:32,418 - INFO - 
+==================================================
+READING SECTOR PERFORMANCE DATA
+==================================================
+2025-04-30 19:56:32,461 - INFO - Reading sector performance data from sector.csv
+2025-04-30 19:56:32,482 - INFO - File last modified: 2025-04-30 06:07:15
+2025-04-30 19:56:32,515 - INFO - Adding sector rankings to data
+2025-04-30 19:56:32,564 - ERROR - Error adding sector rankings: module 'pandas' has no attribute 'np'
+2025-04-30 19:56:32,586 - ERROR - Traceback (most recent call last):
+  File "C:\Users\Rajee\OneDrive\stock\lab\strongtrendz.com-\dhan_sector_trader.py", line 317, in add_sector_rankings
+    df['ranking_category'] = pd.np.select(conditions, choices, default='MIDDLE')
+AttributeError: module 'pandas' has no attribute 'np'
+
+2025-04-30 19:56:32,638 - INFO - Latest timestamp in data: 2025-04-30 06:07:15
+2025-04-30 19:56:32,672 - INFO - Loaded data for 10 sectors
+2025-04-30 19:56:32,687 - INFO - Sector performance details:
+2025-04-30 19:56:32,717 - INFO -   Rank 1: Realty - POSITIVE (3.02%) - MIDDLE
+2025-04-30 19:56:32,718 - INFO -   Rank 2: Pharma - POSITIVE (1.01%) - MIDDLE
+2025-04-30 19:56:32,722 - INFO -   Rank 3: Metal - POSITIVE (0.68%) - MIDDLE
+2025-04-30 19:56:32,723 - INFO -   Rank 4: FMCG - POSITIVE (0.51%) - MIDDLE
+2025-04-30 19:56:32,733 - INFO -   Rank 5: Energy - POSITIVE (0.50%) - MIDDLE
+2025-04-30 19:56:32,753 - INFO -   Rank 6: IT - POSITIVE (0.25%) - MIDDLE
+2025-04-30 19:56:32,754 - INFO -   Rank 7: Financial Services - POSITIVE (0.18%) - MIDDLE
+2025-04-30 19:56:32,765 - INFO -   Rank 8: Auto - POSITIVE (0.01%) - MIDDLE
+2025-04-30 19:56:32,767 - INFO -   Rank 9: Media - NEGATIVE (-0.27%) - MIDDLE
+2025-04-30 19:56:32,768 - INFO -   Rank 10: PSU Bank - NEGATIVE (-0.90%) - MIDDLE
+2025-04-30 19:56:32,768 - INFO - 
+==================================================
+SECTOR DATA READ COMPLETE
+==================================================
+2025-04-30 19:56:32,770 - INFO - 
+==================================================
+PROCESSING SECTOR DATA
+==================================================
+2025-04-30 19:56:32,771 - INFO - Processing existing positions for potential exits...
+2025-04-30 19:56:32,772 - INFO - 
+==================================================
+PROCESSING EXISTING POSITIONS
+==================================================
+2025-04-30 19:56:32,773 - INFO - No existing positions to process
+2025-04-30 19:56:32,775 - INFO - 
+==================================================
+POSITION PROCESSING COMPLETE
+==================================================
+2025-04-30 19:56:32,778 - INFO - Initial trades already executed today - skipping new trade opportunities
+2025-04-30 19:56:32,784 - INFO - 
+==================================================
+SECTOR PROCESSING COMPLETE
+==================================================
+2025-04-30 19:56:32,791 - INFO - Saved 0 positions to dhan_positions.json
+2025-04-30 19:56:32,797 - INFO - 
+==================================================
+POSITIONS SUMMARY
+==================================================
+2025-04-30 19:56:32,798 - INFO - Current positions summary:
+2025-04-30 19:56:32,798 - INFO -   Open BUY positions: 0
+2025-04-30 19:56:32,799 - INFO -   Open SELL positions: 0
+2025-04-30 19:56:32,799 - INFO -   Closed positions: 0
+2025-04-30 19:56:32,801 - INFO -   Total positions: 0
+2025-04-30 19:56:32,802 - INFO - 
+==================================================
+POSITIONS SUMMARY COMPLETE
+==================================================
+2025-04-30 19:56:32,803 - INFO - Trading cycle 23 completed
+2025-04-30 19:56:32,804 - INFO - Waiting 30 seconds until next check at 19:57:02...
+2025-04-30 19:56:32,806 - INFO - 
+==================================================
+CYCLE 23 COMPLETE
+==================================================
+2025-04-30 19:57:02,818 - INFO - 
+==================================================
+TRADING CYCLE 24
+==================================================
+2025-04-30 19:57:02,824 - INFO - Trading cycle 24 started at 2025-04-30 19:57:02
+2025-04-30 19:57:02,827 - INFO - 
+==================================================
+READING SECTOR PERFORMANCE DATA
+==================================================
+2025-04-30 19:57:02,831 - INFO - Reading sector performance data from sector.csv
+2025-04-30 19:57:02,833 - INFO - File last modified: 2025-04-30 06:07:15
+2025-04-30 19:57:02,849 - INFO - Adding sector rankings to data
+2025-04-30 19:57:02,860 - ERROR - Error adding sector rankings: module 'pandas' has no attribute 'np'
+2025-04-30 19:57:02,862 - ERROR - Traceback (most recent call last):
+  File "C:\Users\Rajee\OneDrive\stock\lab\strongtrendz.com-\dhan_sector_trader.py", line 317, in add_sector_rankings
+    df['ranking_category'] = pd.np.select(conditions, choices, default='MIDDLE')
+AttributeError: module 'pandas' has no attribute 'np'
+
+2025-04-30 19:57:02,863 - INFO - Latest timestamp in data: 2025-04-30 06:07:15
+2025-04-30 19:57:02,865 - INFO - Loaded data for 10 sectors
+2025-04-30 19:57:02,865 - INFO - Sector performance details:
+2025-04-30 19:57:02,868 - INFO -   Rank 1: Realty - POSITIVE (3.02%) - MIDDLE
+2025-04-30 19:57:02,870 - INFO -   Rank 2: Pharma - POSITIVE (1.01%) - MIDDLE
+2025-04-30 19:57:02,881 - INFO -   Rank 3: Metal - POSITIVE (0.68%) - MIDDLE
+2025-04-30 19:57:02,883 - INFO -   Rank 4: FMCG - POSITIVE (0.51%) - MIDDLE
+2025-04-30 19:57:02,886 - INFO -   Rank 5: Energy - POSITIVE (0.50%) - MIDDLE
+2025-04-30 19:57:02,896 - INFO -   Rank 6: IT - POSITIVE (0.25%) - MIDDLE
+2025-04-30 19:57:02,899 - INFO -   Rank 7: Financial Services - POSITIVE (0.18%) - MIDDLE
+2025-04-30 19:57:02,900 - INFO -   Rank 8: Auto - POSITIVE (0.01%) - MIDDLE
+2025-04-30 19:57:02,902 - INFO -   Rank 9: Media - NEGATIVE (-0.27%) - MIDDLE
+2025-04-30 19:57:02,903 - INFO -   Rank 10: PSU Bank - NEGATIVE (-0.90%) - MIDDLE
+2025-04-30 19:57:02,914 - INFO - 
+==================================================
+SECTOR DATA READ COMPLETE
+==================================================
+2025-04-30 19:57:02,917 - INFO - 
+==================================================
+PROCESSING SECTOR DATA
+==================================================
+2025-04-30 19:57:02,920 - INFO - Processing existing positions for potential exits...
+2025-04-30 19:57:02,926 - INFO - 
+==================================================
+PROCESSING EXISTING POSITIONS
+==================================================
+2025-04-30 19:57:02,927 - INFO - No existing positions to process
+2025-04-30 19:57:02,929 - INFO - 
+==================================================
+POSITION PROCESSING COMPLETE
+==================================================
+2025-04-30 19:57:02,931 - INFO - Initial trades already executed today - skipping new trade opportunities
+2025-04-30 19:57:02,931 - INFO - 
+==================================================
+SECTOR PROCESSING COMPLETE
+==================================================
+2025-04-30 19:57:02,936 - INFO - Saved 0 positions to dhan_positions.json
+2025-04-30 19:57:02,944 - INFO - 
+==================================================
+POSITIONS SUMMARY
+==================================================
+2025-04-30 19:57:02,953 - INFO - Current positions summary:
+2025-04-30 19:57:02,960 - INFO -   Open BUY positions: 0
+2025-04-30 19:57:02,961 - INFO -   Open SELL positions: 0
+2025-04-30 19:57:02,961 - INFO -   Closed positions: 0
+2025-04-30 19:57:02,962 - INFO -   Total positions: 0
+2025-04-30 19:57:02,962 - INFO - 
+==================================================
+POSITIONS SUMMARY COMPLETE
+==================================================
+2025-04-30 19:57:02,964 - INFO - Trading cycle 24 completed
+2025-04-30 19:57:02,965 - INFO - Waiting 30 seconds until next check at 19:57:32...
+2025-04-30 19:57:02,966 - INFO - 
+==================================================
+CYCLE 24 COMPLETE
+==================================================
+2025-04-30 19:57:33,009 - INFO - 
+==================================================
+TRADING CYCLE 25
+==================================================
+2025-04-30 19:57:33,157 - INFO - Trading cycle 25 started at 2025-04-30 19:57:33
+2025-04-30 19:57:33,212 - INFO - 
+==================================================
+READING SECTOR PERFORMANCE DATA
+==================================================
+2025-04-30 19:57:33,299 - INFO - Reading sector performance data from sector.csv
+2025-04-30 19:57:33,405 - INFO - File last modified: 2025-04-30 06:07:15
+2025-04-30 19:57:33,573 - INFO - Adding sector rankings to data
+2025-04-30 19:57:33,679 - ERROR - Error adding sector rankings: module 'pandas' has no attribute 'np'
+2025-04-30 19:57:33,768 - ERROR - Traceback (most recent call last):
+  File "C:\Users\Rajee\OneDrive\stock\lab\strongtrendz.com-\dhan_sector_trader.py", line 317, in add_sector_rankings
+    df['ranking_category'] = pd.np.select(conditions, choices, default='MIDDLE')
+AttributeError: module 'pandas' has no attribute 'np'
+
+2025-04-30 19:57:33,847 - INFO - Latest timestamp in data: 2025-04-30 06:07:15
+2025-04-30 19:57:33,889 - INFO - Loaded data for 10 sectors
+2025-04-30 19:57:34,024 - INFO - Sector performance details:
+2025-04-30 19:57:34,146 - INFO -   Rank 1: Realty - POSITIVE (3.02%) - MIDDLE
+2025-04-30 19:57:34,318 - INFO -   Rank 2: Pharma - POSITIVE (1.01%) - MIDDLE
+2025-04-30 19:57:34,395 - INFO -   Rank 3: Metal - POSITIVE (0.68%) - MIDDLE
+2025-04-30 19:57:34,523 - INFO -   Rank 4: FMCG - POSITIVE (0.51%) - MIDDLE
+2025-04-30 19:57:34,577 - INFO -   Rank 5: Energy - POSITIVE (0.50%) - MIDDLE
+2025-04-30 19:57:34,634 - INFO -   Rank 6: IT - POSITIVE (0.25%) - MIDDLE
+2025-04-30 19:57:34,690 - INFO -   Rank 7: Financial Services - POSITIVE (0.18%) - MIDDLE
+2025-04-30 19:57:34,813 - INFO -   Rank 8: Auto - POSITIVE (0.01%) - MIDDLE
+2025-04-30 19:57:34,915 - INFO -   Rank 9: Media - NEGATIVE (-0.27%) - MIDDLE
+2025-04-30 19:57:35,040 - INFO -   Rank 10: PSU Bank - NEGATIVE (-0.90%) - MIDDLE
+2025-04-30 19:57:35,160 - INFO - 
+==================================================
+SECTOR DATA READ COMPLETE
+==================================================
+2025-04-30 19:57:35,275 - INFO - 
+==================================================
+PROCESSING SECTOR DATA
+==================================================
+2025-04-30 19:57:35,398 - INFO - Processing existing positions for potential exits...
+2025-04-30 19:57:35,502 - INFO - 
+==================================================
+PROCESSING EXISTING POSITIONS
+==================================================
+2025-04-30 19:57:35,540 - INFO - No existing positions to process
+2025-04-30 19:57:35,584 - INFO - 
+==================================================
+POSITION PROCESSING COMPLETE
+==================================================
+2025-04-30 19:57:35,665 - INFO - Initial trades already executed today - skipping new trade opportunities
+2025-04-30 19:57:35,714 - INFO - 
+==================================================
+SECTOR PROCESSING COMPLETE
+==================================================
+2025-04-30 19:57:35,775 - INFO - Saved 0 positions to dhan_positions.json
+2025-04-30 19:57:36,005 - INFO - 
+==================================================
+POSITIONS SUMMARY
+==================================================
+2025-04-30 19:57:36,185 - INFO - Current positions summary:
+2025-04-30 19:57:36,331 - INFO -   Open BUY positions: 0
+2025-04-30 19:57:36,478 - INFO -   Open SELL positions: 0
+2025-04-30 19:57:36,646 - INFO -   Closed positions: 0
+2025-04-30 19:57:36,660 - INFO -   Total positions: 0
+2025-04-30 19:57:36,713 - INFO - 
+==================================================
+POSITIONS SUMMARY COMPLETE
+==================================================
+2025-04-30 19:57:36,727 - INFO - Trading cycle 25 completed
+2025-04-30 19:57:36,760 - INFO - Waiting 30 seconds until next check at 19:58:06...
+2025-04-30 19:57:36,795 - INFO - 
+==================================================
+CYCLE 25 COMPLETE
+==================================================
+2025-04-30 19:58:06,829 - INFO - 
+==================================================
+TRADING CYCLE 26
+==================================================
+2025-04-30 19:58:06,898 - INFO - Trading cycle 26 started at 2025-04-30 19:58:06
+2025-04-30 19:58:06,993 - INFO - 
+==================================================
+READING SECTOR PERFORMANCE DATA
+==================================================
+2025-04-30 19:58:07,075 - INFO - Reading sector performance data from sector.csv
+2025-04-30 19:58:07,078 - INFO - File last modified: 2025-04-30 06:07:15
+2025-04-30 19:58:07,095 - INFO - Adding sector rankings to data
+2025-04-30 19:58:07,101 - ERROR - Error adding sector rankings: module 'pandas' has no attribute 'np'
+2025-04-30 19:58:07,145 - ERROR - Traceback (most recent call last):
+  File "C:\Users\Rajee\OneDrive\stock\lab\strongtrendz.com-\dhan_sector_trader.py", line 317, in add_sector_rankings
+    df['ranking_category'] = pd.np.select(conditions, choices, default='MIDDLE')
+AttributeError: module 'pandas' has no attribute 'np'
+
+2025-04-30 19:58:07,193 - INFO - Latest timestamp in data: 2025-04-30 06:07:15
+2025-04-30 19:58:07,194 - INFO - Loaded data for 10 sectors
+2025-04-30 19:58:07,289 - INFO - Sector performance details:
+2025-04-30 19:58:07,307 - INFO -   Rank 1: Realty - POSITIVE (3.02%) - MIDDLE
+2025-04-30 19:58:07,343 - INFO -   Rank 2: Pharma - POSITIVE (1.01%) - MIDDLE
+2025-04-30 19:58:07,400 - INFO -   Rank 3: Metal - POSITIVE (0.68%) - MIDDLE
+2025-04-30 19:58:07,468 - INFO -   Rank 4: FMCG - POSITIVE (0.51%) - MIDDLE
+2025-04-30 19:58:07,480 - INFO -   Rank 5: Energy - POSITIVE (0.50%) - MIDDLE
+2025-04-30 19:58:07,481 - INFO -   Rank 6: IT - POSITIVE (0.25%) - MIDDLE
+2025-04-30 19:58:07,494 - INFO -   Rank 7: Financial Services - POSITIVE (0.18%) - MIDDLE
+2025-04-30 19:58:07,513 - INFO -   Rank 8: Auto - POSITIVE (0.01%) - MIDDLE
+2025-04-30 19:58:07,514 - INFO -   Rank 9: Media - NEGATIVE (-0.27%) - MIDDLE
+2025-04-30 19:58:07,560 - INFO -   Rank 10: PSU Bank - NEGATIVE (-0.90%) - MIDDLE
+2025-04-30 19:58:07,565 - INFO - 
+==================================================
+SECTOR DATA READ COMPLETE
+==================================================
+2025-04-30 19:58:07,607 - INFO - 
+==================================================
+PROCESSING SECTOR DATA
+==================================================
+2025-04-30 19:58:07,609 - INFO - Processing existing positions for potential exits...
+2025-04-30 19:58:07,630 - INFO - 
+==================================================
+PROCESSING EXISTING POSITIONS
+==================================================
+2025-04-30 19:58:07,631 - INFO - No existing positions to process
+2025-04-30 19:58:07,632 - INFO - 
+==================================================
+POSITION PROCESSING COMPLETE
+==================================================
+2025-04-30 19:58:07,651 - INFO - Initial trades already executed today - skipping new trade opportunities
+2025-04-30 19:58:07,693 - INFO - 
+==================================================
+SECTOR PROCESSING COMPLETE
+==================================================
+2025-04-30 19:58:07,696 - INFO - Saved 0 positions to dhan_positions.json
+2025-04-30 19:58:07,707 - INFO - 
+==================================================
+POSITIONS SUMMARY
+==================================================
+2025-04-30 19:58:07,708 - INFO - Current positions summary:
+2025-04-30 19:58:07,709 - INFO -   Open BUY positions: 0
+2025-04-30 19:58:07,739 - INFO -   Open SELL positions: 0
+2025-04-30 19:58:07,739 - INFO -   Closed positions: 0
+2025-04-30 19:58:07,740 - INFO -   Total positions: 0
+2025-04-30 19:58:07,741 - INFO - 
+==================================================
+POSITIONS SUMMARY COMPLETE
+==================================================
+2025-04-30 19:58:07,782 - INFO - Trading cycle 26 completed
+2025-04-30 19:58:07,799 - INFO - Waiting 30 seconds until next check at 19:58:37...
+2025-04-30 19:58:07,949 - INFO - 
+==================================================
+CYCLE 26 COMPLETE
+==================================================
+2025-04-30 19:58:38,082 - INFO - 
+==================================================
+TRADING CYCLE 27
+==================================================
+2025-04-30 19:58:38,089 - INFO - Trading cycle 27 started at 2025-04-30 19:58:38
+2025-04-30 19:58:38,091 - INFO - 
+==================================================
+READING SECTOR PERFORMANCE DATA
+==================================================
+2025-04-30 19:58:38,096 - INFO - Reading sector performance data from sector.csv
+2025-04-30 19:58:38,097 - INFO - File last modified: 2025-04-30 06:07:15
+2025-04-30 19:58:38,107 - INFO - Adding sector rankings to data
+2025-04-30 19:58:38,111 - ERROR - Error adding sector rankings: module 'pandas' has no attribute 'np'
+2025-04-30 19:58:38,112 - ERROR - Traceback (most recent call last):
+  File "C:\Users\Rajee\OneDrive\stock\lab\strongtrendz.com-\dhan_sector_trader.py", line 317, in add_sector_rankings
+    df['ranking_category'] = pd.np.select(conditions, choices, default='MIDDLE')
+AttributeError: module 'pandas' has no attribute 'np'
+
+2025-04-30 19:58:38,114 - INFO - Latest timestamp in data: 2025-04-30 06:07:15
+2025-04-30 19:58:38,114 - INFO - Loaded data for 10 sectors
+2025-04-30 19:58:38,114 - INFO - Sector performance details:
+2025-04-30 19:58:38,115 - INFO -   Rank 1: Realty - POSITIVE (3.02%) - MIDDLE
+2025-04-30 19:58:38,126 - INFO -   Rank 2: Pharma - POSITIVE (1.01%) - MIDDLE
+2025-04-30 19:58:38,127 - INFO -   Rank 3: Metal - POSITIVE (0.68%) - MIDDLE
+2025-04-30 19:58:38,128 - INFO -   Rank 4: FMCG - POSITIVE (0.51%) - MIDDLE
+2025-04-30 19:58:38,128 - INFO -   Rank 5: Energy - POSITIVE (0.50%) - MIDDLE
+2025-04-30 19:58:38,129 - INFO -   Rank 6: IT - POSITIVE (0.25%) - MIDDLE
+2025-04-30 19:58:38,129 - INFO -   Rank 7: Financial Services - POSITIVE (0.18%) - MIDDLE
+2025-04-30 19:58:38,138 - INFO -   Rank 8: Auto - POSITIVE (0.01%) - MIDDLE
+2025-04-30 19:58:38,142 - INFO -   Rank 9: Media - NEGATIVE (-0.27%) - MIDDLE
+2025-04-30 19:58:38,143 - INFO -   Rank 10: PSU Bank - NEGATIVE (-0.90%) - MIDDLE
+2025-04-30 19:58:38,143 - INFO - 
+==================================================
+SECTOR DATA READ COMPLETE
+==================================================
+2025-04-30 19:58:38,144 - INFO - 
+==================================================
+PROCESSING SECTOR DATA
+==================================================
+2025-04-30 19:58:38,145 - INFO - Processing existing positions for potential exits...
+2025-04-30 19:58:38,145 - INFO - 
+==================================================
+PROCESSING EXISTING POSITIONS
+==================================================
+2025-04-30 19:58:38,146 - INFO - No existing positions to process
+2025-04-30 19:58:38,146 - INFO - 
+==================================================
+POSITION PROCESSING COMPLETE
+==================================================
+2025-04-30 19:58:38,147 - INFO - Initial trades already executed today - skipping new trade opportunities
+2025-04-30 19:58:38,157 - INFO - 
+==================================================
+SECTOR PROCESSING COMPLETE
+==================================================
+2025-04-30 19:58:38,160 - INFO - Saved 0 positions to dhan_positions.json
+2025-04-30 19:58:38,160 - INFO - 
+==================================================
+POSITIONS SUMMARY
+==================================================
+2025-04-30 19:58:38,161 - INFO - Current positions summary:
+2025-04-30 19:58:38,162 - INFO -   Open BUY positions: 0
+2025-04-30 19:58:38,162 - INFO -   Open SELL positions: 0
+2025-04-30 19:58:38,163 - INFO -   Closed positions: 0
+2025-04-30 19:58:38,197 - INFO -   Total positions: 0
+2025-04-30 19:58:38,197 - INFO - 
+==================================================
+POSITIONS SUMMARY COMPLETE
+==================================================
+2025-04-30 19:58:38,199 - INFO - Trading cycle 27 completed
+2025-04-30 19:58:38,210 - INFO - Waiting 30 seconds until next check at 19:59:08...
+2025-04-30 19:58:38,228 - INFO - 
+==================================================
+CYCLE 27 COMPLETE
+==================================================
+2025-04-30 19:59:08,642 - INFO - 
+==================================================
+TRADING CYCLE 28
+==================================================
+2025-04-30 19:59:08,811 - INFO - Trading cycle 28 started at 2025-04-30 19:59:08
+2025-04-30 19:59:08,845 - INFO - 
+==================================================
+READING SECTOR PERFORMANCE DATA
+==================================================
+2025-04-30 19:59:09,060 - INFO - Reading sector performance data from sector.csv
+2025-04-30 19:59:09,102 - INFO - File last modified: 2025-04-30 06:07:15
+2025-04-30 19:59:09,123 - INFO - Adding sector rankings to data
+2025-04-30 19:59:09,172 - ERROR - Error adding sector rankings: module 'pandas' has no attribute 'np'
+2025-04-30 19:59:09,203 - ERROR - Traceback (most recent call last):
+  File "C:\Users\Rajee\OneDrive\stock\lab\strongtrendz.com-\dhan_sector_trader.py", line 317, in add_sector_rankings
+    df['ranking_category'] = pd.np.select(conditions, choices, default='MIDDLE')
+AttributeError: module 'pandas' has no attribute 'np'
+
+2025-04-30 19:59:09,263 - INFO - Latest timestamp in data: 2025-04-30 06:07:15
+2025-04-30 19:59:09,280 - INFO - Loaded data for 10 sectors
+2025-04-30 19:59:09,293 - INFO - Sector performance details:
+2025-04-30 19:59:09,304 - INFO -   Rank 1: Realty - POSITIVE (3.02%) - MIDDLE
+2025-04-30 19:59:09,323 - INFO -   Rank 2: Pharma - POSITIVE (1.01%) - MIDDLE
+2025-04-30 19:59:09,384 - INFO -   Rank 3: Metal - POSITIVE (0.68%) - MIDDLE
+2025-04-30 19:59:09,458 - INFO -   Rank 4: FMCG - POSITIVE (0.51%) - MIDDLE
+2025-04-30 19:59:09,485 - INFO -   Rank 5: Energy - POSITIVE (0.50%) - MIDDLE
+2025-04-30 19:59:09,508 - INFO -   Rank 6: IT - POSITIVE (0.25%) - MIDDLE
+2025-04-30 19:59:09,579 - INFO -   Rank 7: Financial Services - POSITIVE (0.18%) - MIDDLE
+2025-04-30 19:59:09,640 - INFO -   Rank 8: Auto - POSITIVE (0.01%) - MIDDLE
+2025-04-30 19:59:09,662 - INFO -   Rank 9: Media - NEGATIVE (-0.27%) - MIDDLE
+2025-04-30 19:59:09,678 - INFO -   Rank 10: PSU Bank - NEGATIVE (-0.90%) - MIDDLE
+2025-04-30 19:59:09,693 - INFO - 
+==================================================
+SECTOR DATA READ COMPLETE
+==================================================
+2025-04-30 19:59:09,726 - INFO - 
+==================================================
+PROCESSING SECTOR DATA
+==================================================
+2025-04-30 19:59:09,775 - INFO - Processing existing positions for potential exits...
+2025-04-30 19:59:09,823 - INFO - 
+==================================================
+PROCESSING EXISTING POSITIONS
+==================================================
+2025-04-30 19:59:09,866 - INFO - No existing positions to process
+2025-04-30 19:59:09,892 - INFO - 
+==================================================
+POSITION PROCESSING COMPLETE
+==================================================
+2025-04-30 19:59:09,907 - INFO - Initial trades already executed today - skipping new trade opportunities
+2025-04-30 19:59:09,914 - INFO - 
+==================================================
+SECTOR PROCESSING COMPLETE
+==================================================
+2025-04-30 19:59:09,930 - INFO - Saved 0 positions to dhan_positions.json
+2025-04-30 19:59:09,946 - INFO - 
+==================================================
+POSITIONS SUMMARY
+==================================================
+2025-04-30 19:59:09,979 - INFO - Current positions summary:
+2025-04-30 19:59:09,993 - INFO -   Open BUY positions: 0
+2025-04-30 19:59:09,996 - INFO -   Open SELL positions: 0
+2025-04-30 19:59:09,999 - INFO -   Closed positions: 0
+2025-04-30 19:59:10,002 - INFO -   Total positions: 0
+2025-04-30 19:59:10,004 - INFO - 
+==================================================
+POSITIONS SUMMARY COMPLETE
+==================================================
+2025-04-30 19:59:10,010 - INFO - Trading cycle 28 completed
+2025-04-30 19:59:10,014 - INFO - Waiting 30 seconds until next check at 19:59:40...
+2025-04-30 19:59:10,025 - INFO - 
+==================================================
+CYCLE 28 COMPLETE
+==================================================
+2025-04-30 19:59:31,579 - INFO - Trading program stopped by user
+2025-04-30 19:59:31,581 - INFO - Saved 0 positions to dhan_positions.json
+2025-04-30 19:59:31,584 - INFO - 
+==================================================
+PROGRAM TERMINATED BY USER
+==================================================
