@@ -1,7 +1,5 @@
 {
-    "client_id": "1106497024",
-    "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJkaGFuIiwicGFydG5lcklkIjoiIiwiZXhwIjoxNzQ4NjM4MzIzLCJ0b2tlbkNvbnN1bWVyVHlwZSI6IlNFTEYiLCJ3ZWJob29rVXJsIjoiIiwiZGhhbkNsaWVudElkIjoiMTEwNjQ5NzAyNCJ9.DQ2AER9jAvIYcSBrSWdvt-Hw43n1L4W8oT2kyZdCnjH53iHs0RzDaLs9FVFW0fvhHXg5leZW8YmfAcansDdnjg",
-    "place_new_orders": true,
+
     "check_interval_seconds": 30,
     "tickers": [
         {
