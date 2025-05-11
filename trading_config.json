@@ -5,30 +5,60 @@
     "check_interval_seconds": 30,
     "tickers": [
         {
-            "symbol": "TIINDIA.NS",
+            "symbol": "RECLTD.NS",
             "entry_price": "",
-            "quantity": 2,
-            "transaction_type": "SELL",
+            "quantity": 20,
+            "transaction_type": "BUY",
             "stop_loss_percent": 1.0,
             "target_percent": 1.0,
             "after_market_order": false,
             "active": true
         },
         {
-            "symbol": "HDFCLIFE.NS",
+            "symbol": "ADANIENSOL.NS",
             "entry_price": "",
-            "quantity": 10,
-            "transaction_type": "SELL",
+            "quantity": 20,
+            "transaction_type": "BUY",
             "stop_loss_percent": 1.0,
             "target_percent": 1.0,
             "after_market_order": false,
             "active": true
         },
         {
-            "symbol": "RELIANCE.NS",
+            "symbol": "DLF.NS",
             "entry_price": "",
-            "quantity": 3,
-            "transaction_type": "SELL",
+            "quantity": 20,
+            "transaction_type": "BUY",
+            "stop_loss_percent": 1.0,
+            "target_percent": 1.0,
+            "after_market_order": false,
+            "active": true
+        },
+        {
+            "symbol": "GODREJPROP.NS",
+            "entry_price": "",
+            "quantity": 20,
+            "transaction_type": "BUY",
+            "stop_loss_percent": 1.0,
+            "target_percent": 1.0,
+            "after_market_order": false,
+            "active": true
+        },
+        {
+            "symbol": "PFC.NS",
+            "entry_price": "",
+            "quantity": 20,
+            "transaction_type": "BUY",
+            "stop_loss_percent": 1.0,
+            "target_percent": 1.0,
+            "after_market_order": false,
+            "active": true
+        },
+        {
+            "symbol": "M&MFIN.NS",
+            "entry_price": "",
+            "quantity": 20,
+            "transaction_type": "BUY",
             "stop_loss_percent": 1.0,
             "target_percent": 1.0,
             "after_market_order": false,
@@ -37,77 +67,7 @@
         {
             "symbol": "PRESTIGE.NS",
             "entry_price": "",
-            "quantity": 5,
-            "transaction_type": "SELL",
-            "stop_loss_percent": 1.0,
-            "target_percent": 1.0,
-            "after_market_order": false,
-            "active": true
-        },
-        {
-            "symbol": "SBILIFE.NS",
-            "entry_price": "",
-            "quantity": 5,
-            "transaction_type": "SELL",
-            "stop_loss_percent": 1.0,
-            "target_percent": 1.0,
-            "after_market_order": false,
-            "active": true
-        },
-        {
-            "symbol": "BOSCHLTD.NS",
-            "entry_price": "",
-            "quantity": 1,
-            "transaction_type": "SELL",
-            "stop_loss_percent": 1.0,
-            "target_percent": 1.0,
-            "after_market_order": false,
-            "active": false
-        },
-        {
-            "symbol": "BALKRISIND.NS",
-            "entry_price": "",
-            "quantity": 5,
-            "transaction_type": "SELL",
-            "stop_loss_percent": 1.0,
-            "target_percent": 1.0,
-            "after_market_order": false,
-            "active": true
-        },
-        {
-            "symbol": "MARUTI.NS",
-            "entry_price": "",
-            "quantity": 1,
-            "transaction_type": "SELL",
-            "stop_loss_percent": 1.0,
-            "target_percent": 1.0,
-            "after_market_order": false,
-            "active": false
-        },
-        {
-            "symbol": "MRF.NS",
-            "entry_price": "",
-            "quantity": 1,
-            "transaction_type": "SELL",
-            "stop_loss_percent": 1.0,
-            "target_percent": 1.0,
-            "after_market_order": false,
-            "active": false
-        },
-        {
-            "symbol": "TECHM.NS",
-            "entry_price": "",
-            "quantity": 15,
-            "transaction_type": "SELL",
-            "stop_loss_percent": 1.0,
-            "target_percent": 1.0,
-            "after_market_order": false,
-            "active": false
-        },
-        {
-            "symbol": "EXIDEIND.NS",
-            "entry_price": "",
-            "quantity": 25,
+            "quantity": 20,
             "transaction_type": "BUY",
             "stop_loss_percent": 1.0,
             "target_percent": 1.0,
@@ -115,9 +75,59 @@
             "active": true
         },
         {
-            "symbol": "SAREGAMA.NS",
+            "symbol": "LODHA.NS",
             "entry_price": "",
-            "quantity":50,
+            "quantity": 20,
+            "transaction_type": "BUY",
+            "stop_loss_percent": 1.0,
+            "target_percent": 1.0,
+            "after_market_order": false,
+            "active": true
+        },
+        {
+            "symbol": "BANKBARODA.NS",
+            "entry_price": "",
+            "quantity": 20,
+            "transaction_type": "BUY",
+            "stop_loss_percent": 1.0,
+            "target_percent": 1.0,
+            "after_market_order": false,
+            "active": true
+        },
+        {
+            "symbol": "DIXON.NS",
+            "entry_price": "",
+            "quantity": 20,
+            "transaction_type": "BUY",
+            "stop_loss_percent": 1.0,
+            "target_percent": 1.0,
+            "after_market_order": false,
+            "active": true
+        },
+        {
+            "symbol": "ADANIENT.NS",
+            "entry_price": "",
+            "quantity": 20,
+            "transaction_type": "BUY",
+            "stop_loss_percent": 1.0,
+            "target_percent": 1.0,
+            "after_market_order": false,
+            "active": true
+        },
+        {
+            "symbol": "PNB.NS",
+            "entry_price": "",
+            "quantity": 20,
+            "transaction_type": "BUY",
+            "stop_loss_percent": 1.0,
+            "target_percent": 1.0,
+            "after_market_order": false,
+            "active": true
+        },
+        {
+            "symbol": "DABUR.NS",
+            "entry_price": "",
+            "quantity": 20,
             "transaction_type": "BUY",
             "stop_loss_percent": 1.0,
             "target_percent": 1.0,
@@ -127,7 +137,7 @@
         {
             "symbol": "HINDCOPPER.NS",
             "entry_price": "",
-            "quantity": 250,
+            "quantity": 20,
             "transaction_type": "BUY",
             "stop_loss_percent": 1.0,
             "target_percent": 1.0,
@@ -135,19 +145,9 @@
             "active": true
         },
         {
-            "symbol": "LAURASLABS.NS",
+            "symbol": "SAIL.NS",
             "entry_price": "",
-            "quantity": 25,
-            "transaction_type": "BUY",
-            "stop_loss_percent": 1.0,
-            "target_percent": 1.0,
-            "after_market_order": false,
-            "active": true
-        },
-        {
-            "symbol": "SUNTV.NS",
-            "entry_price": "",
-            "quantity": 25,
+            "quantity": 20,
             "transaction_type": "BUY",
             "stop_loss_percent": 1.0,
             "target_percent": 1.0,
@@ -157,7 +157,7 @@
         {
             "symbol": "ADANIGREEN.NS",
             "entry_price": "",
-            "quantity": 5,
+            "quantity": 20,
             "transaction_type": "BUY",
             "stop_loss_percent": 1.0,
             "target_percent": 1.0,
@@ -165,9 +165,9 @@
             "active": true
         },
         {
-            "symbol": "HATHWAY.NS",
+            "symbol": "GAIL.NS",
             "entry_price": "",
-            "quantity":500,
+            "quantity": 20,
             "transaction_type": "BUY",
             "stop_loss_percent": 1.0,
             "target_percent": 1.0,
@@ -175,10 +175,270 @@
             "active": true
         },
         {
-            "symbol": "RECLTD.NS",
+            "symbol": "AUROPHARMA.NS",
             "entry_price": "",
-            "quantity":50,
+            "quantity": 20,
             "transaction_type": "BUY",
+            "stop_loss_percent": 1.0,
+            "target_percent": 1.0,
+            "after_market_order": false,
+            "active": true
+        },
+        {
+            "symbol": "NTPC.NS",
+            "entry_price": "",
+            "quantity": 20,
+            "transaction_type": "BUY",
+            "stop_loss_percent": 1.0,
+            "target_percent": 1.0,
+            "after_market_order": false,
+            "active": true
+        },
+        {
+            "symbol": "JINDALSTEL.NS",
+            "entry_price": "",
+            "quantity": 20,
+            "transaction_type": "BUY",
+            "stop_loss_percent": 1.0,
+            "target_percent": 1.0,
+            "after_market_order": false,
+            "active": true
+        },
+        {
+            "symbol": "HUDCO.NS",
+            "entry_price": "",
+            "quantity": 20,
+            "transaction_type": "BUY",
+            "stop_loss_percent": 1.0,
+            "target_percent": 1.0,
+            "after_market_order": false,
+            "active": true
+        },
+        {
+            "symbol": "SUNPHARMA.NS",
+            "entry_price": "",
+            "quantity": 20,
+            "transaction_type": "BUY",
+            "stop_loss_percent": 1.0,
+            "target_percent": 1.0,
+            "after_market_order": false,
+            "active": true
+        },
+        {
+            "symbol": "VBL.NS",
+            "entry_price": "",
+            "quantity": 20,
+            "transaction_type": "BUY",
+            "stop_loss_percent": 1.0,
+            "target_percent": 1.0,
+            "after_market_order": false,
+            "active": true
+        },
+        {
+            "symbol": "GRANULES.NS",
+            "entry_price": "",
+            "quantity": 20,
+            "transaction_type": "BUY",
+            "stop_loss_percent": 1.0,
+            "target_percent": 1.0,
+            "after_market_order": false,
+            "active": true
+        },
+        {
+            "symbol": "POWERGRID.NS",
+            "entry_price": "",
+            "quantity": 20,
+            "transaction_type": "BUY",
+            "stop_loss_percent": 1.0,
+            "target_percent": 1.0,
+            "after_market_order": false,
+            "active": true
+        },
+        {
+            "symbol": "BANDHANBNK.NS",
+            "entry_price": "",
+            "quantity": 20,
+            "transaction_type": "BUY",
+            "stop_loss_percent": 1.0,
+            "target_percent": 1.0,
+            "after_market_order": false,
+            "active": true
+        },
+        {
+            "symbol": "IOC.NS",
+            "entry_price": "",
+            "quantity": 20,
+            "transaction_type": "BUY",
+            "stop_loss_percent": 1.0,
+            "target_percent": 1.0,
+            "after_market_order": false,
+            "active": true
+        },
+        {
+            "symbol": "ICICIPRULI.NS",
+            "entry_price": "",
+            "quantity": 20,
+            "transaction_type": "BUY",
+            "stop_loss_percent": 1.0,
+            "target_percent": 1.0,
+            "after_market_order": false,
+            "active": true
+        },
+        {
+            "symbol": "ATGL.NS",
+            "entry_price": "",
+            "quantity": 20,
+            "transaction_type": "BUY",
+            "stop_loss_percent": 1.0,
+            "target_percent": 1.0,
+            "after_market_order": false,
+            "active": true
+        },
+        {
+            "symbol": "BIOCON.NS",
+            "entry_price": "",
+            "quantity": 20,
+            "transaction_type": "BUY",
+            "stop_loss_percent": 1.0,
+            "target_percent": 1.0,
+            "after_market_order": false,
+            "active": true
+        },
+        {
+            "symbol": "ICICIGI.NS",
+            "entry_price": "",
+            "quantity": 20,
+            "transaction_type": "BUY",
+            "stop_loss_percent": 1.0,
+            "target_percent": 1.0,
+            "after_market_order": false,
+            "active": true
+        },
+        {
+            "symbol": "NMDC.NS",
+            "entry_price": "",
+            "quantity": 20,
+            "transaction_type": "BUY",
+            "stop_loss_percent": 1.0,
+            "target_percent": 1.0,
+            "after_market_order": false,
+            "active": true
+        },
+        {
+            "symbol": "ICICIBANK.NS",
+            "entry_price": "",
+            "quantity": 20,
+            "transaction_type": "BUY",
+            "stop_loss_percent": 1.0,
+            "target_percent": 1.0,
+            "after_market_order": false,
+            "active": true
+        },
+        {
+            "symbol": "JIOFIN.NS",
+            "entry_price": "",
+            "quantity": 20,
+            "transaction_type": "BUY",
+            "stop_loss_percent": 1.0,
+            "target_percent": 1.0,
+            "after_market_order": false,
+            "active": true
+        },
+        {
+            "symbol": "CROMPTON.NS",
+            "entry_price": "",
+            "quantity": 20,
+            "transaction_type": "BUY",
+            "stop_loss_percent": 1.0,
+            "target_percent": 1.0,
+            "after_market_order": false,
+            "active": true
+        },
+        {
+            "symbol": "TIINDIA.NS",
+            "entry_price": "",
+            "quantity": 20,
+            "transaction_type": "BUY",
+            "stop_loss_percent": 1.0,
+            "target_percent": 1.0,
+            "after_market_order": false,
+            "active": true
+        },
+        {
+            "symbol": "SYNGENE.NS",
+            "entry_price": "",
+            "quantity": 20,
+            "transaction_type": "BUY",
+            "stop_loss_percent": 1.0,
+            "target_percent": 1.0,
+            "after_market_order": false,
+            "active": true
+        },
+        {
+            "symbol": "APOLLOHOSP.NS",
+            "entry_price": "",
+            "quantity": 20,
+            "transaction_type": "BUY",
+            "stop_loss_percent": 1.0,
+            "target_percent": 1.0,
+            "after_market_order": false,
+            "active": true
+        },
+        {
+            "symbol": "TORNTPHARM.NS",
+            "entry_price": "",
+            "quantity": 20,
+            "transaction_type": "BUY",
+            "stop_loss_percent": 1.0,
+            "target_percent": 1.0,
+            "after_market_order": false,
+            "active": true
+        },
+        {
+            "symbol": "COFORGE.NS",
+            "entry_price": "",
+            "quantity": 20,
+            "transaction_type": "SELL",
+            "stop_loss_percent": 1.0,
+            "target_percent": 1.0,
+            "after_market_order": false,
+            "active": true
+        },
+        {
+            "symbol": "BHARATFORG.NS",
+            "entry_price": "",
+            "quantity": 20,
+            "transaction_type": "SELL",
+            "stop_loss_percent": 1.0,
+            "target_percent": 1.0,
+            "after_market_order": false,
+            "active": true
+        },
+        {
+            "symbol": "BRITANNIA.NS",
+            "entry_price": "",
+            "quantity": 20,
+            "transaction_type": "SELL",
+            "stop_loss_percent": 1.0,
+            "target_percent": 1.0,
+            "after_market_order": false,
+            "active": true
+        },
+        {
+            "symbol": "CANBK.NS",
+            "entry_price": "",
+            "quantity": 20,
+            "transaction_type": "SELL",
+            "stop_loss_percent": 1.0,
+            "target_percent": 1.0,
+            "after_market_order": false,
+            "active": true
+        },
+        {
+            "symbol": "UNIONBANK.NS",
+            "entry_price": "",
+            "quantity": 20,
+            "transaction_type": "SELL",
             "stop_loss_percent": 1.0,
             "target_percent": 1.0,
             "after_market_order": false,
