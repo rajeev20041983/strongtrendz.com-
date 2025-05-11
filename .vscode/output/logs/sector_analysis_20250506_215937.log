@@ -1,0 +1,29 @@
+2025-05-06 21:59:37,521 - INFO: Starting sector-based stock analysis - 2025-05-06
+2025-05-06 21:59:38,591 - ERROR: 
+1 Failed download:
+2025-05-06 21:59:38,592 - ERROR: ['NATIONALUM.NS']: YFRateLimitError('Too Many Requests. Rate limited. Try after a while.')
+2025-05-06 21:59:38,605 - WARNING: No meaningful data for NATIONALUM.NS
+2025-05-06 21:59:40,701 - ERROR: 
+1 Failed download:
+2025-05-06 21:59:40,701 - ERROR: ['SAIL.NS']: YFRateLimitError('Too Many Requests. Rate limited. Try after a while.')
+2025-05-06 21:59:40,708 - WARNING: No meaningful data for SAIL.NS
+2025-05-06 21:59:41,322 - ERROR: 
+1 Failed download:
+2025-05-06 21:59:41,322 - ERROR: ['HINDALCO.NS']: YFRateLimitError('Too Many Requests. Rate limited. Try after a while.')
+2025-05-06 21:59:41,330 - WARNING: No meaningful data for HINDALCO.NS
+2025-05-06 21:59:43,507 - ERROR: 
+1 Failed download:
+2025-05-06 21:59:43,508 - ERROR: ['TATASTEEL.NS']: YFRateLimitError('Too Many Requests. Rate limited. Try after a while.')
+2025-05-06 21:59:43,513 - WARNING: No meaningful data for TATASTEEL.NS
+2025-05-06 21:59:44,142 - ERROR: 
+1 Failed download:
+2025-05-06 21:59:44,143 - ERROR: ['JSL.NS']: YFRateLimitError('Too Many Requests. Rate limited. Try after a while.')
+2025-05-06 21:59:44,149 - WARNING: No meaningful data for JSL.NS
+2025-05-06 21:59:44,776 - ERROR: 
+1 Failed download:
+2025-05-06 21:59:44,776 - ERROR: ['VEDL.NS']: YFRateLimitError('Too Many Requests. Rate limited. Try after a while.')
+2025-05-06 21:59:44,785 - WARNING: No meaningful data for VEDL.NS
+2025-05-06 21:59:45,393 - ERROR: 
+1 Failed download:
+2025-05-06 21:59:45,394 - ERROR: ['NMDC.NS']: YFRateLimitError('Too Many Requests. Rate limited. Try after a while.')
+2025-05-06 21:59:45,402 - WARNING: No meaningful data for NMDC.NS

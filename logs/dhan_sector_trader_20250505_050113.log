@@ -1,0 +1,25 @@
+2025-05-05 05:01:13,412 - INFO - 
+==================================================
+PROGRAM START
+==================================================
+2025-05-05 05:01:13,413 - INFO - ==========================================
+2025-05-05 05:01:13,413 - INFO - Starting Dhan Sector-Based Trading Program
+2025-05-05 05:01:13,414 - INFO - ==========================================
+2025-05-05 05:01:13,414 - INFO - Current time: 2025-05-05 05:01:13
+2025-05-05 05:01:13,415 - INFO - Found generic sector.csv file
+2025-05-05 05:01:13,415 - INFO - Step 1: Loading trading configuration...
+2025-05-05 05:01:13,416 - INFO - Loading trading configuration from trading_config.json
+2025-05-05 05:01:13,417 - INFO - Configuration loaded successfully
+2025-05-05 05:01:13,417 - ERROR - Error loading configuration: 'list' object has no attribute 'get'
+2025-05-05 05:01:13,419 - ERROR - Traceback (most recent call last):
+  File "C:\Users\Rajee\OneDrive\stock\lab\strongtrendz.com-\dhan_sector_trader.py", line 418, in load_config
+    active_tickers = [t for t in tickers if t.get('active', False)]
+  File "C:\Users\Rajee\OneDrive\stock\lab\strongtrendz.com-\dhan_sector_trader.py", line 418, in <listcomp>
+    active_tickers = [t for t in tickers if t.get('active', False)]
+AttributeError: 'list' object has no attribute 'get'
+
+2025-05-05 05:01:13,422 - ERROR - Failed to load trading configuration. Exiting.
+2025-05-05 05:01:13,423 - INFO - 
+==================================================
+PROGRAM TERMINATED
+==================================================

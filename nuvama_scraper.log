@@ -18973,3 +18973,2600 @@ Stacktrace:
 2025-04-30 09:33:09,002 - INFO - Added sector: PSU Bank, Change: -1.79%
 2025-04-30 09:33:09,062 - INFO - Found percent change: 2.51% in '21.80 (2.51%)'
 2025-04-30 09:33:09,063 - INFO - Added sector: Realty, Change: 2.51%
+2025-05-05 05:07:24,901 - INFO - Starting Nuvama sector data scraper with 30-minute refresh
+2025-05-05 05:07:24,902 - INFO - Running Nuvama sector data scraper job at 2025-05-05 05:07:24
+2025-05-05 05:07:24,902 - INFO - Setting up Chrome driver...
+2025-05-05 05:07:24,903 - INFO - ====== WebDriver manager ======
+2025-05-05 05:07:28,559 - INFO - Get LATEST chromedriver version for google-chrome
+2025-05-05 05:07:28,725 - INFO - Get LATEST chromedriver version for google-chrome
+2025-05-05 05:07:28,780 - INFO - Get LATEST chromedriver version for google-chrome
+2025-05-05 05:07:28,895 - INFO - WebDriver version 135.0.7049.114 selected
+2025-05-05 05:07:28,900 - INFO - Modern chrome version https://storage.googleapis.com/chrome-for-testing-public/135.0.7049.114/win32/chromedriver-win32.zip
+2025-05-05 05:07:28,900 - INFO - About to download new driver from https://storage.googleapis.com/chrome-for-testing-public/135.0.7049.114/win32/chromedriver-win32.zip
+2025-05-05 05:07:28,969 - INFO - Driver downloading response is 200
+2025-05-05 05:07:29,270 - INFO - Get LATEST chromedriver version for google-chrome
+2025-05-05 05:07:29,491 - INFO - Driver has been saved in cache [C:\Users\Rajee\.wdm\drivers\chromedriver\win64\135.0.7049.114]
+2025-05-05 05:07:33,517 - INFO - Navigating to https://www.nuvamawealth.com/market/stock-market-index/#key-indices
+2025-05-05 05:07:36,680 - INFO - Waiting for page to load...
+2025-05-05 05:07:53,575 - INFO - Refreshed page to get latest data
+2025-05-05 05:08:03,603 - WARNING - Could not click on SECTOR INDICES tab: Message: no such element: Unable to locate element: {"method":"xpath","selector":"//a[text()='SECTOR INDICES']"}
+  (Session info: chrome=135.0.7049.115); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Stacktrace:
+	GetHandleVerifier [0x0120D363+60275]
+	GetHandleVerifier [0x0120D3A4+60340]
+	(No symbol) [0x010406F3]
+	(No symbol) [0x01088690]
+	(No symbol) [0x01088A2B]
+	(No symbol) [0x010D0EE2]
+	(No symbol) [0x010AD0D4]
+	(No symbol) [0x010CE6EB]
+	(No symbol) [0x010ACE86]
+	(No symbol) [0x0107C623]
+	(No symbol) [0x0107D474]
+	GetHandleVerifier [0x01458FE3+2467827]
+	GetHandleVerifier [0x014545E6+2448886]
+	GetHandleVerifier [0x0146F80C+2560028]
+	GetHandleVerifier [0x01223DF5+153093]
+	GetHandleVerifier [0x0122A3BD+179149]
+	GetHandleVerifier [0x01214BB8+91080]
+	GetHandleVerifier [0x01214D60+91504]
+	GetHandleVerifier [0x011FFA10+4640]
+	BaseThreadInitThunk [0x75C9FCC9+25]
+	RtlGetAppContainerNamedObjectPath [0x777082AE+286]
+	RtlGetAppContainerNamedObjectPath [0x7770827E+238]
+
+2025-05-05 05:08:03,618 - WARNING - Could not click on second tab: Message: no such element: Unable to locate element: {"method":"css selector","selector":".tab-links li:nth-child(2) a"}
+  (Session info: chrome=135.0.7049.115); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Stacktrace:
+	GetHandleVerifier [0x0120D363+60275]
+	GetHandleVerifier [0x0120D3A4+60340]
+	(No symbol) [0x010406F3]
+	(No symbol) [0x01088690]
+	(No symbol) [0x01088A2B]
+	(No symbol) [0x010D0EE2]
+	(No symbol) [0x010AD0D4]
+	(No symbol) [0x010CE6EB]
+	(No symbol) [0x010ACE86]
+	(No symbol) [0x0107C623]
+	(No symbol) [0x0107D474]
+	GetHandleVerifier [0x01458FE3+2467827]
+	GetHandleVerifier [0x014545E6+2448886]
+	GetHandleVerifier [0x0146F80C+2560028]
+	GetHandleVerifier [0x01223DF5+153093]
+	GetHandleVerifier [0x0122A3BD+179149]
+	GetHandleVerifier [0x01214BB8+91080]
+	GetHandleVerifier [0x01214D60+91504]
+	GetHandleVerifier [0x011FFA10+4640]
+	BaseThreadInitThunk [0x75C9FCC9+25]
+	RtlGetAppContainerNamedObjectPath [0x777082AE+286]
+	RtlGetAppContainerNamedObjectPath [0x7770827E+238]
+
+2025-05-05 05:08:03,767 - INFO - Saved screenshot of sector tab
+2025-05-05 05:08:03,781 - INFO - Found 6 tables on page
+2025-05-05 05:08:03,781 - INFO - Checking table 1
+2025-05-05 05:08:03,903 - INFO - Checking table 2
+2025-05-05 05:08:03,910 - INFO - Found likely sector table (table #2)
+2025-05-05 05:08:03,982 - WARNING - Could not find percent change for 
+2025-05-05 05:08:04,039 - INFO - Found percent change: 0.0% in '0.00 (0.00%)'
+2025-05-05 05:08:04,039 - INFO - Added sector: Auto, Change: 0.0%
+2025-05-05 05:08:04,113 - INFO - Found percent change: 0.0% in '0.00 (0.00%)'
+2025-05-05 05:08:04,114 - INFO - Added sector: Energy, Change: 0.0%
+2025-05-05 05:08:04,175 - INFO - Found percent change: 0.0% in '0.00 (0.00%)'
+2025-05-05 05:08:04,176 - INFO - Added sector: Financial Services, Change: 0.0%
+2025-05-05 05:08:04,243 - INFO - Found percent change: 0.0% in '0.00 (0.00%)'
+2025-05-05 05:08:04,243 - INFO - Added sector: FMCG, Change: 0.0%
+2025-05-05 05:08:04,298 - INFO - Found percent change: 0.0% in '0.00 (0.00%)'
+2025-05-05 05:08:04,299 - INFO - Added sector: IT, Change: 0.0%
+2025-05-05 05:08:04,373 - INFO - Found percent change: 0.0% in '0.00 (0.00%)'
+2025-05-05 05:08:04,373 - INFO - Added sector: Media, Change: 0.0%
+2025-05-05 05:08:04,442 - INFO - Found percent change: 0.0% in '0.00 (0.00%)'
+2025-05-05 05:08:04,442 - INFO - Added sector: Metal, Change: 0.0%
+2025-05-05 05:08:04,505 - INFO - Found percent change: 0.0% in '0.00 (0.00%)'
+2025-05-05 05:08:04,505 - INFO - Added sector: Pharma, Change: 0.0%
+2025-05-05 05:08:04,577 - INFO - Found percent change: 0.0% in '0.00 (0.00%)'
+2025-05-05 05:08:04,577 - INFO - Added sector: PSU Bank, Change: 0.0%
+2025-05-05 05:08:04,655 - INFO - Found percent change: 0.0% in '0.00 (0.00%)'
+2025-05-05 05:08:04,655 - INFO - Added sector: Realty, Change: 0.0%
+2025-05-05 05:08:07,598 - INFO - Saved sector data to sector.csv
+2025-05-05 05:09:08,090 - INFO - Running Nuvama sector data scraper job at 2025-05-05 05:09:08
+2025-05-05 05:09:08,090 - INFO - Setting up Chrome driver...
+2025-05-05 05:09:08,090 - INFO - ====== WebDriver manager ======
+2025-05-05 05:09:09,309 - INFO - Get LATEST chromedriver version for google-chrome
+2025-05-05 05:09:09,364 - INFO - Get LATEST chromedriver version for google-chrome
+2025-05-05 05:09:09,399 - INFO - Driver [C:\Users\Rajee\.wdm\drivers\chromedriver\win64\135.0.7049.114\chromedriver-win32/chromedriver.exe] found in cache
+2025-05-05 05:09:10,734 - INFO - Navigating to https://www.nuvamawealth.com/market/stock-market-index/#key-indices
+2025-05-05 05:09:13,395 - INFO - Waiting for page to load...
+2025-05-05 05:09:30,280 - INFO - Refreshed page to get latest data
+2025-05-05 05:09:40,301 - WARNING - Could not click on SECTOR INDICES tab: Message: no such element: Unable to locate element: {"method":"xpath","selector":"//a[text()='SECTOR INDICES']"}
+  (Session info: chrome=135.0.7049.115); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Stacktrace:
+	GetHandleVerifier [0x0120D363+60275]
+	GetHandleVerifier [0x0120D3A4+60340]
+	(No symbol) [0x010406F3]
+	(No symbol) [0x01088690]
+	(No symbol) [0x01088A2B]
+	(No symbol) [0x010D0EE2]
+	(No symbol) [0x010AD0D4]
+	(No symbol) [0x010CE6EB]
+	(No symbol) [0x010ACE86]
+	(No symbol) [0x0107C623]
+	(No symbol) [0x0107D474]
+	GetHandleVerifier [0x01458FE3+2467827]
+	GetHandleVerifier [0x014545E6+2448886]
+	GetHandleVerifier [0x0146F80C+2560028]
+	GetHandleVerifier [0x01223DF5+153093]
+	GetHandleVerifier [0x0122A3BD+179149]
+	GetHandleVerifier [0x01214BB8+91080]
+	GetHandleVerifier [0x01214D60+91504]
+	GetHandleVerifier [0x011FFA10+4640]
+	BaseThreadInitThunk [0x75C9FCC9+25]
+	RtlGetAppContainerNamedObjectPath [0x777082AE+286]
+	RtlGetAppContainerNamedObjectPath [0x7770827E+238]
+
+2025-05-05 05:09:40,317 - WARNING - Could not click on second tab: Message: no such element: Unable to locate element: {"method":"css selector","selector":".tab-links li:nth-child(2) a"}
+  (Session info: chrome=135.0.7049.115); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Stacktrace:
+	GetHandleVerifier [0x0120D363+60275]
+	GetHandleVerifier [0x0120D3A4+60340]
+	(No symbol) [0x010406F3]
+	(No symbol) [0x01088690]
+	(No symbol) [0x01088A2B]
+	(No symbol) [0x010D0EE2]
+	(No symbol) [0x010AD0D4]
+	(No symbol) [0x010CE6EB]
+	(No symbol) [0x010ACE86]
+	(No symbol) [0x0107C623]
+	(No symbol) [0x0107D474]
+	GetHandleVerifier [0x01458FE3+2467827]
+	GetHandleVerifier [0x014545E6+2448886]
+	GetHandleVerifier [0x0146F80C+2560028]
+	GetHandleVerifier [0x01223DF5+153093]
+	GetHandleVerifier [0x0122A3BD+179149]
+	GetHandleVerifier [0x01214BB8+91080]
+	GetHandleVerifier [0x01214D60+91504]
+	GetHandleVerifier [0x011FFA10+4640]
+	BaseThreadInitThunk [0x75C9FCC9+25]
+	RtlGetAppContainerNamedObjectPath [0x777082AE+286]
+	RtlGetAppContainerNamedObjectPath [0x7770827E+238]
+
+2025-05-05 05:09:40,475 - INFO - Saved screenshot of sector tab
+2025-05-05 05:09:40,493 - INFO - Found 6 tables on page
+2025-05-05 05:09:40,494 - INFO - Checking table 1
+2025-05-05 05:09:40,504 - INFO - Checking table 2
+2025-05-05 05:09:40,516 - INFO - Found likely sector table (table #2)
+2025-05-05 05:09:40,631 - WARNING - Could not find percent change for 
+2025-05-05 05:09:40,672 - INFO - Found percent change: 0.0% in '0.00 (0.00%)'
+2025-05-05 05:09:40,672 - INFO - Added sector: Auto, Change: 0.0%
+2025-05-05 05:09:40,728 - INFO - Found percent change: 0.0% in '0.00 (0.00%)'
+2025-05-05 05:09:40,728 - INFO - Added sector: Energy, Change: 0.0%
+2025-05-05 05:09:40,774 - INFO - Found percent change: 0.0% in '0.00 (0.00%)'
+2025-05-05 05:09:40,774 - INFO - Added sector: Financial Services, Change: 0.0%
+2025-05-05 05:09:40,819 - INFO - Found percent change: 0.0% in '0.00 (0.00%)'
+2025-05-05 05:09:40,820 - INFO - Added sector: FMCG, Change: 0.0%
+2025-05-05 05:09:40,867 - INFO - Found percent change: 0.0% in '0.00 (0.00%)'
+2025-05-05 05:09:40,868 - INFO - Added sector: IT, Change: 0.0%
+2025-05-05 05:09:40,914 - INFO - Found percent change: 0.0% in '0.00 (0.00%)'
+2025-05-05 05:09:40,914 - INFO - Added sector: Media, Change: 0.0%
+2025-05-05 05:09:40,966 - INFO - Found percent change: 0.0% in '0.00 (0.00%)'
+2025-05-05 05:09:40,967 - INFO - Added sector: Metal, Change: 0.0%
+2025-05-05 05:09:41,016 - INFO - Found percent change: 0.0% in '0.00 (0.00%)'
+2025-05-05 05:09:41,016 - INFO - Added sector: Pharma, Change: 0.0%
+2025-05-05 05:09:41,064 - INFO - Found percent change: 0.0% in '0.00 (0.00%)'
+2025-05-05 05:09:41,065 - INFO - Added sector: PSU Bank, Change: 0.0%
+2025-05-05 05:09:41,113 - INFO - Found percent change: 0.0% in '0.00 (0.00%)'
+2025-05-05 05:09:41,113 - INFO - Added sector: Realty, Change: 0.0%
+2025-05-05 05:09:43,614 - INFO - Saved sector data to sector.csv
+2025-05-05 05:10:44,073 - INFO - Running Nuvama sector data scraper job at 2025-05-05 05:10:44
+2025-05-05 05:10:44,075 - INFO - Setting up Chrome driver...
+2025-05-05 05:10:44,076 - INFO - ====== WebDriver manager ======
+2025-05-05 05:10:45,332 - INFO - Get LATEST chromedriver version for google-chrome
+2025-05-05 05:10:45,371 - INFO - Get LATEST chromedriver version for google-chrome
+2025-05-05 05:10:45,414 - INFO - Driver [C:\Users\Rajee\.wdm\drivers\chromedriver\win64\135.0.7049.114\chromedriver-win32/chromedriver.exe] found in cache
+2025-05-05 05:10:46,656 - INFO - Navigating to https://www.nuvamawealth.com/market/stock-market-index/#key-indices
+2025-05-05 05:10:48,955 - INFO - Waiting for page to load...
+2025-05-05 05:11:07,017 - INFO - Refreshed page to get latest data
+2025-05-05 05:11:17,034 - WARNING - Could not click on SECTOR INDICES tab: Message: no such element: Unable to locate element: {"method":"xpath","selector":"//a[text()='SECTOR INDICES']"}
+  (Session info: chrome=135.0.7049.115); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Stacktrace:
+	GetHandleVerifier [0x0120D363+60275]
+	GetHandleVerifier [0x0120D3A4+60340]
+	(No symbol) [0x010406F3]
+	(No symbol) [0x01088690]
+	(No symbol) [0x01088A2B]
+	(No symbol) [0x010D0EE2]
+	(No symbol) [0x010AD0D4]
+	(No symbol) [0x010CE6EB]
+	(No symbol) [0x010ACE86]
+	(No symbol) [0x0107C623]
+	(No symbol) [0x0107D474]
+	GetHandleVerifier [0x01458FE3+2467827]
+	GetHandleVerifier [0x014545E6+2448886]
+	GetHandleVerifier [0x0146F80C+2560028]
+	GetHandleVerifier [0x01223DF5+153093]
+	GetHandleVerifier [0x0122A3BD+179149]
+	GetHandleVerifier [0x01214BB8+91080]
+	GetHandleVerifier [0x01214D60+91504]
+	GetHandleVerifier [0x011FFA10+4640]
+	BaseThreadInitThunk [0x75C9FCC9+25]
+	RtlGetAppContainerNamedObjectPath [0x777082AE+286]
+	RtlGetAppContainerNamedObjectPath [0x7770827E+238]
+
+2025-05-05 05:11:17,052 - WARNING - Could not click on second tab: Message: no such element: Unable to locate element: {"method":"css selector","selector":".tab-links li:nth-child(2) a"}
+  (Session info: chrome=135.0.7049.115); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Stacktrace:
+	GetHandleVerifier [0x0120D363+60275]
+	GetHandleVerifier [0x0120D3A4+60340]
+	(No symbol) [0x010406F3]
+	(No symbol) [0x01088690]
+	(No symbol) [0x01088A2B]
+	(No symbol) [0x010D0EE2]
+	(No symbol) [0x010AD0D4]
+	(No symbol) [0x010CE6EB]
+	(No symbol) [0x010ACE86]
+	(No symbol) [0x0107C623]
+	(No symbol) [0x0107D474]
+	GetHandleVerifier [0x01458FE3+2467827]
+	GetHandleVerifier [0x014545E6+2448886]
+	GetHandleVerifier [0x0146F80C+2560028]
+	GetHandleVerifier [0x01223DF5+153093]
+	GetHandleVerifier [0x0122A3BD+179149]
+	GetHandleVerifier [0x01214BB8+91080]
+	GetHandleVerifier [0x01214D60+91504]
+	GetHandleVerifier [0x011FFA10+4640]
+	BaseThreadInitThunk [0x75C9FCC9+25]
+	RtlGetAppContainerNamedObjectPath [0x777082AE+286]
+	RtlGetAppContainerNamedObjectPath [0x7770827E+238]
+
+2025-05-05 05:11:17,222 - INFO - Saved screenshot of sector tab
+2025-05-05 05:11:17,235 - INFO - Found 6 tables on page
+2025-05-05 05:11:17,235 - INFO - Checking table 1
+2025-05-05 05:11:17,250 - INFO - Checking table 2
+2025-05-05 05:11:17,262 - INFO - Found likely sector table (table #2)
+2025-05-05 05:11:17,350 - WARNING - Could not find percent change for 
+2025-05-05 05:11:17,394 - INFO - Found percent change: 0.0% in '0.00 (0.00%)'
+2025-05-05 05:11:17,394 - INFO - Added sector: Auto, Change: 0.0%
+2025-05-05 05:11:17,435 - INFO - Found percent change: 0.0% in '0.00 (0.00%)'
+2025-05-05 05:11:17,436 - INFO - Added sector: Energy, Change: 0.0%
+2025-05-05 05:11:17,477 - INFO - Found percent change: 0.0% in '0.00 (0.00%)'
+2025-05-05 05:11:17,478 - INFO - Added sector: Financial Services, Change: 0.0%
+2025-05-05 05:11:17,552 - INFO - Found percent change: 0.0% in '0.00 (0.00%)'
+2025-05-05 05:11:17,552 - INFO - Added sector: FMCG, Change: 0.0%
+2025-05-05 05:11:17,599 - INFO - Found percent change: 0.0% in '0.00 (0.00%)'
+2025-05-05 05:11:17,599 - INFO - Added sector: IT, Change: 0.0%
+2025-05-05 05:11:17,642 - INFO - Found percent change: 0.0% in '0.00 (0.00%)'
+2025-05-05 05:11:17,642 - INFO - Added sector: Media, Change: 0.0%
+2025-05-05 05:11:17,685 - INFO - Found percent change: 0.0% in '0.00 (0.00%)'
+2025-05-05 05:11:17,686 - INFO - Added sector: Metal, Change: 0.0%
+2025-05-05 05:11:17,730 - INFO - Found percent change: 0.0% in '0.00 (0.00%)'
+2025-05-05 05:11:17,731 - INFO - Added sector: Pharma, Change: 0.0%
+2025-05-05 05:11:17,775 - INFO - Found percent change: 0.0% in '0.00 (0.00%)'
+2025-05-05 05:11:17,775 - INFO - Added sector: PSU Bank, Change: 0.0%
+2025-05-05 05:11:17,816 - INFO - Found percent change: 0.0% in '0.00 (0.00%)'
+2025-05-05 05:11:17,817 - INFO - Added sector: Realty, Change: 0.0%
+2025-05-05 05:11:20,329 - INFO - Saved sector data to sector.csv
+2025-05-05 05:12:20,911 - INFO - Running Nuvama sector data scraper job at 2025-05-05 05:12:20
+2025-05-05 05:12:20,911 - INFO - Setting up Chrome driver...
+2025-05-05 05:12:20,912 - INFO - ====== WebDriver manager ======
+2025-05-05 05:12:22,284 - INFO - Get LATEST chromedriver version for google-chrome
+2025-05-05 05:12:22,333 - INFO - Get LATEST chromedriver version for google-chrome
+2025-05-05 05:12:22,376 - INFO - Driver [C:\Users\Rajee\.wdm\drivers\chromedriver\win64\135.0.7049.114\chromedriver-win32/chromedriver.exe] found in cache
+2025-05-05 05:12:23,694 - INFO - Navigating to https://www.nuvamawealth.com/market/stock-market-index/#key-indices
+2025-05-05 05:12:27,982 - INFO - Waiting for page to load...
+2025-05-05 05:12:45,373 - INFO - Refreshed page to get latest data
+2025-05-05 05:12:55,407 - WARNING - Could not click on SECTOR INDICES tab: Message: no such element: Unable to locate element: {"method":"xpath","selector":"//a[text()='SECTOR INDICES']"}
+  (Session info: chrome=135.0.7049.115); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Stacktrace:
+	GetHandleVerifier [0x0120D363+60275]
+	GetHandleVerifier [0x0120D3A4+60340]
+	(No symbol) [0x010406F3]
+	(No symbol) [0x01088690]
+	(No symbol) [0x01088A2B]
+	(No symbol) [0x010D0EE2]
+	(No symbol) [0x010AD0D4]
+	(No symbol) [0x010CE6EB]
+	(No symbol) [0x010ACE86]
+	(No symbol) [0x0107C623]
+	(No symbol) [0x0107D474]
+	GetHandleVerifier [0x01458FE3+2467827]
+	GetHandleVerifier [0x014545E6+2448886]
+	GetHandleVerifier [0x0146F80C+2560028]
+	GetHandleVerifier [0x01223DF5+153093]
+	GetHandleVerifier [0x0122A3BD+179149]
+	GetHandleVerifier [0x01214BB8+91080]
+	GetHandleVerifier [0x01214D60+91504]
+	GetHandleVerifier [0x011FFA10+4640]
+	BaseThreadInitThunk [0x75C9FCC9+25]
+	RtlGetAppContainerNamedObjectPath [0x777082AE+286]
+	RtlGetAppContainerNamedObjectPath [0x7770827E+238]
+
+2025-05-05 05:12:55,424 - WARNING - Could not click on second tab: Message: no such element: Unable to locate element: {"method":"css selector","selector":".tab-links li:nth-child(2) a"}
+  (Session info: chrome=135.0.7049.115); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Stacktrace:
+	GetHandleVerifier [0x0120D363+60275]
+	GetHandleVerifier [0x0120D3A4+60340]
+	(No symbol) [0x010406F3]
+	(No symbol) [0x01088690]
+	(No symbol) [0x01088A2B]
+	(No symbol) [0x010D0EE2]
+	(No symbol) [0x010AD0D4]
+	(No symbol) [0x010CE6EB]
+	(No symbol) [0x010ACE86]
+	(No symbol) [0x0107C623]
+	(No symbol) [0x0107D474]
+	GetHandleVerifier [0x01458FE3+2467827]
+	GetHandleVerifier [0x014545E6+2448886]
+	GetHandleVerifier [0x0146F80C+2560028]
+	GetHandleVerifier [0x01223DF5+153093]
+	GetHandleVerifier [0x0122A3BD+179149]
+	GetHandleVerifier [0x01214BB8+91080]
+	GetHandleVerifier [0x01214D60+91504]
+	GetHandleVerifier [0x011FFA10+4640]
+	BaseThreadInitThunk [0x75C9FCC9+25]
+	RtlGetAppContainerNamedObjectPath [0x777082AE+286]
+	RtlGetAppContainerNamedObjectPath [0x7770827E+238]
+
+2025-05-05 05:12:55,596 - INFO - Saved screenshot of sector tab
+2025-05-05 05:12:55,609 - INFO - Found 6 tables on page
+2025-05-05 05:12:55,609 - INFO - Checking table 1
+2025-05-05 05:12:55,621 - INFO - Checking table 2
+2025-05-05 05:12:55,632 - INFO - Found likely sector table (table #2)
+2025-05-05 05:12:55,699 - WARNING - Could not find percent change for 
+2025-05-05 05:12:55,746 - INFO - Found percent change: 0.0% in '0.00 (0.00%)'
+2025-05-05 05:12:55,746 - INFO - Added sector: Auto, Change: 0.0%
+2025-05-05 05:12:55,793 - INFO - Found percent change: 0.0% in '0.00 (0.00%)'
+2025-05-05 05:12:55,793 - INFO - Added sector: Energy, Change: 0.0%
+2025-05-05 05:12:55,838 - INFO - Found percent change: 0.0% in '0.00 (0.00%)'
+2025-05-05 05:12:55,839 - INFO - Added sector: Financial Services, Change: 0.0%
+2025-05-05 05:12:55,888 - INFO - Found percent change: 0.0% in '0.00 (0.00%)'
+2025-05-05 05:12:55,888 - INFO - Added sector: FMCG, Change: 0.0%
+2025-05-05 05:12:55,937 - INFO - Found percent change: 0.0% in '0.00 (0.00%)'
+2025-05-05 05:12:55,937 - INFO - Added sector: IT, Change: 0.0%
+2025-05-05 05:12:55,991 - INFO - Found percent change: 0.0% in '0.00 (0.00%)'
+2025-05-05 05:12:55,992 - INFO - Added sector: Media, Change: 0.0%
+2025-05-05 05:12:56,040 - INFO - Found percent change: 0.0% in '0.00 (0.00%)'
+2025-05-05 05:12:56,041 - INFO - Added sector: Metal, Change: 0.0%
+2025-05-05 05:12:56,090 - INFO - Found percent change: 0.0% in '0.00 (0.00%)'
+2025-05-05 05:12:56,090 - INFO - Added sector: Pharma, Change: 0.0%
+2025-05-05 05:12:56,136 - INFO - Found percent change: 0.0% in '0.00 (0.00%)'
+2025-05-05 05:12:56,136 - INFO - Added sector: PSU Bank, Change: 0.0%
+2025-05-05 05:12:56,181 - INFO - Found percent change: 0.0% in '0.00 (0.00%)'
+2025-05-05 05:12:56,182 - INFO - Added sector: Realty, Change: 0.0%
+2025-05-05 05:12:58,732 - INFO - Saved sector data to sector.csv
+2025-05-05 05:13:59,207 - INFO - Running Nuvama sector data scraper job at 2025-05-05 05:13:59
+2025-05-05 05:13:59,208 - INFO - Setting up Chrome driver...
+2025-05-05 05:13:59,209 - INFO - ====== WebDriver manager ======
+2025-05-05 05:14:00,376 - INFO - Get LATEST chromedriver version for google-chrome
+2025-05-05 05:14:00,421 - INFO - Get LATEST chromedriver version for google-chrome
+2025-05-05 05:14:00,462 - INFO - Driver [C:\Users\Rajee\.wdm\drivers\chromedriver\win64\135.0.7049.114\chromedriver-win32/chromedriver.exe] found in cache
+2025-05-05 05:14:01,749 - INFO - Navigating to https://www.nuvamawealth.com/market/stock-market-index/#key-indices
+2025-05-05 05:14:05,438 - INFO - Waiting for page to load...
+2025-05-05 05:14:22,494 - INFO - Refreshed page to get latest data
+2025-05-05 05:14:32,526 - WARNING - Could not click on SECTOR INDICES tab: Message: no such element: Unable to locate element: {"method":"xpath","selector":"//a[text()='SECTOR INDICES']"}
+  (Session info: chrome=135.0.7049.115); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Stacktrace:
+	GetHandleVerifier [0x0120D363+60275]
+	GetHandleVerifier [0x0120D3A4+60340]
+	(No symbol) [0x010406F3]
+	(No symbol) [0x01088690]
+	(No symbol) [0x01088A2B]
+	(No symbol) [0x010D0EE2]
+	(No symbol) [0x010AD0D4]
+	(No symbol) [0x010CE6EB]
+	(No symbol) [0x010ACE86]
+	(No symbol) [0x0107C623]
+	(No symbol) [0x0107D474]
+	GetHandleVerifier [0x01458FE3+2467827]
+	GetHandleVerifier [0x014545E6+2448886]
+	GetHandleVerifier [0x0146F80C+2560028]
+	GetHandleVerifier [0x01223DF5+153093]
+	GetHandleVerifier [0x0122A3BD+179149]
+	GetHandleVerifier [0x01214BB8+91080]
+	GetHandleVerifier [0x01214D60+91504]
+	GetHandleVerifier [0x011FFA10+4640]
+	BaseThreadInitThunk [0x75C9FCC9+25]
+	RtlGetAppContainerNamedObjectPath [0x777082AE+286]
+	RtlGetAppContainerNamedObjectPath [0x7770827E+238]
+
+2025-05-05 05:14:32,572 - WARNING - Could not click on second tab: Message: no such element: Unable to locate element: {"method":"css selector","selector":".tab-links li:nth-child(2) a"}
+  (Session info: chrome=135.0.7049.115); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Stacktrace:
+	GetHandleVerifier [0x0120D363+60275]
+	GetHandleVerifier [0x0120D3A4+60340]
+	(No symbol) [0x010406F3]
+	(No symbol) [0x01088690]
+	(No symbol) [0x01088A2B]
+	(No symbol) [0x010D0EE2]
+	(No symbol) [0x010AD0D4]
+	(No symbol) [0x010CE6EB]
+	(No symbol) [0x010ACE86]
+	(No symbol) [0x0107C623]
+	(No symbol) [0x0107D474]
+	GetHandleVerifier [0x01458FE3+2467827]
+	GetHandleVerifier [0x014545E6+2448886]
+	GetHandleVerifier [0x0146F80C+2560028]
+	GetHandleVerifier [0x01223DF5+153093]
+	GetHandleVerifier [0x0122A3BD+179149]
+	GetHandleVerifier [0x01214BB8+91080]
+	GetHandleVerifier [0x01214D60+91504]
+	GetHandleVerifier [0x011FFA10+4640]
+	BaseThreadInitThunk [0x75C9FCC9+25]
+	RtlGetAppContainerNamedObjectPath [0x777082AE+286]
+	RtlGetAppContainerNamedObjectPath [0x7770827E+238]
+
+2025-05-05 05:14:32,847 - INFO - Saved screenshot of sector tab
+2025-05-05 05:14:32,880 - INFO - Found 6 tables on page
+2025-05-05 05:14:32,881 - INFO - Checking table 1
+2025-05-05 05:14:32,898 - INFO - Checking table 2
+2025-05-05 05:14:32,915 - INFO - Found likely sector table (table #2)
+2025-05-05 05:14:33,093 - WARNING - Could not find percent change for 
+2025-05-05 05:14:33,175 - INFO - Found percent change: 0.0% in '0.00 (0.00%)'
+2025-05-05 05:14:33,175 - INFO - Added sector: Auto, Change: 0.0%
+2025-05-05 05:14:33,266 - INFO - Found percent change: 0.0% in '0.00 (0.00%)'
+2025-05-05 05:14:33,269 - INFO - Added sector: Energy, Change: 0.0%
+2025-05-05 05:14:33,351 - INFO - Found percent change: 0.0% in '0.00 (0.00%)'
+2025-05-05 05:14:33,353 - INFO - Added sector: Financial Services, Change: 0.0%
+2025-05-05 05:14:33,440 - INFO - Found percent change: 0.0% in '0.00 (0.00%)'
+2025-05-05 05:14:33,441 - INFO - Added sector: FMCG, Change: 0.0%
+2025-05-05 05:14:33,515 - INFO - Found percent change: 0.0% in '0.00 (0.00%)'
+2025-05-05 05:14:33,516 - INFO - Added sector: IT, Change: 0.0%
+2025-05-05 05:14:33,614 - INFO - Found percent change: 0.0% in '0.00 (0.00%)'
+2025-05-05 05:14:33,615 - INFO - Added sector: Media, Change: 0.0%
+2025-05-05 05:14:33,687 - INFO - Found percent change: 0.0% in '0.00 (0.00%)'
+2025-05-05 05:14:33,688 - INFO - Added sector: Metal, Change: 0.0%
+2025-05-05 05:14:33,764 - INFO - Found percent change: 0.0% in '0.00 (0.00%)'
+2025-05-05 05:14:33,770 - INFO - Added sector: Pharma, Change: 0.0%
+2025-05-05 05:14:33,867 - INFO - Found percent change: 0.0% in '0.00 (0.00%)'
+2025-05-05 05:14:33,867 - INFO - Added sector: PSU Bank, Change: 0.0%
+2025-05-05 05:14:34,013 - INFO - Found percent change: 0.0% in '0.00 (0.00%)'
+2025-05-05 05:14:34,014 - INFO - Added sector: Realty, Change: 0.0%
+2025-05-05 05:14:36,606 - INFO - Saved sector data to sector.csv
+2025-05-05 05:15:37,102 - INFO - Running Nuvama sector data scraper job at 2025-05-05 05:15:37
+2025-05-05 05:15:37,103 - INFO - Setting up Chrome driver...
+2025-05-05 05:15:37,104 - INFO - ====== WebDriver manager ======
+2025-05-05 05:15:39,167 - INFO - Get LATEST chromedriver version for google-chrome
+2025-05-05 05:15:39,214 - INFO - Get LATEST chromedriver version for google-chrome
+2025-05-05 05:15:39,289 - INFO - Driver [C:\Users\Rajee\.wdm\drivers\chromedriver\win64\135.0.7049.114\chromedriver-win32/chromedriver.exe] found in cache
+2025-05-05 05:15:40,793 - INFO - Navigating to https://www.nuvamawealth.com/market/stock-market-index/#key-indices
+2025-05-05 05:15:41,517 - INFO - Waiting for page to load...
+2025-05-05 05:15:58,735 - INFO - Refreshed page to get latest data
+2025-05-05 05:16:08,769 - WARNING - Could not click on SECTOR INDICES tab: Message: no such element: Unable to locate element: {"method":"xpath","selector":"//a[text()='SECTOR INDICES']"}
+  (Session info: chrome=135.0.7049.115); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Stacktrace:
+	GetHandleVerifier [0x0120D363+60275]
+	GetHandleVerifier [0x0120D3A4+60340]
+	(No symbol) [0x010406F3]
+	(No symbol) [0x01088690]
+	(No symbol) [0x01088A2B]
+	(No symbol) [0x010D0EE2]
+	(No symbol) [0x010AD0D4]
+	(No symbol) [0x010CE6EB]
+	(No symbol) [0x010ACE86]
+	(No symbol) [0x0107C623]
+	(No symbol) [0x0107D474]
+	GetHandleVerifier [0x01458FE3+2467827]
+	GetHandleVerifier [0x014545E6+2448886]
+	GetHandleVerifier [0x0146F80C+2560028]
+	GetHandleVerifier [0x01223DF5+153093]
+	GetHandleVerifier [0x0122A3BD+179149]
+	GetHandleVerifier [0x01214BB8+91080]
+	GetHandleVerifier [0x01214D60+91504]
+	GetHandleVerifier [0x011FFA10+4640]
+	BaseThreadInitThunk [0x75C9FCC9+25]
+	RtlGetAppContainerNamedObjectPath [0x777082AE+286]
+	RtlGetAppContainerNamedObjectPath [0x7770827E+238]
+
+2025-05-05 05:16:08,788 - WARNING - Could not click on second tab: Message: no such element: Unable to locate element: {"method":"css selector","selector":".tab-links li:nth-child(2) a"}
+  (Session info: chrome=135.0.7049.115); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Stacktrace:
+	GetHandleVerifier [0x0120D363+60275]
+	GetHandleVerifier [0x0120D3A4+60340]
+	(No symbol) [0x010406F3]
+	(No symbol) [0x01088690]
+	(No symbol) [0x01088A2B]
+	(No symbol) [0x010D0EE2]
+	(No symbol) [0x010AD0D4]
+	(No symbol) [0x010CE6EB]
+	(No symbol) [0x010ACE86]
+	(No symbol) [0x0107C623]
+	(No symbol) [0x0107D474]
+	GetHandleVerifier [0x01458FE3+2467827]
+	GetHandleVerifier [0x014545E6+2448886]
+	GetHandleVerifier [0x0146F80C+2560028]
+	GetHandleVerifier [0x01223DF5+153093]
+	GetHandleVerifier [0x0122A3BD+179149]
+	GetHandleVerifier [0x01214BB8+91080]
+	GetHandleVerifier [0x01214D60+91504]
+	GetHandleVerifier [0x011FFA10+4640]
+	BaseThreadInitThunk [0x75C9FCC9+25]
+	RtlGetAppContainerNamedObjectPath [0x777082AE+286]
+	RtlGetAppContainerNamedObjectPath [0x7770827E+238]
+
+2025-05-05 05:16:09,352 - INFO - Saved screenshot of sector tab
+2025-05-05 05:16:09,367 - INFO - Found 6 tables on page
+2025-05-05 05:16:09,367 - INFO - Checking table 1
+2025-05-05 05:16:09,377 - INFO - Checking table 2
+2025-05-05 05:16:09,390 - INFO - Found likely sector table (table #2)
+2025-05-05 05:16:09,458 - WARNING - Could not find percent change for 
+2025-05-05 05:16:09,504 - INFO - Found percent change: 0.0% in '0.00 (0.00%)'
+2025-05-05 05:16:09,504 - INFO - Added sector: Auto, Change: 0.0%
+2025-05-05 05:16:09,552 - INFO - Found percent change: 0.0% in '0.00 (0.00%)'
+2025-05-05 05:16:09,552 - INFO - Added sector: Energy, Change: 0.0%
+2025-05-05 05:16:09,597 - INFO - Found percent change: 0.0% in '0.00 (0.00%)'
+2025-05-05 05:16:09,598 - INFO - Added sector: Financial Services, Change: 0.0%
+2025-05-05 05:16:09,661 - INFO - Found percent change: 0.0% in '0.00 (0.00%)'
+2025-05-05 05:16:09,662 - INFO - Added sector: FMCG, Change: 0.0%
+2025-05-05 05:16:09,745 - INFO - Found percent change: 0.0% in '0.00 (0.00%)'
+2025-05-05 05:16:09,745 - INFO - Added sector: IT, Change: 0.0%
+2025-05-05 05:16:09,795 - INFO - Found percent change: 0.0% in '0.00 (0.00%)'
+2025-05-05 05:16:09,795 - INFO - Added sector: Media, Change: 0.0%
+2025-05-05 05:16:09,846 - INFO - Found percent change: 0.0% in '0.00 (0.00%)'
+2025-05-05 05:16:09,846 - INFO - Added sector: Metal, Change: 0.0%
+2025-05-05 05:16:09,896 - INFO - Found percent change: 0.0% in '0.00 (0.00%)'
+2025-05-05 05:16:09,897 - INFO - Added sector: Pharma, Change: 0.0%
+2025-05-05 05:16:09,943 - INFO - Found percent change: 0.0% in '0.00 (0.00%)'
+2025-05-05 05:16:09,943 - INFO - Added sector: PSU Bank, Change: 0.0%
+2025-05-05 05:16:09,986 - INFO - Found percent change: 0.0% in '0.00 (0.00%)'
+2025-05-05 05:16:09,987 - INFO - Added sector: Realty, Change: 0.0%
+2025-05-05 05:16:12,619 - INFO - Saved sector data to sector.csv
+2025-05-05 05:17:13,146 - INFO - Running Nuvama sector data scraper job at 2025-05-05 05:17:13
+2025-05-05 05:17:13,147 - INFO - Setting up Chrome driver...
+2025-05-05 05:17:13,148 - INFO - ====== WebDriver manager ======
+2025-05-05 05:17:14,864 - INFO - Get LATEST chromedriver version for google-chrome
+2025-05-05 05:17:14,906 - INFO - Get LATEST chromedriver version for google-chrome
+2025-05-05 05:17:14,962 - INFO - Driver [C:\Users\Rajee\.wdm\drivers\chromedriver\win64\135.0.7049.114\chromedriver-win32/chromedriver.exe] found in cache
+2025-05-05 05:17:16,712 - INFO - Navigating to https://www.nuvamawealth.com/market/stock-market-index/#key-indices
+2025-05-05 05:17:21,074 - INFO - Waiting for page to load...
+2025-05-05 05:17:40,241 - INFO - Refreshed page to get latest data
+2025-05-05 05:17:50,286 - WARNING - Could not click on SECTOR INDICES tab: Message: no such element: Unable to locate element: {"method":"xpath","selector":"//a[text()='SECTOR INDICES']"}
+  (Session info: chrome=135.0.7049.115); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Stacktrace:
+	GetHandleVerifier [0x0120D363+60275]
+	GetHandleVerifier [0x0120D3A4+60340]
+	(No symbol) [0x010406F3]
+	(No symbol) [0x01088690]
+	(No symbol) [0x01088A2B]
+	(No symbol) [0x010D0EE2]
+	(No symbol) [0x010AD0D4]
+	(No symbol) [0x010CE6EB]
+	(No symbol) [0x010ACE86]
+	(No symbol) [0x0107C623]
+	(No symbol) [0x0107D474]
+	GetHandleVerifier [0x01458FE3+2467827]
+	GetHandleVerifier [0x014545E6+2448886]
+	GetHandleVerifier [0x0146F80C+2560028]
+	GetHandleVerifier [0x01223DF5+153093]
+	GetHandleVerifier [0x0122A3BD+179149]
+	GetHandleVerifier [0x01214BB8+91080]
+	GetHandleVerifier [0x01214D60+91504]
+	GetHandleVerifier [0x011FFA10+4640]
+	BaseThreadInitThunk [0x75C9FCC9+25]
+	RtlGetAppContainerNamedObjectPath [0x777082AE+286]
+	RtlGetAppContainerNamedObjectPath [0x7770827E+238]
+
+2025-05-05 05:17:50,323 - WARNING - Could not click on second tab: Message: no such element: Unable to locate element: {"method":"css selector","selector":".tab-links li:nth-child(2) a"}
+  (Session info: chrome=135.0.7049.115); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Stacktrace:
+	GetHandleVerifier [0x0120D363+60275]
+	GetHandleVerifier [0x0120D3A4+60340]
+	(No symbol) [0x010406F3]
+	(No symbol) [0x01088690]
+	(No symbol) [0x01088A2B]
+	(No symbol) [0x010D0EE2]
+	(No symbol) [0x010AD0D4]
+	(No symbol) [0x010CE6EB]
+	(No symbol) [0x010ACE86]
+	(No symbol) [0x0107C623]
+	(No symbol) [0x0107D474]
+	GetHandleVerifier [0x01458FE3+2467827]
+	GetHandleVerifier [0x014545E6+2448886]
+	GetHandleVerifier [0x0146F80C+2560028]
+	GetHandleVerifier [0x01223DF5+153093]
+	GetHandleVerifier [0x0122A3BD+179149]
+	GetHandleVerifier [0x01214BB8+91080]
+	GetHandleVerifier [0x01214D60+91504]
+	GetHandleVerifier [0x011FFA10+4640]
+	BaseThreadInitThunk [0x75C9FCC9+25]
+	RtlGetAppContainerNamedObjectPath [0x777082AE+286]
+	RtlGetAppContainerNamedObjectPath [0x7770827E+238]
+
+2025-05-05 05:17:50,530 - INFO - Saved screenshot of sector tab
+2025-05-05 05:17:50,545 - INFO - Found 6 tables on page
+2025-05-05 05:17:50,545 - INFO - Checking table 1
+2025-05-05 05:17:50,560 - INFO - Checking table 2
+2025-05-05 05:17:50,573 - INFO - Found likely sector table (table #2)
+2025-05-05 05:17:50,650 - WARNING - Could not find percent change for 
+2025-05-05 05:17:50,706 - INFO - Found percent change: 0.0% in '0.00 (0.00%)'
+2025-05-05 05:17:50,706 - INFO - Added sector: Auto, Change: 0.0%
+2025-05-05 05:17:50,768 - INFO - Found percent change: 0.0% in '0.00 (0.00%)'
+2025-05-05 05:17:50,769 - INFO - Added sector: Energy, Change: 0.0%
+2025-05-05 05:17:50,829 - INFO - Found percent change: 0.0% in '0.00 (0.00%)'
+2025-05-05 05:17:50,829 - INFO - Added sector: Financial Services, Change: 0.0%
+2025-05-05 05:17:50,884 - INFO - Found percent change: 0.0% in '0.00 (0.00%)'
+2025-05-05 05:17:50,884 - INFO - Added sector: FMCG, Change: 0.0%
+2025-05-05 05:17:50,938 - INFO - Found percent change: 0.0% in '0.00 (0.00%)'
+2025-05-05 05:17:50,939 - INFO - Added sector: IT, Change: 0.0%
+2025-05-05 05:17:50,989 - INFO - Found percent change: 0.0% in '0.00 (0.00%)'
+2025-05-05 05:17:50,989 - INFO - Added sector: Media, Change: 0.0%
+2025-05-05 05:17:51,039 - INFO - Found percent change: 0.0% in '0.00 (0.00%)'
+2025-05-05 05:17:51,040 - INFO - Added sector: Metal, Change: 0.0%
+2025-05-05 05:17:51,090 - INFO - Found percent change: 0.0% in '0.00 (0.00%)'
+2025-05-05 05:17:51,090 - INFO - Added sector: Pharma, Change: 0.0%
+2025-05-05 05:17:51,143 - INFO - Found percent change: 0.0% in '0.00 (0.00%)'
+2025-05-05 05:17:51,144 - INFO - Added sector: PSU Bank, Change: 0.0%
+2025-05-05 05:17:51,199 - INFO - Found percent change: 0.0% in '0.00 (0.00%)'
+2025-05-05 05:17:51,200 - INFO - Added sector: Realty, Change: 0.0%
+2025-05-05 05:17:53,939 - INFO - Saved sector data to sector.csv
+2025-05-05 05:18:54,464 - INFO - Running Nuvama sector data scraper job at 2025-05-05 05:18:54
+2025-05-05 05:18:54,464 - INFO - Setting up Chrome driver...
+2025-05-05 05:18:54,465 - INFO - ====== WebDriver manager ======
+2025-05-05 05:18:56,680 - INFO - Get LATEST chromedriver version for google-chrome
+2025-05-05 05:18:56,728 - INFO - Get LATEST chromedriver version for google-chrome
+2025-05-05 05:18:56,778 - INFO - Driver [C:\Users\Rajee\.wdm\drivers\chromedriver\win64\135.0.7049.114\chromedriver-win32/chromedriver.exe] found in cache
+2025-05-05 05:18:58,722 - INFO - Navigating to https://www.nuvamawealth.com/market/stock-market-index/#key-indices
+2025-05-05 05:19:02,103 - INFO - Waiting for page to load...
+2025-05-05 05:19:19,787 - INFO - Refreshed page to get latest data
+2025-05-05 05:19:29,818 - WARNING - Could not click on SECTOR INDICES tab: Message: no such element: Unable to locate element: {"method":"xpath","selector":"//a[text()='SECTOR INDICES']"}
+  (Session info: chrome=135.0.7049.115); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Stacktrace:
+	GetHandleVerifier [0x0120D363+60275]
+	GetHandleVerifier [0x0120D3A4+60340]
+	(No symbol) [0x010406F3]
+	(No symbol) [0x01088690]
+	(No symbol) [0x01088A2B]
+	(No symbol) [0x010D0EE2]
+	(No symbol) [0x010AD0D4]
+	(No symbol) [0x010CE6EB]
+	(No symbol) [0x010ACE86]
+	(No symbol) [0x0107C623]
+	(No symbol) [0x0107D474]
+	GetHandleVerifier [0x01458FE3+2467827]
+	GetHandleVerifier [0x014545E6+2448886]
+	GetHandleVerifier [0x0146F80C+2560028]
+	GetHandleVerifier [0x01223DF5+153093]
+	GetHandleVerifier [0x0122A3BD+179149]
+	GetHandleVerifier [0x01214BB8+91080]
+	GetHandleVerifier [0x01214D60+91504]
+	GetHandleVerifier [0x011FFA10+4640]
+	BaseThreadInitThunk [0x75C9FCC9+25]
+	RtlGetAppContainerNamedObjectPath [0x777082AE+286]
+	RtlGetAppContainerNamedObjectPath [0x7770827E+238]
+
+2025-05-05 05:19:29,837 - WARNING - Could not click on second tab: Message: no such element: Unable to locate element: {"method":"css selector","selector":".tab-links li:nth-child(2) a"}
+  (Session info: chrome=135.0.7049.115); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Stacktrace:
+	GetHandleVerifier [0x0120D363+60275]
+	GetHandleVerifier [0x0120D3A4+60340]
+	(No symbol) [0x010406F3]
+	(No symbol) [0x01088690]
+	(No symbol) [0x01088A2B]
+	(No symbol) [0x010D0EE2]
+	(No symbol) [0x010AD0D4]
+	(No symbol) [0x010CE6EB]
+	(No symbol) [0x010ACE86]
+	(No symbol) [0x0107C623]
+	(No symbol) [0x0107D474]
+	GetHandleVerifier [0x01458FE3+2467827]
+	GetHandleVerifier [0x014545E6+2448886]
+	GetHandleVerifier [0x0146F80C+2560028]
+	GetHandleVerifier [0x01223DF5+153093]
+	GetHandleVerifier [0x0122A3BD+179149]
+	GetHandleVerifier [0x01214BB8+91080]
+	GetHandleVerifier [0x01214D60+91504]
+	GetHandleVerifier [0x011FFA10+4640]
+	BaseThreadInitThunk [0x75C9FCC9+25]
+	RtlGetAppContainerNamedObjectPath [0x777082AE+286]
+	RtlGetAppContainerNamedObjectPath [0x7770827E+238]
+
+2025-05-05 05:19:29,986 - INFO - Saved screenshot of sector tab
+2025-05-05 05:19:30,000 - INFO - Found 6 tables on page
+2025-05-05 05:19:30,001 - INFO - Checking table 1
+2025-05-05 05:19:30,013 - INFO - Checking table 2
+2025-05-05 05:19:30,026 - INFO - Found likely sector table (table #2)
+2025-05-05 05:19:30,099 - WARNING - Could not find percent change for 
+2025-05-05 05:19:30,161 - INFO - Found percent change: 0.0% in '0.00 (0.00%)'
+2025-05-05 05:19:30,186 - INFO - Added sector: Auto, Change: 0.0%
+2025-05-05 05:19:30,277 - INFO - Found percent change: 0.0% in '0.00 (0.00%)'
+2025-05-05 05:19:30,277 - INFO - Added sector: Energy, Change: 0.0%
+2025-05-05 05:19:30,331 - INFO - Found percent change: 0.0% in '0.00 (0.00%)'
+2025-05-05 05:19:30,333 - INFO - Added sector: Financial Services, Change: 0.0%
+2025-05-05 05:19:30,380 - INFO - Found percent change: 0.0% in '0.00 (0.00%)'
+2025-05-05 05:19:30,381 - INFO - Added sector: FMCG, Change: 0.0%
+2025-05-05 05:19:30,434 - INFO - Found percent change: 0.0% in '0.00 (0.00%)'
+2025-05-05 05:19:30,435 - INFO - Added sector: IT, Change: 0.0%
+2025-05-05 05:19:30,493 - INFO - Found percent change: 0.0% in '0.00 (0.00%)'
+2025-05-05 05:19:30,493 - INFO - Added sector: Media, Change: 0.0%
+2025-05-05 05:19:30,544 - INFO - Found percent change: 0.0% in '0.00 (0.00%)'
+2025-05-05 05:19:30,544 - INFO - Added sector: Metal, Change: 0.0%
+2025-05-05 05:19:30,596 - INFO - Found percent change: 0.0% in '0.00 (0.00%)'
+2025-05-05 05:19:30,597 - INFO - Added sector: Pharma, Change: 0.0%
+2025-05-05 05:19:30,647 - INFO - Found percent change: 0.0% in '0.00 (0.00%)'
+2025-05-05 05:19:30,647 - INFO - Added sector: PSU Bank, Change: 0.0%
+2025-05-05 05:19:30,696 - INFO - Found percent change: 0.0% in '0.00 (0.00%)'
+2025-05-05 05:19:30,697 - INFO - Added sector: Realty, Change: 0.0%
+2025-05-05 05:19:33,444 - INFO - Saved sector data to sector.csv
+2025-05-05 05:20:34,054 - INFO - Running Nuvama sector data scraper job at 2025-05-05 05:20:34
+2025-05-05 05:20:34,055 - INFO - Setting up Chrome driver...
+2025-05-05 05:20:34,055 - INFO - ====== WebDriver manager ======
+2025-05-05 05:20:36,341 - INFO - Get LATEST chromedriver version for google-chrome
+2025-05-05 05:20:36,403 - INFO - Get LATEST chromedriver version for google-chrome
+2025-05-05 05:20:36,490 - INFO - Driver [C:\Users\Rajee\.wdm\drivers\chromedriver\win64\135.0.7049.114\chromedriver-win32/chromedriver.exe] found in cache
+2025-05-05 05:20:38,286 - INFO - Navigating to https://www.nuvamawealth.com/market/stock-market-index/#key-indices
+2025-05-05 05:20:41,765 - INFO - Waiting for page to load...
+2025-05-05 05:20:59,552 - INFO - Refreshed page to get latest data
+2025-05-05 05:21:09,627 - WARNING - Could not click on SECTOR INDICES tab: Message: no such element: Unable to locate element: {"method":"xpath","selector":"//a[text()='SECTOR INDICES']"}
+  (Session info: chrome=135.0.7049.115); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Stacktrace:
+	GetHandleVerifier [0x0120D363+60275]
+	GetHandleVerifier [0x0120D3A4+60340]
+	(No symbol) [0x010406F3]
+	(No symbol) [0x01088690]
+	(No symbol) [0x01088A2B]
+	(No symbol) [0x010D0EE2]
+	(No symbol) [0x010AD0D4]
+	(No symbol) [0x010CE6EB]
+	(No symbol) [0x010ACE86]
+	(No symbol) [0x0107C623]
+	(No symbol) [0x0107D474]
+	GetHandleVerifier [0x01458FE3+2467827]
+	GetHandleVerifier [0x014545E6+2448886]
+	GetHandleVerifier [0x0146F80C+2560028]
+	GetHandleVerifier [0x01223DF5+153093]
+	GetHandleVerifier [0x0122A3BD+179149]
+	GetHandleVerifier [0x01214BB8+91080]
+	GetHandleVerifier [0x01214D60+91504]
+	GetHandleVerifier [0x011FFA10+4640]
+	BaseThreadInitThunk [0x75C9FCC9+25]
+	RtlGetAppContainerNamedObjectPath [0x777082AE+286]
+	RtlGetAppContainerNamedObjectPath [0x7770827E+238]
+
+2025-05-05 05:21:09,644 - WARNING - Could not click on second tab: Message: no such element: Unable to locate element: {"method":"css selector","selector":".tab-links li:nth-child(2) a"}
+  (Session info: chrome=135.0.7049.115); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Stacktrace:
+	GetHandleVerifier [0x0120D363+60275]
+	GetHandleVerifier [0x0120D3A4+60340]
+	(No symbol) [0x010406F3]
+	(No symbol) [0x01088690]
+	(No symbol) [0x01088A2B]
+	(No symbol) [0x010D0EE2]
+	(No symbol) [0x010AD0D4]
+	(No symbol) [0x010CE6EB]
+	(No symbol) [0x010ACE86]
+	(No symbol) [0x0107C623]
+	(No symbol) [0x0107D474]
+	GetHandleVerifier [0x01458FE3+2467827]
+	GetHandleVerifier [0x014545E6+2448886]
+	GetHandleVerifier [0x0146F80C+2560028]
+	GetHandleVerifier [0x01223DF5+153093]
+	GetHandleVerifier [0x0122A3BD+179149]
+	GetHandleVerifier [0x01214BB8+91080]
+	GetHandleVerifier [0x01214D60+91504]
+	GetHandleVerifier [0x011FFA10+4640]
+	BaseThreadInitThunk [0x75C9FCC9+25]
+	RtlGetAppContainerNamedObjectPath [0x777082AE+286]
+	RtlGetAppContainerNamedObjectPath [0x7770827E+238]
+
+2025-05-05 05:21:09,822 - INFO - Saved screenshot of sector tab
+2025-05-05 05:21:09,840 - INFO - Found 6 tables on page
+2025-05-05 05:21:09,840 - INFO - Checking table 1
+2025-05-05 05:21:09,853 - INFO - Checking table 2
+2025-05-05 05:21:09,862 - INFO - Found likely sector table (table #2)
+2025-05-05 05:21:09,932 - WARNING - Could not find percent change for 
+2025-05-05 05:21:09,979 - INFO - Found percent change: 0.0% in '0.00 (0.00%)'
+2025-05-05 05:21:09,980 - INFO - Added sector: Auto, Change: 0.0%
+2025-05-05 05:21:10,028 - INFO - Found percent change: 0.0% in '0.00 (0.00%)'
+2025-05-05 05:21:10,028 - INFO - Added sector: Energy, Change: 0.0%
+2025-05-05 05:21:10,079 - INFO - Found percent change: 0.0% in '0.00 (0.00%)'
+2025-05-05 05:21:10,080 - INFO - Added sector: Financial Services, Change: 0.0%
+2025-05-05 05:21:10,130 - INFO - Found percent change: 0.0% in '0.00 (0.00%)'
+2025-05-05 05:21:10,132 - INFO - Added sector: FMCG, Change: 0.0%
+2025-05-05 05:21:10,180 - INFO - Found percent change: 0.0% in '0.00 (0.00%)'
+2025-05-05 05:21:10,180 - INFO - Added sector: IT, Change: 0.0%
+2025-05-05 05:21:10,232 - INFO - Found percent change: 0.0% in '0.00 (0.00%)'
+2025-05-05 05:21:10,233 - INFO - Added sector: Media, Change: 0.0%
+2025-05-05 05:21:10,286 - INFO - Found percent change: 0.0% in '0.00 (0.00%)'
+2025-05-05 05:21:10,286 - INFO - Added sector: Metal, Change: 0.0%
+2025-05-05 05:21:10,337 - INFO - Found percent change: 0.0% in '0.00 (0.00%)'
+2025-05-05 05:21:10,337 - INFO - Added sector: Pharma, Change: 0.0%
+2025-05-05 05:21:10,389 - INFO - Found percent change: 0.0% in '0.00 (0.00%)'
+2025-05-05 05:21:10,390 - INFO - Added sector: PSU Bank, Change: 0.0%
+2025-05-05 05:21:10,442 - INFO - Found percent change: 0.0% in '0.00 (0.00%)'
+2025-05-05 05:21:10,442 - INFO - Added sector: Realty, Change: 0.0%
+2025-05-05 05:21:13,102 - INFO - Saved sector data to sector.csv
+2025-05-05 05:22:13,636 - INFO - Running Nuvama sector data scraper job at 2025-05-05 05:22:13
+2025-05-05 05:22:13,637 - INFO - Setting up Chrome driver...
+2025-05-05 05:22:13,638 - INFO - ====== WebDriver manager ======
+2025-05-05 05:22:15,925 - INFO - Get LATEST chromedriver version for google-chrome
+2025-05-05 05:22:15,975 - INFO - Get LATEST chromedriver version for google-chrome
+2025-05-05 05:22:16,026 - INFO - Driver [C:\Users\Rajee\.wdm\drivers\chromedriver\win64\135.0.7049.114\chromedriver-win32/chromedriver.exe] found in cache
+2025-05-05 05:22:18,046 - INFO - Navigating to https://www.nuvamawealth.com/market/stock-market-index/#key-indices
+2025-05-05 05:22:21,825 - INFO - Waiting for page to load...
+2025-05-05 05:22:39,578 - INFO - Refreshed page to get latest data
+2025-05-05 05:22:49,616 - WARNING - Could not click on SECTOR INDICES tab: Message: no such element: Unable to locate element: {"method":"xpath","selector":"//a[text()='SECTOR INDICES']"}
+  (Session info: chrome=135.0.7049.115); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Stacktrace:
+	GetHandleVerifier [0x0120D363+60275]
+	GetHandleVerifier [0x0120D3A4+60340]
+	(No symbol) [0x010406F3]
+	(No symbol) [0x01088690]
+	(No symbol) [0x01088A2B]
+	(No symbol) [0x010D0EE2]
+	(No symbol) [0x010AD0D4]
+	(No symbol) [0x010CE6EB]
+	(No symbol) [0x010ACE86]
+	(No symbol) [0x0107C623]
+	(No symbol) [0x0107D474]
+	GetHandleVerifier [0x01458FE3+2467827]
+	GetHandleVerifier [0x014545E6+2448886]
+	GetHandleVerifier [0x0146F80C+2560028]
+	GetHandleVerifier [0x01223DF5+153093]
+	GetHandleVerifier [0x0122A3BD+179149]
+	GetHandleVerifier [0x01214BB8+91080]
+	GetHandleVerifier [0x01214D60+91504]
+	GetHandleVerifier [0x011FFA10+4640]
+	BaseThreadInitThunk [0x75C9FCC9+25]
+	RtlGetAppContainerNamedObjectPath [0x777082AE+286]
+	RtlGetAppContainerNamedObjectPath [0x7770827E+238]
+
+2025-05-05 05:22:49,636 - WARNING - Could not click on second tab: Message: no such element: Unable to locate element: {"method":"css selector","selector":".tab-links li:nth-child(2) a"}
+  (Session info: chrome=135.0.7049.115); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Stacktrace:
+	GetHandleVerifier [0x0120D363+60275]
+	GetHandleVerifier [0x0120D3A4+60340]
+	(No symbol) [0x010406F3]
+	(No symbol) [0x01088690]
+	(No symbol) [0x01088A2B]
+	(No symbol) [0x010D0EE2]
+	(No symbol) [0x010AD0D4]
+	(No symbol) [0x010CE6EB]
+	(No symbol) [0x010ACE86]
+	(No symbol) [0x0107C623]
+	(No symbol) [0x0107D474]
+	GetHandleVerifier [0x01458FE3+2467827]
+	GetHandleVerifier [0x014545E6+2448886]
+	GetHandleVerifier [0x0146F80C+2560028]
+	GetHandleVerifier [0x01223DF5+153093]
+	GetHandleVerifier [0x0122A3BD+179149]
+	GetHandleVerifier [0x01214BB8+91080]
+	GetHandleVerifier [0x01214D60+91504]
+	GetHandleVerifier [0x011FFA10+4640]
+	BaseThreadInitThunk [0x75C9FCC9+25]
+	RtlGetAppContainerNamedObjectPath [0x777082AE+286]
+	RtlGetAppContainerNamedObjectPath [0x7770827E+238]
+
+2025-05-05 05:22:49,794 - INFO - Saved screenshot of sector tab
+2025-05-05 05:22:49,810 - INFO - Found 6 tables on page
+2025-05-05 05:22:49,810 - INFO - Checking table 1
+2025-05-05 05:22:49,824 - INFO - Checking table 2
+2025-05-05 05:22:49,836 - INFO - Found likely sector table (table #2)
+2025-05-05 05:22:49,909 - WARNING - Could not find percent change for 
+2025-05-05 05:22:49,956 - INFO - Found percent change: 0.0% in '0.00 (0.00%)'
+2025-05-05 05:22:49,957 - INFO - Added sector: Auto, Change: 0.0%
+2025-05-05 05:22:50,008 - INFO - Found percent change: 0.0% in '0.00 (0.00%)'
+2025-05-05 05:22:50,008 - INFO - Added sector: Energy, Change: 0.0%
+2025-05-05 05:22:50,060 - INFO - Found percent change: 0.0% in '0.00 (0.00%)'
+2025-05-05 05:22:50,061 - INFO - Added sector: Financial Services, Change: 0.0%
+2025-05-05 05:22:50,116 - INFO - Found percent change: 0.0% in '0.00 (0.00%)'
+2025-05-05 05:22:50,116 - INFO - Added sector: FMCG, Change: 0.0%
+2025-05-05 05:22:50,164 - INFO - Found percent change: 0.0% in '0.00 (0.00%)'
+2025-05-05 05:22:50,166 - INFO - Added sector: IT, Change: 0.0%
+2025-05-05 05:22:50,226 - INFO - Found percent change: 0.0% in '0.00 (0.00%)'
+2025-05-05 05:22:50,226 - INFO - Added sector: Media, Change: 0.0%
+2025-05-05 05:22:50,286 - INFO - Found percent change: 0.0% in '0.00 (0.00%)'
+2025-05-05 05:22:50,287 - INFO - Added sector: Metal, Change: 0.0%
+2025-05-05 05:22:50,335 - INFO - Found percent change: 0.0% in '0.00 (0.00%)'
+2025-05-05 05:22:50,336 - INFO - Added sector: Pharma, Change: 0.0%
+2025-05-05 05:22:50,383 - INFO - Found percent change: 0.0% in '0.00 (0.00%)'
+2025-05-05 05:22:50,384 - INFO - Added sector: PSU Bank, Change: 0.0%
+2025-05-05 05:22:50,439 - INFO - Found percent change: 0.0% in '0.00 (0.00%)'
+2025-05-05 05:22:50,440 - INFO - Added sector: Realty, Change: 0.0%
+2025-05-05 05:22:53,126 - INFO - Saved sector data to sector.csv
+2025-05-05 05:23:53,556 - INFO - Running Nuvama sector data scraper job at 2025-05-05 05:23:53
+2025-05-05 05:23:53,557 - INFO - Setting up Chrome driver...
+2025-05-05 05:23:53,557 - INFO - ====== WebDriver manager ======
+2025-05-05 05:23:55,783 - INFO - Get LATEST chromedriver version for google-chrome
+2025-05-05 05:23:55,867 - INFO - Get LATEST chromedriver version for google-chrome
+2025-05-05 05:23:55,912 - INFO - Driver [C:\Users\Rajee\.wdm\drivers\chromedriver\win64\135.0.7049.114\chromedriver-win32/chromedriver.exe] found in cache
+2025-05-05 05:23:57,578 - INFO - Navigating to https://www.nuvamawealth.com/market/stock-market-index/#key-indices
+2025-05-05 05:23:58,290 - INFO - Waiting for page to load...
+2025-05-05 05:24:15,543 - INFO - Refreshed page to get latest data
+2025-05-05 05:24:25,573 - WARNING - Could not click on SECTOR INDICES tab: Message: no such element: Unable to locate element: {"method":"xpath","selector":"//a[text()='SECTOR INDICES']"}
+  (Session info: chrome=135.0.7049.115); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Stacktrace:
+	GetHandleVerifier [0x0120D363+60275]
+	GetHandleVerifier [0x0120D3A4+60340]
+	(No symbol) [0x010406F3]
+	(No symbol) [0x01088690]
+	(No symbol) [0x01088A2B]
+	(No symbol) [0x010D0EE2]
+	(No symbol) [0x010AD0D4]
+	(No symbol) [0x010CE6EB]
+	(No symbol) [0x010ACE86]
+	(No symbol) [0x0107C623]
+	(No symbol) [0x0107D474]
+	GetHandleVerifier [0x01458FE3+2467827]
+	GetHandleVerifier [0x014545E6+2448886]
+	GetHandleVerifier [0x0146F80C+2560028]
+	GetHandleVerifier [0x01223DF5+153093]
+	GetHandleVerifier [0x0122A3BD+179149]
+	GetHandleVerifier [0x01214BB8+91080]
+	GetHandleVerifier [0x01214D60+91504]
+	GetHandleVerifier [0x011FFA10+4640]
+	BaseThreadInitThunk [0x75C9FCC9+25]
+	RtlGetAppContainerNamedObjectPath [0x777082AE+286]
+	RtlGetAppContainerNamedObjectPath [0x7770827E+238]
+
+2025-05-05 05:24:25,592 - WARNING - Could not click on second tab: Message: no such element: Unable to locate element: {"method":"css selector","selector":".tab-links li:nth-child(2) a"}
+  (Session info: chrome=135.0.7049.115); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Stacktrace:
+	GetHandleVerifier [0x0120D363+60275]
+	GetHandleVerifier [0x0120D3A4+60340]
+	(No symbol) [0x010406F3]
+	(No symbol) [0x01088690]
+	(No symbol) [0x01088A2B]
+	(No symbol) [0x010D0EE2]
+	(No symbol) [0x010AD0D4]
+	(No symbol) [0x010CE6EB]
+	(No symbol) [0x010ACE86]
+	(No symbol) [0x0107C623]
+	(No symbol) [0x0107D474]
+	GetHandleVerifier [0x01458FE3+2467827]
+	GetHandleVerifier [0x014545E6+2448886]
+	GetHandleVerifier [0x0146F80C+2560028]
+	GetHandleVerifier [0x01223DF5+153093]
+	GetHandleVerifier [0x0122A3BD+179149]
+	GetHandleVerifier [0x01214BB8+91080]
+	GetHandleVerifier [0x01214D60+91504]
+	GetHandleVerifier [0x011FFA10+4640]
+	BaseThreadInitThunk [0x75C9FCC9+25]
+	RtlGetAppContainerNamedObjectPath [0x777082AE+286]
+	RtlGetAppContainerNamedObjectPath [0x7770827E+238]
+
+2025-05-05 05:24:25,751 - INFO - Saved screenshot of sector tab
+2025-05-05 05:24:25,770 - INFO - Found 6 tables on page
+2025-05-05 05:24:25,770 - INFO - Checking table 1
+2025-05-05 05:24:25,784 - INFO - Checking table 2
+2025-05-05 05:24:25,797 - INFO - Found likely sector table (table #2)
+2025-05-05 05:24:25,879 - WARNING - Could not find percent change for 
+2025-05-05 05:24:25,980 - INFO - Found percent change: 0.0% in '0.00 (0.00%)'
+2025-05-05 05:24:25,980 - INFO - Added sector: Auto, Change: 0.0%
+2025-05-05 05:24:26,028 - INFO - Found percent change: 0.0% in '0.00 (0.00%)'
+2025-05-05 05:24:26,029 - INFO - Added sector: Energy, Change: 0.0%
+2025-05-05 05:24:26,076 - INFO - Found percent change: 0.0% in '0.00 (0.00%)'
+2025-05-05 05:24:26,078 - INFO - Added sector: Financial Services, Change: 0.0%
+2025-05-05 05:24:26,126 - INFO - Found percent change: 0.0% in '0.00 (0.00%)'
+2025-05-05 05:24:26,126 - INFO - Added sector: FMCG, Change: 0.0%
+2025-05-05 05:24:26,175 - INFO - Found percent change: 0.0% in '0.00 (0.00%)'
+2025-05-05 05:24:26,175 - INFO - Added sector: IT, Change: 0.0%
+2025-05-05 05:24:26,233 - INFO - Found percent change: 0.0% in '0.00 (0.00%)'
+2025-05-05 05:24:26,234 - INFO - Added sector: Media, Change: 0.0%
+2025-05-05 05:24:26,285 - INFO - Found percent change: 0.0% in '0.00 (0.00%)'
+2025-05-05 05:24:26,285 - INFO - Added sector: Metal, Change: 0.0%
+2025-05-05 05:24:26,334 - INFO - Found percent change: 0.0% in '0.00 (0.00%)'
+2025-05-05 05:24:26,334 - INFO - Added sector: Pharma, Change: 0.0%
+2025-05-05 05:24:26,383 - INFO - Found percent change: 0.0% in '0.00 (0.00%)'
+2025-05-05 05:24:26,384 - INFO - Added sector: PSU Bank, Change: 0.0%
+2025-05-05 05:24:26,432 - INFO - Found percent change: 0.0% in '0.00 (0.00%)'
+2025-05-05 05:24:26,433 - INFO - Added sector: Realty, Change: 0.0%
+2025-05-05 05:24:29,161 - INFO - Saved sector data to sector.csv
+2025-05-05 05:25:29,643 - INFO - Running Nuvama sector data scraper job at 2025-05-05 05:25:29
+2025-05-05 05:25:29,643 - INFO - Setting up Chrome driver...
+2025-05-05 05:25:29,644 - INFO - ====== WebDriver manager ======
+2025-05-05 05:25:31,880 - INFO - Get LATEST chromedriver version for google-chrome
+2025-05-05 05:25:31,934 - INFO - Get LATEST chromedriver version for google-chrome
+2025-05-05 05:25:31,979 - INFO - Driver [C:\Users\Rajee\.wdm\drivers\chromedriver\win64\135.0.7049.114\chromedriver-win32/chromedriver.exe] found in cache
+2025-05-05 05:25:33,741 - INFO - Navigating to https://www.nuvamawealth.com/market/stock-market-index/#key-indices
+2025-05-05 05:25:37,658 - INFO - Waiting for page to load...
+2025-05-05 05:25:55,014 - INFO - Refreshed page to get latest data
+2025-05-05 05:26:05,043 - WARNING - Could not click on SECTOR INDICES tab: Message: no such element: Unable to locate element: {"method":"xpath","selector":"//a[text()='SECTOR INDICES']"}
+  (Session info: chrome=135.0.7049.115); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Stacktrace:
+	GetHandleVerifier [0x0120D363+60275]
+	GetHandleVerifier [0x0120D3A4+60340]
+	(No symbol) [0x010406F3]
+	(No symbol) [0x01088690]
+	(No symbol) [0x01088A2B]
+	(No symbol) [0x010D0EE2]
+	(No symbol) [0x010AD0D4]
+	(No symbol) [0x010CE6EB]
+	(No symbol) [0x010ACE86]
+	(No symbol) [0x0107C623]
+	(No symbol) [0x0107D474]
+	GetHandleVerifier [0x01458FE3+2467827]
+	GetHandleVerifier [0x014545E6+2448886]
+	GetHandleVerifier [0x0146F80C+2560028]
+	GetHandleVerifier [0x01223DF5+153093]
+	GetHandleVerifier [0x0122A3BD+179149]
+	GetHandleVerifier [0x01214BB8+91080]
+	GetHandleVerifier [0x01214D60+91504]
+	GetHandleVerifier [0x011FFA10+4640]
+	BaseThreadInitThunk [0x75C9FCC9+25]
+	RtlGetAppContainerNamedObjectPath [0x777082AE+286]
+	RtlGetAppContainerNamedObjectPath [0x7770827E+238]
+
+2025-05-05 05:26:05,060 - WARNING - Could not click on second tab: Message: no such element: Unable to locate element: {"method":"css selector","selector":".tab-links li:nth-child(2) a"}
+  (Session info: chrome=135.0.7049.115); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Stacktrace:
+	GetHandleVerifier [0x0120D363+60275]
+	GetHandleVerifier [0x0120D3A4+60340]
+	(No symbol) [0x010406F3]
+	(No symbol) [0x01088690]
+	(No symbol) [0x01088A2B]
+	(No symbol) [0x010D0EE2]
+	(No symbol) [0x010AD0D4]
+	(No symbol) [0x010CE6EB]
+	(No symbol) [0x010ACE86]
+	(No symbol) [0x0107C623]
+	(No symbol) [0x0107D474]
+	GetHandleVerifier [0x01458FE3+2467827]
+	GetHandleVerifier [0x014545E6+2448886]
+	GetHandleVerifier [0x0146F80C+2560028]
+	GetHandleVerifier [0x01223DF5+153093]
+	GetHandleVerifier [0x0122A3BD+179149]
+	GetHandleVerifier [0x01214BB8+91080]
+	GetHandleVerifier [0x01214D60+91504]
+	GetHandleVerifier [0x011FFA10+4640]
+	BaseThreadInitThunk [0x75C9FCC9+25]
+	RtlGetAppContainerNamedObjectPath [0x777082AE+286]
+	RtlGetAppContainerNamedObjectPath [0x7770827E+238]
+
+2025-05-05 05:26:05,255 - INFO - Saved screenshot of sector tab
+2025-05-05 05:26:05,269 - INFO - Found 6 tables on page
+2025-05-05 05:26:05,269 - INFO - Checking table 1
+2025-05-05 05:26:05,281 - INFO - Checking table 2
+2025-05-05 05:26:05,289 - INFO - Found likely sector table (table #2)
+2025-05-05 05:26:05,357 - WARNING - Could not find percent change for 
+2025-05-05 05:26:05,417 - INFO - Found percent change: 0.0% in '0.00 (0.00%)'
+2025-05-05 05:26:05,417 - INFO - Added sector: Auto, Change: 0.0%
+2025-05-05 05:26:05,471 - INFO - Found percent change: 0.0% in '0.00 (0.00%)'
+2025-05-05 05:26:05,472 - INFO - Added sector: Energy, Change: 0.0%
+2025-05-05 05:26:05,517 - INFO - Found percent change: 0.0% in '0.00 (0.00%)'
+2025-05-05 05:26:05,517 - INFO - Added sector: Financial Services, Change: 0.0%
+2025-05-05 05:26:05,560 - INFO - Found percent change: 0.0% in '0.00 (0.00%)'
+2025-05-05 05:26:05,560 - INFO - Added sector: FMCG, Change: 0.0%
+2025-05-05 05:26:05,603 - INFO - Found percent change: 0.0% in '0.00 (0.00%)'
+2025-05-05 05:26:05,604 - INFO - Added sector: IT, Change: 0.0%
+2025-05-05 05:26:05,658 - INFO - Found percent change: 0.0% in '0.00 (0.00%)'
+2025-05-05 05:26:05,659 - INFO - Added sector: Media, Change: 0.0%
+2025-05-05 05:26:05,706 - INFO - Found percent change: 0.0% in '0.00 (0.00%)'
+2025-05-05 05:26:05,706 - INFO - Added sector: Metal, Change: 0.0%
+2025-05-05 05:26:05,753 - INFO - Found percent change: 0.0% in '0.00 (0.00%)'
+2025-05-05 05:26:05,753 - INFO - Added sector: Pharma, Change: 0.0%
+2025-05-05 05:26:05,800 - INFO - Found percent change: 0.0% in '0.00 (0.00%)'
+2025-05-05 05:26:05,800 - INFO - Added sector: PSU Bank, Change: 0.0%
+2025-05-05 05:26:05,845 - INFO - Found percent change: 0.0% in '0.00 (0.00%)'
+2025-05-05 05:26:05,845 - INFO - Added sector: Realty, Change: 0.0%
+2025-05-05 05:26:08,353 - INFO - Saved sector data to sector.csv
+2025-05-05 05:27:08,823 - INFO - Running Nuvama sector data scraper job at 2025-05-05 05:27:08
+2025-05-05 05:27:08,824 - INFO - Setting up Chrome driver...
+2025-05-05 05:27:08,825 - INFO - ====== WebDriver manager ======
+2025-05-05 05:27:09,945 - INFO - Get LATEST chromedriver version for google-chrome
+2025-05-05 05:27:09,991 - INFO - Get LATEST chromedriver version for google-chrome
+2025-05-05 05:27:10,029 - INFO - Driver [C:\Users\Rajee\.wdm\drivers\chromedriver\win64\135.0.7049.114\chromedriver-win32/chromedriver.exe] found in cache
+2025-05-05 05:27:11,453 - INFO - Navigating to https://www.nuvamawealth.com/market/stock-market-index/#key-indices
+2025-05-05 05:27:14,709 - INFO - Waiting for page to load...
+2025-05-05 05:27:31,719 - INFO - Refreshed page to get latest data
+2025-05-05 05:27:41,746 - WARNING - Could not click on SECTOR INDICES tab: Message: no such element: Unable to locate element: {"method":"xpath","selector":"//a[text()='SECTOR INDICES']"}
+  (Session info: chrome=135.0.7049.115); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Stacktrace:
+	GetHandleVerifier [0x0120D363+60275]
+	GetHandleVerifier [0x0120D3A4+60340]
+	(No symbol) [0x010406F3]
+	(No symbol) [0x01088690]
+	(No symbol) [0x01088A2B]
+	(No symbol) [0x010D0EE2]
+	(No symbol) [0x010AD0D4]
+	(No symbol) [0x010CE6EB]
+	(No symbol) [0x010ACE86]
+	(No symbol) [0x0107C623]
+	(No symbol) [0x0107D474]
+	GetHandleVerifier [0x01458FE3+2467827]
+	GetHandleVerifier [0x014545E6+2448886]
+	GetHandleVerifier [0x0146F80C+2560028]
+	GetHandleVerifier [0x01223DF5+153093]
+	GetHandleVerifier [0x0122A3BD+179149]
+	GetHandleVerifier [0x01214BB8+91080]
+	GetHandleVerifier [0x01214D60+91504]
+	GetHandleVerifier [0x011FFA10+4640]
+	BaseThreadInitThunk [0x75C9FCC9+25]
+	RtlGetAppContainerNamedObjectPath [0x777082AE+286]
+	RtlGetAppContainerNamedObjectPath [0x7770827E+238]
+
+2025-05-05 05:27:41,765 - WARNING - Could not click on second tab: Message: no such element: Unable to locate element: {"method":"css selector","selector":".tab-links li:nth-child(2) a"}
+  (Session info: chrome=135.0.7049.115); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Stacktrace:
+	GetHandleVerifier [0x0120D363+60275]
+	GetHandleVerifier [0x0120D3A4+60340]
+	(No symbol) [0x010406F3]
+	(No symbol) [0x01088690]
+	(No symbol) [0x01088A2B]
+	(No symbol) [0x010D0EE2]
+	(No symbol) [0x010AD0D4]
+	(No symbol) [0x010CE6EB]
+	(No symbol) [0x010ACE86]
+	(No symbol) [0x0107C623]
+	(No symbol) [0x0107D474]
+	GetHandleVerifier [0x01458FE3+2467827]
+	GetHandleVerifier [0x014545E6+2448886]
+	GetHandleVerifier [0x0146F80C+2560028]
+	GetHandleVerifier [0x01223DF5+153093]
+	GetHandleVerifier [0x0122A3BD+179149]
+	GetHandleVerifier [0x01214BB8+91080]
+	GetHandleVerifier [0x01214D60+91504]
+	GetHandleVerifier [0x011FFA10+4640]
+	BaseThreadInitThunk [0x75C9FCC9+25]
+	RtlGetAppContainerNamedObjectPath [0x777082AE+286]
+	RtlGetAppContainerNamedObjectPath [0x7770827E+238]
+
+2025-05-05 05:27:41,919 - INFO - Saved screenshot of sector tab
+2025-05-05 05:27:41,932 - INFO - Found 6 tables on page
+2025-05-05 05:27:41,932 - INFO - Checking table 1
+2025-05-05 05:27:41,944 - INFO - Checking table 2
+2025-05-05 05:27:41,956 - INFO - Found likely sector table (table #2)
+2025-05-05 05:27:42,026 - WARNING - Could not find percent change for 
+2025-05-05 05:27:42,069 - INFO - Found percent change: 0.0% in '0.00 (0.00%)'
+2025-05-05 05:27:42,069 - INFO - Added sector: Auto, Change: 0.0%
+2025-05-05 05:27:42,114 - INFO - Found percent change: 0.0% in '0.00 (0.00%)'
+2025-05-05 05:27:42,114 - INFO - Added sector: Energy, Change: 0.0%
+2025-05-05 05:27:42,160 - INFO - Found percent change: 0.0% in '0.00 (0.00%)'
+2025-05-05 05:27:42,160 - INFO - Added sector: Financial Services, Change: 0.0%
+2025-05-05 05:27:42,245 - INFO - Found percent change: 0.0% in '0.00 (0.00%)'
+2025-05-05 05:27:42,245 - INFO - Added sector: FMCG, Change: 0.0%
+2025-05-05 05:27:42,295 - INFO - Found percent change: 0.0% in '0.00 (0.00%)'
+2025-05-05 05:27:42,296 - INFO - Added sector: IT, Change: 0.0%
+2025-05-05 05:27:42,336 - INFO - Found percent change: 0.0% in '0.00 (0.00%)'
+2025-05-05 05:27:42,336 - INFO - Added sector: Media, Change: 0.0%
+2025-05-05 05:27:42,381 - INFO - Found percent change: 0.0% in '0.00 (0.00%)'
+2025-05-05 05:27:42,382 - INFO - Added sector: Metal, Change: 0.0%
+2025-05-05 05:27:42,427 - INFO - Found percent change: 0.0% in '0.00 (0.00%)'
+2025-05-05 05:27:42,427 - INFO - Added sector: Pharma, Change: 0.0%
+2025-05-05 05:27:42,467 - INFO - Found percent change: 0.0% in '0.00 (0.00%)'
+2025-05-05 05:27:42,468 - INFO - Added sector: PSU Bank, Change: 0.0%
+2025-05-05 05:27:42,508 - INFO - Found percent change: 0.0% in '0.00 (0.00%)'
+2025-05-05 05:27:42,509 - INFO - Added sector: Realty, Change: 0.0%
+2025-05-05 05:27:45,137 - INFO - Saved sector data to sector.csv
+2025-05-05 05:28:45,648 - INFO - Running Nuvama sector data scraper job at 2025-05-05 05:28:45
+2025-05-05 05:28:45,650 - INFO - Setting up Chrome driver...
+2025-05-05 05:28:45,651 - INFO - ====== WebDriver manager ======
+2025-05-05 05:28:47,020 - INFO - Get LATEST chromedriver version for google-chrome
+2025-05-05 05:28:47,072 - INFO - Get LATEST chromedriver version for google-chrome
+2025-05-05 05:28:47,114 - INFO - Driver [C:\Users\Rajee\.wdm\drivers\chromedriver\win64\135.0.7049.114\chromedriver-win32/chromedriver.exe] found in cache
+2025-05-05 05:28:48,866 - INFO - Navigating to https://www.nuvamawealth.com/market/stock-market-index/#key-indices
+2025-05-05 05:28:49,940 - INFO - Waiting for page to load...
+2025-05-05 05:29:07,597 - INFO - Refreshed page to get latest data
+2025-05-05 05:29:17,631 - WARNING - Could not click on SECTOR INDICES tab: Message: no such element: Unable to locate element: {"method":"xpath","selector":"//a[text()='SECTOR INDICES']"}
+  (Session info: chrome=135.0.7049.115); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Stacktrace:
+	GetHandleVerifier [0x0120D363+60275]
+	GetHandleVerifier [0x0120D3A4+60340]
+	(No symbol) [0x010406F3]
+	(No symbol) [0x01088690]
+	(No symbol) [0x01088A2B]
+	(No symbol) [0x010D0EE2]
+	(No symbol) [0x010AD0D4]
+	(No symbol) [0x010CE6EB]
+	(No symbol) [0x010ACE86]
+	(No symbol) [0x0107C623]
+	(No symbol) [0x0107D474]
+	GetHandleVerifier [0x01458FE3+2467827]
+	GetHandleVerifier [0x014545E6+2448886]
+	GetHandleVerifier [0x0146F80C+2560028]
+	GetHandleVerifier [0x01223DF5+153093]
+	GetHandleVerifier [0x0122A3BD+179149]
+	GetHandleVerifier [0x01214BB8+91080]
+	GetHandleVerifier [0x01214D60+91504]
+	GetHandleVerifier [0x011FFA10+4640]
+	BaseThreadInitThunk [0x75C9FCC9+25]
+	RtlGetAppContainerNamedObjectPath [0x777082AE+286]
+	RtlGetAppContainerNamedObjectPath [0x7770827E+238]
+
+2025-05-05 05:29:17,645 - WARNING - Could not click on second tab: Message: no such element: Unable to locate element: {"method":"css selector","selector":".tab-links li:nth-child(2) a"}
+  (Session info: chrome=135.0.7049.115); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Stacktrace:
+	GetHandleVerifier [0x0120D363+60275]
+	GetHandleVerifier [0x0120D3A4+60340]
+	(No symbol) [0x010406F3]
+	(No symbol) [0x01088690]
+	(No symbol) [0x01088A2B]
+	(No symbol) [0x010D0EE2]
+	(No symbol) [0x010AD0D4]
+	(No symbol) [0x010CE6EB]
+	(No symbol) [0x010ACE86]
+	(No symbol) [0x0107C623]
+	(No symbol) [0x0107D474]
+	GetHandleVerifier [0x01458FE3+2467827]
+	GetHandleVerifier [0x014545E6+2448886]
+	GetHandleVerifier [0x0146F80C+2560028]
+	GetHandleVerifier [0x01223DF5+153093]
+	GetHandleVerifier [0x0122A3BD+179149]
+	GetHandleVerifier [0x01214BB8+91080]
+	GetHandleVerifier [0x01214D60+91504]
+	GetHandleVerifier [0x011FFA10+4640]
+	BaseThreadInitThunk [0x75C9FCC9+25]
+	RtlGetAppContainerNamedObjectPath [0x777082AE+286]
+	RtlGetAppContainerNamedObjectPath [0x7770827E+238]
+
+2025-05-05 05:29:17,819 - INFO - Saved screenshot of sector tab
+2025-05-05 05:29:17,838 - INFO - Found 6 tables on page
+2025-05-05 05:29:17,838 - INFO - Checking table 1
+2025-05-05 05:29:17,852 - INFO - Checking table 2
+2025-05-05 05:29:17,865 - INFO - Found likely sector table (table #2)
+2025-05-05 05:29:18,056 - WARNING - Could not find percent change for 
+2025-05-05 05:29:18,139 - INFO - Found percent change: 0.0% in '0.00 (0.00%)'
+2025-05-05 05:29:18,139 - INFO - Added sector: Auto, Change: 0.0%
+2025-05-05 05:29:18,198 - INFO - Found percent change: 0.0% in '0.00 (0.00%)'
+2025-05-05 05:29:18,199 - INFO - Added sector: Energy, Change: 0.0%
+2025-05-05 05:29:18,256 - INFO - Found percent change: 0.0% in '0.00 (0.00%)'
+2025-05-05 05:29:18,257 - INFO - Added sector: Financial Services, Change: 0.0%
+2025-05-05 05:29:18,316 - INFO - Found percent change: 0.0% in '0.00 (0.00%)'
+2025-05-05 05:29:18,316 - INFO - Added sector: FMCG, Change: 0.0%
+2025-05-05 05:29:18,372 - INFO - Found percent change: 0.0% in '0.00 (0.00%)'
+2025-05-05 05:29:18,373 - INFO - Added sector: IT, Change: 0.0%
+2025-05-05 05:29:18,425 - INFO - Found percent change: 0.0% in '0.00 (0.00%)'
+2025-05-05 05:29:18,425 - INFO - Added sector: Media, Change: 0.0%
+2025-05-05 05:29:18,503 - INFO - Found percent change: 0.0% in '0.00 (0.00%)'
+2025-05-05 05:29:18,503 - INFO - Added sector: Metal, Change: 0.0%
+2025-05-05 05:29:18,563 - INFO - Found percent change: 0.0% in '0.00 (0.00%)'
+2025-05-05 05:29:18,563 - INFO - Added sector: Pharma, Change: 0.0%
+2025-05-05 05:29:18,627 - INFO - Found percent change: 0.0% in '0.00 (0.00%)'
+2025-05-05 05:29:18,628 - INFO - Added sector: PSU Bank, Change: 0.0%
+2025-05-05 05:29:18,700 - INFO - Found percent change: 0.0% in '0.00 (0.00%)'
+2025-05-05 05:29:18,703 - INFO - Added sector: Realty, Change: 0.0%
+2025-05-05 05:29:21,321 - INFO - Saved sector data to sector.csv
+2025-05-05 05:30:21,937 - INFO - Running Nuvama sector data scraper job at 2025-05-05 05:30:21
+2025-05-05 05:30:21,939 - INFO - Setting up Chrome driver...
+2025-05-05 05:30:21,939 - INFO - ====== WebDriver manager ======
+2025-05-05 05:30:23,310 - INFO - Get LATEST chromedriver version for google-chrome
+2025-05-05 05:30:23,368 - INFO - Get LATEST chromedriver version for google-chrome
+2025-05-05 05:30:23,409 - INFO - Driver [C:\Users\Rajee\.wdm\drivers\chromedriver\win64\135.0.7049.114\chromedriver-win32/chromedriver.exe] found in cache
+2025-05-05 05:30:24,860 - INFO - Navigating to https://www.nuvamawealth.com/market/stock-market-index/#key-indices
+2025-05-05 05:30:29,137 - INFO - Waiting for page to load...
+2025-05-05 05:30:47,152 - INFO - Refreshed page to get latest data
+2025-05-05 05:30:57,185 - WARNING - Could not click on SECTOR INDICES tab: Message: no such element: Unable to locate element: {"method":"xpath","selector":"//a[text()='SECTOR INDICES']"}
+  (Session info: chrome=135.0.7049.115); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Stacktrace:
+	GetHandleVerifier [0x0120D363+60275]
+	GetHandleVerifier [0x0120D3A4+60340]
+	(No symbol) [0x010406F3]
+	(No symbol) [0x01088690]
+	(No symbol) [0x01088A2B]
+	(No symbol) [0x010D0EE2]
+	(No symbol) [0x010AD0D4]
+	(No symbol) [0x010CE6EB]
+	(No symbol) [0x010ACE86]
+	(No symbol) [0x0107C623]
+	(No symbol) [0x0107D474]
+	GetHandleVerifier [0x01458FE3+2467827]
+	GetHandleVerifier [0x014545E6+2448886]
+	GetHandleVerifier [0x0146F80C+2560028]
+	GetHandleVerifier [0x01223DF5+153093]
+	GetHandleVerifier [0x0122A3BD+179149]
+	GetHandleVerifier [0x01214BB8+91080]
+	GetHandleVerifier [0x01214D60+91504]
+	GetHandleVerifier [0x011FFA10+4640]
+	BaseThreadInitThunk [0x75C9FCC9+25]
+	RtlGetAppContainerNamedObjectPath [0x777082AE+286]
+	RtlGetAppContainerNamedObjectPath [0x7770827E+238]
+
+2025-05-05 05:30:57,204 - WARNING - Could not click on second tab: Message: no such element: Unable to locate element: {"method":"css selector","selector":".tab-links li:nth-child(2) a"}
+  (Session info: chrome=135.0.7049.115); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Stacktrace:
+	GetHandleVerifier [0x0120D363+60275]
+	GetHandleVerifier [0x0120D3A4+60340]
+	(No symbol) [0x010406F3]
+	(No symbol) [0x01088690]
+	(No symbol) [0x01088A2B]
+	(No symbol) [0x010D0EE2]
+	(No symbol) [0x010AD0D4]
+	(No symbol) [0x010CE6EB]
+	(No symbol) [0x010ACE86]
+	(No symbol) [0x0107C623]
+	(No symbol) [0x0107D474]
+	GetHandleVerifier [0x01458FE3+2467827]
+	GetHandleVerifier [0x014545E6+2448886]
+	GetHandleVerifier [0x0146F80C+2560028]
+	GetHandleVerifier [0x01223DF5+153093]
+	GetHandleVerifier [0x0122A3BD+179149]
+	GetHandleVerifier [0x01214BB8+91080]
+	GetHandleVerifier [0x01214D60+91504]
+	GetHandleVerifier [0x011FFA10+4640]
+	BaseThreadInitThunk [0x75C9FCC9+25]
+	RtlGetAppContainerNamedObjectPath [0x777082AE+286]
+	RtlGetAppContainerNamedObjectPath [0x7770827E+238]
+
+2025-05-05 05:30:57,405 - INFO - Saved screenshot of sector tab
+2025-05-05 05:30:57,418 - INFO - Found 6 tables on page
+2025-05-05 05:30:57,419 - INFO - Checking table 1
+2025-05-05 05:30:57,432 - INFO - Checking table 2
+2025-05-05 05:30:57,443 - INFO - Found likely sector table (table #2)
+2025-05-05 05:30:57,527 - WARNING - Could not find percent change for 
+2025-05-05 05:30:57,569 - INFO - Found percent change: 0.0% in '0.00 (0.00%)'
+2025-05-05 05:30:57,569 - INFO - Added sector: Auto, Change: 0.0%
+2025-05-05 05:30:57,614 - INFO - Found percent change: 0.0% in '0.00 (0.00%)'
+2025-05-05 05:30:57,614 - INFO - Added sector: Energy, Change: 0.0%
+2025-05-05 05:30:57,655 - INFO - Found percent change: 0.0% in '0.00 (0.00%)'
+2025-05-05 05:30:57,655 - INFO - Added sector: Financial Services, Change: 0.0%
+2025-05-05 05:30:57,712 - INFO - Found percent change: 0.0% in '0.00 (0.00%)'
+2025-05-05 05:30:57,712 - INFO - Added sector: FMCG, Change: 0.0%
+2025-05-05 05:30:57,775 - INFO - Found percent change: 0.0% in '0.00 (0.00%)'
+2025-05-05 05:30:57,776 - INFO - Added sector: IT, Change: 0.0%
+2025-05-05 05:30:57,879 - INFO - Found percent change: 0.0% in '0.00 (0.00%)'
+2025-05-05 05:30:57,880 - INFO - Added sector: Media, Change: 0.0%
+2025-05-05 05:30:58,022 - INFO - Found percent change: 0.0% in '0.00 (0.00%)'
+2025-05-05 05:30:58,023 - INFO - Added sector: Metal, Change: 0.0%
+2025-05-05 05:30:58,086 - INFO - Found percent change: 0.0% in '0.00 (0.00%)'
+2025-05-05 05:30:58,086 - INFO - Added sector: Pharma, Change: 0.0%
+2025-05-05 05:30:58,147 - INFO - Found percent change: 0.0% in '0.00 (0.00%)'
+2025-05-05 05:30:58,148 - INFO - Added sector: PSU Bank, Change: 0.0%
+2025-05-05 05:30:58,230 - INFO - Found percent change: 0.0% in '0.00 (0.00%)'
+2025-05-05 05:30:58,231 - INFO - Added sector: Realty, Change: 0.0%
+2025-05-05 05:31:00,751 - INFO - Saved sector data to sector.csv
+2025-05-05 05:32:01,303 - INFO - Running Nuvama sector data scraper job at 2025-05-05 05:32:01
+2025-05-05 05:32:01,304 - INFO - Setting up Chrome driver...
+2025-05-05 05:32:01,305 - INFO - ====== WebDriver manager ======
+2025-05-05 05:32:02,561 - INFO - Get LATEST chromedriver version for google-chrome
+2025-05-05 05:32:02,608 - INFO - Get LATEST chromedriver version for google-chrome
+2025-05-05 05:32:02,645 - INFO - Driver [C:\Users\Rajee\.wdm\drivers\chromedriver\win64\135.0.7049.114\chromedriver-win32/chromedriver.exe] found in cache
+2025-05-05 05:32:04,087 - INFO - Navigating to https://www.nuvamawealth.com/market/stock-market-index/#key-indices
+2025-05-05 05:32:08,446 - INFO - Waiting for page to load...
+2025-05-05 05:32:26,650 - INFO - Refreshed page to get latest data
+2025-05-05 05:32:36,679 - WARNING - Could not click on SECTOR INDICES tab: Message: no such element: Unable to locate element: {"method":"xpath","selector":"//a[text()='SECTOR INDICES']"}
+  (Session info: chrome=135.0.7049.115); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Stacktrace:
+	GetHandleVerifier [0x0120D363+60275]
+	GetHandleVerifier [0x0120D3A4+60340]
+	(No symbol) [0x010406F3]
+	(No symbol) [0x01088690]
+	(No symbol) [0x01088A2B]
+	(No symbol) [0x010D0EE2]
+	(No symbol) [0x010AD0D4]
+	(No symbol) [0x010CE6EB]
+	(No symbol) [0x010ACE86]
+	(No symbol) [0x0107C623]
+	(No symbol) [0x0107D474]
+	GetHandleVerifier [0x01458FE3+2467827]
+	GetHandleVerifier [0x014545E6+2448886]
+	GetHandleVerifier [0x0146F80C+2560028]
+	GetHandleVerifier [0x01223DF5+153093]
+	GetHandleVerifier [0x0122A3BD+179149]
+	GetHandleVerifier [0x01214BB8+91080]
+	GetHandleVerifier [0x01214D60+91504]
+	GetHandleVerifier [0x011FFA10+4640]
+	BaseThreadInitThunk [0x75C9FCC9+25]
+	RtlGetAppContainerNamedObjectPath [0x777082AE+286]
+	RtlGetAppContainerNamedObjectPath [0x7770827E+238]
+
+2025-05-05 05:32:36,699 - WARNING - Could not click on second tab: Message: no such element: Unable to locate element: {"method":"css selector","selector":".tab-links li:nth-child(2) a"}
+  (Session info: chrome=135.0.7049.115); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Stacktrace:
+	GetHandleVerifier [0x0120D363+60275]
+	GetHandleVerifier [0x0120D3A4+60340]
+	(No symbol) [0x010406F3]
+	(No symbol) [0x01088690]
+	(No symbol) [0x01088A2B]
+	(No symbol) [0x010D0EE2]
+	(No symbol) [0x010AD0D4]
+	(No symbol) [0x010CE6EB]
+	(No symbol) [0x010ACE86]
+	(No symbol) [0x0107C623]
+	(No symbol) [0x0107D474]
+	GetHandleVerifier [0x01458FE3+2467827]
+	GetHandleVerifier [0x014545E6+2448886]
+	GetHandleVerifier [0x0146F80C+2560028]
+	GetHandleVerifier [0x01223DF5+153093]
+	GetHandleVerifier [0x0122A3BD+179149]
+	GetHandleVerifier [0x01214BB8+91080]
+	GetHandleVerifier [0x01214D60+91504]
+	GetHandleVerifier [0x011FFA10+4640]
+	BaseThreadInitThunk [0x75C9FCC9+25]
+	RtlGetAppContainerNamedObjectPath [0x777082AE+286]
+	RtlGetAppContainerNamedObjectPath [0x7770827E+238]
+
+2025-05-05 05:32:36,870 - INFO - Saved screenshot of sector tab
+2025-05-05 05:32:36,882 - INFO - Found 6 tables on page
+2025-05-05 05:32:36,882 - INFO - Checking table 1
+2025-05-05 05:32:36,893 - INFO - Checking table 2
+2025-05-05 05:32:36,904 - INFO - Found likely sector table (table #2)
+2025-05-05 05:32:36,970 - WARNING - Could not find percent change for 
+2025-05-05 05:32:37,024 - INFO - Found percent change: 0.0% in '0.00 (0.00%)'
+2025-05-05 05:32:37,025 - INFO - Added sector: Auto, Change: 0.0%
+2025-05-05 05:32:37,070 - INFO - Found percent change: 0.0% in '0.00 (0.00%)'
+2025-05-05 05:32:37,070 - INFO - Added sector: Energy, Change: 0.0%
+2025-05-05 05:32:37,115 - INFO - Found percent change: 0.0% in '0.00 (0.00%)'
+2025-05-05 05:32:37,115 - INFO - Added sector: Financial Services, Change: 0.0%
+2025-05-05 05:32:37,161 - INFO - Found percent change: 0.0% in '0.00 (0.00%)'
+2025-05-05 05:32:37,161 - INFO - Added sector: FMCG, Change: 0.0%
+2025-05-05 05:32:37,208 - INFO - Found percent change: 0.0% in '0.00 (0.00%)'
+2025-05-05 05:32:37,208 - INFO - Added sector: IT, Change: 0.0%
+2025-05-05 05:32:37,256 - INFO - Found percent change: 0.0% in '0.00 (0.00%)'
+2025-05-05 05:32:37,257 - INFO - Added sector: Media, Change: 0.0%
+2025-05-05 05:32:37,307 - INFO - Found percent change: 0.0% in '0.00 (0.00%)'
+2025-05-05 05:32:37,307 - INFO - Added sector: Metal, Change: 0.0%
+2025-05-05 05:32:37,361 - INFO - Found percent change: 0.0% in '0.00 (0.00%)'
+2025-05-05 05:32:37,362 - INFO - Added sector: Pharma, Change: 0.0%
+2025-05-05 05:32:37,406 - INFO - Found percent change: 0.0% in '0.00 (0.00%)'
+2025-05-05 05:32:37,406 - INFO - Added sector: PSU Bank, Change: 0.0%
+2025-05-05 05:32:37,448 - INFO - Found percent change: 0.0% in '0.00 (0.00%)'
+2025-05-05 05:32:37,448 - INFO - Added sector: Realty, Change: 0.0%
+2025-05-05 05:32:39,969 - INFO - Saved sector data to sector.csv
+2025-05-05 05:33:40,518 - INFO - Running Nuvama sector data scraper job at 2025-05-05 05:33:40
+2025-05-05 05:33:40,519 - INFO - Setting up Chrome driver...
+2025-05-05 05:33:40,520 - INFO - ====== WebDriver manager ======
+2025-05-05 05:33:41,703 - INFO - Get LATEST chromedriver version for google-chrome
+2025-05-05 05:33:41,749 - INFO - Get LATEST chromedriver version for google-chrome
+2025-05-05 05:33:41,789 - INFO - Driver [C:\Users\Rajee\.wdm\drivers\chromedriver\win64\135.0.7049.114\chromedriver-win32/chromedriver.exe] found in cache
+2025-05-05 05:33:43,400 - INFO - Navigating to https://www.nuvamawealth.com/market/stock-market-index/#key-indices
+2025-05-05 05:33:47,386 - INFO - Waiting for page to load...
+2025-05-05 05:34:04,452 - INFO - Refreshed page to get latest data
+2025-05-05 05:34:14,476 - WARNING - Could not click on SECTOR INDICES tab: Message: no such element: Unable to locate element: {"method":"xpath","selector":"//a[text()='SECTOR INDICES']"}
+  (Session info: chrome=135.0.7049.115); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Stacktrace:
+	GetHandleVerifier [0x0120D363+60275]
+	GetHandleVerifier [0x0120D3A4+60340]
+	(No symbol) [0x010406F3]
+	(No symbol) [0x01088690]
+	(No symbol) [0x01088A2B]
+	(No symbol) [0x010D0EE2]
+	(No symbol) [0x010AD0D4]
+	(No symbol) [0x010CE6EB]
+	(No symbol) [0x010ACE86]
+	(No symbol) [0x0107C623]
+	(No symbol) [0x0107D474]
+	GetHandleVerifier [0x01458FE3+2467827]
+	GetHandleVerifier [0x014545E6+2448886]
+	GetHandleVerifier [0x0146F80C+2560028]
+	GetHandleVerifier [0x01223DF5+153093]
+	GetHandleVerifier [0x0122A3BD+179149]
+	GetHandleVerifier [0x01214BB8+91080]
+	GetHandleVerifier [0x01214D60+91504]
+	GetHandleVerifier [0x011FFA10+4640]
+	BaseThreadInitThunk [0x75C9FCC9+25]
+	RtlGetAppContainerNamedObjectPath [0x777082AE+286]
+	RtlGetAppContainerNamedObjectPath [0x7770827E+238]
+
+2025-05-05 05:34:14,498 - WARNING - Could not click on second tab: Message: no such element: Unable to locate element: {"method":"css selector","selector":".tab-links li:nth-child(2) a"}
+  (Session info: chrome=135.0.7049.115); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Stacktrace:
+	GetHandleVerifier [0x0120D363+60275]
+	GetHandleVerifier [0x0120D3A4+60340]
+	(No symbol) [0x010406F3]
+	(No symbol) [0x01088690]
+	(No symbol) [0x01088A2B]
+	(No symbol) [0x010D0EE2]
+	(No symbol) [0x010AD0D4]
+	(No symbol) [0x010CE6EB]
+	(No symbol) [0x010ACE86]
+	(No symbol) [0x0107C623]
+	(No symbol) [0x0107D474]
+	GetHandleVerifier [0x01458FE3+2467827]
+	GetHandleVerifier [0x014545E6+2448886]
+	GetHandleVerifier [0x0146F80C+2560028]
+	GetHandleVerifier [0x01223DF5+153093]
+	GetHandleVerifier [0x0122A3BD+179149]
+	GetHandleVerifier [0x01214BB8+91080]
+	GetHandleVerifier [0x01214D60+91504]
+	GetHandleVerifier [0x011FFA10+4640]
+	BaseThreadInitThunk [0x75C9FCC9+25]
+	RtlGetAppContainerNamedObjectPath [0x777082AE+286]
+	RtlGetAppContainerNamedObjectPath [0x7770827E+238]
+
+2025-05-05 05:34:14,653 - INFO - Saved screenshot of sector tab
+2025-05-05 05:34:14,668 - INFO - Found 6 tables on page
+2025-05-05 05:34:14,668 - INFO - Checking table 1
+2025-05-05 05:34:14,679 - INFO - Checking table 2
+2025-05-05 05:34:14,690 - INFO - Found likely sector table (table #2)
+2025-05-05 05:34:14,811 - WARNING - Could not find percent change for 
+2025-05-05 05:34:14,856 - INFO - Found percent change: 1.02% in '226.40 (1.02%)'
+2025-05-05 05:34:14,857 - INFO - Added sector: Auto, Change: 1.02%
+2025-05-05 05:34:14,907 - INFO - Found percent change: 0.73% in '249.00 (0.73%)'
+2025-05-05 05:34:14,907 - INFO - Added sector: Energy, Change: 0.73%
+2025-05-05 05:34:14,958 - INFO - Found percent change: 0.2% in '52.25 (0.20%)'
+2025-05-05 05:34:14,959 - INFO - Added sector: Financial Services, Change: 0.2%
+2025-05-05 05:34:15,004 - INFO - Found percent change: 1.09% in '612.75 (1.09%)'
+2025-05-05 05:34:15,004 - INFO - Added sector: FMCG, Change: 1.09%
+2025-05-05 05:34:15,050 - INFO - Found percent change: 1.26% in '452.00 (1.26%)'
+2025-05-05 05:34:15,051 - INFO - Added sector: IT, Change: 1.26%
+2025-05-05 05:34:15,100 - INFO - Found percent change: 0.4% in '6.05 (0.40%)'
+2025-05-05 05:34:15,100 - INFO - Added sector: Media, Change: 0.4%
+2025-05-05 05:34:15,156 - INFO - Found percent change: 0.74% in '62.80 (0.74%)'
+2025-05-05 05:34:15,156 - INFO - Added sector: Metal, Change: 0.74%
+2025-05-05 05:34:15,209 - INFO - Found percent change: 0.41% in '89.10 (0.41%)'
+2025-05-05 05:34:15,209 - INFO - Added sector: Pharma, Change: 0.41%
+2025-05-05 05:34:15,256 - INFO - Found percent change: 0.03% in '1.90 (0.03%)'
+2025-05-05 05:34:15,257 - INFO - Added sector: PSU Bank, Change: 0.03%
+2025-05-05 05:34:15,303 - INFO - Found percent change: -0.13% in '-1.15 (-0.13%)'
+2025-05-05 05:34:15,303 - INFO - Added sector: Realty, Change: -0.13%
+2025-05-05 05:34:17,970 - INFO - Saved sector data to sector.csv
+2025-05-05 05:35:18,504 - INFO - Running Nuvama sector data scraper job at 2025-05-05 05:35:18
+2025-05-05 05:35:18,523 - INFO - Setting up Chrome driver...
+2025-05-05 05:35:18,529 - INFO - ====== WebDriver manager ======
+2025-05-05 05:35:19,694 - INFO - Get LATEST chromedriver version for google-chrome
+2025-05-05 05:35:19,738 - INFO - Get LATEST chromedriver version for google-chrome
+2025-05-05 05:35:19,785 - INFO - Driver [C:\Users\Rajee\.wdm\drivers\chromedriver\win64\135.0.7049.114\chromedriver-win32/chromedriver.exe] found in cache
+2025-05-05 05:35:21,319 - INFO - Navigating to https://www.nuvamawealth.com/market/stock-market-index/#key-indices
+2025-05-05 05:35:25,822 - INFO - Waiting for page to load...
+2025-05-05 05:35:43,096 - INFO - Refreshed page to get latest data
+2025-05-05 05:35:53,120 - WARNING - Could not click on SECTOR INDICES tab: Message: no such element: Unable to locate element: {"method":"xpath","selector":"//a[text()='SECTOR INDICES']"}
+  (Session info: chrome=135.0.7049.115); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Stacktrace:
+	GetHandleVerifier [0x0120D363+60275]
+	GetHandleVerifier [0x0120D3A4+60340]
+	(No symbol) [0x010406F3]
+	(No symbol) [0x01088690]
+	(No symbol) [0x01088A2B]
+	(No symbol) [0x010D0EE2]
+	(No symbol) [0x010AD0D4]
+	(No symbol) [0x010CE6EB]
+	(No symbol) [0x010ACE86]
+	(No symbol) [0x0107C623]
+	(No symbol) [0x0107D474]
+	GetHandleVerifier [0x01458FE3+2467827]
+	GetHandleVerifier [0x014545E6+2448886]
+	GetHandleVerifier [0x0146F80C+2560028]
+	GetHandleVerifier [0x01223DF5+153093]
+	GetHandleVerifier [0x0122A3BD+179149]
+	GetHandleVerifier [0x01214BB8+91080]
+	GetHandleVerifier [0x01214D60+91504]
+	GetHandleVerifier [0x011FFA10+4640]
+	BaseThreadInitThunk [0x75C9FCC9+25]
+	RtlGetAppContainerNamedObjectPath [0x777082AE+286]
+	RtlGetAppContainerNamedObjectPath [0x7770827E+238]
+
+2025-05-05 05:35:53,140 - WARNING - Could not click on second tab: Message: no such element: Unable to locate element: {"method":"css selector","selector":".tab-links li:nth-child(2) a"}
+  (Session info: chrome=135.0.7049.115); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Stacktrace:
+	GetHandleVerifier [0x0120D363+60275]
+	GetHandleVerifier [0x0120D3A4+60340]
+	(No symbol) [0x010406F3]
+	(No symbol) [0x01088690]
+	(No symbol) [0x01088A2B]
+	(No symbol) [0x010D0EE2]
+	(No symbol) [0x010AD0D4]
+	(No symbol) [0x010CE6EB]
+	(No symbol) [0x010ACE86]
+	(No symbol) [0x0107C623]
+	(No symbol) [0x0107D474]
+	GetHandleVerifier [0x01458FE3+2467827]
+	GetHandleVerifier [0x014545E6+2448886]
+	GetHandleVerifier [0x0146F80C+2560028]
+	GetHandleVerifier [0x01223DF5+153093]
+	GetHandleVerifier [0x0122A3BD+179149]
+	GetHandleVerifier [0x01214BB8+91080]
+	GetHandleVerifier [0x01214D60+91504]
+	GetHandleVerifier [0x011FFA10+4640]
+	BaseThreadInitThunk [0x75C9FCC9+25]
+	RtlGetAppContainerNamedObjectPath [0x777082AE+286]
+	RtlGetAppContainerNamedObjectPath [0x7770827E+238]
+
+2025-05-05 05:35:53,348 - INFO - Saved screenshot of sector tab
+2025-05-05 05:35:53,369 - INFO - Found 6 tables on page
+2025-05-05 05:35:53,369 - INFO - Checking table 1
+2025-05-05 05:35:53,383 - INFO - Checking table 2
+2025-05-05 05:35:53,396 - INFO - Found likely sector table (table #2)
+2025-05-05 05:35:53,499 - WARNING - Could not find percent change for 
+2025-05-05 05:35:53,565 - INFO - Found percent change: 1.02% in '226.40 (1.02%)'
+2025-05-05 05:35:53,566 - INFO - Added sector: Auto, Change: 1.02%
+2025-05-05 05:35:53,612 - INFO - Found percent change: 0.73% in '249.00 (0.73%)'
+2025-05-05 05:35:53,612 - INFO - Added sector: Energy, Change: 0.73%
+2025-05-05 05:35:53,653 - INFO - Found percent change: 0.2% in '52.25 (0.20%)'
+2025-05-05 05:35:53,654 - INFO - Added sector: Financial Services, Change: 0.2%
+2025-05-05 05:35:53,698 - INFO - Found percent change: 1.09% in '612.75 (1.09%)'
+2025-05-05 05:35:53,698 - INFO - Added sector: FMCG, Change: 1.09%
+2025-05-05 05:35:53,741 - INFO - Found percent change: 1.26% in '452.00 (1.26%)'
+2025-05-05 05:35:53,741 - INFO - Added sector: IT, Change: 1.26%
+2025-05-05 05:35:53,785 - INFO - Found percent change: 0.4% in '6.05 (0.40%)'
+2025-05-05 05:35:53,785 - INFO - Added sector: Media, Change: 0.4%
+2025-05-05 05:35:53,825 - INFO - Found percent change: 0.74% in '62.80 (0.74%)'
+2025-05-05 05:35:53,825 - INFO - Added sector: Metal, Change: 0.74%
+2025-05-05 05:35:53,870 - INFO - Found percent change: 0.41% in '89.10 (0.41%)'
+2025-05-05 05:35:53,871 - INFO - Added sector: Pharma, Change: 0.41%
+2025-05-05 05:35:53,915 - INFO - Found percent change: 0.03% in '1.90 (0.03%)'
+2025-05-05 05:35:53,915 - INFO - Added sector: PSU Bank, Change: 0.03%
+2025-05-05 05:35:53,956 - INFO - Found percent change: -0.13% in '-1.15 (-0.13%)'
+2025-05-05 05:35:53,957 - INFO - Added sector: Realty, Change: -0.13%
+2025-05-05 05:35:56,622 - INFO - Saved sector data to sector.csv
+2025-05-05 05:36:32,072 - INFO - Scraper stopped by user
+2025-05-06 05:00:07,108 - INFO - Starting Nuvama sector data scraper with 30-minute refresh
+2025-05-06 05:00:07,109 - INFO - Running Nuvama sector data scraper job at 2025-05-06 05:00:07
+2025-05-06 05:00:07,110 - INFO - Setting up Chrome driver...
+2025-05-06 05:00:07,110 - INFO - ====== WebDriver manager ======
+2025-05-06 05:00:10,527 - INFO - Get LATEST chromedriver version for google-chrome
+2025-05-06 05:00:10,649 - INFO - Get LATEST chromedriver version for google-chrome
+2025-05-06 05:00:10,695 - INFO - Get LATEST chromedriver version for google-chrome
+2025-05-06 05:00:10,822 - INFO - WebDriver version 135.0.7049.114 selected
+2025-05-06 05:00:10,827 - INFO - Modern chrome version https://storage.googleapis.com/chrome-for-testing-public/135.0.7049.114/win32/chromedriver-win32.zip
+2025-05-06 05:00:10,827 - INFO - About to download new driver from https://storage.googleapis.com/chrome-for-testing-public/135.0.7049.114/win32/chromedriver-win32.zip
+2025-05-06 05:00:10,892 - INFO - Driver downloading response is 200
+2025-05-06 05:00:11,190 - INFO - Get LATEST chromedriver version for google-chrome
+2025-05-06 05:00:11,425 - INFO - Driver has been saved in cache [C:\Users\Rajee\.wdm\drivers\chromedriver\win64\135.0.7049.114]
+2025-05-06 05:00:15,498 - INFO - Navigating to https://www.nuvamawealth.com/market/stock-market-index/#key-indices
+2025-05-06 05:00:21,135 - INFO - Waiting for page to load...
+2025-05-06 05:00:38,335 - INFO - Refreshed page to get latest data
+2025-05-06 05:00:48,363 - WARNING - Could not click on SECTOR INDICES tab: Message: no such element: Unable to locate element: {"method":"xpath","selector":"//a[text()='SECTOR INDICES']"}
+  (Session info: chrome=135.0.7049.115); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Stacktrace:
+	GetHandleVerifier [0x002BD363+60275]
+	GetHandleVerifier [0x002BD3A4+60340]
+	(No symbol) [0x000F06F3]
+	(No symbol) [0x00138690]
+	(No symbol) [0x00138A2B]
+	(No symbol) [0x00180EE2]
+	(No symbol) [0x0015D0D4]
+	(No symbol) [0x0017E6EB]
+	(No symbol) [0x0015CE86]
+	(No symbol) [0x0012C623]
+	(No symbol) [0x0012D474]
+	GetHandleVerifier [0x00508FE3+2467827]
+	GetHandleVerifier [0x005045E6+2448886]
+	GetHandleVerifier [0x0051F80C+2560028]
+	GetHandleVerifier [0x002D3DF5+153093]
+	GetHandleVerifier [0x002DA3BD+179149]
+	GetHandleVerifier [0x002C4BB8+91080]
+	GetHandleVerifier [0x002C4D60+91504]
+	GetHandleVerifier [0x002AFA10+4640]
+	BaseThreadInitThunk [0x75C9FCC9+25]
+	RtlGetAppContainerNamedObjectPath [0x777082AE+286]
+	RtlGetAppContainerNamedObjectPath [0x7770827E+238]
+	(No symbol) [0x00000000]
+
+2025-05-06 05:00:48,384 - WARNING - Could not click on second tab: Message: no such element: Unable to locate element: {"method":"css selector","selector":".tab-links li:nth-child(2) a"}
+  (Session info: chrome=135.0.7049.115); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Stacktrace:
+	GetHandleVerifier [0x002BD363+60275]
+	GetHandleVerifier [0x002BD3A4+60340]
+	(No symbol) [0x000F06F3]
+	(No symbol) [0x00138690]
+	(No symbol) [0x00138A2B]
+	(No symbol) [0x00180EE2]
+	(No symbol) [0x0015D0D4]
+	(No symbol) [0x0017E6EB]
+	(No symbol) [0x0015CE86]
+	(No symbol) [0x0012C623]
+	(No symbol) [0x0012D474]
+	GetHandleVerifier [0x00508FE3+2467827]
+	GetHandleVerifier [0x005045E6+2448886]
+	GetHandleVerifier [0x0051F80C+2560028]
+	GetHandleVerifier [0x002D3DF5+153093]
+	GetHandleVerifier [0x002DA3BD+179149]
+	GetHandleVerifier [0x002C4BB8+91080]
+	GetHandleVerifier [0x002C4D60+91504]
+	GetHandleVerifier [0x002AFA10+4640]
+	BaseThreadInitThunk [0x75C9FCC9+25]
+	RtlGetAppContainerNamedObjectPath [0x777082AE+286]
+	RtlGetAppContainerNamedObjectPath [0x7770827E+238]
+	(No symbol) [0x00000000]
+
+2025-05-06 05:00:49,040 - INFO - Saved screenshot of sector tab
+2025-05-06 05:00:49,063 - INFO - Found 6 tables on page
+2025-05-06 05:00:49,063 - INFO - Checking table 1
+2025-05-06 05:00:49,229 - INFO - Checking table 2
+2025-05-06 05:00:49,238 - INFO - Found likely sector table (table #2)
+2025-05-06 05:00:49,330 - WARNING - Could not find percent change for 
+2025-05-06 05:00:49,391 - INFO - Found percent change: 1.85% in '412.70 (1.85%)'
+2025-05-06 05:00:49,392 - INFO - Added sector: Auto, Change: 1.85%
+2025-05-06 05:00:49,448 - INFO - Found percent change: 1.3% in '444.85 (1.30%)'
+2025-05-06 05:00:49,448 - INFO - Added sector: Energy, Change: 1.3%
+2025-05-06 05:00:49,505 - INFO - Found percent change: 0.05% in '13.15 (0.05%)'
+2025-05-06 05:00:49,505 - INFO - Added sector: Financial Services, Change: 0.05%
+2025-05-06 05:00:49,565 - INFO - Found percent change: 1.22% in '683.95 (1.22%)'
+2025-05-06 05:00:49,566 - INFO - Added sector: FMCG, Change: 1.22%
+2025-05-06 05:00:49,634 - INFO - Found percent change: 0.28% in '99.40 (0.28%)'
+2025-05-06 05:00:49,635 - INFO - Added sector: IT, Change: 0.28%
+2025-05-06 05:00:49,695 - INFO - Found percent change: 0.64% in '9.75 (0.64%)'
+2025-05-06 05:00:49,696 - INFO - Added sector: Media, Change: 0.64%
+2025-05-06 05:00:49,761 - INFO - Found percent change: 0.96% in '81.75 (0.96%)'
+2025-05-06 05:00:49,762 - INFO - Added sector: Metal, Change: 0.96%
+2025-05-06 05:00:49,821 - INFO - Found percent change: 0.69% in '148.30 (0.69%)'
+2025-05-06 05:00:49,822 - INFO - Added sector: Pharma, Change: 0.69%
+2025-05-06 05:00:49,891 - INFO - Found percent change: -0.04% in '-2.35 (-0.04%)'
+2025-05-06 05:00:49,892 - INFO - Added sector: PSU Bank, Change: -0.04%
+2025-05-06 05:00:49,960 - INFO - Found percent change: 0.66% in '5.80 (0.66%)'
+2025-05-06 05:00:49,960 - INFO - Added sector: Realty, Change: 0.66%
+2025-05-06 05:00:52,944 - INFO - Saved sector data to sector.csv
+2025-05-06 05:01:53,521 - INFO - Running Nuvama sector data scraper job at 2025-05-06 05:01:53
+2025-05-06 05:01:53,521 - INFO - Setting up Chrome driver...
+2025-05-06 05:01:53,522 - INFO - ====== WebDriver manager ======
+2025-05-06 05:01:54,880 - INFO - Get LATEST chromedriver version for google-chrome
+2025-05-06 05:01:54,935 - INFO - Get LATEST chromedriver version for google-chrome
+2025-05-06 05:01:54,982 - INFO - Driver [C:\Users\Rajee\.wdm\drivers\chromedriver\win64\135.0.7049.114\chromedriver-win32/chromedriver.exe] found in cache
+2025-05-06 05:01:56,750 - INFO - Navigating to https://www.nuvamawealth.com/market/stock-market-index/#key-indices
+2025-05-06 05:02:01,208 - INFO - Waiting for page to load...
+2025-05-06 05:02:20,590 - INFO - Refreshed page to get latest data
+2025-05-06 05:02:30,613 - WARNING - Could not click on SECTOR INDICES tab: Message: no such element: Unable to locate element: {"method":"xpath","selector":"//a[text()='SECTOR INDICES']"}
+  (Session info: chrome=135.0.7049.115); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Stacktrace:
+	GetHandleVerifier [0x002BD363+60275]
+	GetHandleVerifier [0x002BD3A4+60340]
+	(No symbol) [0x000F06F3]
+	(No symbol) [0x00138690]
+	(No symbol) [0x00138A2B]
+	(No symbol) [0x00180EE2]
+	(No symbol) [0x0015D0D4]
+	(No symbol) [0x0017E6EB]
+	(No symbol) [0x0015CE86]
+	(No symbol) [0x0012C623]
+	(No symbol) [0x0012D474]
+	GetHandleVerifier [0x00508FE3+2467827]
+	GetHandleVerifier [0x005045E6+2448886]
+	GetHandleVerifier [0x0051F80C+2560028]
+	GetHandleVerifier [0x002D3DF5+153093]
+	GetHandleVerifier [0x002DA3BD+179149]
+	GetHandleVerifier [0x002C4BB8+91080]
+	GetHandleVerifier [0x002C4D60+91504]
+	GetHandleVerifier [0x002AFA10+4640]
+	BaseThreadInitThunk [0x75C9FCC9+25]
+	RtlGetAppContainerNamedObjectPath [0x777082AE+286]
+	RtlGetAppContainerNamedObjectPath [0x7770827E+238]
+	(No symbol) [0x00000000]
+
+2025-05-06 05:02:30,633 - WARNING - Could not click on second tab: Message: no such element: Unable to locate element: {"method":"css selector","selector":".tab-links li:nth-child(2) a"}
+  (Session info: chrome=135.0.7049.115); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Stacktrace:
+	GetHandleVerifier [0x002BD363+60275]
+	GetHandleVerifier [0x002BD3A4+60340]
+	(No symbol) [0x000F06F3]
+	(No symbol) [0x00138690]
+	(No symbol) [0x00138A2B]
+	(No symbol) [0x00180EE2]
+	(No symbol) [0x0015D0D4]
+	(No symbol) [0x0017E6EB]
+	(No symbol) [0x0015CE86]
+	(No symbol) [0x0012C623]
+	(No symbol) [0x0012D474]
+	GetHandleVerifier [0x00508FE3+2467827]
+	GetHandleVerifier [0x005045E6+2448886]
+	GetHandleVerifier [0x0051F80C+2560028]
+	GetHandleVerifier [0x002D3DF5+153093]
+	GetHandleVerifier [0x002DA3BD+179149]
+	GetHandleVerifier [0x002C4BB8+91080]
+	GetHandleVerifier [0x002C4D60+91504]
+	GetHandleVerifier [0x002AFA10+4640]
+	BaseThreadInitThunk [0x75C9FCC9+25]
+	RtlGetAppContainerNamedObjectPath [0x777082AE+286]
+	RtlGetAppContainerNamedObjectPath [0x7770827E+238]
+	(No symbol) [0x00000000]
+
+2025-05-06 05:02:30,886 - INFO - Saved screenshot of sector tab
+2025-05-06 05:02:30,905 - INFO - Found 6 tables on page
+2025-05-06 05:02:30,906 - INFO - Checking table 1
+2025-05-06 05:02:30,922 - INFO - Checking table 2
+2025-05-06 05:02:30,936 - INFO - Found likely sector table (table #2)
+2025-05-06 05:02:31,029 - WARNING - Could not find percent change for 
+2025-05-06 05:02:31,094 - INFO - Found percent change: 1.85% in '412.70 (1.85%)'
+2025-05-06 05:02:31,095 - INFO - Added sector: Auto, Change: 1.85%
+2025-05-06 05:02:31,162 - INFO - Found percent change: 1.3% in '444.85 (1.30%)'
+2025-05-06 05:02:31,162 - INFO - Added sector: Energy, Change: 1.3%
+2025-05-06 05:02:31,229 - INFO - Found percent change: 0.05% in '13.15 (0.05%)'
+2025-05-06 05:02:31,229 - INFO - Added sector: Financial Services, Change: 0.05%
+2025-05-06 05:02:31,305 - INFO - Found percent change: 1.22% in '683.95 (1.22%)'
+2025-05-06 05:02:31,307 - INFO - Added sector: FMCG, Change: 1.22%
+2025-05-06 05:02:31,379 - INFO - Found percent change: 0.28% in '99.40 (0.28%)'
+2025-05-06 05:02:31,381 - INFO - Added sector: IT, Change: 0.28%
+2025-05-06 05:02:31,457 - INFO - Found percent change: 0.64% in '9.75 (0.64%)'
+2025-05-06 05:02:31,457 - INFO - Added sector: Media, Change: 0.64%
+2025-05-06 05:02:31,532 - INFO - Found percent change: 0.96% in '81.75 (0.96%)'
+2025-05-06 05:02:31,532 - INFO - Added sector: Metal, Change: 0.96%
+2025-05-06 05:02:31,606 - INFO - Found percent change: 0.69% in '148.30 (0.69%)'
+2025-05-06 05:02:31,607 - INFO - Added sector: Pharma, Change: 0.69%
+2025-05-06 05:02:31,695 - INFO - Found percent change: -0.04% in '-2.35 (-0.04%)'
+2025-05-06 05:02:31,697 - INFO - Added sector: PSU Bank, Change: -0.04%
+2025-05-06 05:02:31,768 - INFO - Found percent change: 0.66% in '5.80 (0.66%)'
+2025-05-06 05:02:31,769 - INFO - Added sector: Realty, Change: 0.66%
+2025-05-06 05:02:34,487 - INFO - Saved sector data to sector.csv
+2025-05-06 05:03:35,289 - INFO - Running Nuvama sector data scraper job at 2025-05-06 05:03:35
+2025-05-06 05:03:35,290 - INFO - Setting up Chrome driver...
+2025-05-06 05:03:35,290 - INFO - ====== WebDriver manager ======
+2025-05-06 05:03:37,844 - INFO - Get LATEST chromedriver version for google-chrome
+2025-05-06 05:03:37,896 - INFO - Get LATEST chromedriver version for google-chrome
+2025-05-06 05:03:37,953 - INFO - Driver [C:\Users\Rajee\.wdm\drivers\chromedriver\win64\135.0.7049.114\chromedriver-win32/chromedriver.exe] found in cache
+2025-05-06 05:03:42,373 - INFO - Navigating to https://www.nuvamawealth.com/market/stock-market-index/#key-indices
+2025-05-06 05:03:50,000 - INFO - Waiting for page to load...
+2025-05-06 05:04:07,865 - INFO - Refreshed page to get latest data
+2025-05-06 05:04:17,903 - WARNING - Could not click on SECTOR INDICES tab: Message: no such element: Unable to locate element: {"method":"xpath","selector":"//a[text()='SECTOR INDICES']"}
+  (Session info: chrome=135.0.7049.115); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Stacktrace:
+	GetHandleVerifier [0x002BD363+60275]
+	GetHandleVerifier [0x002BD3A4+60340]
+	(No symbol) [0x000F06F3]
+	(No symbol) [0x00138690]
+	(No symbol) [0x00138A2B]
+	(No symbol) [0x00180EE2]
+	(No symbol) [0x0015D0D4]
+	(No symbol) [0x0017E6EB]
+	(No symbol) [0x0015CE86]
+	(No symbol) [0x0012C623]
+	(No symbol) [0x0012D474]
+	GetHandleVerifier [0x00508FE3+2467827]
+	GetHandleVerifier [0x005045E6+2448886]
+	GetHandleVerifier [0x0051F80C+2560028]
+	GetHandleVerifier [0x002D3DF5+153093]
+	GetHandleVerifier [0x002DA3BD+179149]
+	GetHandleVerifier [0x002C4BB8+91080]
+	GetHandleVerifier [0x002C4D60+91504]
+	GetHandleVerifier [0x002AFA10+4640]
+	BaseThreadInitThunk [0x75C9FCC9+25]
+	RtlGetAppContainerNamedObjectPath [0x777082AE+286]
+	RtlGetAppContainerNamedObjectPath [0x7770827E+238]
+	(No symbol) [0x00000000]
+
+2025-05-06 05:04:17,928 - WARNING - Could not click on second tab: Message: no such element: Unable to locate element: {"method":"css selector","selector":".tab-links li:nth-child(2) a"}
+  (Session info: chrome=135.0.7049.115); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Stacktrace:
+	GetHandleVerifier [0x002BD363+60275]
+	GetHandleVerifier [0x002BD3A4+60340]
+	(No symbol) [0x000F06F3]
+	(No symbol) [0x00138690]
+	(No symbol) [0x00138A2B]
+	(No symbol) [0x00180EE2]
+	(No symbol) [0x0015D0D4]
+	(No symbol) [0x0017E6EB]
+	(No symbol) [0x0015CE86]
+	(No symbol) [0x0012C623]
+	(No symbol) [0x0012D474]
+	GetHandleVerifier [0x00508FE3+2467827]
+	GetHandleVerifier [0x005045E6+2448886]
+	GetHandleVerifier [0x0051F80C+2560028]
+	GetHandleVerifier [0x002D3DF5+153093]
+	GetHandleVerifier [0x002DA3BD+179149]
+	GetHandleVerifier [0x002C4BB8+91080]
+	GetHandleVerifier [0x002C4D60+91504]
+	GetHandleVerifier [0x002AFA10+4640]
+	BaseThreadInitThunk [0x75C9FCC9+25]
+	RtlGetAppContainerNamedObjectPath [0x777082AE+286]
+	RtlGetAppContainerNamedObjectPath [0x7770827E+238]
+	(No symbol) [0x00000000]
+
+2025-05-06 05:04:18,894 - INFO - Saved screenshot of sector tab
+2025-05-06 05:04:19,022 - INFO - Found 6 tables on page
+2025-05-06 05:04:19,040 - INFO - Checking table 1
+2025-05-06 05:04:19,110 - INFO - Checking table 2
+2025-05-06 05:04:19,131 - INFO - Found likely sector table (table #2)
+2025-05-06 05:04:19,264 - WARNING - Could not find percent change for 
+2025-05-06 05:04:19,356 - INFO - Found percent change: 1.85% in '412.70 (1.85%)'
+2025-05-06 05:04:19,363 - INFO - Added sector: Auto, Change: 1.85%
+2025-05-06 05:04:19,454 - INFO - Found percent change: 1.3% in '444.85 (1.30%)'
+2025-05-06 05:04:19,455 - INFO - Added sector: Energy, Change: 1.3%
+2025-05-06 05:04:19,536 - INFO - Found percent change: 0.05% in '13.15 (0.05%)'
+2025-05-06 05:04:19,538 - INFO - Added sector: Financial Services, Change: 0.05%
+2025-05-06 05:04:19,615 - INFO - Found percent change: 1.22% in '683.95 (1.22%)'
+2025-05-06 05:04:19,619 - INFO - Added sector: FMCG, Change: 1.22%
+2025-05-06 05:04:19,703 - INFO - Found percent change: 0.28% in '99.40 (0.28%)'
+2025-05-06 05:04:19,703 - INFO - Added sector: IT, Change: 0.28%
+2025-05-06 05:04:19,777 - INFO - Found percent change: 0.64% in '9.75 (0.64%)'
+2025-05-06 05:04:19,778 - INFO - Added sector: Media, Change: 0.64%
+2025-05-06 05:04:19,865 - INFO - Found percent change: 0.96% in '81.75 (0.96%)'
+2025-05-06 05:04:19,869 - INFO - Added sector: Metal, Change: 0.96%
+2025-05-06 05:04:19,947 - INFO - Found percent change: 0.69% in '148.30 (0.69%)'
+2025-05-06 05:04:19,948 - INFO - Added sector: Pharma, Change: 0.69%
+2025-05-06 05:04:20,031 - INFO - Found percent change: -0.04% in '-2.35 (-0.04%)'
+2025-05-06 05:04:20,031 - INFO - Added sector: PSU Bank, Change: -0.04%
+2025-05-06 05:04:20,113 - INFO - Found percent change: 0.66% in '5.80 (0.66%)'
+2025-05-06 05:04:20,114 - INFO - Added sector: Realty, Change: 0.66%
+2025-05-06 05:04:23,068 - INFO - Saved sector data to sector.csv
+2025-05-06 05:05:23,562 - INFO - Running Nuvama sector data scraper job at 2025-05-06 05:05:23
+2025-05-06 05:05:23,562 - INFO - Setting up Chrome driver...
+2025-05-06 05:05:23,569 - INFO - ====== WebDriver manager ======
+2025-05-06 05:05:27,229 - INFO - Get LATEST chromedriver version for google-chrome
+2025-05-06 05:05:27,280 - INFO - Get LATEST chromedriver version for google-chrome
+2025-05-06 05:05:27,329 - INFO - Driver [C:\Users\Rajee\.wdm\drivers\chromedriver\win64\135.0.7049.114\chromedriver-win32/chromedriver.exe] found in cache
+2025-05-06 05:05:29,830 - INFO - Navigating to https://www.nuvamawealth.com/market/stock-market-index/#key-indices
+2025-05-06 05:05:30,544 - INFO - Waiting for page to load...
+2025-05-06 05:05:50,782 - INFO - Refreshed page to get latest data
+2025-05-06 05:06:00,830 - WARNING - Could not click on SECTOR INDICES tab: Message: no such element: Unable to locate element: {"method":"xpath","selector":"//a[text()='SECTOR INDICES']"}
+  (Session info: chrome=135.0.7049.115); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Stacktrace:
+	GetHandleVerifier [0x002BD363+60275]
+	GetHandleVerifier [0x002BD3A4+60340]
+	(No symbol) [0x000F06F3]
+	(No symbol) [0x00138690]
+	(No symbol) [0x00138A2B]
+	(No symbol) [0x00180EE2]
+	(No symbol) [0x0015D0D4]
+	(No symbol) [0x0017E6EB]
+	(No symbol) [0x0015CE86]
+	(No symbol) [0x0012C623]
+	(No symbol) [0x0012D474]
+	GetHandleVerifier [0x00508FE3+2467827]
+	GetHandleVerifier [0x005045E6+2448886]
+	GetHandleVerifier [0x0051F80C+2560028]
+	GetHandleVerifier [0x002D3DF5+153093]
+	GetHandleVerifier [0x002DA3BD+179149]
+	GetHandleVerifier [0x002C4BB8+91080]
+	GetHandleVerifier [0x002C4D60+91504]
+	GetHandleVerifier [0x002AFA10+4640]
+	BaseThreadInitThunk [0x75C9FCC9+25]
+	RtlGetAppContainerNamedObjectPath [0x777082AE+286]
+	RtlGetAppContainerNamedObjectPath [0x7770827E+238]
+	(No symbol) [0x00000000]
+
+2025-05-06 05:06:00,901 - WARNING - Could not click on second tab: Message: no such element: Unable to locate element: {"method":"css selector","selector":".tab-links li:nth-child(2) a"}
+  (Session info: chrome=135.0.7049.115); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Stacktrace:
+	GetHandleVerifier [0x002BD363+60275]
+	GetHandleVerifier [0x002BD3A4+60340]
+	(No symbol) [0x000F06F3]
+	(No symbol) [0x00138690]
+	(No symbol) [0x00138A2B]
+	(No symbol) [0x00180EE2]
+	(No symbol) [0x0015D0D4]
+	(No symbol) [0x0017E6EB]
+	(No symbol) [0x0015CE86]
+	(No symbol) [0x0012C623]
+	(No symbol) [0x0012D474]
+	GetHandleVerifier [0x00508FE3+2467827]
+	GetHandleVerifier [0x005045E6+2448886]
+	GetHandleVerifier [0x0051F80C+2560028]
+	GetHandleVerifier [0x002D3DF5+153093]
+	GetHandleVerifier [0x002DA3BD+179149]
+	GetHandleVerifier [0x002C4BB8+91080]
+	GetHandleVerifier [0x002C4D60+91504]
+	GetHandleVerifier [0x002AFA10+4640]
+	BaseThreadInitThunk [0x75C9FCC9+25]
+	RtlGetAppContainerNamedObjectPath [0x777082AE+286]
+	RtlGetAppContainerNamedObjectPath [0x7770827E+238]
+	(No symbol) [0x00000000]
+
+2025-05-06 05:06:01,662 - INFO - Saved screenshot of sector tab
+2025-05-06 05:06:01,683 - INFO - Found 6 tables on page
+2025-05-06 05:06:01,683 - INFO - Checking table 1
+2025-05-06 05:06:01,700 - INFO - Checking table 2
+2025-05-06 05:06:01,746 - INFO - Found likely sector table (table #2)
+2025-05-06 05:06:01,911 - WARNING - Could not find percent change for 
+2025-05-06 05:06:01,995 - INFO - Found percent change: 1.85% in '412.70 (1.85%)'
+2025-05-06 05:06:01,996 - INFO - Added sector: Auto, Change: 1.85%
+2025-05-06 05:06:02,129 - INFO - Found percent change: 1.3% in '444.85 (1.30%)'
+2025-05-06 05:06:02,129 - INFO - Added sector: Energy, Change: 1.3%
+2025-05-06 05:06:02,228 - INFO - Found percent change: 0.05% in '13.15 (0.05%)'
+2025-05-06 05:06:02,228 - INFO - Added sector: Financial Services, Change: 0.05%
+2025-05-06 05:06:02,314 - INFO - Found percent change: 1.22% in '683.95 (1.22%)'
+2025-05-06 05:06:02,315 - INFO - Added sector: FMCG, Change: 1.22%
+2025-05-06 05:06:02,405 - INFO - Found percent change: 0.28% in '99.40 (0.28%)'
+2025-05-06 05:06:02,406 - INFO - Added sector: IT, Change: 0.28%
+2025-05-06 05:06:02,475 - INFO - Found percent change: 0.64% in '9.75 (0.64%)'
+2025-05-06 05:06:02,476 - INFO - Added sector: Media, Change: 0.64%
+2025-05-06 05:06:02,549 - INFO - Found percent change: 0.96% in '81.75 (0.96%)'
+2025-05-06 05:06:02,549 - INFO - Added sector: Metal, Change: 0.96%
+2025-05-06 05:06:02,622 - INFO - Found percent change: 0.69% in '148.30 (0.69%)'
+2025-05-06 05:06:02,623 - INFO - Added sector: Pharma, Change: 0.69%
+2025-05-06 05:06:02,701 - INFO - Found percent change: -0.04% in '-2.35 (-0.04%)'
+2025-05-06 05:06:02,701 - INFO - Added sector: PSU Bank, Change: -0.04%
+2025-05-06 05:06:02,780 - INFO - Found percent change: 0.66% in '5.80 (0.66%)'
+2025-05-06 05:06:02,780 - INFO - Added sector: Realty, Change: 0.66%
+2025-05-06 05:06:07,760 - INFO - Saved sector data to sector.csv
+2025-05-06 05:06:35,342 - INFO - Scraper stopped by user
+2025-05-08 05:00:12,382 - INFO - Starting Nuvama sector data scraper with 30-minute refresh
+2025-05-08 05:00:12,383 - INFO - Running Nuvama sector data scraper job at 2025-05-08 05:00:12
+2025-05-08 05:00:12,383 - INFO - Setting up Chrome driver...
+2025-05-08 05:00:12,384 - INFO - ====== WebDriver manager ======
+2025-05-08 05:00:16,658 - INFO - Get LATEST chromedriver version for google-chrome
+2025-05-08 05:00:16,855 - INFO - Get LATEST chromedriver version for google-chrome
+2025-05-08 05:00:16,987 - INFO - Get LATEST chromedriver version for google-chrome
+2025-05-08 05:00:17,313 - INFO - WebDriver version 135.0.7049.114 selected
+2025-05-08 05:00:17,321 - INFO - Modern chrome version https://storage.googleapis.com/chrome-for-testing-public/135.0.7049.114/win32/chromedriver-win32.zip
+2025-05-08 05:00:17,322 - INFO - About to download new driver from https://storage.googleapis.com/chrome-for-testing-public/135.0.7049.114/win32/chromedriver-win32.zip
+2025-05-08 05:00:17,385 - INFO - Driver downloading response is 200
+2025-05-08 05:00:17,697 - INFO - Get LATEST chromedriver version for google-chrome
+2025-05-08 05:00:18,048 - INFO - Driver has been saved in cache [C:\Users\Rajee\.wdm\drivers\chromedriver\win64\135.0.7049.114]
+2025-05-08 05:00:26,109 - INFO - Navigating to https://www.nuvamawealth.com/market/stock-market-index/#key-indices
+2025-05-08 05:00:28,545 - INFO - Waiting for page to load...
+2025-05-08 05:00:46,278 - INFO - Refreshed page to get latest data
+2025-05-08 05:00:56,308 - WARNING - Could not click on SECTOR INDICES tab: Message: no such element: Unable to locate element: {"method":"xpath","selector":"//a[text()='SECTOR INDICES']"}
+  (Session info: chrome=135.0.7049.116); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Stacktrace:
+	GetHandleVerifier [0x0036D363+60275]
+	GetHandleVerifier [0x0036D3A4+60340]
+	(No symbol) [0x001A06F3]
+	(No symbol) [0x001E8690]
+	(No symbol) [0x001E8A2B]
+	(No symbol) [0x00230EE2]
+	(No symbol) [0x0020D0D4]
+	(No symbol) [0x0022E6EB]
+	(No symbol) [0x0020CE86]
+	(No symbol) [0x001DC623]
+	(No symbol) [0x001DD474]
+	GetHandleVerifier [0x005B8FE3+2467827]
+	GetHandleVerifier [0x005B45E6+2448886]
+	GetHandleVerifier [0x005CF80C+2560028]
+	GetHandleVerifier [0x00383DF5+153093]
+	GetHandleVerifier [0x0038A3BD+179149]
+	GetHandleVerifier [0x00374BB8+91080]
+	GetHandleVerifier [0x00374D60+91504]
+	GetHandleVerifier [0x0035FA10+4640]
+	BaseThreadInitThunk [0x75C9FCC9+25]
+	RtlGetAppContainerNamedObjectPath [0x777082AE+286]
+	RtlGetAppContainerNamedObjectPath [0x7770827E+238]
+	(No symbol) [0x00000000]
+
+2025-05-08 05:00:56,329 - WARNING - Could not click on second tab: Message: no such element: Unable to locate element: {"method":"css selector","selector":".tab-links li:nth-child(2) a"}
+  (Session info: chrome=135.0.7049.116); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Stacktrace:
+	GetHandleVerifier [0x0036D363+60275]
+	GetHandleVerifier [0x0036D3A4+60340]
+	(No symbol) [0x001A06F3]
+	(No symbol) [0x001E8690]
+	(No symbol) [0x001E8A2B]
+	(No symbol) [0x00230EE2]
+	(No symbol) [0x0020D0D4]
+	(No symbol) [0x0022E6EB]
+	(No symbol) [0x0020CE86]
+	(No symbol) [0x001DC623]
+	(No symbol) [0x001DD474]
+	GetHandleVerifier [0x005B8FE3+2467827]
+	GetHandleVerifier [0x005B45E6+2448886]
+	GetHandleVerifier [0x005CF80C+2560028]
+	GetHandleVerifier [0x00383DF5+153093]
+	GetHandleVerifier [0x0038A3BD+179149]
+	GetHandleVerifier [0x00374BB8+91080]
+	GetHandleVerifier [0x00374D60+91504]
+	GetHandleVerifier [0x0035FA10+4640]
+	BaseThreadInitThunk [0x75C9FCC9+25]
+	RtlGetAppContainerNamedObjectPath [0x777082AE+286]
+	RtlGetAppContainerNamedObjectPath [0x7770827E+238]
+	(No symbol) [0x00000000]
+
+2025-05-08 05:00:56,888 - INFO - Saved screenshot of sector tab
+2025-05-08 05:00:56,914 - INFO - Found 6 tables on page
+2025-05-08 05:00:56,914 - INFO - Checking table 1
+2025-05-08 05:00:57,065 - INFO - Checking table 2
+2025-05-08 05:00:57,079 - INFO - Found likely sector table (table #2)
+2025-05-08 05:00:57,181 - WARNING - Could not find percent change for 
+2025-05-08 05:00:57,255 - INFO - Found percent change: 1.66% in '376.50 (1.66%)'
+2025-05-08 05:00:57,256 - INFO - Added sector: Auto, Change: 1.66%
+2025-05-08 05:00:57,325 - INFO - Found percent change: 0.82% in '276.95 (0.82%)'
+2025-05-08 05:00:57,326 - INFO - Added sector: Energy, Change: 0.82%
+2025-05-08 05:00:57,399 - INFO - Found percent change: 0.76% in '196.65 (0.76%)'
+2025-05-08 05:00:57,400 - INFO - Added sector: Financial Services, Change: 0.76%
+2025-05-08 05:00:57,471 - INFO - Found percent change: -0.52% in '-293.15 (-0.52%)'
+2025-05-08 05:00:57,472 - INFO - Added sector: FMCG, Change: -0.52%
+2025-05-08 05:00:57,542 - INFO - Found percent change: 0.14% in '51.10 (0.14%)'
+2025-05-08 05:00:57,543 - INFO - Added sector: IT, Change: 0.14%
+2025-05-08 05:00:57,616 - INFO - Found percent change: 1.06% in '16.00 (1.06%)'
+2025-05-08 05:00:57,616 - INFO - Added sector: Media, Change: 1.06%
+2025-05-08 05:00:57,686 - INFO - Found percent change: 0.98% in '83.35 (0.98%)'
+2025-05-08 05:00:57,686 - INFO - Added sector: Metal, Change: 0.98%
+2025-05-08 05:00:57,782 - INFO - Found percent change: -0.33% in '-71.90 (-0.33%)'
+2025-05-08 05:00:57,784 - INFO - Added sector: Pharma, Change: -0.33%
+2025-05-08 05:00:57,862 - INFO - Found percent change: 0.29% in '17.95 (0.29%)'
+2025-05-08 05:00:57,863 - INFO - Added sector: PSU Bank, Change: 0.29%
+2025-05-08 05:00:57,943 - INFO - Found percent change: 1.12% in '9.55 (1.12%)'
+2025-05-08 05:00:57,944 - INFO - Added sector: Realty, Change: 1.12%
+2025-05-08 05:01:01,459 - INFO - Saved sector data to sector.csv
+2025-05-08 05:02:02,038 - INFO - Running Nuvama sector data scraper job at 2025-05-08 05:02:02
+2025-05-08 05:02:02,038 - INFO - Setting up Chrome driver...
+2025-05-08 05:02:02,039 - INFO - ====== WebDriver manager ======
+2025-05-08 05:02:03,708 - INFO - Get LATEST chromedriver version for google-chrome
+2025-05-08 05:02:03,848 - INFO - Get LATEST chromedriver version for google-chrome
+2025-05-08 05:02:03,970 - INFO - Driver [C:\Users\Rajee\.wdm\drivers\chromedriver\win64\135.0.7049.114\chromedriver-win32/chromedriver.exe] found in cache
+2025-05-08 05:02:05,517 - INFO - Navigating to https://www.nuvamawealth.com/market/stock-market-index/#key-indices
+2025-05-08 05:02:09,689 - INFO - Waiting for page to load...
+2025-05-08 05:02:27,050 - INFO - Refreshed page to get latest data
+2025-05-08 05:02:37,083 - WARNING - Could not click on SECTOR INDICES tab: Message: no such element: Unable to locate element: {"method":"xpath","selector":"//a[text()='SECTOR INDICES']"}
+  (Session info: chrome=135.0.7049.116); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Stacktrace:
+	GetHandleVerifier [0x0036D363+60275]
+	GetHandleVerifier [0x0036D3A4+60340]
+	(No symbol) [0x001A06F3]
+	(No symbol) [0x001E8690]
+	(No symbol) [0x001E8A2B]
+	(No symbol) [0x00230EE2]
+	(No symbol) [0x0020D0D4]
+	(No symbol) [0x0022E6EB]
+	(No symbol) [0x0020CE86]
+	(No symbol) [0x001DC623]
+	(No symbol) [0x001DD474]
+	GetHandleVerifier [0x005B8FE3+2467827]
+	GetHandleVerifier [0x005B45E6+2448886]
+	GetHandleVerifier [0x005CF80C+2560028]
+	GetHandleVerifier [0x00383DF5+153093]
+	GetHandleVerifier [0x0038A3BD+179149]
+	GetHandleVerifier [0x00374BB8+91080]
+	GetHandleVerifier [0x00374D60+91504]
+	GetHandleVerifier [0x0035FA10+4640]
+	BaseThreadInitThunk [0x75C9FCC9+25]
+	RtlGetAppContainerNamedObjectPath [0x777082AE+286]
+	RtlGetAppContainerNamedObjectPath [0x7770827E+238]
+	(No symbol) [0x00000000]
+
+2025-05-08 05:02:37,105 - WARNING - Could not click on second tab: Message: no such element: Unable to locate element: {"method":"css selector","selector":".tab-links li:nth-child(2) a"}
+  (Session info: chrome=135.0.7049.116); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Stacktrace:
+	GetHandleVerifier [0x0036D363+60275]
+	GetHandleVerifier [0x0036D3A4+60340]
+	(No symbol) [0x001A06F3]
+	(No symbol) [0x001E8690]
+	(No symbol) [0x001E8A2B]
+	(No symbol) [0x00230EE2]
+	(No symbol) [0x0020D0D4]
+	(No symbol) [0x0022E6EB]
+	(No symbol) [0x0020CE86]
+	(No symbol) [0x001DC623]
+	(No symbol) [0x001DD474]
+	GetHandleVerifier [0x005B8FE3+2467827]
+	GetHandleVerifier [0x005B45E6+2448886]
+	GetHandleVerifier [0x005CF80C+2560028]
+	GetHandleVerifier [0x00383DF5+153093]
+	GetHandleVerifier [0x0038A3BD+179149]
+	GetHandleVerifier [0x00374BB8+91080]
+	GetHandleVerifier [0x00374D60+91504]
+	GetHandleVerifier [0x0035FA10+4640]
+	BaseThreadInitThunk [0x75C9FCC9+25]
+	RtlGetAppContainerNamedObjectPath [0x777082AE+286]
+	RtlGetAppContainerNamedObjectPath [0x7770827E+238]
+	(No symbol) [0x00000000]
+
+2025-05-08 05:02:37,687 - INFO - Saved screenshot of sector tab
+2025-05-08 05:02:37,707 - INFO - Found 6 tables on page
+2025-05-08 05:02:37,708 - INFO - Checking table 1
+2025-05-08 05:02:37,722 - INFO - Checking table 2
+2025-05-08 05:02:37,735 - INFO - Found likely sector table (table #2)
+2025-05-08 05:02:37,834 - WARNING - Could not find percent change for 
+2025-05-08 05:02:37,901 - INFO - Found percent change: 1.66% in '376.50 (1.66%)'
+2025-05-08 05:02:37,901 - INFO - Added sector: Auto, Change: 1.66%
+2025-05-08 05:02:37,967 - INFO - Found percent change: 0.82% in '276.95 (0.82%)'
+2025-05-08 05:02:37,968 - INFO - Added sector: Energy, Change: 0.82%
+2025-05-08 05:02:38,035 - INFO - Found percent change: 0.76% in '196.65 (0.76%)'
+2025-05-08 05:02:38,035 - INFO - Added sector: Financial Services, Change: 0.76%
+2025-05-08 05:02:38,102 - INFO - Found percent change: -0.52% in '-293.15 (-0.52%)'
+2025-05-08 05:02:38,102 - INFO - Added sector: FMCG, Change: -0.52%
+2025-05-08 05:02:38,171 - INFO - Found percent change: 0.14% in '51.10 (0.14%)'
+2025-05-08 05:02:38,171 - INFO - Added sector: IT, Change: 0.14%
+2025-05-08 05:02:38,238 - INFO - Found percent change: 1.06% in '16.00 (1.06%)'
+2025-05-08 05:02:38,239 - INFO - Added sector: Media, Change: 1.06%
+2025-05-08 05:02:38,306 - INFO - Found percent change: 0.98% in '83.35 (0.98%)'
+2025-05-08 05:02:38,307 - INFO - Added sector: Metal, Change: 0.98%
+2025-05-08 05:02:38,385 - INFO - Found percent change: -0.33% in '-71.90 (-0.33%)'
+2025-05-08 05:02:38,386 - INFO - Added sector: Pharma, Change: -0.33%
+2025-05-08 05:02:38,452 - INFO - Found percent change: 0.29% in '17.95 (0.29%)'
+2025-05-08 05:02:38,453 - INFO - Added sector: PSU Bank, Change: 0.29%
+2025-05-08 05:02:38,534 - INFO - Found percent change: 1.12% in '9.55 (1.12%)'
+2025-05-08 05:02:38,535 - INFO - Added sector: Realty, Change: 1.12%
+2025-05-08 05:02:42,586 - INFO - Saved sector data to sector.csv
+2025-05-08 05:03:43,145 - INFO - Running Nuvama sector data scraper job at 2025-05-08 05:03:43
+2025-05-08 05:03:43,145 - INFO - Setting up Chrome driver...
+2025-05-08 05:03:43,146 - INFO - ====== WebDriver manager ======
+2025-05-08 05:03:45,460 - INFO - Get LATEST chromedriver version for google-chrome
+2025-05-08 05:03:45,597 - INFO - Get LATEST chromedriver version for google-chrome
+2025-05-08 05:03:45,721 - INFO - Driver [C:\Users\Rajee\.wdm\drivers\chromedriver\win64\135.0.7049.114\chromedriver-win32/chromedriver.exe] found in cache
+2025-05-08 05:03:47,582 - INFO - Navigating to https://www.nuvamawealth.com/market/stock-market-index/#key-indices
+2025-05-08 05:03:52,437 - INFO - Waiting for page to load...
+2025-05-08 05:04:09,948 - INFO - Refreshed page to get latest data
+2025-05-08 05:04:19,984 - WARNING - Could not click on SECTOR INDICES tab: Message: no such element: Unable to locate element: {"method":"xpath","selector":"//a[text()='SECTOR INDICES']"}
+  (Session info: chrome=135.0.7049.116); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Stacktrace:
+	GetHandleVerifier [0x0036D363+60275]
+	GetHandleVerifier [0x0036D3A4+60340]
+	(No symbol) [0x001A06F3]
+	(No symbol) [0x001E8690]
+	(No symbol) [0x001E8A2B]
+	(No symbol) [0x00230EE2]
+	(No symbol) [0x0020D0D4]
+	(No symbol) [0x0022E6EB]
+	(No symbol) [0x0020CE86]
+	(No symbol) [0x001DC623]
+	(No symbol) [0x001DD474]
+	GetHandleVerifier [0x005B8FE3+2467827]
+	GetHandleVerifier [0x005B45E6+2448886]
+	GetHandleVerifier [0x005CF80C+2560028]
+	GetHandleVerifier [0x00383DF5+153093]
+	GetHandleVerifier [0x0038A3BD+179149]
+	GetHandleVerifier [0x00374BB8+91080]
+	GetHandleVerifier [0x00374D60+91504]
+	GetHandleVerifier [0x0035FA10+4640]
+	BaseThreadInitThunk [0x75C9FCC9+25]
+	RtlGetAppContainerNamedObjectPath [0x777082AE+286]
+	RtlGetAppContainerNamedObjectPath [0x7770827E+238]
+	(No symbol) [0x00000000]
+
+2025-05-08 05:04:20,025 - WARNING - Could not click on second tab: Message: no such element: Unable to locate element: {"method":"css selector","selector":".tab-links li:nth-child(2) a"}
+  (Session info: chrome=135.0.7049.116); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Stacktrace:
+	GetHandleVerifier [0x0036D363+60275]
+	GetHandleVerifier [0x0036D3A4+60340]
+	(No symbol) [0x001A06F3]
+	(No symbol) [0x001E8690]
+	(No symbol) [0x001E8A2B]
+	(No symbol) [0x00230EE2]
+	(No symbol) [0x0020D0D4]
+	(No symbol) [0x0022E6EB]
+	(No symbol) [0x0020CE86]
+	(No symbol) [0x001DC623]
+	(No symbol) [0x001DD474]
+	GetHandleVerifier [0x005B8FE3+2467827]
+	GetHandleVerifier [0x005B45E6+2448886]
+	GetHandleVerifier [0x005CF80C+2560028]
+	GetHandleVerifier [0x00383DF5+153093]
+	GetHandleVerifier [0x0038A3BD+179149]
+	GetHandleVerifier [0x00374BB8+91080]
+	GetHandleVerifier [0x00374D60+91504]
+	GetHandleVerifier [0x0035FA10+4640]
+	BaseThreadInitThunk [0x75C9FCC9+25]
+	RtlGetAppContainerNamedObjectPath [0x777082AE+286]
+	RtlGetAppContainerNamedObjectPath [0x7770827E+238]
+	(No symbol) [0x00000000]
+
+2025-05-08 05:04:20,575 - INFO - Saved screenshot of sector tab
+2025-05-08 05:04:20,594 - INFO - Found 6 tables on page
+2025-05-08 05:04:20,595 - INFO - Checking table 1
+2025-05-08 05:04:20,609 - INFO - Checking table 2
+2025-05-08 05:04:20,622 - INFO - Found likely sector table (table #2)
+2025-05-08 05:04:20,736 - WARNING - Could not find percent change for 
+2025-05-08 05:04:20,805 - INFO - Found percent change: 1.66% in '376.50 (1.66%)'
+2025-05-08 05:04:20,806 - INFO - Added sector: Auto, Change: 1.66%
+2025-05-08 05:04:20,880 - INFO - Found percent change: 0.82% in '276.95 (0.82%)'
+2025-05-08 05:04:20,881 - INFO - Added sector: Energy, Change: 0.82%
+2025-05-08 05:04:20,953 - INFO - Found percent change: 0.76% in '196.65 (0.76%)'
+2025-05-08 05:04:20,953 - INFO - Added sector: Financial Services, Change: 0.76%
+2025-05-08 05:04:21,025 - INFO - Found percent change: -0.52% in '-293.15 (-0.52%)'
+2025-05-08 05:04:21,026 - INFO - Added sector: FMCG, Change: -0.52%
+2025-05-08 05:04:21,098 - INFO - Found percent change: 0.14% in '51.10 (0.14%)'
+2025-05-08 05:04:21,098 - INFO - Added sector: IT, Change: 0.14%
+2025-05-08 05:04:21,167 - INFO - Found percent change: 1.06% in '16.00 (1.06%)'
+2025-05-08 05:04:21,167 - INFO - Added sector: Media, Change: 1.06%
+2025-05-08 05:04:21,238 - INFO - Found percent change: 0.98% in '83.35 (0.98%)'
+2025-05-08 05:04:21,239 - INFO - Added sector: Metal, Change: 0.98%
+2025-05-08 05:04:21,316 - INFO - Found percent change: -0.33% in '-71.90 (-0.33%)'
+2025-05-08 05:04:21,316 - INFO - Added sector: Pharma, Change: -0.33%
+2025-05-08 05:04:21,402 - INFO - Found percent change: 0.29% in '17.95 (0.29%)'
+2025-05-08 05:04:21,404 - INFO - Added sector: PSU Bank, Change: 0.29%
+2025-05-08 05:04:21,485 - INFO - Found percent change: 1.12% in '9.55 (1.12%)'
+2025-05-08 05:04:21,485 - INFO - Added sector: Realty, Change: 1.12%
+2025-05-08 05:04:25,194 - INFO - Saved sector data to sector.csv
+2025-05-08 05:05:25,702 - INFO - Running Nuvama sector data scraper job at 2025-05-08 05:05:25
+2025-05-08 05:05:25,703 - INFO - Setting up Chrome driver...
+2025-05-08 05:05:25,704 - INFO - ====== WebDriver manager ======
+2025-05-08 05:05:27,381 - INFO - Get LATEST chromedriver version for google-chrome
+2025-05-08 05:05:27,505 - INFO - Get LATEST chromedriver version for google-chrome
+2025-05-08 05:05:27,627 - INFO - Driver [C:\Users\Rajee\.wdm\drivers\chromedriver\win64\135.0.7049.114\chromedriver-win32/chromedriver.exe] found in cache
+2025-05-08 05:05:29,200 - INFO - Navigating to https://www.nuvamawealth.com/market/stock-market-index/#key-indices
+2025-05-08 05:05:33,674 - INFO - Waiting for page to load...
+2025-05-08 05:05:52,385 - INFO - Refreshed page to get latest data
+2025-05-08 05:06:02,458 - WARNING - Could not click on SECTOR INDICES tab: Message: no such element: Unable to locate element: {"method":"xpath","selector":"//a[text()='SECTOR INDICES']"}
+  (Session info: chrome=135.0.7049.116); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Stacktrace:
+	GetHandleVerifier [0x0036D363+60275]
+	GetHandleVerifier [0x0036D3A4+60340]
+	(No symbol) [0x001A06F3]
+	(No symbol) [0x001E8690]
+	(No symbol) [0x001E8A2B]
+	(No symbol) [0x00230EE2]
+	(No symbol) [0x0020D0D4]
+	(No symbol) [0x0022E6EB]
+	(No symbol) [0x0020CE86]
+	(No symbol) [0x001DC623]
+	(No symbol) [0x001DD474]
+	GetHandleVerifier [0x005B8FE3+2467827]
+	GetHandleVerifier [0x005B45E6+2448886]
+	GetHandleVerifier [0x005CF80C+2560028]
+	GetHandleVerifier [0x00383DF5+153093]
+	GetHandleVerifier [0x0038A3BD+179149]
+	GetHandleVerifier [0x00374BB8+91080]
+	GetHandleVerifier [0x00374D60+91504]
+	GetHandleVerifier [0x0035FA10+4640]
+	BaseThreadInitThunk [0x75C9FCC9+25]
+	RtlGetAppContainerNamedObjectPath [0x777082AE+286]
+	RtlGetAppContainerNamedObjectPath [0x7770827E+238]
+	(No symbol) [0x00000000]
+
+2025-05-08 05:06:02,486 - WARNING - Could not click on second tab: Message: no such element: Unable to locate element: {"method":"css selector","selector":".tab-links li:nth-child(2) a"}
+  (Session info: chrome=135.0.7049.116); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Stacktrace:
+	GetHandleVerifier [0x0036D363+60275]
+	GetHandleVerifier [0x0036D3A4+60340]
+	(No symbol) [0x001A06F3]
+	(No symbol) [0x001E8690]
+	(No symbol) [0x001E8A2B]
+	(No symbol) [0x00230EE2]
+	(No symbol) [0x0020D0D4]
+	(No symbol) [0x0022E6EB]
+	(No symbol) [0x0020CE86]
+	(No symbol) [0x001DC623]
+	(No symbol) [0x001DD474]
+	GetHandleVerifier [0x005B8FE3+2467827]
+	GetHandleVerifier [0x005B45E6+2448886]
+	GetHandleVerifier [0x005CF80C+2560028]
+	GetHandleVerifier [0x00383DF5+153093]
+	GetHandleVerifier [0x0038A3BD+179149]
+	GetHandleVerifier [0x00374BB8+91080]
+	GetHandleVerifier [0x00374D60+91504]
+	GetHandleVerifier [0x0035FA10+4640]
+	BaseThreadInitThunk [0x75C9FCC9+25]
+	RtlGetAppContainerNamedObjectPath [0x777082AE+286]
+	RtlGetAppContainerNamedObjectPath [0x7770827E+238]
+	(No symbol) [0x00000000]
+
+2025-05-08 05:06:02,649 - INFO - Saved screenshot of sector tab
+2025-05-08 05:06:02,662 - INFO - Found 6 tables on page
+2025-05-08 05:06:02,662 - INFO - Checking table 1
+2025-05-08 05:06:02,673 - INFO - Checking table 2
+2025-05-08 05:06:02,681 - INFO - Found likely sector table (table #2)
+2025-05-08 05:06:02,746 - WARNING - Could not find percent change for 
+2025-05-08 05:06:02,792 - INFO - Found percent change: -0.52% in '-293.15 (-0.52%)'
+2025-05-08 05:06:02,792 - INFO - Added sector: FMCG, Change: -0.52%
+2025-05-08 05:06:02,838 - INFO - Found percent change: -0.33% in '-71.90 (-0.33%)'
+2025-05-08 05:06:02,838 - INFO - Added sector: Pharma, Change: -0.33%
+2025-05-08 05:06:02,889 - INFO - Found percent change: 0.14% in '51.10 (0.14%)'
+2025-05-08 05:06:02,890 - INFO - Added sector: IT, Change: 0.14%
+2025-05-08 05:06:02,935 - INFO - Found percent change: 0.29% in '17.95 (0.29%)'
+2025-05-08 05:06:02,936 - INFO - Added sector: PSU Bank, Change: 0.29%
+2025-05-08 05:06:02,983 - INFO - Found percent change: 0.76% in '196.65 (0.76%)'
+2025-05-08 05:06:02,984 - INFO - Added sector: Financial Services, Change: 0.76%
+2025-05-08 05:06:03,030 - INFO - Found percent change: 0.82% in '276.95 (0.82%)'
+2025-05-08 05:06:03,031 - INFO - Added sector: Energy, Change: 0.82%
+2025-05-08 05:06:03,075 - INFO - Found percent change: 0.98% in '83.35 (0.98%)'
+2025-05-08 05:06:03,075 - INFO - Added sector: Metal, Change: 0.98%
+2025-05-08 05:06:03,121 - INFO - Found percent change: 1.06% in '16.00 (1.06%)'
+2025-05-08 05:06:03,122 - INFO - Added sector: Media, Change: 1.06%
+2025-05-08 05:06:03,168 - INFO - Found percent change: 1.12% in '9.55 (1.12%)'
+2025-05-08 05:06:03,168 - INFO - Added sector: Realty, Change: 1.12%
+2025-05-08 05:06:03,214 - INFO - Found percent change: 1.66% in '376.50 (1.66%)'
+2025-05-08 05:06:03,215 - INFO - Added sector: Auto, Change: 1.66%
+2025-05-08 05:06:05,867 - INFO - Saved sector data to sector.csv
+2025-05-08 05:07:06,404 - INFO - Running Nuvama sector data scraper job at 2025-05-08 05:07:06
+2025-05-08 05:07:06,405 - INFO - Setting up Chrome driver...
+2025-05-08 05:07:06,406 - INFO - ====== WebDriver manager ======
+2025-05-08 05:07:07,589 - INFO - Get LATEST chromedriver version for google-chrome
+2025-05-08 05:07:07,709 - INFO - Get LATEST chromedriver version for google-chrome
+2025-05-08 05:07:07,830 - INFO - Driver [C:\Users\Rajee\.wdm\drivers\chromedriver\win64\135.0.7049.114\chromedriver-win32/chromedriver.exe] found in cache
+2025-05-08 05:07:09,258 - INFO - Navigating to https://www.nuvamawealth.com/market/stock-market-index/#key-indices
+2025-05-08 05:07:12,796 - INFO - Waiting for page to load...
+2025-05-08 05:07:29,828 - INFO - Refreshed page to get latest data
+2025-05-08 05:07:39,855 - WARNING - Could not click on SECTOR INDICES tab: Message: no such element: Unable to locate element: {"method":"xpath","selector":"//a[text()='SECTOR INDICES']"}
+  (Session info: chrome=135.0.7049.116); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Stacktrace:
+	GetHandleVerifier [0x0036D363+60275]
+	GetHandleVerifier [0x0036D3A4+60340]
+	(No symbol) [0x001A06F3]
+	(No symbol) [0x001E8690]
+	(No symbol) [0x001E8A2B]
+	(No symbol) [0x00230EE2]
+	(No symbol) [0x0020D0D4]
+	(No symbol) [0x0022E6EB]
+	(No symbol) [0x0020CE86]
+	(No symbol) [0x001DC623]
+	(No symbol) [0x001DD474]
+	GetHandleVerifier [0x005B8FE3+2467827]
+	GetHandleVerifier [0x005B45E6+2448886]
+	GetHandleVerifier [0x005CF80C+2560028]
+	GetHandleVerifier [0x00383DF5+153093]
+	GetHandleVerifier [0x0038A3BD+179149]
+	GetHandleVerifier [0x00374BB8+91080]
+	GetHandleVerifier [0x00374D60+91504]
+	GetHandleVerifier [0x0035FA10+4640]
+	BaseThreadInitThunk [0x75C9FCC9+25]
+	RtlGetAppContainerNamedObjectPath [0x777082AE+286]
+	RtlGetAppContainerNamedObjectPath [0x7770827E+238]
+	(No symbol) [0x00000000]
+
+2025-05-08 05:07:39,873 - WARNING - Could not click on second tab: Message: no such element: Unable to locate element: {"method":"css selector","selector":".tab-links li:nth-child(2) a"}
+  (Session info: chrome=135.0.7049.116); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Stacktrace:
+	GetHandleVerifier [0x0036D363+60275]
+	GetHandleVerifier [0x0036D3A4+60340]
+	(No symbol) [0x001A06F3]
+	(No symbol) [0x001E8690]
+	(No symbol) [0x001E8A2B]
+	(No symbol) [0x00230EE2]
+	(No symbol) [0x0020D0D4]
+	(No symbol) [0x0022E6EB]
+	(No symbol) [0x0020CE86]
+	(No symbol) [0x001DC623]
+	(No symbol) [0x001DD474]
+	GetHandleVerifier [0x005B8FE3+2467827]
+	GetHandleVerifier [0x005B45E6+2448886]
+	GetHandleVerifier [0x005CF80C+2560028]
+	GetHandleVerifier [0x00383DF5+153093]
+	GetHandleVerifier [0x0038A3BD+179149]
+	GetHandleVerifier [0x00374BB8+91080]
+	GetHandleVerifier [0x00374D60+91504]
+	GetHandleVerifier [0x0035FA10+4640]
+	BaseThreadInitThunk [0x75C9FCC9+25]
+	RtlGetAppContainerNamedObjectPath [0x777082AE+286]
+	RtlGetAppContainerNamedObjectPath [0x7770827E+238]
+	(No symbol) [0x00000000]
+
+2025-05-08 05:07:40,083 - INFO - Saved screenshot of sector tab
+2025-05-08 05:07:40,097 - INFO - Found 6 tables on page
+2025-05-08 05:07:40,097 - INFO - Checking table 1
+2025-05-08 05:07:40,108 - INFO - Checking table 2
+2025-05-08 05:07:40,117 - INFO - Found likely sector table (table #2)
+2025-05-08 05:07:40,183 - WARNING - Could not find percent change for 
+2025-05-08 05:07:40,256 - INFO - Found percent change: 1.66% in '376.50 (1.66%)'
+2025-05-08 05:07:40,257 - INFO - Added sector: Auto, Change: 1.66%
+2025-05-08 05:07:40,300 - INFO - Found percent change: 0.82% in '276.95 (0.82%)'
+2025-05-08 05:07:40,301 - INFO - Added sector: Energy, Change: 0.82%
+2025-05-08 05:07:40,349 - INFO - Found percent change: 0.76% in '196.65 (0.76%)'
+2025-05-08 05:07:40,350 - INFO - Added sector: Financial Services, Change: 0.76%
+2025-05-08 05:07:40,402 - INFO - Found percent change: -0.52% in '-293.15 (-0.52%)'
+2025-05-08 05:07:40,403 - INFO - Added sector: FMCG, Change: -0.52%
+2025-05-08 05:07:40,456 - INFO - Found percent change: 0.14% in '51.10 (0.14%)'
+2025-05-08 05:07:40,456 - INFO - Added sector: IT, Change: 0.14%
+2025-05-08 05:07:40,504 - INFO - Found percent change: 1.06% in '16.00 (1.06%)'
+2025-05-08 05:07:40,504 - INFO - Added sector: Media, Change: 1.06%
+2025-05-08 05:07:40,550 - INFO - Found percent change: 0.98% in '83.35 (0.98%)'
+2025-05-08 05:07:40,551 - INFO - Added sector: Metal, Change: 0.98%
+2025-05-08 05:07:40,602 - INFO - Found percent change: -0.33% in '-71.90 (-0.33%)'
+2025-05-08 05:07:40,605 - INFO - Added sector: Pharma, Change: -0.33%
+2025-05-08 05:07:40,647 - INFO - Found percent change: 0.29% in '17.95 (0.29%)'
+2025-05-08 05:07:40,648 - INFO - Added sector: PSU Bank, Change: 0.29%
+2025-05-08 05:07:40,697 - INFO - Found percent change: 1.12% in '9.55 (1.12%)'
+2025-05-08 05:07:40,697 - INFO - Added sector: Realty, Change: 1.12%
+2025-05-08 05:07:43,352 - INFO - Saved sector data to sector.csv
+2025-05-08 05:08:43,882 - INFO - Running Nuvama sector data scraper job at 2025-05-08 05:08:43
+2025-05-08 05:08:43,883 - INFO - Setting up Chrome driver...
+2025-05-08 05:08:43,885 - INFO - ====== WebDriver manager ======
+2025-05-08 05:08:45,167 - INFO - Get LATEST chromedriver version for google-chrome
+2025-05-08 05:08:45,288 - INFO - Get LATEST chromedriver version for google-chrome
+2025-05-08 05:08:45,412 - INFO - Driver [C:\Users\Rajee\.wdm\drivers\chromedriver\win64\135.0.7049.114\chromedriver-win32/chromedriver.exe] found in cache
+2025-05-08 05:08:46,967 - INFO - Navigating to https://www.nuvamawealth.com/market/stock-market-index/#key-indices
+2025-05-08 05:08:53,134 - INFO - Waiting for page to load...
+2025-05-08 05:09:10,004 - INFO - Refreshed page to get latest data
+2025-05-08 05:09:20,023 - WARNING - Could not click on SECTOR INDICES tab: Message: no such element: Unable to locate element: {"method":"xpath","selector":"//a[text()='SECTOR INDICES']"}
+  (Session info: chrome=135.0.7049.116); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Stacktrace:
+	GetHandleVerifier [0x0036D363+60275]
+	GetHandleVerifier [0x0036D3A4+60340]
+	(No symbol) [0x001A06F3]
+	(No symbol) [0x001E8690]
+	(No symbol) [0x001E8A2B]
+	(No symbol) [0x00230EE2]
+	(No symbol) [0x0020D0D4]
+	(No symbol) [0x0022E6EB]
+	(No symbol) [0x0020CE86]
+	(No symbol) [0x001DC623]
+	(No symbol) [0x001DD474]
+	GetHandleVerifier [0x005B8FE3+2467827]
+	GetHandleVerifier [0x005B45E6+2448886]
+	GetHandleVerifier [0x005CF80C+2560028]
+	GetHandleVerifier [0x00383DF5+153093]
+	GetHandleVerifier [0x0038A3BD+179149]
+	GetHandleVerifier [0x00374BB8+91080]
+	GetHandleVerifier [0x00374D60+91504]
+	GetHandleVerifier [0x0035FA10+4640]
+	BaseThreadInitThunk [0x75C9FCC9+25]
+	RtlGetAppContainerNamedObjectPath [0x777082AE+286]
+	RtlGetAppContainerNamedObjectPath [0x7770827E+238]
+	(No symbol) [0x00000000]
+
+2025-05-08 05:09:20,038 - WARNING - Could not click on second tab: Message: no such element: Unable to locate element: {"method":"css selector","selector":".tab-links li:nth-child(2) a"}
+  (Session info: chrome=135.0.7049.116); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Stacktrace:
+	GetHandleVerifier [0x0036D363+60275]
+	GetHandleVerifier [0x0036D3A4+60340]
+	(No symbol) [0x001A06F3]
+	(No symbol) [0x001E8690]
+	(No symbol) [0x001E8A2B]
+	(No symbol) [0x00230EE2]
+	(No symbol) [0x0020D0D4]
+	(No symbol) [0x0022E6EB]
+	(No symbol) [0x0020CE86]
+	(No symbol) [0x001DC623]
+	(No symbol) [0x001DD474]
+	GetHandleVerifier [0x005B8FE3+2467827]
+	GetHandleVerifier [0x005B45E6+2448886]
+	GetHandleVerifier [0x005CF80C+2560028]
+	GetHandleVerifier [0x00383DF5+153093]
+	GetHandleVerifier [0x0038A3BD+179149]
+	GetHandleVerifier [0x00374BB8+91080]
+	GetHandleVerifier [0x00374D60+91504]
+	GetHandleVerifier [0x0035FA10+4640]
+	BaseThreadInitThunk [0x75C9FCC9+25]
+	RtlGetAppContainerNamedObjectPath [0x777082AE+286]
+	RtlGetAppContainerNamedObjectPath [0x7770827E+238]
+	(No symbol) [0x00000000]
+
+2025-05-08 05:09:20,595 - INFO - Saved screenshot of sector tab
+2025-05-08 05:09:20,614 - INFO - Found 6 tables on page
+2025-05-08 05:09:20,614 - INFO - Checking table 1
+2025-05-08 05:09:20,629 - INFO - Checking table 2
+2025-05-08 05:09:20,639 - INFO - Found likely sector table (table #2)
+2025-05-08 05:09:20,705 - WARNING - Could not find percent change for 
+2025-05-08 05:09:20,747 - INFO - Found percent change: 1.66% in '376.50 (1.66%)'
+2025-05-08 05:09:20,747 - INFO - Added sector: Auto, Change: 1.66%
+2025-05-08 05:09:20,791 - INFO - Found percent change: 0.82% in '276.95 (0.82%)'
+2025-05-08 05:09:20,791 - INFO - Added sector: Energy, Change: 0.82%
+2025-05-08 05:09:20,838 - INFO - Found percent change: 0.76% in '196.65 (0.76%)'
+2025-05-08 05:09:20,838 - INFO - Added sector: Financial Services, Change: 0.76%
+2025-05-08 05:09:20,890 - INFO - Found percent change: -0.52% in '-293.15 (-0.52%)'
+2025-05-08 05:09:20,890 - INFO - Added sector: FMCG, Change: -0.52%
+2025-05-08 05:09:20,946 - INFO - Found percent change: 0.14% in '51.10 (0.14%)'
+2025-05-08 05:09:20,946 - INFO - Added sector: IT, Change: 0.14%
+2025-05-08 05:09:21,004 - INFO - Found percent change: 1.06% in '16.00 (1.06%)'
+2025-05-08 05:09:21,004 - INFO - Added sector: Media, Change: 1.06%
+2025-05-08 05:09:21,049 - INFO - Found percent change: 0.98% in '83.35 (0.98%)'
+2025-05-08 05:09:21,050 - INFO - Added sector: Metal, Change: 0.98%
+2025-05-08 05:09:21,092 - INFO - Found percent change: -0.33% in '-71.90 (-0.33%)'
+2025-05-08 05:09:21,092 - INFO - Added sector: Pharma, Change: -0.33%
+2025-05-08 05:09:21,133 - INFO - Found percent change: 0.29% in '17.95 (0.29%)'
+2025-05-08 05:09:21,133 - INFO - Added sector: PSU Bank, Change: 0.29%
+2025-05-08 05:09:21,184 - INFO - Found percent change: 1.12% in '9.55 (1.12%)'
+2025-05-08 05:09:21,184 - INFO - Added sector: Realty, Change: 1.12%
+2025-05-08 05:09:23,945 - INFO - Saved sector data to sector.csv
+2025-05-08 05:10:24,485 - INFO - Running Nuvama sector data scraper job at 2025-05-08 05:10:24
+2025-05-08 05:10:24,486 - INFO - Setting up Chrome driver...
+2025-05-08 05:10:24,487 - INFO - ====== WebDriver manager ======
+2025-05-08 05:10:25,617 - INFO - Get LATEST chromedriver version for google-chrome
+2025-05-08 05:10:25,739 - INFO - Get LATEST chromedriver version for google-chrome
+2025-05-08 05:10:25,873 - INFO - Driver [C:\Users\Rajee\.wdm\drivers\chromedriver\win64\135.0.7049.114\chromedriver-win32/chromedriver.exe] found in cache
+2025-05-08 05:10:27,128 - INFO - Navigating to https://www.nuvamawealth.com/market/stock-market-index/#key-indices
+2025-05-08 05:10:30,733 - INFO - Waiting for page to load...
+2025-05-08 05:10:49,006 - INFO - Refreshed page to get latest data
+2025-05-08 05:10:59,035 - WARNING - Could not click on SECTOR INDICES tab: Message: no such element: Unable to locate element: {"method":"xpath","selector":"//a[text()='SECTOR INDICES']"}
+  (Session info: chrome=135.0.7049.116); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Stacktrace:
+	GetHandleVerifier [0x0036D363+60275]
+	GetHandleVerifier [0x0036D3A4+60340]
+	(No symbol) [0x001A06F3]
+	(No symbol) [0x001E8690]
+	(No symbol) [0x001E8A2B]
+	(No symbol) [0x00230EE2]
+	(No symbol) [0x0020D0D4]
+	(No symbol) [0x0022E6EB]
+	(No symbol) [0x0020CE86]
+	(No symbol) [0x001DC623]
+	(No symbol) [0x001DD474]
+	GetHandleVerifier [0x005B8FE3+2467827]
+	GetHandleVerifier [0x005B45E6+2448886]
+	GetHandleVerifier [0x005CF80C+2560028]
+	GetHandleVerifier [0x00383DF5+153093]
+	GetHandleVerifier [0x0038A3BD+179149]
+	GetHandleVerifier [0x00374BB8+91080]
+	GetHandleVerifier [0x00374D60+91504]
+	GetHandleVerifier [0x0035FA10+4640]
+	BaseThreadInitThunk [0x75C9FCC9+25]
+	RtlGetAppContainerNamedObjectPath [0x777082AE+286]
+	RtlGetAppContainerNamedObjectPath [0x7770827E+238]
+	(No symbol) [0x00000000]
+
+2025-05-08 05:10:59,051 - WARNING - Could not click on second tab: Message: no such element: Unable to locate element: {"method":"css selector","selector":".tab-links li:nth-child(2) a"}
+  (Session info: chrome=135.0.7049.116); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Stacktrace:
+	GetHandleVerifier [0x0036D363+60275]
+	GetHandleVerifier [0x0036D3A4+60340]
+	(No symbol) [0x001A06F3]
+	(No symbol) [0x001E8690]
+	(No symbol) [0x001E8A2B]
+	(No symbol) [0x00230EE2]
+	(No symbol) [0x0020D0D4]
+	(No symbol) [0x0022E6EB]
+	(No symbol) [0x0020CE86]
+	(No symbol) [0x001DC623]
+	(No symbol) [0x001DD474]
+	GetHandleVerifier [0x005B8FE3+2467827]
+	GetHandleVerifier [0x005B45E6+2448886]
+	GetHandleVerifier [0x005CF80C+2560028]
+	GetHandleVerifier [0x00383DF5+153093]
+	GetHandleVerifier [0x0038A3BD+179149]
+	GetHandleVerifier [0x00374BB8+91080]
+	GetHandleVerifier [0x00374D60+91504]
+	GetHandleVerifier [0x0035FA10+4640]
+	BaseThreadInitThunk [0x75C9FCC9+25]
+	RtlGetAppContainerNamedObjectPath [0x777082AE+286]
+	RtlGetAppContainerNamedObjectPath [0x7770827E+238]
+	(No symbol) [0x00000000]
+
+2025-05-08 05:10:59,229 - INFO - Saved screenshot of sector tab
+2025-05-08 05:10:59,242 - INFO - Found 6 tables on page
+2025-05-08 05:10:59,242 - INFO - Checking table 1
+2025-05-08 05:10:59,252 - INFO - Checking table 2
+2025-05-08 05:10:59,262 - INFO - Found likely sector table (table #2)
+2025-05-08 05:10:59,334 - WARNING - Could not find percent change for 
+2025-05-08 05:10:59,384 - INFO - Found percent change: 1.66% in '376.50 (1.66%)'
+2025-05-08 05:10:59,384 - INFO - Added sector: Auto, Change: 1.66%
+2025-05-08 05:10:59,448 - INFO - Found percent change: 0.82% in '276.95 (0.82%)'
+2025-05-08 05:10:59,449 - INFO - Added sector: Energy, Change: 0.82%
+2025-05-08 05:10:59,499 - INFO - Found percent change: 0.76% in '196.65 (0.76%)'
+2025-05-08 05:10:59,499 - INFO - Added sector: Financial Services, Change: 0.76%
+2025-05-08 05:10:59,551 - INFO - Found percent change: -0.52% in '-293.15 (-0.52%)'
+2025-05-08 05:10:59,552 - INFO - Added sector: FMCG, Change: -0.52%
+2025-05-08 05:10:59,608 - INFO - Found percent change: 0.14% in '51.10 (0.14%)'
+2025-05-08 05:10:59,608 - INFO - Added sector: IT, Change: 0.14%
+2025-05-08 05:10:59,662 - INFO - Found percent change: 1.06% in '16.00 (1.06%)'
+2025-05-08 05:10:59,662 - INFO - Added sector: Media, Change: 1.06%
+2025-05-08 05:10:59,720 - INFO - Found percent change: 0.98% in '83.35 (0.98%)'
+2025-05-08 05:10:59,720 - INFO - Added sector: Metal, Change: 0.98%
+2025-05-08 05:10:59,770 - INFO - Found percent change: -0.33% in '-71.90 (-0.33%)'
+2025-05-08 05:10:59,771 - INFO - Added sector: Pharma, Change: -0.33%
+2025-05-08 05:10:59,824 - INFO - Found percent change: 0.29% in '17.95 (0.29%)'
+2025-05-08 05:10:59,825 - INFO - Added sector: PSU Bank, Change: 0.29%
+2025-05-08 05:10:59,878 - INFO - Found percent change: 1.12% in '9.55 (1.12%)'
+2025-05-08 05:10:59,878 - INFO - Added sector: Realty, Change: 1.12%
+2025-05-08 05:11:02,412 - INFO - Scraper stopped by user

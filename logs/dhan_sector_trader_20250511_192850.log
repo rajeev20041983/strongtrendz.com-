@@ -1,0 +1,324 @@
+2025-05-11 19:28:50,054 - INFO - 
+==================================================
+PROGRAM START
+==================================================
+2025-05-11 19:28:50,056 - INFO - ==========================================
+2025-05-11 19:28:50,056 - INFO - Starting Dhan Sector-Based Trading Program
+2025-05-11 19:28:50,056 - INFO - ==========================================
+2025-05-11 19:28:50,057 - INFO - Current time: 2025-05-11 19:28:50
+2025-05-11 19:28:50,057 - INFO - Found generic sector.csv file
+2025-05-11 19:28:50,057 - INFO - Step 1: Loading trading configuration...
+2025-05-11 19:28:50,058 - INFO - Loading trading configuration from trading_config.json
+2025-05-11 19:28:50,070 - INFO - Configuration loaded successfully
+2025-05-11 19:28:50,070 - INFO - Found 33 active tickers out of 33 total
+2025-05-11 19:28:50,071 - INFO - Step 2: Initializing Dhan API client...
+2025-05-11 19:28:50,072 - INFO - Initializing Dhan client with client_id: 1106497024
+2025-05-11 19:28:50,073 - INFO - Dhan API client initialized successfully
+2025-05-11 19:28:50,727 - INFO - Dhan API connection test successful
+2025-05-11 19:28:50,728 - INFO - Step 3: Loading sector mapping...
+2025-05-11 19:28:50,728 - INFO - Loading sector mapping from sector_mapping.json
+2025-05-11 19:28:50,729 - INFO - Sector mapping loaded successfully with 176 tickers
+2025-05-11 19:28:50,729 - INFO - Found 14 unique sectors
+2025-05-11 19:28:50,730 - INFO - Step 4: Loading security IDs mapping from Excel...
+2025-05-11 19:28:50,730 - INFO - Loading security IDs from security_ids.xlsx
+2025-05-11 19:28:58,873 - INFO - Successfully read Excel file with 1850 rows
+2025-05-11 19:28:58,873 - INFO - Excel columns: ['SEM_EXM_EXCH_ID', 'SEM_SEGMENT', 'SEM_SMST_SECURITY_ID', 'SEM_INSTRUMENT_NAME', 'SEM_EXPIRY_CODE', 'SEM_TRADING_SYMBOL', 'SEM_LOT_UNITS', 'SEM_CUSTOM_SYMBOL', 'SEM_EXPIRY_DATE', 'SEM_STRIKE_PRICE', 'SEM_OPTION_TYPE', 'SEM_TICK_SIZE', 'SEM_EXPIRY_FLAG', 'SEM_EXCH_INSTRUMENT_TYPE', 'SEM_SERIES', 'SM_SYMBOL_NAME']
+2025-05-11 19:28:58,879 - INFO - Using columns: Symbol='SEM_TRADING_SYMBOL', ID='SEM_SMST_SECURITY_ID'
+2025-05-11 19:28:59,009 - INFO - Security IDs mapping created with 3700 entries
+2025-05-11 19:28:59,010 - INFO - Checking for critical symbols:
+2025-05-11 19:28:59,010 - INFO - Found ID for SYNGENE: 10243
+2025-05-11 19:28:59,010 - INFO - Found ID for SYNGENE.NS: 10243
+2025-05-11 19:28:59,010 - INFO - Found ID for GRANULES: 11872
+2025-05-11 19:28:59,011 - INFO - Found ID for GRANULES.NS: 11872
+2025-05-11 19:28:59,011 - INFO - Found ID for ZEEL: 3812
+2025-05-11 19:28:59,012 - INFO - Found ID for ZEEL.NS: 3812
+2025-05-11 19:28:59,012 - INFO - Found ID for SBILIFE: 21808
+2025-05-11 19:28:59,012 - INFO - Found ID for SBILIFE.NS: 21808
+2025-05-11 19:28:59,013 - INFO - Found ID for RBLBANK: 18391
+2025-05-11 19:28:59,013 - INFO - Found ID for RBLBANK.NS: 18391
+2025-05-11 19:28:59,016 - INFO - Step 4.5: Validating security IDs for active tickers...
+2025-05-11 19:28:59,017 - INFO - 
+==================================================
+VALIDATING SECURITY IDS
+==================================================
+2025-05-11 19:28:59,018 - INFO - Found 33 active tickers to validate
+2025-05-11 19:28:59,018 - INFO - Found security ID for BALKRISIND.NS via BALKRISIND.NS: 335
+2025-05-11 19:28:59,018 - INFO - Found security ID for M&M.NS via M&M.NS: 2031
+2025-05-11 19:28:59,019 - INFO - Found security ID for MARUTI.NS via MARUTI.NS: 10999
+2025-05-11 19:28:59,019 - INFO - Found security ID for MOTHERSON.NS via MOTHERSON.NS: 4204
+2025-05-11 19:28:59,019 - INFO - Found security ID for MRF.NS via MRF.NS: 2277
+2025-05-11 19:28:59,019 - INFO - Found security ID for MARICO.NS via MARICO.NS: 4067
+2025-05-11 19:28:59,020 - INFO - Found security ID for CHOLAFIN.NS via CHOLAFIN.NS: 685
+2025-05-11 19:28:59,020 - INFO - Found security ID for MUTHOOTFIN.NS via MUTHOOTFIN.NS: 23650
+2025-05-11 19:28:59,020 - INFO - Found security ID for PEL.NS via PEL.NS: 2412
+2025-05-11 19:28:59,020 - INFO - Found security ID for LALPATHLAB.NS via LALPATHLAB.NS: 11654
+2025-05-11 19:28:59,021 - INFO - Found security ID for NAZARA.NS via NAZARA.NS: 2987
+2025-05-11 19:28:59,021 - INFO - Found security ID for TATASTEEL.NS via TATASTEEL.NS: 3499
+2025-05-11 19:28:59,021 - INFO - Found security ID for MGL.NS via MGL.NS: 17534
+2025-05-11 19:28:59,022 - INFO - Found security ID for BIOCON.NS via BIOCON.NS: 11373
+2025-05-11 19:28:59,022 - INFO - Found security ID for VBL.NS via VBL.NS: 18921
+2025-05-11 19:28:59,022 - INFO - Found security ID for ADANIENSOL.NS via ADANIENSOL.NS: 10217
+2025-05-11 19:28:59,023 - INFO - Found security ID for ADANIGREEN.NS via ADANIGREEN.NS: 3563
+2025-05-11 19:28:59,024 - INFO - Found security ID for TATAPOWER.NS via TATAPOWER.NS: 3426
+2025-05-11 19:28:59,025 - INFO - Found security ID for RECLTD.NS via RECLTD.NS: 15355
+2025-05-11 19:28:59,026 - INFO - Found security ID for LTTS.NS via LTTS.NS: 18564
+2025-05-11 19:28:59,027 - INFO - Found security ID for MPHASIS.NS via MPHASIS.NS: 4503
+2025-05-11 19:28:59,027 - INFO - Found security ID for HATHWAY.NS via HATHWAY.NS: 18154
+2025-05-11 19:28:59,027 - INFO - Found security ID for SUNTV.NS via SUNTV.NS: 13404
+2025-05-11 19:28:59,028 - INFO - Found security ID for PETRONET.NS via PETRONET.NS: 11351
+2025-05-11 19:28:59,029 - INFO - Found security ID for AUROPHARMA.NS via AUROPHARMA.NS: 275
+2025-05-11 19:28:59,029 - INFO - Found security ID for BANKBARODA.NS via BANKBARODA.NS: 4668
+2025-05-11 19:28:59,029 - INFO - Found security ID for BANKINDIA.NS via BANKINDIA.NS: 4745
+2025-05-11 19:28:59,030 - INFO - Found security ID for CANBK.NS via CANBK.NS: 10794
+2025-05-11 19:28:59,030 - INFO - Found security ID for PNB.NS via PNB.NS: 10666
+2025-05-11 19:28:59,030 - INFO - Found security ID for UNIONBANK.NS via UNIONBANK.NS: 10753
+2025-05-11 19:28:59,031 - INFO - Found security ID for BANDHANBNK.NS via BANDHANBNK.NS: 2263
+2025-05-11 19:28:59,031 - INFO - Found security ID for PRESTIGE.NS via PRESTIGE.NS: 20302
+2025-05-11 19:28:59,032 - INFO - Found security ID for HUDCO.NS via HUDCO.NS: 20825
+2025-05-11 19:28:59,035 - INFO - All active tickers have security IDs
+2025-05-11 19:28:59,036 - INFO - Step 5: Loading existing positions...
+2025-05-11 19:28:59,037 - INFO - No existing positions file found, starting fresh
+2025-05-11 19:28:59,038 - INFO - Step 6: Starting trading loop...
+2025-05-11 19:28:59,038 - INFO -   Sector check interval: 30 seconds
+2025-05-11 19:28:59,039 - INFO -   Price check interval: 60 seconds
+2025-05-11 19:28:59,039 - INFO - 
+==================================================
+SECTOR CHECK CYCLE 1
+==================================================
+2025-05-11 19:28:59,039 - INFO - Sector check cycle 1 started at 2025-05-11 19:28:59
+2025-05-11 19:28:59,040 - INFO - No fresh sector data found for today
+2025-05-11 19:28:59,040 - INFO - No fresh sector data for today yet - waiting for sector.csv to be updated
+2025-05-11 19:28:59,040 - INFO - Sector check cycle 1 completed
+2025-05-11 19:28:59,041 - INFO - 
+==================================================
+SECTOR CYCLE 1 COMPLETE
+==================================================
+2025-05-11 19:28:59,041 - INFO - 
+==================================================
+PRICE CHECK CYCLE
+==================================================
+2025-05-11 19:28:59,042 - INFO - Checking prices for existing positions...
+2025-05-11 19:28:59,042 - INFO - No existing positions file found, starting fresh
+2025-05-11 19:28:59,042 - INFO - 
+==================================================
+PROCESSING EXISTING POSITIONS
+==================================================
+2025-05-11 19:28:59,043 - INFO - No existing positions to process
+2025-05-11 19:28:59,043 - INFO - 
+==================================================
+POSITION PROCESSING COMPLETE
+==================================================
+2025-05-11 19:28:59,045 - INFO - Saved 0 positions to dhan_positions.json
+2025-05-11 19:28:59,047 - INFO - 
+==================================================
+POSITIONS SUMMARY
+==================================================
+2025-05-11 19:28:59,051 - INFO - Current positions summary:
+2025-05-11 19:28:59,051 - INFO -   Open BUY positions: 0
+2025-05-11 19:28:59,053 - INFO -   Open SELL positions: 0
+2025-05-11 19:28:59,054 - INFO -   Closed positions: 0
+2025-05-11 19:28:59,054 - INFO -   Total positions: 0
+2025-05-11 19:28:59,055 - INFO - 
+==================================================
+POSITIONS SUMMARY COMPLETE
+==================================================
+2025-05-11 19:28:59,055 - INFO - Price check cycle completed
+2025-05-11 19:28:59,056 - INFO - 
+==================================================
+PRICE CHECK COMPLETE
+==================================================
+2025-05-11 19:29:29,294 - INFO - 
+==================================================
+SECTOR CHECK CYCLE 2
+==================================================
+2025-05-11 19:29:29,296 - INFO - Sector check cycle 2 started at 2025-05-11 19:29:29
+2025-05-11 19:29:29,298 - INFO - No fresh sector data found for today
+2025-05-11 19:29:29,298 - INFO - No fresh sector data for today yet - waiting for sector.csv to be updated
+2025-05-11 19:29:29,299 - INFO - Sector check cycle 2 completed
+2025-05-11 19:29:29,301 - INFO - 
+==================================================
+SECTOR CYCLE 2 COMPLETE
+==================================================
+2025-05-11 19:29:59,585 - INFO - 
+==================================================
+SECTOR CHECK CYCLE 3
+==================================================
+2025-05-11 19:29:59,587 - INFO - Sector check cycle 3 started at 2025-05-11 19:29:59
+2025-05-11 19:29:59,590 - INFO - No fresh sector data found for today
+2025-05-11 19:29:59,591 - INFO - No fresh sector data for today yet - waiting for sector.csv to be updated
+2025-05-11 19:29:59,594 - INFO - Sector check cycle 3 completed
+2025-05-11 19:29:59,597 - INFO - 
+==================================================
+SECTOR CYCLE 3 COMPLETE
+==================================================
+2025-05-11 19:29:59,604 - INFO - 
+==================================================
+PRICE CHECK CYCLE
+==================================================
+2025-05-11 19:29:59,617 - INFO - Checking prices for existing positions...
+2025-05-11 19:29:59,619 - INFO - Loaded 0 existing positions
+2025-05-11 19:29:59,620 - INFO - Positions: 0 open, 0 closed
+2025-05-11 19:29:59,621 - INFO - 
+==================================================
+PROCESSING EXISTING POSITIONS
+==================================================
+2025-05-11 19:29:59,629 - INFO - No existing positions to process
+2025-05-11 19:29:59,631 - INFO - 
+==================================================
+POSITION PROCESSING COMPLETE
+==================================================
+2025-05-11 19:29:59,637 - INFO - Saved 0 positions to dhan_positions.json
+2025-05-11 19:29:59,637 - INFO - 
+==================================================
+POSITIONS SUMMARY
+==================================================
+2025-05-11 19:29:59,639 - INFO - Current positions summary:
+2025-05-11 19:29:59,643 - INFO -   Open BUY positions: 0
+2025-05-11 19:29:59,644 - INFO -   Open SELL positions: 0
+2025-05-11 19:29:59,644 - INFO -   Closed positions: 0
+2025-05-11 19:29:59,646 - INFO -   Total positions: 0
+2025-05-11 19:29:59,646 - INFO - 
+==================================================
+POSITIONS SUMMARY COMPLETE
+==================================================
+2025-05-11 19:29:59,647 - INFO - Price check cycle completed
+2025-05-11 19:29:59,648 - INFO - 
+==================================================
+PRICE CHECK COMPLETE
+==================================================
+2025-05-11 19:30:29,872 - INFO - 
+==================================================
+SECTOR CHECK CYCLE 4
+==================================================
+2025-05-11 19:30:29,875 - INFO - Sector check cycle 4 started at 2025-05-11 19:30:29
+2025-05-11 19:30:29,876 - INFO - No fresh sector data found for today
+2025-05-11 19:30:29,877 - INFO - No fresh sector data for today yet - waiting for sector.csv to be updated
+2025-05-11 19:30:29,877 - INFO - Sector check cycle 4 completed
+2025-05-11 19:30:29,878 - INFO - 
+==================================================
+SECTOR CYCLE 4 COMPLETE
+==================================================
+2025-05-11 19:31:00,141 - INFO - 
+==================================================
+SECTOR CHECK CYCLE 5
+==================================================
+2025-05-11 19:31:00,141 - INFO - Sector check cycle 5 started at 2025-05-11 19:31:00
+2025-05-11 19:31:00,142 - INFO - No fresh sector data found for today
+2025-05-11 19:31:00,142 - INFO - No fresh sector data for today yet - waiting for sector.csv to be updated
+2025-05-11 19:31:00,142 - INFO - Sector check cycle 5 completed
+2025-05-11 19:31:00,143 - INFO - 
+==================================================
+SECTOR CYCLE 5 COMPLETE
+==================================================
+2025-05-11 19:31:00,143 - INFO - 
+==================================================
+PRICE CHECK CYCLE
+==================================================
+2025-05-11 19:31:00,144 - INFO - Checking prices for existing positions...
+2025-05-11 19:31:00,144 - INFO - Loaded 0 existing positions
+2025-05-11 19:31:00,144 - INFO - Positions: 0 open, 0 closed
+2025-05-11 19:31:00,145 - INFO - 
+==================================================
+PROCESSING EXISTING POSITIONS
+==================================================
+2025-05-11 19:31:00,145 - INFO - No existing positions to process
+2025-05-11 19:31:00,145 - INFO - 
+==================================================
+POSITION PROCESSING COMPLETE
+==================================================
+2025-05-11 19:31:00,147 - INFO - Saved 0 positions to dhan_positions.json
+2025-05-11 19:31:00,149 - INFO - 
+==================================================
+POSITIONS SUMMARY
+==================================================
+2025-05-11 19:31:00,152 - INFO - Current positions summary:
+2025-05-11 19:31:00,152 - INFO -   Open BUY positions: 0
+2025-05-11 19:31:00,152 - INFO -   Open SELL positions: 0
+2025-05-11 19:31:00,153 - INFO -   Closed positions: 0
+2025-05-11 19:31:00,153 - INFO -   Total positions: 0
+2025-05-11 19:31:00,154 - INFO - 
+==================================================
+POSITIONS SUMMARY COMPLETE
+==================================================
+2025-05-11 19:31:00,155 - INFO - Price check cycle completed
+2025-05-11 19:31:00,159 - INFO - 
+==================================================
+PRICE CHECK COMPLETE
+==================================================
+2025-05-11 19:31:30,405 - INFO - 
+==================================================
+SECTOR CHECK CYCLE 6
+==================================================
+2025-05-11 19:31:30,406 - INFO - Sector check cycle 6 started at 2025-05-11 19:31:30
+2025-05-11 19:31:30,407 - INFO - No fresh sector data found for today
+2025-05-11 19:31:30,407 - INFO - No fresh sector data for today yet - waiting for sector.csv to be updated
+2025-05-11 19:31:30,407 - INFO - Sector check cycle 6 completed
+2025-05-11 19:31:30,408 - INFO - 
+==================================================
+SECTOR CYCLE 6 COMPLETE
+==================================================
+2025-05-11 19:32:00,654 - INFO - 
+==================================================
+SECTOR CHECK CYCLE 7
+==================================================
+2025-05-11 19:32:00,655 - INFO - Sector check cycle 7 started at 2025-05-11 19:32:00
+2025-05-11 19:32:00,656 - INFO - No fresh sector data found for today
+2025-05-11 19:32:00,656 - INFO - No fresh sector data for today yet - waiting for sector.csv to be updated
+2025-05-11 19:32:00,657 - INFO - Sector check cycle 7 completed
+2025-05-11 19:32:00,657 - INFO - 
+==================================================
+SECTOR CYCLE 7 COMPLETE
+==================================================
+2025-05-11 19:32:00,657 - INFO - 
+==================================================
+PRICE CHECK CYCLE
+==================================================
+2025-05-11 19:32:00,658 - INFO - Checking prices for existing positions...
+2025-05-11 19:32:00,660 - INFO - Loaded 0 existing positions
+2025-05-11 19:32:00,661 - INFO - Positions: 0 open, 0 closed
+2025-05-11 19:32:00,661 - INFO - 
+==================================================
+PROCESSING EXISTING POSITIONS
+==================================================
+2025-05-11 19:32:00,663 - INFO - No existing positions to process
+2025-05-11 19:32:00,664 - INFO - 
+==================================================
+POSITION PROCESSING COMPLETE
+==================================================
+2025-05-11 19:32:00,675 - INFO - Saved 0 positions to dhan_positions.json
+2025-05-11 19:32:00,675 - INFO - 
+==================================================
+POSITIONS SUMMARY
+==================================================
+2025-05-11 19:32:00,678 - INFO - Current positions summary:
+2025-05-11 19:32:00,679 - INFO -   Open BUY positions: 0
+2025-05-11 19:32:00,679 - INFO -   Open SELL positions: 0
+2025-05-11 19:32:00,679 - INFO -   Closed positions: 0
+2025-05-11 19:32:00,680 - INFO -   Total positions: 0
+2025-05-11 19:32:00,687 - INFO - 
+==================================================
+POSITIONS SUMMARY COMPLETE
+==================================================
+2025-05-11 19:32:00,691 - INFO - Price check cycle completed
+2025-05-11 19:32:00,691 - INFO - 
+==================================================
+PRICE CHECK COMPLETE
+==================================================
+2025-05-11 19:32:31,019 - INFO - 
+==================================================
+SECTOR CHECK CYCLE 8
+==================================================
+2025-05-11 19:32:31,021 - INFO - Sector check cycle 8 started at 2025-05-11 19:32:31
+2025-05-11 19:32:31,022 - INFO - No fresh sector data found for today
+2025-05-11 19:32:31,022 - INFO - No fresh sector data for today yet - waiting for sector.csv to be updated
+2025-05-11 19:32:31,023 - INFO - Sector check cycle 8 completed
+2025-05-11 19:32:31,024 - INFO - 
+==================================================
+SECTOR CYCLE 8 COMPLETE
+==================================================
+2025-05-11 19:32:55,012 - INFO - Trading program stopped by user
+2025-05-11 19:32:55,018 - INFO - Saved 0 positions to dhan_positions.json
+2025-05-11 19:32:55,020 - INFO - 
+==================================================
+PROGRAM TERMINATED BY USER
+==================================================

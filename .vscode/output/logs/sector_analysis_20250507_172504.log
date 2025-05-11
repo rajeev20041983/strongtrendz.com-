@@ -1,0 +1,35 @@
+2025-05-07 17:25:04,003 - INFO: Starting sector-based stock analysis - 2025-05-07
+2025-05-07 17:54:43,022 - ERROR: 
+1 Failed download:
+2025-05-07 17:54:43,022 - ERROR: ['BAJAJAUTO.NS']: YFRateLimitError('Too Many Requests. Rate limited. Try after a while.')
+2025-05-07 17:54:43,102 - WARNING: No meaningful data for BAJAJAUTO.NS
+2025-05-07 19:51:19,247 - INFO: Saved agreement report to C:\Users\Rajee\OneDrive\stock\lab\strongtrendz.com-\.vscode\output\arima_lstm_agreement_20250507_195119.csv
+2025-05-07 19:51:19,259 - INFO: Saved top picks to C:\Users\Rajee\OneDrive\stock\lab\strongtrendz.com-\.vscode\output\top_picks_20250507_195119.csv
+2025-05-07 19:51:19,264 - INFO: Saved sector performance to C:\Users\Rajee\OneDrive\stock\lab\strongtrendz.com-\.vscode\output\sector_performance_20250507_195119.csv
+2025-05-07 19:51:19,298 - INFO: Saved consolidated analysis results to C:\Users\Rajee\OneDrive\stock\lab\strongtrendz.com-\.vscode\output\sector_analysis_20250507_195119.json
+2025-05-07 19:51:19,330 - INFO: 
+--- Analysis Summary ---
+2025-05-07 19:51:19,331 - INFO: Total Stocks Analyzed: 140
+2025-05-07 19:51:19,331 - INFO: Successfully Analyzed: 140
+2025-05-07 19:51:19,331 - INFO: Failed Analyses: 0
+2025-05-07 19:51:19,332 - INFO: Stocks with ARIMA-LSTM agreement: 102 (72.9%)
+2025-05-07 19:51:19,332 - INFO: Top BUY recommendations: 10
+2025-05-07 19:51:19,332 - INFO: Top SELL recommendations: 10
+2025-05-07 19:51:19,334 - INFO: 
+Sector Performance:
+2025-05-07 19:51:19,335 - INFO: NIFTY_PSU_BANK: 6.19% (UP)
+2025-05-07 19:51:19,336 - INFO: UNKNOWN: 3.85% (UP)
+2025-05-07 19:51:19,337 - INFO: NIFTY_ENERGY: 3.08% (UP)
+2025-05-07 19:51:19,338 - INFO: NIFTY_REALTY: 2.50% (UP)
+2025-05-07 19:51:19,339 - INFO: NIFTY_PVT_BANK: 1.05% (UP)
+2025-05-07 19:51:19,340 - INFO: NIFTY_CONSUMPTION: 0.96% (UP)
+2025-05-07 19:51:19,340 - INFO: NIFTY_OIL_AND_GAS: 0.93% (UP)
+2025-05-07 19:51:19,341 - INFO: NIFTY_BANK: 0.72% (UP)
+2025-05-07 19:51:19,341 - INFO: NIFTY_PHARMA: 0.66% (UP)
+2025-05-07 19:51:19,341 - INFO: NIFTY_METAL: 0.61% (UP)
+2025-05-07 19:51:19,343 - INFO: NIFTY_IT: 0.46% (UP)
+2025-05-07 19:51:19,343 - INFO: NIFTY_CONSUMER: 0.24% (UP)
+2025-05-07 19:51:19,344 - INFO: NIFTY_MEDIA: -0.05% (DOWN)
+2025-05-07 19:51:19,346 - INFO: NIFTY_FIN_SERVICE: -0.25% (DOWN)
+2025-05-07 19:51:19,346 - INFO: NIFTY_HEALTHCARE: -0.57% (DOWN)
+2025-05-07 19:51:19,347 - INFO: NIFTY_AUTO: -2.43% (DOWN)

@@ -20,7 +20,64 @@ from app.services.market_analyzer import MarketAnalysisService
 from app.services.sector_analyzer import SectorAnalyzer
 from app import config
 
+#!/usr/bin/env python
+# run_sector_analysis.py - Script for sector-based stock analysis with ARIMA-LSTM agreement
 
+import os
+import sys
+current_dir = os.path.dirname(os.path.abspath(__file__))
+parent_dir = os.path.dirname(current_dir)
+sys.path.append(current_dir)
+sys.path.append(os.path.join(current_dir, '.vscode'))
+
+# Add curl_cffi installation to bypass Yahoo Finance rate limits
+def install_curl_cffi():
+    """Install curl_cffi package if not already installed"""
+    try:
+        import curl_cffi
+        print("curl_cffi is already installed. Will use it to bypass Yahoo Finance rate limits.")
+        return True
+    except ImportError:
+        print("curl_cffi not found. Installing curl_cffi to bypass Yahoo Finance rate limits...")
+        try:
+            import subprocess
+            subprocess.check_call([sys.executable, "-m", "pip", "install", "curl_cffi"])
+            print("curl_cffi successfully installed.")
+            return True
+        except Exception as e:
+            print(f"Failed to install curl_cffi: {str(e)}")
+            print("You may need to manually install it with: pip install curl_cffi")
+            return False
+
+# Attempt to install curl_cffi at startup
+CURL_CFFI_AVAILABLE = install_curl_cffi()
+
+import json
+import argparse
+import logging
+from datetime import datetime
+import pandas as pd
+from tabulate import tabulate
+import warnings
+from app.services.market_analyzer import MarketAnalysisService
+from app.services.sector_analyzer import SectorAnalyzer
+from app import config
+
+# Import or patch yfinance with curl_cffi if available
+if CURL_CFFI_AVAILABLE:
+    try:
+        import yfinance as yf
+        from curl_cffi import requests as curl_requests
+        
+        # Create a function to get a patched yfinance Ticker with curl_cffi session
+        def get_ticker_with_curl_cffi(ticker_symbol):
+            """Create a yfinance Ticker object with curl_cffi session to bypass rate limits"""
+            session = curl_requests.Session(impersonate="chrome")
+            return yf.Ticker(ticker_symbol, session=session)
+        
+        print("yfinance configured to use curl_cffi for bypassing rate limits")
+    except Exception as e:
+        print(f"Warning: Could not configure yfinance with curl_cffi: {str(e)}")
 # Suppress warnings
 warnings.filterwarnings("ignore")
 

@@ -11,8 +11,9 @@ This program trades stocks based on sector ranking from sector.csv:
    - SELL positions only for stocks in BOTTOM 3 sectors
 3. Executes trades through Dhan trading API using provided credentials
 4. After initial trades, only monitors and exits positions based on:
-   - Stop loss price levels
-   - Target price levels
+   - Stop loss price levels (1% loss)
+   - Target price levels (1% profit)
+   - Uses Yahoo Finance for price comparisons instead of Dhan API
    - No new trades initiated after the initial trade period
 """
 
@@ -37,6 +38,9 @@ from webdriver_manager.chrome import ChromeDriverManager
 
 # Dhan API imports
 from dhanhq import dhanhq
+
+# Yahoo Finance import
+import yfinance as yf
 
 # =================================================================
 # Logging Setup
@@ -83,6 +87,13 @@ BOTTOM_SECTORS_COUNT = 3
 # Flags
 INITIAL_TRADES_EXECUTED = False
 SECTOR_DATA_CHECKED_TODAY = False
+
+# Fixed profit/loss targets
+PROFIT_TARGET_PERCENT = 1.0  # 1% profit target
+STOP_LOSS_PERCENT = 1.0      # 1% stop loss
+
+# Price check interval (in seconds)
+PRICE_CHECK_INTERVAL = 60    # Check prices every 1 minute
 
 # =================================================================
 # Utility Functions
@@ -139,6 +150,48 @@ def is_fresh_sector_data_available():
     
     logger.info("No fresh sector data found for today")
     return False
+
+# =================================================================
+# Yahoo Finance Functions
+# =================================================================
+
+def get_yahoo_current_price(symbol):
+    """Get current market price from Yahoo Finance"""
+    try:
+        # Convert symbol to Yahoo Finance format if needed
+        if symbol.endswith('.NS'):
+            yf_symbol = symbol
+        else:
+            yf_symbol = symbol + '.NS'
+        
+        logger.info(f"Getting price for {symbol} from Yahoo Finance (using {yf_symbol})")
+        
+        # Create the ticker object
+        ticker = yf.Ticker(yf_symbol)
+        
+        # Try to get current data
+        info = ticker.info
+        if info and 'currentPrice' in info:
+            price = float(info['currentPrice'])
+            logger.info(f"Got current price for {symbol}: {price}")
+            return price
+        
+        # Fallback: Get recent data from history
+        history = ticker.history(period="1d", interval="1m")
+        if not history.empty:
+            price = float(history['Close'].iloc[-1])
+            logger.info(f"Got price from history for {symbol}: {price}")
+            return price
+        
+        logger.warning(f"Could not get price for {symbol} from Yahoo Finance")
+        return None
+    except Exception as e:
+        logger.error(f"Error getting Yahoo Finance price for {symbol}: {str(e)}")
+        return None
+
+def get_current_market_price(symbol):
+    """Get the current market price for a symbol from Yahoo Finance"""
+    return get_yahoo_current_price(symbol)
 
 # =================================================================
 # Web Scraping Functions
@@ -680,51 +733,6 @@ def get_security_id(symbol, security_ids_mapping):
         logger.error(traceback.format_exc())
         return None
 
-def get_current_market_price(dhan, symbol, security_id=None):
-    """Get the current market price for a symbol"""
-    try:
-        logger.info(f"Getting current market price for {symbol}")
-        
-        # Try to get quote using different methods
-        try:
-            # First try using the get_quote method with the symbol
-            quote = dhan.get_quote(symbol)
-            if isinstance(quote, dict) and 'last_traded_price' in quote:
-                price = float(quote['last_traded_price'])
-                logger.info(f"Got price for {symbol} using get_quote: {price}")
-                return price
-        except Exception as e:
-            logger.info(f"Failed to get quote using symbol: {str(e)}")
-        
-        # If that fails, try using the get_ltp method with security_id
-        if security_id:
-            try:
-                ltp = dhan.get_ltp(security_id, 'NSE')
-                if isinstance(ltp, dict) and 'last_price' in ltp:
-                    price = float(ltp['last_price'])
-                    logger.info(f"Got price for {symbol} using get_ltp: {price}")
-                    return price
-            except Exception as e:
-                logger.info(f"Failed to get LTP using security_id: {str(e)}")
-        
-        # As a fallback, try to find the price from the intraday candles
-        try:
-            candles = dhan.intraday_daily_minute_charts(security_id, 'NSE', 1)  # 1-minute candles
-            if isinstance(candles, list) and len(candles) > 0:
-                latest_candle = candles[-1]
-                price = float(latest_candle['close_price'])
-                logger.info(f"Got price for {symbol} from candle data: {price}")
-                return price
-        except Exception as e:
-            logger.info(f"Failed to get price from candles: {str(e)}")
-        
-        logger.error(f"Could not get current market price for {symbol}")
-        return None
-    except Exception as e:
-        logger.error(f"Error getting market price for {symbol}: {str(e)}")
-        logger.error(traceback.format_exc())
-        return None
-
 def get_order_execution_price(dhan, order_id):
     """Get the execution price of an order"""
     try:
@@ -860,7 +868,7 @@ def execute_order_with_retries(dhan, symbol, transaction_type, quantity, price, 
             
             # If it was a market order, try to get the current market price
             if price is None or price == 0:
-                execution_price = get_current_market_price(dhan, symbol, security_id)
+                execution_price = get_current_market_price(symbol)
                 if execution_price:
                     logger.info(f"Using current market price as execution price: {execution_price}")
                 else:
@@ -1057,8 +1065,9 @@ def process_sector_data(dhan, sector_df, config, sector_mapping, positions, secu
 def process_existing_positions(dhan, positions, sector_df, security_ids_mapping):
     """
     Process existing positions to check if any need to be exited based on:
-    1. Stop loss price levels
-    2. Target price levels
+    1. Stop loss price levels (1% loss)
+    2. Target price levels (1% profit)
+    Prices are fetched from Yahoo Finance
     
     Args:
         dhan: Initialized Dhan API client
@@ -1107,8 +1116,8 @@ def process_existing_positions(dhan, positions, sector_df, security_ids_mapping)
                 exit_reason = ""
                 
                 # Check for price-based exit conditions (stop loss and target)
-                # Get current market price
-                current_price = get_current_market_price(dhan, ticker, security_id)
+                # Get current market price from Yahoo Finance
+                current_price = get_current_market_price(ticker)
                 
                 if current_price:
                     logger.info(f"Current market price for {ticker}: {current_price}")
@@ -1118,33 +1127,32 @@ def process_existing_positions(dhan, positions, sector_df, security_ids_mapping)
                     if entry_price:
                         entry_price = float(entry_price)
                         
-                        # Check for stop loss
-                        if 'stop_loss_percent' in position and not exit_position:
-                            stop_loss_percent = float(position['stop_loss_percent'])
-                            
-                            if position_type == 'BUY':
-                                # For BUY positions, stop loss is below entry price
-                                stop_loss_price = entry_price * (1 - stop_loss_percent/100)
-                                logger.info(f"Stop loss for {ticker} BUY position: {stop_loss_price} (Entry: {entry_price}, SL%: {stop_loss_percent}%)")
-                                
-                                if current_price <= stop_loss_price:
-                                    exit_position = True
-                                    exit_reason = f"Stop loss triggered at {current_price} (Stop: {stop_loss_price})"
-                                    logger.info(f"Stop loss triggered for {ticker} BUY position: Current: {current_price} <= Stop: {stop_loss_price}")
-                            
-                            elif position_type == 'SELL':
-                                # For SELL positions, stop loss is above entry price
-                                stop_loss_price = entry_price * (1 + stop_loss_percent/100)
-                                logger.info(f"Stop loss for {ticker} SELL position: {stop_loss_price} (Entry: {entry_price}, SL%: {stop_loss_percent}%)")
-                                
-                                if current_price >= stop_loss_price:
-                                    exit_position = True
-                                    exit_reason = f"Stop loss triggered at {current_price} (Stop: {stop_loss_price})"
-                                    logger.info(f"Stop loss triggered for {ticker} SELL position: Current: {current_price} >= Stop: {stop_loss_price}")
+                        # Check for stop loss (override any custom value and use fixed 1%)
+                        stop_loss_percent = STOP_LOSS_PERCENT
                         
-                        # Check for target
-                        if 'target_percent' in position and not exit_position:
-                            target_percent = float(position['target_percent'])
+                        if position_type == 'BUY':
+                            # For BUY positions, stop loss is below entry price
+                            stop_loss_price = entry_price * (1 - stop_loss_percent/100)
+                            logger.info(f"Stop loss for {ticker} BUY position: {stop_loss_price} (Entry: {entry_price}, SL%: {stop_loss_percent}%)")
+                            
+                            if current_price <= stop_loss_price:
+                                exit_position = True
+                                exit_reason = f"Stop loss triggered at {current_price} (Stop: {stop_loss_price})"
+                                logger.info(f"Stop loss triggered for {ticker} BUY position: Current: {current_price} <= Stop: {stop_loss_price}")
+                        
+                        elif position_type == 'SELL':
+                            # For SELL positions, stop loss is above entry price
+                            stop_loss_price = entry_price * (1 + stop_loss_percent/100)
+                            logger.info(f"Stop loss for {ticker} SELL position: {stop_loss_price} (Entry: {entry_price}, SL%: {stop_loss_percent}%)")
+                            
+                            if current_price >= stop_loss_price:
+                                exit_position = True
+                                exit_reason = f"Stop loss triggered at {current_price} (Stop: {stop_loss_price})"
+                                logger.info(f"Stop loss triggered for {ticker} SELL position: Current: {current_price} >= Stop: {stop_loss_price}")
+                        
+                        # Check for target (override any custom value and use fixed 1%)
+                        if not exit_position:
+                            target_percent = PROFIT_TARGET_PERCENT
                             
                             if position_type == 'BUY':
                                 # For BUY positions, target is above entry price
@@ -1388,8 +1396,9 @@ def find_new_trading_opportunities(dhan, positions, sector_df, sector_mapping, c
                 # Get ticker configuration
                 transaction_type = ticker_config['transaction_type']
                 quantity = ticker_config['quantity']
-                stop_loss_percent = ticker_config.get('stop_loss_percent', 1.0)
-                target_percent = ticker_config.get('target_percent', 1.0)
+                # Override any custom values with fixed 1%
+                stop_loss_percent = STOP_LOSS_PERCENT
+                target_percent = PROFIT_TARGET_PERCENT
                 entry_price = ticker_config.get('entry_price', '')
                 
                 # Determine if we should trade based on sector ranking
@@ -1402,7 +1411,7 @@ def find_new_trading_opportunities(dhan, positions, sector_df, sector_mapping, c
                     trade_reason = f"TOP {TOP_SECTORS_COUNT} sector (Rank {rank}): {percent_change:.2f}%"
                     logger.info(f"Should BUY {symbol} - sector {sector} is in TOP {TOP_SECTORS_COUNT} (Rank {rank})")
                     
-                elif transaction_type == 'SELL' and category == 'BOTTOM':
+                elif transaction_type == 'SELL' and category == 'BOTTOM' and not is_positive:
                     # Only sell if sector is in the bottom 3
                     should_trade = True
                     trade_reason = f"BOTTOM {BOTTOM_SECTORS_COUNT} sector (Rank {rank}): {percent_change:.2f}%"
@@ -1683,20 +1692,22 @@ def main():
         logger.info("Step 5: Loading existing positions...")
         positions = load_positions()
         
-        # Step 6: Main trading loop
+        # Step 6: Main trading loop (using separate intervals for sector and price checks)
         check_interval = config.get('check_interval_seconds', DEFAULT_CHECK_INTERVAL)
-        logger.info(f"Step 6: Starting trading loop (check interval: {check_interval} seconds)...")
+        logger.info(f"Step 6: Starting trading loop...")
+        logger.info(f"  Sector check interval: {check_interval} seconds")
+        logger.info(f"  Price check interval: {PRICE_CHECK_INTERVAL} seconds")
         
         # Reset daily flags at the start if needed
         INITIAL_TRADES_EXECUTED = False
         
         try:
             cycle_count = 0
+            last_sector_check = 0
+            last_price_check = 0
+            
             while True:
-                cycle_count += 1
-                log_separator(f"TRADING CYCLE {cycle_count}")
-                current_time = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-                logger.info(f"Trading cycle {cycle_count} started at {current_time}")
+                current_time = time.time()
                 
                 # Reset flags daily at market open
                 now = datetime.now()
@@ -1705,35 +1716,61 @@ def main():
                     INITIAL_TRADES_EXECUTED = False
                     SECTOR_DATA_CHECKED_TODAY = False
                 
-                # Check if we have fresh sector data today
-                fresh_sector_data = is_fresh_sector_data_available()
-                
-                if fresh_sector_data or SECTOR_DATA_CHECKED_TODAY:
-                    # Get the latest sector performance data
-                    sector_df = get_latest_sector_performance()
+                # Check if it's time for a sector check (less frequent)
+                if current_time - last_sector_check >= check_interval:
+                    cycle_count += 1
+                    log_separator(f"SECTOR CHECK CYCLE {cycle_count}")
+                    current_time_str = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+                    logger.info(f"Sector check cycle {cycle_count} started at {current_time_str}")
                     
-                    if sector_df is not None:
-                        # Process sector data for trading decisions
-                        positions = process_sector_data(dhan, sector_df, config, sector_mapping, positions, security_ids_mapping)
+                    # Check if we have fresh sector data today
+                    fresh_sector_data = is_fresh_sector_data_available()
+                    
+                    if fresh_sector_data or SECTOR_DATA_CHECKED_TODAY:
+                        # Get the latest sector performance data
+                        sector_df = get_latest_sector_performance()
                         
-                        # Save updated positions
-                        save_positions(positions)
-                        
-                        # Print summary of current positions
-                        summarize_current_positions(positions)
+                        if sector_df is not None:
+                            # Process sector data for trading decisions
+                            positions = process_sector_data(dhan, sector_df, config, sector_mapping, positions, security_ids_mapping)
+                            
+                            # Save updated positions
+                            save_positions(positions)
+                            
+                            # Print summary of current positions
+                            summarize_current_positions(positions)
+                        else:
+                            logger.warning("No sector data available, skipping this cycle")
                     else:
-                        logger.warning("No sector data available, skipping this cycle")
-                else:
-                    logger.info("No fresh sector data for today yet - waiting for sector.csv to be updated")
+                        logger.info("No fresh sector data for today yet - waiting for sector.csv to be updated")
+                    
+                    logger.info(f"Sector check cycle {cycle_count} completed")
+                    log_separator(f"SECTOR CYCLE {cycle_count} COMPLETE")
+                    last_sector_check = current_time
                 
-                # Log cycle completion
-                logger.info(f"Trading cycle {cycle_count} completed")
+                # Check if it's time for a price check (more frequent - every minute)
+                if current_time - last_price_check >= PRICE_CHECK_INTERVAL:
+                    log_separator("PRICE CHECK CYCLE")
+                    logger.info("Checking prices for existing positions...")
+                    
+                    # Load current positions to ensure we have the latest
+                    positions = load_positions()
+                    
+                    # Process existing positions for price-based exits only
+                    positions = process_existing_positions(dhan, positions, None, security_ids_mapping)
+                    
+                    # Save updated positions
+                    save_positions(positions)
+                    
+                    # Print summary of current positions
+                    summarize_current_positions(positions)
+                    
+                    logger.info("Price check cycle completed")
+                    log_separator("PRICE CHECK COMPLETE")
+                    last_price_check = current_time
                 
-                # Wait for the next check interval
-                next_check_time = (datetime.now() + pd.Timedelta(seconds=check_interval)).strftime('%H:%M:%S')
-                logger.info(f"Waiting {check_interval} seconds until next check at {next_check_time}...")
-                log_separator(f"CYCLE {cycle_count} COMPLETE")
-                time.sleep(check_interval)
+                # Wait a bit before next check
+                time.sleep(1)  # Check every second to make timing more accurate
         
         except KeyboardInterrupt:
             logger.info("Trading program stopped by user")

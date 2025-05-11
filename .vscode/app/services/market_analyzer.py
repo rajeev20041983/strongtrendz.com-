@@ -37,7 +37,7 @@ class MarketAnalysisService:
     
     def get_historical_data(self, ticker, years=2):
         """
-        Download historical data for the given ticker
+        Download historical data for the given ticker with robust rate limit handling
         """
         print(f"Downloading historical data for {ticker}...")
         
@@ -45,16 +45,114 @@ class MarketAnalysisService:
         end = datetime.now()
         start = datetime(end.year-years, end.month, end.day)
         
-        # Download data
-        data = yf.download(ticker, start=start, end=end)
-        
-        # Save to CSV
+        # Define cache path
         csv_path = os.path.join(self.output_dir, 'data', f"{ticker}.csv")
-        data.to_csv(csv_path)
         
-        print(f"Data saved to {csv_path}")
-        return data
-    
+        # Try to use cached data if available and recent
+        if os.path.exists(csv_path):
+            try:
+                cached_data = pd.read_csv(csv_path, index_col=0, parse_dates=True)
+                if not cached_data.empty:
+                    # Check if data is recent enough (less than 24 hours old)
+                    file_modified_time = os.path.getmtime(csv_path)
+                    hours_since_modified = (time.time() - file_modified_time) / 3600
+                    
+                    if hours_since_modified < 24:
+                        print(f"Using cached data for {ticker} (last updated {hours_since_modified:.1f} hours ago)")
+                        return cached_data
+                    else:
+                        print(f"Cached data is {hours_since_modified:.1f} hours old. Attempting to update...")
+            except Exception as e:
+                print(f"Error reading cached data: {e}")
+        
+        # Create directory for data if it doesn't exist
+        os.makedirs(os.path.join(self.output_dir, 'data'), exist_ok=True)
+        
+        # Try to download data with curl_cffi
+        try:
+            # First try to import curl_cffi
+            from curl_cffi import requests as curl_requests
+            
+            # Create a session that impersonates Chrome
+            session = curl_requests.Session(impersonate="chrome")
+            
+            # Use direct API access instead of yfinance
+            period1 = int(start.timestamp())
+            period2 = int(end.timestamp())
+            url = f"https://query2.finance.yahoo.com/v8/finance/chart/{ticker}?period1={period1}&period2={period2}&interval=1d&events=history"
+            
+            print(f"Using curl_cffi to request data from Yahoo Finance API...")
+            response = session.get(url)
+            
+            if response.status_code == 200:
+                # Parse the JSON response
+                data_json = response.json()
+                
+                # Check if we got valid data
+                if 'chart' in data_json and 'result' in data_json['chart'] and data_json['chart']['result']:
+                    result = data_json['chart']['result'][0]
+                    
+                    # Extract timestamps and quote data
+                    timestamps = result['timestamp']
+                    quote = result['indicators']['quote'][0]
+                    
+                    # Create DataFrame
+                    df = pd.DataFrame({
+                        'Open': quote.get('open', []),
+                        'High': quote.get('high', []),
+                        'Low': quote.get('low', []),
+                        'Close': quote.get('close', []),
+                        'Volume': quote.get('volume', []),
+                    }, index=[datetime.fromtimestamp(ts) for ts in timestamps])
+                    
+                    # Handle potential NaN values
+                    df = df.fillna(method='ffill').fillna(method='bfill')
+                    
+                    # Save to CSV
+                    df.to_csv(csv_path)
+                    print(f"Data saved to {csv_path}")
+                    
+                    return df
+                else:
+                    print("Invalid data format in API response")
+            else:
+                print(f"API request failed with status code {response.status_code}")
+                
+        except ImportError:
+            print("curl_cffi not available, trying yfinance...")
+        except Exception as e:
+            print(f"Error using curl_cffi: {str(e)}")
+        
+        # If curl_cffi failed or isn't available, try yfinance
+        try:
+            # Try yfinance with a regular session
+            data = yf.download(ticker, start=start, end=end, progress=True)
+            
+            if not data.empty:
+                # Save to CSV
+                data.to_csv(csv_path)
+                print(f"Data saved to {csv_path}")
+                return data
+                
+            print(f"No data available for {ticker} via yfinance")
+            
+        except Exception as e:
+            print(f"Error downloading data via yfinance: {str(e)}")
+        
+        # If all download attempts failed, try to use cached data as fallback
+        if os.path.exists(csv_path):
+            try:
+                cached_data = pd.read_csv(csv_path, index_col=0, parse_dates=True)
+                if not cached_data.empty:
+                    print(f"All download attempts failed. Using cached data for {ticker} as fallback")
+                    return cached_data
+            except Exception:
+                pass
+        
+        # Return empty DataFrame if everything failed
+        print(f"No data available for {ticker}. Skipping analysis.")
+        return pd.DataFrame()
+        
     def run_arima_model(self, df, ticker):
         """ARIMA model implementation"""
         print("\n===== RUNNING ARIMA MODEL =====")
