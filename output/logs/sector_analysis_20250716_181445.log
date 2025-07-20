@@ -1,0 +1,46 @@
+2025-07-16 18:14:45,515 - INFO: Starting sector-based stock analysis with CONTRARIAN logic - 2025-07-16
+2025-07-16 18:14:45,516 - INFO: ARIMA Error Threshold: 30%
+2025-07-16 18:14:45,516 - INFO: Sentiment enhancement: ENABLED with CONTRARIAN logic
+2025-07-16 18:15:14,642 - INFO: Fetched 118 unique articles from RSS + Web + Fallback
+2025-07-16 18:15:54,107 - WARNING: 5 out of the last 11 calls to <function TensorFlowTrainer.make_predict_function.<locals>.one_step_on_data_distributed at 0x000001C4AAF1B6D0> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has reduce_retracing=True option that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/guide/function#controlling_retracing and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+2025-07-16 18:15:54,505 - WARNING: 5 out of the last 11 calls to <function TensorFlowTrainer.make_predict_function.<locals>.one_step_on_data_distributed at 0x000001C4AAF1B6D0> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has reduce_retracing=True option that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/guide/function#controlling_retracing and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+2025-07-16 18:25:10,894 - ERROR: HTTP Error 404: 
+2025-07-16 18:25:11,005 - ERROR: 
+1 Failed download:
+2025-07-16 18:25:11,005 - ERROR: ['BAJAJAUTO.NS']: YFTzMissingError('possibly delisted; no timezone found')
+2025-07-16 18:25:11,047 - WARNING: No meaningful data for BAJAJAUTO.NS
+2025-07-16 19:05:51,550 - INFO: Saved agreement report to C:\Users\PC\OneDrive\projects\strongtrendz.com-\output\arima_lstm_agreement_20250716_190551.csv
+2025-07-16 19:05:51,564 - INFO: Saved top picks to C:\Users\PC\OneDrive\projects\strongtrendz.com-\output\top_picks_20250716_190551.csv
+2025-07-16 19:05:51,568 - INFO: Saved sector performance to C:\Users\PC\OneDrive\projects\strongtrendz.com-\output\sector_performance_20250716_190551.csv
+2025-07-16 19:05:51,614 - INFO: Saved consolidated analysis results to C:\Users\PC\OneDrive\projects\strongtrendz.com-\output\sector_analysis_contrarian_20250716_190551.json
+2025-07-16 19:05:51,650 - INFO: 
+--- Analysis Summary ---
+2025-07-16 19:05:51,653 - INFO: Total Stocks Analyzed: 140
+2025-07-16 19:05:51,653 - INFO: Successfully Analyzed: 140
+2025-07-16 19:05:51,653 - INFO: Failed Analyses: 0
+2025-07-16 19:05:51,653 - INFO: Stocks with sentiment enhancement: 108 (77.1%)
+2025-07-16 19:05:51,653 - INFO: Stocks with contrarian logic applied: 0 (0.0%)
+2025-07-16 19:05:51,653 - INFO: Enhancement Status Breakdown:
+2025-07-16 19:05:51,653 - INFO:   INSUFFICIENT_NEWS: 32
+2025-07-16 19:05:51,653 - INFO:   LOW_SENTIMENT_CONFIDENCE: 108
+2025-07-16 19:05:51,655 - INFO: Stocks with ARIMA-LSTM agreement: 90 (64.3%)
+2025-07-16 19:05:51,655 - INFO: Top BUY recommendations: 10
+2025-07-16 19:05:51,655 - INFO: Top SELL recommendations: 10
+2025-07-16 19:05:51,655 - INFO: 
+Sector Performance:
+2025-07-16 19:05:51,655 - INFO: NIFTY_IT: 0.45% (UP)
+2025-07-16 19:05:51,655 - INFO: NIFTY_METAL: 0.43% (UP)
+2025-07-16 19:05:51,655 - INFO: NIFTY_BANK: -0.02% (DOWN)
+2025-07-16 19:05:51,655 - INFO: NIFTY_FIN_SERVICE: -0.32% (DOWN)
+2025-07-16 19:05:51,655 - INFO: NIFTY_CONSUMPTION: -0.47% (DOWN)
+2025-07-16 19:05:51,655 - INFO: NIFTY_OIL_AND_GAS: -0.64% (DOWN)
+2025-07-16 19:05:51,655 - INFO: NIFTY_ENERGY: -0.68% (DOWN)
+2025-07-16 19:05:51,655 - INFO: NIFTY_CONSUMER: -0.94% (DOWN)
+2025-07-16 19:05:51,655 - INFO: NIFTY_PHARMA: -1.17% (DOWN)
+2025-07-16 19:05:51,655 - INFO: NIFTY_REALTY: -1.40% (DOWN)
+2025-07-16 19:05:51,655 - INFO: NIFTY_AUTO: -1.43% (DOWN)
+2025-07-16 19:05:51,655 - INFO: UNKNOWN: -1.51% (DOWN)
+2025-07-16 19:05:51,655 - INFO: NIFTY_PSU_BANK: -2.31% (DOWN)
+2025-07-16 19:05:51,655 - INFO: NIFTY_HEALTHCARE: -2.56% (DOWN)
+2025-07-16 19:05:51,655 - INFO: NIFTY_PVT_BANK: -2.64% (DOWN)
+2025-07-16 19:05:51,655 - INFO: NIFTY_MEDIA: -3.08% (DOWN)

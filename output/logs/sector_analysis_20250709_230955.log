@@ -1,0 +1,32 @@
+2025-07-09 23:09:55,919 - INFO: Starting sector-based stock analysis with CONTRARIAN logic - 2025-07-09
+2025-07-09 23:09:55,920 - INFO: ARIMA Error Threshold: 30.0%
+2025-07-09 23:09:55,920 - INFO: Sentiment enhancement: ENABLED with CONTRARIAN logic
+2025-07-09 23:10:22,063 - INFO: Fetched 76 unique articles from RSS + Web
+2025-07-09 23:11:00,620 - WARNING: 5 out of the last 11 calls to <function TensorFlowTrainer.make_predict_function.<locals>.one_step_on_data_distributed at 0x000001A08B9669E0> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has reduce_retracing=True option that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/guide/function#controlling_retracing and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+2025-07-09 23:11:00,998 - WARNING: 5 out of the last 11 calls to <function TensorFlowTrainer.make_predict_function.<locals>.one_step_on_data_distributed at 0x000001A08B9669E0> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has reduce_retracing=True option that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/guide/function#controlling_retracing and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+2025-07-09 23:11:28,746 - ERROR: 
+1 Failed download:
+2025-07-09 23:11:28,746 - ERROR: ['JSL']: YFPricesMissingError('possibly delisted; no price data found  (1d 2023-07-09 00:00:00 -> 2025-07-09 23:11:28.362188)')
+2025-07-09 23:11:28,753 - WARNING: No meaningful data for JSL.NS
+2025-07-09 23:11:31,750 - ERROR: 
+1 Failed download:
+2025-07-09 23:11:31,750 - ERROR: ['VEDL']: YFTzMissingError('possibly delisted; no timezone found')
+2025-07-09 23:11:31,750 - WARNING: No meaningful data for VEDL.NS
+2025-07-09 23:11:33,378 - ERROR: 
+1 Failed download:
+2025-07-09 23:11:33,378 - ERROR: ['NMDC']: YFPricesMissingError('possibly delisted; no price data found  (1d 2023-07-09 00:00:00 -> 2025-07-09 23:11:33.209189)')
+2025-07-09 23:11:33,380 - WARNING: No meaningful data for NMDC.NS
+2025-07-09 23:11:34,905 - ERROR: HTTP Error 404: 
+2025-07-09 23:11:34,996 - ERROR: 
+1 Failed download:
+2025-07-09 23:11:34,996 - ERROR: ['APLAPOLLO']: YFTzMissingError('possibly delisted; no timezone found')
+2025-07-09 23:11:35,001 - WARNING: No meaningful data for APLAPOLLO.NS
+2025-07-09 23:11:37,254 - ERROR: 
+1 Failed download:
+2025-07-09 23:11:37,254 - ERROR: ['COALINDIA']: YFTzMissingError('possibly delisted; no timezone found')
+2025-07-09 23:11:37,255 - WARNING: No meaningful data for COALINDIA.NS
+2025-07-09 23:11:38,958 - ERROR: 
+1 Failed download:
+2025-07-09 23:11:38,958 - ERROR: ['JINDALSTEL']: YFTzMissingError('possibly delisted; no timezone found')
+2025-07-09 23:11:38,959 - WARNING: No meaningful data for JINDALSTEL.NS
+2025-07-09 23:11:38,969 - INFO: Saved agreement report to C:\Users\PC\OneDrive\projects\strongtrendz.com-\output\arima_lstm_agreement_20250709_231138.csv

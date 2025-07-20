@@ -1,0 +1,1831 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Sector-Based Stock Analysis - 2025-07-17</title>
+        <style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+                margin: 0;
+                padding: 20px;
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                min-height: 100vh;
+            }
+            .container {
+                max-width: 1400px;
+                margin: 0 auto;
+                background-color: white;
+                padding: 30px;
+                border-radius: 15px;
+                box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            }
+            .header {
+                text-align: center;
+                margin-bottom: 40px;
+                padding: 30px;
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                color: white;
+                border-radius: 15px;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            }
+            .header h1 {
+                margin: 0 0 10px 0;
+                font-size: 2.5em;
+                font-weight: 700;
+            }
+            .header p {
+                margin: 5px 0;
+                font-size: 1.1em;
+                opacity: 0.9;
+            }
+            .summary-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                gap: 25px;
+                margin-bottom: 40px;
+            }
+            .summary-card {
+                background: linear-gradient(145deg, #f8f9fa, #e9ecef);
+                padding: 25px;
+                border-radius: 15px;
+                border-left: 5px solid #007bff;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+                transition: transform 0.3s ease;
+            }
+            .summary-card:hover {
+                transform: translateY(-5px);
+            }
+            .summary-card h3 {
+                margin: 0 0 15px 0;
+                color: #333;
+                font-size: 1.1em;
+            }
+            .summary-card .value {
+                font-size: 2.2em;
+                font-weight: bold;
+                color: #007bff;
+                margin-bottom: 5px;
+            }
+            .summary-card .subtitle {
+                color: #6c757d;
+                font-size: 0.9em;
+            }
+            .sector-section {
+                margin: 40px 0;
+                padding: 30px;
+                border: 2px solid #e9ecef;
+                border-radius: 15px;
+                background: linear-gradient(145deg, #ffffff, #f8f9fa);
+                box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            }
+            .sector-header {
+                margin-bottom: 25px;
+                padding: 20px;
+                background: linear-gradient(135deg, #28a745, #20c997);
+                color: white;
+                border-radius: 10px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+            .sector-header h2 {
+                margin: 0;
+                font-size: 1.8em;
+                font-weight: 600;
+            }
+            .sector-performance {
+                font-size: 1.2em;
+                font-weight: bold;
+                background: rgba(255,255,255,0.2);
+                padding: 8px 16px;
+                border-radius: 20px;
+            }
+            .recommendation-group {
+                margin: 25px 0;
+            }
+            .recommendation-header {
+                margin-bottom: 15px;
+                padding: 15px;
+                border-radius: 8px;
+                font-weight: bold;
+                font-size: 1.1em;
+            }
+            .buy-header {
+                background: linear-gradient(145deg, #d4edda, #c3e6cb);
+                color: #155724;
+                border-left: 5px solid #28a745;
+            }
+            .sell-header {
+                background: linear-gradient(145deg, #f8d7da, #f5c6cb);
+                color: #721c24;
+                border-left: 5px solid #dc3545;
+            }
+            .hold-header {
+                background: linear-gradient(145deg, #fff3cd, #ffeaa7);
+                color: #856404;
+                border-left: 5px solid #ffc107;
+            }
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                margin: 15px 0;
+                background: white;
+                border-radius: 10px;
+                overflow: hidden;
+                box-shadow: 0 3px 10px rgba(0,0,0,0.06);
+            }
+            th, td {
+                padding: 12px;
+                text-align: left;
+                border-bottom: 1px solid #e9ecef;
+                font-size: 0.9em;
+            }
+            th {
+                background: linear-gradient(145deg, #f8f9fa, #e9ecef);
+                font-weight: 600;
+                color: #333;
+            }
+            tr:hover {
+                background-color: #f8f9fa;
+            }
+            .buy { color: #28a745; font-weight: bold; }
+            .sell { color: #dc3545; font-weight: bold; }
+            .hold { color: #6c757d; font-weight: bold; }
+            .sentiment-bullish { color: #28a745; font-weight: 600; }
+            .sentiment-bearish { color: #dc3545; font-weight: 600; }
+            .sentiment-neutral { color: #6c757d; font-weight: 600; }
+            .sentiment-no_data { color: #6c757d; font-weight: 400; font-style: italic; }
+            .contrarian-badge {
+                background: linear-gradient(145deg, #ff6b35, #f7931e);
+                color: white;
+                padding: 4px 8px;
+                border-radius: 12px;
+                font-size: 10px;
+                font-weight: bold;
+                text-transform: uppercase;
+            }
+            .technical-badge {
+                background: linear-gradient(145deg, #6c757d, #495057);
+                color: white;
+                padding: 4px 8px;
+                border-radius: 12px;
+                font-size: 10px;
+                font-weight: bold;
+                text-transform: uppercase;
+            }
+            .error-high {
+                background: #fff3cd;
+                color: #856404;
+                padding: 4px 8px;
+                border-radius: 4px;
+                font-weight: 600;
+                font-size: 11px;
+            }
+            .error-low {
+                background: #d4edda;
+                color: #155724;
+                padding: 4px 8px;
+                border-radius: 4px;
+                font-weight: 600;
+                font-size: 11px;
+            }
+            .news-preview {
+                font-size: 11px;
+                color: #6c757d;
+                max-width: 200px;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+            }
+            .no-stocks {
+                text-align: center;
+                padding: 20px;
+                color: #6c757d;
+                font-style: italic;
+            }
+            .agreement-stats {
+                background: linear-gradient(145deg, #e3f2fd, #bbdefb);
+                padding: 25px;
+                border-radius: 15px;
+                border-left: 5px solid #2196f3;
+                margin: 25px 0;
+            }
+            .news-headlines {
+                margin-top: 10px;
+                padding: 10px;
+                background: #f8f9fa;
+                border-radius: 5px;
+                font-size: 11px;
+            }
+            .news-headline {
+                padding: 3px 0;
+                border-bottom: 1px solid #e9ecef;
+            }
+            .footer {
+                text-align: center;
+                margin-top: 40px;
+                padding: 25px;
+                background: linear-gradient(145deg, #f8f9fa, #e9ecef);
+                border-radius: 15px;
+                border: 1px solid #dee2e6;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="header">
+                <h1>🏭 Sector-Based Stock Analysis</h1>
+                <p><strong>ARIMA-LSTM Agreement + Contrarian Sentiment + Fresh News</strong></p>
+                <p>Generated: 2025-07-17 19:08:51</p>
+                <p>Only showing stocks where ARIMA & LSTM models agree</p>
+            </div>
+            
+            <div class="summary-grid">
+                <div class="summary-card">
+                    <h3>📈 Total Stocks Analyzed</h3>
+                    <div class="value">140</div>
+                    <div class="subtitle">Complete analysis attempted</div>
+                </div>
+                <div class="summary-card">
+                    <h3>🎯 Models Agree</h3>
+                    <div class="value">100</div>
+                    <div class="subtitle">ARIMA & LSTM agree on direction</div>
+                </div>
+                <div class="summary-card">
+                    <h3>📰 Sentiment Enhanced</h3>
+                    <div class="value">0</div>
+                    <div class="subtitle">With fresh news data</div>
+                </div>
+                <div class="summary-card">
+                    <h3>🔄 Contrarian Signals</h3>
+                    <div class="value">0</div>
+                    <div class="subtitle">Applied contrarian logic</div>
+                </div>
+            </div>
+    
+            <div class="agreement-stats">
+                <h4>🎯 Model Agreement Statistics</h4>
+                <p><strong>Agreement Rate:</strong> 71.4% (100 out of 140 stocks)</p>
+                <p><strong>Filtering Logic:</strong> Only stocks where both ARIMA and LSTM predict the same direction (up or down) are included in this report.</p>
+                <p><strong>Fresh News:</strong> News cache is cleared before each analysis to ensure current sentiment data.</p>
+                <p><strong>Why Agreement Matters:</strong> When both models agree, predictions are more reliable and actionable.</p>
+            </div>
+    
+            <div class="sector-section">
+                <div class="sector-header">
+                    <h2>🏭 NIFTY_IT</h2>
+                    <div class="sector-performance">+1.69%</div>
+                </div>
+                <p><strong>Total Stocks with Model Agreement:</strong> 7</p>
+        
+                <div class="recommendation-group">
+                    <div class="recommendation-header buy-header">
+                        🚀 BUY Recommendations (6 stocks) - Sorted by Expected Change
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Ticker</th>
+                                <th>Company</th>
+                                <th>Current Price</th>
+                                <th>Predicted</th>
+                                <th>Change %</th>
+                                <th>Confidence</th>
+                                <th>Sentiment</th>
+                                <th>ARIMA Err</th>
+                                <th>Logic</th>
+                                <th>News Summary</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+            
+                            <tr>
+                                <td><strong>TCS.NS</strong></td>
+                                <td>Tcs</td>
+                                <td>₹3,209.20</td>
+                                <td>₹3,303.96</td>
+                                <td class="buy">2.95%</td>
+                                <td>85.0%</td>
+                                <td class="sentiment-no_data">NO DATA</td>
+                                <td class="error-low">1.2%</td>
+                                <td><span class="technical-badge">TECHNICAL</span></td>
+                                <td class="news-preview">
+                                    0 articles found
+                
+                                </td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>HCLTECH.NS</strong></td>
+                                <td>Hcltech</td>
+                                <td>₹1,543.90</td>
+                                <td>₹1,585.79</td>
+                                <td class="buy">2.71%</td>
+                                <td>85.0%</td>
+                                <td class="sentiment-no_data">NO DATA</td>
+                                <td class="error-low">1.4%</td>
+                                <td><span class="technical-badge">TECHNICAL</span></td>
+                                <td class="news-preview">
+                                    0 articles found
+                
+                                </td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>PERSISTENT.NS</strong></td>
+                                <td>Persistent</td>
+                                <td>₹5,494.50</td>
+                                <td>₹5,623.70</td>
+                                <td class="buy">2.35%</td>
+                                <td>85.0%</td>
+                                <td class="sentiment-no_data">NO DATA</td>
+                                <td class="error-low">1.6%</td>
+                                <td><span class="technical-badge">TECHNICAL</span></td>
+                                <td class="news-preview">
+                                    0 articles found
+                
+                                </td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>TECHM.NS</strong></td>
+                                <td>Techm</td>
+                                <td>₹1,563.70</td>
+                                <td>₹1,595.20</td>
+                                <td class="buy">2.01%</td>
+                                <td>85.0%</td>
+                                <td class="sentiment-no_data">NO DATA</td>
+                                <td class="error-low">0.9%</td>
+                                <td><span class="technical-badge">TECHNICAL</span></td>
+                                <td class="news-preview">
+                                    0 articles found
+                
+                                </td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>LTIM.NS</strong></td>
+                                <td>Ltim</td>
+                                <td>₹5,194.50</td>
+                                <td>₹5,282.74</td>
+                                <td class="buy">1.70%</td>
+                                <td>85.0%</td>
+                                <td class="sentiment-no_data">NO DATA</td>
+                                <td class="error-low">1.0%</td>
+                                <td><span class="technical-badge">TECHNICAL</span></td>
+                                <td class="news-preview">
+                                    0 articles found
+                
+                                </td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>INFY.NS</strong></td>
+                                <td>Infy</td>
+                                <td>₹1,583.50</td>
+                                <td>₹1,599.71</td>
+                                <td class="buy">1.02%</td>
+                                <td>85.0%</td>
+                                <td class="sentiment-no_data">NO DATA</td>
+                                <td class="error-low">0.2%</td>
+                                <td><span class="technical-badge">TECHNICAL</span></td>
+                                <td class="news-preview">
+                                    0 articles found
+                
+                                </td>
+                            </tr>
+                
+                        </tbody>
+                    </table>
+                </div>
+            
+            </div>
+        
+            <div class="sector-section">
+                <div class="sector-header">
+                    <h2>🏭 NIFTY_MEDIA</h2>
+                    <div class="sector-performance">+1.02%</div>
+                </div>
+                <p><strong>Total Stocks with Model Agreement:</strong> 3</p>
+        
+                <div class="recommendation-group">
+                    <div class="recommendation-header buy-header">
+                        🚀 BUY Recommendations (2 stocks) - Sorted by Expected Change
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Ticker</th>
+                                <th>Company</th>
+                                <th>Current Price</th>
+                                <th>Predicted</th>
+                                <th>Change %</th>
+                                <th>Confidence</th>
+                                <th>Sentiment</th>
+                                <th>ARIMA Err</th>
+                                <th>Logic</th>
+                                <th>News Summary</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+            
+                            <tr>
+                                <td><strong>DISHTV.NS</strong></td>
+                                <td>Dishtv</td>
+                                <td>₹5.88</td>
+                                <td>₹6.03</td>
+                                <td class="buy">2.56%</td>
+                                <td>85.0%</td>
+                                <td class="sentiment-no_data">NO DATA</td>
+                                <td class="error-low">3.1%</td>
+                                <td><span class="technical-badge">TECHNICAL</span></td>
+                                <td class="news-preview">
+                                    0 articles found
+                
+                                </td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>PVRINOX.NS</strong></td>
+                                <td>Pvrinox</td>
+                                <td>₹976.15</td>
+                                <td>₹988.41</td>
+                                <td class="buy">1.26%</td>
+                                <td>85.0%</td>
+                                <td class="sentiment-no_data">NO DATA</td>
+                                <td class="error-low">1.1%</td>
+                                <td><span class="technical-badge">TECHNICAL</span></td>
+                                <td class="news-preview">
+                                    0 articles found
+                
+                                </td>
+                            </tr>
+                
+                        </tbody>
+                    </table>
+                </div>
+            
+            </div>
+        
+            <div class="sector-section">
+                <div class="sector-header">
+                    <h2>🏭 NIFTY_FIN_SERVICE</h2>
+                    <div class="sector-performance">+0.77%</div>
+                </div>
+                <p><strong>Total Stocks with Model Agreement:</strong> 7</p>
+        
+                <div class="recommendation-group">
+                    <div class="recommendation-header buy-header">
+                        🚀 BUY Recommendations (2 stocks) - Sorted by Expected Change
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Ticker</th>
+                                <th>Company</th>
+                                <th>Current Price</th>
+                                <th>Predicted</th>
+                                <th>Change %</th>
+                                <th>Confidence</th>
+                                <th>Sentiment</th>
+                                <th>ARIMA Err</th>
+                                <th>Logic</th>
+                                <th>News Summary</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+            
+                            <tr>
+                                <td><strong>M&MFIN.NS</strong></td>
+                                <td>M&mfin</td>
+                                <td>₹261.65</td>
+                                <td>₹268.00</td>
+                                <td class="buy">2.43%</td>
+                                <td>85.0%</td>
+                                <td class="sentiment-no_data">NO DATA</td>
+                                <td class="error-low">1.7%</td>
+                                <td><span class="technical-badge">TECHNICAL</span></td>
+                                <td class="news-preview">
+                                    0 articles found
+                
+                                </td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>BAJFINANCE.NS</strong></td>
+                                <td>Bajfinance</td>
+                                <td>₹923.30</td>
+                                <td>₹938.04</td>
+                                <td class="buy">1.60%</td>
+                                <td>85.0%</td>
+                                <td class="sentiment-no_data">NO DATA</td>
+                                <td class="error-low">0.2%</td>
+                                <td><span class="technical-badge">TECHNICAL</span></td>
+                                <td class="news-preview">
+                                    0 articles found
+                
+                                </td>
+                            </tr>
+                
+                        </tbody>
+                    </table>
+                </div>
+            
+            </div>
+        
+            <div class="sector-section">
+                <div class="sector-header">
+                    <h2>🏭 NIFTY_BANK</h2>
+                    <div class="sector-performance">+0.66%</div>
+                </div>
+                <p><strong>Total Stocks with Model Agreement:</strong> 3</p>
+        
+                <div class="recommendation-group">
+                    <div class="recommendation-header buy-header">
+                        🚀 BUY Recommendations (1 stocks) - Sorted by Expected Change
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Ticker</th>
+                                <th>Company</th>
+                                <th>Current Price</th>
+                                <th>Predicted</th>
+                                <th>Change %</th>
+                                <th>Confidence</th>
+                                <th>Sentiment</th>
+                                <th>ARIMA Err</th>
+                                <th>Logic</th>
+                                <th>News Summary</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+            
+                            <tr>
+                                <td><strong>KOTAKBANK.NS</strong></td>
+                                <td>Kotakbank</td>
+                                <td>₹2,170.80</td>
+                                <td>₹2,213.43</td>
+                                <td class="buy">1.96%</td>
+                                <td>85.0%</td>
+                                <td class="sentiment-no_data">NO DATA</td>
+                                <td class="error-low">0.3%</td>
+                                <td><span class="technical-badge">TECHNICAL</span></td>
+                                <td class="news-preview">
+                                    0 articles found
+                
+                                </td>
+                            </tr>
+                
+                        </tbody>
+                    </table>
+                </div>
+            
+            </div>
+        
+            <div class="sector-section">
+                <div class="sector-header">
+                    <h2>🏭 UNKNOWN</h2>
+                    <div class="sector-performance">+0.35%</div>
+                </div>
+                <p><strong>Total Stocks with Model Agreement:</strong> 2</p>
+        
+                <div class="recommendation-group">
+                    <div class="recommendation-header buy-header">
+                        🚀 BUY Recommendations (1 stocks) - Sorted by Expected Change
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Ticker</th>
+                                <th>Company</th>
+                                <th>Current Price</th>
+                                <th>Predicted</th>
+                                <th>Change %</th>
+                                <th>Confidence</th>
+                                <th>Sentiment</th>
+                                <th>ARIMA Err</th>
+                                <th>Logic</th>
+                                <th>News Summary</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+            
+                            <tr>
+                                <td><strong>HUDCO.NS</strong></td>
+                                <td>Hudco</td>
+                                <td>₹229.24</td>
+                                <td>₹231.93</td>
+                                <td class="buy">1.17%</td>
+                                <td>85.0%</td>
+                                <td class="sentiment-no_data">NO DATA</td>
+                                <td class="error-low">1.7%</td>
+                                <td><span class="technical-badge">TECHNICAL</span></td>
+                                <td class="news-preview">
+                                    0 articles found
+                
+                                </td>
+                            </tr>
+                
+                        </tbody>
+                    </table>
+                </div>
+            
+            </div>
+        
+            <div class="sector-section">
+                <div class="sector-header">
+                    <h2>🏭 NIFTY_AUTO</h2>
+                    <div class="sector-performance">+0.18%</div>
+                </div>
+                <p><strong>Total Stocks with Model Agreement:</strong> 7</p>
+        
+                <div class="recommendation-group">
+                    <div class="recommendation-header buy-header">
+                        🚀 BUY Recommendations (3 stocks) - Sorted by Expected Change
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Ticker</th>
+                                <th>Company</th>
+                                <th>Current Price</th>
+                                <th>Predicted</th>
+                                <th>Change %</th>
+                                <th>Confidence</th>
+                                <th>Sentiment</th>
+                                <th>ARIMA Err</th>
+                                <th>Logic</th>
+                                <th>News Summary</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+            
+                            <tr>
+                                <td><strong>BHARATFORG.NS</strong></td>
+                                <td>Bharatforg</td>
+                                <td>₹1,224.80</td>
+                                <td>₹1,245.17</td>
+                                <td class="buy">1.66%</td>
+                                <td>85.0%</td>
+                                <td class="sentiment-no_data">NO DATA</td>
+                                <td class="error-low">1.2%</td>
+                                <td><span class="technical-badge">TECHNICAL</span></td>
+                                <td class="news-preview">
+                                    0 articles found
+                
+                                </td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>MOTHERSON.NS</strong></td>
+                                <td>Motherson</td>
+                                <td>₹153.87</td>
+                                <td>₹155.54</td>
+                                <td class="buy">1.09%</td>
+                                <td>85.0%</td>
+                                <td class="sentiment-no_data">NO DATA</td>
+                                <td class="error-low">1.3%</td>
+                                <td><span class="technical-badge">TECHNICAL</span></td>
+                                <td class="news-preview">
+                                    0 articles found
+                
+                                </td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>TATAMOTORS.NS</strong></td>
+                                <td>Tatamotors</td>
+                                <td>₹681.70</td>
+                                <td>₹688.89</td>
+                                <td class="buy">1.05%</td>
+                                <td>85.0%</td>
+                                <td class="sentiment-no_data">NO DATA</td>
+                                <td class="error-low">0.3%</td>
+                                <td><span class="technical-badge">TECHNICAL</span></td>
+                                <td class="news-preview">
+                                    0 articles found
+                
+                                </td>
+                            </tr>
+                
+                        </tbody>
+                    </table>
+                </div>
+            
+                <div class="recommendation-group">
+                    <div class="recommendation-header sell-header">
+                        📉 SELL Recommendations (1 stocks) - Sorted by Expected Change
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Ticker</th>
+                                <th>Company</th>
+                                <th>Current Price</th>
+                                <th>Predicted</th>
+                                <th>Change %</th>
+                                <th>Confidence</th>
+                                <th>Sentiment</th>
+                                <th>ARIMA Err</th>
+                                <th>Logic</th>
+                                <th>News Summary</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+            
+                            <tr>
+                                <td><strong>BOSCHLTD.NS</strong></td>
+                                <td>Boschltd</td>
+                                <td>₹38,645.00</td>
+                                <td>₹37,529.23</td>
+                                <td class="sell">-2.89%</td>
+                                <td>85.0%</td>
+                                <td class="sentiment-no_data">NO DATA</td>
+                                <td class="error-low">0.8%</td>
+                                <td><span class="technical-badge">TECHNICAL</span></td>
+                                <td class="news-preview">
+                                    0 articles found
+                
+                                </td>
+                            </tr>
+                
+                        </tbody>
+                    </table>
+                </div>
+            
+            </div>
+        
+            <div class="sector-section">
+                <div class="sector-header">
+                    <h2>🏭 NIFTY_CONSUMPTION</h2>
+                    <div class="sector-performance">-0.01%</div>
+                </div>
+                <p><strong>Total Stocks with Model Agreement:</strong> 4</p>
+        
+                <div class="recommendation-group">
+                    <div class="recommendation-header buy-header">
+                        🚀 BUY Recommendations (1 stocks) - Sorted by Expected Change
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Ticker</th>
+                                <th>Company</th>
+                                <th>Current Price</th>
+                                <th>Predicted</th>
+                                <th>Change %</th>
+                                <th>Confidence</th>
+                                <th>Sentiment</th>
+                                <th>ARIMA Err</th>
+                                <th>Logic</th>
+                                <th>News Summary</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+            
+                            <tr>
+                                <td><strong>BATAINDIA.NS</strong></td>
+                                <td>Bataindia</td>
+                                <td>₹1,229.00</td>
+                                <td>₹1,263.24</td>
+                                <td class="buy">2.79%</td>
+                                <td>85.0%</td>
+                                <td class="sentiment-no_data">NO DATA</td>
+                                <td class="error-low">2.6%</td>
+                                <td><span class="technical-badge">TECHNICAL</span></td>
+                                <td class="news-preview">
+                                    0 articles found
+                
+                                </td>
+                            </tr>
+                
+                        </tbody>
+                    </table>
+                </div>
+            
+                <div class="recommendation-group">
+                    <div class="recommendation-header sell-header">
+                        📉 SELL Recommendations (1 stocks) - Sorted by Expected Change
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Ticker</th>
+                                <th>Company</th>
+                                <th>Current Price</th>
+                                <th>Predicted</th>
+                                <th>Change %</th>
+                                <th>Confidence</th>
+                                <th>Sentiment</th>
+                                <th>ARIMA Err</th>
+                                <th>Logic</th>
+                                <th>News Summary</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+            
+                            <tr>
+                                <td><strong>DIXON.NS</strong></td>
+                                <td>Dixon</td>
+                                <td>₹16,107.00</td>
+                                <td>₹15,636.36</td>
+                                <td class="sell">-2.92%</td>
+                                <td>85.0%</td>
+                                <td class="sentiment-no_data">NO DATA</td>
+                                <td class="error-low">1.9%</td>
+                                <td><span class="technical-badge">TECHNICAL</span></td>
+                                <td class="news-preview">
+                                    0 articles found
+                
+                                </td>
+                            </tr>
+                
+                        </tbody>
+                    </table>
+                </div>
+            
+            </div>
+        
+            <div class="sector-section">
+                <div class="sector-header">
+                    <h2>🏭 NIFTY_METAL</h2>
+                    <div class="sector-performance">-0.36%</div>
+                </div>
+                <p><strong>Total Stocks with Model Agreement:</strong> 7</p>
+        
+                <div class="recommendation-group">
+                    <div class="recommendation-header buy-header">
+                        🚀 BUY Recommendations (2 stocks) - Sorted by Expected Change
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Ticker</th>
+                                <th>Company</th>
+                                <th>Current Price</th>
+                                <th>Predicted</th>
+                                <th>Change %</th>
+                                <th>Confidence</th>
+                                <th>Sentiment</th>
+                                <th>ARIMA Err</th>
+                                <th>Logic</th>
+                                <th>News Summary</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+            
+                            <tr>
+                                <td><strong>SAIL.NS</strong></td>
+                                <td>Sail</td>
+                                <td>₹133.60</td>
+                                <td>₹136.37</td>
+                                <td class="buy">2.08%</td>
+                                <td>85.0%</td>
+                                <td class="sentiment-no_data">NO DATA</td>
+                                <td class="error-low">0.9%</td>
+                                <td><span class="technical-badge">TECHNICAL</span></td>
+                                <td class="news-preview">
+                                    0 articles found
+                
+                                </td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>JSL.NS</strong></td>
+                                <td>Jsl</td>
+                                <td>₹678.85</td>
+                                <td>₹687.14</td>
+                                <td class="buy">1.22%</td>
+                                <td>85.0%</td>
+                                <td class="sentiment-no_data">NO DATA</td>
+                                <td class="error-low">1.2%</td>
+                                <td><span class="technical-badge">TECHNICAL</span></td>
+                                <td class="news-preview">
+                                    0 articles found
+                
+                                </td>
+                            </tr>
+                
+                        </tbody>
+                    </table>
+                </div>
+            
+                <div class="recommendation-group">
+                    <div class="recommendation-header sell-header">
+                        📉 SELL Recommendations (3 stocks) - Sorted by Expected Change
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Ticker</th>
+                                <th>Company</th>
+                                <th>Current Price</th>
+                                <th>Predicted</th>
+                                <th>Change %</th>
+                                <th>Confidence</th>
+                                <th>Sentiment</th>
+                                <th>ARIMA Err</th>
+                                <th>Logic</th>
+                                <th>News Summary</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+            
+                            <tr>
+                                <td><strong>HINDCOPPER.NS</strong></td>
+                                <td>Hindcopper</td>
+                                <td>₹267.65</td>
+                                <td>₹262.62</td>
+                                <td class="sell">-1.88%</td>
+                                <td>85.0%</td>
+                                <td class="sentiment-no_data">NO DATA</td>
+                                <td class="error-low">2.2%</td>
+                                <td><span class="technical-badge">TECHNICAL</span></td>
+                                <td class="news-preview">
+                                    0 articles found
+                
+                                </td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>NMDC.NS</strong></td>
+                                <td>Nmdc</td>
+                                <td>₹69.56</td>
+                                <td>₹68.28</td>
+                                <td class="sell">-1.84%</td>
+                                <td>85.0%</td>
+                                <td class="sentiment-no_data">NO DATA</td>
+                                <td class="error-low">2.4%</td>
+                                <td><span class="technical-badge">TECHNICAL</span></td>
+                                <td class="news-preview">
+                                    0 articles found
+                
+                                </td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>TATASTEEL.NS</strong></td>
+                                <td>Tatasteel</td>
+                                <td>₹159.90</td>
+                                <td>₹157.01</td>
+                                <td class="sell">-1.81%</td>
+                                <td>85.0%</td>
+                                <td class="sentiment-no_data">NO DATA</td>
+                                <td class="error-low">0.5%</td>
+                                <td><span class="technical-badge">TECHNICAL</span></td>
+                                <td class="news-preview">
+                                    0 articles found
+                
+                                </td>
+                            </tr>
+                
+                        </tbody>
+                    </table>
+                </div>
+            
+            </div>
+        
+            <div class="sector-section">
+                <div class="sector-header">
+                    <h2>🏭 NIFTY_OIL_AND_GAS</h2>
+                    <div class="sector-performance">-0.53%</div>
+                </div>
+                <p><strong>Total Stocks with Model Agreement:</strong> 11</p>
+        
+                <div class="recommendation-group">
+                    <div class="recommendation-header buy-header">
+                        🚀 BUY Recommendations (3 stocks) - Sorted by Expected Change
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Ticker</th>
+                                <th>Company</th>
+                                <th>Current Price</th>
+                                <th>Predicted</th>
+                                <th>Change %</th>
+                                <th>Confidence</th>
+                                <th>Sentiment</th>
+                                <th>ARIMA Err</th>
+                                <th>Logic</th>
+                                <th>News Summary</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+            
+                            <tr>
+                                <td><strong>RELIANCE.NS</strong></td>
+                                <td>Reliance</td>
+                                <td>₹1,476.40</td>
+                                <td>₹1,503.53</td>
+                                <td class="buy">1.84%</td>
+                                <td>85.0%</td>
+                                <td class="sentiment-no_data">NO DATA</td>
+                                <td class="error-low">0.7%</td>
+                                <td><span class="technical-badge">TECHNICAL</span></td>
+                                <td class="news-preview">
+                                    0 articles found
+                
+                                </td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>JIOFIN.NS</strong></td>
+                                <td>Jiofin</td>
+                                <td>₹318.15</td>
+                                <td>₹323.87</td>
+                                <td class="buy">1.80%</td>
+                                <td>85.0%</td>
+                                <td class="sentiment-no_data">NO DATA</td>
+                                <td class="error-low">1.1%</td>
+                                <td><span class="technical-badge">TECHNICAL</span></td>
+                                <td class="news-preview">
+                                    0 articles found
+                
+                                </td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>IOC.NS</strong></td>
+                                <td>Ioc</td>
+                                <td>₹150.96</td>
+                                <td>₹153.39</td>
+                                <td class="buy">1.61%</td>
+                                <td>85.0%</td>
+                                <td class="sentiment-no_data">NO DATA</td>
+                                <td class="error-low">0.3%</td>
+                                <td><span class="technical-badge">TECHNICAL</span></td>
+                                <td class="news-preview">
+                                    0 articles found
+                
+                                </td>
+                            </tr>
+                
+                        </tbody>
+                    </table>
+                </div>
+            
+                <div class="recommendation-group">
+                    <div class="recommendation-header sell-header">
+                        📉 SELL Recommendations (5 stocks) - Sorted by Expected Change
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Ticker</th>
+                                <th>Company</th>
+                                <th>Current Price</th>
+                                <th>Predicted</th>
+                                <th>Change %</th>
+                                <th>Confidence</th>
+                                <th>Sentiment</th>
+                                <th>ARIMA Err</th>
+                                <th>Logic</th>
+                                <th>News Summary</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+            
+                            <tr>
+                                <td><strong>MGL.NS</strong></td>
+                                <td>Mgl</td>
+                                <td>₹1,522.80</td>
+                                <td>₹1,479.04</td>
+                                <td class="sell">-2.87%</td>
+                                <td>85.0%</td>
+                                <td class="sentiment-no_data">NO DATA</td>
+                                <td class="error-low">3.3%</td>
+                                <td><span class="technical-badge">TECHNICAL</span></td>
+                                <td class="news-preview">
+                                    0 articles found
+                
+                                </td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>HINDPETRO.NS</strong></td>
+                                <td>Hindpetro</td>
+                                <td>₹440.00</td>
+                                <td>₹429.38</td>
+                                <td class="sell">-2.41%</td>
+                                <td>85.0%</td>
+                                <td class="sentiment-no_data">NO DATA</td>
+                                <td class="error-low">1.4%</td>
+                                <td><span class="technical-badge">TECHNICAL</span></td>
+                                <td class="news-preview">
+                                    0 articles found
+                
+                                </td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>ATGL.NS</strong></td>
+                                <td>Atgl</td>
+                                <td>₹661.65</td>
+                                <td>₹647.97</td>
+                                <td class="sell">-2.07%</td>
+                                <td>85.0%</td>
+                                <td class="sentiment-no_data">NO DATA</td>
+                                <td class="error-low">2.2%</td>
+                                <td><span class="technical-badge">TECHNICAL</span></td>
+                                <td class="news-preview">
+                                    0 articles found
+                
+                                </td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>GUJGASLTD.NS</strong></td>
+                                <td>Gujgasltd</td>
+                                <td>₹477.00</td>
+                                <td>₹468.75</td>
+                                <td class="sell">-1.73%</td>
+                                <td>85.0%</td>
+                                <td class="sentiment-no_data">NO DATA</td>
+                                <td class="error-low">2.7%</td>
+                                <td><span class="technical-badge">TECHNICAL</span></td>
+                                <td class="news-preview">
+                                    0 articles found
+                
+                                </td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>OIL.NS</strong></td>
+                                <td>Oil</td>
+                                <td>₹446.45</td>
+                                <td>₹441.39</td>
+                                <td class="sell">-1.13%</td>
+                                <td>85.0%</td>
+                                <td class="sentiment-no_data">NO DATA</td>
+                                <td class="error-low">0.4%</td>
+                                <td><span class="technical-badge">TECHNICAL</span></td>
+                                <td class="news-preview">
+                                    0 articles found
+                
+                                </td>
+                            </tr>
+                
+                        </tbody>
+                    </table>
+                </div>
+            
+            </div>
+        
+            <div class="sector-section">
+                <div class="sector-header">
+                    <h2>🏭 NIFTY_PVT_BANK</h2>
+                    <div class="sector-performance">-0.70%</div>
+                </div>
+                <p><strong>Total Stocks with Model Agreement:</strong> 2</p>
+        
+                <div class="recommendation-group">
+                    <div class="recommendation-header buy-header">
+                        🚀 BUY Recommendations (1 stocks) - Sorted by Expected Change
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Ticker</th>
+                                <th>Company</th>
+                                <th>Current Price</th>
+                                <th>Predicted</th>
+                                <th>Change %</th>
+                                <th>Confidence</th>
+                                <th>Sentiment</th>
+                                <th>ARIMA Err</th>
+                                <th>Logic</th>
+                                <th>News Summary</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+            
+                            <tr>
+                                <td><strong>CUB.NS</strong></td>
+                                <td>Cub</td>
+                                <td>₹216.45</td>
+                                <td>₹219.45</td>
+                                <td class="buy">1.39%</td>
+                                <td>85.0%</td>
+                                <td class="sentiment-no_data">NO DATA</td>
+                                <td class="error-low">0.7%</td>
+                                <td><span class="technical-badge">TECHNICAL</span></td>
+                                <td class="news-preview">
+                                    0 articles found
+                
+                                </td>
+                            </tr>
+                
+                        </tbody>
+                    </table>
+                </div>
+            
+                <div class="recommendation-group">
+                    <div class="recommendation-header sell-header">
+                        📉 SELL Recommendations (1 stocks) - Sorted by Expected Change
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Ticker</th>
+                                <th>Company</th>
+                                <th>Current Price</th>
+                                <th>Predicted</th>
+                                <th>Change %</th>
+                                <th>Confidence</th>
+                                <th>Sentiment</th>
+                                <th>ARIMA Err</th>
+                                <th>Logic</th>
+                                <th>News Summary</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+            
+                            <tr>
+                                <td><strong>RBLBANK.NS</strong></td>
+                                <td>Rblbank</td>
+                                <td>₹268.36</td>
+                                <td>₹260.89</td>
+                                <td class="sell">-2.78%</td>
+                                <td>85.0%</td>
+                                <td class="sentiment-no_data">NO DATA</td>
+                                <td class="error-low">2.0%</td>
+                                <td><span class="technical-badge">TECHNICAL</span></td>
+                                <td class="news-preview">
+                                    0 articles found
+                
+                                </td>
+                            </tr>
+                
+                        </tbody>
+                    </table>
+                </div>
+            
+            </div>
+        
+            <div class="sector-section">
+                <div class="sector-header">
+                    <h2>🏭 NIFTY_PHARMA</h2>
+                    <div class="sector-performance">-0.87%</div>
+                </div>
+                <p><strong>Total Stocks with Model Agreement:</strong> 10</p>
+        
+                <div class="recommendation-group">
+                    <div class="recommendation-header buy-header">
+                        🚀 BUY Recommendations (1 stocks) - Sorted by Expected Change
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Ticker</th>
+                                <th>Company</th>
+                                <th>Current Price</th>
+                                <th>Predicted</th>
+                                <th>Change %</th>
+                                <th>Confidence</th>
+                                <th>Sentiment</th>
+                                <th>ARIMA Err</th>
+                                <th>Logic</th>
+                                <th>News Summary</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+            
+                            <tr>
+                                <td><strong>LAURUSLABS.NS</strong></td>
+                                <td>Lauraslabs</td>
+                                <td>₹821.50</td>
+                                <td>₹837.77</td>
+                                <td class="buy">1.98%</td>
+                                <td>85.0%</td>
+                                <td class="sentiment-no_data">NO DATA</td>
+                                <td class="error-low">0.6%</td>
+                                <td><span class="technical-badge">TECHNICAL</span></td>
+                                <td class="news-preview">
+                                    0 articles found
+                
+                                </td>
+                            </tr>
+                
+                        </tbody>
+                    </table>
+                </div>
+            
+                <div class="recommendation-group">
+                    <div class="recommendation-header sell-header">
+                        📉 SELL Recommendations (5 stocks) - Sorted by Expected Change
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Ticker</th>
+                                <th>Company</th>
+                                <th>Current Price</th>
+                                <th>Predicted</th>
+                                <th>Change %</th>
+                                <th>Confidence</th>
+                                <th>Sentiment</th>
+                                <th>ARIMA Err</th>
+                                <th>Logic</th>
+                                <th>News Summary</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+            
+                            <tr>
+                                <td><strong>GRANULES.NS</strong></td>
+                                <td>Granules</td>
+                                <td>₹502.45</td>
+                                <td>₹489.36</td>
+                                <td class="sell">-2.60%</td>
+                                <td>85.0%</td>
+                                <td class="sentiment-no_data">NO DATA</td>
+                                <td class="error-low">2.2%</td>
+                                <td><span class="technical-badge">TECHNICAL</span></td>
+                                <td class="news-preview">
+                                    0 articles found
+                
+                                </td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>ALKEM.NS</strong></td>
+                                <td>Alkem</td>
+                                <td>₹5,018.70</td>
+                                <td>₹4,895.91</td>
+                                <td class="sell">-2.45%</td>
+                                <td>85.0%</td>
+                                <td class="sentiment-no_data">NO DATA</td>
+                                <td class="error-low">1.8%</td>
+                                <td><span class="technical-badge">TECHNICAL</span></td>
+                                <td class="news-preview">
+                                    0 articles found
+                
+                                </td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>ZYDUSLIFE.NS</strong></td>
+                                <td>Zyduslife</td>
+                                <td>₹982.75</td>
+                                <td>₹963.76</td>
+                                <td class="sell">-1.93%</td>
+                                <td>85.0%</td>
+                                <td class="sentiment-no_data">NO DATA</td>
+                                <td class="error-low">1.5%</td>
+                                <td><span class="technical-badge">TECHNICAL</span></td>
+                                <td class="news-preview">
+                                    0 articles found
+                
+                                </td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>AUROPHARMA.NS</strong></td>
+                                <td>Auropharma</td>
+                                <td>₹1,154.20</td>
+                                <td>₹1,132.31</td>
+                                <td class="sell">-1.90%</td>
+                                <td>85.0%</td>
+                                <td class="sentiment-no_data">NO DATA</td>
+                                <td class="error-low">0.3%</td>
+                                <td><span class="technical-badge">TECHNICAL</span></td>
+                                <td class="news-preview">
+                                    0 articles found
+                
+                                </td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>LUPIN.NS</strong></td>
+                                <td>Lupin</td>
+                                <td>₹1,955.70</td>
+                                <td>₹1,922.24</td>
+                                <td class="sell">-1.71%</td>
+                                <td>85.0%</td>
+                                <td class="sentiment-no_data">NO DATA</td>
+                                <td class="error-low">0.4%</td>
+                                <td><span class="technical-badge">TECHNICAL</span></td>
+                                <td class="news-preview">
+                                    0 articles found
+                
+                                </td>
+                            </tr>
+                
+                        </tbody>
+                    </table>
+                </div>
+            
+            </div>
+        
+            <div class="sector-section">
+                <div class="sector-header">
+                    <h2>🏭 NIFTY_CONSUMER</h2>
+                    <div class="sector-performance">-1.01%</div>
+                </div>
+                <p><strong>Total Stocks with Model Agreement:</strong> 7</p>
+        
+                <div class="recommendation-group">
+                    <div class="recommendation-header sell-header">
+                        📉 SELL Recommendations (3 stocks) - Sorted by Expected Change
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Ticker</th>
+                                <th>Company</th>
+                                <th>Current Price</th>
+                                <th>Predicted</th>
+                                <th>Change %</th>
+                                <th>Confidence</th>
+                                <th>Sentiment</th>
+                                <th>ARIMA Err</th>
+                                <th>Logic</th>
+                                <th>News Summary</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+            
+                            <tr>
+                                <td><strong>UBL.NS</strong></td>
+                                <td>Ubl</td>
+                                <td>₹2,023.70</td>
+                                <td>₹1,972.96</td>
+                                <td class="sell">-2.51%</td>
+                                <td>85.0%</td>
+                                <td class="sentiment-no_data">NO DATA</td>
+                                <td class="error-low">2.6%</td>
+                                <td><span class="technical-badge">TECHNICAL</span></td>
+                                <td class="news-preview">
+                                    0 articles found
+                
+                                </td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>TATACONSUM.NS</strong></td>
+                                <td>Tataconsum</td>
+                                <td>₹1,105.80</td>
+                                <td>₹1,082.93</td>
+                                <td class="sell">-2.07%</td>
+                                <td>85.0%</td>
+                                <td class="sentiment-no_data">NO DATA</td>
+                                <td class="error-low">2.2%</td>
+                                <td><span class="technical-badge">TECHNICAL</span></td>
+                                <td class="news-preview">
+                                    0 articles found
+                
+                                </td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>NESTLEIND.NS</strong></td>
+                                <td>Nestleind</td>
+                                <td>₹2,449.10</td>
+                                <td>₹2,416.68</td>
+                                <td class="sell">-1.32%</td>
+                                <td>85.0%</td>
+                                <td class="sentiment-no_data">NO DATA</td>
+                                <td class="error-low">1.4%</td>
+                                <td><span class="technical-badge">TECHNICAL</span></td>
+                                <td class="news-preview">
+                                    0 articles found
+                
+                                </td>
+                            </tr>
+                
+                        </tbody>
+                    </table>
+                </div>
+            
+            </div>
+        
+            <div class="sector-section">
+                <div class="sector-header">
+                    <h2>🏭 NIFTY_PSU_BANK</h2>
+                    <div class="sector-performance">-1.36%</div>
+                </div>
+                <p><strong>Total Stocks with Model Agreement:</strong> 7</p>
+        
+                <div class="recommendation-group">
+                    <div class="recommendation-header sell-header">
+                        📉 SELL Recommendations (5 stocks) - Sorted by Expected Change
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Ticker</th>
+                                <th>Company</th>
+                                <th>Current Price</th>
+                                <th>Predicted</th>
+                                <th>Change %</th>
+                                <th>Confidence</th>
+                                <th>Sentiment</th>
+                                <th>ARIMA Err</th>
+                                <th>Logic</th>
+                                <th>News Summary</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+            
+                            <tr>
+                                <td><strong>INDIANB.NS</strong></td>
+                                <td>Indianb</td>
+                                <td>₹637.95</td>
+                                <td>₹624.17</td>
+                                <td class="sell">-2.16%</td>
+                                <td>85.0%</td>
+                                <td class="sentiment-no_data">NO DATA</td>
+                                <td class="error-low">0.5%</td>
+                                <td><span class="technical-badge">TECHNICAL</span></td>
+                                <td class="news-preview">
+                                    0 articles found
+                
+                                </td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>SBIN.NS</strong></td>
+                                <td>Sbin</td>
+                                <td>₹829.00</td>
+                                <td>₹812.13</td>
+                                <td class="sell">-2.03%</td>
+                                <td>85.0%</td>
+                                <td class="sentiment-no_data">NO DATA</td>
+                                <td class="error-low">1.6%</td>
+                                <td><span class="technical-badge">TECHNICAL</span></td>
+                                <td class="news-preview">
+                                    0 articles found
+                
+                                </td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>BANKBARODA.NS</strong></td>
+                                <td>Bankbaroda</td>
+                                <td>₹246.52</td>
+                                <td>₹241.98</td>
+                                <td class="sell">-1.84%</td>
+                                <td>85.0%</td>
+                                <td class="sentiment-no_data">NO DATA</td>
+                                <td class="error-low">1.1%</td>
+                                <td><span class="technical-badge">TECHNICAL</span></td>
+                                <td class="news-preview">
+                                    0 articles found
+                
+                                </td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>PNB.NS</strong></td>
+                                <td>Pnb</td>
+                                <td>₹113.79</td>
+                                <td>₹111.71</td>
+                                <td class="sell">-1.83%</td>
+                                <td>85.0%</td>
+                                <td class="sentiment-no_data">NO DATA</td>
+                                <td class="error-low">1.4%</td>
+                                <td><span class="technical-badge">TECHNICAL</span></td>
+                                <td class="news-preview">
+                                    0 articles found
+                
+                                </td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>UNIONBANK.NS</strong></td>
+                                <td>Unionbank</td>
+                                <td>₹146.31</td>
+                                <td>₹144.79</td>
+                                <td class="sell">-1.04%</td>
+                                <td>85.0%</td>
+                                <td class="sentiment-no_data">NO DATA</td>
+                                <td class="error-low">0.3%</td>
+                                <td><span class="technical-badge">TECHNICAL</span></td>
+                                <td class="news-preview">
+                                    0 articles found
+                
+                                </td>
+                            </tr>
+                
+                        </tbody>
+                    </table>
+                </div>
+            
+            </div>
+        
+            <div class="sector-section">
+                <div class="sector-header">
+                    <h2>🏭 NIFTY_REALTY</h2>
+                    <div class="sector-performance">-1.86%</div>
+                </div>
+                <p><strong>Total Stocks with Model Agreement:</strong> 3</p>
+        
+                <div class="recommendation-group">
+                    <div class="recommendation-header sell-header">
+                        📉 SELL Recommendations (3 stocks) - Sorted by Expected Change
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Ticker</th>
+                                <th>Company</th>
+                                <th>Current Price</th>
+                                <th>Predicted</th>
+                                <th>Change %</th>
+                                <th>Confidence</th>
+                                <th>Sentiment</th>
+                                <th>ARIMA Err</th>
+                                <th>Logic</th>
+                                <th>News Summary</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+            
+                            <tr>
+                                <td><strong>DLF.NS</strong></td>
+                                <td>Dlf</td>
+                                <td>₹847.05</td>
+                                <td>₹828.82</td>
+                                <td class="sell">-2.15%</td>
+                                <td>85.0%</td>
+                                <td class="sentiment-no_data">NO DATA</td>
+                                <td class="error-low">1.7%</td>
+                                <td><span class="technical-badge">TECHNICAL</span></td>
+                                <td class="news-preview">
+                                    0 articles found
+                
+                                </td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>GODREJPROP.NS</strong></td>
+                                <td>Godrejprop</td>
+                                <td>₹2,337.00</td>
+                                <td>₹2,291.41</td>
+                                <td class="sell">-1.95%</td>
+                                <td>85.0%</td>
+                                <td class="sentiment-no_data">NO DATA</td>
+                                <td class="error-low">2.9%</td>
+                                <td><span class="technical-badge">TECHNICAL</span></td>
+                                <td class="news-preview">
+                                    0 articles found
+                
+                                </td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>OBEROIRLTY.NS</strong></td>
+                                <td>Oberoirlty</td>
+                                <td>₹1,838.70</td>
+                                <td>₹1,811.41</td>
+                                <td class="sell">-1.48%</td>
+                                <td>85.0%</td>
+                                <td class="sentiment-no_data">NO DATA</td>
+                                <td class="error-low">0.8%</td>
+                                <td><span class="technical-badge">TECHNICAL</span></td>
+                                <td class="news-preview">
+                                    0 articles found
+                
+                                </td>
+                            </tr>
+                
+                        </tbody>
+                    </table>
+                </div>
+            
+            </div>
+        
+            <div class="sector-section">
+                <div class="sector-header">
+                    <h2>🏭 NIFTY_HEALTHCARE</h2>
+                    <div class="sector-performance">-2.61%</div>
+                </div>
+                <p><strong>Total Stocks with Model Agreement:</strong> 1</p>
+        
+                <div class="recommendation-group">
+                    <div class="recommendation-header sell-header">
+                        📉 SELL Recommendations (1 stocks) - Sorted by Expected Change
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Ticker</th>
+                                <th>Company</th>
+                                <th>Current Price</th>
+                                <th>Predicted</th>
+                                <th>Change %</th>
+                                <th>Confidence</th>
+                                <th>Sentiment</th>
+                                <th>ARIMA Err</th>
+                                <th>Logic</th>
+                                <th>News Summary</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+            
+                            <tr>
+                                <td><strong>SYNGENE.NS</strong></td>
+                                <td>Syngene</td>
+                                <td>₹670.40</td>
+                                <td>₹652.87</td>
+                                <td class="sell">-2.61%</td>
+                                <td>85.0%</td>
+                                <td class="sentiment-no_data">NO DATA</td>
+                                <td class="error-low">2.1%</td>
+                                <td><span class="technical-badge">TECHNICAL</span></td>
+                                <td class="news-preview">
+                                    0 articles found
+                
+                                </td>
+                            </tr>
+                
+                        </tbody>
+                    </table>
+                </div>
+            
+            </div>
+        
+            <div class="sector-section">
+                <div class="sector-header">
+                    <h2>🏭 NIFTY_ENERGY</h2>
+                    <div class="sector-performance">-2.62%</div>
+                </div>
+                <p><strong>Total Stocks with Model Agreement:</strong> 2</p>
+        
+                <div class="recommendation-group">
+                    <div class="recommendation-header sell-header">
+                        📉 SELL Recommendations (2 stocks) - Sorted by Expected Change
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Ticker</th>
+                                <th>Company</th>
+                                <th>Current Price</th>
+                                <th>Predicted</th>
+                                <th>Change %</th>
+                                <th>Confidence</th>
+                                <th>Sentiment</th>
+                                <th>ARIMA Err</th>
+                                <th>Logic</th>
+                                <th>News Summary</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+            
+                            <tr>
+                                <td><strong>ADANIGREEN.NS</strong></td>
+                                <td>Adanigreen</td>
+                                <td>₹1,050.10</td>
+                                <td>₹1,018.78</td>
+                                <td class="sell">-2.98%</td>
+                                <td>85.0%</td>
+                                <td class="sentiment-no_data">NO DATA</td>
+                                <td class="error-low">1.5%</td>
+                                <td><span class="technical-badge">TECHNICAL</span></td>
+                                <td class="news-preview">
+                                    0 articles found
+                
+                                </td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>TATAPOWER.NS</strong></td>
+                                <td>Tatapower</td>
+                                <td>₹413.45</td>
+                                <td>₹404.09</td>
+                                <td class="sell">-2.26%</td>
+                                <td>85.0%</td>
+                                <td class="sentiment-no_data">NO DATA</td>
+                                <td class="error-low">2.3%</td>
+                                <td><span class="technical-badge">TECHNICAL</span></td>
+                                <td class="news-preview">
+                                    0 articles found
+                
+                                </td>
+                            </tr>
+                
+                        </tbody>
+                    </table>
+                </div>
+            
+            </div>
+        
+            <div class="footer">
+                <p><strong>📅 Report generated on 2025-07-17 at 19:08:51</strong></p>
+                <p><em>This report shows only stocks where ARIMA and LSTM models agree on direction.</em></p>
+                <p><em>Stocks are organized by sector with recommendations in descending order by expected change.</em></p>
+                <p><em>Fresh news data is fetched for each analysis run to ensure current sentiment.</em></p>
+                <p><em>Recent headlines are displayed for each stock with available news data.</em></p>
+                <p style="margin-top: 15px; padding-top: 15px; border-top: 1px solid #dee2e6;">
+                    <strong>⚠️ Disclaimer:</strong> This is for educational purposes only. Always consult with financial advisors before making investment decisions.
+                </p>
+            </div>
+        </div>
+    </body>
+    </html>
+    

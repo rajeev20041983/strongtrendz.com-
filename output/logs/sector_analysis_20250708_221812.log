@@ -1,0 +1,10 @@
+2025-07-08 22:18:12,021 - INFO: Starting sector-based stock analysis - 2025-07-08
+2025-07-08 22:18:12,021 - INFO: Sentiment enhancement: ENABLED
+2025-07-08 22:18:46,751 - INFO: Fetched 110 unique articles
+2025-07-08 22:19:24,769 - WARNING: 5 out of the last 11 calls to <function TensorFlowTrainer.make_predict_function.<locals>.one_step_on_data_distributed at 0x000001B0CDAAE0E0> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has reduce_retracing=True option that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/guide/function#controlling_retracing and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+2025-07-08 22:19:25,224 - WARNING: 5 out of the last 11 calls to <function TensorFlowTrainer.make_predict_function.<locals>.one_step_on_data_distributed at 0x000001B0CDAAE0E0> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has reduce_retracing=True option that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/guide/function#controlling_retracing and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+2025-07-08 22:20:46,852 - ERROR: 
+1 Failed download:
+2025-07-08 22:20:46,853 - ERROR: ['NMDC']: YFPricesMissingError('possibly delisted; no price data found  (1d 2023-07-08 00:00:00 -> 2025-07-08 22:20:46.575922)')
+2025-07-08 22:20:46,870 - WARNING: No meaningful data for NMDC.NS
+2025-07-08 22:20:50,389 - ERROR: HTTP Error 404: 

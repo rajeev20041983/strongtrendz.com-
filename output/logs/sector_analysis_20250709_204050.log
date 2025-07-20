@@ -1,0 +1,16 @@
+2025-07-09 20:40:50,481 - INFO: Starting sector-based stock analysis with CONTRARIAN logic - 2025-07-09
+2025-07-09 20:40:50,481 - INFO: ARIMA Error Threshold: 30.0%
+2025-07-09 20:40:50,481 - INFO: Sentiment enhancement: ENABLED with CONTRARIAN logic
+2025-07-09 20:41:10,747 - WARNING: No meaningful data for NATIONALUM.NS
+2025-07-09 20:41:27,612 - WARNING: No meaningful data for SAIL.NS
+2025-07-09 20:41:46,794 - WARNING: 5 out of the last 11 calls to <function TensorFlowTrainer.make_predict_function.<locals>.one_step_on_data_distributed at 0x000001FBB4AF75B0> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has reduce_retracing=True option that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/guide/function#controlling_retracing and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+2025-07-09 20:41:47,168 - WARNING: 5 out of the last 11 calls to <function TensorFlowTrainer.make_predict_function.<locals>.one_step_on_data_distributed at 0x000001FBB4AF75B0> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has reduce_retracing=True option that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/guide/function#controlling_retracing and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+2025-07-09 20:41:47,363 - WARNING: No meaningful data for HINDALCO.NS
+2025-07-09 20:42:03,276 - WARNING: No meaningful data for TATASTEEL.NS
+2025-07-09 20:42:25,133 - WARNING: No meaningful data for JSL.NS
+2025-07-09 20:42:44,251 - WARNING: No meaningful data for VEDL.NS
+2025-07-09 20:43:01,087 - WARNING: No meaningful data for NMDC.NS
+2025-07-09 20:43:19,298 - WARNING: No meaningful data for APLAPOLLO.NS
+2025-07-09 20:43:38,601 - WARNING: No meaningful data for COALINDIA.NS
+2025-07-09 20:43:59,339 - WARNING: No meaningful data for JINDALSTEL.NS
+2025-07-09 20:43:59,339 - CRITICAL: No stocks could be analyzed. Check your data sources and network connection.

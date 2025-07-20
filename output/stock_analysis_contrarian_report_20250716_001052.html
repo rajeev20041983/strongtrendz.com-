@@ -1,0 +1,2848 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Enhanced Stock Analysis Report - Contrarian Logic - 2025-07-16</title>
+        <style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+                margin: 0;
+                padding: 20px;
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                min-height: 100vh;
+            }
+            .container {
+                max-width: 1400px;
+                margin: 0 auto;
+                background-color: white;
+                padding: 30px;
+                border-radius: 15px;
+                box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            }
+            .header {
+                text-align: center;
+                margin-bottom: 40px;
+                padding: 30px;
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                color: white;
+                border-radius: 15px;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            }
+            .header h1 {
+                margin: 0 0 10px 0;
+                font-size: 2.5em;
+                font-weight: 700;
+            }
+            .header p {
+                margin: 5px 0;
+                font-size: 1.1em;
+                opacity: 0.9;
+            }
+            .summary-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                gap: 25px;
+                margin-bottom: 40px;
+            }
+            .summary-card {
+                background: linear-gradient(145deg, #f8f9fa, #e9ecef);
+                padding: 25px;
+                border-radius: 15px;
+                border-left: 5px solid #007bff;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+                transition: transform 0.3s ease;
+            }
+            .summary-card:hover {
+                transform: translateY(-5px);
+            }
+            .summary-card h3 {
+                margin: 0 0 15px 0;
+                color: #333;
+                font-size: 1.1em;
+            }
+            .summary-card .value {
+                font-size: 2.2em;
+                font-weight: bold;
+                color: #007bff;
+                margin-bottom: 5px;
+            }
+            .summary-card .subtitle {
+                color: #6c757d;
+                font-size: 0.9em;
+            }
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                margin: 25px 0;
+                background: white;
+                border-radius: 10px;
+                overflow: hidden;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            }
+            th, td {
+                padding: 15px;
+                text-align: left;
+                border-bottom: 1px solid #e9ecef;
+            }
+            th {
+                background: linear-gradient(145deg, #f8f9fa, #e9ecef);
+                font-weight: 600;
+                color: #333;
+                font-size: 0.95em;
+            }
+            tr:hover {
+                background-color: #f8f9fa;
+            }
+            .buy { color: #28a745; font-weight: bold; }
+            .sell { color: #dc3545; font-weight: bold; }
+            .hold { color: #6c757d; font-weight: bold; }
+            .sentiment-bullish { color: #28a745; font-weight: 600; }
+            .sentiment-bearish { color: #dc3545; font-weight: 600; }
+            .sentiment-neutral { color: #6c757d; font-weight: 600; }
+            .contrarian-badge {
+                background: linear-gradient(145deg, #ff6b35, #f7931e);
+                color: white;
+                padding: 6px 12px;
+                border-radius: 20px;
+                font-size: 11px;
+                font-weight: bold;
+                text-transform: uppercase;
+                letter-spacing: 0.5px;
+                box-shadow: 0 2px 5px rgba(255,107,53,0.3);
+            }
+            .technical-badge {
+                background: linear-gradient(145deg, #6c757d, #495057);
+                color: white;
+                padding: 6px 12px;
+                border-radius: 20px;
+                font-size: 11px;
+                font-weight: bold;
+                text-transform: uppercase;
+                letter-spacing: 0.5px;
+                box-shadow: 0 2px 5px rgba(108,117,125,0.3);
+            }
+            .section {
+                margin: 40px 0;
+                padding: 30px;
+                border: 1px solid #e9ecef;
+                border-radius: 15px;
+                background: linear-gradient(145deg, #ffffff, #f8f9fa);
+                box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            }
+            .section h2 {
+                margin-top: 0;
+                color: #333;
+                border-bottom: 3px solid #007bff;
+                padding-bottom: 15px;
+                font-size: 1.8em;
+                font-weight: 600;
+            }
+            .error-high {
+                background: #fff3cd;
+                border: 1px solid #ffeaa7;
+                color: #856404;
+                padding: 8px 12px;
+                border-radius: 6px;
+                font-weight: 600;
+            }
+            .error-low {
+                background: #d4edda;
+                border: 1px solid #c3e6cb;
+                color: #155724;
+                padding: 8px 12px;
+                border-radius: 6px;
+                font-weight: 600;
+            }
+            .logic-explanation {
+                background: linear-gradient(145deg, #e3f2fd, #bbdefb);
+                padding: 25px;
+                border-radius: 15px;
+                border-left: 5px solid #2196f3;
+                margin: 25px 0;
+            }
+            .logic-explanation h4 {
+                margin-top: 0;
+                color: #1976d2;
+            }
+            .logic-explanation ul {
+                margin: 15px 0;
+            }
+            .logic-explanation li {
+                margin: 8px 0;
+                padding-left: 10px;
+            }
+            .stats-highlight {
+                background: linear-gradient(145deg, #fff3e0, #ffe0b2);
+                padding: 20px;
+                border-radius: 10px;
+                margin: 20px 0;
+                border-left: 5px solid #ff9800;
+            }
+            .footer {
+                text-align: center;
+                margin-top: 40px;
+                padding: 25px;
+                background: linear-gradient(145deg, #f8f9fa, #e9ecef);
+                border-radius: 15px;
+                border: 1px solid #dee2e6;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="header">
+                <h1>📊 Enhanced Stock Analysis Report</h1>
+                <p><strong>Contrarian Sentiment + ARIMA-LSTM Technical Analysis</strong></p>
+                <p>Generated: 2025-07-16 00:10:52</p>
+                <p>ARIMA Error Threshold: 30%</p>
+            </div>
+            
+            <div class="summary-grid">
+                <div class="summary-card">
+                    <h3>📈 Total Stocks Analyzed</h3>
+                    <div class="value">140</div>
+                    <div class="subtitle">Complete technical analysis</div>
+                </div>
+                <div class="summary-card">
+                    <h3>📰 Sentiment Enhanced</h3>
+                    <div class="value">108</div>
+                    <div class="subtitle">With news data available</div>
+                </div>
+                <div class="summary-card">
+                    <h3>🔄 Contrarian Signals</h3>
+                    <div class="value">0</div>
+                    <div class="subtitle">Applied contrarian logic</div>
+                </div>
+                <div class="summary-card">
+                    <h3>🎯 Agreement Stocks</h3>
+                    <div class="value">95</div>
+                    <div class="subtitle">ARIMA & LSTM agree</div>
+                </div>
+            </div>
+    
+            <div class="section">
+                <h2>🏭 Sector Performance Overview</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Sector</th>
+                            <th>Average Change %</th>
+                            <th>Direction</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+        
+                        <tr>
+                            <td><strong>NIFTY_IT</strong></td>
+                            <td class="buy">1.34%</td>
+                            <td class="buy">UP</td>
+                            <td>GREEN</td>
+                        </tr>
+            
+                        <tr>
+                            <td><strong>NIFTY_BANK</strong></td>
+                            <td class="buy">0.01%</td>
+                            <td class="buy">UP</td>
+                            <td>GREEN</td>
+                        </tr>
+            
+                        <tr>
+                            <td><strong>NIFTY_OIL_AND_GAS</strong></td>
+                            <td class="sell">-0.11%</td>
+                            <td class="sell">DOWN</td>
+                            <td>RED</td>
+                        </tr>
+            
+                        <tr>
+                            <td><strong>NIFTY_METAL</strong></td>
+                            <td class="sell">-0.38%</td>
+                            <td class="sell">DOWN</td>
+                            <td>RED</td>
+                        </tr>
+            
+                        <tr>
+                            <td><strong>NIFTY_CONSUMPTION</strong></td>
+                            <td class="sell">-0.53%</td>
+                            <td class="sell">DOWN</td>
+                            <td>RED</td>
+                        </tr>
+            
+                        <tr>
+                            <td><strong>NIFTY_CONSUMER</strong></td>
+                            <td class="sell">-0.75%</td>
+                            <td class="sell">DOWN</td>
+                            <td>RED</td>
+                        </tr>
+            
+                        <tr>
+                            <td><strong>NIFTY_ENERGY</strong></td>
+                            <td class="sell">-0.77%</td>
+                            <td class="sell">DOWN</td>
+                            <td>RED</td>
+                        </tr>
+            
+                        <tr>
+                            <td><strong>NIFTY_PSU_BANK</strong></td>
+                            <td class="sell">-1.09%</td>
+                            <td class="sell">DOWN</td>
+                            <td>RED</td>
+                        </tr>
+            
+                        <tr>
+                            <td><strong>NIFTY_FIN_SERVICE</strong></td>
+                            <td class="sell">-1.19%</td>
+                            <td class="sell">DOWN</td>
+                            <td>RED</td>
+                        </tr>
+            
+                        <tr>
+                            <td><strong>NIFTY_MEDIA</strong></td>
+                            <td class="sell">-1.43%</td>
+                            <td class="sell">DOWN</td>
+                            <td>RED</td>
+                        </tr>
+            
+                        <tr>
+                            <td><strong>UNKNOWN</strong></td>
+                            <td class="sell">-1.47%</td>
+                            <td class="sell">DOWN</td>
+                            <td>RED</td>
+                        </tr>
+            
+                        <tr>
+                            <td><strong>NIFTY_HEALTHCARE</strong></td>
+                            <td class="sell">-1.56%</td>
+                            <td class="sell">DOWN</td>
+                            <td>RED</td>
+                        </tr>
+            
+                        <tr>
+                            <td><strong>NIFTY_AUTO</strong></td>
+                            <td class="sell">-1.59%</td>
+                            <td class="sell">DOWN</td>
+                            <td>RED</td>
+                        </tr>
+            
+                        <tr>
+                            <td><strong>NIFTY_REALTY</strong></td>
+                            <td class="sell">-1.65%</td>
+                            <td class="sell">DOWN</td>
+                            <td>RED</td>
+                        </tr>
+            
+                        <tr>
+                            <td><strong>NIFTY_PVT_BANK</strong></td>
+                            <td class="sell">-1.82%</td>
+                            <td class="sell">DOWN</td>
+                            <td>RED</td>
+                        </tr>
+            
+                        <tr>
+                            <td><strong>NIFTY_PHARMA</strong></td>
+                            <td class="sell">-1.93%</td>
+                            <td class="sell">DOWN</td>
+                            <td>RED</td>
+                        </tr>
+            
+                    </tbody>
+                </table>
+            </div>
+        
+            <div class="section">
+                <h2>🚀 Top BUY Recommendations (ARIMA & LSTM Agree)</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Rank</th>
+                            <th>Ticker</th>
+                            <th>Company</th>
+                            <th>Current Price</th>
+                            <th>Prediction</th>
+                            <th>Change %</th>
+                            <th>Confidence</th>
+                            <th>Sentiment</th>
+                            <th>ARIMA Error %</th>
+                            <th>Logic Type</th>
+                            <th>Reason</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+        
+                        <tr>
+                            <td><strong>1</strong></td>
+                            <td><strong>HCLTECH.NS</strong></td>
+                            <td>Hcltech</td>
+                            <td>₹1,566.40</td>
+                            <td>₹1,676.03</td>
+                            <td class="buy">7.00%</td>
+                            <td>95.0%</td>
+                            <td class="sentiment-neutral">NEUTRAL</td>
+                            <td class="error-low">4.5%</td>
+                            <td><span class="technical-badge">TECHNICAL</span></td>
+                            <td><small>⚠️ LOW CONF: Sentiment confidence too low (0.3% <= 50%) = Using technical analysis: STRONG BUY</small></td>
+                        </tr>
+            
+                        <tr>
+                            <td><strong>2</strong></td>
+                            <td><strong>IDFCFIRSTB.NS</strong></td>
+                            <td>Idfcfirstb</td>
+                            <td>₹72.93</td>
+                            <td>₹75.88</td>
+                            <td class="buy">4.04%</td>
+                            <td>90.0%</td>
+                            <td class="sentiment-neutral">NEUTRAL</td>
+                            <td class="error-low">3.3%</td>
+                            <td><span class="technical-badge">TECHNICAL</span></td>
+                            <td><small>⚠️ NO NEWS: Insufficient news data (0 articles) = Using technical analysis: STRONG BUY</small></td>
+                        </tr>
+            
+                        <tr>
+                            <td><strong>3</strong></td>
+                            <td><strong>TECHM.NS</strong></td>
+                            <td>Techm</td>
+                            <td>₹1,579.00</td>
+                            <td>₹1,625.48</td>
+                            <td class="buy">2.94%</td>
+                            <td>85.0%</td>
+                            <td class="sentiment-neutral">NEUTRAL</td>
+                            <td class="error-low">1.6%</td>
+                            <td><span class="technical-badge">TECHNICAL</span></td>
+                            <td><small>⚠️ LOW CONF: Sentiment confidence too low (0.3% <= 50%) = Using technical analysis: BUY</small></td>
+                        </tr>
+            
+                        <tr>
+                            <td><strong>4</strong></td>
+                            <td><strong>ZYDUSLIFE.NS</strong></td>
+                            <td>Zyduslife</td>
+                            <td>₹967.65</td>
+                            <td>₹993.55</td>
+                            <td class="buy">2.68%</td>
+                            <td>85.0%</td>
+                            <td class="sentiment-neutral">NEUTRAL</td>
+                            <td class="error-low">1.3%</td>
+                            <td><span class="technical-badge">TECHNICAL</span></td>
+                            <td><small>⚠️ NO NEWS: Insufficient news data (0 articles) = Using technical analysis: BUY</small></td>
+                        </tr>
+            
+                        <tr>
+                            <td><strong>5</strong></td>
+                            <td><strong>PFC.NS</strong></td>
+                            <td>Pfc</td>
+                            <td>₹425.10</td>
+                            <td>₹436.05</td>
+                            <td class="buy">2.58%</td>
+                            <td>85.0%</td>
+                            <td class="sentiment-bullish">BULLISH</td>
+                            <td class="error-low">1.2%</td>
+                            <td><span class="technical-badge">TECHNICAL</span></td>
+                            <td><small>⚠️ LOW CONF: Sentiment confidence too low (0.4% <= 50%) = Using technical analysis: BUY</small></td>
+                        </tr>
+            
+                        <tr>
+                            <td><strong>6</strong></td>
+                            <td><strong>SAREGAMA.NS</strong></td>
+                            <td>Saregama</td>
+                            <td>₹483.50</td>
+                            <td>₹493.62</td>
+                            <td class="buy">2.09%</td>
+                            <td>85.0%</td>
+                            <td class="sentiment-bearish">BEARISH</td>
+                            <td class="error-low">1.4%</td>
+                            <td><span class="technical-badge">TECHNICAL</span></td>
+                            <td><small>⚠️ LOW CONF: Sentiment confidence too low (0.3% <= 50%) = Using technical analysis: BUY</small></td>
+                        </tr>
+            
+                        <tr>
+                            <td><strong>7</strong></td>
+                            <td><strong>WIPRO.NS</strong></td>
+                            <td>Wipro</td>
+                            <td>₹257.40</td>
+                            <td>₹262.61</td>
+                            <td class="buy">2.02%</td>
+                            <td>85.0%</td>
+                            <td class="sentiment-bearish">BEARISH</td>
+                            <td class="error-low">0.6%</td>
+                            <td><span class="technical-badge">TECHNICAL</span></td>
+                            <td><small>⚠️ LOW CONF: Sentiment confidence too low (0.4% <= 50%) = Using technical analysis: BUY</small></td>
+                        </tr>
+            
+                        <tr>
+                            <td><strong>8</strong></td>
+                            <td><strong>TCS.NS</strong></td>
+                            <td>Tcs</td>
+                            <td>₹3,252.30</td>
+                            <td>₹3,317.65</td>
+                            <td class="buy">2.01%</td>
+                            <td>85.0%</td>
+                            <td class="sentiment-bearish">BEARISH</td>
+                            <td class="error-low">0.2%</td>
+                            <td><span class="technical-badge">TECHNICAL</span></td>
+                            <td><small>⚠️ LOW CONF: Sentiment confidence too low (0.4% <= 50%) = Using technical analysis: BUY</small></td>
+                        </tr>
+            
+                        <tr>
+                            <td><strong>9</strong></td>
+                            <td><strong>JIOFIN.NS</strong></td>
+                            <td>Jiofin</td>
+                            <td>₹321.20</td>
+                            <td>₹327.10</td>
+                            <td class="buy">1.84%</td>
+                            <td>85.0%</td>
+                            <td class="sentiment-bearish">BEARISH</td>
+                            <td class="error-low">1.4%</td>
+                            <td><span class="technical-badge">TECHNICAL</span></td>
+                            <td><small>⚠️ LOW CONF: Sentiment confidence too low (0.4% <= 50%) = Using technical analysis: BUY</small></td>
+                        </tr>
+            
+                        <tr>
+                            <td><strong>10</strong></td>
+                            <td><strong>BAJFINANCE.NS</strong></td>
+                            <td>Bajfinance</td>
+                            <td>₹928.40</td>
+                            <td>₹942.82</td>
+                            <td class="buy">1.55%</td>
+                            <td>85.0%</td>
+                            <td class="sentiment-neutral">NEUTRAL</td>
+                            <td class="error-low">0.7%</td>
+                            <td><span class="technical-badge">TECHNICAL</span></td>
+                            <td><small>⚠️ LOW CONF: Sentiment confidence too low (0.3% <= 50%) = Using technical analysis: BUY</small></td>
+                        </tr>
+            
+                    </tbody>
+                </table>
+            </div>
+        
+            <div class="section">
+                <h2>📉 Top SELL Recommendations (ARIMA & LSTM Agree)</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Rank</th>
+                            <th>Ticker</th>
+                            <th>Company</th>
+                            <th>Current Price</th>
+                            <th>Prediction</th>
+                            <th>Change %</th>
+                            <th>Confidence</th>
+                            <th>Sentiment</th>
+                            <th>ARIMA Error %</th>
+                            <th>Logic Type</th>
+                            <th>Reason</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+        
+                        <tr>
+                            <td><strong>1</strong></td>
+                            <td><strong>PEL.NS</strong></td>
+                            <td>Pel</td>
+                            <td>₹1,323.30</td>
+                            <td>₹1,197.01</td>
+                            <td class="sell">-9.54%</td>
+                            <td>95.0%</td>
+                            <td class="sentiment-neutral">NEUTRAL</td>
+                            <td class="error-low">8.1%</td>
+                            <td><span class="technical-badge">TECHNICAL</span></td>
+                            <td><small>⚠️ LOW CONF: Sentiment confidence too low (0.3% <= 50%) = Using technical analysis: STRONG SELL</small></td>
+                        </tr>
+            
+                        <tr>
+                            <td><strong>2</strong></td>
+                            <td><strong>DISHTV.NS</strong></td>
+                            <td>Dishtv</td>
+                            <td>₹6.03</td>
+                            <td>₹5.50</td>
+                            <td class="sell">-8.83%</td>
+                            <td>95.0%</td>
+                            <td class="sentiment-weak_bearish">WEAK_BEARISH</td>
+                            <td class="error-low">6.6%</td>
+                            <td><span class="technical-badge">TECHNICAL</span></td>
+                            <td><small>⚠️ LOW CONF: Sentiment confidence too low (0.3% <= 50%) = Using technical analysis: STRONG SELL</small></td>
+                        </tr>
+            
+                        <tr>
+                            <td><strong>3</strong></td>
+                            <td><strong>GLENMARK.NS</strong></td>
+                            <td>Glenmark</td>
+                            <td>₹2,226.10</td>
+                            <td>₹2,048.21</td>
+                            <td class="sell">-7.99%</td>
+                            <td>95.0%</td>
+                            <td class="sentiment-neutral">NEUTRAL</td>
+                            <td class="error-low">0.6%</td>
+                            <td><span class="technical-badge">TECHNICAL</span></td>
+                            <td><small>⚠️ LOW CONF: Sentiment confidence too low (0.4% <= 50%) = Using technical analysis: STRONG SELL</small></td>
+                        </tr>
+            
+                        <tr>
+                            <td><strong>4</strong></td>
+                            <td><strong>BOSCHLTD.NS</strong></td>
+                            <td>Boschltd</td>
+                            <td>₹38,320.00</td>
+                            <td>₹35,944.46</td>
+                            <td class="sell">-6.20%</td>
+                            <td>95.0%</td>
+                            <td class="sentiment-neutral">NEUTRAL</td>
+                            <td class="error-low">4.3%</td>
+                            <td><span class="technical-badge">TECHNICAL</span></td>
+                            <td><small>⚠️ LOW CONF: Sentiment confidence too low (0.4% <= 50%) = Using technical analysis: STRONG SELL</small></td>
+                        </tr>
+            
+                        <tr>
+                            <td><strong>5</strong></td>
+                            <td><strong>BIOCON.NS</strong></td>
+                            <td>Biocon</td>
+                            <td>₹390.45</td>
+                            <td>₹368.51</td>
+                            <td class="sell">-5.62%</td>
+                            <td>95.0%</td>
+                            <td class="sentiment-neutral">NEUTRAL</td>
+                            <td class="error-low">3.8%</td>
+                            <td><span class="technical-badge">TECHNICAL</span></td>
+                            <td><small>⚠️ LOW CONF: Sentiment confidence too low (0.4% <= 50%) = Using technical analysis: STRONG SELL</small></td>
+                        </tr>
+            
+                        <tr>
+                            <td><strong>6</strong></td>
+                            <td><strong>HEROMOTOCO.NS</strong></td>
+                            <td>Heromotoco</td>
+                            <td>₹4,454.00</td>
+                            <td>₹4,261.71</td>
+                            <td class="sell">-4.32%</td>
+                            <td>90.0%</td>
+                            <td class="sentiment-bullish">BULLISH</td>
+                            <td class="error-low">5.4%</td>
+                            <td><span class="technical-badge">TECHNICAL</span></td>
+                            <td><small>⚠️ LOW CONF: Sentiment confidence too low (0.4% <= 50%) = Using technical analysis: STRONG SELL</small></td>
+                        </tr>
+            
+                        <tr>
+                            <td><strong>7</strong></td>
+                            <td><strong>LODHA.NS</strong></td>
+                            <td>Lodha</td>
+                            <td>₹1,434.00</td>
+                            <td>₹1,376.11</td>
+                            <td class="sell">-4.04%</td>
+                            <td>90.0%</td>
+                            <td class="sentiment-neutral">NEUTRAL</td>
+                            <td class="error-low">2.5%</td>
+                            <td><span class="technical-badge">TECHNICAL</span></td>
+                            <td><small>⚠️ LOW CONF: Sentiment confidence too low (0.3% <= 50%) = Using technical analysis: STRONG SELL</small></td>
+                        </tr>
+            
+                        <tr>
+                            <td><strong>8</strong></td>
+                            <td><strong>IEX.NS</strong></td>
+                            <td>Iex</td>
+                            <td>₹208.98</td>
+                            <td>₹200.85</td>
+                            <td class="sell">-3.89%</td>
+                            <td>90.0%</td>
+                            <td class="sentiment-neutral">NEUTRAL</td>
+                            <td class="error-low">1.0%</td>
+                            <td><span class="technical-badge">TECHNICAL</span></td>
+                            <td><small>⚠️ LOW CONF: Sentiment confidence too low (0.4% <= 50%) = Using technical analysis: STRONG SELL</small></td>
+                        </tr>
+            
+                        <tr>
+                            <td><strong>9</strong></td>
+                            <td><strong>TVSMOTOR.NS</strong></td>
+                            <td>Tvsmotor</td>
+                            <td>₹2,885.00</td>
+                            <td>₹2,774.80</td>
+                            <td class="sell">-3.82%</td>
+                            <td>90.0%</td>
+                            <td class="sentiment-neutral">NEUTRAL</td>
+                            <td class="error-low">4.7%</td>
+                            <td><span class="technical-badge">TECHNICAL</span></td>
+                            <td><small>⚠️ NO NEWS: Insufficient news data (0 articles) = Using technical analysis: STRONG SELL</small></td>
+                        </tr>
+            
+                        <tr>
+                            <td><strong>10</strong></td>
+                            <td><strong>CROMPTON.NS</strong></td>
+                            <td>Cromptom</td>
+                            <td>₹351.85</td>
+                            <td>₹338.67</td>
+                            <td class="sell">-3.74%</td>
+                            <td>90.0%</td>
+                            <td class="sentiment-neutral">NEUTRAL</td>
+                            <td class="error-low">4.4%</td>
+                            <td><span class="technical-badge">TECHNICAL</span></td>
+                            <td><small>⚠️ LOW CONF: Sentiment confidence too low (0.2% <= 50%) = Using technical analysis: STRONG SELL</small></td>
+                        </tr>
+            
+                    </tbody>
+                </table>
+            </div>
+        
+            <div class="section">
+                <h2>📋 Complete Stock Analysis</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Ticker</th>
+                            <th>Current Price</th>
+                            <th>ARIMA Pred</th>
+                            <th>LSTM Pred</th>
+                            <th>Combined</th>
+                            <th>Change %</th>
+                            <th>Recommendation</th>
+                            <th>Confidence</th>
+                            <th>Sentiment</th>
+                            <th>ARIMA Error %</th>
+                            <th>Enhancement Status</th>
+                            <th>Logic Applied</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+    
+                    <tr>
+                        <td><strong>NATIONALUM.NS</strong></td>
+                        <td>₹190.48</td>
+                        <td>₹189.45</td>
+                        <td>₹177.40</td>
+                        <td>₹183.42</td>
+                        <td class="strong sell">-3.71%</td>
+                        <td class="strong sell">STRONG SELL</td>
+                        <td>90.0%</td>
+                        <td class="sentiment-neutral">NEUTRAL</td>
+                        <td class="error-low">0.5%</td>
+                        <td>INSUFFICIENT_NEWS</td>
+                        <td><span class="technical-badge">TECHNICAL</span></td>
+                    </tr>
+        
+                    <tr>
+                        <td><strong>SAIL.NS</strong></td>
+                        <td>₹134.88</td>
+                        <td>₹134.37</td>
+                        <td>₹133.77</td>
+                        <td>₹134.07</td>
+                        <td class="hold">-0.60%</td>
+                        <td class="hold">HOLD</td>
+                        <td>80.0%</td>
+                        <td class="sentiment-bullish">BULLISH</td>
+                        <td class="error-low">0.4%</td>
+                        <td>LOW_SENTIMENT_CONFIDENCE</td>
+                        <td><span class="technical-badge">TECHNICAL</span></td>
+                    </tr>
+        
+                    <tr>
+                        <td><strong>HINDALCO.NS</strong></td>
+                        <td>₹670.85</td>
+                        <td>₹670.95</td>
+                        <td>₹685.08</td>
+                        <td>₹678.02</td>
+                        <td class="buy">1.07%</td>
+                        <td class="buy">BUY</td>
+                        <td>85.0%</td>
+                        <td class="sentiment-bearish">BEARISH</td>
+                        <td class="error-low">0.0%</td>
+                        <td>LOW_SENTIMENT_CONFIDENCE</td>
+                        <td><span class="technical-badge">TECHNICAL</span></td>
+                    </tr>
+        
+                    <tr>
+                        <td><strong>TATASTEEL.NS</strong></td>
+                        <td>₹159.00</td>
+                        <td>₹159.74</td>
+                        <td>₹161.40</td>
+                        <td>₹160.57</td>
+                        <td class="hold">0.99%</td>
+                        <td class="hold">HOLD</td>
+                        <td>80.0%</td>
+                        <td class="sentiment-neutral">NEUTRAL</td>
+                        <td class="error-low">0.5%</td>
+                        <td>LOW_SENTIMENT_CONFIDENCE</td>
+                        <td><span class="technical-badge">TECHNICAL</span></td>
+                    </tr>
+        
+                    <tr>
+                        <td><strong>JSL.NS</strong></td>
+                        <td>₹688.05</td>
+                        <td>₹684.67</td>
+                        <td>₹679.23</td>
+                        <td>₹681.95</td>
+                        <td class="hold">-0.89%</td>
+                        <td class="hold">HOLD</td>
+                        <td>80.0%</td>
+                        <td class="sentiment-bullish">BULLISH</td>
+                        <td class="error-low">0.5%</td>
+                        <td>LOW_SENTIMENT_CONFIDENCE</td>
+                        <td><span class="technical-badge">TECHNICAL</span></td>
+                    </tr>
+        
+                    <tr>
+                        <td><strong>VEDL.NS</strong></td>
+                        <td>₹450.00</td>
+                        <td>₹442.71</td>
+                        <td>₹453.40</td>
+                        <td>₹448.05</td>
+                        <td class="hold">-0.43%</td>
+                        <td class="hold">HOLD</td>
+                        <td>60.0%</td>
+                        <td class="sentiment-bearish">BEARISH</td>
+                        <td class="error-low">1.6%</td>
+                        <td>LOW_SENTIMENT_CONFIDENCE</td>
+                        <td><span class="technical-badge">TECHNICAL</span></td>
+                    </tr>
+        
+                    <tr>
+                        <td><strong>NMDC.NS</strong></td>
+                        <td>₹67.98</td>
+                        <td>₹69.09</td>
+                        <td>₹68.75</td>
+                        <td>₹68.92</td>
+                        <td class="buy">1.38%</td>
+                        <td class="buy">BUY</td>
+                        <td>85.0%</td>
+                        <td class="sentiment-neutral">NEUTRAL</td>
+                        <td class="error-low">1.6%</td>
+                        <td>INSUFFICIENT_NEWS</td>
+                        <td><span class="technical-badge">TECHNICAL</span></td>
+                    </tr>
+        
+                    <tr>
+                        <td><strong>APLAPOLLO.NS</strong></td>
+                        <td>₹1,723.50</td>
+                        <td>₹1,699.22</td>
+                        <td>₹1,711.18</td>
+                        <td>₹1,705.20</td>
+                        <td class="sell">-1.06%</td>
+                        <td class="sell">SELL</td>
+                        <td>85.0%</td>
+                        <td class="sentiment-neutral">NEUTRAL</td>
+                        <td class="error-low">1.4%</td>
+                        <td>INSUFFICIENT_NEWS</td>
+                        <td><span class="technical-badge">TECHNICAL</span></td>
+                    </tr>
+        
+                    <tr>
+                        <td><strong>COALINDIA.NS</strong></td>
+                        <td>₹386.45</td>
+                        <td>₹381.42</td>
+                        <td>₹387.98</td>
+                        <td>₹384.70</td>
+                        <td class="hold">-0.45%</td>
+                        <td class="hold">HOLD</td>
+                        <td>55.0%</td>
+                        <td class="sentiment-neutral">NEUTRAL</td>
+                        <td class="error-low">1.3%</td>
+                        <td>LOW_SENTIMENT_CONFIDENCE</td>
+                        <td><span class="technical-badge">TECHNICAL</span></td>
+                    </tr>
+        
+                    <tr>
+                        <td><strong>JINDALSTEL.NS</strong></td>
+                        <td>₹943.85</td>
+                        <td>₹938.58</td>
+                        <td>₹961.95</td>
+                        <td>₹950.26</td>
+                        <td class="hold">0.68%</td>
+                        <td class="hold">HOLD</td>
+                        <td>60.0%</td>
+                        <td class="sentiment-neutral">NEUTRAL</td>
+                        <td class="error-low">0.6%</td>
+                        <td>LOW_SENTIMENT_CONFIDENCE</td>
+                        <td><span class="technical-badge">TECHNICAL</span></td>
+                    </tr>
+        
+                    <tr>
+                        <td><strong>JSWSTEEL.NS</strong></td>
+                        <td>₹1,035.00</td>
+                        <td>₹1,037.86</td>
+                        <td>₹1,040.23</td>
+                        <td>₹1,039.04</td>
+                        <td class="hold">0.39%</td>
+                        <td class="hold">HOLD</td>
+                        <td>80.0%</td>
+                        <td class="sentiment-neutral">NEUTRAL</td>
+                        <td class="error-low">0.3%</td>
+                        <td>LOW_SENTIMENT_CONFIDENCE</td>
+                        <td><span class="technical-badge">TECHNICAL</span></td>
+                    </tr>
+        
+                    <tr>
+                        <td><strong>HINDCOPPER.NS</strong></td>
+                        <td>₹262.05</td>
+                        <td>₹262.18</td>
+                        <td>₹254.51</td>
+                        <td>₹258.34</td>
+                        <td class="sell">-1.41%</td>
+                        <td class="sell">SELL</td>
+                        <td>60.0%</td>
+                        <td class="sentiment-weak_bearish">WEAK_BEARISH</td>
+                        <td class="error-low">0.0%</td>
+                        <td>LOW_SENTIMENT_CONFIDENCE</td>
+                        <td><span class="technical-badge">TECHNICAL</span></td>
+                    </tr>
+        
+                    <tr>
+                        <td><strong>ADANIENT.NS</strong></td>
+                        <td>₹2,598.20</td>
+                        <td>₹2,560.30</td>
+                        <td>₹2,591.64</td>
+                        <td>₹2,575.97</td>
+                        <td class="hold">-0.86%</td>
+                        <td class="hold">HOLD</td>
+                        <td>80.0%</td>
+                        <td class="sentiment-neutral">NEUTRAL</td>
+                        <td class="error-low">1.5%</td>
+                        <td>LOW_SENTIMENT_CONFIDENCE</td>
+                        <td><span class="technical-badge">TECHNICAL</span></td>
+                    </tr>
+        
+                    <tr>
+                        <td><strong>BATAINDIA.NS</strong></td>
+                        <td>₹1,259.20</td>
+                        <td>₹1,236.32</td>
+                        <td>₹1,250.49</td>
+                        <td>₹1,243.40</td>
+                        <td class="sell">-1.25%</td>
+                        <td class="sell">SELL</td>
+                        <td>85.0%</td>
+                        <td class="sentiment-neutral">NEUTRAL</td>
+                        <td class="error-low">1.8%</td>
+                        <td>LOW_SENTIMENT_CONFIDENCE</td>
+                        <td><span class="technical-badge">TECHNICAL</span></td>
+                    </tr>
+        
+                    <tr>
+                        <td><strong>TITAN.NS</strong></td>
+                        <td>₹3,415.00</td>
+                        <td>₹3,375.40</td>
+                        <td>₹3,506.88</td>
+                        <td>₹3,441.14</td>
+                        <td class="hold">0.77%</td>
+                        <td class="hold">HOLD</td>
+                        <td>60.0%</td>
+                        <td class="sentiment-neutral">NEUTRAL</td>
+                        <td class="error-low">1.2%</td>
+                        <td>LOW_SENTIMENT_CONFIDENCE</td>
+                        <td><span class="technical-badge">TECHNICAL</span></td>
+                    </tr>
+        
+                    <tr>
+                        <td><strong>HAVELLS.NS</strong></td>
+                        <td>₹1,538.00</td>
+                        <td>₹1,528.25</td>
+                        <td>₹1,566.08</td>
+                        <td>₹1,547.16</td>
+                        <td class="hold">0.60%</td>
+                        <td class="hold">HOLD</td>
+                        <td>60.0%</td>
+                        <td class="sentiment-neutral">NEUTRAL</td>
+                        <td class="error-low">0.6%</td>
+                        <td>LOW_SENTIMENT_CONFIDENCE</td>
+                        <td><span class="technical-badge">TECHNICAL</span></td>
+                    </tr>
+        
+                    <tr>
+                        <td><strong>CROMPTON.NS</strong></td>
+                        <td>₹351.85</td>
+                        <td>₹336.23</td>
+                        <td>₹341.12</td>
+                        <td>₹338.67</td>
+                        <td class="strong sell">-3.74%</td>
+                        <td class="strong sell">STRONG SELL</td>
+                        <td>90.0%</td>
+                        <td class="sentiment-neutral">NEUTRAL</td>
+                        <td class="error-low">4.4%</td>
+                        <td>LOW_SENTIMENT_CONFIDENCE</td>
+                        <td><span class="technical-badge">TECHNICAL</span></td>
+                    </tr>
+        
+                    <tr>
+                        <td><strong>VOLTAS.NS</strong></td>
+                        <td>₹1,396.60</td>
+                        <td>₹1,370.07</td>
+                        <td>₹1,446.65</td>
+                        <td>₹1,408.36</td>
+                        <td class="hold">0.84%</td>
+                        <td class="hold">HOLD</td>
+                        <td>60.0%</td>
+                        <td class="sentiment-neutral">NEUTRAL</td>
+                        <td class="error-low">1.9%</td>
+                        <td>LOW_SENTIMENT_CONFIDENCE</td>
+                        <td><span class="technical-badge">TECHNICAL</span></td>
+                    </tr>
+        
+                    <tr>
+                        <td><strong>DIXON.NS</strong></td>
+                        <td>₹15,823.00</td>
+                        <td>₹15,786.76</td>
+                        <td>₹15,746.65</td>
+                        <td>₹15,766.70</td>
+                        <td class="hold">-0.36%</td>
+                        <td class="hold">HOLD</td>
+                        <td>80.0%</td>
+                        <td class="sentiment-neutral">NEUTRAL</td>
+                        <td class="error-low">0.2%</td>
+                        <td>LOW_SENTIMENT_CONFIDENCE</td>
+                        <td><span class="technical-badge">TECHNICAL</span></td>
+                    </tr>
+        
+                    <tr>
+                        <td><strong>TIINDIA.NS</strong></td>
+                        <td>₹2,930.30</td>
+                        <td>₹2,870.15</td>
+                        <td>₹2,903.99</td>
+                        <td>₹2,887.07</td>
+                        <td class="sell">-1.48%</td>
+                        <td class="sell">SELL</td>
+                        <td>85.0%</td>
+                        <td class="sentiment-bullish">BULLISH</td>
+                        <td class="error-low">2.1%</td>
+                        <td>LOW_SENTIMENT_CONFIDENCE</td>
+                        <td><span class="technical-badge">TECHNICAL</span></td>
+                    </tr>
+        
+                    <tr>
+                        <td><strong>MOTHERSON.NS</strong></td>
+                        <td>₹156.01</td>
+                        <td>₹150.77</td>
+                        <td>₹152.64</td>
+                        <td>₹151.70</td>
+                        <td class="sell">-2.76%</td>
+                        <td class="sell">SELL</td>
+                        <td>85.0%</td>
+                        <td class="sentiment-neutral">NEUTRAL</td>
+                        <td class="error-low">3.4%</td>
+                        <td>LOW_SENTIMENT_CONFIDENCE</td>
+                        <td><span class="technical-badge">TECHNICAL</span></td>
+                    </tr>
+        
+                    <tr>
+                        <td><strong>TVSMOTOR.NS</strong></td>
+                        <td>₹2,885.00</td>
+                        <td>₹2,748.88</td>
+                        <td>₹2,800.72</td>
+                        <td>₹2,774.80</td>
+                        <td class="strong sell">-3.82%</td>
+                        <td class="strong sell">STRONG SELL</td>
+                        <td>90.0%</td>
+                        <td class="sentiment-neutral">NEUTRAL</td>
+                        <td class="error-low">4.7%</td>
+                        <td>INSUFFICIENT_NEWS</td>
+                        <td><span class="technical-badge">TECHNICAL</span></td>
+                    </tr>
+        
+                    <tr>
+                        <td><strong>TATAMOTORS.NS</strong></td>
+                        <td>₹684.40</td>
+                        <td>₹681.21</td>
+                        <td>₹685.83</td>
+                        <td>₹683.52</td>
+                        <td class="hold">-0.13%</td>
+                        <td class="hold">HOLD</td>
+                        <td>55.0%</td>
+                        <td class="sentiment-neutral">NEUTRAL</td>
+                        <td class="error-low">0.5%</td>
+                        <td>LOW_SENTIMENT_CONFIDENCE</td>
+                        <td><span class="technical-badge">TECHNICAL</span></td>
+                    </tr>
+        
+                    <tr>
+                        <td><strong>HEROMOTOCO.NS</strong></td>
+                        <td>₹4,454.00</td>
+                        <td>₹4,212.23</td>
+                        <td>₹4,311.18</td>
+                        <td>₹4,261.71</td>
+                        <td class="strong sell">-4.32%</td>
+                        <td class="strong sell">STRONG SELL</td>
+                        <td>90.0%</td>
+                        <td class="sentiment-bullish">BULLISH</td>
+                        <td class="error-low">5.4%</td>
+                        <td>LOW_SENTIMENT_CONFIDENCE</td>
+                        <td><span class="technical-badge">TECHNICAL</span></td>
+                    </tr>
+        
+                    <tr>
+                        <td><strong>EXIDEIND.NS</strong></td>
+                        <td>₹386.50</td>
+                        <td>₹380.63</td>
+                        <td>₹386.19</td>
+                        <td>₹383.41</td>
+                        <td class="hold">-0.80%</td>
+                        <td class="hold">HOLD</td>
+                        <td>80.0%</td>
+                        <td class="sentiment-neutral">NEUTRAL</td>
+                        <td class="error-low">1.5%</td>
+                        <td>LOW_SENTIMENT_CONFIDENCE</td>
+                        <td><span class="technical-badge">TECHNICAL</span></td>
+                    </tr>
+        
+                    <tr>
+                        <td><strong>MARUTI.NS</strong></td>
+                        <td>₹12,536.00</td>
+                        <td>₹12,566.33</td>
+                        <td>₹12,627.88</td>
+                        <td>₹12,597.10</td>
+                        <td class="hold">0.49%</td>
+                        <td class="hold">HOLD</td>
+                        <td>80.0%</td>
+                        <td class="sentiment-neutral">NEUTRAL</td>
+                        <td class="error-low">0.2%</td>
+                        <td>LOW_SENTIMENT_CONFIDENCE</td>
+                        <td><span class="technical-badge">TECHNICAL</span></td>
+                    </tr>
+        
+                    <tr>
+                        <td><strong>BHARATFORG.NS</strong></td>
+                        <td>₹1,237.40</td>
+                        <td>₹1,215.43</td>
+                        <td>₹1,244.93</td>
+                        <td>₹1,230.18</td>
+                        <td class="hold">-0.58%</td>
+                        <td class="hold">HOLD</td>
+                        <td>60.0%</td>
+                        <td class="sentiment-neutral">NEUTRAL</td>
+                        <td class="error-low">1.8%</td>
+                        <td>INSUFFICIENT_NEWS</td>
+                        <td><span class="technical-badge">TECHNICAL</span></td>
+                    </tr>
+        
+                    <tr>
+                        <td><strong>BOSCHLTD.NS</strong></td>
+                        <td>₹38,320.00</td>
+                        <td>₹36,671.99</td>
+                        <td>₹35,216.93</td>
+                        <td>₹35,944.46</td>
+                        <td class="strong sell">-6.20%</td>
+                        <td class="strong sell">STRONG SELL</td>
+                        <td>95.0%</td>
+                        <td class="sentiment-neutral">NEUTRAL</td>
+                        <td class="error-low">4.3%</td>
+                        <td>LOW_SENTIMENT_CONFIDENCE</td>
+                        <td><span class="technical-badge">TECHNICAL</span></td>
+                    </tr>
+        
+                    <tr>
+                        <td><strong>MRF.NS</strong></td>
+                        <td>₹150,785.00</td>
+                        <td>₹148,187.86</td>
+                        <td>₹145,706.27</td>
+                        <td>₹146,947.06</td>
+                        <td class="sell">-2.55%</td>
+                        <td class="sell">SELL</td>
+                        <td>85.0%</td>
+                        <td class="sentiment-neutral">NEUTRAL</td>
+                        <td class="error-low">1.7%</td>
+                        <td>LOW_SENTIMENT_CONFIDENCE</td>
+                        <td><span class="technical-badge">TECHNICAL</span></td>
+                    </tr>
+        
+                    <tr>
+                        <td><strong>ASHOKLEY.NS</strong></td>
+                        <td>₹250.90</td>
+                        <td>₹246.77</td>
+                        <td>₹248.22</td>
+                        <td>₹247.50</td>
+                        <td class="sell">-1.36%</td>
+                        <td class="sell">SELL</td>
+                        <td>85.0%</td>
+                        <td class="sentiment-neutral">NEUTRAL</td>
+                        <td class="error-low">1.6%</td>
+                        <td>LOW_SENTIMENT_CONFIDENCE</td>
+                        <td><span class="technical-badge">TECHNICAL</span></td>
+                    </tr>
+        
+                    <tr>
+                        <td><strong>EICHERMOT.NS</strong></td>
+                        <td>₹5,591.00</td>
+                        <td>₹5,607.15</td>
+                        <td>₹5,724.82</td>
+                        <td>₹5,665.98</td>
+                        <td class="buy">1.34%</td>
+                        <td class="buy">BUY</td>
+                        <td>85.0%</td>
+                        <td class="sentiment-neutral">NEUTRAL</td>
+                        <td class="error-low">0.3%</td>
+                        <td>INSUFFICIENT_NEWS</td>
+                        <td><span class="technical-badge">TECHNICAL</span></td>
+                    </tr>
+        
+                    <tr>
+                        <td><strong>BALKRISIND.NS</strong></td>
+                        <td>₹2,672.00</td>
+                        <td>₹2,659.59</td>
+                        <td>₹2,627.91</td>
+                        <td>₹2,643.75</td>
+                        <td class="sell">-1.06%</td>
+                        <td class="sell">SELL</td>
+                        <td>85.0%</td>
+                        <td class="sentiment-neutral">NEUTRAL</td>
+                        <td class="error-low">0.5%</td>
+                        <td>LOW_SENTIMENT_CONFIDENCE</td>
+                        <td><span class="technical-badge">TECHNICAL</span></td>
+                    </tr>
+        
+                    <tr>
+                        <td><strong>SONACOMS.NS</strong></td>
+                        <td>₹455.35</td>
+                        <td>₹447.94</td>
+                        <td>₹467.84</td>
+                        <td>₹457.89</td>
+                        <td class="hold">0.56%</td>
+                        <td class="hold">HOLD</td>
+                        <td>60.0%</td>
+                        <td class="sentiment-neutral">NEUTRAL</td>
+                        <td class="error-low">1.6%</td>
+                        <td>INSUFFICIENT_NEWS</td>
+                        <td><span class="technical-badge">TECHNICAL</span></td>
+                    </tr>
+        
+                    <tr>
+                        <td><strong>M&M.NS</strong></td>
+                        <td>₹3,128.60</td>
+                        <td>₹3,075.09</td>
+                        <td>₹3,107.72</td>
+                        <td>₹3,091.41</td>
+                        <td class="sell">-1.19%</td>
+                        <td class="sell">SELL</td>
+                        <td>85.0%</td>
+                        <td class="sentiment-neutral">NEUTRAL</td>
+                        <td class="error-low">1.7%</td>
+                        <td>LOW_SENTIMENT_CONFIDENCE</td>
+                        <td><span class="technical-badge">TECHNICAL</span></td>
+                    </tr>
+        
+                    <tr>
+                        <td><strong>ABBOTINDIA.NS</strong></td>
+                        <td>₹34,275.00</td>
+                        <td>₹34,447.16</td>
+                        <td>₹34,427.99</td>
+                        <td>₹34,437.58</td>
+                        <td class="hold">0.47%</td>
+                        <td class="hold">HOLD</td>
+                        <td>80.0%</td>
+                        <td class="sentiment-neutral">NEUTRAL</td>
+                        <td class="error-low">0.5%</td>
+                        <td>INSUFFICIENT_NEWS</td>
+                        <td><span class="technical-badge">TECHNICAL</span></td>
+                    </tr>
+        
+                    <tr>
+                        <td><strong>DIVISLAB.NS</strong></td>
+                        <td>₹6,790.00</td>
+                        <td>₹6,843.61</td>
+                        <td>₹6,704.73</td>
+                        <td>₹6,774.17</td>
+                        <td class="hold">-0.23%</td>
+                        <td class="hold">HOLD</td>
+                        <td>60.0%</td>
+                        <td class="sentiment-neutral">NEUTRAL</td>
+                        <td class="error-low">0.8%</td>
+                        <td>INSUFFICIENT_NEWS</td>
+                        <td><span class="technical-badge">TECHNICAL</span></td>
+                    </tr>
+        
+                    <tr>
+                        <td><strong>APOLLOHOSP.NS</strong></td>
+                        <td>₹7,360.50</td>
+                        <td>₹7,186.25</td>
+                        <td>₹7,434.21</td>
+                        <td>₹7,310.23</td>
+                        <td class="hold">-0.68%</td>
+                        <td class="hold">HOLD</td>
+                        <td>60.0%</td>
+                        <td class="sentiment-neutral">NEUTRAL</td>
+                        <td class="error-low">2.4%</td>
+                        <td>INSUFFICIENT_NEWS</td>
+                        <td><span class="technical-badge">TECHNICAL</span></td>
+                    </tr>
+        
+                    <tr>
+                        <td><strong>ALKEM.NS</strong></td>
+                        <td>₹4,933.20</td>
+                        <td>₹4,805.22</td>
+                        <td>₹4,785.52</td>
+                        <td>₹4,795.37</td>
+                        <td class="sell">-2.79%</td>
+                        <td class="sell">SELL</td>
+                        <td>85.0%</td>
+                        <td class="sentiment-neutral">NEUTRAL</td>
+                        <td class="error-low">2.6%</td>
+                        <td>INSUFFICIENT_NEWS</td>
+                        <td><span class="technical-badge">TECHNICAL</span></td>
+                    </tr>
+        
+                    <tr>
+                        <td><strong>LALPATHLAB.NS</strong></td>
+                        <td>₹2,974.30</td>
+                        <td>₹2,923.41</td>
+                        <td>₹2,906.25</td>
+                        <td>₹2,914.83</td>
+                        <td class="sell">-2.00%</td>
+                        <td class="sell">SELL</td>
+                        <td>85.0%</td>
+                        <td class="sentiment-neutral">NEUTRAL</td>
+                        <td class="error-low">1.7%</td>
+                        <td>LOW_SENTIMENT_CONFIDENCE</td>
+                        <td><span class="technical-badge">TECHNICAL</span></td>
+                    </tr>
+        
+                    <tr>
+                        <td><strong>IPCALAB.NS</strong></td>
+                        <td>₹1,470.90</td>
+                        <td>₹1,447.97</td>
+                        <td>₹1,483.09</td>
+                        <td>₹1,465.53</td>
+                        <td class="hold">-0.36%</td>
+                        <td class="hold">HOLD</td>
+                        <td>60.0%</td>
+                        <td class="sentiment-neutral">NEUTRAL</td>
+                        <td class="error-low">1.6%</td>
+                        <td>LOW_SENTIMENT_CONFIDENCE</td>
+                        <td><span class="technical-badge">TECHNICAL</span></td>
+                    </tr>
+        
+                    <tr>
+                        <td><strong>GLENMARK.NS</strong></td>
+                        <td>₹2,226.10</td>
+                        <td>₹2,213.62</td>
+                        <td>₹1,882.80</td>
+                        <td>₹2,048.21</td>
+                        <td class="strong sell">-7.99%</td>
+                        <td class="strong sell">STRONG SELL</td>
+                        <td>95.0%</td>
+                        <td class="sentiment-neutral">NEUTRAL</td>
+                        <td class="error-low">0.6%</td>
+                        <td>LOW_SENTIMENT_CONFIDENCE</td>
+                        <td><span class="technical-badge">TECHNICAL</span></td>
+                    </tr>
+        
+                    <tr>
+                        <td><strong>DRREDDY.NS</strong></td>
+                        <td>₹1,260.90</td>
+                        <td>₹1,252.69</td>
+                        <td>₹1,263.85</td>
+                        <td>₹1,258.27</td>
+                        <td class="hold">-0.21%</td>
+                        <td class="hold">HOLD</td>
+                        <td>55.0%</td>
+                        <td class="sentiment-neutral">NEUTRAL</td>
+                        <td class="error-low">0.7%</td>
+                        <td>LOW_SENTIMENT_CONFIDENCE</td>
+                        <td><span class="technical-badge">TECHNICAL</span></td>
+                    </tr>
+        
+                    <tr>
+                        <td><strong>AUROPHARMA.NS</strong></td>
+                        <td>₹1,152.00</td>
+                        <td>₹1,123.97</td>
+                        <td>₹1,157.03</td>
+                        <td>₹1,140.50</td>
+                        <td class="hold">-1.00%</td>
+                        <td class="hold">HOLD</td>
+                        <td>60.0%</td>
+                        <td class="sentiment-neutral">NEUTRAL</td>
+                        <td class="error-low">2.4%</td>
+                        <td>LOW_SENTIMENT_CONFIDENCE</td>
+                        <td><span class="technical-badge">TECHNICAL</span></td>
+                    </tr>
+        
+                    <tr>
+                        <td><strong>LUPIN.NS</strong></td>
+                        <td>₹1,950.70</td>
+                        <td>₹1,898.56</td>
+                        <td>₹1,905.32</td>
+                        <td>₹1,901.94</td>
+                        <td class="sell">-2.50%</td>
+                        <td class="sell">SELL</td>
+                        <td>85.0%</td>
+                        <td class="sentiment-neutral">NEUTRAL</td>
+                        <td class="error-low">2.7%</td>
+                        <td>LOW_SENTIMENT_CONFIDENCE</td>
+                        <td><span class="technical-badge">TECHNICAL</span></td>
+                    </tr>
+        
+                    <tr>
+                        <td><strong>SUNPHARMA.NS</strong></td>
+                        <td>₹1,727.50</td>
+                        <td>₹1,671.22</td>
+                        <td>₹1,678.06</td>
+                        <td>₹1,674.64</td>
+                        <td class="strong sell">-3.06%</td>
+                        <td class="strong sell">STRONG SELL</td>
+                        <td>90.0%</td>
+                        <td class="sentiment-neutral">NEUTRAL</td>
+                        <td class="error-low">3.3%</td>
+                        <td>LOW_SENTIMENT_CONFIDENCE</td>
+                        <td><span class="technical-badge">TECHNICAL</span></td>
+                    </tr>
+        
+                    <tr>
+                        <td><strong>MAXHEALTH.NS</strong></td>
+                        <td>₹1,261.10</td>
+                        <td>₹1,219.73</td>
+                        <td>₹1,233.34</td>
+                        <td>₹1,226.53</td>
+                        <td class="sell">-2.74%</td>
+                        <td class="sell">SELL</td>
+                        <td>85.0%</td>
+                        <td class="sentiment-bullish">BULLISH</td>
+                        <td class="error-low">3.3%</td>
+                        <td>LOW_SENTIMENT_CONFIDENCE</td>
+                        <td><span class="technical-badge">TECHNICAL</span></td>
+                    </tr>
+        
+                    <tr>
+                        <td><strong>LAURUSLABS.NS</strong></td>
+                        <td>₹827.05</td>
+                        <td>₹789.05</td>
+                        <td>₹834.83</td>
+                        <td>₹811.94</td>
+                        <td class="sell">-1.83%</td>
+                        <td class="sell">SELL</td>
+                        <td>60.0%</td>
+                        <td class="sentiment-neutral">NEUTRAL</td>
+                        <td class="error-low">4.6%</td>
+                        <td>LOW_SENTIMENT_CONFIDENCE</td>
+                        <td><span class="technical-badge">TECHNICAL</span></td>
+                    </tr>
+        
+                    <tr>
+                        <td><strong>ZYDUSLIFE.NS</strong></td>
+                        <td>₹967.65</td>
+                        <td>₹980.35</td>
+                        <td>₹1,006.75</td>
+                        <td>₹993.55</td>
+                        <td class="buy">2.68%</td>
+                        <td class="buy">BUY</td>
+                        <td>85.0%</td>
+                        <td class="sentiment-neutral">NEUTRAL</td>
+                        <td class="error-low">1.3%</td>
+                        <td>INSUFFICIENT_NEWS</td>
+                        <td><span class="technical-badge">TECHNICAL</span></td>
+                    </tr>
+        
+                    <tr>
+                        <td><strong>TORNTPHARM.NS</strong></td>
+                        <td>₹3,439.60</td>
+                        <td>₹3,312.15</td>
+                        <td>₹3,323.02</td>
+                        <td>₹3,317.58</td>
+                        <td class="strong sell">-3.55%</td>
+                        <td class="strong sell">STRONG SELL</td>
+                        <td>90.0%</td>
+                        <td class="sentiment-neutral">NEUTRAL</td>
+                        <td class="error-low">3.7%</td>
+                        <td>LOW_SENTIMENT_CONFIDENCE</td>
+                        <td><span class="technical-badge">TECHNICAL</span></td>
+                    </tr>
+        
+                    <tr>
+                        <td><strong>GRANULES.NS</strong></td>
+                        <td>₹491.75</td>
+                        <td>₹468.87</td>
+                        <td>₹481.67</td>
+                        <td>₹475.27</td>
+                        <td class="strong sell">-3.35%</td>
+                        <td class="strong sell">STRONG SELL</td>
+                        <td>90.0%</td>
+                        <td class="sentiment-neutral">NEUTRAL</td>
+                        <td class="error-low">4.7%</td>
+                        <td>LOW_SENTIMENT_CONFIDENCE</td>
+                        <td><span class="technical-badge">TECHNICAL</span></td>
+                    </tr>
+        
+                    <tr>
+                        <td><strong>BIOCON.NS</strong></td>
+                        <td>₹390.45</td>
+                        <td>₹375.71</td>
+                        <td>₹361.31</td>
+                        <td>₹368.51</td>
+                        <td class="strong sell">-5.62%</td>
+                        <td class="strong sell">STRONG SELL</td>
+                        <td>95.0%</td>
+                        <td class="sentiment-neutral">NEUTRAL</td>
+                        <td class="error-low">3.8%</td>
+                        <td>LOW_SENTIMENT_CONFIDENCE</td>
+                        <td><span class="technical-badge">TECHNICAL</span></td>
+                    </tr>
+        
+                    <tr>
+                        <td><strong>CIPLA.NS</strong></td>
+                        <td>₹1,490.90</td>
+                        <td>₹1,486.60</td>
+                        <td>₹1,504.91</td>
+                        <td>₹1,495.75</td>
+                        <td class="hold">0.33%</td>
+                        <td class="hold">HOLD</td>
+                        <td>55.0%</td>
+                        <td class="sentiment-neutral">NEUTRAL</td>
+                        <td class="error-low">0.3%</td>
+                        <td>LOW_SENTIMENT_CONFIDENCE</td>
+                        <td><span class="technical-badge">TECHNICAL</span></td>
+                    </tr>
+        
+                    <tr>
+                        <td><strong>METROPOLIS.NS</strong></td>
+                        <td>₹1,871.10</td>
+                        <td>₹1,874.81</td>
+                        <td>₹1,918.28</td>
+                        <td>₹1,896.54</td>
+                        <td class="buy">1.36%</td>
+                        <td class="buy">BUY</td>
+                        <td>85.0%</td>
+                        <td class="sentiment-neutral">NEUTRAL</td>
+                        <td class="error-low">0.2%</td>
+                        <td>LOW_SENTIMENT_CONFIDENCE</td>
+                        <td><span class="technical-badge">TECHNICAL</span></td>
+                    </tr>
+        
+                    <tr>
+                        <td><strong>SYNGENE.NS</strong></td>
+                        <td>₹655.35</td>
+                        <td>₹625.59</td>
+                        <td>₹636.29</td>
+                        <td>₹630.94</td>
+                        <td class="strong sell">-3.72%</td>
+                        <td class="strong sell">STRONG SELL</td>
+                        <td>90.0%</td>
+                        <td class="sentiment-neutral">NEUTRAL</td>
+                        <td class="error-low">4.5%</td>
+                        <td>INSUFFICIENT_NEWS</td>
+                        <td><span class="technical-badge">TECHNICAL</span></td>
+                    </tr>
+        
+                    <tr>
+                        <td><strong>COLPAL.NS</strong></td>
+                        <td>₹2,402.90</td>
+                        <td>₹2,376.21</td>
+                        <td>₹2,400.27</td>
+                        <td>₹2,388.24</td>
+                        <td class="hold">-0.61%</td>
+                        <td class="hold">HOLD</td>
+                        <td>80.0%</td>
+                        <td class="sentiment-neutral">NEUTRAL</td>
+                        <td class="error-low">1.1%</td>
+                        <td>LOW_SENTIMENT_CONFIDENCE</td>
+                        <td><span class="technical-badge">TECHNICAL</span></td>
+                    </tr>
+        
+                    <tr>
+                        <td><strong>GODREJCP.NS</strong></td>
+                        <td>₹1,270.10</td>
+                        <td>₹1,282.05</td>
+                        <td>₹1,255.48</td>
+                        <td>₹1,268.76</td>
+                        <td class="hold">-0.11%</td>
+                        <td class="hold">HOLD</td>
+                        <td>60.0%</td>
+                        <td class="sentiment-bullish">BULLISH</td>
+                        <td class="error-low">0.9%</td>
+                        <td>LOW_SENTIMENT_CONFIDENCE</td>
+                        <td><span class="technical-badge">TECHNICAL</span></td>
+                    </tr>
+        
+                    <tr>
+                        <td><strong>UBL.NS</strong></td>
+                        <td>₹1,971.30</td>
+                        <td>₹1,959.42</td>
+                        <td>₹1,981.16</td>
+                        <td>₹1,970.29</td>
+                        <td class="hold">-0.05%</td>
+                        <td class="hold">HOLD</td>
+                        <td>55.0%</td>
+                        <td class="sentiment-neutral">NEUTRAL</td>
+                        <td class="error-low">0.6%</td>
+                        <td>INSUFFICIENT_NEWS</td>
+                        <td><span class="technical-badge">TECHNICAL</span></td>
+                    </tr>
+        
+                    <tr>
+                        <td><strong>UNITDSPR.NS</strong></td>
+                        <td>₹1,370.20</td>
+                        <td>₹1,353.82</td>
+                        <td>₹1,393.49</td>
+                        <td>₹1,373.65</td>
+                        <td class="hold">0.25%</td>
+                        <td class="hold">HOLD</td>
+                        <td>60.0%</td>
+                        <td class="sentiment-neutral">NEUTRAL</td>
+                        <td class="error-low">1.2%</td>
+                        <td>INSUFFICIENT_NEWS</td>
+                        <td><span class="technical-badge">TECHNICAL</span></td>
+                    </tr>
+        
+                    <tr>
+                        <td><strong>DABUR.NS</strong></td>
+                        <td>₹527.00</td>
+                        <td>₹531.48</td>
+                        <td>₹514.76</td>
+                        <td>₹523.12</td>
+                        <td class="hold">-0.74%</td>
+                        <td class="hold">HOLD</td>
+                        <td>60.0%</td>
+                        <td class="sentiment-neutral">NEUTRAL</td>
+                        <td class="error-low">0.8%</td>
+                        <td>LOW_SENTIMENT_CONFIDENCE</td>
+                        <td><span class="technical-badge">TECHNICAL</span></td>
+                    </tr>
+        
+                    <tr>
+                        <td><strong>MARICO.NS</strong></td>
+                        <td>₹740.20</td>
+                        <td>₹725.60</td>
+                        <td>₹722.24</td>
+                        <td>₹723.92</td>
+                        <td class="sell">-2.20%</td>
+                        <td class="sell">SELL</td>
+                        <td>85.0%</td>
+                        <td class="sentiment-neutral">NEUTRAL</td>
+                        <td class="error-low">2.0%</td>
+                        <td>LOW_SENTIMENT_CONFIDENCE</td>
+                        <td><span class="technical-badge">TECHNICAL</span></td>
+                    </tr>
+        
+                    <tr>
+                        <td><strong>VBL.NS</strong></td>
+                        <td>₹469.80</td>
+                        <td>₹451.60</td>
+                        <td>₹459.16</td>
+                        <td>₹455.38</td>
+                        <td class="strong sell">-3.07%</td>
+                        <td class="strong sell">STRONG SELL</td>
+                        <td>90.0%</td>
+                        <td class="sentiment-neutral">NEUTRAL</td>
+                        <td class="error-low">3.9%</td>
+                        <td>LOW_SENTIMENT_CONFIDENCE</td>
+                        <td><span class="technical-badge">TECHNICAL</span></td>
+                    </tr>
+        
+                    <tr>
+                        <td><strong>ITC.NS</strong></td>
+                        <td>₹422.10</td>
+                        <td>₹417.11</td>
+                        <td>₹416.64</td>
+                        <td>₹416.88</td>
+                        <td class="sell">-1.24%</td>
+                        <td class="sell">SELL</td>
+                        <td>85.0%</td>
+                        <td class="sentiment-neutral">NEUTRAL</td>
+                        <td class="error-low">1.2%</td>
+                        <td>LOW_SENTIMENT_CONFIDENCE</td>
+                        <td><span class="technical-badge">TECHNICAL</span></td>
+                    </tr>
+        
+                    <tr>
+                        <td><strong>NESTLEIND.NS</strong></td>
+                        <td>₹2,416.30</td>
+                        <td>₹2,400.61</td>
+                        <td>₹2,441.26</td>
+                        <td>₹2,420.94</td>
+                        <td class="hold">0.19%</td>
+                        <td class="hold">HOLD</td>
+                        <td>55.0%</td>
+                        <td class="sentiment-neutral">NEUTRAL</td>
+                        <td class="error-low">0.6%</td>
+                        <td>LOW_SENTIMENT_CONFIDENCE</td>
+                        <td><span class="technical-badge">TECHNICAL</span></td>
+                    </tr>
+        
+                    <tr>
+                        <td><strong>TATACONSUM.NS</strong></td>
+                        <td>₹1,081.80</td>
+                        <td>₹1,077.61</td>
+                        <td>₹1,097.10</td>
+                        <td>₹1,087.35</td>
+                        <td class="hold">0.51%</td>
+                        <td class="hold">HOLD</td>
+                        <td>55.0%</td>
+                        <td class="sentiment-neutral">NEUTRAL</td>
+                        <td class="error-low">0.4%</td>
+                        <td>INSUFFICIENT_NEWS</td>
+                        <td><span class="technical-badge">TECHNICAL</span></td>
+                    </tr>
+        
+                    <tr>
+                        <td><strong>HINDUNILVR.NS</strong></td>
+                        <td>₹2,526.90</td>
+                        <td>₹2,517.63</td>
+                        <td>₹2,411.64</td>
+                        <td>₹2,464.64</td>
+                        <td class="sell">-2.46%</td>
+                        <td class="sell">SELL</td>
+                        <td>85.0%</td>
+                        <td class="sentiment-neutral">NEUTRAL</td>
+                        <td class="error-low">0.4%</td>
+                        <td>LOW_SENTIMENT_CONFIDENCE</td>
+                        <td><span class="technical-badge">TECHNICAL</span></td>
+                    </tr>
+        
+                    <tr>
+                        <td><strong>BRITANNIA.NS</strong></td>
+                        <td>₹5,785.50</td>
+                        <td>₹5,764.15</td>
+                        <td>₹5,871.52</td>
+                        <td>₹5,817.84</td>
+                        <td class="hold">0.56%</td>
+                        <td class="hold">HOLD</td>
+                        <td>55.0%</td>
+                        <td class="sentiment-neutral">NEUTRAL</td>
+                        <td class="error-low">0.4%</td>
+                        <td>LOW_SENTIMENT_CONFIDENCE</td>
+                        <td><span class="technical-badge">TECHNICAL</span></td>
+                    </tr>
+        
+                    <tr>
+                        <td><strong>RELIANCE.NS</strong></td>
+                        <td>₹1,485.40</td>
+                        <td>₹1,495.16</td>
+                        <td>₹1,502.03</td>
+                        <td>₹1,498.59</td>
+                        <td class="hold">0.89%</td>
+                        <td class="hold">HOLD</td>
+                        <td>80.0%</td>
+                        <td class="sentiment-neutral">NEUTRAL</td>
+                        <td class="error-low">0.7%</td>
+                        <td>LOW_SENTIMENT_CONFIDENCE</td>
+                        <td><span class="technical-badge">TECHNICAL</span></td>
+                    </tr>
+        
+                    <tr>
+                        <td><strong>ADANIGREEN.NS</strong></td>
+                        <td>₹1,033.10</td>
+                        <td>₹995.09</td>
+                        <td>₹1,004.64</td>
+                        <td>₹999.87</td>
+                        <td class="strong sell">-3.22%</td>
+                        <td class="strong sell">STRONG SELL</td>
+                        <td>90.0%</td>
+                        <td class="sentiment-neutral">NEUTRAL</td>
+                        <td class="error-low">3.7%</td>
+                        <td>LOW_SENTIMENT_CONFIDENCE</td>
+                        <td><span class="technical-badge">TECHNICAL</span></td>
+                    </tr>
+        
+                    <tr>
+                        <td><strong>TATAPOWER.NS</strong></td>
+                        <td>₹403.90</td>
+                        <td>₹396.86</td>
+                        <td>₹398.36</td>
+                        <td>₹397.61</td>
+                        <td class="sell">-1.56%</td>
+                        <td class="sell">SELL</td>
+                        <td>85.0%</td>
+                        <td class="sentiment-neutral">NEUTRAL</td>
+                        <td class="error-low">1.7%</td>
+                        <td>LOW_SENTIMENT_CONFIDENCE</td>
+                        <td><span class="technical-badge">TECHNICAL</span></td>
+                    </tr>
+        
+                    <tr>
+                        <td><strong>BPCL.NS</strong></td>
+                        <td>₹348.05</td>
+                        <td>₹345.10</td>
+                        <td>₹341.81</td>
+                        <td>₹343.45</td>
+                        <td class="sell">-1.32%</td>
+                        <td class="sell">SELL</td>
+                        <td>85.0%</td>
+                        <td class="sentiment-bullish">BULLISH</td>
+                        <td class="error-low">0.8%</td>
+                        <td>LOW_SENTIMENT_CONFIDENCE</td>
+                        <td><span class="technical-badge">TECHNICAL</span></td>
+                    </tr>
+        
+                    <tr>
+                        <td><strong>NTPC.NS</strong></td>
+                        <td>₹342.00</td>
+                        <td>₹342.44</td>
+                        <td>₹342.84</td>
+                        <td>₹342.64</td>
+                        <td class="hold">0.19%</td>
+                        <td class="hold">HOLD</td>
+                        <td>80.0%</td>
+                        <td class="sentiment-neutral">NEUTRAL</td>
+                        <td class="error-low">0.1%</td>
+                        <td>LOW_SENTIMENT_CONFIDENCE</td>
+                        <td><span class="technical-badge">TECHNICAL</span></td>
+                    </tr>
+        
+                    <tr>
+                        <td><strong>ONGC.NS</strong></td>
+                        <td>₹243.67</td>
+                        <td>₹242.17</td>
+                        <td>₹243.43</td>
+                        <td>₹242.80</td>
+                        <td class="hold">-0.36%</td>
+                        <td class="hold">HOLD</td>
+                        <td>80.0%</td>
+                        <td class="sentiment-neutral">NEUTRAL</td>
+                        <td class="error-low">0.6%</td>
+                        <td>LOW_SENTIMENT_CONFIDENCE</td>
+                        <td><span class="technical-badge">TECHNICAL</span></td>
+                    </tr>
+        
+                    <tr>
+                        <td><strong>POWERGRID.NS</strong></td>
+                        <td>₹298.05</td>
+                        <td>₹298.57</td>
+                        <td>₹301.05</td>
+                        <td>₹299.81</td>
+                        <td class="hold">0.59%</td>
+                        <td class="hold">HOLD</td>
+                        <td>80.0%</td>
+                        <td class="sentiment-neutral">NEUTRAL</td>
+                        <td class="error-low">0.2%</td>
+                        <td>LOW_SENTIMENT_CONFIDENCE</td>
+                        <td><span class="technical-badge">TECHNICAL</span></td>
+                    </tr>
+        
+                    <tr>
+                        <td><strong>ADANIENSOL.NS</strong></td>
+                        <td>₹879.75</td>
+                        <td>₹873.51</td>
+                        <td>₹888.71</td>
+                        <td>₹881.11</td>
+                        <td class="hold">0.15%</td>
+                        <td class="hold">HOLD</td>
+                        <td>55.0%</td>
+                        <td class="sentiment-neutral">NEUTRAL</td>
+                        <td class="error-low">0.7%</td>
+                        <td>INSUFFICIENT_NEWS</td>
+                        <td><span class="technical-badge">TECHNICAL</span></td>
+                    </tr>
+        
+                    <tr>
+                        <td><strong>IOC.NS</strong></td>
+                        <td>₹151.40</td>
+                        <td>₹150.86</td>
+                        <td>₹151.13</td>
+                        <td>₹151.00</td>
+                        <td class="hold">-0.27%</td>
+                        <td class="hold">HOLD</td>
+                        <td>80.0%</td>
+                        <td class="sentiment-neutral">NEUTRAL</td>
+                        <td class="error-low">0.4%</td>
+                        <td>LOW_SENTIMENT_CONFIDENCE</td>
+                        <td><span class="technical-badge">TECHNICAL</span></td>
+                    </tr>
+        
+                    <tr>
+                        <td><strong>GAIL.NS</strong></td>
+                        <td>₹184.71</td>
+                        <td>₹181.90</td>
+                        <td>₹189.46</td>
+                        <td>₹185.68</td>
+                        <td class="hold">0.53%</td>
+                        <td class="hold">HOLD</td>
+                        <td>60.0%</td>
+                        <td class="sentiment-neutral">NEUTRAL</td>
+                        <td class="error-low">1.5%</td>
+                        <td>LOW_SENTIMENT_CONFIDENCE</td>
+                        <td><span class="technical-badge">TECHNICAL</span></td>
+                    </tr>
+        
+                    <tr>
+                        <td><strong>HINDPETRO.NS</strong></td>
+                        <td>₹433.45</td>
+                        <td>₹435.91</td>
+                        <td>₹428.84</td>
+                        <td>₹432.37</td>
+                        <td class="hold">-0.25%</td>
+                        <td class="hold">HOLD</td>
+                        <td>55.0%</td>
+                        <td class="sentiment-neutral">NEUTRAL</td>
+                        <td class="error-low">0.6%</td>
+                        <td>LOW_SENTIMENT_CONFIDENCE</td>
+                        <td><span class="technical-badge">TECHNICAL</span></td>
+                    </tr>
+        
+                    <tr>
+                        <td><strong>JIOFIN.NS</strong></td>
+                        <td>₹321.20</td>
+                        <td>₹325.72</td>
+                        <td>₹328.49</td>
+                        <td>₹327.10</td>
+                        <td class="buy">1.84%</td>
+                        <td class="buy">BUY</td>
+                        <td>85.0%</td>
+                        <td class="sentiment-bearish">BEARISH</td>
+                        <td class="error-low">1.4%</td>
+                        <td>LOW_SENTIMENT_CONFIDENCE</td>
+                        <td><span class="technical-badge">TECHNICAL</span></td>
+                    </tr>
+        
+                    <tr>
+                        <td><strong>OIL.NS</strong></td>
+                        <td>₹445.85</td>
+                        <td>₹432.71</td>
+                        <td>₹451.29</td>
+                        <td>₹442.00</td>
+                        <td class="hold">-0.86%</td>
+                        <td class="hold">HOLD</td>
+                        <td>60.0%</td>
+                        <td class="sentiment-neutral">NEUTRAL</td>
+                        <td class="error-low">2.9%</td>
+                        <td>LOW_SENTIMENT_CONFIDENCE</td>
+                        <td><span class="technical-badge">TECHNICAL</span></td>
+                    </tr>
+        
+                    <tr>
+                        <td><strong>IGL.NS</strong></td>
+                        <td>₹220.27</td>
+                        <td>₹217.88</td>
+                        <td>₹212.92</td>
+                        <td>₹215.40</td>
+                        <td class="sell">-2.21%</td>
+                        <td class="sell">SELL</td>
+                        <td>85.0%</td>
+                        <td class="sentiment-neutral">NEUTRAL</td>
+                        <td class="error-low">1.1%</td>
+                        <td>INSUFFICIENT_NEWS</td>
+                        <td><span class="technical-badge">TECHNICAL</span></td>
+                    </tr>
+        
+                    <tr>
+                        <td><strong>ATGL.NS</strong></td>
+                        <td>₹647.75</td>
+                        <td>₹643.10</td>
+                        <td>₹670.91</td>
+                        <td>₹657.01</td>
+                        <td class="buy">1.43%</td>
+                        <td class="buy">BUY</td>
+                        <td>60.0%</td>
+                        <td class="sentiment-neutral">NEUTRAL</td>
+                        <td class="error-low">0.7%</td>
+                        <td>LOW_SENTIMENT_CONFIDENCE</td>
+                        <td><span class="technical-badge">TECHNICAL</span></td>
+                    </tr>
+        
+                    <tr>
+                        <td><strong>GUJGASLTD.NS</strong></td>
+                        <td>₹464.70</td>
+                        <td>₹466.86</td>
+                        <td>₹472.60</td>
+                        <td>₹469.73</td>
+                        <td class="buy">1.08%</td>
+                        <td class="buy">BUY</td>
+                        <td>85.0%</td>
+                        <td class="sentiment-neutral">NEUTRAL</td>
+                        <td class="error-low">0.5%</td>
+                        <td>INSUFFICIENT_NEWS</td>
+                        <td><span class="technical-badge">TECHNICAL</span></td>
+                    </tr>
+        
+                    <tr>
+                        <td><strong>PETRONET.NS</strong></td>
+                        <td>₹312.40</td>
+                        <td>₹299.58</td>
+                        <td>₹306.98</td>
+                        <td>₹303.28</td>
+                        <td class="sell">-2.92%</td>
+                        <td class="sell">SELL</td>
+                        <td>85.0%</td>
+                        <td class="sentiment-neutral">NEUTRAL</td>
+                        <td class="error-low">4.1%</td>
+                        <td>LOW_SENTIMENT_CONFIDENCE</td>
+                        <td><span class="technical-badge">TECHNICAL</span></td>
+                    </tr>
+        
+                    <tr>
+                        <td><strong>MGL.NS</strong></td>
+                        <td>₹1,474.60</td>
+                        <td>₹1,487.69</td>
+                        <td>₹1,490.20</td>
+                        <td>₹1,488.95</td>
+                        <td class="hold">0.97%</td>
+                        <td class="hold">HOLD</td>
+                        <td>80.0%</td>
+                        <td class="sentiment-neutral">NEUTRAL</td>
+                        <td class="error-low">0.9%</td>
+                        <td>INSUFFICIENT_NEWS</td>
+                        <td><span class="technical-badge">TECHNICAL</span></td>
+                    </tr>
+        
+                    <tr>
+                        <td><strong>LTTS.NS</strong></td>
+                        <td>₹4,350.50</td>
+                        <td>₹4,416.77</td>
+                        <td>₹4,393.42</td>
+                        <td>₹4,405.10</td>
+                        <td class="buy">1.25%</td>
+                        <td class="buy">BUY</td>
+                        <td>85.0%</td>
+                        <td class="sentiment-bullish">BULLISH</td>
+                        <td class="error-low">1.5%</td>
+                        <td>LOW_SENTIMENT_CONFIDENCE</td>
+                        <td><span class="technical-badge">TECHNICAL</span></td>
+                    </tr>
+        
+                    <tr>
+                        <td><strong>COFORGE.NS</strong></td>
+                        <td>₹1,893.90</td>
+                        <td>₹1,866.43</td>
+                        <td>₹1,872.28</td>
+                        <td>₹1,869.35</td>
+                        <td class="sell">-1.30%</td>
+                        <td class="sell">SELL</td>
+                        <td>85.0%</td>
+                        <td class="sentiment-neutral">NEUTRAL</td>
+                        <td class="error-low">1.5%</td>
+                        <td>INSUFFICIENT_NEWS</td>
+                        <td><span class="technical-badge">TECHNICAL</span></td>
+                    </tr>
+        
+                    <tr>
+                        <td><strong>TCS.NS</strong></td>
+                        <td>₹3,252.30</td>
+                        <td>₹3,258.82</td>
+                        <td>₹3,376.48</td>
+                        <td>₹3,317.65</td>
+                        <td class="buy">2.01%</td>
+                        <td class="buy">BUY</td>
+                        <td>85.0%</td>
+                        <td class="sentiment-bearish">BEARISH</td>
+                        <td class="error-low">0.2%</td>
+                        <td>LOW_SENTIMENT_CONFIDENCE</td>
+                        <td><span class="technical-badge">TECHNICAL</span></td>
+                    </tr>
+        
+                    <tr>
+                        <td><strong>PERSISTENT.NS</strong></td>
+                        <td>₹5,581.50</td>
+                        <td>₹5,585.07</td>
+                        <td>₹5,535.00</td>
+                        <td>₹5,560.04</td>
+                        <td class="hold">-0.38%</td>
+                        <td class="hold">HOLD</td>
+                        <td>55.0%</td>
+                        <td class="sentiment-neutral">NEUTRAL</td>
+                        <td class="error-low">0.1%</td>
+                        <td>LOW_SENTIMENT_CONFIDENCE</td>
+                        <td><span class="technical-badge">TECHNICAL</span></td>
+                    </tr>
+        
+                    <tr>
+                        <td><strong>MPHASIS.NS</strong></td>
+                        <td>₹2,884.80</td>
+                        <td>₹2,834.84</td>
+                        <td>₹2,813.01</td>
+                        <td>₹2,823.92</td>
+                        <td class="sell">-2.11%</td>
+                        <td class="sell">SELL</td>
+                        <td>85.0%</td>
+                        <td class="sentiment-neutral">NEUTRAL</td>
+                        <td class="error-low">1.7%</td>
+                        <td>LOW_SENTIMENT_CONFIDENCE</td>
+                        <td><span class="technical-badge">TECHNICAL</span></td>
+                    </tr>
+        
+                    <tr>
+                        <td><strong>LTIM.NS</strong></td>
+                        <td>₹5,250.50</td>
+                        <td>₹5,198.30</td>
+                        <td>₹5,348.88</td>
+                        <td>₹5,273.59</td>
+                        <td class="hold">0.44%</td>
+                        <td class="hold">HOLD</td>
+                        <td>60.0%</td>
+                        <td class="sentiment-neutral">NEUTRAL</td>
+                        <td class="error-low">1.0%</td>
+                        <td>INSUFFICIENT_NEWS</td>
+                        <td><span class="technical-badge">TECHNICAL</span></td>
+                    </tr>
+        
+                    <tr>
+                        <td><strong>BSOFT.NS</strong></td>
+                        <td>₹430.05</td>
+                        <td>₹418.04</td>
+                        <td>₹426.29</td>
+                        <td>₹422.17</td>
+                        <td class="sell">-1.83%</td>
+                        <td class="sell">SELL</td>
+                        <td>85.0%</td>
+                        <td class="sentiment-neutral">NEUTRAL</td>
+                        <td class="error-low">2.8%</td>
+                        <td>LOW_SENTIMENT_CONFIDENCE</td>
+                        <td><span class="technical-badge">TECHNICAL</span></td>
+                    </tr>
+        
+                    <tr>
+                        <td><strong>WIPRO.NS</strong></td>
+                        <td>₹257.40</td>
+                        <td>₹258.85</td>
+                        <td>₹266.37</td>
+                        <td>₹262.61</td>
+                        <td class="buy">2.02%</td>
+                        <td class="buy">BUY</td>
+                        <td>85.0%</td>
+                        <td class="sentiment-bearish">BEARISH</td>
+                        <td class="error-low">0.6%</td>
+                        <td>LOW_SENTIMENT_CONFIDENCE</td>
+                        <td><span class="technical-badge">TECHNICAL</span></td>
+                    </tr>
+        
+                    <tr>
+                        <td><strong>HCLTECH.NS</strong></td>
+                        <td>₹1,566.40</td>
+                        <td>₹1,637.34</td>
+                        <td>₹1,714.72</td>
+                        <td>₹1,676.03</td>
+                        <td class="strong buy">7.00%</td>
+                        <td class="strong buy">STRONG BUY</td>
+                        <td>95.0%</td>
+                        <td class="sentiment-neutral">NEUTRAL</td>
+                        <td class="error-low">4.5%</td>
+                        <td>LOW_SENTIMENT_CONFIDENCE</td>
+                        <td><span class="technical-badge">TECHNICAL</span></td>
+                    </tr>
+        
+                    <tr>
+                        <td><strong>TECHM.NS</strong></td>
+                        <td>₹1,579.00</td>
+                        <td>₹1,603.89</td>
+                        <td>₹1,647.06</td>
+                        <td>₹1,625.48</td>
+                        <td class="buy">2.94%</td>
+                        <td class="buy">BUY</td>
+                        <td>85.0%</td>
+                        <td class="sentiment-neutral">NEUTRAL</td>
+                        <td class="error-low">1.6%</td>
+                        <td>LOW_SENTIMENT_CONFIDENCE</td>
+                        <td><span class="technical-badge">TECHNICAL</span></td>
+                    </tr>
+        
+                    <tr>
+                        <td><strong>INFY.NS</strong></td>
+                        <td>₹1,585.60</td>
+                        <td>₹1,596.32</td>
+                        <td>₹1,623.05</td>
+                        <td>₹1,609.69</td>
+                        <td class="buy">1.52%</td>
+                        <td class="buy">BUY</td>
+                        <td>85.0%</td>
+                        <td class="sentiment-bearish">BEARISH</td>
+                        <td class="error-low">0.7%</td>
+                        <td>LOW_SENTIMENT_CONFIDENCE</td>
+                        <td><span class="technical-badge">TECHNICAL</span></td>
+                    </tr>
+        
+                    <tr>
+                        <td><strong>SUNTV.NS</strong></td>
+                        <td>₹569.15</td>
+                        <td>₹565.56</td>
+                        <td>₹580.84</td>
+                        <td>₹573.20</td>
+                        <td class="hold">0.71%</td>
+                        <td class="hold">HOLD</td>
+                        <td>60.0%</td>
+                        <td class="sentiment-bearish">BEARISH</td>
+                        <td class="error-low">0.6%</td>
+                        <td>LOW_SENTIMENT_CONFIDENCE</td>
+                        <td><span class="technical-badge">TECHNICAL</span></td>
+                    </tr>
+        
+                    <tr>
+                        <td><strong>PVRINOX.NS</strong></td>
+                        <td>₹989.55</td>
+                        <td>₹990.98</td>
+                        <td>₹968.14</td>
+                        <td>₹979.56</td>
+                        <td class="sell">-1.01%</td>
+                        <td class="sell">SELL</td>
+                        <td>60.0%</td>
+                        <td class="sentiment-neutral">NEUTRAL</td>
+                        <td class="error-low">0.1%</td>
+                        <td>INSUFFICIENT_NEWS</td>
+                        <td><span class="technical-badge">TECHNICAL</span></td>
+                    </tr>
+        
+                    <tr>
+                        <td><strong>NAZARA.NS</strong></td>
+                        <td>₹1,371.50</td>
+                        <td>₹1,338.35</td>
+                        <td>₹1,382.47</td>
+                        <td>₹1,360.41</td>
+                        <td class="hold">-0.81%</td>
+                        <td class="hold">HOLD</td>
+                        <td>60.0%</td>
+                        <td class="sentiment-neutral">NEUTRAL</td>
+                        <td class="error-low">2.4%</td>
+                        <td>INSUFFICIENT_NEWS</td>
+                        <td><span class="technical-badge">TECHNICAL</span></td>
+                    </tr>
+        
+                    <tr>
+                        <td><strong>NETWORK18.NS</strong></td>
+                        <td>₹55.71</td>
+                        <td>₹54.85</td>
+                        <td>₹55.85</td>
+                        <td>₹55.35</td>
+                        <td class="hold">-0.65%</td>
+                        <td class="hold">HOLD</td>
+                        <td>55.0%</td>
+                        <td class="sentiment-neutral">NEUTRAL</td>
+                        <td class="error-low">1.6%</td>
+                        <td>LOW_SENTIMENT_CONFIDENCE</td>
+                        <td><span class="technical-badge">TECHNICAL</span></td>
+                    </tr>
+        
+                    <tr>
+                        <td><strong>SAREGAMA.NS</strong></td>
+                        <td>₹483.50</td>
+                        <td>₹490.36</td>
+                        <td>₹496.88</td>
+                        <td>₹493.62</td>
+                        <td class="buy">2.09%</td>
+                        <td class="buy">BUY</td>
+                        <td>85.0%</td>
+                        <td class="sentiment-bearish">BEARISH</td>
+                        <td class="error-low">1.4%</td>
+                        <td>LOW_SENTIMENT_CONFIDENCE</td>
+                        <td><span class="technical-badge">TECHNICAL</span></td>
+                    </tr>
+        
+                    <tr>
+                        <td><strong>ZEEL.NS</strong></td>
+                        <td>₹143.22</td>
+                        <td>₹137.25</td>
+                        <td>₹139.94</td>
+                        <td>₹138.60</td>
+                        <td class="strong sell">-3.23%</td>
+                        <td class="strong sell">STRONG SELL</td>
+                        <td>90.0%</td>
+                        <td class="sentiment-neutral">NEUTRAL</td>
+                        <td class="error-low">4.2%</td>
+                        <td>LOW_SENTIMENT_CONFIDENCE</td>
+                        <td><span class="technical-badge">TECHNICAL</span></td>
+                    </tr>
+        
+                    <tr>
+                        <td><strong>DISHTV.NS</strong></td>
+                        <td>₹6.03</td>
+                        <td>₹5.63</td>
+                        <td>₹5.36</td>
+                        <td>₹5.50</td>
+                        <td class="strong sell">-8.83%</td>
+                        <td class="strong sell">STRONG SELL</td>
+                        <td>95.0%</td>
+                        <td class="sentiment-weak_bearish">WEAK_BEARISH</td>
+                        <td class="error-low">6.6%</td>
+                        <td>LOW_SENTIMENT_CONFIDENCE</td>
+                        <td><span class="technical-badge">TECHNICAL</span></td>
+                    </tr>
+        
+                    <tr>
+                        <td><strong>HATHWAY.NS</strong></td>
+                        <td>₹15.74</td>
+                        <td>₹15.39</td>
+                        <td>₹16.17</td>
+                        <td>₹15.78</td>
+                        <td class="hold">0.26%</td>
+                        <td class="hold">HOLD</td>
+                        <td>60.0%</td>
+                        <td class="sentiment-neutral">NEUTRAL</td>
+                        <td class="error-low">2.2%</td>
+                        <td>LOW_SENTIMENT_CONFIDENCE</td>
+                        <td><span class="technical-badge">TECHNICAL</span></td>
+                    </tr>
+        
+                    <tr>
+                        <td><strong>SBIN.NS</strong></td>
+                        <td>₹816.45</td>
+                        <td>₹808.60</td>
+                        <td>₹813.95</td>
+                        <td>₹811.27</td>
+                        <td class="hold">-0.63%</td>
+                        <td class="hold">HOLD</td>
+                        <td>80.0%</td>
+                        <td class="sentiment-neutral">NEUTRAL</td>
+                        <td class="error-low">1.0%</td>
+                        <td>LOW_SENTIMENT_CONFIDENCE</td>
+                        <td><span class="technical-badge">TECHNICAL</span></td>
+                    </tr>
+        
+                    <tr>
+                        <td><strong>CANBK.NS</strong></td>
+                        <td>₹114.87</td>
+                        <td>₹112.02</td>
+                        <td>₹112.82</td>
+                        <td>₹112.42</td>
+                        <td class="sell">-2.13%</td>
+                        <td class="sell">SELL</td>
+                        <td>85.0%</td>
+                        <td class="sentiment-neutral">NEUTRAL</td>
+                        <td class="error-low">2.5%</td>
+                        <td>INSUFFICIENT_NEWS</td>
+                        <td><span class="technical-badge">TECHNICAL</span></td>
+                    </tr>
+        
+                    <tr>
+                        <td><strong>BANKINDIA.NS</strong></td>
+                        <td>₹115.79</td>
+                        <td>₹114.74</td>
+                        <td>₹116.30</td>
+                        <td>₹115.52</td>
+                        <td class="hold">-0.23%</td>
+                        <td class="hold">HOLD</td>
+                        <td>55.0%</td>
+                        <td class="sentiment-bearish">BEARISH</td>
+                        <td class="error-low">0.9%</td>
+                        <td>LOW_SENTIMENT_CONFIDENCE</td>
+                        <td><span class="technical-badge">TECHNICAL</span></td>
+                    </tr>
+        
+                    <tr>
+                        <td><strong>PNB.NS</strong></td>
+                        <td>₹112.24</td>
+                        <td>₹110.04</td>
+                        <td>₹111.81</td>
+                        <td>₹110.92</td>
+                        <td class="sell">-1.17%</td>
+                        <td class="sell">SELL</td>
+                        <td>85.0%</td>
+                        <td class="sentiment-neutral">NEUTRAL</td>
+                        <td class="error-low">2.0%</td>
+                        <td>LOW_SENTIMENT_CONFIDENCE</td>
+                        <td><span class="technical-badge">TECHNICAL</span></td>
+                    </tr>
+        
+                    <tr>
+                        <td><strong>UNIONBANK.NS</strong></td>
+                        <td>₹146.23</td>
+                        <td>₹143.83</td>
+                        <td>₹147.45</td>
+                        <td>₹145.64</td>
+                        <td class="hold">-0.40%</td>
+                        <td class="hold">HOLD</td>
+                        <td>60.0%</td>
+                        <td class="sentiment-bearish">BEARISH</td>
+                        <td class="error-low">1.6%</td>
+                        <td>LOW_SENTIMENT_CONFIDENCE</td>
+                        <td><span class="technical-badge">TECHNICAL</span></td>
+                    </tr>
+        
+                    <tr>
+                        <td><strong>BANKBARODA.NS</strong></td>
+                        <td>₹244.32</td>
+                        <td>₹237.86</td>
+                        <td>₹243.13</td>
+                        <td>₹240.50</td>
+                        <td class="sell">-1.56%</td>
+                        <td class="sell">SELL</td>
+                        <td>85.0%</td>
+                        <td class="sentiment-bearish">BEARISH</td>
+                        <td class="error-low">2.6%</td>
+                        <td>LOW_SENTIMENT_CONFIDENCE</td>
+                        <td><span class="technical-badge">TECHNICAL</span></td>
+                    </tr>
+        
+                    <tr>
+                        <td><strong>INDIANB.NS</strong></td>
+                        <td>₹633.70</td>
+                        <td>₹631.78</td>
+                        <td>₹616.71</td>
+                        <td>₹624.25</td>
+                        <td class="sell">-1.49%</td>
+                        <td class="sell">SELL</td>
+                        <td>85.0%</td>
+                        <td class="sentiment-neutral">NEUTRAL</td>
+                        <td class="error-low">0.3%</td>
+                        <td>INSUFFICIENT_NEWS</td>
+                        <td><span class="technical-badge">TECHNICAL</span></td>
+                    </tr>
+        
+                    <tr>
+                        <td><strong>HDFCBANK.NS</strong></td>
+                        <td>₹1,995.50</td>
+                        <td>₹1,984.66</td>
+                        <td>₹1,977.96</td>
+                        <td>₹1,981.31</td>
+                        <td class="hold">-0.71%</td>
+                        <td class="hold">HOLD</td>
+                        <td>80.0%</td>
+                        <td class="sentiment-bullish">BULLISH</td>
+                        <td class="error-low">0.5%</td>
+                        <td>LOW_SENTIMENT_CONFIDENCE</td>
+                        <td><span class="technical-badge">TECHNICAL</span></td>
+                    </tr>
+        
+                    <tr>
+                        <td><strong>KOTAKBANK.NS</strong></td>
+                        <td>₹2,188.10</td>
+                        <td>₹2,221.99</td>
+                        <td>₹2,212.43</td>
+                        <td>₹2,217.21</td>
+                        <td class="buy">1.33%</td>
+                        <td class="buy">BUY</td>
+                        <td>85.0%</td>
+                        <td class="sentiment-neutral">NEUTRAL</td>
+                        <td class="error-low">1.5%</td>
+                        <td>LOW_SENTIMENT_CONFIDENCE</td>
+                        <td><span class="technical-badge">TECHNICAL</span></td>
+                    </tr>
+        
+                    <tr>
+                        <td><strong>CUB.NS</strong></td>
+                        <td>₹218.04</td>
+                        <td>₹209.91</td>
+                        <td>₹227.03</td>
+                        <td>₹218.47</td>
+                        <td class="hold">0.20%</td>
+                        <td class="hold">HOLD</td>
+                        <td>65.0%</td>
+                        <td class="sentiment-neutral">NEUTRAL</td>
+                        <td class="error-low">3.7%</td>
+                        <td>LOW_SENTIMENT_CONFIDENCE</td>
+                        <td><span class="technical-badge">TECHNICAL</span></td>
+                    </tr>
+        
+                    <tr>
+                        <td><strong>BANDHANBNK.NS</strong></td>
+                        <td>₹180.15</td>
+                        <td>₹176.16</td>
+                        <td>₹175.92</td>
+                        <td>₹176.04</td>
+                        <td class="sell">-2.28%</td>
+                        <td class="sell">SELL</td>
+                        <td>85.0%</td>
+                        <td class="sentiment-neutral">NEUTRAL</td>
+                        <td class="error-low">2.2%</td>
+                        <td>LOW_SENTIMENT_CONFIDENCE</td>
+                        <td><span class="technical-badge">TECHNICAL</span></td>
+                    </tr>
+        
+                    <tr>
+                        <td><strong>IDFCFIRSTB.NS</strong></td>
+                        <td>₹72.93</td>
+                        <td>₹75.37</td>
+                        <td>₹76.39</td>
+                        <td>₹75.88</td>
+                        <td class="strong buy">4.04%</td>
+                        <td class="strong buy">STRONG BUY</td>
+                        <td>90.0%</td>
+                        <td class="sentiment-neutral">NEUTRAL</td>
+                        <td class="error-low">3.3%</td>
+                        <td>INSUFFICIENT_NEWS</td>
+                        <td><span class="technical-badge">TECHNICAL</span></td>
+                    </tr>
+        
+                    <tr>
+                        <td><strong>FEDERALBNK.NS</strong></td>
+                        <td>₹211.67</td>
+                        <td>₹207.73</td>
+                        <td>₹211.35</td>
+                        <td>₹209.54</td>
+                        <td class="sell">-1.01%</td>
+                        <td class="sell">SELL</td>
+                        <td>85.0%</td>
+                        <td class="sentiment-neutral">NEUTRAL</td>
+                        <td class="error-low">1.9%</td>
+                        <td>LOW_SENTIMENT_CONFIDENCE</td>
+                        <td><span class="technical-badge">TECHNICAL</span></td>
+                    </tr>
+        
+                    <tr>
+                        <td><strong>RBLBANK.NS</strong></td>
+                        <td>₹263.26</td>
+                        <td>₹262.48</td>
+                        <td>₹246.24</td>
+                        <td>₹254.36</td>
+                        <td class="strong sell">-3.38%</td>
+                        <td class="strong sell">STRONG SELL</td>
+                        <td>90.0%</td>
+                        <td class="sentiment-neutral">NEUTRAL</td>
+                        <td class="error-low">0.3%</td>
+                        <td>INSUFFICIENT_NEWS</td>
+                        <td><span class="technical-badge">TECHNICAL</span></td>
+                    </tr>
+        
+                    <tr>
+                        <td><strong>AXISBANK.NS</strong></td>
+                        <td>₹1,165.90</td>
+                        <td>₹1,173.85</td>
+                        <td>₹1,159.37</td>
+                        <td>₹1,166.61</td>
+                        <td class="hold">0.06%</td>
+                        <td class="hold">HOLD</td>
+                        <td>55.0%</td>
+                        <td class="sentiment-neutral">NEUTRAL</td>
+                        <td class="error-low">0.7%</td>
+                        <td>LOW_SENTIMENT_CONFIDENCE</td>
+                        <td><span class="technical-badge">TECHNICAL</span></td>
+                    </tr>
+        
+                    <tr>
+                        <td><strong>ICICIBANK.NS</strong></td>
+                        <td>₹1,430.80</td>
+                        <td>₹1,422.64</td>
+                        <td>₹1,417.71</td>
+                        <td>₹1,420.18</td>
+                        <td class="hold">-0.74%</td>
+                        <td class="hold">HOLD</td>
+                        <td>80.0%</td>
+                        <td class="sentiment-neutral">NEUTRAL</td>
+                        <td class="error-low">0.6%</td>
+                        <td>LOW_SENTIMENT_CONFIDENCE</td>
+                        <td><span class="technical-badge">TECHNICAL</span></td>
+                    </tr>
+        
+                    <tr>
+                        <td><strong>INDUSINDBK.NS</strong></td>
+                        <td>₹881.00</td>
+                        <td>₹858.96</td>
+                        <td>₹852.11</td>
+                        <td>₹855.53</td>
+                        <td class="sell">-2.89%</td>
+                        <td class="sell">SELL</td>
+                        <td>85.0%</td>
+                        <td class="sentiment-neutral">NEUTRAL</td>
+                        <td class="error-low">2.5%</td>
+                        <td>INSUFFICIENT_NEWS</td>
+                        <td><span class="technical-badge">TECHNICAL</span></td>
+                    </tr>
+        
+                    <tr>
+                        <td><strong>ICICIGI.NS</strong></td>
+                        <td>₹2,002.70</td>
+                        <td>₹2,010.90</td>
+                        <td>₹2,015.01</td>
+                        <td>₹2,012.95</td>
+                        <td class="hold">0.51%</td>
+                        <td class="hold">HOLD</td>
+                        <td>80.0%</td>
+                        <td class="sentiment-bullish">BULLISH</td>
+                        <td class="error-low">0.4%</td>
+                        <td>LOW_SENTIMENT_CONFIDENCE</td>
+                        <td><span class="technical-badge">TECHNICAL</span></td>
+                    </tr>
+        
+                    <tr>
+                        <td><strong>SBILIFE.NS</strong></td>
+                        <td>₹1,824.80</td>
+                        <td>₹1,834.85</td>
+                        <td>₹1,767.34</td>
+                        <td>₹1,801.09</td>
+                        <td class="sell">-1.30%</td>
+                        <td class="sell">SELL</td>
+                        <td>60.0%</td>
+                        <td class="sentiment-bullish">BULLISH</td>
+                        <td class="error-low">0.6%</td>
+                        <td>LOW_SENTIMENT_CONFIDENCE</td>
+                        <td><span class="technical-badge">TECHNICAL</span></td>
+                    </tr>
+        
+                    <tr>
+                        <td><strong>IEX.NS</strong></td>
+                        <td>₹208.98</td>
+                        <td>₹206.85</td>
+                        <td>₹194.85</td>
+                        <td>₹200.85</td>
+                        <td class="strong sell">-3.89%</td>
+                        <td class="strong sell">STRONG SELL</td>
+                        <td>90.0%</td>
+                        <td class="sentiment-neutral">NEUTRAL</td>
+                        <td class="error-low">1.0%</td>
+                        <td>LOW_SENTIMENT_CONFIDENCE</td>
+                        <td><span class="technical-badge">TECHNICAL</span></td>
+                    </tr>
+        
+                    <tr>
+                        <td><strong>PEL.NS</strong></td>
+                        <td>₹1,323.30</td>
+                        <td>₹1,215.97</td>
+                        <td>₹1,178.05</td>
+                        <td>₹1,197.01</td>
+                        <td class="strong sell">-9.54%</td>
+                        <td class="strong sell">STRONG SELL</td>
+                        <td>95.0%</td>
+                        <td class="sentiment-neutral">NEUTRAL</td>
+                        <td class="error-low">8.1%</td>
+                        <td>LOW_SENTIMENT_CONFIDENCE</td>
+                        <td><span class="technical-badge">TECHNICAL</span></td>
+                    </tr>
+        
+                    <tr>
+                        <td><strong>HDFCLIFE.NS</strong></td>
+                        <td>₹756.85</td>
+                        <td>₹759.53</td>
+                        <td>₹770.11</td>
+                        <td>₹764.82</td>
+                        <td class="buy">1.05%</td>
+                        <td class="buy">BUY</td>
+                        <td>85.0%</td>
+                        <td class="sentiment-neutral">NEUTRAL</td>
+                        <td class="error-low">0.4%</td>
+                        <td>LOW_SENTIMENT_CONFIDENCE</td>
+                        <td><span class="technical-badge">TECHNICAL</span></td>
+                    </tr>
+        
+                    <tr>
+                        <td><strong>PFC.NS</strong></td>
+                        <td>₹425.10</td>
+                        <td>₹430.34</td>
+                        <td>₹441.77</td>
+                        <td>₹436.05</td>
+                        <td class="buy">2.58%</td>
+                        <td class="buy">BUY</td>
+                        <td>85.0%</td>
+                        <td class="sentiment-bullish">BULLISH</td>
+                        <td class="error-low">1.2%</td>
+                        <td>LOW_SENTIMENT_CONFIDENCE</td>
+                        <td><span class="technical-badge">TECHNICAL</span></td>
+                    </tr>
+        
+                    <tr>
+                        <td><strong>M&MFIN.NS</strong></td>
+                        <td>₹265.85</td>
+                        <td>₹265.69</td>
+                        <td>₹268.47</td>
+                        <td>₹267.08</td>
+                        <td class="hold">0.46%</td>
+                        <td class="hold">HOLD</td>
+                        <td>55.0%</td>
+                        <td class="sentiment-neutral">NEUTRAL</td>
+                        <td class="error-low">0.1%</td>
+                        <td>INSUFFICIENT_NEWS</td>
+                        <td><span class="technical-badge">TECHNICAL</span></td>
+                    </tr>
+        
+                    <tr>
+                        <td><strong>RECLTD.NS</strong></td>
+                        <td>₹401.35</td>
+                        <td>₹400.25</td>
+                        <td>₹396.02</td>
+                        <td>₹398.13</td>
+                        <td class="hold">-0.80%</td>
+                        <td class="hold">HOLD</td>
+                        <td>80.0%</td>
+                        <td class="sentiment-neutral">NEUTRAL</td>
+                        <td class="error-low">0.3%</td>
+                        <td>INSUFFICIENT_NEWS</td>
+                        <td><span class="technical-badge">TECHNICAL</span></td>
+                    </tr>
+        
+                    <tr>
+                        <td><strong>ICICIPRULI.NS</strong></td>
+                        <td>₹669.60</td>
+                        <td>₹660.93</td>
+                        <td>₹686.13</td>
+                        <td>₹673.53</td>
+                        <td class="hold">0.59%</td>
+                        <td class="hold">HOLD</td>
+                        <td>60.0%</td>
+                        <td class="sentiment-bullish">BULLISH</td>
+                        <td class="error-low">1.3%</td>
+                        <td>LOW_SENTIMENT_CONFIDENCE</td>
+                        <td><span class="technical-badge">TECHNICAL</span></td>
+                    </tr>
+        
+                    <tr>
+                        <td><strong>BAJAJFINSV.NS</strong></td>
+                        <td>₹2,036.50</td>
+                        <td>₹2,017.45</td>
+                        <td>₹2,028.07</td>
+                        <td>₹2,022.76</td>
+                        <td class="hold">-0.67%</td>
+                        <td class="hold">HOLD</td>
+                        <td>80.0%</td>
+                        <td class="sentiment-neutral">NEUTRAL</td>
+                        <td class="error-low">0.9%</td>
+                        <td>LOW_SENTIMENT_CONFIDENCE</td>
+                        <td><span class="technical-badge">TECHNICAL</span></td>
+                    </tr>
+        
+                    <tr>
+                        <td><strong>BAJFINANCE.NS</strong></td>
+                        <td>₹928.40</td>
+                        <td>₹935.30</td>
+                        <td>₹950.34</td>
+                        <td>₹942.82</td>
+                        <td class="buy">1.55%</td>
+                        <td class="buy">BUY</td>
+                        <td>85.0%</td>
+                        <td class="sentiment-neutral">NEUTRAL</td>
+                        <td class="error-low">0.7%</td>
+                        <td>LOW_SENTIMENT_CONFIDENCE</td>
+                        <td><span class="technical-badge">TECHNICAL</span></td>
+                    </tr>
+        
+                    <tr>
+                        <td><strong>MUTHOOTFIN.NS</strong></td>
+                        <td>₹2,655.50</td>
+                        <td>₹2,641.12</td>
+                        <td>₹2,612.53</td>
+                        <td>₹2,626.82</td>
+                        <td class="sell">-1.08%</td>
+                        <td class="sell">SELL</td>
+                        <td>85.0%</td>
+                        <td class="sentiment-neutral">NEUTRAL</td>
+                        <td class="error-low">0.5%</td>
+                        <td>INSUFFICIENT_NEWS</td>
+                        <td><span class="technical-badge">TECHNICAL</span></td>
+                    </tr>
+        
+                    <tr>
+                        <td><strong>HDFCAMC.NS</strong></td>
+                        <td>₹5,283.50</td>
+                        <td>₹5,118.27</td>
+                        <td>₹5,054.11</td>
+                        <td>₹5,086.19</td>
+                        <td class="strong sell">-3.73%</td>
+                        <td class="strong sell">STRONG SELL</td>
+                        <td>90.0%</td>
+                        <td class="sentiment-bullish">BULLISH</td>
+                        <td class="error-low">3.1%</td>
+                        <td>LOW_SENTIMENT_CONFIDENCE</td>
+                        <td><span class="technical-badge">TECHNICAL</span></td>
+                    </tr>
+        
+                    <tr>
+                        <td><strong>CHOLAFIN.NS</strong></td>
+                        <td>₹1,557.00</td>
+                        <td>₹1,531.20</td>
+                        <td>₹1,509.77</td>
+                        <td>₹1,520.49</td>
+                        <td class="sell">-2.35%</td>
+                        <td class="sell">SELL</td>
+                        <td>85.0%</td>
+                        <td class="sentiment-neutral">NEUTRAL</td>
+                        <td class="error-low">1.7%</td>
+                        <td>LOW_SENTIMENT_CONFIDENCE</td>
+                        <td><span class="technical-badge">TECHNICAL</span></td>
+                    </tr>
+        
+                    <tr>
+                        <td><strong>LODHA.NS</strong></td>
+                        <td>₹1,434.00</td>
+                        <td>₹1,398.15</td>
+                        <td>₹1,354.07</td>
+                        <td>₹1,376.11</td>
+                        <td class="strong sell">-4.04%</td>
+                        <td class="strong sell">STRONG SELL</td>
+                        <td>90.0%</td>
+                        <td class="sentiment-neutral">NEUTRAL</td>
+                        <td class="error-low">2.5%</td>
+                        <td>LOW_SENTIMENT_CONFIDENCE</td>
+                        <td><span class="technical-badge">TECHNICAL</span></td>
+                    </tr>
+        
+                    <tr>
+                        <td><strong>GODREJPROP.NS</strong></td>
+                        <td>₹2,269.70</td>
+                        <td>₹2,204.74</td>
+                        <td>₹2,281.36</td>
+                        <td>₹2,243.05</td>
+                        <td class="sell">-1.17%</td>
+                        <td class="sell">SELL</td>
+                        <td>60.0%</td>
+                        <td class="sentiment-neutral">NEUTRAL</td>
+                        <td class="error-low">2.9%</td>
+                        <td>LOW_SENTIMENT_CONFIDENCE</td>
+                        <td><span class="technical-badge">TECHNICAL</span></td>
+                    </tr>
+        
+                    <tr>
+                        <td><strong>PRESTIGE.NS</strong></td>
+                        <td>₹1,724.60</td>
+                        <td>₹1,695.76</td>
+                        <td>₹1,625.85</td>
+                        <td>₹1,660.81</td>
+                        <td class="strong sell">-3.70%</td>
+                        <td class="strong sell">STRONG SELL</td>
+                        <td>90.0%</td>
+                        <td class="sentiment-neutral">NEUTRAL</td>
+                        <td class="error-low">1.7%</td>
+                        <td>LOW_SENTIMENT_CONFIDENCE</td>
+                        <td><span class="technical-badge">TECHNICAL</span></td>
+                    </tr>
+        
+                    <tr>
+                        <td><strong>OBEROIRLTY.NS</strong></td>
+                        <td>₹1,820.10</td>
+                        <td>₹1,837.54</td>
+                        <td>₹1,856.63</td>
+                        <td>₹1,847.08</td>
+                        <td class="buy">1.48%</td>
+                        <td class="buy">BUY</td>
+                        <td>85.0%</td>
+                        <td class="sentiment-neutral">NEUTRAL</td>
+                        <td class="error-low">1.0%</td>
+                        <td>LOW_SENTIMENT_CONFIDENCE</td>
+                        <td><span class="technical-badge">TECHNICAL</span></td>
+                    </tr>
+        
+                    <tr>
+                        <td><strong>DLF.NS</strong></td>
+                        <td>₹833.50</td>
+                        <td>₹813.14</td>
+                        <td>₹839.97</td>
+                        <td>₹826.56</td>
+                        <td class="hold">-0.83%</td>
+                        <td class="hold">HOLD</td>
+                        <td>60.0%</td>
+                        <td class="sentiment-neutral">NEUTRAL</td>
+                        <td class="error-low">2.4%</td>
+                        <td>LOW_SENTIMENT_CONFIDENCE</td>
+                        <td><span class="technical-badge">TECHNICAL</span></td>
+                    </tr>
+        
+                    <tr>
+                        <td><strong>HUDCO.NS</strong></td>
+                        <td>₹233.35</td>
+                        <td>₹230.56</td>
+                        <td>₹230.99</td>
+                        <td>₹230.77</td>
+                        <td class="sell">-1.10%</td>
+                        <td class="sell">SELL</td>
+                        <td>85.0%</td>
+                        <td class="sentiment-neutral">NEUTRAL</td>
+                        <td class="error-low">1.2%</td>
+                        <td>LOW_SENTIMENT_CONFIDENCE</td>
+                        <td><span class="technical-badge">TECHNICAL</span></td>
+                    </tr>
+        
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="logic-explanation">
+                <h4>🧠 Contrarian Sentiment Logic Explanation</h4>
+                <p><strong>Our contrarian approach is based on the principle that market sentiment extremes often signal reversals:</strong></p>
+                
+                <h5>✅ Contrarian Signals (Applied when ARIMA error &lt; 30% and news available):</h5>
+                <ul>
+                    <li><strong>🐻 Bearish Sentiment + Low ARIMA Error</strong> → <span class="buy">BUY</span> (Market oversold, potential rebound)</li>
+                    <li><strong>🐂 Bullish Sentiment + Low ARIMA Error</strong> → <span class="sell">SELL</span> (Market overbought, potential correction)</li>
+                    <li><strong>😐 Neutral Sentiment</strong> → Use technical analysis (no strong sentiment bias)</li>
+                </ul>
+                
+                <h5>⚠️ Fallback to Technical Analysis:</h5>
+                <ul>
+                    <li><strong>High ARIMA Error (&ge; 30%):</strong> Model uncertainty too high</li>
+                    <li><strong>Insufficient News:</strong> Not enough sentiment data for reliable signal</li>
+                    <li><strong>Low Sentiment Confidence:</strong> Sentiment analysis not confident enough</li>
+                </ul>
+                
+                <h5>📊 Enhancement Status Meanings:</h5>
+                <ul>
+                    <li><strong>CONTRARIAN_BUY:</strong> Bearish sentiment triggered contrarian buy signal</li>
+                    <li><strong>CONTRARIAN_SELL:</strong> Bullish sentiment triggered contrarian sell signal</li>
+                    <li><strong>NEUTRAL_TECHNICAL:</strong> Neutral sentiment, using technical analysis</li>
+                    <li><strong>HIGH_ARIMA_ERROR:</strong> ARIMA error too high, using technical analysis only</li>
+                    <li><strong>INSUFFICIENT_NEWS:</strong> Not enough news data for sentiment analysis</li>
+                    <li><strong>LOW_SENTIMENT_CONFIDENCE:</strong> Sentiment confidence below threshold</li>
+                    <li><strong>TECHNICAL_ONLY:</strong> Standard technical analysis applied</li>
+                </ul>
+            </div>
+            
+            <div class="footer">
+                <p><strong>📅 Report generated on 2025-07-16 at 00:10:52</strong></p>
+                <p><em>This analysis combines ARIMA-LSTM technical models with contrarian sentiment analysis.</em></p>
+                <p><em>Contrarian logic: When sentiment is extremely bearish and models are accurate (low error), it often indicates oversold conditions (BUY opportunity). When sentiment is extremely bullish and models are accurate, it often indicates overbought conditions (SELL opportunity).</em></p>
+                <p style="margin-top: 15px; padding-top: 15px; border-top: 1px solid #dee2e6;">
+                    <strong>⚠️ Disclaimer:</strong> This is for educational purposes only. Always consult with financial advisors before making investment decisions.
+                </p>
+            </div>
+        </div>
+    </body>
+    </html>
+    

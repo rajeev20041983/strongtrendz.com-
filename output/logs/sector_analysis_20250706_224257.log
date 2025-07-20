@@ -1,0 +1,7 @@
+2025-07-06 22:42:57,169 - INFO: Starting sector-based stock analysis - 2025-07-06
+2025-07-06 22:42:57,170 - INFO: Sentiment enhancement: ENABLED
+2025-07-06 22:42:57,324 - INFO: Loaded LM lexicon from Loughran-McDonald_MasterDictionary_1993-2024.csv
+2025-07-06 22:42:57,330 - INFO: Dynamic Sector Sentiment Analyzer initialized
+2025-07-06 22:42:57,330 - INFO: Learning enabled: True
+2025-07-06 22:42:57,330 - INFO: Sector mappings: 176 stocks
+2025-07-06 22:42:57,332 - INFO: Learned sector patterns: 0 sectors

@@ -1,0 +1,26 @@
+2025-07-08 21:07:22,173 - INFO: Starting sector-based stock analysis - 2025-07-08
+2025-07-08 21:07:22,173 - INFO: Sentiment enhancement: ENABLED
+2025-07-08 21:07:50,783 - INFO: Fetched 30 unique articles (RSS: 30, Nuvama: 0)
+2025-07-08 21:08:30,913 - WARNING: 5 out of the last 11 calls to <function TensorFlowTrainer.make_predict_function.<locals>.one_step_on_data_distributed at 0x000002E0A6B8DFC0> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has reduce_retracing=True option that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/guide/function#controlling_retracing and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+2025-07-08 21:08:31,313 - WARNING: 5 out of the last 11 calls to <function TensorFlowTrainer.make_predict_function.<locals>.one_step_on_data_distributed at 0x000002E0A6B8DFC0> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has reduce_retracing=True option that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/guide/function#controlling_retracing and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+2025-07-08 21:13:20,437 - ERROR: 
+1 Failed download:
+2025-07-08 21:13:20,438 - ERROR: ['CROMPTON']: YFTzMissingError('possibly delisted; no timezone found')
+2025-07-08 21:13:20,445 - WARNING: No meaningful data for CROMPTON.NS
+2025-07-08 21:13:25,909 - ERROR: HTTP Error 404: 
+2025-07-08 21:13:26,027 - ERROR: 
+1 Failed download:
+2025-07-08 21:13:26,027 - ERROR: ['VOLTAS']: YFTzMissingError('possibly delisted; no timezone found')
+2025-07-08 21:13:26,033 - WARNING: No meaningful data for VOLTAS.NS
+2025-07-08 21:13:29,207 - ERROR: 
+1 Failed download:
+2025-07-08 21:13:29,207 - ERROR: ['DIXON']: YFTzMissingError('possibly delisted; no timezone found')
+2025-07-08 21:13:29,207 - WARNING: No meaningful data for DIXON.NS
+2025-07-08 21:13:32,207 - ERROR: 
+1 Failed download:
+2025-07-08 21:13:32,207 - ERROR: ['TIINDIA']: YFTzMissingError('possibly delisted; no timezone found')
+2025-07-08 21:13:32,217 - WARNING: No meaningful data for TIINDIA.NS
+2025-07-08 21:13:33,201 - ERROR: 
+1 Failed download:
+2025-07-08 21:13:33,201 - ERROR: ['MOTHERSON']: YFTzMissingError('possibly delisted; no timezone found')
+2025-07-08 21:13:33,208 - WARNING: No meaningful data for MOTHERSON.NS

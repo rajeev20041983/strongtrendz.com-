@@ -1,0 +1,1839 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Donchian Channel Strategy Report - 2025-07-17</title>
+            <style>
+                body {
+                    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+                    margin: 0;
+                    padding: 20px;
+                    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                    min-height: 100vh;
+                }
+                .container {
+                    max-width: 1400px;
+                    margin: 0 auto;
+                    background-color: white;
+                    padding: 30px;
+                    border-radius: 15px;
+                    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+                }
+                .header {
+                    text-align: center;
+                    margin-bottom: 40px;
+                    padding: 30px;
+                    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                    color: white;
+                    border-radius: 15px;
+                    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+                }
+                .header h1 {
+                    margin: 0 0 10px 0;
+                    font-size: 2.5em;
+                    font-weight: 700;
+                }
+                .header p {
+                    margin: 5px 0;
+                    font-size: 1.1em;
+                    opacity: 0.9;
+                }
+                .summary-grid {
+                    display: grid;
+                    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                    gap: 25px;
+                    margin-bottom: 40px;
+                }
+                .summary-card {
+                    background: linear-gradient(145deg, #f8f9fa, #e9ecef);
+                    padding: 25px;
+                    border-radius: 15px;
+                    border-left: 5px solid #007bff;
+                    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+                    transition: transform 0.3s ease;
+                }
+                .summary-card:hover {
+                    transform: translateY(-5px);
+                }
+                .summary-card h3 {
+                    margin: 0 0 15px 0;
+                    color: #333;
+                    font-size: 1.1em;
+                }
+                .summary-card .value {
+                    font-size: 2.2em;
+                    font-weight: bold;
+                    color: #007bff;
+                    margin-bottom: 5px;
+                }
+                .summary-card .subtitle {
+                    color: #6c757d;
+                    font-size: 0.9em;
+                }
+                .sector-section {
+                    margin: 40px 0;
+                    padding: 30px;
+                    border: 2px solid #e9ecef;
+                    border-radius: 15px;
+                    background: linear-gradient(145deg, #ffffff, #f8f9fa);
+                    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+                }
+                .sector-header {
+                    margin-bottom: 25px;
+                    padding: 20px;
+                    background: linear-gradient(135deg, #28a745, #20c997);
+                    color: white;
+                    border-radius: 10px;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                }
+                .sector-header h2 {
+                    margin: 0;
+                    font-size: 1.8em;
+                    font-weight: 600;
+                }
+                .signal-count {
+                    font-size: 1.2em;
+                    font-weight: bold;
+                    background: rgba(255,255,255,0.2);
+                    padding: 8px 16px;
+                    border-radius: 20px;
+                }
+                .recommendation-group {
+                    margin: 25px 0;
+                }
+                .recommendation-header {
+                    margin-bottom: 15px;
+                    padding: 15px;
+                    border-radius: 8px;
+                    font-weight: bold;
+                    font-size: 1.1em;
+                }
+                .buy-header {
+                    background: linear-gradient(145deg, #d4edda, #c3e6cb);
+                    color: #155724;
+                    border-left: 5px solid #28a745;
+                }
+                .sell-header {
+                    background: linear-gradient(145deg, #f8d7da, #f5c6cb);
+                    color: #721c24;
+                    border-left: 5px solid #dc3545;
+                }
+                .weak-buy-header {
+                    background: linear-gradient(145deg, #d1ecf1, #bee5eb);
+                    color: #0c5460;
+                    border-left: 5px solid #17a2b8;
+                }
+                .weak-sell-header {
+                    background: linear-gradient(145deg, #ffeaa7, #fdcb6e);
+                    color: #856404;
+                    border-left: 5px solid #ffc107;
+                }
+                .hold-header {
+                    background: linear-gradient(145deg, #e2e3e5, #d6d8db);
+                    color: #383d41;
+                    border-left: 5px solid #6c757d;
+                }
+                table {
+                    width: 100%;
+                    border-collapse: collapse;
+                    margin: 15px 0;
+                    background: white;
+                    border-radius: 10px;
+                    overflow: hidden;
+                    box-shadow: 0 3px 10px rgba(0,0,0,0.06);
+                }
+                th, td {
+                    padding: 12px;
+                    text-align: left;
+                    border-bottom: 1px solid #e9ecef;
+                    font-size: 0.9em;
+                }
+                th {
+                    background: linear-gradient(145deg, #f8f9fa, #e9ecef);
+                    font-weight: 600;
+                    color: #333;
+                }
+                tr:hover {
+                    background-color: #f8f9fa;
+                }
+                .buy { color: #28a745; font-weight: bold; }
+                .sell { color: #dc3545; font-weight: bold; }
+                .weak-buy { color: #17a2b8; font-weight: bold; }
+                .weak-sell { color: #ffc107; font-weight: bold; }
+                .hold { color: #6c757d; font-weight: bold; }
+                .strong-badge {
+                    background: linear-gradient(145deg, #ff6b35, #f7931e);
+                    color: white;
+                    padding: 4px 8px;
+                    border-radius: 12px;
+                    font-size: 10px;
+                    font-weight: bold;
+                    text-transform: uppercase;
+                }
+                .medium-badge {
+                    background: linear-gradient(145deg, #17a2b8, #138496);
+                    color: white;
+                    padding: 4px 8px;
+                    border-radius: 12px;
+                    font-size: 10px;
+                    font-weight: bold;
+                    text-transform: uppercase;
+                }
+                .weak-badge {
+                    background: linear-gradient(145deg, #6c757d, #495057);
+                    color: white;
+                    padding: 4px 8px;
+                    border-radius: 12px;
+                    font-size: 10px;
+                    font-weight: bold;
+                    text-transform: uppercase;
+                }
+                .no-signals {
+                    text-align: center;
+                    padding: 20px;
+                    color: #6c757d;
+                    font-style: italic;
+                }
+                .strategy-info {
+                    background: linear-gradient(145deg, #e3f2fd, #bbdefb);
+                    padding: 25px;
+                    border-radius: 15px;
+                    border-left: 5px solid #2196f3;
+                    margin: 25px 0;
+                }
+                .footer {
+                    text-align: center;
+                    margin-top: 40px;
+                    padding: 25px;
+                    background: linear-gradient(145deg, #f8f9fa, #e9ecef);
+                    border-radius: 15px;
+                    border: 1px solid #dee2e6;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <div class="header">
+                    <h1>📊 Donchian Channel Strategy Report</h1>
+                    <p><strong>Richard Donchian's Trend Following Strategy</strong></p>
+                    <p>Generated: 2025-07-17 08:14:12</p>
+                    <p>Analysis Period: Last 7 Working Days | Lookback: 4 Days</p>
+                </div>
+                
+                <div class="summary-grid">
+                    <div class="summary-card">
+                        <h3>📈 Total Stocks Analyzed</h3>
+                        <div class="value">140</div>
+                        <div class="subtitle">From config.TOP_STOCKS</div>
+                    </div>
+                    <div class="summary-card">
+                        <h3>🟢 Strong BUY Signals</h3>
+                        <div class="value">18</div>
+                        <div class="subtitle">Breakout above upper channel</div>
+                    </div>
+                    <div class="summary-card">
+                        <h3>🔴 Strong SELL Signals</h3>
+                        <div class="value">5</div>
+                        <div class="subtitle">Breakdown below lower channel</div>
+                    </div>
+                    <div class="summary-card">
+                        <h3>🟡 Weak Signals</h3>
+                        <div class="value">58</div>
+                        <div class="subtitle">Middle channel based</div>
+                    </div>
+                </div>
+        
+                <div class="strategy-info">
+                    <h4>📊 Donchian Channel Strategy Rules</h4>
+                    <p><strong>Entry Rules:</strong></p>
+                    <ul>
+                        <li><strong>🟢 BUY:</strong> Price closes above 4-day high (Upper Channel)</li>
+                        <li><strong>🟡 WEAK BUY:</strong> Price above middle channel</li>
+                    </ul>
+                    <p><strong>Exit Rules:</strong></p>
+                    <ul>
+                        <li><strong>🔴 SELL/EXIT:</strong> Price closes below 4-day low (Lower Channel)</li>
+                        <li><strong>🟡 WEAK SELL:</strong> Price below middle channel</li>
+                    </ul>
+                    <p><strong>Risk Management:</strong></p>
+                    <ul>
+                        <li><strong>Stop Loss:</strong> Lower Donchian Channel level</li>
+                        <li><strong>Risk per Trade:</strong> 1.0% of capital</li>
+                        <li><strong>Position Sizing:</strong> Based on stop distance</li>
+                    </ul>
+                </div>
+        
+                <div class="sector-section">
+                    <div class="sector-header">
+                        <h2>🏭 Auto</h2>
+                        <div class="signal-count">3 Strong | 15 Total</div>
+                    </div>
+            
+                    <div class="recommendation-group">
+                        <div class="recommendation-header buy-header">
+                            🟢 BUY Signals (3 stocks) - Breakout Above Upper Channel
+                        </div>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Ticker</th>
+                                    <th>Current Price</th>
+                                    <th>Upper Channel</th>
+                                    <th>Stop Loss</th>
+                                    <th>Risk:Reward</th>
+                                    <th>Position Size</th>
+                                    <th>Strength</th>
+                                    <th>Reason</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                
+                                <tr>
+                                    <td><strong>MRF</strong></td>
+                                    <td class="buy">₹152470.00</td>
+                                    <td>₹151300.00</td>
+                                    <td>₹146200.00</td>
+                                    <td>-0.19</td>
+                                    <td>0</td>
+                                    <td><span class="strong-badge">STRONG</span></td>
+                                    <td>Breakout above Upper Channel</td>
+                                </tr>
+                    
+                                <tr>
+                                    <td><strong>M&M</strong></td>
+                                    <td class="buy">₹3196.50</td>
+                                    <td>₹3192.60</td>
+                                    <td>₹3053.60</td>
+                                    <td>-0.03</td>
+                                    <td>6</td>
+                                    <td><span class="strong-badge">STRONG</span></td>
+                                    <td>Breakout above Upper Channel</td>
+                                </tr>
+                    
+                                <tr>
+                                    <td><strong>TVSMOTOR</strong></td>
+                                    <td class="buy">₹2897.30</td>
+                                    <td>₹2901.70</td>
+                                    <td>₹2746.00</td>
+                                    <td>0.03</td>
+                                    <td>6</td>
+                                    <td><span class="strong-badge">STRONG</span></td>
+                                    <td>Breakout above Upper Channel</td>
+                                </tr>
+                    
+                            </tbody>
+                        </table>
+                    </div>
+                
+                    <div class="recommendation-group">
+                        <div class="recommendation-header weak-buy-header">
+                            🟡 Weak BUY Signals (3 stocks) - Above Middle Channel
+                        </div>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Ticker</th>
+                                    <th>Current Price</th>
+                                    <th>Middle Channel</th>
+                                    <th>Upper Channel</th>
+                                    <th>Strength</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                
+                                <tr>
+                                    <td><strong>BOSCHLTD</strong></td>
+                                    <td class="weak-buy">₹38475.00</td>
+                                    <td>₹37235.00</td>
+                                    <td>₹38850.00</td>
+                                    <td><span class="medium-badge">MEDIUM</span></td>
+                                </tr>
+                    
+                                <tr>
+                                    <td><strong>HEROMOTOCO</strong></td>
+                                    <td class="weak-buy">₹4424.50</td>
+                                    <td>₹4327.50</td>
+                                    <td>₹4465.00</td>
+                                    <td><span class="medium-badge">MEDIUM</span></td>
+                                </tr>
+                    
+                                <tr>
+                                    <td><strong>TIINDIA</strong></td>
+                                    <td class="weak-buy">₹2939.80</td>
+                                    <td>₹2891.75</td>
+                                    <td>₹2946.90</td>
+                                    <td><span class="medium-badge">MEDIUM</span></td>
+                                </tr>
+                    
+                            </tbody>
+                        </table>
+                    </div>
+                
+                </div>
+            
+                <div class="sector-section">
+                    <div class="sector-header">
+                        <h2>🏭 Media</h2>
+                        <div class="signal-count">3 Strong | 8 Total</div>
+                    </div>
+            
+                    <div class="recommendation-group">
+                        <div class="recommendation-header buy-header">
+                            🟢 BUY Signals (3 stocks) - Breakout Above Upper Channel
+                        </div>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Ticker</th>
+                                    <th>Current Price</th>
+                                    <th>Upper Channel</th>
+                                    <th>Stop Loss</th>
+                                    <th>Risk:Reward</th>
+                                    <th>Position Size</th>
+                                    <th>Strength</th>
+                                    <th>Reason</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                
+                                <tr>
+                                    <td><strong>NAZARA</strong></td>
+                                    <td class="buy">₹1383.90</td>
+                                    <td>₹1373.30</td>
+                                    <td>₹1324.00</td>
+                                    <td>-0.18</td>
+                                    <td>16</td>
+                                    <td><span class="strong-badge">STRONG</span></td>
+                                    <td>Breakout above Upper Channel</td>
+                                </tr>
+                    
+                                <tr>
+                                    <td><strong>NETWORK18</strong></td>
+                                    <td class="buy">₹63.14</td>
+                                    <td>₹56.82</td>
+                                    <td>₹54.55</td>
+                                    <td>-0.74</td>
+                                    <td>116</td>
+                                    <td><span class="strong-badge">STRONG</span></td>
+                                    <td>Breakout above Upper Channel</td>
+                                </tr>
+                    
+                                <tr>
+                                    <td><strong>HATHWAY</strong></td>
+                                    <td class="buy">₹16.74</td>
+                                    <td>₹16.05</td>
+                                    <td>₹15.23</td>
+                                    <td>-0.46</td>
+                                    <td>662</td>
+                                    <td><span class="strong-badge">STRONG</span></td>
+                                    <td>Breakout above Upper Channel</td>
+                                </tr>
+                    
+                            </tbody>
+                        </table>
+                    </div>
+                
+                    <div class="recommendation-group">
+                        <div class="recommendation-header weak-buy-header">
+                            🟡 Weak BUY Signals (3 stocks) - Above Middle Channel
+                        </div>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Ticker</th>
+                                    <th>Current Price</th>
+                                    <th>Middle Channel</th>
+                                    <th>Upper Channel</th>
+                                    <th>Strength</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                
+                                <tr>
+                                    <td><strong>SUNTV</strong></td>
+                                    <td class="weak-buy">₹575.75</td>
+                                    <td>₹569.02</td>
+                                    <td>₹576.45</td>
+                                    <td><span class="medium-badge">MEDIUM</span></td>
+                                </tr>
+                    
+                                <tr>
+                                    <td><strong>ZEEL</strong></td>
+                                    <td class="weak-buy">₹144.16</td>
+                                    <td>₹140.05</td>
+                                    <td>₹146.99</td>
+                                    <td><span class="medium-badge">MEDIUM</span></td>
+                                </tr>
+                    
+                                <tr>
+                                    <td><strong>DISHTV</strong></td>
+                                    <td class="weak-buy">₹5.93</td>
+                                    <td>₹5.83</td>
+                                    <td>₹6.18</td>
+                                    <td><span class="medium-badge">MEDIUM</span></td>
+                                </tr>
+                    
+                            </tbody>
+                        </table>
+                    </div>
+                
+                    <div class="recommendation-group">
+                        <div class="recommendation-header weak-sell-header">
+                            🟡 Weak SELL Signals (2 stocks) - Below Middle Channel
+                        </div>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Ticker</th>
+                                    <th>Current Price</th>
+                                    <th>Middle Channel</th>
+                                    <th>Lower Channel</th>
+                                    <th>Strength</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                
+                                <tr>
+                                    <td><strong>PVRINOX</strong></td>
+                                    <td class="weak-sell">₹979.35</td>
+                                    <td>₹993.00</td>
+                                    <td>₹967.00</td>
+                                    <td><span class="medium-badge">MEDIUM</span></td>
+                                </tr>
+                    
+                                <tr>
+                                    <td><strong>SAREGAMA</strong></td>
+                                    <td class="weak-sell">₹480.60</td>
+                                    <td>₹491.77</td>
+                                    <td>₹478.90</td>
+                                    <td><span class="medium-badge">MEDIUM</span></td>
+                                </tr>
+                    
+                            </tbody>
+                        </table>
+                    </div>
+                
+                </div>
+            
+                <div class="sector-section">
+                    <div class="sector-header">
+                        <h2>🏭 PSU Bank</h2>
+                        <div class="signal-count">3 Strong | 5 Total</div>
+                    </div>
+            
+                    <div class="recommendation-group">
+                        <div class="recommendation-header buy-header">
+                            🟢 BUY Signals (3 stocks) - Breakout Above Upper Channel
+                        </div>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Ticker</th>
+                                    <th>Current Price</th>
+                                    <th>Upper Channel</th>
+                                    <th>Stop Loss</th>
+                                    <th>Risk:Reward</th>
+                                    <th>Position Size</th>
+                                    <th>Strength</th>
+                                    <th>Reason</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                
+                                <tr>
+                                    <td><strong>UNIONBANK</strong></td>
+                                    <td class="buy">₹148.34</td>
+                                    <td>₹147.98</td>
+                                    <td>₹142.90</td>
+                                    <td>-0.07</td>
+                                    <td>183</td>
+                                    <td><span class="strong-badge">STRONG</span></td>
+                                    <td>Breakout above Upper Channel</td>
+                                </tr>
+                    
+                                <tr>
+                                    <td><strong>BANKINDIA</strong></td>
+                                    <td class="buy">₹118.02</td>
+                                    <td>₹116.46</td>
+                                    <td>₹113.57</td>
+                                    <td>-0.35</td>
+                                    <td>224</td>
+                                    <td><span class="strong-badge">STRONG</span></td>
+                                    <td>Breakout above Upper Channel</td>
+                                </tr>
+                    
+                                <tr>
+                                    <td><strong>PNB</strong></td>
+                                    <td class="buy">₹114.97</td>
+                                    <td>₹113.13</td>
+                                    <td>₹108.65</td>
+                                    <td>-0.29</td>
+                                    <td>158</td>
+                                    <td><span class="strong-badge">STRONG</span></td>
+                                    <td>Breakout above Upper Channel</td>
+                                </tr>
+                    
+                            </tbody>
+                        </table>
+                    </div>
+                
+                    <div class="recommendation-group">
+                        <div class="recommendation-header weak-buy-header">
+                            🟡 Weak BUY Signals (2 stocks) - Above Middle Channel
+                        </div>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Ticker</th>
+                                    <th>Current Price</th>
+                                    <th>Middle Channel</th>
+                                    <th>Upper Channel</th>
+                                    <th>Strength</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                
+                                <tr>
+                                    <td><strong>SBIN</strong></td>
+                                    <td class="weak-buy">₹831.70</td>
+                                    <td>₹812.77</td>
+                                    <td>₹821.00</td>
+                                    <td><span class="medium-badge">MEDIUM</span></td>
+                                </tr>
+                    
+                                <tr>
+                                    <td><strong>INDIANB</strong></td>
+                                    <td class="weak-buy">₹641.50</td>
+                                    <td>₹632.70</td>
+                                    <td>₹644.85</td>
+                                    <td><span class="medium-badge">MEDIUM</span></td>
+                                </tr>
+                    
+                            </tbody>
+                        </table>
+                    </div>
+                
+                </div>
+            
+                <div class="sector-section">
+                    <div class="sector-header">
+                        <h2>🏭 PVT Bank</h2>
+                        <div class="signal-count">3 Strong | 8 Total</div>
+                    </div>
+            
+                    <div class="recommendation-group">
+                        <div class="recommendation-header buy-header">
+                            🟢 BUY Signals (2 stocks) - Breakout Above Upper Channel
+                        </div>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Ticker</th>
+                                    <th>Current Price</th>
+                                    <th>Upper Channel</th>
+                                    <th>Stop Loss</th>
+                                    <th>Risk:Reward</th>
+                                    <th>Position Size</th>
+                                    <th>Strength</th>
+                                    <th>Reason</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                
+                                <tr>
+                                    <td><strong>RBLBANK</strong></td>
+                                    <td class="buy">₹269.14</td>
+                                    <td>₹266.90</td>
+                                    <td>₹252.00</td>
+                                    <td>-0.13</td>
+                                    <td>58</td>
+                                    <td><span class="strong-badge">STRONG</span></td>
+                                    <td>Breakout above Upper Channel</td>
+                                </tr>
+                    
+                                <tr>
+                                    <td><strong>FEDERALBNK</strong></td>
+                                    <td class="buy">₹214.69</td>
+                                    <td>₹214.68</td>
+                                    <td>₹206.39</td>
+                                    <td>-0.00</td>
+                                    <td>120</td>
+                                    <td><span class="strong-badge">STRONG</span></td>
+                                    <td>Breakout above Upper Channel</td>
+                                </tr>
+                    
+                            </tbody>
+                        </table>
+                    </div>
+                
+                    <div class="recommendation-group">
+                        <div class="recommendation-header sell-header">
+                            🔴 SELL Signals (1 stocks) - Breakdown Below Lower Channel
+                        </div>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Ticker</th>
+                                    <th>Current Price</th>
+                                    <th>Lower Channel</th>
+                                    <th>Middle Channel</th>
+                                    <th>Strength</th>
+                                    <th>Reason</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                
+                                <tr>
+                                    <td><strong>KOTAKBANK</strong></td>
+                                    <td class="sell">₹2179.40</td>
+                                    <td>₹2181.90</td>
+                                    <td>₹2212.30</td>
+                                    <td><span class="strong-badge">STRONG</span></td>
+                                    <td>Breakdown below Lower Channel</td>
+                                </tr>
+                    
+                            </tbody>
+                        </table>
+                    </div>
+                
+                    <div class="recommendation-group">
+                        <div class="recommendation-header weak-buy-header">
+                            🟡 Weak BUY Signals (2 stocks) - Above Middle Channel
+                        </div>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Ticker</th>
+                                    <th>Current Price</th>
+                                    <th>Middle Channel</th>
+                                    <th>Upper Channel</th>
+                                    <th>Strength</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                
+                                <tr>
+                                    <td><strong>CUB</strong></td>
+                                    <td class="weak-buy">₹218.03</td>
+                                    <td>₹214.83</td>
+                                    <td>₹221.36</td>
+                                    <td><span class="medium-badge">MEDIUM</span></td>
+                                </tr>
+                    
+                                <tr>
+                                    <td><strong>BANDHANBNK</strong></td>
+                                    <td class="weak-buy">₹183.68</td>
+                                    <td>₹178.19</td>
+                                    <td>₹182.00</td>
+                                    <td><span class="medium-badge">MEDIUM</span></td>
+                                </tr>
+                    
+                            </tbody>
+                        </table>
+                    </div>
+                
+                    <div class="recommendation-group">
+                        <div class="recommendation-header weak-sell-header">
+                            🟡 Weak SELL Signals (1 stocks) - Below Middle Channel
+                        </div>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Ticker</th>
+                                    <th>Current Price</th>
+                                    <th>Middle Channel</th>
+                                    <th>Lower Channel</th>
+                                    <th>Strength</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                
+                                <tr>
+                                    <td><strong>IDFCFIRSTB</strong></td>
+                                    <td class="weak-sell">₹73.86</td>
+                                    <td>₹75.19</td>
+                                    <td>₹72.60</td>
+                                    <td><span class="medium-badge">MEDIUM</span></td>
+                                </tr>
+                    
+                            </tbody>
+                        </table>
+                    </div>
+                
+                </div>
+            
+                <div class="sector-section">
+                    <div class="sector-header">
+                        <h2>🏭 Metal</h2>
+                        <div class="signal-count">2 Strong | 13 Total</div>
+                    </div>
+            
+                    <div class="recommendation-group">
+                        <div class="recommendation-header sell-header">
+                            🔴 SELL Signals (2 stocks) - Breakdown Below Lower Channel
+                        </div>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Ticker</th>
+                                    <th>Current Price</th>
+                                    <th>Lower Channel</th>
+                                    <th>Middle Channel</th>
+                                    <th>Strength</th>
+                                    <th>Reason</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                
+                                <tr>
+                                    <td><strong>JSWSTEEL</strong></td>
+                                    <td class="sell">₹1029.80</td>
+                                    <td>₹1028.20</td>
+                                    <td>₹1039.70</td>
+                                    <td><span class="strong-badge">STRONG</span></td>
+                                    <td>Breakdown below Lower Channel</td>
+                                </tr>
+                    
+                                <tr>
+                                    <td><strong>TATASTEEL</strong></td>
+                                    <td class="sell">₹157.33</td>
+                                    <td>₹157.95</td>
+                                    <td>₹159.78</td>
+                                    <td><span class="strong-badge">STRONG</span></td>
+                                    <td>Breakdown below Lower Channel</td>
+                                </tr>
+                    
+                            </tbody>
+                        </table>
+                    </div>
+                
+                    <div class="recommendation-group">
+                        <div class="recommendation-header weak-buy-header">
+                            🟡 Weak BUY Signals (2 stocks) - Above Middle Channel
+                        </div>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Ticker</th>
+                                    <th>Current Price</th>
+                                    <th>Middle Channel</th>
+                                    <th>Upper Channel</th>
+                                    <th>Strength</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                
+                                <tr>
+                                    <td><strong>ADANIENT</strong></td>
+                                    <td class="weak-buy">₹2608.50</td>
+                                    <td>₹2575.20</td>
+                                    <td>₹2606.90</td>
+                                    <td><span class="medium-badge">MEDIUM</span></td>
+                                </tr>
+                    
+                                <tr>
+                                    <td><strong>VEDL</strong></td>
+                                    <td class="weak-buy">₹447.45</td>
+                                    <td>₹442.23</td>
+                                    <td>₹451.25</td>
+                                    <td><span class="medium-badge">MEDIUM</span></td>
+                                </tr>
+                    
+                            </tbody>
+                        </table>
+                    </div>
+                
+                    <div class="recommendation-group">
+                        <div class="recommendation-header weak-sell-header">
+                            🟡 Weak SELL Signals (1 stocks) - Below Middle Channel
+                        </div>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Ticker</th>
+                                    <th>Current Price</th>
+                                    <th>Middle Channel</th>
+                                    <th>Lower Channel</th>
+                                    <th>Strength</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                
+                                <tr>
+                                    <td><strong>JSL</strong></td>
+                                    <td class="weak-sell">₹675.90</td>
+                                    <td>₹686.62</td>
+                                    <td>₹677.25</td>
+                                    <td><span class="medium-badge">MEDIUM</span></td>
+                                </tr>
+                    
+                            </tbody>
+                        </table>
+                    </div>
+                
+                </div>
+            
+                <div class="sector-section">
+                    <div class="sector-header">
+                        <h2>🏭 Consumer Durables</h2>
+                        <div class="signal-count">2 Strong | 4 Total</div>
+                    </div>
+            
+                    <div class="recommendation-group">
+                        <div class="recommendation-header buy-header">
+                            🟢 BUY Signals (2 stocks) - Breakout Above Upper Channel
+                        </div>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Ticker</th>
+                                    <th>Current Price</th>
+                                    <th>Upper Channel</th>
+                                    <th>Stop Loss</th>
+                                    <th>Risk:Reward</th>
+                                    <th>Position Size</th>
+                                    <th>Strength</th>
+                                    <th>Reason</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                
+                                <tr>
+                                    <td><strong>DIXON</strong></td>
+                                    <td class="buy">₹16099.00</td>
+                                    <td>₹16000.00</td>
+                                    <td>₹15636.00</td>
+                                    <td>-0.21</td>
+                                    <td>2</td>
+                                    <td><span class="strong-badge">STRONG</span></td>
+                                    <td>Breakout above Upper Channel</td>
+                                </tr>
+                    
+                                <tr>
+                                    <td><strong>CROMPTON</strong></td>
+                                    <td class="buy">₹350.25</td>
+                                    <td>₹353.15</td>
+                                    <td>₹333.50</td>
+                                    <td>0.17</td>
+                                    <td>59</td>
+                                    <td><span class="strong-badge">STRONG</span></td>
+                                    <td>Breakout above Upper Channel</td>
+                                </tr>
+                    
+                            </tbody>
+                        </table>
+                    </div>
+                
+                </div>
+            
+                <div class="sector-section">
+                    <div class="sector-header">
+                        <h2>🏭 FMCG</h2>
+                        <div class="signal-count">2 Strong | 11 Total</div>
+                    </div>
+            
+                    <div class="recommendation-group">
+                        <div class="recommendation-header buy-header">
+                            🟢 BUY Signals (2 stocks) - Breakout Above Upper Channel
+                        </div>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Ticker</th>
+                                    <th>Current Price</th>
+                                    <th>Upper Channel</th>
+                                    <th>Stop Loss</th>
+                                    <th>Risk:Reward</th>
+                                    <th>Position Size</th>
+                                    <th>Strength</th>
+                                    <th>Reason</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                
+                                <tr>
+                                    <td><strong>NESTLEIND</strong></td>
+                                    <td class="buy">₹2460.00</td>
+                                    <td>₹2436.90</td>
+                                    <td>₹2377.00</td>
+                                    <td>-0.28</td>
+                                    <td>12</td>
+                                    <td><span class="strong-badge">STRONG</span></td>
+                                    <td>Breakout above Upper Channel</td>
+                                </tr>
+                    
+                                <tr>
+                                    <td><strong>UBL</strong></td>
+                                    <td class="buy">₹2009.60</td>
+                                    <td>₹1995.20</td>
+                                    <td>₹1941.00</td>
+                                    <td>-0.21</td>
+                                    <td>14</td>
+                                    <td><span class="strong-badge">STRONG</span></td>
+                                    <td>Breakout above Upper Channel</td>
+                                </tr>
+                    
+                            </tbody>
+                        </table>
+                    </div>
+                
+                    <div class="recommendation-group">
+                        <div class="recommendation-header weak-buy-header">
+                            🟡 Weak BUY Signals (2 stocks) - Above Middle Channel
+                        </div>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Ticker</th>
+                                    <th>Current Price</th>
+                                    <th>Middle Channel</th>
+                                    <th>Upper Channel</th>
+                                    <th>Strength</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                
+                                <tr>
+                                    <td><strong>HINDUNILVR</strong></td>
+                                    <td class="weak-buy">₹2517.60</td>
+                                    <td>₹2465.05</td>
+                                    <td>₹2532.50</td>
+                                    <td><span class="medium-badge">MEDIUM</span></td>
+                                </tr>
+                    
+                                <tr>
+                                    <td><strong>ITC</strong></td>
+                                    <td class="weak-buy">₹424.60</td>
+                                    <td>₹418.95</td>
+                                    <td>₹422.40</td>
+                                    <td><span class="medium-badge">MEDIUM</span></td>
+                                </tr>
+                    
+                            </tbody>
+                        </table>
+                    </div>
+                
+                    <div class="recommendation-group">
+                        <div class="recommendation-header weak-sell-header">
+                            🟡 Weak SELL Signals (1 stocks) - Below Middle Channel
+                        </div>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Ticker</th>
+                                    <th>Current Price</th>
+                                    <th>Middle Channel</th>
+                                    <th>Lower Channel</th>
+                                    <th>Strength</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                
+                                <tr>
+                                    <td><strong>GODREJCP</strong></td>
+                                    <td class="weak-sell">₹1264.80</td>
+                                    <td>₹1283.60</td>
+                                    <td>₹1261.20</td>
+                                    <td><span class="medium-badge">MEDIUM</span></td>
+                                </tr>
+                    
+                            </tbody>
+                        </table>
+                    </div>
+                
+                </div>
+            
+                <div class="sector-section">
+                    <div class="sector-header">
+                        <h2>🏭 Financial Services</h2>
+                        <div class="signal-count">2 Strong | 13 Total</div>
+                    </div>
+            
+                    <div class="recommendation-group">
+                        <div class="recommendation-header sell-header">
+                            🔴 SELL Signals (2 stocks) - Breakdown Below Lower Channel
+                        </div>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Ticker</th>
+                                    <th>Current Price</th>
+                                    <th>Lower Channel</th>
+                                    <th>Middle Channel</th>
+                                    <th>Strength</th>
+                                    <th>Reason</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                
+                                <tr>
+                                    <td><strong>ICICIGI</strong></td>
+                                    <td class="sell">₹1970.80</td>
+                                    <td>₹1980.00</td>
+                                    <td>₹2012.90</td>
+                                    <td><span class="strong-badge">STRONG</span></td>
+                                    <td>Breakdown below Lower Channel</td>
+                                </tr>
+                    
+                                <tr>
+                                    <td><strong>ICICIPRULI</strong></td>
+                                    <td class="sell">₹650.60</td>
+                                    <td>₹654.75</td>
+                                    <td>₹674.12</td>
+                                    <td><span class="strong-badge">STRONG</span></td>
+                                    <td>Breakdown below Lower Channel</td>
+                                </tr>
+                    
+                            </tbody>
+                        </table>
+                    </div>
+                
+                    <div class="recommendation-group">
+                        <div class="recommendation-header weak-buy-header">
+                            🟡 Weak BUY Signals (2 stocks) - Above Middle Channel
+                        </div>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Ticker</th>
+                                    <th>Current Price</th>
+                                    <th>Middle Channel</th>
+                                    <th>Upper Channel</th>
+                                    <th>Strength</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                
+                                <tr>
+                                    <td><strong>HDFCAMC</strong></td>
+                                    <td class="weak-buy">₹5353.50</td>
+                                    <td>₹5176.25</td>
+                                    <td>₹5300.00</td>
+                                    <td><span class="medium-badge">MEDIUM</span></td>
+                                </tr>
+                    
+                                <tr>
+                                    <td><strong>PEL</strong></td>
+                                    <td class="weak-buy">₹1314.90</td>
+                                    <td>₹1251.30</td>
+                                    <td>₹1351.00</td>
+                                    <td><span class="medium-badge">MEDIUM</span></td>
+                                </tr>
+                    
+                            </tbody>
+                        </table>
+                    </div>
+                
+                    <div class="recommendation-group">
+                        <div class="recommendation-header weak-sell-header">
+                            🟡 Weak SELL Signals (3 stocks) - Below Middle Channel
+                        </div>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Ticker</th>
+                                    <th>Current Price</th>
+                                    <th>Middle Channel</th>
+                                    <th>Lower Channel</th>
+                                    <th>Strength</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                
+                                <tr>
+                                    <td><strong>BAJFINANCE</strong></td>
+                                    <td class="weak-sell">₹921.75</td>
+                                    <td>₹931.50</td>
+                                    <td>₹911.30</td>
+                                    <td><span class="medium-badge">MEDIUM</span></td>
+                                </tr>
+                    
+                                <tr>
+                                    <td><strong>HDFCLIFE</strong></td>
+                                    <td class="weak-sell">₹755.95</td>
+                                    <td>₹770.08</td>
+                                    <td>₹752.15</td>
+                                    <td><span class="medium-badge">MEDIUM</span></td>
+                                </tr>
+                    
+                                <tr>
+                                    <td><strong>PFC</strong></td>
+                                    <td class="weak-sell">₹423.75</td>
+                                    <td>₹429.73</td>
+                                    <td>₹421.10</td>
+                                    <td><span class="medium-badge">MEDIUM</span></td>
+                                </tr>
+                    
+                            </tbody>
+                        </table>
+                    </div>
+                
+                </div>
+            
+                <div class="sector-section">
+                    <div class="sector-header">
+                        <h2>🏭 Pharma</h2>
+                        <div class="signal-count">1 Strong | 20 Total</div>
+                    </div>
+            
+                    <div class="recommendation-group">
+                        <div class="recommendation-header buy-header">
+                            🟢 BUY Signals (1 stocks) - Breakout Above Upper Channel
+                        </div>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Ticker</th>
+                                    <th>Current Price</th>
+                                    <th>Upper Channel</th>
+                                    <th>Stop Loss</th>
+                                    <th>Risk:Reward</th>
+                                    <th>Position Size</th>
+                                    <th>Strength</th>
+                                    <th>Reason</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                
+                                <tr>
+                                    <td><strong>GRANULES</strong></td>
+                                    <td class="buy">₹499.70</td>
+                                    <td>₹493.50</td>
+                                    <td>₹466.40</td>
+                                    <td>-0.19</td>
+                                    <td>30</td>
+                                    <td><span class="strong-badge">STRONG</span></td>
+                                    <td>Breakout above Upper Channel</td>
+                                </tr>
+                    
+                            </tbody>
+                        </table>
+                    </div>
+                
+                    <div class="recommendation-group">
+                        <div class="recommendation-header weak-buy-header">
+                            🟡 Weak BUY Signals (11 stocks) - Above Middle Channel
+                        </div>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Ticker</th>
+                                    <th>Current Price</th>
+                                    <th>Middle Channel</th>
+                                    <th>Upper Channel</th>
+                                    <th>Strength</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                
+                                <tr>
+                                    <td><strong>ALKEM</strong></td>
+                                    <td class="weak-buy">₹5002.20</td>
+                                    <td>₹4830.35</td>
+                                    <td>₹4944.50</td>
+                                    <td><span class="medium-badge">MEDIUM</span></td>
+                                </tr>
+                    
+                                <tr>
+                                    <td><strong>TORNTPHARM</strong></td>
+                                    <td class="weak-buy">₹3459.50</td>
+                                    <td>₹3380.55</td>
+                                    <td>₹3451.70</td>
+                                    <td><span class="medium-badge">MEDIUM</span></td>
+                                </tr>
+                    
+                                <tr>
+                                    <td><strong>LALPATHLAB</strong></td>
+                                    <td class="weak-buy">₹2985.60</td>
+                                    <td>₹2932.90</td>
+                                    <td>₹2990.00</td>
+                                    <td><span class="medium-badge">MEDIUM</span></td>
+                                </tr>
+                    
+                                <tr>
+                                    <td><strong>GLENMARK</strong></td>
+                                    <td class="weak-buy">₹2204.80</td>
+                                    <td>₹2048.95</td>
+                                    <td>₹2284.80</td>
+                                    <td><span class="medium-badge">MEDIUM</span></td>
+                                </tr>
+                    
+                                <tr>
+                                    <td><strong>METROPOLIS</strong></td>
+                                    <td class="weak-buy">₹1979.20</td>
+                                    <td>₹1922.00</td>
+                                    <td>₹2015.00</td>
+                                    <td><span class="medium-badge">MEDIUM</span></td>
+                                </tr>
+                    
+                                <tr>
+                                    <td><strong>IPCALAB</strong></td>
+                                    <td class="weak-buy">₹1461.80</td>
+                                    <td>₹1446.80</td>
+                                    <td>₹1475.20</td>
+                                    <td><span class="medium-badge">MEDIUM</span></td>
+                                </tr>
+                    
+                                <tr>
+                                    <td><strong>MAXHEALTH</strong></td>
+                                    <td class="weak-buy">₹1266.20</td>
+                                    <td>₹1239.55</td>
+                                    <td>₹1263.60</td>
+                                    <td><span class="medium-badge">MEDIUM</span></td>
+                                </tr>
+                    
+                                <tr>
+                                    <td><strong>AUROPHARMA</strong></td>
+                                    <td class="weak-buy">₹1152.90</td>
+                                    <td>₹1136.10</td>
+                                    <td>₹1157.00</td>
+                                    <td><span class="medium-badge">MEDIUM</span></td>
+                                </tr>
+                    
+                                <tr>
+                                    <td><strong>LAURUSLABS</strong></td>
+                                    <td class="weak-buy">₹822.55</td>
+                                    <td>₹808.75</td>
+                                    <td>₹834.35</td>
+                                    <td><span class="medium-badge">MEDIUM</span></td>
+                                </tr>
+                    
+                                <tr>
+                                    <td><strong>SYNGENE</strong></td>
+                                    <td class="weak-buy">₹667.75</td>
+                                    <td>₹640.30</td>
+                                    <td>₹659.90</td>
+                                    <td><span class="medium-badge">MEDIUM</span></td>
+                                </tr>
+                    
+                                <tr>
+                                    <td><strong>BIOCON</strong></td>
+                                    <td class="weak-buy">₹394.65</td>
+                                    <td>₹380.25</td>
+                                    <td>₹391.50</td>
+                                    <td><span class="medium-badge">MEDIUM</span></td>
+                                </tr>
+                    
+                            </tbody>
+                        </table>
+                    </div>
+                
+                </div>
+            
+                <div class="sector-section">
+                    <div class="sector-header">
+                        <h2>🏭 Energy</h2>
+                        <div class="signal-count">1 Strong | 6 Total</div>
+                    </div>
+            
+                    <div class="recommendation-group">
+                        <div class="recommendation-header buy-header">
+                            🟢 BUY Signals (1 stocks) - Breakout Above Upper Channel
+                        </div>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Ticker</th>
+                                    <th>Current Price</th>
+                                    <th>Upper Channel</th>
+                                    <th>Stop Loss</th>
+                                    <th>Risk:Reward</th>
+                                    <th>Position Size</th>
+                                    <th>Strength</th>
+                                    <th>Reason</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                
+                                <tr>
+                                    <td><strong>TATAPOWER</strong></td>
+                                    <td class="buy">₹414.70</td>
+                                    <td>₹405.30</td>
+                                    <td>₹395.40</td>
+                                    <td>-0.49</td>
+                                    <td>51</td>
+                                    <td><span class="strong-badge">STRONG</span></td>
+                                    <td>Breakout above Upper Channel</td>
+                                </tr>
+                    
+                            </tbody>
+                        </table>
+                    </div>
+                
+                    <div class="recommendation-group">
+                        <div class="recommendation-header weak-buy-header">
+                            🟡 Weak BUY Signals (1 stocks) - Above Middle Channel
+                        </div>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Ticker</th>
+                                    <th>Current Price</th>
+                                    <th>Middle Channel</th>
+                                    <th>Upper Channel</th>
+                                    <th>Strength</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                
+                                <tr>
+                                    <td><strong>ADANIGREEN</strong></td>
+                                    <td class="weak-buy">₹1038.60</td>
+                                    <td>₹1013.60</td>
+                                    <td>₹1042.00</td>
+                                    <td><span class="medium-badge">MEDIUM</span></td>
+                                </tr>
+                    
+                            </tbody>
+                        </table>
+                    </div>
+                
+                    <div class="recommendation-group">
+                        <div class="recommendation-header weak-sell-header">
+                            🟡 Weak SELL Signals (1 stocks) - Below Middle Channel
+                        </div>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Ticker</th>
+                                    <th>Current Price</th>
+                                    <th>Middle Channel</th>
+                                    <th>Lower Channel</th>
+                                    <th>Strength</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                
+                                <tr>
+                                    <td><strong>RELIANCE</strong></td>
+                                    <td class="weak-sell">₹1485.60</td>
+                                    <td>₹1501.90</td>
+                                    <td>₹1479.10</td>
+                                    <td><span class="medium-badge">MEDIUM</span></td>
+                                </tr>
+                    
+                            </tbody>
+                        </table>
+                    </div>
+                
+                </div>
+            
+                <div class="sector-section">
+                    <div class="sector-header">
+                        <h2>🏭 Realty</h2>
+                        <div class="signal-count">1 Strong | 5 Total</div>
+                    </div>
+            
+                    <div class="recommendation-group">
+                        <div class="recommendation-header buy-header">
+                            🟢 BUY Signals (1 stocks) - Breakout Above Upper Channel
+                        </div>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Ticker</th>
+                                    <th>Current Price</th>
+                                    <th>Upper Channel</th>
+                                    <th>Stop Loss</th>
+                                    <th>Risk:Reward</th>
+                                    <th>Position Size</th>
+                                    <th>Strength</th>
+                                    <th>Reason</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                
+                                <tr>
+                                    <td><strong>GODREJPROP</strong></td>
+                                    <td class="buy">₹2289.10</td>
+                                    <td>₹2297.00</td>
+                                    <td>₹2192.90</td>
+                                    <td>0.08</td>
+                                    <td>10</td>
+                                    <td><span class="strong-badge">STRONG</span></td>
+                                    <td>Breakout above Upper Channel</td>
+                                </tr>
+                    
+                            </tbody>
+                        </table>
+                    </div>
+                
+                    <div class="recommendation-group">
+                        <div class="recommendation-header weak-buy-header">
+                            🟡 Weak BUY Signals (2 stocks) - Above Middle Channel
+                        </div>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Ticker</th>
+                                    <th>Current Price</th>
+                                    <th>Middle Channel</th>
+                                    <th>Upper Channel</th>
+                                    <th>Strength</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                
+                                <tr>
+                                    <td><strong>LODHA</strong></td>
+                                    <td class="weak-buy">₹1440.20</td>
+                                    <td>₹1411.45</td>
+                                    <td>₹1439.90</td>
+                                    <td><span class="medium-badge">MEDIUM</span></td>
+                                </tr>
+                    
+                                <tr>
+                                    <td><strong>DLF</strong></td>
+                                    <td class="weak-buy">₹844.30</td>
+                                    <td>₹826.88</td>
+                                    <td>₹842.50</td>
+                                    <td><span class="medium-badge">MEDIUM</span></td>
+                                </tr>
+                    
+                            </tbody>
+                        </table>
+                    </div>
+                
+                </div>
+            
+                <div class="sector-section">
+                    <div class="sector-header">
+                        <h2>🏭 Unknown</h2>
+                        <div class="signal-count">0 Strong | 11 Total</div>
+                    </div>
+            
+                    <div class="recommendation-group">
+                        <div class="recommendation-header weak-buy-header">
+                            🟡 Weak BUY Signals (4 stocks) - Above Middle Channel
+                        </div>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Ticker</th>
+                                    <th>Current Price</th>
+                                    <th>Middle Channel</th>
+                                    <th>Upper Channel</th>
+                                    <th>Strength</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                
+                                <tr>
+                                    <td><strong>VOLTAS</strong></td>
+                                    <td class="weak-buy">₹1397.30</td>
+                                    <td>₹1376.65</td>
+                                    <td>₹1400.00</td>
+                                    <td><span class="medium-badge">MEDIUM</span></td>
+                                </tr>
+                    
+                                <tr>
+                                    <td><strong>VBL</strong></td>
+                                    <td class="weak-buy">₹480.10</td>
+                                    <td>₹460.35</td>
+                                    <td>₹470.70</td>
+                                    <td><span class="medium-badge">MEDIUM</span></td>
+                                </tr>
+                    
+                                <tr>
+                                    <td><strong>BSOFT</strong></td>
+                                    <td class="weak-buy">₹433.45</td>
+                                    <td>₹423.15</td>
+                                    <td>₹432.50</td>
+                                    <td><span class="medium-badge">MEDIUM</span></td>
+                                </tr>
+                    
+                                <tr>
+                                    <td><strong>BANKBARODA</strong></td>
+                                    <td class="weak-buy">₹249.08</td>
+                                    <td>₹240.65</td>
+                                    <td>₹245.29</td>
+                                    <td><span class="medium-badge">MEDIUM</span></td>
+                                </tr>
+                    
+                            </tbody>
+                        </table>
+                    </div>
+                
+                    <div class="recommendation-group">
+                        <div class="recommendation-header weak-sell-header">
+                            🟡 Weak SELL Signals (2 stocks) - Below Middle Channel
+                        </div>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Ticker</th>
+                                    <th>Current Price</th>
+                                    <th>Middle Channel</th>
+                                    <th>Lower Channel</th>
+                                    <th>Strength</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                
+                                <tr>
+                                    <td><strong>BATAINDIA</strong></td>
+                                    <td class="weak-sell">₹1243.60</td>
+                                    <td>₹1257.40</td>
+                                    <td>₹1229.90</td>
+                                    <td><span class="medium-badge">MEDIUM</span></td>
+                                </tr>
+                    
+                                <tr>
+                                    <td><strong>ADANIENSOL</strong></td>
+                                    <td class="weak-sell">₹876.60</td>
+                                    <td>₹887.50</td>
+                                    <td>₹867.30</td>
+                                    <td><span class="medium-badge">MEDIUM</span></td>
+                                </tr>
+                    
+                            </tbody>
+                        </table>
+                    </div>
+                
+                </div>
+            
+                <div class="sector-section">
+                    <div class="sector-header">
+                        <h2>🏭 Oil & Gas</h2>
+                        <div class="signal-count">0 Strong | 8 Total</div>
+                    </div>
+            
+                    <div class="recommendation-group">
+                        <div class="recommendation-header weak-buy-header">
+                            🟡 Weak BUY Signals (4 stocks) - Above Middle Channel
+                        </div>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Ticker</th>
+                                    <th>Current Price</th>
+                                    <th>Middle Channel</th>
+                                    <th>Upper Channel</th>
+                                    <th>Strength</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                
+                                <tr>
+                                    <td><strong>ATGL</strong></td>
+                                    <td class="weak-buy">₹659.90</td>
+                                    <td>₹649.42</td>
+                                    <td>₹658.85</td>
+                                    <td><span class="medium-badge">MEDIUM</span></td>
+                                </tr>
+                    
+                                <tr>
+                                    <td><strong>OIL</strong></td>
+                                    <td class="weak-buy">₹446.45</td>
+                                    <td>₹438.40</td>
+                                    <td>₹449.80</td>
+                                    <td><span class="medium-badge">MEDIUM</span></td>
+                                </tr>
+                    
+                                <tr>
+                                    <td><strong>HINDPETRO</strong></td>
+                                    <td class="weak-buy">₹446.10</td>
+                                    <td>₹439.25</td>
+                                    <td>₹450.50</td>
+                                    <td><span class="medium-badge">MEDIUM</span></td>
+                                </tr>
+                    
+                                <tr>
+                                    <td><strong>PETRONET</strong></td>
+                                    <td class="weak-buy">₹310.45</td>
+                                    <td>₹305.22</td>
+                                    <td>₹312.80</td>
+                                    <td><span class="medium-badge">MEDIUM</span></td>
+                                </tr>
+                    
+                            </tbody>
+                        </table>
+                    </div>
+                
+                    <div class="recommendation-group">
+                        <div class="recommendation-header weak-sell-header">
+                            🟡 Weak SELL Signals (1 stocks) - Below Middle Channel
+                        </div>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Ticker</th>
+                                    <th>Current Price</th>
+                                    <th>Middle Channel</th>
+                                    <th>Lower Channel</th>
+                                    <th>Strength</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                
+                                <tr>
+                                    <td><strong>JIOFIN</strong></td>
+                                    <td class="weak-sell">₹319.55</td>
+                                    <td>₹325.52</td>
+                                    <td>₹317.65</td>
+                                    <td><span class="medium-badge">MEDIUM</span></td>
+                                </tr>
+                    
+                            </tbody>
+                        </table>
+                    </div>
+                
+                </div>
+            
+                <div class="sector-section">
+                    <div class="sector-header">
+                        <h2>🏭 IT</h2>
+                        <div class="signal-count">0 Strong | 10 Total</div>
+                    </div>
+            
+                    <div class="recommendation-group">
+                        <div class="recommendation-header weak-buy-header">
+                            🟡 Weak BUY Signals (4 stocks) - Above Middle Channel
+                        </div>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Ticker</th>
+                                    <th>Current Price</th>
+                                    <th>Middle Channel</th>
+                                    <th>Upper Channel</th>
+                                    <th>Strength</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                
+                                <tr>
+                                    <td><strong>LTIM</strong></td>
+                                    <td class="weak-buy">₹5327.00</td>
+                                    <td>₹5225.00</td>
+                                    <td>₹5348.50</td>
+                                    <td><span class="medium-badge">MEDIUM</span></td>
+                                </tr>
+                    
+                                <tr>
+                                    <td><strong>MPHASIS</strong></td>
+                                    <td class="weak-buy">₹2876.80</td>
+                                    <td>₹2837.05</td>
+                                    <td>₹2889.60</td>
+                                    <td><span class="medium-badge">MEDIUM</span></td>
+                                </tr>
+                    
+                                <tr>
+                                    <td><strong>TECHM</strong></td>
+                                    <td class="weak-buy">₹1607.90</td>
+                                    <td>₹1585.20</td>
+                                    <td>₹1617.40</td>
+                                    <td><span class="medium-badge">MEDIUM</span></td>
+                                </tr>
+                    
+                                <tr>
+                                    <td><strong>WIPRO</strong></td>
+                                    <td class="weak-buy">₹262.80</td>
+                                    <td>₹259.60</td>
+                                    <td>₹267.55</td>
+                                    <td><span class="medium-badge">MEDIUM</span></td>
+                                </tr>
+                    
+                            </tbody>
+                        </table>
+                    </div>
+                
+                    <div class="recommendation-group">
+                        <div class="recommendation-header weak-sell-header">
+                            🟡 Weak SELL Signals (2 stocks) - Below Middle Channel
+                        </div>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Ticker</th>
+                                    <th>Current Price</th>
+                                    <th>Middle Channel</th>
+                                    <th>Lower Channel</th>
+                                    <th>Strength</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                
+                                <tr>
+                                    <td><strong>TCS</strong></td>
+                                    <td class="weak-sell">₹3233.10</td>
+                                    <td>₹3288.34</td>
+                                    <td>₹3189.18</td>
+                                    <td><span class="medium-badge">MEDIUM</span></td>
+                                </tr>
+                    
+                                <tr>
+                                    <td><strong>HCLTECH</strong></td>
+                                    <td class="weak-sell">₹1562.80</td>
+                                    <td>₹1614.95</td>
+                                    <td>₹1550.00</td>
+                                    <td><span class="medium-badge">MEDIUM</span></td>
+                                </tr>
+                    
+                            </tbody>
+                        </table>
+                    </div>
+                
+                </div>
+            
+                <div class="sector-section">
+                    <div class="sector-header">
+                        <h2>🏭 Bank</h2>
+                        <div class="signal-count">0 Strong | 3 Total</div>
+                    </div>
+            
+                    <div class="recommendation-group">
+                        <div class="recommendation-header weak-buy-header">
+                            🟡 Weak BUY Signals (2 stocks) - Above Middle Channel
+                        </div>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Ticker</th>
+                                    <th>Current Price</th>
+                                    <th>Middle Channel</th>
+                                    <th>Upper Channel</th>
+                                    <th>Strength</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                
+                                <tr>
+                                    <td><strong>INDUSINDBK</strong></td>
+                                    <td class="weak-buy">₹879.75</td>
+                                    <td>₹863.85</td>
+                                    <td>₹886.75</td>
+                                    <td><span class="medium-badge">MEDIUM</span></td>
+                                </tr>
+                    
+                                <tr>
+                                    <td><strong>CANBK</strong></td>
+                                    <td class="weak-buy">₹117.03</td>
+                                    <td>₹113.51</td>
+                                    <td>₹115.80</td>
+                                    <td><span class="medium-badge">MEDIUM</span></td>
+                                </tr>
+                    
+                            </tbody>
+                        </table>
+                    </div>
+                
+                </div>
+            
+                <div class="footer">
+                    <p><strong>📅 Report generated on 2025-07-17 at 08:14:12</strong></p>
+                    <p><em>Donchian Channel Strategy based on Richard Donchian's trend following principles.</em></p>
+                    <p><em>Analysis covers the last 7 working days with 4-day lookback period.</em></p>
+                    <p><em>Signals are organized by sector with strength indicators.</em></p>
+                    <p style="margin-top: 15px; padding-top: 15px; border-top: 1px solid #dee2e6;">
+                        <strong>⚠️ Disclaimer:</strong> This is for educational purposes only. Always consult with financial advisors before making investment decisions.
+                    </p>
+                </div>
+            </div>
+        </body>
+        </html>
+        

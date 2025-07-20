@@ -1,0 +1,2 @@
+Ticker,Company,Sector,Current_Price,ARIMA_Prediction,LSTM_Prediction,Combined_Prediction,ARIMA_Change_Pct,LSTM_Change_Pct,Combined_Change_Pct,Models_Agree,Recommendation,Confidence,Original_Recommendation,Original_Confidence,Sentiment_Signal,Sentiment_Score,Sentiment_Confidence,News_Count,Enhancement_Status,Has_Sentiment
+NATIONALUM.NS,Nationalum,NIFTY_METAL,192.41000366210938,192.55082201735644,191.2977294921875,191.92427575477197,0.07318660805929504,-0.5780750214397045,-0.25244420669020473,No,HOLD,55.0,HOLD,65.0,NEUTRAL,0.0,40,0,TECHNICAL_ONLY,Yes

@@ -1,0 +1,39 @@
+2025-07-09 18:13:20,647 - INFO: Starting sector-based stock analysis - 2025-07-09
+2025-07-09 18:13:20,647 - INFO: Sentiment enhancement: ENABLED
+2025-07-09 18:13:31,442 - ERROR: HTTP Error 404: 
+2025-07-09 18:13:31,842 - ERROR: HTTP Error 404: 
+2025-07-09 18:13:44,287 - ERROR: HTTP Error 404: 
+2025-07-09 18:14:02,755 - ERROR: HTTP Error 404: 
+2025-07-09 18:14:03,634 - ERROR: HTTP Error 404: 
+2025-07-09 18:14:38,100 - INFO: Fetched 120 unique articles from RSS + Web
+2025-07-09 18:15:15,751 - WARNING: 5 out of the last 11 calls to <function TensorFlowTrainer.make_predict_function.<locals>.one_step_on_data_distributed at 0x000001FCA6318040> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has reduce_retracing=True option that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/guide/function#controlling_retracing and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+2025-07-09 18:15:16,147 - WARNING: 5 out of the last 11 calls to <function TensorFlowTrainer.make_predict_function.<locals>.one_step_on_data_distributed at 0x000001FCA6318040> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has reduce_retracing=True option that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/guide/function#controlling_retracing and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+2025-07-09 18:24:01,711 - ERROR: HTTP Error 404: 
+2025-07-09 18:24:02,560 - ERROR: HTTP Error 404: 
+2025-07-09 18:24:02,601 - ERROR: 
+1 Failed download:
+2025-07-09 18:24:02,601 - ERROR: ['BAJAJAUTO.NS']: YFTzMissingError('possibly delisted; no timezone found')
+2025-07-09 18:24:02,616 - WARNING: No meaningful data for BAJAJAUTO.NS
+2025-07-09 19:02:57,929 - INFO: Saved agreement report to C:\Users\PC\OneDrive\projects\strongtrendz.com-\output\arima_lstm_agreement_20250709_190257.csv
+2025-07-09 19:02:57,937 - INFO: Saved top picks to C:\Users\PC\OneDrive\projects\strongtrendz.com-\output\top_picks_20250709_190257.csv
+2025-07-09 19:02:57,937 - INFO: Saved sector performance to C:\Users\PC\OneDrive\projects\strongtrendz.com-\output\sector_performance_20250709_190257.csv
+2025-07-09 19:02:57,968 - INFO: Saved consolidated analysis results to C:\Users\PC\OneDrive\projects\strongtrendz.com-\output\sector_analysis_20250709_190257.json
+2025-07-09 19:02:58,003 - INFO: 
+--- Analysis Summary ---
+2025-07-09 19:02:58,003 - INFO: Total Stocks Analyzed: 140
+2025-07-09 19:02:58,003 - INFO: Successfully Analyzed: 140
+2025-07-09 19:02:58,003 - INFO: Failed Analyses: 0
+2025-07-09 19:02:58,003 - INFO: Stocks with sentiment enhancement: 140 (100.0%)
+2025-07-09 19:02:58,003 - INFO: Enhancement Status Breakdown:
+2025-07-09 19:02:58,003 - INFO:   INSUFFICIENT_NEWS: 119
+2025-07-09 19:02:58,003 - INFO:   NEUTRAL_SENTIMENT: 13
+2025-07-09 19:02:58,003 - INFO:   BULLISH_AGREEMENT: 2
+2025-07-09 19:02:58,003 - INFO:   BEARISH_AGREEMENT: 3
+2025-07-09 19:02:58,003 - INFO:   NEGATIVE_SENTIMENT_OVERRIDE: 2
+2025-07-09 19:02:58,003 - INFO:   CONFLICTING_SIGNALS: 1
+2025-07-09 19:02:58,003 - INFO: Stocks with ARIMA-LSTM agreement: 100 (71.4%)
+2025-07-09 19:02:58,003 - INFO: Top BUY recommendations: 10
+2025-07-09 19:02:58,003 - INFO: Top SELL recommendations: 10
+2025-07-09 19:02:58,003 - INFO: 
+Sector Performance:
+2025-07-09 19:02:58,003 - INFO: UNKNOWN: 0.03% (UP)

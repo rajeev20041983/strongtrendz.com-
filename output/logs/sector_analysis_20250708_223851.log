@@ -1,0 +1,10 @@
+2025-07-08 22:38:51,123 - INFO: Starting sector-based stock analysis - 2025-07-08
+2025-07-08 22:38:51,124 - INFO: Sentiment enhancement: ENABLED
+2025-07-08 22:39:26,433 - WARNING: MoneyControl web scraping failed: 403 Client Error: Forbidden for url: https://www.moneycontrol.com/news/business/markets/
+2025-07-08 22:39:26,501 - INFO: Fetched 120 unique articles from RSS + Web
+2025-07-08 22:40:09,670 - WARNING: 5 out of the last 11 calls to <function TensorFlowTrainer.make_predict_function.<locals>.one_step_on_data_distributed at 0x00000256B18E5000> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has reduce_retracing=True option that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/guide/function#controlling_retracing and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+2025-07-08 22:40:10,163 - WARNING: 5 out of the last 11 calls to <function TensorFlowTrainer.make_predict_function.<locals>.one_step_on_data_distributed at 0x00000256B18E5000> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has reduce_retracing=True option that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/guide/function#controlling_retracing and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+2025-07-08 22:42:52,513 - ERROR: 
+1 Failed download:
+2025-07-08 22:42:52,513 - ERROR: ['JSWSTEEL']: YFTzMissingError('possibly delisted; no timezone found')
+2025-07-08 22:42:52,536 - WARNING: No meaningful data for JSWSTEEL.NS

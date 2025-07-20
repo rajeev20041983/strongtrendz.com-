@@ -1,0 +1,19 @@
+2025-07-17 06:32:06,944 - INFO: Starting SECTOR-BASED stock analysis with MODEL AGREEMENT + CONTRARIAN logic - 2025-07-17
+2025-07-17 06:32:06,944 - INFO: ARIMA Error Threshold: 25.0%
+2025-07-17 06:32:06,944 - INFO: Sentiment enhancement: ENABLED with CONTRARIAN logic
+2025-07-17 06:32:54,374 - INFO: Fetched 122 unique articles from RSS + Web + Fallback
+2025-07-17 06:33:14,921 - WARNING: 5 out of the last 11 calls to <function TensorFlowTrainer.make_predict_function.<locals>.one_step_on_data_distributed at 0x0000028CD1573640> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has reduce_retracing=True option that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/guide/function#controlling_retracing and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+2025-07-17 06:33:15,300 - WARNING: 5 out of the last 11 calls to <function TensorFlowTrainer.make_predict_function.<locals>.one_step_on_data_distributed at 0x0000028CD1573640> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has reduce_retracing=True option that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/guide/function#controlling_retracing and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+2025-07-17 06:33:36,503 - INFO: Fetched 122 unique articles from RSS + Web + Fallback
+2025-07-17 06:34:04,908 - INFO: Fetched 122 unique articles from RSS + Web + Fallback
+2025-07-17 06:36:50,697 - INFO: Fetched 122 unique articles from RSS + Web + Fallback
+2025-07-17 06:37:18,657 - INFO: Fetched 122 unique articles from RSS + Web + Fallback
+2025-07-17 06:39:04,293 - INFO: Fetched 122 unique articles from RSS + Web + Fallback
+2025-07-17 06:39:36,761 - INFO: Fetched 122 unique articles from RSS + Web + Fallback
+2025-07-17 06:39:59,304 - INFO: Fetched 122 unique articles from RSS + Web + Fallback
+2025-07-17 06:42:20,937 - ERROR: HTTP Error 404: 
+2025-07-17 06:42:21,023 - ERROR: 
+1 Failed download:
+2025-07-17 06:42:21,025 - ERROR: ['BAJAJAUTO.NS']: YFTzMissingError('possibly delisted; no timezone found')
+2025-07-17 06:42:21,050 - WARNING: No meaningful data for BAJAJAUTO.NS
+2025-07-17 06:42:37,742 - INFO: Saved consolidated analysis results to C:\Users\PC\OneDrive\projects\strongtrendz.com-\output\sector_analysis_contrarian_20250717_064237.json

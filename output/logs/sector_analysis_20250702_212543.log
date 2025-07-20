@@ -1,0 +1,4 @@
+2025-07-02 21:25:43,068 - INFO: Starting sector-based stock analysis - 2025-07-02
+2025-07-02 21:25:43,068 - INFO: Sentiment enhancement: ENABLED
+2025-07-02 21:25:53,783 - WARNING: From C:\Users\PC\OneDrive\projects\venv\lib\site-packages\tf_keras\src\losses.py:2976: The name tf.losses.sparse_softmax_cross_entropy is deprecated. Please use tf.compat.v1.losses.sparse_softmax_cross_entropy instead.
+

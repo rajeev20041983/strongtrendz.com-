@@ -1,0 +1,14 @@
+2025-07-09 17:19:18,918 - INFO: Starting sector-based stock analysis - 2025-07-09
+2025-07-09 17:19:18,918 - INFO: Sentiment enhancement: ENABLED
+2025-07-09 17:19:50,128 - INFO: Fetched 120 unique articles from RSS + Web
+2025-07-09 17:20:26,195 - WARNING: 5 out of the last 11 calls to <function TensorFlowTrainer.make_predict_function.<locals>.one_step_on_data_distributed at 0x00000228A3F54A60> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has reduce_retracing=True option that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/guide/function#controlling_retracing and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+2025-07-09 17:20:26,602 - WARNING: 5 out of the last 11 calls to <function TensorFlowTrainer.make_predict_function.<locals>.one_step_on_data_distributed at 0x00000228A3F54A60> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has reduce_retracing=True option that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/guide/function#controlling_retracing and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+2025-07-09 17:23:50,537 - ERROR: 
+1 Failed download:
+2025-07-09 17:23:50,537 - ERROR: ['ADANIENT']: YFTzMissingError('possibly delisted; no timezone found')
+2025-07-09 17:23:50,544 - WARNING: No meaningful data for ADANIENT.NS
+2025-07-09 17:23:53,078 - ERROR: HTTP Error 404: 
+2025-07-09 17:23:53,161 - ERROR: 
+1 Failed download:
+2025-07-09 17:23:53,161 - ERROR: ['BATAINDIA']: YFTzMissingError('possibly delisted; no timezone found')
+2025-07-09 17:23:53,166 - WARNING: No meaningful data for BATAINDIA.NS

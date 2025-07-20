@@ -1,0 +1,698 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Comprehensive Donchian Analysis - 2025-07-17</title>
+        <style>
+            body {
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                margin: 0;
+                padding: 20px;
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                min-height: 100vh;
+            }
+            .container {
+                max-width: 1400px;
+                margin: 0 auto;
+                background: white;
+                padding: 30px;
+                border-radius: 15px;
+                box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            }
+            .header {
+                text-align: center;
+                background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+                color: white;
+                padding: 40px;
+                border-radius: 15px;
+                margin-bottom: 30px;
+            }
+            .header h1 {
+                margin: 0;
+                font-size: 2.8em;
+                margin-bottom: 10px;
+            }
+            .header p {
+                margin: 5px 0;
+                font-size: 1.1em;
+            }
+            .stats-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                gap: 20px;
+                margin: 30px 0;
+            }
+            .stat-card {
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                color: white;
+                padding: 20px;
+                border-radius: 10px;
+                text-align: center;
+            }
+            .stat-card h3 {
+                margin: 0 0 10px 0;
+                font-size: 2em;
+            }
+            .section {
+                margin: 40px 0;
+            }
+            .section h2 {
+                color: #333;
+                border-bottom: 3px solid #667eea;
+                padding-bottom: 10px;
+                margin-bottom: 20px;
+            }
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                margin: 20px 0;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+                border-radius: 10px;
+                overflow: hidden;
+            }
+            th, td {
+                padding: 12px;
+                text-align: left;
+                border-bottom: 1px solid #ddd;
+            }
+            th {
+                background: #f8f9fa;
+                font-weight: bold;
+                position: sticky;
+                top: 0;
+            }
+            tr:nth-child(even) {
+                background-color: #f9f9f9;
+            }
+            tr:hover {
+                background-color: #f0f0f0;
+            }
+            .rank {
+                font-weight: bold;
+                color: #007bff;
+                text-align: center;
+            }
+            .ticker {
+                font-weight: bold;
+                color: #28a745;
+            }
+            .strong-buy {
+                background: linear-gradient(90deg, #28a745, #20c997);
+                color: white;
+                padding: 5px 10px;
+                border-radius: 15px;
+                font-weight: bold;
+                text-align: center;
+            }
+            .weak-buy {
+                background: linear-gradient(90deg, #ffc107, #fd7e14);
+                color: white;
+                padding: 5px 10px;
+                border-radius: 15px;
+                font-weight: bold;
+                text-align: center;
+            }
+            .strong-sell {
+                background: linear-gradient(90deg, #dc3545, #e74c3c);
+                color: white;
+                padding: 5px 10px;
+                border-radius: 15px;
+                font-weight: bold;
+                text-align: center;
+            }
+            .weak-sell {
+                background: linear-gradient(90deg, #6c757d, #495057);
+                color: white;
+                padding: 5px 10px;
+                border-radius: 15px;
+                font-weight: bold;
+                text-align: center;
+            }
+            .hold {
+                background: linear-gradient(90deg, #6c757d, #adb5bd);
+                color: white;
+                padding: 5px 10px;
+                border-radius: 15px;
+                font-weight: bold;
+                text-align: center;
+            }
+            .price {
+                font-weight: bold;
+                color: #333;
+            }
+            .positive {
+                color: #28a745;
+                font-weight: bold;
+            }
+            .negative {
+                color: #dc3545;
+                font-weight: bold;
+            }
+            .footer {
+                text-align: center;
+                margin-top: 40px;
+                padding: 20px;
+                background: #f8f9fa;
+                border-radius: 10px;
+                border-left: 5px solid #667eea;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="header">
+                <h1>📊 COMPREHENSIVE DONCHIAN ANALYSIS</h1>
+                <p><strong>Trading Days Strategy Report</strong></p>
+                <p>Donchian: 21 days | Volume: 20 days | Momentum: 5 days</p>
+                <p>Generated: 2025-07-17 17:41:21</p>
+            </div>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h3>96</h3>
+                    <p>BUY Signals</p>
+                </div>
+                <div class="stat-card">
+                    <h3>44</h3>
+                    <p>SELL Signals</p>
+                </div>
+                <div class="stat-card">
+                    <h3>0</h3>
+                    <p>HOLD Signals</p>
+                </div>
+                <div class="stat-card">
+                    <h3>140</h3>
+                    <p>Total Analyzed</p>
+                </div>
+            </div>
+    
+            <div class="section">
+                <h2>🟢 TOP BUY SIGNALS</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Rank</th>
+                            <th>Ticker</th>
+                            <th>Signal</th>
+                            <th>Price</th>
+                            <th>Target</th>
+                            <th>Strength</th>
+                            <th>Volume</th>
+                            <th>Momentum</th>
+                            <th>Position</th>
+                            <th>Score</th>
+                            <th>Stop Loss</th>
+                            <th>Qty</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+        
+                        <tr>
+                            <td class="rank">1</td>
+                            <td class="ticker">HDFCAMC</td>
+                            <td><span class="strong-buy">STRONG BUY</span></td>
+                            <td class="price">₹5510.00</td>
+                            <td class="price">₹5365.00</td>
+                            <td>2.70%</td>
+                            <td>4.2x</td>
+                            <td class="positive">+5.8%</td>
+                            <td>129%</td>
+                            <td>17.8</td>
+                            <td class="price">₹4866.80</td>
+                            <td>1</td>
+                        </tr>
+            
+                        <tr>
+                            <td class="rank">2</td>
+                            <td class="ticker">GLENMARK</td>
+                            <td><span class="weak-buy">WEAK BUY</span></td>
+                            <td class="price">₹2226.70</td>
+                            <td class="price">₹1954.90</td>
+                            <td>6.95%</td>
+                            <td>1.6x</td>
+                            <td class="positive">+16.9%</td>
+                            <td>91%</td>
+                            <td>15.2</td>
+                            <td class="price">₹1625.00</td>
+                            <td>1</td>
+                        </tr>
+            
+                        <tr>
+                            <td class="rank">3</td>
+                            <td class="ticker">BALKRISIND</td>
+                            <td><span class="strong-buy">STRONG BUY</span></td>
+                            <td class="price">₹2742.10</td>
+                            <td class="price">₹2684.70</td>
+                            <td>2.14%</td>
+                            <td>3.1x</td>
+                            <td class="positive">+4.2%</td>
+                            <td>119%</td>
+                            <td>14.5</td>
+                            <td class="price">₹2382.48</td>
+                            <td>2</td>
+                        </tr>
+            
+                        <tr>
+                            <td class="rank">4</td>
+                            <td class="ticker">SONACOMS</td>
+                            <td><span class="weak-buy">WEAK BUY</span></td>
+                            <td class="price">₹486.00</td>
+                            <td class="price">₹467.85</td>
+                            <td>1.94%</td>
+                            <td>12.9x</td>
+                            <td class="positive">+6.9%</td>
+                            <td>91%</td>
+                            <td>14.0</td>
+                            <td class="price">₹445.50</td>
+                            <td>24</td>
+                        </tr>
+            
+                        <tr>
+                            <td class="rank">5</td>
+                            <td class="ticker">VBL</td>
+                            <td><span class="strong-buy">STRONG BUY</span></td>
+                            <td class="price">₹490.15</td>
+                            <td class="price">₹481.95</td>
+                            <td>1.70%</td>
+                            <td>1.9x</td>
+                            <td class="positive">+6.6%</td>
+                            <td>123%</td>
+                            <td>12.6</td>
+                            <td class="price">₹446.15</td>
+                            <td>22</td>
+                        </tr>
+            
+                        <tr>
+                            <td class="rank">6</td>
+                            <td class="ticker">PRESTIGE</td>
+                            <td><span class="strong-buy">STRONG BUY</span></td>
+                            <td class="price">₹1783.20</td>
+                            <td class="price">₹1768.00</td>
+                            <td>0.86%</td>
+                            <td>2.4x</td>
+                            <td class="positive">+5.1%</td>
+                            <td>108%</td>
+                            <td>12.1</td>
+                            <td class="price">₹1582.00</td>
+                            <td>4</td>
+                        </tr>
+            
+                        <tr>
+                            <td class="rank">7</td>
+                            <td class="ticker">PEL</td>
+                            <td><span class="weak-buy">WEAK BUY</span></td>
+                            <td class="price">₹1339.30</td>
+                            <td class="price">₹1222.75</td>
+                            <td>4.77%</td>
+                            <td>1.2x</td>
+                            <td class="positive">+15.2%</td>
+                            <td>95%</td>
+                            <td>11.7</td>
+                            <td class="price">₹1094.50</td>
+                            <td>4</td>
+                        </tr>
+            
+                        <tr>
+                            <td class="rank">8</td>
+                            <td class="ticker">NAZARA</td>
+                            <td><span class="strong-buy">STRONG BUY</span></td>
+                            <td class="price">₹1424.10</td>
+                            <td class="price">₹1410.00</td>
+                            <td>1.00%</td>
+                            <td>1.6x</td>
+                            <td class="positive">+6.4%</td>
+                            <td>109%</td>
+                            <td>11.1</td>
+                            <td class="price">₹1261.20</td>
+                            <td>6</td>
+                        </tr>
+            
+                        <tr>
+                            <td class="rank">9</td>
+                            <td class="ticker">RBLBANK</td>
+                            <td><span class="weak-buy">WEAK BUY</span></td>
+                            <td class="price">₹268.36</td>
+                            <td class="price">₹243.72</td>
+                            <td>5.05%</td>
+                            <td>1.8x</td>
+                            <td class="positive">+5.4%</td>
+                            <td>96%</td>
+                            <td>10.3</td>
+                            <td class="price">₹216.79</td>
+                            <td>19</td>
+                        </tr>
+            
+                        <tr>
+                            <td class="rank">10</td>
+                            <td class="ticker">LTTS</td>
+                            <td><span class="weak-buy">WEAK BUY</span></td>
+                            <td class="price">₹4411.60</td>
+                            <td class="price">₹4359.50</td>
+                            <td>0.60%</td>
+                            <td>4.6x</td>
+                            <td class="positive">+1.4%</td>
+                            <td>74%</td>
+                            <td>10.3</td>
+                            <td class="price">₹4250.00</td>
+                            <td>6</td>
+                        </tr>
+            
+                        <tr>
+                            <td class="rank">11</td>
+                            <td class="ticker">TORNTPHARM</td>
+                            <td><span class="strong-buy">STRONG BUY</span></td>
+                            <td class="price">₹3504.60</td>
+                            <td class="price">₹3488.90</td>
+                            <td>0.45%</td>
+                            <td>1.2x</td>
+                            <td class="positive">+4.9%</td>
+                            <td>105%</td>
+                            <td>9.3</td>
+                            <td class="price">₹3140.10</td>
+                            <td>2</td>
+                        </tr>
+            
+                        <tr>
+                            <td class="rank">12</td>
+                            <td class="ticker">ADANIGREEN</td>
+                            <td><span class="strong-buy">STRONG BUY</span></td>
+                            <td class="price">₹1050.10</td>
+                            <td class="price">₹1049.50</td>
+                            <td>0.06%</td>
+                            <td>1.0x</td>
+                            <td class="positive">+5.5%</td>
+                            <td>100%</td>
+                            <td>8.7</td>
+                            <td class="price">₹929.00</td>
+                            <td>8</td>
+                        </tr>
+            
+                        <tr>
+                            <td class="rank">13</td>
+                            <td class="ticker">BOSCHLTD</td>
+                            <td><span class="weak-buy">WEAK BUY</span></td>
+                            <td class="price">₹38645.00</td>
+                            <td class="price">₹35142.50</td>
+                            <td>4.98%</td>
+                            <td>0.7x</td>
+                            <td class="positive">+6.8%</td>
+                            <td>97%</td>
+                            <td>8.5</td>
+                            <td class="price">₹31435.00</td>
+                            <td>0</td>
+                        </tr>
+            
+                        <tr>
+                            <td class="rank">14</td>
+                            <td class="ticker">GRANULES</td>
+                            <td><span class="weak-buy">WEAK BUY</span></td>
+                            <td class="price">₹502.45</td>
+                            <td class="price">₹485.38</td>
+                            <td>1.76%</td>
+                            <td>2.3x</td>
+                            <td class="positive">+6.0%</td>
+                            <td>95%</td>
+                            <td>8.2</td>
+                            <td class="price">₹466.40</td>
+                            <td>27</td>
+                        </tr>
+            
+                        <tr>
+                            <td class="rank">15</td>
+                            <td class="ticker">LAURUSLABS</td>
+                            <td><span class="weak-buy">WEAK BUY</span></td>
+                            <td class="price">₹821.50</td>
+                            <td class="price">₹737.70</td>
+                            <td>5.68%</td>
+                            <td>0.6x</td>
+                            <td class="positive">+3.5%</td>
+                            <td>93%</td>
+                            <td>8.0</td>
+                            <td class="price">₹641.05</td>
+                            <td>5</td>
+                        </tr>
+            
+                    </tbody>
+                </table>
+            </div>
+        
+            <div class="section">
+                <h2>🔴 TOP SELL SIGNALS</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Rank</th>
+                            <th>Ticker</th>
+                            <th>Signal</th>
+                            <th>Price</th>
+                            <th>Target</th>
+                            <th>Strength</th>
+                            <th>Volume</th>
+                            <th>Momentum</th>
+                            <th>Position</th>
+                            <th>Score</th>
+                            <th>Stop Loss</th>
+                            <th>Qty</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+        
+                        <tr>
+                            <td class="rank">1</td>
+                            <td class="ticker">TECHM</td>
+                            <td><span class="weak-sell">WEAK SELL</span></td>
+                            <td class="price">₹1563.70</td>
+                            <td class="price">₹1627.35</td>
+                            <td>1.96%</td>
+                            <td>3.6x</td>
+                            <td class="negative">-2.3%</td>
+                            <td>7%</td>
+                            <td>8.4</td>
+                            <td class="price">₹1701.71</td>
+                            <td>7</td>
+                        </tr>
+            
+                        <tr>
+                            <td class="rank">2</td>
+                            <td class="ticker">HCLTECH</td>
+                            <td><span class="strong-sell">STRONG SELL</span></td>
+                            <td class="price">₹1543.90</td>
+                            <td class="price">₹1550.00</td>
+                            <td>0.39%</td>
+                            <td>1.5x</td>
+                            <td class="negative">-7.2%</td>
+                            <td>-3%</td>
+                            <td>6.3</td>
+                            <td class="price">₹1752.50</td>
+                            <td>4</td>
+                        </tr>
+            
+                        <tr>
+                            <td class="rank">3</td>
+                            <td class="ticker">PERSISTENT</td>
+                            <td><span class="strong-sell">STRONG SELL</span></td>
+                            <td class="price">₹5494.50</td>
+                            <td class="price">₹5500.00</td>
+                            <td>0.10%</td>
+                            <td>1.0x</td>
+                            <td class="negative">-3.0%</td>
+                            <td>-1%</td>
+                            <td>6.2</td>
+                            <td class="price">₹6163.38</td>
+                            <td>1</td>
+                        </tr>
+            
+                        <tr>
+                            <td class="rank">4</td>
+                            <td class="ticker">GODREJPROP</td>
+                            <td><span class="weak-sell">WEAK SELL</span></td>
+                            <td class="price">₹2337.00</td>
+                            <td class="price">₹2343.45</td>
+                            <td>0.14%</td>
+                            <td>2.0x</td>
+                            <td class="positive">+3.6%</td>
+                            <td>48%</td>
+                            <td>5.3</td>
+                            <td class="price">₹2494.00</td>
+                            <td>6</td>
+                        </tr>
+            
+                        <tr>
+                            <td class="rank">5</td>
+                            <td class="ticker">LTIM</td>
+                            <td><span class="weak-sell">WEAK SELL</span></td>
+                            <td class="price">₹5194.50</td>
+                            <td class="price">₹5322.50</td>
+                            <td>1.20%</td>
+                            <td>2.2x</td>
+                            <td class="negative">-2.4%</td>
+                            <td>21%</td>
+                            <td>4.8</td>
+                            <td class="price">₹5543.50</td>
+                            <td>2</td>
+                        </tr>
+            
+                        <tr>
+                            <td class="rank">6</td>
+                            <td class="ticker">HAVELLS</td>
+                            <td><span class="weak-sell">WEAK SELL</span></td>
+                            <td class="price">₹1532.60</td>
+                            <td class="price">₹1554.95</td>
+                            <td>0.72%</td>
+                            <td>1.5x</td>
+                            <td class="positive">+0.2%</td>
+                            <td>25%</td>
+                            <td>3.8</td>
+                            <td class="price">₹1599.00</td>
+                            <td>15</td>
+                        </tr>
+            
+                        <tr>
+                            <td class="rank">7</td>
+                            <td class="ticker">HDFCLIFE</td>
+                            <td><span class="weak-sell">WEAK SELL</span></td>
+                            <td class="price">₹751.80</td>
+                            <td class="price">₹786.19</td>
+                            <td>2.19%</td>
+                            <td>1.1x</td>
+                            <td class="negative">-2.5%</td>
+                            <td>0%</td>
+                            <td>3.7</td>
+                            <td class="price">₹820.75</td>
+                            <td>14</td>
+                        </tr>
+            
+                        <tr>
+                            <td class="rank">8</td>
+                            <td class="ticker">AXISBANK</td>
+                            <td><span class="weak-sell">WEAK SELL</span></td>
+                            <td class="price">₹1159.80</td>
+                            <td class="price">₹1201.52</td>
+                            <td>1.74%</td>
+                            <td>1.0x</td>
+                            <td class="negative">-0.4%</td>
+                            <td>3%</td>
+                            <td>3.6</td>
+                            <td class="price">₹1245.94</td>
+                            <td>11</td>
+                        </tr>
+            
+                        <tr>
+                            <td class="rank">9</td>
+                            <td class="ticker">ICICIPRULI</td>
+                            <td><span class="weak-sell">WEAK SELL</span></td>
+                            <td class="price">₹642.90</td>
+                            <td class="price">₹657.30</td>
+                            <td>1.10%</td>
+                            <td>1.9x</td>
+                            <td class="negative">-4.5%</td>
+                            <td>30%</td>
+                            <td>3.5</td>
+                            <td class="price">₹693.50</td>
+                            <td>19</td>
+                        </tr>
+            
+                        <tr>
+                            <td class="rank">10</td>
+                            <td class="ticker">ICICIBANK</td>
+                            <td><span class="weak-sell">WEAK SELL</span></td>
+                            <td class="price">₹1418.70</td>
+                            <td class="price">₹1435.35</td>
+                            <td>0.58%</td>
+                            <td>1.5x</td>
+                            <td class="negative">-0.4%</td>
+                            <td>23%</td>
+                            <td>3.4</td>
+                            <td class="price">₹1466.00</td>
+                            <td>21</td>
+                        </tr>
+            
+                        <tr>
+                            <td class="rank">11</td>
+                            <td class="ticker">UNIONBANK</td>
+                            <td><span class="weak-sell">WEAK SELL</span></td>
+                            <td class="price">₹146.31</td>
+                            <td class="price">₹147.11</td>
+                            <td>0.27%</td>
+                            <td>1.3x</td>
+                            <td class="positive">+1.7%</td>
+                            <td>45%</td>
+                            <td>3.3</td>
+                            <td class="price">₹155.90</td>
+                            <td>104</td>
+                        </tr>
+            
+                        <tr>
+                            <td class="rank">12</td>
+                            <td class="ticker">TCS</td>
+                            <td><span class="weak-sell">WEAK SELL</span></td>
+                            <td class="price">₹3209.20</td>
+                            <td class="price">₹3357.61</td>
+                            <td>2.21%</td>
+                            <td>1.1x</td>
+                            <td class="negative">-4.8%</td>
+                            <td>6%</td>
+                            <td>2.9</td>
+                            <td class="price">₹3526.03</td>
+                            <td>3</td>
+                        </tr>
+            
+                        <tr>
+                            <td class="rank">13</td>
+                            <td class="ticker">BHARATFORG</td>
+                            <td><span class="weak-sell">WEAK SELL</span></td>
+                            <td class="price">₹1224.80</td>
+                            <td class="price">₹1264.96</td>
+                            <td>1.59%</td>
+                            <td>0.7x</td>
+                            <td class="negative">-0.8%</td>
+                            <td>19%</td>
+                            <td>2.8</td>
+                            <td class="price">₹1329.93</td>
+                            <td>9</td>
+                        </tr>
+            
+                        <tr>
+                            <td class="rank">14</td>
+                            <td class="ticker">SUNTV</td>
+                            <td><span class="weak-sell">WEAK SELL</span></td>
+                            <td class="price">₹576.45</td>
+                            <td class="price">₹594.67</td>
+                            <td>1.53%</td>
+                            <td>0.4x</td>
+                            <td class="positive">+1.7%</td>
+                            <td>22%</td>
+                            <td>2.8</td>
+                            <td class="price">₹627.75</td>
+                            <td>19</td>
+                        </tr>
+            
+                        <tr>
+                            <td class="rank">15</td>
+                            <td class="ticker">OBEROIRLTY</td>
+                            <td><span class="weak-sell">WEAK SELL</span></td>
+                            <td class="price">₹1838.70</td>
+                            <td class="price">₹1900.80</td>
+                            <td>1.63%</td>
+                            <td>0.6x</td>
+                            <td class="negative">-0.2%</td>
+                            <td>20%</td>
+                            <td>2.8</td>
+                            <td class="price">₹2005.00</td>
+                            <td>6</td>
+                        </tr>
+            
+                    </tbody>
+                </table>
+            </div>
+        
+            <div class="footer">
+                <p><strong>⚠️ Disclaimer:</strong> This analysis is for educational purposes only. Past performance does not guarantee future results. Always consult with financial advisors before making investment decisions.</p>
+                <p><strong>📊 Strategy:</strong> Donchian Channel breakout system with volume confirmation and momentum analysis using proper trading days calculation.</p>
+            </div>
+        </div>
+    </body>
+    </html>
+    

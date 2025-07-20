@@ -1,0 +1,20 @@
+2025-07-17 06:49:26,650 - INFO: Starting sector-based stock analysis with CONTRARIAN logic - 2025-07-17
+2025-07-17 06:49:26,650 - INFO: ARIMA Error Threshold: 25.0%
+2025-07-17 06:49:26,650 - INFO: Sentiment enhancement: ENABLED with CONTRARIAN logic
+2025-07-17 06:49:53,416 - INFO: Fetched 122 unique articles from RSS + Web + Fallback
+2025-07-17 06:50:16,447 - INFO: Fetched 122 unique articles from RSS + Web + Fallback
+2025-07-17 06:50:39,001 - WARNING: 5 out of the last 11 calls to <function TensorFlowTrainer.make_predict_function.<locals>.one_step_on_data_distributed at 0x000001D1A7C829E0> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has reduce_retracing=True option that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/guide/function#controlling_retracing and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+2025-07-17 06:50:39,465 - WARNING: 5 out of the last 11 calls to <function TensorFlowTrainer.make_predict_function.<locals>.one_step_on_data_distributed at 0x000001D1A7C829E0> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has reduce_retracing=True option that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/guide/function#controlling_retracing and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+2025-07-17 06:50:44,123 - INFO: Fetched 122 unique articles from RSS + Web + Fallback
+2025-07-17 06:51:07,998 - INFO: Fetched 122 unique articles from RSS + Web + Fallback
+2025-07-17 06:51:36,147 - INFO: Fetched 122 unique articles from RSS + Web + Fallback
+2025-07-17 06:52:01,415 - INFO: Fetched 122 unique articles from RSS + Web + Fallback
+2025-07-17 06:52:25,168 - INFO: Fetched 122 unique articles from RSS + Web + Fallback
+2025-07-17 06:52:46,528 - INFO: Fetched 122 unique articles from RSS + Web + Fallback
+2025-07-17 06:53:11,482 - INFO: Fetched 122 unique articles from RSS + Web + Fallback
+2025-07-17 06:53:39,872 - INFO: Fetched 122 unique articles from RSS + Web + Fallback
+2025-07-17 06:54:10,496 - INFO: Fetched 122 unique articles from RSS + Web + Fallback
+2025-07-17 06:54:26,421 - ERROR: 
+1 Failed download:
+2025-07-17 06:54:26,421 - ERROR: ['HINDCOPPER']: YFTzMissingError('possibly delisted; no timezone found')
+2025-07-17 06:54:26,446 - WARNING: No meaningful data for HINDCOPPER.NS

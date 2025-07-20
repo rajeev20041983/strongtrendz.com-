@@ -1,0 +1,15 @@
+2025-07-06 22:29:55,578 - INFO: Starting sector-based stock analysis - 2025-07-06
+2025-07-06 22:29:55,578 - INFO: Sentiment enhancement: ENABLED
+2025-07-06 22:29:55,778 - INFO: Dynamic Sector Sentiment Analyzer initialized
+2025-07-06 22:29:55,779 - INFO: Learning enabled: True
+2025-07-06 22:29:55,779 - INFO: Sector mappings: 176 stocks
+2025-07-06 22:29:55,779 - INFO: Learned sector patterns: 0 sectors
+2025-07-06 22:30:15,240 - ERROR: Error analyzing NATIONALUM.NS: 'original_recommendation'
+2025-07-06 22:30:33,958 - ERROR: Error analyzing SAIL.NS: 'original_recommendation'
+2025-07-06 22:30:54,431 - WARNING: 5 out of the last 11 calls to <function TensorFlowTrainer.make_predict_function.<locals>.one_step_on_data_distributed at 0x0000021516C65D80> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has reduce_retracing=True option that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/guide/function#controlling_retracing and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+2025-07-06 22:30:54,844 - WARNING: 5 out of the last 11 calls to <function TensorFlowTrainer.make_predict_function.<locals>.one_step_on_data_distributed at 0x0000021516C65D80> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has reduce_retracing=True option that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/guide/function#controlling_retracing and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+2025-07-06 22:30:55,210 - ERROR: Error analyzing HINDALCO.NS: 'original_recommendation'
+2025-07-06 22:31:13,380 - ERROR: Error analyzing TATASTEEL.NS: 'original_recommendation'
+2025-07-06 22:31:35,715 - ERROR: Error analyzing JSL.NS: 'original_recommendation'
+2025-07-06 22:31:57,419 - ERROR: Error analyzing VEDL.NS: 'original_recommendation'
+2025-07-06 22:32:17,075 - ERROR: Error analyzing NMDC.NS: 'original_recommendation'

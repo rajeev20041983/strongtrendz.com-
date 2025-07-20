@@ -1,0 +1,26 @@
+2025-07-09 23:11:55,102 - INFO: Starting sector-based stock analysis with CONTRARIAN logic - 2025-07-09
+2025-07-09 23:11:55,102 - INFO: ARIMA Error Threshold: 30.0%
+2025-07-09 23:11:55,102 - INFO: Sentiment enhancement: ENABLED with CONTRARIAN logic
+2025-07-09 23:12:04,778 - ERROR: HTTP Error 404: 
+2025-07-09 23:12:05,185 - ERROR: HTTP Error 404: 
+2025-07-09 23:12:16,829 - ERROR: HTTP Error 404: 
+2025-07-09 23:12:35,272 - ERROR: HTTP Error 404: 
+2025-07-09 23:12:36,149 - ERROR: HTTP Error 404: 
+2025-07-09 23:13:03,914 - INFO: Fetched 76 unique articles from RSS + Web
+2025-07-09 23:13:42,594 - WARNING: 5 out of the last 11 calls to <function TensorFlowTrainer.make_predict_function.<locals>.one_step_on_data_distributed at 0x000001D67F41EE60> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has reduce_retracing=True option that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/guide/function#controlling_retracing and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+2025-07-09 23:13:42,974 - WARNING: 5 out of the last 11 calls to <function TensorFlowTrainer.make_predict_function.<locals>.one_step_on_data_distributed at 0x000001D67F41EE60> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has reduce_retracing=True option that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/guide/function#controlling_retracing and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+2025-07-09 23:16:11,112 - INFO: Saved agreement report to C:\Users\PC\OneDrive\projects\strongtrendz.com-\output\arima_lstm_agreement_20250709_231611.csv
+2025-07-09 23:16:11,121 - INFO: Saved top picks to C:\Users\PC\OneDrive\projects\strongtrendz.com-\output\top_picks_20250709_231611.csv
+2025-07-09 23:16:11,127 - INFO: Saved sector performance to C:\Users\PC\OneDrive\projects\strongtrendz.com-\output\sector_performance_20250709_231611.csv
+2025-07-09 23:16:11,153 - INFO: Saved consolidated analysis results to C:\Users\PC\OneDrive\projects\strongtrendz.com-\output\sector_analysis_contrarian_20250709_231611.json
+2025-07-09 23:16:11,226 - INFO: 
+--- Analysis Summary ---
+2025-07-09 23:16:11,227 - INFO: Total Stocks Analyzed: 10
+2025-07-09 23:16:11,227 - INFO: Successfully Analyzed: 10
+2025-07-09 23:16:11,227 - INFO: Failed Analyses: 0
+2025-07-09 23:16:11,227 - INFO: Stocks with ARIMA-LSTM agreement: 7 (70.0%)
+2025-07-09 23:16:11,227 - INFO: Top BUY recommendations: 6
+2025-07-09 23:16:11,227 - INFO: Top SELL recommendations: 1
+2025-07-09 23:16:11,228 - INFO: 
+Sector Performance:
+2025-07-09 23:16:11,228 - INFO: NIFTY_METAL: 1.58% (UP)

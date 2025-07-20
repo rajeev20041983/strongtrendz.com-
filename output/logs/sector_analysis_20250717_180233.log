@@ -1,0 +1,157 @@
+2025-07-17 18:02:33,749 - INFO: Starting sector-based stock analysis with CONTRARIAN logic + SHARING - 2025-07-17
+2025-07-17 18:03:04,716 - INFO: Fetched 131 unique articles from RSS + Web + Fallback
+2025-07-17 18:03:27,756 - INFO: Fetched 131 unique articles from RSS + Web + Fallback
+2025-07-17 18:03:49,039 - WARNING: 5 out of the last 11 calls to <function TensorFlowTrainer.make_predict_function.<locals>.one_step_on_data_distributed at 0x00000202C398BA30> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has reduce_retracing=True option that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/guide/function#controlling_retracing and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+2025-07-17 18:03:49,434 - WARNING: 5 out of the last 11 calls to <function TensorFlowTrainer.make_predict_function.<locals>.one_step_on_data_distributed at 0x00000202C398BA30> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has reduce_retracing=True option that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/guide/function#controlling_retracing and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+2025-07-17 18:03:54,429 - INFO: Fetched 131 unique articles from RSS + Web + Fallback
+2025-07-17 18:04:18,044 - INFO: Fetched 131 unique articles from RSS + Web + Fallback
+2025-07-17 18:04:49,282 - INFO: Fetched 131 unique articles from RSS + Web + Fallback
+2025-07-17 18:05:16,804 - INFO: Fetched 131 unique articles from RSS + Web + Fallback
+2025-07-17 18:05:41,676 - INFO: Fetched 131 unique articles from RSS + Web + Fallback
+2025-07-17 18:06:04,191 - INFO: Fetched 131 unique articles from RSS + Web + Fallback
+2025-07-17 18:06:29,689 - INFO: Fetched 131 unique articles from RSS + Web + Fallback
+2025-07-17 18:06:59,564 - INFO: Fetched 131 unique articles from RSS + Web + Fallback
+2025-07-17 18:07:30,817 - INFO: Fetched 131 unique articles from RSS + Web + Fallback
+2025-07-17 18:07:57,241 - INFO: Fetched 131 unique articles from RSS + Web + Fallback
+2025-07-17 18:08:29,844 - INFO: Fetched 131 unique articles from RSS + Web + Fallback
+2025-07-17 18:09:02,509 - INFO: Fetched 131 unique articles from RSS + Web + Fallback
+2025-07-17 18:09:33,691 - INFO: Fetched 131 unique articles from RSS + Web + Fallback
+2025-07-17 18:10:00,056 - INFO: Fetched 131 unique articles from RSS + Web + Fallback
+2025-07-17 18:10:26,346 - INFO: Fetched 131 unique articles from RSS + Web + Fallback
+2025-07-17 18:10:58,492 - INFO: Fetched 131 unique articles from RSS + Web + Fallback
+2025-07-17 18:11:20,945 - INFO: Fetched 131 unique articles from RSS + Web + Fallback
+2025-07-17 18:11:56,930 - INFO: Fetched 131 unique articles from RSS + Web + Fallback
+2025-07-17 18:12:19,922 - INFO: Fetched 131 unique articles from RSS + Web + Fallback
+2025-07-17 18:12:46,347 - INFO: Fetched 131 unique articles from RSS + Web + Fallback
+2025-07-17 18:13:16,698 - INFO: Fetched 131 unique articles from RSS + Web + Fallback
+2025-07-17 18:13:50,528 - INFO: Fetched 131 unique articles from RSS + Web + Fallback
+2025-07-17 18:14:20,376 - INFO: Fetched 131 unique articles from RSS + Web + Fallback
+2025-07-17 18:14:43,267 - INFO: Fetched 131 unique articles from RSS + Web + Fallback
+2025-07-17 18:15:14,980 - INFO: Fetched 131 unique articles from RSS + Web + Fallback
+2025-07-17 18:15:37,611 - INFO: Fetched 131 unique articles from RSS + Web + Fallback
+2025-07-17 18:15:39,350 - ERROR: HTTP Error 404: 
+2025-07-17 18:15:39,462 - ERROR: 
+1 Failed download:
+2025-07-17 18:15:39,462 - ERROR: ['BAJAJAUTO.NS']: YFTzMissingError('possibly delisted; no timezone found')
+2025-07-17 18:15:39,494 - WARNING: No meaningful data for BAJAJAUTO.NS
+2025-07-17 18:16:01,950 - INFO: Fetched 131 unique articles from RSS + Web + Fallback
+2025-07-17 18:16:26,923 - INFO: Fetched 130 unique articles from RSS + Web + Fallback
+2025-07-17 18:17:01,409 - INFO: Fetched 130 unique articles from RSS + Web + Fallback
+2025-07-17 18:17:33,301 - INFO: Fetched 130 unique articles from RSS + Web + Fallback
+2025-07-17 18:18:02,447 - INFO: Fetched 130 unique articles from RSS + Web + Fallback
+2025-07-17 18:18:36,181 - INFO: Fetched 130 unique articles from RSS + Web + Fallback
+2025-07-17 18:19:07,894 - INFO: Fetched 130 unique articles from RSS + Web + Fallback
+2025-07-17 18:19:41,549 - INFO: Fetched 130 unique articles from RSS + Web + Fallback
+2025-07-17 18:20:16,011 - INFO: Fetched 130 unique articles from RSS + Web + Fallback
+2025-07-17 18:20:39,010 - INFO: Fetched 130 unique articles from RSS + Web + Fallback
+2025-07-17 18:21:01,676 - INFO: Fetched 130 unique articles from RSS + Web + Fallback
+2025-07-17 18:21:32,581 - INFO: Fetched 130 unique articles from RSS + Web + Fallback
+2025-07-17 18:22:02,541 - INFO: Fetched 130 unique articles from RSS + Web + Fallback
+2025-07-17 18:22:33,755 - INFO: Fetched 130 unique articles from RSS + Web + Fallback
+2025-07-17 18:23:06,250 - INFO: Fetched 130 unique articles from RSS + Web + Fallback
+2025-07-17 18:23:36,191 - INFO: Fetched 130 unique articles from RSS + Web + Fallback
+2025-07-17 18:24:07,035 - INFO: Fetched 130 unique articles from RSS + Web + Fallback
+2025-07-17 18:24:36,512 - INFO: Fetched 130 unique articles from RSS + Web + Fallback
+2025-07-17 18:25:03,207 - INFO: Fetched 130 unique articles from RSS + Web + Fallback
+2025-07-17 18:25:33,648 - INFO: Fetched 130 unique articles from RSS + Web + Fallback
+2025-07-17 18:26:04,484 - INFO: Fetched 130 unique articles from RSS + Web + Fallback
+2025-07-17 18:26:33,456 - INFO: Fetched 130 unique articles from RSS + Web + Fallback
+2025-07-17 18:27:02,983 - INFO: Fetched 130 unique articles from RSS + Web + Fallback
+2025-07-17 18:27:33,910 - INFO: Fetched 130 unique articles from RSS + Web + Fallback
+2025-07-17 18:28:05,775 - INFO: Fetched 130 unique articles from RSS + Web + Fallback
+2025-07-17 18:28:34,245 - INFO: Fetched 130 unique articles from RSS + Web + Fallback
+2025-07-17 18:29:05,024 - INFO: Fetched 130 unique articles from RSS + Web + Fallback
+2025-07-17 18:29:35,451 - INFO: Fetched 130 unique articles from RSS + Web + Fallback
+2025-07-17 18:30:06,272 - INFO: Fetched 130 unique articles from RSS + Web + Fallback
+2025-07-17 18:30:28,756 - INFO: Fetched 131 unique articles from RSS + Web + Fallback
+2025-07-17 18:30:56,510 - INFO: Fetched 131 unique articles from RSS + Web + Fallback
+2025-07-17 18:31:24,436 - INFO: Fetched 131 unique articles from RSS + Web + Fallback
+2025-07-17 18:31:51,782 - INFO: Fetched 131 unique articles from RSS + Web + Fallback
+2025-07-17 18:32:19,609 - INFO: Fetched 131 unique articles from RSS + Web + Fallback
+2025-07-17 18:32:52,244 - INFO: Fetched 130 unique articles from RSS + Web + Fallback
+2025-07-17 18:33:21,823 - INFO: Fetched 130 unique articles from RSS + Web + Fallback
+2025-07-17 18:33:52,364 - INFO: Fetched 130 unique articles from RSS + Web + Fallback
+2025-07-17 18:34:22,319 - INFO: Fetched 130 unique articles from RSS + Web + Fallback
+2025-07-17 18:34:54,403 - INFO: Fetched 130 unique articles from RSS + Web + Fallback
+2025-07-17 18:35:18,247 - INFO: Fetched 130 unique articles from RSS + Web + Fallback
+2025-07-17 18:35:43,936 - INFO: Fetched 130 unique articles from RSS + Web + Fallback
+2025-07-17 18:36:07,958 - INFO: Fetched 130 unique articles from RSS + Web + Fallback
+2025-07-17 18:36:35,218 - INFO: Fetched 130 unique articles from RSS + Web + Fallback
+2025-07-17 18:37:02,139 - INFO: Fetched 130 unique articles from RSS + Web + Fallback
+2025-07-17 18:37:27,119 - INFO: Fetched 130 unique articles from RSS + Web + Fallback
+2025-07-17 18:37:55,321 - INFO: Fetched 130 unique articles from RSS + Web + Fallback
+2025-07-17 18:38:18,829 - INFO: Fetched 130 unique articles from RSS + Web + Fallback
+2025-07-17 18:38:44,578 - INFO: Fetched 130 unique articles from RSS + Web + Fallback
+2025-07-17 18:39:16,873 - INFO: Fetched 129 unique articles from RSS + Web + Fallback
+2025-07-17 18:39:43,331 - INFO: Fetched 129 unique articles from RSS + Web + Fallback
+2025-07-17 18:40:11,409 - INFO: Fetched 129 unique articles from RSS + Web + Fallback
+2025-07-17 18:40:41,038 - INFO: Fetched 129 unique articles from RSS + Web + Fallback
+2025-07-17 18:41:09,876 - INFO: Fetched 129 unique articles from RSS + Web + Fallback
+2025-07-17 18:41:37,639 - INFO: Fetched 128 unique articles from RSS + Web + Fallback
+2025-07-17 18:42:04,184 - INFO: Fetched 128 unique articles from RSS + Web + Fallback
+2025-07-17 18:42:35,793 - INFO: Fetched 128 unique articles from RSS + Web + Fallback
+2025-07-17 18:43:07,384 - INFO: Fetched 128 unique articles from RSS + Web + Fallback
+2025-07-17 18:43:36,441 - INFO: Fetched 128 unique articles from RSS + Web + Fallback
+2025-07-17 18:43:57,926 - INFO: Fetched 128 unique articles from RSS + Web + Fallback
+2025-07-17 18:44:26,628 - INFO: Fetched 128 unique articles from RSS + Web + Fallback
+2025-07-17 18:44:49,258 - INFO: Fetched 128 unique articles from RSS + Web + Fallback
+2025-07-17 18:45:13,858 - INFO: Fetched 129 unique articles from RSS + Web + Fallback
+2025-07-17 18:45:40,419 - INFO: Fetched 129 unique articles from RSS + Web + Fallback
+2025-07-17 18:46:04,005 - INFO: Fetched 129 unique articles from RSS + Web + Fallback
+2025-07-17 18:46:37,239 - INFO: Fetched 129 unique articles from RSS + Web + Fallback
+2025-07-17 18:47:11,630 - INFO: Fetched 129 unique articles from RSS + Web + Fallback
+2025-07-17 18:47:44,637 - INFO: Fetched 129 unique articles from RSS + Web + Fallback
+2025-07-17 18:48:12,716 - INFO: Fetched 129 unique articles from RSS + Web + Fallback
+2025-07-17 18:48:33,564 - INFO: Fetched 129 unique articles from RSS + Web + Fallback
+2025-07-17 18:49:02,678 - INFO: Fetched 127 unique articles from RSS + Web + Fallback
+2025-07-17 18:49:25,925 - INFO: Fetched 127 unique articles from RSS + Web + Fallback
+2025-07-17 18:49:56,197 - INFO: Fetched 127 unique articles from RSS + Web + Fallback
+2025-07-17 18:50:25,999 - INFO: Fetched 127 unique articles from RSS + Web + Fallback
+2025-07-17 18:50:53,288 - INFO: Fetched 128 unique articles from RSS + Web + Fallback
+2025-07-17 18:51:17,200 - INFO: Fetched 128 unique articles from RSS + Web + Fallback
+2025-07-17 18:51:44,712 - INFO: Fetched 128 unique articles from RSS + Web + Fallback
+2025-07-17 18:52:15,165 - INFO: Fetched 128 unique articles from RSS + Web + Fallback
+2025-07-17 18:52:37,915 - INFO: Fetched 128 unique articles from RSS + Web + Fallback
+2025-07-17 18:53:03,540 - INFO: Fetched 128 unique articles from RSS + Web + Fallback
+2025-07-17 18:53:30,393 - INFO: Fetched 128 unique articles from RSS + Web + Fallback
+2025-07-17 18:54:02,318 - INFO: Fetched 128 unique articles from RSS + Web + Fallback
+2025-07-17 18:54:29,179 - INFO: Fetched 128 unique articles from RSS + Web + Fallback
+2025-07-17 18:54:55,492 - INFO: Fetched 128 unique articles from RSS + Web + Fallback
+2025-07-17 18:55:32,444 - INFO: Fetched 128 unique articles from RSS + Web + Fallback
+2025-07-17 18:55:59,088 - INFO: Fetched 128 unique articles from RSS + Web + Fallback
+2025-07-17 18:56:22,742 - INFO: Fetched 128 unique articles from RSS + Web + Fallback
+2025-07-17 18:56:46,502 - INFO: Fetched 127 unique articles from RSS + Web + Fallback
+2025-07-17 18:57:14,222 - INFO: Fetched 127 unique articles from RSS + Web + Fallback
+2025-07-17 18:57:41,562 - INFO: Fetched 128 unique articles from RSS + Web + Fallback
+2025-07-17 18:58:08,375 - INFO: Fetched 128 unique articles from RSS + Web + Fallback
+2025-07-17 18:58:38,393 - INFO: Fetched 128 unique articles from RSS + Web + Fallback
+2025-07-17 18:59:08,870 - INFO: Fetched 128 unique articles from RSS + Web + Fallback
+2025-07-17 18:59:36,920 - INFO: Fetched 128 unique articles from RSS + Web + Fallback
+2025-07-17 19:00:06,534 - INFO: Fetched 128 unique articles from RSS + Web + Fallback
+2025-07-17 19:00:29,596 - INFO: Fetched 128 unique articles from RSS + Web + Fallback
+2025-07-17 19:01:03,399 - INFO: Fetched 128 unique articles from RSS + Web + Fallback
+2025-07-17 19:01:33,119 - INFO: Fetched 128 unique articles from RSS + Web + Fallback
+2025-07-17 19:02:00,282 - INFO: Fetched 128 unique articles from RSS + Web + Fallback
+2025-07-17 19:02:24,971 - INFO: Fetched 128 unique articles from RSS + Web + Fallback
+2025-07-17 19:02:51,097 - INFO: Fetched 128 unique articles from RSS + Web + Fallback
+2025-07-17 19:03:17,140 - INFO: Fetched 128 unique articles from RSS + Web + Fallback
+2025-07-17 19:03:47,322 - INFO: Fetched 128 unique articles from RSS + Web + Fallback
+2025-07-17 19:04:13,627 - INFO: Fetched 128 unique articles from RSS + Web + Fallback
+2025-07-17 19:04:43,156 - INFO: Fetched 128 unique articles from RSS + Web + Fallback
+2025-07-17 19:05:13,674 - INFO: Fetched 128 unique articles from RSS + Web + Fallback
+2025-07-17 19:05:42,970 - INFO: Fetched 128 unique articles from RSS + Web + Fallback
+2025-07-17 19:06:15,429 - INFO: Fetched 128 unique articles from RSS + Web + Fallback
+2025-07-17 19:06:51,061 - INFO: Fetched 128 unique articles from RSS + Web + Fallback
+2025-07-17 19:07:21,860 - INFO: Fetched 128 unique articles from RSS + Web + Fallback
+2025-07-17 19:07:53,566 - INFO: Fetched 128 unique articles from RSS + Web + Fallback
+2025-07-17 19:08:23,502 - INFO: Fetched 128 unique articles from RSS + Web + Fallback
+2025-07-17 19:08:49,670 - INFO: Fetched 128 unique articles from RSS + Web + Fallback
+2025-07-17 19:08:51,178 - INFO: Saved consolidated analysis results to C:\Users\PC\OneDrive\projects\strongtrendz.com-\output\sector_analysis_contrarian_20250717_190851.json
+2025-07-17 22:25:21,123 - INFO: 
+--- Analysis Summary ---
+2025-07-17 22:25:21,123 - INFO: Total Stocks Analyzed: 140
+2025-07-17 22:25:21,123 - INFO: Successfully Analyzed: 140
+2025-07-17 22:25:21,123 - INFO: Failed Analyses: 0
+2025-07-17 22:25:21,123 - INFO: Stocks with ARIMA-LSTM agreement: 100 (71.4%)
+2025-07-17 22:25:21,123 - INFO: Top BUY recommendations: 10
+2025-07-17 22:25:21,123 - INFO: Top SELL recommendations: 10
