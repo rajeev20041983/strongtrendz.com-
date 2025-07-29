@@ -1,6 +1,0 @@
-2025-04-15 14:03:45,784 - INFO: Starting sector-based stock analysis - 2025-04-15
-2025-04-15 14:19:00,174 - ERROR: 404 Client Error: Not Found for url: https://query2.finance.yahoo.com/v10/finance/quoteSummary/BAJAJAUTO.NS?modules=financialData%2CquoteType%2CdefaultKeyStatistics%2CassetProfile%2CsummaryDetail&corsDomain=finance.yahoo.com&formatted=false&symbol=BAJAJAUTO.NS&crumb=cStnqkhuYaS
-2025-04-15 14:19:00,190 - ERROR: 
-1 Failed download:
-2025-04-15 14:19:00,191 - ERROR: ['BAJAJAUTO.NS']: AttributeError("'NoneType' object has no attribute 'update'")
-2025-04-15 14:19:00,200 - WARNING: No meaningful data for BAJAJAUTO.NS

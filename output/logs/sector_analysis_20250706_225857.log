@@ -1,9 +1,0 @@
-2025-07-06 22:58:57,445 - INFO: Starting sector-based stock analysis - 2025-07-06
-2025-07-06 22:58:57,445 - INFO: Sentiment enhancement: ENABLED
-2025-07-06 22:58:57,599 - INFO: Loaded LM lexicon from Loughran-McDonald_MasterDictionary_1993-2024.csv
-2025-07-06 22:58:57,606 - INFO: Dynamic Sector Sentiment Analyzer initialized
-2025-07-06 22:58:57,606 - INFO: Learning enabled: True
-2025-07-06 22:58:57,607 - INFO: Sector mappings: 176 stocks
-2025-07-06 22:58:57,607 - INFO: Learned sector patterns: 0 sectors
-2025-07-06 22:59:17,118 - ERROR: Error analyzing NATIONALUM.NS: name 'headlines' is not defined
-2025-07-06 22:59:35,421 - ERROR: Error analyzing SAIL.NS: name 'headlines' is not defined

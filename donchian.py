@@ -107,33 +107,6 @@ def calculate_rsi(prices, period=14):
     except Exception as e:
         return 50  # Return neutral RSI on any error
 
-def calculate_macd(prices, fast=12, slow=26, signal=9):
-    """Calculate MACD manually"""
-    try:
-        if len(prices) < slow + signal:
-            return {'macd': 0, 'signal': 0, 'histogram': 0, 'bullish_crossover': False}
-        
-        ema_fast = prices.ewm(span=fast).mean()
-        ema_slow = prices.ewm(span=slow).mean()
-        macd_line = ema_fast - ema_slow
-        signal_line = macd_line.ewm(span=signal).mean()
-        histogram = macd_line - signal_line
-        
-        # Check for bullish crossover (MACD above signal)
-        bullish_crossover = False
-        if len(macd_line) >= 2 and len(signal_line) >= 2:
-            bullish_crossover = (macd_line.iloc[-1] > signal_line.iloc[-1] and 
-                               macd_line.iloc[-2] <= signal_line.iloc[-2])
-        
-        return {
-            'macd': macd_line.iloc[-1] if not pd.isna(macd_line.iloc[-1]) else 0,
-            'signal': signal_line.iloc[-1] if not pd.isna(signal_line.iloc[-1]) else 0,
-            'histogram': histogram.iloc[-1] if not pd.isna(histogram.iloc[-1]) else 0,
-            'bullish_crossover': bullish_crossover
-        }
-    except Exception as e:
-        return {'macd': 0, 'signal': 0, 'histogram': 0, 'bullish_crossover': False}
-
 def detect_sideways_market(data, threshold=0.05):
     """Detect if market is moving sideways (low volatility)"""
     try:
@@ -261,7 +234,7 @@ def calculate_proper_metrics(data, volume_days=20, momentum_days=5):
     return volume_ratio, momentum, len(data)
 
 def calculate_advanced_signals(data, current_price, upper_channel, middle_channel, lower_channel):
-    """Calculate advanced trading signals with RSI and MACD"""
+    """Calculate advanced trading signals with RSI"""
     
     # Channel position
     channel_range = upper_channel - lower_channel
@@ -291,11 +264,8 @@ def calculate_advanced_signals(data, current_price, upper_channel, middle_channe
     else:
         sma_trend = 0
     
-    # RSI calculation (as mentioned in document)
+    # RSI calculation
     rsi = calculate_rsi(data['Close'])
-    
-    # MACD calculation (as mentioned in document)
-    macd_data = calculate_macd(data['Close'])
     
     # Market condition analysis
     is_sideways = detect_sideways_market(data)
@@ -308,7 +278,6 @@ def calculate_advanced_signals(data, current_price, upper_channel, middle_channe
         'volatility_score': volatility_score,
         'sma_trend': sma_trend,
         'rsi': rsi,
-        'macd': macd_data,
         'is_sideways_market': is_sideways,
         'false_breakout_risk': false_breakout
     }
@@ -327,7 +296,6 @@ def analyze_stock_comprehensive(ticker, lookback_days=21, volume_days=20, moment
             'volatility_score': 0,
             'sma_trend': 0,
             'rsi': 50,
-            'macd': {'macd': 0, 'signal': 0, 'histogram': 0, 'bullish_crossover': False},
             'is_sideways_market': False,
             'false_breakout_risk': False
         }
@@ -362,7 +330,7 @@ def analyze_stock_comprehensive(ticker, lookback_days=21, volume_days=20, moment
             data, volume_days, momentum_days
         )
         
-        # Enhanced volume confirmation (as per document recommendations)
+        # Enhanced volume confirmation
         try:
             volume_analysis = enhanced_volume_confirmation(data, current_volume, volume_days)
             if debug:
@@ -375,14 +343,14 @@ def analyze_stock_comprehensive(ticker, lookback_days=21, volume_days=20, moment
         print(f"   📊 Volume: Current {current_volume:,.0f} vs {volume_days}-day avg = {volume_ratio:.1f}x ({volume_analysis['volume_strength']})")
         print(f"   🚀 Momentum: {momentum:+.1f}% ({momentum_days} trading days)")
         
-        # Calculate advanced signals with RSI/MACD (document recommendations)
+        # Calculate advanced signals with RSI
         try:
             advanced = calculate_advanced_signals(data, current_price, upper_channel, middle_channel, lower_channel)
             if debug:
                 print(f"   🐛 DEBUG: Advanced signals successful - RSI: {advanced['rsi']:.1f}")
-            print(f"   📈 RSI: {advanced['rsi']:.1f} | MACD: {'Bullish' if advanced['macd']['bullish_crossover'] else 'Bearish'}")
+            print(f"   📈 RSI: {advanced['rsi']:.1f}")
             
-            # Market condition warnings (document limitations section)
+            # Market condition warnings
             if advanced['is_sideways_market']:
                 print(f"   ⚠️  WARNING: Sideways market detected - signals may be less reliable")
             
@@ -392,7 +360,7 @@ def analyze_stock_comprehensive(ticker, lookback_days=21, volume_days=20, moment
             if debug:
                 print(f"   🐛 DEBUG: Advanced analysis error: {e}")
             # Keep the initialized fallback values
-            print(f"   📈 RSI: {advanced['rsi']:.1f} | MACD: {'Bullish' if advanced['macd']['bullish_crossover'] else 'Bearish'} (using defaults)")
+            print(f"   📈 RSI: {advanced['rsi']:.1f} (using defaults)")
         
         if debug:
             print(f"   🐛 DEBUG: Channel values - Upper: {upper_channel:.2f}, Middle: {middle_channel:.2f}, Lower: {lower_channel:.2f}")
@@ -434,73 +402,6 @@ def analyze_stock_comprehensive(ticker, lookback_days=21, volume_days=20, moment
             if debug:
                 print(f"   🐛 DEBUG: HOLD signal - price within middle range")
         
-        # Calculate overall score with enhanced indicators (per document recommendations)
-        base_strength = max(buy_strength, sell_strength)
-        
-        # Enhanced volume score using new volume analysis (with fallback)
-        try:
-            volume_strength_multiplier = {
-                'VERY_HIGH': 1.5,
-                'HIGH': 1.2, 
-                'NORMAL': 1.0,
-                'WEAK': 0.7
-            }
-            volume_multiplier = volume_strength_multiplier.get(volume_analysis['volume_strength'], 1.0)
-        except:
-            volume_multiplier = 1.0
-            
-        volume_score = min(volume_ratio * 3, 15) * volume_multiplier
-        
-        # Momentum score (balanced weighting)
-        momentum_score = momentum * 0.5
-        
-        # Position score (favor breakouts)
-        position_score = advanced['channel_position'] * 5
-        
-        # RSI confirmation score (document recommendation)
-        rsi_score = 0
-        try:
-            if 'BUY' in signal_type and advanced['rsi'] < 70:  # Not overbought
-                rsi_score = 2
-            elif 'SELL' in signal_type and advanced['rsi'] > 30:  # Not oversold
-                rsi_score = 2
-            elif advanced['rsi'] > 70 and 'BUY' in signal_type:  # Overbought warning
-                rsi_score = -3
-            elif advanced['rsi'] < 30 and 'SELL' in signal_type:  # Oversold warning
-                rsi_score = -3
-        except:
-            rsi_score = 0
-        
-        # MACD confirmation score (document recommendation)
-        macd_score = 0
-        try:
-            if 'BUY' in signal_type and advanced['macd']['bullish_crossover']:
-                macd_score = 3
-            elif 'SELL' in signal_type and not advanced['macd']['bullish_crossover']:
-                macd_score = 3
-        except:
-            macd_score = 0
-        
-        # Market condition penalties (document limitations)
-        market_penalty = 0
-        try:
-            if advanced['is_sideways_market']:
-                market_penalty = -5  # Penalty for sideways markets
-            if advanced['false_breakout_risk']:
-                market_penalty -= 3  # Additional penalty for false breakout risk
-        except:
-            market_penalty = 0
-        
-        # Signal type multiplier
-        if 'STRONG' in signal_type:
-            signal_multiplier = 1.5  # 50% bonus for strong signals
-        else:
-            signal_multiplier = 1.0
-        
-        # Final score with all document-recommended enhancements
-        raw_score = base_strength + volume_score + momentum_score + position_score + rsi_score + macd_score + market_penalty
-        score = max(raw_score * signal_multiplier, 0)  # Ensure non-negative score
-        
         # Risk management
         if signal_type in ['STRONG_BUY', 'WEAK_BUY']:
             stop_loss = lower_channel
@@ -517,33 +418,31 @@ def analyze_stock_comprehensive(ticker, lookback_days=21, volume_days=20, moment
         result = {
             'ticker': ticker,
             'signal_type': signal_type,
-            'current_price': current_price,
-            'upper_channel': upper_channel,
-            'middle_channel': middle_channel,
-            'lower_channel': lower_channel,
-            'stop_loss': stop_loss,
-            'buy_strength': buy_strength,
-            'sell_strength': sell_strength,
-            'volume_ratio': volume_ratio,
+            'current_price': float(current_price),
+            'upper_channel': float(upper_channel),
+            'middle_channel': float(middle_channel),
+            'lower_channel': float(lower_channel),
+            'stop_loss': float(stop_loss),
+            'buy_strength': float(buy_strength),
+            'sell_strength': float(sell_strength),
+            'volume_ratio': float(volume_ratio),
             'volume_analysis': volume_analysis,
-            'momentum': momentum,
-            'score': score,
-            'position_size': position_size,
-            'risk_per_share': risk_per_share,
-            'trading_days_used': trading_days_used,
+            'momentum': float(momentum),
+            'position_size': int(position_size),
+            'risk_per_share': float(risk_per_share),
+            'trading_days_used': int(trading_days_used),
             'volume_period': f"{volume_days} trading days",
             'momentum_period': f"{momentum_days} trading days",
-            'lookback_days': lookback_days,
-            'channel_position': advanced.get('channel_position', 0.5),
-            'volatility_score': advanced.get('volatility_score', 0),
-            'sma_trend': advanced.get('sma_trend', 0),
-            'rsi': advanced.get('rsi', 50),
-            'macd': advanced.get('macd', {'macd': 0, 'signal': 0, 'histogram': 0, 'bullish_crossover': False}),
-            'is_sideways_market': advanced.get('is_sideways_market', False),
-            'false_breakout_risk': advanced.get('false_breakout_risk', False)
+            'lookback_days': int(lookback_days),
+            'channel_position': float(advanced.get('channel_position', 0.5)),
+            'volatility_score': float(advanced.get('volatility_score', 0)),
+            'sma_trend': float(advanced.get('sma_trend', 0)),
+            'rsi': float(advanced.get('rsi', 50)),
+            'is_sideways_market': bool(advanced.get('is_sideways_market', False)),
+            'false_breakout_risk': bool(advanced.get('false_breakout_risk', False))
         }
         
-        print(f"   🎯 Signal: {signal_type} (Score: {score:.1f})")
+        print(f"   🎯 Signal: {signal_type}")
         
         return result
         
@@ -608,6 +507,30 @@ def filter_signals_by_type(all_signals, signal_types):
     """Filter signals by type"""
     return [signal for signal in all_signals if signal['signal_type'] in signal_types]
 
+def sort_signals_properly(signals):
+    """Sort signals with STRONG first, then WEAK, by strength within each category"""
+    
+    if not signals:
+        return signals
+    
+    # Separate STRONG and WEAK signals
+    strong_signals = [s for s in signals if 'STRONG' in s['signal_type']]
+    weak_signals = [s for s in signals if 'WEAK' in s['signal_type']]
+    
+    # Determine if these are BUY or SELL signals
+    is_buy_signals = any('BUY' in s['signal_type'] for s in signals)
+    
+    # Sort STRONG signals by strength (descending)
+    if is_buy_signals:
+        strong_signals.sort(key=lambda x: x['buy_strength'], reverse=True)
+        weak_signals.sort(key=lambda x: x['buy_strength'], reverse=True)
+    else:
+        strong_signals.sort(key=lambda x: x['sell_strength'], reverse=True)
+        weak_signals.sort(key=lambda x: x['sell_strength'], reverse=True)
+    
+    # Return STRONG first, then WEAK
+    return strong_signals + weak_signals
+
 def display_top_signals(signals, signal_title, top_n=10):
     """Display top N signals"""
     
@@ -615,8 +538,9 @@ def display_top_signals(signals, signal_title, top_n=10):
         print(f"\n❌ No {signal_title} signals found!")
         return
     
-    # Sort by score (descending)
-    signals.sort(key=lambda x: x['score'], reverse=True)
+    # Signals should already be sorted by sort_signals_properly function
+    # but ensure they are sorted correctly here too
+    signals = sort_signals_properly(signals)
     
     # Get top N
     top_signals = signals[:top_n]
@@ -628,7 +552,7 @@ def display_top_signals(signals, signal_title, top_n=10):
     # Prepare table
     table_data = []
     headers = ['Rank', 'Ticker', 'Signal', 'Price', 'Target', 'Strength%', 
-              'Volume', 'RSI', 'MACD', 'Momentum%', 'Score', 'Stop Loss', 'Qty']
+              'Volume', 'RSI', 'Momentum%', 'Stop Loss', 'Qty']
     
     for i, signal in enumerate(top_signals, 1):
         if 'BUY' in signal['signal_type']:
@@ -648,13 +572,6 @@ def display_top_signals(signals, signal_title, top_n=10):
                 rsi_display += "🟢"  # Oversold
         except:
             rsi_display = "50"
-        
-        # MACD interpretation
-        try:
-            macd_data = signal.get('macd', {})
-            macd_display = "📈" if macd_data.get('bullish_crossover', False) else "📉"
-        except:
-            macd_display = "📉"
         
         # Volume with strength indicator
         try:
@@ -679,9 +596,7 @@ def display_top_signals(signals, signal_title, top_n=10):
             f"{strength:.2f}%",
             volume_display,
             rsi_display,
-            macd_display,
             f"{signal['momentum']:+.1f}%",
-            f"{signal['score']:.1f}",
             f"₹{signal['stop_loss']:.2f}",
             signal['position_size']
         ])
@@ -702,68 +617,8 @@ def display_top_signals(signals, signal_title, top_n=10):
     print(f"   🚀 Average momentum: {avg_momentum:+.1f}%")
     
     print(f"\n🏆 RANKING EXPLANATION:")
-    print(f"   📊 Scores combine: Strength + Volume + Momentum + Position")
-    print(f"   🎯 Higher scores = Better opportunities") 
-    print(f"   💡 Use --explain-scoring for detailed formula")
-
-def explain_scoring_system():
-    """Explain the enhanced scoring system based on document recommendations"""
-    
-    print("\n🎯 ENHANCED SCORING SYSTEM (Per Donchian Channel Document):")
-    print("="*60)
-    print("📊 Score Components:")
-    print("   1. BASE STRENGTH (0-10 points)")
-    print("      • How far price broke above/below channel")
-    print("      • Core Donchian breakout measurement")
-    print("")
-    print("   2. ENHANCED VOLUME SCORE (0-22.5 points)")
-    print("      • Volume ratio vs 20-day average")
-    print("      • Volume strength multiplier: VERY_HIGH(1.5x), HIGH(1.2x), NORMAL(1.0x), WEAK(0.7x)")
-    print("      • Formula: min(volume_ratio * 3, 15) * strength_multiplier")
-    print("")
-    print("   3. MOMENTUM SCORE (-15 to +15 points)")
-    print("      • 5-day price momentum * 0.5")
-    print("      • Positive momentum adds points")
-    print("")
-    print("   4. POSITION SCORE (0-5 points)")
-    print("      • Where price sits in channel * 5")
-    print("      • Higher position = closer to breakout")
-    print("")
-    print("   5. RSI CONFIRMATION (-3 to +2 points)")
-    print("      • RSI < 70 for BUY signals: +2 points")
-    print("      • RSI > 30 for SELL signals: +2 points") 
-    print("      • RSI > 70 for BUY (overbought): -3 points")
-    print("      • RSI < 30 for SELL (oversold): -3 points")
-    print("")
-    print("   6. MACD CONFIRMATION (0 to +3 points)")
-    print("      • Bullish MACD crossover for BUY: +3 points")
-    print("      • Bearish MACD crossover for SELL: +3 points")
-    print("")
-    print("   7. MARKET CONDITION PENALTIES")
-    print("      • Sideways market detected: -5 points")
-    print("      • False breakout risk: -3 points")
-    print("")
-    print("   8. SIGNAL MULTIPLIER (1.0x or 1.5x)")
-    print("      • STRONG signals: 1.5x multiplier")
-    print("      • WEAK signals: 1.0x multiplier")
-    print("")
-    print("🏆 FINAL SCORE = (Base + Volume + Momentum + Position + RSI + MACD + Penalties) × Multiplier")
-    print("")
-    print("📋 DOCUMENT-BASED ENHANCEMENTS:")
-    print("   ✅ RSI integration for overbought/oversold conditions")
-    print("   ✅ MACD for trend and momentum confirmation")
-    print("   ✅ Enhanced volume analysis with strength classification")
-    print("   ✅ Sideways market detection (document limitation)")
-    print("   ✅ False breakout risk assessment")
-    print("   ✅ Multi-timeframe volume confirmation")
-    print("")
-    print("💡 Higher scores indicate:")
-    print("   • Stronger Donchian channel breakouts")
-    print("   • Confirmed volume participation")
-    print("   • RSI not in extreme territory") 
-    print("   • MACD trend confirmation")
-    print("   • Low false breakout risk")
-    print("="*60)
+    print(f"   📊 Sorted by: STRONG signals first, then WEAK signals")
+    print(f"   🎯 Within each type: Higher strength = Better opportunities") 
 
 def generate_comprehensive_html(all_signals, lookback_days, volume_days, momentum_days, output_dir):
     """Generate comprehensive HTML report"""
@@ -777,9 +632,9 @@ def generate_comprehensive_html(all_signals, lookback_days, volume_days, momentu
     sell_signals = filter_signals_by_type(all_signals, ['STRONG_SELL', 'WEAK_SELL'])
     hold_signals = filter_signals_by_type(all_signals, ['HOLD'])
     
-    # Sort by score
-    buy_signals.sort(key=lambda x: x['score'], reverse=True)
-    sell_signals.sort(key=lambda x: x['score'], reverse=True)
+    # Sort properly: STRONG first, then WEAK
+    buy_signals = sort_signals_properly(buy_signals) if buy_signals else []
+    sell_signals = sort_signals_properly(sell_signals) if sell_signals else []
     
     timestamp = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
     
@@ -990,9 +845,7 @@ def generate_comprehensive_html(all_signals, lookback_days, volume_days, momentu
                             <th>Strength</th>
                             <th>Volume</th>
                             <th>RSI</th>
-                            <th>MACD</th>
                             <th>Momentum</th>
-                            <th>Score</th>
                             <th>Stop Loss</th>
                             <th>Qty</th>
                         </tr>
@@ -1015,9 +868,7 @@ def generate_comprehensive_html(all_signals, lookback_days, volume_days, momentu
                             <td>{signal['buy_strength']:.2f}%</td>
                             <td>{signal['volume_ratio']:.1f}x</td>
                             <td>{signal.get('rsi', 50):.0f}</td>
-                            <td>{'📈' if signal.get('macd', {}).get('bullish_crossover', False) else '📉'}</td>
                             <td class="{momentum_class}">{signal['momentum']:+.1f}%</td>
-                            <td>{signal['score']:.1f}</td>
                             <td class="price">₹{signal['stop_loss']:.2f}</td>
                             <td>{signal['position_size']}</td>
                         </tr>
@@ -1045,9 +896,7 @@ def generate_comprehensive_html(all_signals, lookback_days, volume_days, momentu
                             <th>Strength</th>
                             <th>Volume</th>
                             <th>RSI</th>
-                            <th>MACD</th>
                             <th>Momentum</th>
-                            <th>Score</th>
                             <th>Stop Loss</th>
                             <th>Qty</th>
                         </tr>
@@ -1070,9 +919,7 @@ def generate_comprehensive_html(all_signals, lookback_days, volume_days, momentu
                             <td>{signal['sell_strength']:.2f}%</td>
                             <td>{signal['volume_ratio']:.1f}x</td>
                             <td>{signal.get('rsi', 50):.0f}</td>
-                            <td>{'📈' if signal.get('macd', {}).get('bullish_crossover', False) else '📉'}</td>
                             <td class="{momentum_class}">{signal['momentum']:+.1f}%</td>
-                            <td>{signal['score']:.1f}</td>
                             <td class="price">₹{signal['stop_loss']:.2f}</td>
                             <td>{signal['position_size']}</td>
                         </tr>
@@ -1109,15 +956,33 @@ def save_results_json(all_signals, output_dir, lookback_days):
     if not all_signals:
         return None
     
+    # Prepare data for JSON serialization - Convert all non-serializable types
+    json_signals = []
+    for signal in all_signals:
+        json_signal = {}
+        for key, value in signal.items():
+            if isinstance(value, (int, float, str, bool, list, dict)):
+                # Handle nested dictionaries
+                if isinstance(value, dict):
+                    json_signal[key] = {k: v for k, v in value.items() if isinstance(v, (int, float, str, bool, list))}
+                else:
+                    json_signal[key] = value
+            else:
+                # Convert numpy types and other non-serializable types
+                try:
+                    json_signal[key] = float(value) if hasattr(value, 'item') else str(value)
+                except:
+                    json_signal[key] = str(value)
+    
     # Prepare data for JSON serialization
     json_data = {
         'metadata': {
             'timestamp': datetime.now().isoformat(),
-            'total_stocks_analyzed': len(all_signals),
-            'lookback_days': lookback_days,
+            'total_stocks_analyzed': len(json_signals),
+            'lookback_days': int(lookback_days),
             'strategy': 'Donchian Channel with Trading Days Logic'
         },
-        'signals': all_signals
+        'signals': json_signals
     }
     
     # Save JSON
@@ -1149,8 +1014,6 @@ def main():
                        help='Test analysis on a single ticker for debugging')
     parser.add_argument('--debug', action='store_true', 
                        help='Enable debug output for troubleshooting')
-    parser.add_argument('--explain-scoring', action='store_true', 
-                       help='Explain the scoring system used for ranking')
     parser.add_argument('--show-all', action='store_true', 
                        help='Show all signal types (BUY, SELL, HOLD)')
     parser.add_argument('--buy-only', action='store_true', 
@@ -1159,11 +1022,6 @@ def main():
                        help='Show only SELL signals')
     
     args = parser.parse_args()
-    
-    # Show scoring explanation if requested
-    if args.explain_scoring:
-        explain_scoring_system()
-        return
     
     # Test single ticker if requested
     if args.test_single:
@@ -1177,7 +1035,7 @@ def main():
             debug=True
         )
         if result:
-            print(f"\n✅ SUCCESS! Signal: {result['signal_type']}, Score: {result['score']:.1f}")
+            print(f"\n✅ SUCCESS! Signal: {result['signal_type']}")
         else:
             print(f"\n❌ No result for {args.test_single}")
         return
@@ -1228,9 +1086,11 @@ def main():
     # Display results based on arguments
     if args.buy_only:
         buy_signals = filter_signals_by_type(all_signals, ['STRONG_BUY', 'WEAK_BUY'])
+        buy_signals = sort_signals_properly(buy_signals) if buy_signals else []
         display_top_signals(buy_signals, "BUY", args.top)
     elif args.sell_only:
         sell_signals = filter_signals_by_type(all_signals, ['STRONG_SELL', 'WEAK_SELL'])
+        sell_signals = sort_signals_properly(sell_signals) if sell_signals else []
         display_top_signals(sell_signals, "SELL", args.top)
     elif args.show_all:
         # Show all types
@@ -1239,8 +1099,10 @@ def main():
         hold_signals = filter_signals_by_type(all_signals, ['HOLD'])
         
         if buy_signals:
+            buy_signals = sort_signals_properly(buy_signals)
             display_top_signals(buy_signals, "BUY", args.top)
         if sell_signals:
+            sell_signals = sort_signals_properly(sell_signals)
             display_top_signals(sell_signals, "SELL", args.top)
         
         print(f"\n📊 OVERALL SUMMARY:")
@@ -1251,6 +1113,7 @@ def main():
     else:
         # Default: Show BUY signals only
         buy_signals = filter_signals_by_type(all_signals, ['STRONG_BUY', 'WEAK_BUY'])
+        buy_signals = sort_signals_properly(buy_signals) if buy_signals else []
         display_top_signals(buy_signals, "BUY", args.top)
     
     # Generate reports
@@ -1273,36 +1136,19 @@ def main():
     print(f"📁 Output Directory: {os.path.abspath(output_dir)}")
     
     # Trading notes
-    print(f"\n💡 DOCUMENT-BASED TRADING NOTES:")
-    print(f"   🟢 STRONG BUY: Price broke above {args.days}-day high (✅ Implemented)")
-    print(f"   🟡 WEAK BUY: Price above middle channel (✅ Implemented)")
-    print(f"   🔴 STRONG SELL: Price broke below {args.days}-day low (✅ Implemented)")
-    print(f"   🟠 WEAK SELL: Price below middle channel (✅ Implemented)")
-    print(f"   🛑 STOP LOSS: Use opposite channel as stop (✅ Implemented)")
-    print(f"   📊 VOLUME: Enhanced analysis with strength classification (✅ Enhanced)")
-    print(f"   📈 RSI: Overbought/oversold confirmation (✅ Added from document)")
-    print(f"   📊 MACD: Trend and momentum confirmation (✅ Added from document)")
-    print(f"   ⚠️  SIDEWAYS MARKETS: Detection and penalty system (✅ Added from document)")
-    print(f"   🚫 FALSE BREAKOUTS: Risk assessment and penalties (✅ Added from document)")
-    print(f"   ⚖️  POSITION SIZE: 1% risk-based sizing (✅ Implemented)")
+    print(f"\n💡 TRADING NOTES:")
+    print(f"   🟢 STRONG BUY: Price broke above {args.days}-day high")
+    print(f"   🟡 WEAK BUY: Price above middle channel")
+    print(f"   🔴 STRONG SELL: Price broke below {args.days}-day low")
+    print(f"   🟠 WEAK SELL: Price below middle channel")
+    print(f"   🛑 STOP LOSS: Use opposite channel as stop")
+    print(f"   📊 VOLUME: Enhanced analysis with strength classification")
+    print(f"   📈 RSI: Overbought/oversold confirmation")
+    print(f"   ⚖️  POSITION SIZE: 1% risk-based sizing")
     
     print(f"\n🧪 TROUBLESHOOTING COMMANDS:")
     print(f"   python {sys.argv[0]} --test-single RELIANCE --debug")
     print(f"   python {sys.argv[0]} --days 10 --debug")
-    print(f"   python {sys.argv[0]} --explain-scoring")
-    
-    print(f"\n📋 DOCUMENT COMPLIANCE STATUS:")
-    print(f"   ✅ Core Donchian Formula: FULLY IMPLEMENTED")
-    print(f"   ✅ Breakout Identification: FULLY IMPLEMENTED") 
-    print(f"   ✅ Support/Resistance Levels: FULLY IMPLEMENTED")
-    print(f"   ✅ Volatility Assessment: FULLY IMPLEMENTED")
-    print(f"   ✅ Trend Following: FULLY IMPLEMENTED")
-    print(f"   ✅ Risk Management: FULLY IMPLEMENTED")
-    print(f"   ✅ RSI Integration: ADDED (Document Recommendation)")
-    print(f"   ✅ MACD Integration: ADDED (Document Recommendation)")
-    print(f"   ✅ Volume Enhancement: ADDED (Document Recommendation)")
-    print(f"   ✅ False Breakout Detection: ADDED (Document Limitation)")
-    print(f"   ✅ Sideways Market Warning: ADDED (Document Limitation)")
 
 if __name__ == "__main__":
     main()

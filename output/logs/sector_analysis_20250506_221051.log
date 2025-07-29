@@ -1,5 +1,0 @@
-2025-05-06 22:10:51,301 - INFO: Starting sector-based stock analysis - 2025-05-06
-2025-05-06 22:29:16,196 - ERROR: 
-1 Failed download:
-2025-05-06 22:29:16,197 - ERROR: ['BAJAJAUTO.NS']: YFRateLimitError('Too Many Requests. Rate limited. Try after a while.')
-2025-05-06 22:29:16,223 - WARNING: No meaningful data for BAJAJAUTO.NS
