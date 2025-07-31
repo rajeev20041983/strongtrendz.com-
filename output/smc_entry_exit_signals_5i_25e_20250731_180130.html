@@ -1,0 +1,706 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>SMC Entry/Exit Signals - 2025-07-31</title>
+        <style>
+            body {
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                margin: 0;
+                padding: 20px;
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                min-height: 100vh;
+            }
+            .container {
+                max-width: 1600px;
+                margin: 0 auto;
+                background: white;
+                padding: 30px;
+                border-radius: 15px;
+                box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            }
+            .header {
+                text-align: center;
+                background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+                color: white;
+                padding: 40px;
+                border-radius: 15px;
+                margin-bottom: 30px;
+            }
+            .header h1 {
+                margin: 0;
+                font-size: 2.8em;
+                margin-bottom: 10px;
+            }
+            .header p {
+                margin: 5px 0;
+                font-size: 1.1em;
+            }
+            .stats-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                gap: 20px;
+                margin: 30px 0;
+            }
+            .stat-card {
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                color: white;
+                padding: 20px;
+                border-radius: 10px;
+                text-align: center;
+            }
+            .stat-card h3 {
+                margin: 0 0 10px 0;
+                font-size: 2em;
+            }
+            .stat-card.entry {
+                background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+            }
+            .stat-card.exit {
+                background: linear-gradient(135deg, #dc3545 0%, #e74c3c 100%);
+            }
+            .section {
+                margin: 40px 0;
+            }
+            .section h2 {
+                color: #333;
+                border-bottom: 3px solid #667eea;
+                padding-bottom: 10px;
+                margin-bottom: 20px;
+            }
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                margin: 20px 0;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+                border-radius: 10px;
+                overflow: hidden;
+                font-size: 0.9em;
+            }
+            th, td {
+                padding: 10px 8px;
+                text-align: left;
+                border-bottom: 1px solid #ddd;
+            }
+            th {
+                background: #f8f9fa;
+                font-weight: bold;
+                position: sticky;
+                top: 0;
+                font-size: 0.85em;
+            }
+            tr:nth-child(even) {
+                background-color: #f9f9f9;
+            }
+            tr:hover {
+                background-color: #f0f0f0;
+            }
+            .rank {
+                font-weight: bold;
+                color: #007bff;
+                text-align: center;
+            }
+            .ticker {
+                font-weight: bold;
+                color: #28a745;
+            }
+            .long-entry {
+                background: linear-gradient(90deg, #28a745, #20c997);
+                color: white;
+                padding: 4px 8px;
+                border-radius: 12px;
+                font-weight: bold;
+                text-align: center;
+                font-size: 0.8em;
+            }
+            .short-entry {
+                background: linear-gradient(90deg, #dc3545, #e74c3c);
+                color: white;
+                padding: 4px 8px;
+                border-radius: 12px;
+                font-weight: bold;
+                text-align: center;
+                font-size: 0.8em;
+            }
+            .strong {
+                background: linear-gradient(90deg, #ffc107, #fd7e14);
+                color: white;
+                padding: 4px 8px;
+                border-radius: 12px;
+                font-weight: bold;
+                text-align: center;
+                font-size: 0.8em;
+            }
+            .moderate {
+                background: linear-gradient(90deg, #6c757d, #495057);
+                color: white;
+                padding: 4px 8px;
+                border-radius: 12px;
+                font-weight: bold;
+                text-align: center;
+                font-size: 0.8em;
+            }
+            .price {
+                font-weight: bold;
+                color: #333;
+                text-align: right;
+            }
+            .positive {
+                color: #28a745;
+                font-weight: bold;
+            }
+            .negative {
+                color: #dc3545;
+                font-weight: bold;
+            }
+            .info-box {
+                background: #e7f3ff;
+                border-left: 5px solid #007bff;
+                padding: 20px;
+                margin: 20px 0;
+                border-radius: 5px;
+            }
+            .footer {
+                text-align: center;
+                margin-top: 40px;
+                padding: 20px;
+                background: #f8f9fa;
+                border-radius: 10px;
+                border-left: 5px solid #667eea;
+            }
+            .risk-badge {
+                padding: 2px 6px;
+                border-radius: 8px;
+                font-size: 0.75em;
+                font-weight: bold;
+            }
+            .risk-low { background: #d4edda; color: #155724; }
+            .risk-medium { background: #fff3cd; color: #856404; }
+            .risk-high { background: #f8d7da; color: #721c24; }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="header">
+                <h1>🎯 SMC ENTRY/EXIT SIGNAL ANALYZER</h1>
+                <p><strong>Pine Script Logic + Python Automation</strong></p>
+                <p>Internal: 5 | External: 25 | Generated: 2025-07-31 18:01:30</p>
+            </div>
+            
+            <div class="info-box">
+                <h3>🧠 Entry/Exit System Overview</h3>
+                <p><strong>Entry Signals:</strong> Generated when price reacts from order blocks with structure confirmation</p>
+                <p><strong>Exit Signals:</strong> Triggered when order blocks are mitigated (price breaks through)</p>
+                <p><strong>Risk Management:</strong> 1% portfolio risk per trade with 2:1 and 3:1 targets</p>
+                <p><strong>Position Sizing:</strong> Calculated based on stop loss distance from entry</p>
+            </div>
+            
+            <div class="stats-grid">
+                <div class="stat-card entry">
+                    <h3>14</h3>
+                    <p>Long Entries</p>
+                </div>
+                <div class="stat-card exit">
+                    <h3>6</h3>
+                    <p>Short Entries</p>
+                </div>
+                <div class="stat-card">
+                    <h3>24</h3>
+                    <p>Exit Signals</p>
+                </div>
+                <div class="stat-card">
+                    <h3>223</h3>
+                    <p>Stocks Analyzed</p>
+                </div>
+                <div class="stat-card">
+                    <h3>3</h3>
+                    <p>Strong Signals</p>
+                </div>
+                <div class="stat-card">
+                    <h3>1,413,858</h3>
+                    <p>Total Capital (₹)</p>
+                </div>
+            </div>
+    
+            <div class="section">
+                <h2>🟢 LONG ENTRY SIGNALS (14 found)</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Rank</th>
+                            <th>Ticker</th>
+                            <th>Strength</th>
+                            <th>Entry</th>
+                            <th>Stop Loss</th>
+                            <th>Target 1</th>
+                            <th>Target 2</th>
+                            <th>Risk%</th>
+                            <th>RR1</th>
+                            <th>RR2</th>
+                            <th>Size</th>
+                            <th>Capital</th>
+                            <th>RSI</th>
+                            <th>Vol</th>
+                            <th>Score</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+        
+                        <tr>
+                            <td class="rank">1</td>
+                            <td class="ticker">ADANIPORTS</td>
+                            <td><span class="strong">STRONG</span></td>
+                            <td class="price">₹1373.10</td>
+                            <td class="price">₹1358.37</td>
+                            <td class="price">₹1402.55</td>
+                            <td class="price">₹1417.28</td>
+                            <td><span class="risk-badge risk-low">1.1%</span></td>
+                            <td>2.0:1</td>
+                            <td>3.0:1</td>
+                            <td>67</td>
+                            <td class="price">₹91,998</td>
+                            <td>32</td>
+                            <td>1.5x</td>
+                            <td>5.5</td>
+                        </tr>
+            
+                        <tr>
+                            <td class="rank">2</td>
+                            <td class="ticker">NHPC</td>
+                            <td><span class="strong">STRONG</span></td>
+                            <td class="price">₹83.25</td>
+                            <td class="price">₹81.69</td>
+                            <td class="price">₹86.37</td>
+                            <td class="price">₹87.93</td>
+                            <td><span class="risk-badge risk-low">1.9%</span></td>
+                            <td>2.0:1</td>
+                            <td>3.0:1</td>
+                            <td>640</td>
+                            <td class="price">₹53,280</td>
+                            <td>27</td>
+                            <td>0.6x</td>
+                            <td>5.0</td>
+                        </tr>
+            
+                        <tr>
+                            <td class="rank">3</td>
+                            <td class="ticker">CHOLAFIN</td>
+                            <td><span class="moderate">MODERATE</span></td>
+                            <td class="price">₹1443.20</td>
+                            <td class="price">₹1425.24</td>
+                            <td class="price">₹1479.11</td>
+                            <td class="price">₹1497.07</td>
+                            <td><span class="risk-badge risk-low">1.2%</span></td>
+                            <td>2.0:1</td>
+                            <td>3.0:1</td>
+                            <td>55</td>
+                            <td class="price">₹79,376</td>
+                            <td>28</td>
+                            <td>3.2x</td>
+                            <td>4.5</td>
+                        </tr>
+            
+                        <tr>
+                            <td class="rank">4</td>
+                            <td class="ticker">IGL</td>
+                            <td><span class="moderate">MODERATE</span></td>
+                            <td class="price">₹205.05</td>
+                            <td class="price">₹201.54</td>
+                            <td class="price">₹212.08</td>
+                            <td class="price">₹215.59</td>
+                            <td><span class="risk-badge risk-low">1.7%</span></td>
+                            <td>2.0:1</td>
+                            <td>3.0:1</td>
+                            <td>284</td>
+                            <td class="price">₹58,234</td>
+                            <td>30</td>
+                            <td>2.1x</td>
+                            <td>4.5</td>
+                        </tr>
+            
+                        <tr>
+                            <td class="rank">5</td>
+                            <td class="ticker">POWERGRID</td>
+                            <td><span class="moderate">MODERATE</span></td>
+                            <td class="price">₹291.00</td>
+                            <td class="price">₹287.06</td>
+                            <td class="price">₹298.88</td>
+                            <td class="price">₹302.83</td>
+                            <td><span class="risk-badge risk-low">1.4%</span></td>
+                            <td>2.0:1</td>
+                            <td>3.0:1</td>
+                            <td>253</td>
+                            <td class="price">₹73,623</td>
+                            <td>35</td>
+                            <td>1.8x</td>
+                            <td>4.5</td>
+                        </tr>
+            
+                        <tr>
+                            <td class="rank">6</td>
+                            <td class="ticker">LUPIN</td>
+                            <td><span class="moderate">MODERATE</span></td>
+                            <td class="price">₹1929.10</td>
+                            <td class="price">₹1894.64</td>
+                            <td class="price">₹1998.03</td>
+                            <td class="price">₹2032.49</td>
+                            <td><span class="risk-badge risk-low">1.8%</span></td>
+                            <td>2.0:1</td>
+                            <td>3.0:1</td>
+                            <td>29</td>
+                            <td class="price">₹55,944</td>
+                            <td>58</td>
+                            <td>1.1x</td>
+                            <td>4.0</td>
+                        </tr>
+            
+                        <tr>
+                            <td class="rank">7</td>
+                            <td class="ticker">VEDL</td>
+                            <td><span class="moderate">MODERATE</span></td>
+                            <td class="price">₹425.65</td>
+                            <td class="price">₹389.85</td>
+                            <td class="price">₹497.25</td>
+                            <td class="price">₹533.06</td>
+                            <td><span class="risk-badge risk-high">8.4%</span></td>
+                            <td>2.0:1</td>
+                            <td>3.0:1</td>
+                            <td>27</td>
+                            <td class="price">₹11,493</td>
+                            <td>37</td>
+                            <td>1.2x</td>
+                            <td>4.0</td>
+                        </tr>
+            
+                        <tr>
+                            <td class="rank">8</td>
+                            <td class="ticker">RVNL</td>
+                            <td><span class="moderate">MODERATE</span></td>
+                            <td class="price">₹348.15</td>
+                            <td class="price">₹342.43</td>
+                            <td class="price">₹359.59</td>
+                            <td class="price">₹365.31</td>
+                            <td><span class="risk-badge risk-low">1.6%</span></td>
+                            <td>2.0:1</td>
+                            <td>3.0:1</td>
+                            <td>174</td>
+                            <td class="price">₹60,578</td>
+                            <td>22</td>
+                            <td>1.1x</td>
+                            <td>4.0</td>
+                        </tr>
+            
+                        <tr>
+                            <td class="rank">9</td>
+                            <td class="ticker">IRCTC</td>
+                            <td><span class="moderate">MODERATE</span></td>
+                            <td class="price">₹726.05</td>
+                            <td class="price">₹705.70</td>
+                            <td class="price">₹766.74</td>
+                            <td class="price">₹787.09</td>
+                            <td><span class="risk-badge risk-medium">2.8%</span></td>
+                            <td>2.0:1</td>
+                            <td>3.0:1</td>
+                            <td>49</td>
+                            <td class="price">₹35,576</td>
+                            <td>22</td>
+                            <td>1.1x</td>
+                            <td>4.0</td>
+                        </tr>
+            
+                        <tr>
+                            <td class="rank">10</td>
+                            <td class="ticker">INDUSINDBK</td>
+                            <td><span class="moderate">MODERATE</span></td>
+                            <td class="price">₹798.90</td>
+                            <td class="price">₹645.75</td>
+                            <td class="price">₹1105.19</td>
+                            <td class="price">₹1258.34</td>
+                            <td><span class="risk-badge risk-high">19.2%</span></td>
+                            <td>2.0:1</td>
+                            <td>3.0:1</td>
+                            <td>6</td>
+                            <td class="price">₹4,793</td>
+                            <td>29</td>
+                            <td>1.0x</td>
+                            <td>4.0</td>
+                        </tr>
+            
+                        <tr>
+                            <td class="rank">11</td>
+                            <td class="ticker">PETRONET</td>
+                            <td><span class="moderate">MODERATE</span></td>
+                            <td class="price">₹288.20</td>
+                            <td class="price">₹276.91</td>
+                            <td class="price">₹310.79</td>
+                            <td class="price">₹322.08</td>
+                            <td><span class="risk-badge risk-medium">3.9%</span></td>
+                            <td>2.0:1</td>
+                            <td>3.0:1</td>
+                            <td>88</td>
+                            <td class="price">₹25,362</td>
+                            <td>37</td>
+                            <td>0.5x</td>
+                            <td>4.0</td>
+                        </tr>
+            
+                        <tr>
+                            <td class="rank">12</td>
+                            <td class="ticker">NTPC</td>
+                            <td><span class="moderate">MODERATE</span></td>
+                            <td class="price">₹334.25</td>
+                            <td class="price">₹328.70</td>
+                            <td class="price">₹345.35</td>
+                            <td class="price">₹350.91</td>
+                            <td><span class="risk-badge risk-low">1.7%</span></td>
+                            <td>2.0:1</td>
+                            <td>3.0:1</td>
+                            <td>180</td>
+                            <td class="price">₹60,165</td>
+                            <td>34</td>
+                            <td>1.1x</td>
+                            <td>4.0</td>
+                        </tr>
+            
+                        <tr>
+                            <td class="rank">13</td>
+                            <td class="ticker">IRB</td>
+                            <td><span class="moderate">MODERATE</span></td>
+                            <td class="price">₹45.07</td>
+                            <td class="price">₹44.68</td>
+                            <td class="price">₹45.86</td>
+                            <td class="price">₹46.25</td>
+                            <td><span class="risk-badge risk-low">0.9%</span></td>
+                            <td>2.0:1</td>
+                            <td>3.0:1</td>
+                            <td>2534</td>
+                            <td class="price">₹114,207</td>
+                            <td>35</td>
+                            <td>0.9x</td>
+                            <td>4.0</td>
+                        </tr>
+            
+                        <tr>
+                            <td class="rank">14</td>
+                            <td class="ticker">JUBLFOOD</td>
+                            <td><span class="moderate">MODERATE</span></td>
+                            <td class="price">₹655.50</td>
+                            <td class="price">₹648.65</td>
+                            <td class="price">₹669.19</td>
+                            <td class="price">₹676.04</td>
+                            <td><span class="risk-badge risk-low">1.0%</span></td>
+                            <td>2.0:1</td>
+                            <td>3.0:1</td>
+                            <td>146</td>
+                            <td class="price">₹95,703</td>
+                            <td>35</td>
+                            <td>0.8x</td>
+                            <td>4.0</td>
+                        </tr>
+            
+                    </tbody>
+                </table>
+            </div>
+        
+            <div class="section">
+                <h2>🔴 SHORT ENTRY SIGNALS (6 found)</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Rank</th>
+                            <th>Ticker</th>
+                            <th>Strength</th>
+                            <th>Entry</th>
+                            <th>Stop Loss</th>
+                            <th>Target 1</th>
+                            <th>Target 2</th>
+                            <th>Risk%</th>
+                            <th>RR1</th>
+                            <th>RR2</th>
+                            <th>Size</th>
+                            <th>Capital</th>
+                            <th>RSI</th>
+                            <th>Vol</th>
+                            <th>Score</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+        
+                        <tr>
+                            <td class="rank">1</td>
+                            <td class="ticker">INDUSTOWER</td>
+                            <td><span class="strong">STRONG</span></td>
+                            <td class="price">₹363.00</td>
+                            <td class="price">₹366.82</td>
+                            <td class="price">₹355.35</td>
+                            <td class="price">₹351.53</td>
+                            <td><span class="risk-badge risk-low">1.1%</span></td>
+                            <td>2.0:1</td>
+                            <td>3.0:1</td>
+                            <td>261</td>
+                            <td class="price">₹94,743</td>
+                            <td>25</td>
+                            <td>2.7x</td>
+                            <td>6.5</td>
+                        </tr>
+            
+                        <tr>
+                            <td class="rank">2</td>
+                            <td class="ticker">DIXON</td>
+                            <td><span class="moderate">MODERATE</span></td>
+                            <td class="price">₹16841.00</td>
+                            <td class="price">₹16912.14</td>
+                            <td class="price">₹16698.72</td>
+                            <td class="price">₹16627.58</td>
+                            <td><span class="risk-badge risk-low">0.4%</span></td>
+                            <td>2.0:1</td>
+                            <td>3.0:1</td>
+                            <td>14</td>
+                            <td class="price">₹235,774</td>
+                            <td>76</td>
+                            <td>1.4x</td>
+                            <td>4.5</td>
+                        </tr>
+            
+                        <tr>
+                            <td class="rank">3</td>
+                            <td class="ticker">PATANJALI</td>
+                            <td><span class="moderate">MODERATE</span></td>
+                            <td class="price">₹1873.70</td>
+                            <td class="price">₹1884.37</td>
+                            <td class="price">₹1852.35</td>
+                            <td class="price">₹1841.67</td>
+                            <td><span class="risk-badge risk-low">0.6%</span></td>
+                            <td>2.0:1</td>
+                            <td>3.0:1</td>
+                            <td>93</td>
+                            <td class="price">₹174,254</td>
+                            <td>75</td>
+                            <td>0.7x</td>
+                            <td>4.0</td>
+                        </tr>
+            
+                        <tr>
+                            <td class="rank">4</td>
+                            <td class="ticker">SUPREMEIND</td>
+                            <td><span class="moderate">MODERATE</span></td>
+                            <td class="price">₹4306.90</td>
+                            <td class="price">₹4615.91</td>
+                            <td class="price">₹3688.88</td>
+                            <td class="price">₹3379.87</td>
+                            <td><span class="risk-badge risk-high">7.2%</span></td>
+                            <td>2.0:1</td>
+                            <td>3.0:1</td>
+                            <td>3</td>
+                            <td class="price">₹12,921</td>
+                            <td>64</td>
+                            <td>0.8x</td>
+                            <td>4.0</td>
+                        </tr>
+            
+                        <tr>
+                            <td class="rank">5</td>
+                            <td class="ticker">BIOCON</td>
+                            <td><span class="moderate">MODERATE</span></td>
+                            <td class="price">₹391.40</td>
+                            <td class="price">₹404.37</td>
+                            <td class="price">₹365.45</td>
+                            <td class="price">₹352.48</td>
+                            <td><span class="risk-badge risk-medium">3.3%</span></td>
+                            <td>2.0:1</td>
+                            <td>3.0:1</td>
+                            <td>77</td>
+                            <td class="price">₹30,138</td>
+                            <td>62</td>
+                            <td>0.6x</td>
+                            <td>4.0</td>
+                        </tr>
+            
+                        <tr>
+                            <td class="rank">6</td>
+                            <td class="ticker">SYNGENE</td>
+                            <td><span class="moderate">MODERATE</span></td>
+                            <td class="price">₹714.00</td>
+                            <td class="price">₹729.62</td>
+                            <td class="price">₹682.76</td>
+                            <td class="price">₹667.13</td>
+                            <td><span class="risk-badge risk-medium">2.2%</span></td>
+                            <td>2.0:1</td>
+                            <td>3.0:1</td>
+                            <td>64</td>
+                            <td class="price">₹45,696</td>
+                            <td>79</td>
+                            <td>0.6x</td>
+                            <td>4.0</td>
+                        </tr>
+            
+                    </tbody>
+                </table>
+            </div>
+        
+            <div class="section">
+                <h2>🚪 EXIT SIGNALS (24 found)</h2>
+                <div style="background: #fff3cd; padding: 20px; border-radius: 10px; border-left: 5px solid #ffc107;">
+        
+                    <p><strong>BLUESTARCO:</strong> Bullish order block mitigated - Exit long positions</p>
+            
+                    <p><strong>HEROMOTOCO:</strong> Bearish order block mitigated - Exit short positions</p>
+            
+                    <p><strong>HFCL:</strong> Bullish order block mitigated - Exit long positions</p>
+            
+                    <p><strong>TRENT:</strong> Bullish order block mitigated - Exit long positions</p>
+            
+                    <p><strong>LICHSGFIN:</strong> Bullish order block mitigated - Exit long positions</p>
+            
+                    <p><strong>ASHOKLEY:</strong> Bearish order block mitigated - Exit short positions</p>
+            
+                    <p><strong>M&M:</strong> Bearish order block mitigated - Exit short positions</p>
+            
+                    <p><strong>SIEMENS:</strong> Bullish order block mitigated - Exit long positions</p>
+            
+                    <p><strong>HINDUNILVR:</strong> Bearish order block mitigated - Exit short positions</p>
+            
+                    <p><strong>NESTLEIND:</strong> Bearish order block mitigated - Exit short positions</p>
+            
+                    <p><strong>PHOENIXLTD:</strong> Bullish order block mitigated - Exit long positions</p>
+            
+                    <p><strong>PHOENIXLTD:</strong> Bullish order block mitigated - Exit long positions</p>
+            
+                    <p><strong>EICHERMOT:</strong> Bearish order block mitigated - Exit short positions</p>
+            
+                    <p><strong>ADANIENT:</strong> Bullish order block mitigated - Exit long positions</p>
+            
+                    <p><strong>PPLPHARMA:</strong> Bullish order block mitigated - Exit long positions</p>
+            
+                    <p><strong>DIXON:</strong> Bearish order block mitigated - Exit short positions</p>
+            
+                    <p><strong>AMBER:</strong> Bearish order block mitigated - Exit short positions</p>
+            
+                    <p><strong>MARICO:</strong> Bearish order block mitigated - Exit short positions</p>
+            
+                    <p><strong>SBICARD:</strong> Bullish order block mitigated - Exit long positions</p>
+            
+                    <p><strong>M&MFIN:</strong> Bullish order block mitigated - Exit long positions</p>
+            
+                    <p><strong>GMRAIRPORT:</strong> Bearish order block mitigated - Exit short positions</p>
+            
+                    <p><strong>PGEL:</strong> Bullish order block mitigated - Exit long positions</p>
+            
+                    <p><strong>ABFRL:</strong> Bullish order block mitigated - Exit long positions</p>
+            
+                    <p><strong>MGL:</strong> Bearish order block mitigated - Exit short positions</p>
+            
+                </div>
+            </div>
+        
+            <div class="footer">
+                <p><strong>⚠️ Disclaimer:</strong> These signals are based on Smart Money Concepts analysis and are for educational purposes only.</p>
+                <p><strong>🎯 System:</strong> Entry signals require order block interaction + confirmations. Risk management built-in.</p>
+                <p><strong>📊 Usage:</strong> Validate signals with Pine Script charts before executing trades.</p>
+            </div>
+        </div>
+    </body>
+    </html>
+    

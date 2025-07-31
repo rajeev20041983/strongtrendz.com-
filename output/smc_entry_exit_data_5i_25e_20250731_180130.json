@@ -1,0 +1,4289 @@
+{
+  "metadata": {
+    "timestamp": "2025-07-31T18:01:30.047095",
+    "total_stocks_analyzed": 223,
+    "internal_sensitivity": 5,
+    "external_sensitivity": 25,
+    "strategy": "Smart Money Concepts Entry/Exit System",
+    "risk_per_trade": "1% portfolio",
+    "risk_reward_targets": [
+      2.0,
+      3.0
+    ]
+  },
+  "summary": {
+    "total_entry_signals": 20,
+    "total_exit_signals": 24,
+    "long_entries": 14,
+    "short_entries": 6,
+    "strong_signals": 3
+  },
+  "results": [
+    {
+      "ticker": "ABB",
+      "current_price": 5510.0,
+      "trend_direction": "NEUTRAL",
+      "rsi": 36.04980192416525,
+      "volume_ratio": 0.7701634927431239,
+      "structure_signals": [],
+      "active_order_blocks": 2,
+      "bullish_fvgs": 0,
+      "bearish_fvgs": 3,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "LAURUSLABS",
+      "current_price": 874.3499755859375,
+      "trend_direction": "BULLISH",
+      "rsi": 73.35553163613892,
+      "volume_ratio": 0.9200201476977024,
+      "structure_signals": [
+        [
+          "BULLISH_BOS",
+          659.9988998210218
+        ]
+      ],
+      "active_order_blocks": 2,
+      "bullish_fvgs": 9,
+      "bearish_fvgs": 0,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "BAJFINANCE",
+      "current_price": 881.2000122070312,
+      "trend_direction": "BEARISH",
+      "rsi": 35.19253200802511,
+      "volume_ratio": 0.9491525570870583,
+      "structure_signals": [
+        [
+          "BEARISH_BOS",
+          886.0
+        ]
+      ],
+      "active_order_blocks": 2,
+      "bullish_fvgs": 0,
+      "bearish_fvgs": 3,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "CESC",
+      "current_price": 169.50999450683594,
+      "trend_direction": "NEUTRAL",
+      "rsi": 40.467631921128614,
+      "volume_ratio": 1.989782969951049,
+      "structure_signals": [],
+      "active_order_blocks": 3,
+      "bullish_fvgs": 2,
+      "bearish_fvgs": 0,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "BLUESTARCO",
+      "current_price": 1738.0999755859375,
+      "trend_direction": "NEUTRAL",
+      "rsi": 41.78838255899963,
+      "volume_ratio": 0.6717323995390422,
+      "structure_signals": [],
+      "active_order_blocks": 4,
+      "bullish_fvgs": 2,
+      "bearish_fvgs": 3,
+      "entry_signals": [],
+      "exit_signals": [
+        {
+          "type": "BULLISH_OB_MITIGATED",
+          "message": "Bullish order block mitigated - Exit long positions",
+          "level": 1900.868919262561,
+          "ticker": "BLUESTARCO"
+        }
+      ],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "BEL",
+      "current_price": 383.1000061035156,
+      "trend_direction": "BULLISH",
+      "rsi": 21.64506768356604,
+      "volume_ratio": 0.6710713640650933,
+      "structure_signals": [
+        [
+          "BULLISH_BOS",
+          297.9498090484912
+        ]
+      ],
+      "active_order_blocks": 1,
+      "bullish_fvgs": 0,
+      "bearish_fvgs": 3,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "CHAMBLFERT",
+      "current_price": 514.9000244140625,
+      "trend_direction": "NEUTRAL",
+      "rsi": 40.08790485676122,
+      "volume_ratio": 4.966973087359314,
+      "structure_signals": [],
+      "active_order_blocks": 2,
+      "bullish_fvgs": 0,
+      "bearish_fvgs": 1,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "CIPLA",
+      "current_price": 1554.5999755859375,
+      "trend_direction": "BULLISH",
+      "rsi": 69.70554507581701,
+      "volume_ratio": 1.3843504783036886,
+      "structure_signals": [
+        [
+          "BULLISH_BOS",
+          1527.7663690133584
+        ]
+      ],
+      "active_order_blocks": 2,
+      "bullish_fvgs": 1,
+      "bearish_fvgs": 0,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "CGPOWER",
+      "current_price": 661.7000122070312,
+      "trend_direction": "NEUTRAL",
+      "rsi": 46.68856849063827,
+      "volume_ratio": 0.6651015177672842,
+      "structure_signals": [],
+      "active_order_blocks": 4,
+      "bullish_fvgs": 0,
+      "bearish_fvgs": 0,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "EXIDEIND",
+      "current_price": 384.29998779296875,
+      "trend_direction": "NEUTRAL",
+      "rsi": 55.25601451065812,
+      "volume_ratio": 0.8107845131052078,
+      "structure_signals": [],
+      "active_order_blocks": 4,
+      "bullish_fvgs": 0,
+      "bearish_fvgs": 0,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "DABUR",
+      "current_price": 529.0,
+      "trend_direction": "BULLISH",
+      "rsi": 53.78229790656531,
+      "volume_ratio": 1.1273313590708132,
+      "structure_signals": [
+        [
+          "BULLISH_BOS",
+          514.2918776720616
+        ]
+      ],
+      "active_order_blocks": 3,
+      "bullish_fvgs": 6,
+      "bearish_fvgs": 0,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "BHEL",
+      "current_price": 238.4499969482422,
+      "trend_direction": "NEUTRAL",
+      "rsi": 24.71906473655234,
+      "volume_ratio": 1.210187337312516,
+      "structure_signals": [],
+      "active_order_blocks": 1,
+      "bullish_fvgs": 0,
+      "bearish_fvgs": 1,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "HINDPETRO",
+      "current_price": 418.45001220703125,
+      "trend_direction": "NEUTRAL",
+      "rsi": 37.923893204994826,
+      "volume_ratio": 2.099980771675048,
+      "structure_signals": [],
+      "active_order_blocks": 2,
+      "bullish_fvgs": 2,
+      "bearish_fvgs": 1,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "SBIN",
+      "current_price": 796.5499877929688,
+      "trend_direction": "NEUTRAL",
+      "rsi": 42.45634890133098,
+      "volume_ratio": 1.176669122855637,
+      "structure_signals": [],
+      "active_order_blocks": 2,
+      "bullish_fvgs": 0,
+      "bearish_fvgs": 2,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "TITAN",
+      "current_price": 3347.300048828125,
+      "trend_direction": "NEUTRAL",
+      "rsi": 47.78431190085484,
+      "volume_ratio": 0.617997377358948,
+      "structure_signals": [],
+      "active_order_blocks": 3,
+      "bullish_fvgs": 0,
+      "bearish_fvgs": 3,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "SAIL",
+      "current_price": 124.19999694824219,
+      "trend_direction": "NEUTRAL",
+      "rsi": 26.882710783170083,
+      "volume_ratio": 1.1738285249317992,
+      "structure_signals": [],
+      "active_order_blocks": 2,
+      "bullish_fvgs": 0,
+      "bearish_fvgs": 2,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "DRREDDY",
+      "current_price": 1270.300048828125,
+      "trend_direction": "NEUTRAL",
+      "rsi": 55.75224425567771,
+      "volume_ratio": 1.4167086811740575,
+      "structure_signals": [],
+      "active_order_blocks": 3,
+      "bullish_fvgs": 1,
+      "bearish_fvgs": 2,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "HDFCBANK",
+      "current_price": 2018.199951171875,
+      "trend_direction": "BULLISH",
+      "rsi": 60.24953652528874,
+      "volume_ratio": 1.4284758356043579,
+      "structure_signals": [
+        [
+          "BULLISH_BOS",
+          1957.3668559844475
+        ]
+      ],
+      "active_order_blocks": 1,
+      "bullish_fvgs": 1,
+      "bearish_fvgs": 0,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "HEROMOTOCO",
+      "current_price": 4260.7001953125,
+      "trend_direction": "NEUTRAL",
+      "rsi": 57.76359740501107,
+      "volume_ratio": 0.8674714996677539,
+      "structure_signals": [],
+      "active_order_blocks": 3,
+      "bullish_fvgs": 0,
+      "bearish_fvgs": 0,
+      "entry_signals": [],
+      "exit_signals": [
+        {
+          "type": "BEARISH_OB_MITIGATED",
+          "message": "Bearish order block mitigated - Exit short positions",
+          "level": 4013.1043183209194,
+          "ticker": "HEROMOTOCO"
+        }
+      ],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "HFCL",
+      "current_price": 75.56999969482422,
+      "trend_direction": "NEUTRAL",
+      "rsi": 32.95043386969702,
+      "volume_ratio": 1.5513995516556547,
+      "structure_signals": [],
+      "active_order_blocks": 2,
+      "bullish_fvgs": 0,
+      "bearish_fvgs": 1,
+      "entry_signals": [],
+      "exit_signals": [
+        {
+          "type": "BULLISH_OB_MITIGATED",
+          "message": "Bullish order block mitigated - Exit long positions",
+          "level": 83.19999694824219,
+          "ticker": "HFCL"
+        }
+      ],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "HINDZINC",
+      "current_price": 424.04998779296875,
+      "trend_direction": "NEUTRAL",
+      "rsi": 49.35654362764961,
+      "volume_ratio": 0.830346512733086,
+      "structure_signals": [],
+      "active_order_blocks": 3,
+      "bullish_fvgs": 0,
+      "bearish_fvgs": 1,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "INFY",
+      "current_price": 1509.0,
+      "trend_direction": "NEUTRAL",
+      "rsi": 26.746077327910342,
+      "volume_ratio": 0.9756278941903685,
+      "structure_signals": [],
+      "active_order_blocks": 1,
+      "bullish_fvgs": 0,
+      "bearish_fvgs": 2,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "JSWSTEEL",
+      "current_price": 1048.300048828125,
+      "trend_direction": "NEUTRAL",
+      "rsi": 60.818746847129816,
+      "volume_ratio": 2.13245294642217,
+      "structure_signals": [],
+      "active_order_blocks": 3,
+      "bullish_fvgs": 1,
+      "bearish_fvgs": 0,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "KOTAKBANK",
+      "current_price": 1978.5999755859375,
+      "trend_direction": "BEARISH",
+      "rsi": 16.673944031682865,
+      "volume_ratio": 1.2130683365219435,
+      "structure_signals": [
+        [
+          "BEARISH_BOS",
+          2031.4579560954785
+        ]
+      ],
+      "active_order_blocks": 2,
+      "bullish_fvgs": 0,
+      "bearish_fvgs": 4,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "TRENT",
+      "current_price": 5018.0,
+      "trend_direction": "NEUTRAL",
+      "rsi": 24.140508221225716,
+      "volume_ratio": 0.6133930066444112,
+      "structure_signals": [],
+      "active_order_blocks": 3,
+      "bullish_fvgs": 0,
+      "bearish_fvgs": 5,
+      "entry_signals": [],
+      "exit_signals": [
+        {
+          "type": "BULLISH_OB_MITIGATED",
+          "message": "Bullish order block mitigated - Exit long positions",
+          "level": 5683.076734724474,
+          "ticker": "TRENT"
+        }
+      ],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "LICHSGFIN",
+      "current_price": 586.0499877929688,
+      "trend_direction": "NEUTRAL",
+      "rsi": 40.85544032028749,
+      "volume_ratio": 0.935191120253155,
+      "structure_signals": [],
+      "active_order_blocks": 3,
+      "bullish_fvgs": 0,
+      "bearish_fvgs": 2,
+      "entry_signals": [],
+      "exit_signals": [
+        {
+          "type": "BULLISH_OB_MITIGATED",
+          "message": "Bullish order block mitigated - Exit long positions",
+          "level": 607.5,
+          "ticker": "LICHSGFIN"
+        }
+      ],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "LUPIN",
+      "current_price": 1929.0999755859375,
+      "trend_direction": "NEUTRAL",
+      "rsi": 57.62405013472193,
+      "volume_ratio": 1.1118041228065454,
+      "structure_signals": [],
+      "active_order_blocks": 3,
+      "bullish_fvgs": 1,
+      "bearish_fvgs": 0,
+      "entry_signals": [
+        {
+          "type": "LONG_ENTRY",
+          "strength": "MODERATE",
+          "score": 4.0,
+          "entry_price": 1929.0999755859375,
+          "stop_loss": 1894.6361382070872,
+          "target_1": 1998.027650343638,
+          "target_2": 2032.4914877224883,
+          "risk_per_share": 34.46383737885026,
+          "position_size": 29,
+          "risk_reward_1": 2.0,
+          "risk_reward_2": 3.0,
+          "factors": [
+            "BULLISH_OB_REACTION",
+            "BULLISH_FVG"
+          ],
+          "ticker": "LUPIN",
+          "current_price": 1929.0999755859375,
+          "trend_direction": "NEUTRAL",
+          "rsi": 57.62405013472193,
+          "volume_ratio": 1.1118041228065454
+        }
+      ],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "MFSL",
+      "current_price": 1501.4000244140625,
+      "trend_direction": "BULLISH",
+      "rsi": 28.991080135353087,
+      "volume_ratio": 0.42990522795889086,
+      "structure_signals": [
+        [
+          "BULLISH_BOS",
+          1169.4000244140625
+        ]
+      ],
+      "active_order_blocks": 1,
+      "bullish_fvgs": 0,
+      "bearish_fvgs": 3,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "NCC",
+      "current_price": 217.7100067138672,
+      "trend_direction": "NEUTRAL",
+      "rsi": 43.99180353894996,
+      "volume_ratio": 0.9129035420326823,
+      "structure_signals": [],
+      "active_order_blocks": 2,
+      "bullish_fvgs": 0,
+      "bearish_fvgs": 1,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "GRASIM",
+      "current_price": 2746.39990234375,
+      "trend_direction": "NEUTRAL",
+      "rsi": 46.862405034450795,
+      "volume_ratio": 0.8166185570600907,
+      "structure_signals": [],
+      "active_order_blocks": 4,
+      "bullish_fvgs": 0,
+      "bearish_fvgs": 0,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "VEDL",
+      "current_price": 425.6499938964844,
+      "trend_direction": "NEUTRAL",
+      "rsi": 36.598732323829026,
+      "volume_ratio": 1.176667818208497,
+      "structure_signals": [],
+      "active_order_blocks": 2,
+      "bullish_fvgs": 0,
+      "bearish_fvgs": 2,
+      "entry_signals": [
+        {
+          "type": "LONG_ENTRY",
+          "strength": "MODERATE",
+          "score": 4.0,
+          "entry_price": 425.6499938964844,
+          "stop_loss": 389.8477938912241,
+          "target_1": 497.2543939070049,
+          "target_2": 533.0565939122652,
+          "risk_per_share": 35.80220000526026,
+          "position_size": 27,
+          "risk_reward_1": 2.0,
+          "risk_reward_2": 3.0,
+          "factors": [
+            "BULLISH_OB_REACTION",
+            "RSI_OVERSOLD"
+          ],
+          "ticker": "VEDL",
+          "current_price": 425.6499938964844,
+          "trend_direction": "NEUTRAL",
+          "rsi": 36.598732323829026,
+          "volume_ratio": 1.176667818208497
+        }
+      ],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "PEL",
+      "current_price": 1251.800048828125,
+      "trend_direction": "NEUTRAL",
+      "rsi": 55.70716286657654,
+      "volume_ratio": 1.637407428132401,
+      "structure_signals": [],
+      "active_order_blocks": 1,
+      "bullish_fvgs": 3,
+      "bearish_fvgs": 0,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "ONGC",
+      "current_price": 241.0,
+      "trend_direction": "NEUTRAL",
+      "rsi": 47.99155766282428,
+      "volume_ratio": 1.3778608990744061,
+      "structure_signals": [],
+      "active_order_blocks": 4,
+      "bullish_fvgs": 0,
+      "bearish_fvgs": 3,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "RELIANCE",
+      "current_price": 1390.199951171875,
+      "trend_direction": "BULLISH",
+      "rsi": 22.570518920270317,
+      "volume_ratio": 1.560251868264398,
+      "structure_signals": [
+        [
+          "BULLISH_BOS",
+          1326.0
+        ]
+      ],
+      "active_order_blocks": 1,
+      "bullish_fvgs": 0,
+      "bearish_fvgs": 3,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "PIDILITIND",
+      "current_price": 2869.800048828125,
+      "trend_direction": "NEUTRAL",
+      "rsi": 26.730035521641895,
+      "volume_ratio": 0.8377850463229368,
+      "structure_signals": [],
+      "active_order_blocks": 3,
+      "bullish_fvgs": 0,
+      "bearish_fvgs": 1,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "PATANJALI",
+      "current_price": 1873.699951171875,
+      "trend_direction": "NEUTRAL",
+      "rsi": 74.68623915372301,
+      "volume_ratio": 0.7094664801031813,
+      "structure_signals": [],
+      "active_order_blocks": 4,
+      "bullish_fvgs": 2,
+      "bearish_fvgs": 0,
+      "entry_signals": [
+        {
+          "type": "SHORT_ENTRY",
+          "strength": "MODERATE",
+          "score": 4.0,
+          "entry_price": 1873.699951171875,
+          "stop_loss": 1884.3749999999998,
+          "target_1": 1852.3498535156255,
+          "target_2": 1841.6748046875007,
+          "risk_per_share": 10.675048828124773,
+          "position_size": 93,
+          "risk_reward_1": 2.0,
+          "risk_reward_2": 3.0,
+          "factors": [
+            "BEARISH_OB_REJECTION",
+            "RSI_OVERBOUGHT"
+          ],
+          "ticker": "PATANJALI",
+          "current_price": 1873.699951171875,
+          "trend_direction": "NEUTRAL",
+          "rsi": 74.68623915372301,
+          "volume_ratio": 0.7094664801031813
+        }
+      ],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "SHREECEM",
+      "current_price": 30810.0,
+      "trend_direction": "NEUTRAL",
+      "rsi": 46.118496928950115,
+      "volume_ratio": 0.6172661811332859,
+      "structure_signals": [],
+      "active_order_blocks": 4,
+      "bullish_fvgs": 3,
+      "bearish_fvgs": 1,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "TATAPOWER",
+      "current_price": 397.75,
+      "trend_direction": "NEUTRAL",
+      "rsi": 50.841115311316194,
+      "volume_ratio": 0.962938397114598,
+      "structure_signals": [],
+      "active_order_blocks": 2,
+      "bullish_fvgs": 1,
+      "bearish_fvgs": 2,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "TATAELXSI",
+      "current_price": 6093.5,
+      "trend_direction": "NEUTRAL",
+      "rsi": 51.57955198161976,
+      "volume_ratio": 0.5520813116828039,
+      "structure_signals": [],
+      "active_order_blocks": 3,
+      "bullish_fvgs": 0,
+      "bearish_fvgs": 2,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "ACC",
+      "current_price": 1788.4000244140625,
+      "trend_direction": "BEARISH",
+      "rsi": 10.012378036604986,
+      "volume_ratio": 3.168295355323169,
+      "structure_signals": [
+        [
+          "BEARISH_BOS",
+          1813.4000244140625
+        ]
+      ],
+      "active_order_blocks": 1,
+      "bullish_fvgs": 0,
+      "bearish_fvgs": 2,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "TORNTPHARM",
+      "current_price": 3741.89990234375,
+      "trend_direction": "BULLISH",
+      "rsi": 84.98281670284378,
+      "volume_ratio": 0.48279074685205364,
+      "structure_signals": [
+        [
+          "BULLISH_BOS",
+          3365.505635439244
+        ]
+      ],
+      "active_order_blocks": 2,
+      "bullish_fvgs": 9,
+      "bearish_fvgs": 0,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "AMBUJACEM",
+      "current_price": 592.7000122070312,
+      "trend_direction": "BULLISH",
+      "rsi": 53.528283774418924,
+      "volume_ratio": 2.2182150042756827,
+      "structure_signals": [
+        [
+          "BULLISH_BOS",
+          582.66703331148
+        ]
+      ],
+      "active_order_blocks": 1,
+      "bullish_fvgs": 5,
+      "bearish_fvgs": 0,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "HINDALCO",
+      "current_price": 683.0499877929688,
+      "trend_direction": "NEUTRAL",
+      "rsi": 59.918012775358605,
+      "volume_ratio": 1.4592775697780989,
+      "structure_signals": [],
+      "active_order_blocks": 3,
+      "bullish_fvgs": 1,
+      "bearish_fvgs": 0,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "TATASTEEL",
+      "current_price": 157.94000244140625,
+      "trend_direction": "BULLISH",
+      "rsi": 45.240494213736284,
+      "volume_ratio": 1.3724735262829169,
+      "structure_signals": [
+        [
+          "BULLISH_BOS",
+          156.45147500190663
+        ]
+      ],
+      "active_order_blocks": 2,
+      "bullish_fvgs": 2,
+      "bearish_fvgs": 1,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "FEDERALBNK",
+      "current_price": 202.42999267578125,
+      "trend_direction": "NEUTRAL",
+      "rsi": 38.21987171293445,
+      "volume_ratio": 1.4330992126489979,
+      "structure_signals": [],
+      "active_order_blocks": 3,
+      "bullish_fvgs": 0,
+      "bearish_fvgs": 1,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "ASHOKLEY",
+      "current_price": 121.05000305175781,
+      "trend_direction": "NEUTRAL",
+      "rsi": 44.291623499938716,
+      "volume_ratio": 1.2591451084960814,
+      "structure_signals": [],
+      "active_order_blocks": 3,
+      "bullish_fvgs": 2,
+      "bearish_fvgs": 0,
+      "entry_signals": [],
+      "exit_signals": [
+        {
+          "type": "BEARISH_OB_MITIGATED",
+          "message": "Bearish order block mitigated - Exit short positions",
+          "level": 116.4460200710321,
+          "ticker": "ASHOKLEY"
+        }
+      ],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "CUMMINSIND",
+      "current_price": 3555.5,
+      "trend_direction": "BULLISH",
+      "rsi": 54.9924400687896,
+      "volume_ratio": 1.1675340530287235,
+      "structure_signals": [
+        [
+          "BULLISH_BOS",
+          3056.1706668644515
+        ]
+      ],
+      "active_order_blocks": 2,
+      "bullish_fvgs": 3,
+      "bearish_fvgs": 0,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "BHARATFORG",
+      "current_price": 1169.0999755859375,
+      "trend_direction": "NEUTRAL",
+      "rsi": 39.25716853540521,
+      "volume_ratio": 2.3297575657601577,
+      "structure_signals": [],
+      "active_order_blocks": 3,
+      "bullish_fvgs": 0,
+      "bearish_fvgs": 4,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "TATACOMM",
+      "current_price": 1724.699951171875,
+      "trend_direction": "NEUTRAL",
+      "rsi": 53.333308099160206,
+      "volume_ratio": 1.130638243362352,
+      "structure_signals": [],
+      "active_order_blocks": 2,
+      "bullish_fvgs": 0,
+      "bearish_fvgs": 0,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "LT",
+      "current_price": 3636.5,
+      "trend_direction": "BULLISH",
+      "rsi": 59.11422586414442,
+      "volume_ratio": 1.0527600358680715,
+      "structure_signals": [
+        [
+          "BULLISH_BOS",
+          3495.4008369778494
+        ]
+      ],
+      "active_order_blocks": 1,
+      "bullish_fvgs": 2,
+      "bearish_fvgs": 0,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "BOSCHLTD",
+      "current_price": 40385.0,
+      "trend_direction": "NEUTRAL",
+      "rsi": 83.25318981171748,
+      "volume_ratio": 0.7992402573333137,
+      "structure_signals": [],
+      "active_order_blocks": 1,
+      "bullish_fvgs": 6,
+      "bearish_fvgs": 0,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "M&M",
+      "current_price": 3203.10009765625,
+      "trend_direction": "BULLISH",
+      "rsi": 72.51300460270272,
+      "volume_ratio": 2.0705607108734494,
+      "structure_signals": [
+        [
+          "BULLISH_BOS",
+          3145.4292392734196
+        ]
+      ],
+      "active_order_blocks": 3,
+      "bullish_fvgs": 0,
+      "bearish_fvgs": 0,
+      "entry_signals": [],
+      "exit_signals": [
+        {
+          "type": "BEARISH_OB_MITIGATED",
+          "message": "Bearish order block mitigated - Exit short positions",
+          "level": 3085.213248360736,
+          "ticker": "M&M"
+        }
+      ],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "BPCL",
+      "current_price": 329.29998779296875,
+      "trend_direction": "BULLISH",
+      "rsi": 34.601638230912386,
+      "volume_ratio": 0.9988675721651277,
+      "structure_signals": [
+        [
+          "BULLISH_BOS",
+          321.01616568193606
+        ]
+      ],
+      "active_order_blocks": 2,
+      "bullish_fvgs": 3,
+      "bearish_fvgs": 0,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "SIEMENS",
+      "current_price": 3033.39990234375,
+      "trend_direction": "NEUTRAL",
+      "rsi": 38.096587481341295,
+      "volume_ratio": 0.7178715438341579,
+      "structure_signals": [],
+      "active_order_blocks": 3,
+      "bullish_fvgs": 0,
+      "bearish_fvgs": 3,
+      "entry_signals": [],
+      "exit_signals": [
+        {
+          "type": "BULLISH_OB_MITIGATED",
+          "message": "Bullish order block mitigated - Exit long positions",
+          "level": 5287.4501953125,
+          "ticker": "SIEMENS"
+        }
+      ],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "VOLTAS",
+      "current_price": 1327.699951171875,
+      "trend_direction": "NEUTRAL",
+      "rsi": 38.12498612837357,
+      "volume_ratio": 0.758974412479044,
+      "structure_signals": [],
+      "active_order_blocks": 4,
+      "bullish_fvgs": 0,
+      "bearish_fvgs": 0,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "TATAMOTORS",
+      "current_price": 665.9500122070312,
+      "trend_direction": "BEARISH",
+      "rsi": 43.83508960849166,
+      "volume_ratio": 2.1303413029460185,
+      "structure_signals": [
+        [
+          "BEARISH_BOS",
+          666.0999755859375
+        ]
+      ],
+      "active_order_blocks": 3,
+      "bullish_fvgs": 0,
+      "bearish_fvgs": 1,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "HINDUNILVR",
+      "current_price": 2521.199951171875,
+      "trend_direction": "BULLISH",
+      "rsi": 50.27338544886862,
+      "volume_ratio": 3.0834045688462703,
+      "structure_signals": [
+        [
+          "BULLISH_BOS",
+          2461.5142452066652
+        ]
+      ],
+      "active_order_blocks": 3,
+      "bullish_fvgs": 2,
+      "bearish_fvgs": 0,
+      "entry_signals": [],
+      "exit_signals": [
+        {
+          "type": "BEARISH_OB_MITIGATED",
+          "message": "Bearish order block mitigated - Exit short positions",
+          "level": 2376.508234850856,
+          "ticker": "HINDUNILVR"
+        }
+      ],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "TATACHEM",
+      "current_price": 982.5499877929688,
+      "trend_direction": "BULLISH",
+      "rsi": 68.52076974577231,
+      "volume_ratio": 0.6346354988211226,
+      "structure_signals": [
+        [
+          "BULLISH_BOS",
+          965.3644130975642
+        ]
+      ],
+      "active_order_blocks": 1,
+      "bullish_fvgs": 1,
+      "bearish_fvgs": 0,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "TATACONSUM",
+      "current_price": 1073.199951171875,
+      "trend_direction": "NEUTRAL",
+      "rsi": 48.617476092255764,
+      "volume_ratio": 0.8959030984663523,
+      "structure_signals": [],
+      "active_order_blocks": 3,
+      "bullish_fvgs": 0,
+      "bearish_fvgs": 1,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "NESTLEIND",
+      "current_price": 2247.699951171875,
+      "trend_direction": "BEARISH",
+      "rsi": 30.669980838304497,
+      "volume_ratio": 0.9717278675557384,
+      "structure_signals": [
+        [
+          "BEARISH_BOS",
+          2300.3282785584743
+        ]
+      ],
+      "active_order_blocks": 3,
+      "bullish_fvgs": 0,
+      "bearish_fvgs": 3,
+      "entry_signals": [],
+      "exit_signals": [
+        {
+          "type": "BEARISH_OB_MITIGATED",
+          "message": "Bearish order block mitigated - Exit short positions",
+          "level": 2157.7514095597758,
+          "ticker": "NESTLEIND"
+        }
+      ],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "ASIANPAINT",
+      "current_price": 2396.10009765625,
+      "trend_direction": "NEUTRAL",
+      "rsi": 41.60501330076856,
+      "volume_ratio": 1.4035267566161578,
+      "structure_signals": [],
+      "active_order_blocks": 3,
+      "bullish_fvgs": 2,
+      "bearish_fvgs": 1,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "COLPAL",
+      "current_price": 2245.300048828125,
+      "trend_direction": "BEARISH",
+      "rsi": 28.09777076443197,
+      "volume_ratio": 0.9163483580197719,
+      "structure_signals": [
+        [
+          "BEARISH_BOS",
+          2346.300048828125
+        ]
+      ],
+      "active_order_blocks": 2,
+      "bullish_fvgs": 0,
+      "bearish_fvgs": 3,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "BRITANNIA",
+      "current_price": 5771.0,
+      "trend_direction": "BULLISH",
+      "rsi": 51.21241513094083,
+      "volume_ratio": 1.4381411730274476,
+      "structure_signals": [
+        [
+          "BULLISH_BOS",
+          5379.0
+        ]
+      ],
+      "active_order_blocks": 1,
+      "bullish_fvgs": 1,
+      "bearish_fvgs": 0,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "INDHOTEL",
+      "current_price": 740.75,
+      "trend_direction": "NEUTRAL",
+      "rsi": 53.213656884317395,
+      "volume_ratio": 0.8600778861721899,
+      "structure_signals": [],
+      "active_order_blocks": 3,
+      "bullish_fvgs": 0,
+      "bearish_fvgs": 1,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "BALKRISIND",
+      "current_price": 2676.199951171875,
+      "trend_direction": "NEUTRAL",
+      "rsi": 53.00838888024604,
+      "volume_ratio": 0.970014796386948,
+      "structure_signals": [],
+      "active_order_blocks": 5,
+      "bullish_fvgs": 2,
+      "bearish_fvgs": 0,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "ITC",
+      "current_price": 411.95001220703125,
+      "trend_direction": "NEUTRAL",
+      "rsi": 41.95692925595876,
+      "volume_ratio": 2.241304038125889,
+      "structure_signals": [],
+      "active_order_blocks": 3,
+      "bullish_fvgs": 0,
+      "bearish_fvgs": 1,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "PHOENIXLTD",
+      "current_price": 1484.0,
+      "trend_direction": "NEUTRAL",
+      "rsi": 49.06523752947549,
+      "volume_ratio": 0.47216729985062966,
+      "structure_signals": [],
+      "active_order_blocks": 5,
+      "bullish_fvgs": 0,
+      "bearish_fvgs": 2,
+      "entry_signals": [],
+      "exit_signals": [
+        {
+          "type": "BULLISH_OB_MITIGATED",
+          "message": "Bullish order block mitigated - Exit long positions",
+          "level": 1533.300048828125,
+          "ticker": "PHOENIXLTD"
+        },
+        {
+          "type": "BULLISH_OB_MITIGATED",
+          "message": "Bullish order block mitigated - Exit long positions",
+          "level": 1605.0,
+          "ticker": "PHOENIXLTD"
+        }
+      ],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "SRF",
+      "current_price": 3040.800048828125,
+      "trend_direction": "BULLISH",
+      "rsi": 36.76998719609514,
+      "volume_ratio": 1.5353635487809776,
+      "structure_signals": [
+        [
+          "BULLISH_BOS",
+          2979.995164959331
+        ]
+      ],
+      "active_order_blocks": 2,
+      "bullish_fvgs": 0,
+      "bearish_fvgs": 0,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "EICHERMOT",
+      "current_price": 5468.5,
+      "trend_direction": "NEUTRAL",
+      "rsi": 38.23529411764706,
+      "volume_ratio": 0.9717023572873799,
+      "structure_signals": [],
+      "active_order_blocks": 4,
+      "bullish_fvgs": 0,
+      "bearish_fvgs": 1,
+      "entry_signals": [],
+      "exit_signals": [
+        {
+          "type": "BEARISH_OB_MITIGATED",
+          "message": "Bearish order block mitigated - Exit short positions",
+          "level": 5130.10009765625,
+          "ticker": "EICHERMOT"
+        }
+      ],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "WIPRO",
+      "current_price": 248.3000030517578,
+      "trend_direction": "NEUTRAL",
+      "rsi": 44.021222898620294,
+      "volume_ratio": 0.7505471772035013,
+      "structure_signals": [],
+      "active_order_blocks": 2,
+      "bullish_fvgs": 0,
+      "bearish_fvgs": 2,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "APOLLOHOSP",
+      "current_price": 7498.0,
+      "trend_direction": "BULLISH",
+      "rsi": 69.46372239747635,
+      "volume_ratio": 0.8673212079476637,
+      "structure_signals": [
+        [
+          "BULLISH_BOS",
+          7243.0
+        ]
+      ],
+      "active_order_blocks": 1,
+      "bullish_fvgs": 3,
+      "bearish_fvgs": 1,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "CHOLAFIN",
+      "current_price": 1443.199951171875,
+      "trend_direction": "NEUTRAL",
+      "rsi": 27.709241388459148,
+      "volume_ratio": 3.241495389263432,
+      "structure_signals": [],
+      "active_order_blocks": 3,
+      "bullish_fvgs": 0,
+      "bearish_fvgs": 3,
+      "entry_signals": [
+        {
+          "type": "LONG_ENTRY",
+          "strength": "MODERATE",
+          "score": 4.5,
+          "entry_price": 1443.199951171875,
+          "stop_loss": 1425.2434432922396,
+          "target_1": 1479.1129669311458,
+          "target_2": 1497.0694748107812,
+          "risk_per_share": 17.95650787963541,
+          "position_size": 55,
+          "risk_reward_1": 2.0,
+          "risk_reward_2": 3.0,
+          "factors": [
+            "BULLISH_OB_REACTION",
+            "RSI_OVERSOLD",
+            "VOLUME_CONFIRM"
+          ],
+          "ticker": "CHOLAFIN",
+          "current_price": 1443.199951171875,
+          "trend_direction": "NEUTRAL",
+          "rsi": 27.709241388459148,
+          "volume_ratio": 3.241495389263432
+        }
+      ],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "UPL",
+      "current_price": 703.7999877929688,
+      "trend_direction": "BULLISH",
+      "rsi": 69.66076299150495,
+      "volume_ratio": 0.936285030577373,
+      "structure_signals": [
+        [
+          "BULLISH_BOS",
+          693.1072529572931
+        ]
+      ],
+      "active_order_blocks": 3,
+      "bullish_fvgs": 5,
+      "bearish_fvgs": 0,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "ADANIENT",
+      "current_price": 2430.699951171875,
+      "trend_direction": "NEUTRAL",
+      "rsi": 33.80565601104071,
+      "volume_ratio": 3.0910076346518798,
+      "structure_signals": [],
+      "active_order_blocks": 3,
+      "bullish_fvgs": 0,
+      "bearish_fvgs": 1,
+      "entry_signals": [],
+      "exit_signals": [
+        {
+          "type": "BULLISH_OB_MITIGATED",
+          "message": "Bullish order block mitigated - Exit long positions",
+          "level": 2495.89990234375,
+          "ticker": "ADANIENT"
+        }
+      ],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "LICI",
+      "current_price": 895.0,
+      "trend_direction": "NEUTRAL",
+      "rsi": 41.79336034505294,
+      "volume_ratio": 0.8752806869365987,
+      "structure_signals": [],
+      "active_order_blocks": 1,
+      "bullish_fvgs": 0,
+      "bearish_fvgs": 2,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "DELHIVERY",
+      "current_price": 425.25,
+      "trend_direction": "NEUTRAL",
+      "rsi": 56.937560263884734,
+      "volume_ratio": 2.18344514425729,
+      "structure_signals": [],
+      "active_order_blocks": 1,
+      "bullish_fvgs": 4,
+      "bearish_fvgs": 1,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "HINDCOPPER",
+      "current_price": 243.35000610351562,
+      "trend_direction": "BULLISH",
+      "rsi": 36.76268479582716,
+      "volume_ratio": 2.6267607004666527,
+      "structure_signals": [
+        [
+          "BULLISH_BOS",
+          240.75
+        ]
+      ],
+      "active_order_blocks": 1,
+      "bullish_fvgs": 0,
+      "bearish_fvgs": 1,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "SUPREMEIND",
+      "current_price": 4306.89990234375,
+      "trend_direction": "NEUTRAL",
+      "rsi": 64.03904261775358,
+      "volume_ratio": 0.7942926320636999,
+      "structure_signals": [],
+      "active_order_blocks": 2,
+      "bullish_fvgs": 0,
+      "bearish_fvgs": 0,
+      "entry_signals": [
+        {
+          "type": "SHORT_ENTRY",
+          "strength": "MODERATE",
+          "score": 4.0,
+          "entry_price": 4306.89990234375,
+          "stop_loss": 4615.910202910612,
+          "target_1": 3688.879301210027,
+          "target_2": 3379.8690006431652,
+          "risk_per_share": 309.0103005668616,
+          "position_size": 3,
+          "risk_reward_1": 2.0,
+          "risk_reward_2": 3.0,
+          "factors": [
+            "BEARISH_OB_REJECTION",
+            "RSI_OVERBOUGHT"
+          ],
+          "ticker": "SUPREMEIND",
+          "current_price": 4306.89990234375,
+          "trend_direction": "NEUTRAL",
+          "rsi": 64.03904261775358,
+          "volume_ratio": 0.7942926320636999
+        }
+      ],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "SHRIRAMFIN",
+      "current_price": 630.8499755859375,
+      "trend_direction": "NEUTRAL",
+      "rsi": 38.52055899052587,
+      "volume_ratio": 1.125739383199178,
+      "structure_signals": [],
+      "active_order_blocks": 3,
+      "bullish_fvgs": 0,
+      "bearish_fvgs": 3,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "MOTHERSON",
+      "current_price": 97.16999816894531,
+      "trend_direction": "NEUTRAL",
+      "rsi": 43.708275721298826,
+      "volume_ratio": 1.1943410887198618,
+      "structure_signals": [],
+      "active_order_blocks": 2,
+      "bullish_fvgs": 0,
+      "bearish_fvgs": 1,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "PPLPHARMA",
+      "current_price": 197.02999877929688,
+      "trend_direction": "NEUTRAL",
+      "rsi": 45.858785236611304,
+      "volume_ratio": 0.48513445907532493,
+      "structure_signals": [],
+      "active_order_blocks": 3,
+      "bullish_fvgs": 0,
+      "bearish_fvgs": 0,
+      "entry_signals": [],
+      "exit_signals": [
+        {
+          "type": "BULLISH_OB_MITIGATED",
+          "message": "Bullish order block mitigated - Exit long positions",
+          "level": 208.14514818018915,
+          "ticker": "PPLPHARMA"
+        }
+      ],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "HAVELLS",
+      "current_price": 1500.5999755859375,
+      "trend_direction": "NEUTRAL",
+      "rsi": 43.98760084164899,
+      "volume_ratio": 0.5971509194598248,
+      "structure_signals": [],
+      "active_order_blocks": 4,
+      "bullish_fvgs": 0,
+      "bearish_fvgs": 1,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "KEI",
+      "current_price": 3844.199951171875,
+      "trend_direction": "NEUTRAL",
+      "rsi": 68.82000076083477,
+      "volume_ratio": 0.973910293020347,
+      "structure_signals": [],
+      "active_order_blocks": 2,
+      "bullish_fvgs": 2,
+      "bearish_fvgs": 0,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "KAYNES",
+      "current_price": 6172.0,
+      "trend_direction": "NEUTRAL",
+      "rsi": 56.468401486988846,
+      "volume_ratio": 8.103247462882187,
+      "structure_signals": [],
+      "active_order_blocks": 4,
+      "bullish_fvgs": 0,
+      "bearish_fvgs": 0,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "KFINTECH",
+      "current_price": 1082.9000244140625,
+      "trend_direction": "NEUTRAL",
+      "rsi": 16.97920313584804,
+      "volume_ratio": 1.4013369378078733,
+      "structure_signals": [],
+      "active_order_blocks": 3,
+      "bullish_fvgs": 0,
+      "bearish_fvgs": 5,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "MANKIND",
+      "current_price": 2567.199951171875,
+      "trend_direction": "NEUTRAL",
+      "rsi": 48.754756007112235,
+      "volume_ratio": 0.576036571498077,
+      "structure_signals": [],
+      "active_order_blocks": 2,
+      "bullish_fvgs": 3,
+      "bearish_fvgs": 0,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "PIIND",
+      "current_price": 4250.89990234375,
+      "trend_direction": "NEUTRAL",
+      "rsi": 63.58242613278192,
+      "volume_ratio": 1.8066880931870057,
+      "structure_signals": [],
+      "active_order_blocks": 1,
+      "bullish_fvgs": 1,
+      "bearish_fvgs": 0,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "JIOFIN",
+      "current_price": 329.25,
+      "trend_direction": "NEUTRAL",
+      "rsi": 52.961380765720605,
+      "volume_ratio": 2.8261329521125838,
+      "structure_signals": [],
+      "active_order_blocks": 1,
+      "bullish_fvgs": 4,
+      "bearish_fvgs": 0,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "BSE",
+      "current_price": 2427.39990234375,
+      "trend_direction": "NEUTRAL",
+      "rsi": 54.80948030983694,
+      "volume_ratio": 0.5440575767947575,
+      "structure_signals": [],
+      "active_order_blocks": 3,
+      "bullish_fvgs": 0,
+      "bearish_fvgs": 2,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "AARTIIND",
+      "current_price": 420.04998779296875,
+      "trend_direction": "NEUTRAL",
+      "rsi": 40.214846055121505,
+      "volume_ratio": 4.647784551692748,
+      "structure_signals": [],
+      "active_order_blocks": 4,
+      "bullish_fvgs": 0,
+      "bearish_fvgs": 3,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "DMART",
+      "current_price": 4267.39990234375,
+      "trend_direction": "NEUTRAL",
+      "rsi": 65.6403938572461,
+      "volume_ratio": 1.430259029693998,
+      "structure_signals": [],
+      "active_order_blocks": 2,
+      "bullish_fvgs": 1,
+      "bearish_fvgs": 1,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "HUDCO",
+      "current_price": 212.27000427246094,
+      "trend_direction": "BEARISH",
+      "rsi": 21.821513212935656,
+      "volume_ratio": 0.9973111062018154,
+      "structure_signals": [
+        [
+          "BEARISH_BOS",
+          216.3000030517578
+        ]
+      ],
+      "active_order_blocks": 2,
+      "bullish_fvgs": 0,
+      "bearish_fvgs": 2,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "AUBANK",
+      "current_price": 741.5,
+      "trend_direction": "BULLISH",
+      "rsi": 26.183346803243012,
+      "volume_ratio": 1.367871003841259,
+      "structure_signals": [
+        [
+          "BULLISH_BOS",
+          617.1888879657846
+        ]
+      ],
+      "active_order_blocks": 1,
+      "bullish_fvgs": 0,
+      "bearish_fvgs": 3,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "CDSL",
+      "current_price": 1480.800048828125,
+      "trend_direction": "NEUTRAL",
+      "rsi": 23.74335920276515,
+      "volume_ratio": 0.9743926539194114,
+      "structure_signals": [],
+      "active_order_blocks": 2,
+      "bullish_fvgs": 0,
+      "bearish_fvgs": 5,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "POONAWALLA",
+      "current_price": 422.25,
+      "trend_direction": "BULLISH",
+      "rsi": 31.042531212519563,
+      "volume_ratio": 1.0483095018163895,
+      "structure_signals": [
+        [
+          "BULLISH_BOS",
+          416.75
+        ]
+      ],
+      "active_order_blocks": 1,
+      "bullish_fvgs": 0,
+      "bearish_fvgs": 2,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "DIXON",
+      "current_price": 16841.0,
+      "trend_direction": "NEUTRAL",
+      "rsi": 76.23073097961213,
+      "volume_ratio": 1.4055088165959218,
+      "structure_signals": [],
+      "active_order_blocks": 3,
+      "bullish_fvgs": 2,
+      "bearish_fvgs": 0,
+      "entry_signals": [
+        {
+          "type": "SHORT_ENTRY",
+          "strength": "MODERATE",
+          "score": 4.5,
+          "entry_price": 16841.0,
+          "stop_loss": 16912.14,
+          "target_1": 16698.72,
+          "target_2": 16627.58,
+          "risk_per_share": 71.13999999999942,
+          "position_size": 14,
+          "risk_reward_1": 2.0,
+          "risk_reward_2": 3.0,
+          "factors": [
+            "BEARISH_OB_REJECTION",
+            "RSI_OVERBOUGHT",
+            "VOLUME_CONFIRM"
+          ],
+          "ticker": "DIXON",
+          "current_price": 16841.0,
+          "trend_direction": "NEUTRAL",
+          "rsi": 76.23073097961213,
+          "volume_ratio": 1.4055088165959218
+        }
+      ],
+      "exit_signals": [
+        {
+          "type": "BEARISH_OB_MITIGATED",
+          "message": "Bearish order block mitigated - Exit short positions",
+          "level": 15875.0,
+          "ticker": "DIXON"
+        }
+      ],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "SUNPHARMA",
+      "current_price": 1706.699951171875,
+      "trend_direction": "NEUTRAL",
+      "rsi": 59.003610794374765,
+      "volume_ratio": 1.814094765965944,
+      "structure_signals": [],
+      "active_order_blocks": 4,
+      "bullish_fvgs": 1,
+      "bearish_fvgs": 0,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "ABCAPITAL",
+      "current_price": 256.6499938964844,
+      "trend_direction": "NEUTRAL",
+      "rsi": 37.40155375360294,
+      "volume_ratio": 2.627077379290479,
+      "structure_signals": [],
+      "active_order_blocks": 1,
+      "bullish_fvgs": 0,
+      "bearish_fvgs": 1,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "AUROPHARMA",
+      "current_price": 1139.800048828125,
+      "trend_direction": "NEUTRAL",
+      "rsi": 54.57876003839481,
+      "volume_ratio": 4.789082512605109,
+      "structure_signals": [],
+      "active_order_blocks": 4,
+      "bullish_fvgs": 0,
+      "bearish_fvgs": 1,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "NMDC",
+      "current_price": 70.79000091552734,
+      "trend_direction": "NEUTRAL",
+      "rsi": 58.381494817816915,
+      "volume_ratio": 0.7640215396081237,
+      "structure_signals": [],
+      "active_order_blocks": 3,
+      "bullish_fvgs": 2,
+      "bearish_fvgs": 1,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "IREDA",
+      "current_price": 147.3800048828125,
+      "trend_direction": "NEUTRAL",
+      "rsi": 10.709847336077246,
+      "volume_ratio": 0.8482766885449187,
+      "structure_signals": [],
+      "active_order_blocks": 4,
+      "bullish_fvgs": 0,
+      "bearish_fvgs": 5,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "MPHASIS",
+      "current_price": 2790.199951171875,
+      "trend_direction": "NEUTRAL",
+      "rsi": 45.348386168116676,
+      "volume_ratio": 0.9944157918536748,
+      "structure_signals": [],
+      "active_order_blocks": 1,
+      "bullish_fvgs": 0,
+      "bearish_fvgs": 0,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "SBILIFE",
+      "current_price": 1840.699951171875,
+      "trend_direction": "BULLISH",
+      "rsi": 51.335600439192476,
+      "volume_ratio": 1.7427897650044761,
+      "structure_signals": [
+        [
+          "BULLISH_BOS",
+          1552.0460636543785
+        ]
+      ],
+      "active_order_blocks": 1,
+      "bullish_fvgs": 0,
+      "bearish_fvgs": 0,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "ICICIGI",
+      "current_price": 1927.0,
+      "trend_direction": "NEUTRAL",
+      "rsi": 34.441209646138816,
+      "volume_ratio": 0.8108556495995926,
+      "structure_signals": [],
+      "active_order_blocks": 3,
+      "bullish_fvgs": 0,
+      "bearish_fvgs": 1,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "TATATECH",
+      "current_price": 702.25,
+      "trend_direction": "NEUTRAL",
+      "rsi": 46.403081454627845,
+      "volume_ratio": 0.5568837689038115,
+      "structure_signals": [],
+      "active_order_blocks": 2,
+      "bullish_fvgs": 0,
+      "bearish_fvgs": 2,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "IEX",
+      "current_price": 135.3000030517578,
+      "trend_direction": "BEARISH",
+      "rsi": 15.94370189620723,
+      "volume_ratio": 0.7894202807332713,
+      "structure_signals": [
+        [
+          "BEARISH_BOS",
+          149.8530424518223
+        ]
+      ],
+      "active_order_blocks": 2,
+      "bullish_fvgs": 0,
+      "bearish_fvgs": 5,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "TIINDIA",
+      "current_price": 2840.699951171875,
+      "trend_direction": "NEUTRAL",
+      "rsi": 45.83993072554408,
+      "volume_ratio": 1.0697097685099046,
+      "structure_signals": [],
+      "active_order_blocks": 4,
+      "bullish_fvgs": 0,
+      "bearish_fvgs": 1,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "HDFCLIFE",
+      "current_price": 755.5,
+      "trend_direction": "BULLISH",
+      "rsi": 47.663552163447044,
+      "volume_ratio": 0.6745594362708711,
+      "structure_signals": [
+        [
+          "BULLISH_BOS",
+          665.7098954522745
+        ]
+      ],
+      "active_order_blocks": 1,
+      "bullish_fvgs": 0,
+      "bearish_fvgs": 2,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "AMBER",
+      "current_price": 7963.5,
+      "trend_direction": "BULLISH",
+      "rsi": 62.8890041493776,
+      "volume_ratio": 1.0192493869957238,
+      "structure_signals": [
+        [
+          "BULLISH_BOS",
+          7347.39990234375
+        ]
+      ],
+      "active_order_blocks": 2,
+      "bullish_fvgs": 3,
+      "bearish_fvgs": 0,
+      "entry_signals": [],
+      "exit_signals": [
+        {
+          "type": "BEARISH_OB_MITIGATED",
+          "message": "Bearish order block mitigated - Exit short positions",
+          "level": 7550.0,
+          "ticker": "AMBER"
+        }
+      ],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "BDL",
+      "current_price": 1619.0,
+      "trend_direction": "NEUTRAL",
+      "rsi": 14.409822091074417,
+      "volume_ratio": 0.4877986713958872,
+      "structure_signals": [],
+      "active_order_blocks": 2,
+      "bullish_fvgs": 0,
+      "bearish_fvgs": 6,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "BANDHANBNK",
+      "current_price": 168.0800018310547,
+      "trend_direction": "NEUTRAL",
+      "rsi": 40.03714903052609,
+      "volume_ratio": 0.9386895556448636,
+      "structure_signals": [],
+      "active_order_blocks": 1,
+      "bullish_fvgs": 0,
+      "bearish_fvgs": 2,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "HAL",
+      "current_price": 4533.89990234375,
+      "trend_direction": "NEUTRAL",
+      "rsi": 26.291722770952333,
+      "volume_ratio": 0.7757796493964357,
+      "structure_signals": [],
+      "active_order_blocks": 2,
+      "bullish_fvgs": 0,
+      "bearish_fvgs": 3,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "ADANIGREEN",
+      "current_price": 984.7000122070312,
+      "trend_direction": "NEUTRAL",
+      "rsi": 47.92407986268653,
+      "volume_ratio": 1.0191629620547544,
+      "structure_signals": [],
+      "active_order_blocks": 3,
+      "bullish_fvgs": 2,
+      "bearish_fvgs": 0,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "ATGL",
+      "current_price": 604.0999755859375,
+      "trend_direction": "BEARISH",
+      "rsi": 30.428486292505696,
+      "volume_ratio": 1.7703585654605067,
+      "structure_signals": [
+        [
+          "BEARISH_BOS",
+          608.1500244140625
+        ]
+      ],
+      "active_order_blocks": 2,
+      "bullish_fvgs": 0,
+      "bearish_fvgs": 1,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "HDFCAMC",
+      "current_price": 5650.0,
+      "trend_direction": "BULLISH",
+      "rsi": 84.36293436293437,
+      "volume_ratio": 0.9401735167480022,
+      "structure_signals": [
+        [
+          "BULLISH_BOS",
+          5278.89990234375
+        ]
+      ],
+      "active_order_blocks": 2,
+      "bullish_fvgs": 4,
+      "bearish_fvgs": 0,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "IOC",
+      "current_price": 145.6199951171875,
+      "trend_direction": "NEUTRAL",
+      "rsi": 35.75068210818979,
+      "volume_ratio": 1.1413466898343227,
+      "structure_signals": [],
+      "active_order_blocks": 3,
+      "bullish_fvgs": 3,
+      "bearish_fvgs": 1,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "MANAPPURAM",
+      "current_price": 253.0500030517578,
+      "trend_direction": "NEUTRAL",
+      "rsi": 34.91577750474471,
+      "volume_ratio": 0.8263855129908205,
+      "structure_signals": [],
+      "active_order_blocks": 2,
+      "bullish_fvgs": 0,
+      "bearish_fvgs": 3,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "RVNL",
+      "current_price": 348.1499938964844,
+      "trend_direction": "NEUTRAL",
+      "rsi": 22.359724838095616,
+      "volume_ratio": 1.0892472203843442,
+      "structure_signals": [],
+      "active_order_blocks": 3,
+      "bullish_fvgs": 0,
+      "bearish_fvgs": 3,
+      "entry_signals": [
+        {
+          "type": "LONG_ENTRY",
+          "strength": "MODERATE",
+          "score": 4.0,
+          "entry_price": 348.1499938964844,
+          "stop_loss": 342.42924392700195,
+          "target_1": 359.5914938354492,
+          "target_2": 365.31224380493165,
+          "risk_per_share": 5.720749969482426,
+          "position_size": 174,
+          "risk_reward_1": 2.0,
+          "risk_reward_2": 3.0,
+          "factors": [
+            "BULLISH_OB_REACTION",
+            "RSI_OVERSOLD"
+          ],
+          "ticker": "RVNL",
+          "current_price": 348.1499938964844,
+          "trend_direction": "NEUTRAL",
+          "rsi": 22.359724838095616,
+          "volume_ratio": 1.0892472203843442
+        }
+      ],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "CONCOR",
+      "current_price": 578.2000122070312,
+      "trend_direction": "NEUTRAL",
+      "rsi": 16.802080163025494,
+      "volume_ratio": 0.9050962752782286,
+      "structure_signals": [],
+      "active_order_blocks": 2,
+      "bullish_fvgs": 0,
+      "bearish_fvgs": 3,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "KPITTECH",
+      "current_price": 1226.4000244140625,
+      "trend_direction": "NEUTRAL",
+      "rsi": 43.428561697062484,
+      "volume_ratio": 2.2161269188557027,
+      "structure_signals": [],
+      "active_order_blocks": 3,
+      "bullish_fvgs": 0,
+      "bearish_fvgs": 3,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "POLYCAB",
+      "current_price": 6821.0,
+      "trend_direction": "NEUTRAL",
+      "rsi": 55.07692307692307,
+      "volume_ratio": 1.6850067954654446,
+      "structure_signals": [],
+      "active_order_blocks": 1,
+      "bullish_fvgs": 3,
+      "bearish_fvgs": 0,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "MARICO",
+      "current_price": 709.7999877929688,
+      "trend_direction": "NEUTRAL",
+      "rsi": 41.08044352027215,
+      "volume_ratio": 1.4480167143975677,
+      "structure_signals": [],
+      "active_order_blocks": 4,
+      "bullish_fvgs": 0,
+      "bearish_fvgs": 1,
+      "entry_signals": [],
+      "exit_signals": [
+        {
+          "type": "BEARISH_OB_MITIGATED",
+          "message": "Bearish order block mitigated - Exit short positions",
+          "level": 651.5843649740785,
+          "ticker": "MARICO"
+        }
+      ],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "360ONE",
+      "current_price": 1052.699951171875,
+      "trend_direction": "NEUTRAL",
+      "rsi": 19.24250572885002,
+      "volume_ratio": 0.5314031565287073,
+      "structure_signals": [],
+      "active_order_blocks": 2,
+      "bullish_fvgs": 0,
+      "bearish_fvgs": 5,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "IRCTC",
+      "current_price": 726.0499877929688,
+      "trend_direction": "BEARISH",
+      "rsi": 22.085587730928268,
+      "volume_ratio": 1.1224532307170978,
+      "structure_signals": [
+        [
+          "BEARISH_BOS",
+          743.2999877929688
+        ]
+      ],
+      "active_order_blocks": 3,
+      "bullish_fvgs": 0,
+      "bearish_fvgs": 2,
+      "entry_signals": [
+        {
+          "type": "LONG_ENTRY",
+          "strength": "MODERATE",
+          "score": 4.0,
+          "entry_price": 726.0499877929688,
+          "stop_loss": 705.70375,
+          "target_1": 766.7424633789062,
+          "target_2": 787.088701171875,
+          "risk_per_share": 20.346237792968736,
+          "position_size": 49,
+          "risk_reward_1": 2.0,
+          "risk_reward_2": 3.0,
+          "factors": [
+            "BULLISH_OB_REACTION",
+            "RSI_OVERSOLD"
+          ],
+          "ticker": "IRCTC",
+          "current_price": 726.0499877929688,
+          "trend_direction": "BEARISH",
+          "rsi": 22.085587730928268,
+          "volume_ratio": 1.1224532307170978
+        }
+      ],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "SBICARD",
+      "current_price": 807.4000244140625,
+      "trend_direction": "NEUTRAL",
+      "rsi": 14.567348065780081,
+      "volume_ratio": 1.5173673099035774,
+      "structure_signals": [],
+      "active_order_blocks": 4,
+      "bullish_fvgs": 0,
+      "bearish_fvgs": 4,
+      "entry_signals": [],
+      "exit_signals": [
+        {
+          "type": "BULLISH_OB_MITIGATED",
+          "message": "Bullish order block mitigated - Exit long positions",
+          "level": 852.9000244140625,
+          "ticker": "SBICARD"
+        }
+      ],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "MAXHEALTH",
+      "current_price": 1246.0,
+      "trend_direction": "BULLISH",
+      "rsi": 55.81093614020823,
+      "volume_ratio": 1.2915410767764857,
+      "structure_signals": [
+        [
+          "BULLISH_BOS",
+          1188.128934726988
+        ]
+      ],
+      "active_order_blocks": 1,
+      "bullish_fvgs": 0,
+      "bearish_fvgs": 0,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "BANKBARODA",
+      "current_price": 237.8699951171875,
+      "trend_direction": "NEUTRAL",
+      "rsi": 50.518688237814686,
+      "volume_ratio": 0.799543741399685,
+      "structure_signals": [],
+      "active_order_blocks": 4,
+      "bullish_fvgs": 0,
+      "bearish_fvgs": 0,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "CAMS",
+      "current_price": 3736.800048828125,
+      "trend_direction": "NEUTRAL",
+      "rsi": 32.26280049361269,
+      "volume_ratio": 2.7896337108572626,
+      "structure_signals": [],
+      "active_order_blocks": 2,
+      "bullish_fvgs": 0,
+      "bearish_fvgs": 3,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "BANKINDIA",
+      "current_price": 111.37999725341797,
+      "trend_direction": "NEUTRAL",
+      "rsi": 41.40540812501314,
+      "volume_ratio": 1.030186528026436,
+      "structure_signals": [],
+      "active_order_blocks": 4,
+      "bullish_fvgs": 0,
+      "bearish_fvgs": 0,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "GAIL",
+      "current_price": 177.67999267578125,
+      "trend_direction": "BEARISH",
+      "rsi": 41.35521910313379,
+      "volume_ratio": 0.7310067888229962,
+      "structure_signals": [
+        [
+          "BEARISH_BOS",
+          179.4199981689453
+        ]
+      ],
+      "active_order_blocks": 3,
+      "bullish_fvgs": 0,
+      "bearish_fvgs": 2,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "ANGELONE",
+      "current_price": 2600.89990234375,
+      "trend_direction": "NEUTRAL",
+      "rsi": 43.16509054937194,
+      "volume_ratio": 0.344521137780195,
+      "structure_signals": [],
+      "active_order_blocks": 2,
+      "bullish_fvgs": 0,
+      "bearish_fvgs": 5,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "ICICIBANK",
+      "current_price": 1481.4000244140625,
+      "trend_direction": "BULLISH",
+      "rsi": 74.64784743966277,
+      "volume_ratio": 1.4736997697869385,
+      "structure_signals": [
+        [
+          "BULLISH_BOS",
+          1471.5999755859375
+        ]
+      ],
+      "active_order_blocks": 1,
+      "bullish_fvgs": 2,
+      "bearish_fvgs": 0,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "CYIENT",
+      "current_price": 1205.5999755859375,
+      "trend_direction": "NEUTRAL",
+      "rsi": 30.006084934993723,
+      "volume_ratio": 0.8118668364578555,
+      "structure_signals": [],
+      "active_order_blocks": 2,
+      "bullish_fvgs": 0,
+      "bearish_fvgs": 0,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "MAZDOCK",
+      "current_price": 2771.199951171875,
+      "trend_direction": "NEUTRAL",
+      "rsi": 15.746553229254587,
+      "volume_ratio": 1.3955991834780226,
+      "structure_signals": [],
+      "active_order_blocks": 3,
+      "bullish_fvgs": 0,
+      "bearish_fvgs": 6,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "INDUSINDBK",
+      "current_price": 798.9000244140625,
+      "trend_direction": "NEUTRAL",
+      "rsi": 28.942778347562722,
+      "volume_ratio": 1.0393002060870578,
+      "structure_signals": [],
+      "active_order_blocks": 3,
+      "bullish_fvgs": 0,
+      "bearish_fvgs": 2,
+      "entry_signals": [
+        {
+          "type": "LONG_ENTRY",
+          "strength": "MODERATE",
+          "score": 4.0,
+          "entry_price": 798.9000244140625,
+          "stop_loss": 645.755,
+          "target_1": 1105.1900732421875,
+          "target_2": 1258.3350976562501,
+          "risk_per_share": 153.1450244140625,
+          "position_size": 6,
+          "risk_reward_1": 2.0,
+          "risk_reward_2": 3.0,
+          "factors": [
+            "BULLISH_OB_REACTION",
+            "RSI_OVERSOLD"
+          ],
+          "ticker": "INDUSINDBK",
+          "current_price": 798.9000244140625,
+          "trend_direction": "NEUTRAL",
+          "rsi": 28.942778347562722,
+          "volume_ratio": 1.0393002060870578
+        }
+      ],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "NATIONALUM",
+      "current_price": 185.05999755859375,
+      "trend_direction": "NEUTRAL",
+      "rsi": 43.54274331994156,
+      "volume_ratio": 0.9349653374235575,
+      "structure_signals": [],
+      "active_order_blocks": 1,
+      "bullish_fvgs": 0,
+      "bearish_fvgs": 2,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "AXISBANK",
+      "current_price": 1068.4000244140625,
+      "trend_direction": "NEUTRAL",
+      "rsi": 13.09527371328386,
+      "volume_ratio": 0.8051960826470477,
+      "structure_signals": [],
+      "active_order_blocks": 2,
+      "bullish_fvgs": 0,
+      "bearish_fvgs": 4,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "JINDALSTEL",
+      "current_price": 965.0,
+      "trend_direction": "NEUTRAL",
+      "rsi": 59.09090529825472,
+      "volume_ratio": 1.4616087425577915,
+      "structure_signals": [],
+      "active_order_blocks": 4,
+      "bullish_fvgs": 3,
+      "bearish_fvgs": 0,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "HCLTECH",
+      "current_price": 1467.9000244140625,
+      "trend_direction": "NEUTRAL",
+      "rsi": 15.971278519011094,
+      "volume_ratio": 0.6021811978360789,
+      "structure_signals": [],
+      "active_order_blocks": 2,
+      "bullish_fvgs": 0,
+      "bearish_fvgs": 8,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "GLENMARK",
+      "current_price": 2134.10009765625,
+      "trend_direction": "BULLISH",
+      "rsi": 39.366515837104075,
+      "volume_ratio": 0.43571065036491197,
+      "structure_signals": [
+        [
+          "BULLISH_BOS",
+          1582.949951171875
+        ]
+      ],
+      "active_order_blocks": 2,
+      "bullish_fvgs": 6,
+      "bearish_fvgs": 0,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "ZYDUSLIFE",
+      "current_price": 969.7999877929688,
+      "trend_direction": "BULLISH",
+      "rsi": 50.50952751592723,
+      "volume_ratio": 1.3615848721888582,
+      "structure_signals": [
+        [
+          "BULLISH_BOS",
+          938.8946895168414
+        ]
+      ],
+      "active_order_blocks": 3,
+      "bullish_fvgs": 1,
+      "bearish_fvgs": 0,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "TVSMOTOR",
+      "current_price": 2801.800048828125,
+      "trend_direction": "NEUTRAL",
+      "rsi": 57.3016295356061,
+      "volume_ratio": 2.1660083506797596,
+      "structure_signals": [],
+      "active_order_blocks": 3,
+      "bullish_fvgs": 0,
+      "bearish_fvgs": 0,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "BSOFT",
+      "current_price": 391.5,
+      "trend_direction": "NEUTRAL",
+      "rsi": 39.47613583693987,
+      "volume_ratio": 2.971124097863057,
+      "structure_signals": [],
+      "active_order_blocks": 1,
+      "bullish_fvgs": 0,
+      "bearish_fvgs": 1,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "GODREJCP",
+      "current_price": 1259.0,
+      "trend_direction": "NEUTRAL",
+      "rsi": 42.07317073170732,
+      "volume_ratio": 1.178866468769725,
+      "structure_signals": [],
+      "active_order_blocks": 3,
+      "bullish_fvgs": 2,
+      "bearish_fvgs": 0,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "UNITDSPR",
+      "current_price": 1340.199951171875,
+      "trend_direction": "NEUTRAL",
+      "rsi": 44.121608525133716,
+      "volume_ratio": 1.4138684628185805,
+      "structure_signals": [],
+      "active_order_blocks": 3,
+      "bullish_fvgs": 0,
+      "bearish_fvgs": 5,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "BHARTIARTL",
+      "current_price": 1914.300048828125,
+      "trend_direction": "BULLISH",
+      "rsi": 52.06889320426009,
+      "volume_ratio": 0.9722731875072336,
+      "structure_signals": [
+        [
+          "BULLISH_BOS",
+          1901.1069446087308
+        ]
+      ],
+      "active_order_blocks": 1,
+      "bullish_fvgs": 0,
+      "bearish_fvgs": 1,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "PNB",
+      "current_price": 105.37999725341797,
+      "trend_direction": "NEUTRAL",
+      "rsi": 39.03767113325086,
+      "volume_ratio": 2.0967449171373818,
+      "structure_signals": [],
+      "active_order_blocks": 2,
+      "bullish_fvgs": 0,
+      "bearish_fvgs": 1,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "UNIONBANK",
+      "current_price": 130.9600067138672,
+      "trend_direction": "NEUTRAL",
+      "rsi": 32.956277556534204,
+      "volume_ratio": 0.9840007254168801,
+      "structure_signals": [],
+      "active_order_blocks": 2,
+      "bullish_fvgs": 0,
+      "bearish_fvgs": 3,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "OFSS",
+      "current_price": 8475.0,
+      "trend_direction": "NEUTRAL",
+      "rsi": 43.696162881754105,
+      "volume_ratio": 1.2780398861172748,
+      "structure_signals": [],
+      "active_order_blocks": 2,
+      "bullish_fvgs": 0,
+      "bearish_fvgs": 1,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "GRANULES",
+      "current_price": 474.8999938964844,
+      "trend_direction": "NEUTRAL",
+      "rsi": 53.08776190969636,
+      "volume_ratio": 1.120151885001356,
+      "structure_signals": [],
+      "active_order_blocks": 2,
+      "bullish_fvgs": 0,
+      "bearish_fvgs": 1,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "CANBK",
+      "current_price": 107.25,
+      "trend_direction": "NEUTRAL",
+      "rsi": 41.12505016668097,
+      "volume_ratio": 1.695381938105738,
+      "structure_signals": [],
+      "active_order_blocks": 1,
+      "bullish_fvgs": 0,
+      "bearish_fvgs": 1,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "MARUTI",
+      "current_price": 12608.0,
+      "trend_direction": "NEUTRAL",
+      "rsi": 51.59474671669794,
+      "volume_ratio": 2.8950512173686245,
+      "structure_signals": [],
+      "active_order_blocks": 3,
+      "bullish_fvgs": 0,
+      "bearish_fvgs": 0,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "DIVISLAB",
+      "current_price": 6595.5,
+      "trend_direction": "NEUTRAL",
+      "rsi": 33.54700657124188,
+      "volume_ratio": 0.7769822991281661,
+      "structure_signals": [],
+      "active_order_blocks": 2,
+      "bullish_fvgs": 0,
+      "bearish_fvgs": 1,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "JSL",
+      "current_price": 694.0999755859375,
+      "trend_direction": "NEUTRAL",
+      "rsi": 53.74414523529989,
+      "volume_ratio": 1.7018921780244407,
+      "structure_signals": [],
+      "active_order_blocks": 3,
+      "bullish_fvgs": 1,
+      "bearish_fvgs": 0,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "IGL",
+      "current_price": 205.0500030517578,
+      "trend_direction": "NEUTRAL",
+      "rsi": 29.77237774559822,
+      "volume_ratio": 2.1306956021047787,
+      "structure_signals": [],
+      "active_order_blocks": 3,
+      "bullish_fvgs": 0,
+      "bearish_fvgs": 4,
+      "entry_signals": [
+        {
+          "type": "LONG_ENTRY",
+          "strength": "MODERATE",
+          "score": 4.5,
+          "entry_price": 205.0500030517578,
+          "stop_loss": 201.537253036499,
+          "target_1": 212.07550308227542,
+          "target_2": 215.58825309753422,
+          "risk_per_share": 3.5127500152588027,
+          "position_size": 284,
+          "risk_reward_1": 2.0,
+          "risk_reward_2": 3.0,
+          "factors": [
+            "BULLISH_OB_REACTION",
+            "RSI_OVERSOLD",
+            "VOLUME_CONFIRM"
+          ],
+          "ticker": "IGL",
+          "current_price": 205.0500030517578,
+          "trend_direction": "NEUTRAL",
+          "rsi": 29.77237774559822,
+          "volume_ratio": 2.1306956021047787
+        }
+      ],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "PETRONET",
+      "current_price": 288.20001220703125,
+      "trend_direction": "NEUTRAL",
+      "rsi": 37.48655224024435,
+      "volume_ratio": 0.4775659657290877,
+      "structure_signals": [],
+      "active_order_blocks": 2,
+      "bullish_fvgs": 0,
+      "bearish_fvgs": 2,
+      "entry_signals": [
+        {
+          "type": "LONG_ENTRY",
+          "strength": "MODERATE",
+          "score": 4.0,
+          "entry_price": 288.20001220703125,
+          "stop_loss": 276.9059297477949,
+          "target_1": 310.7881771255039,
+          "target_2": 322.08225958474026,
+          "risk_per_share": 11.294082459236336,
+          "position_size": 88,
+          "risk_reward_1": 2.0,
+          "risk_reward_2": 3.0,
+          "factors": [
+            "BULLISH_OB_REACTION",
+            "RSI_OVERSOLD"
+          ],
+          "ticker": "PETRONET",
+          "current_price": 288.20001220703125,
+          "trend_direction": "NEUTRAL",
+          "rsi": 37.48655224024435,
+          "volume_ratio": 0.4775659657290877
+        }
+      ],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "BIOCON",
+      "current_price": 391.3999938964844,
+      "trend_direction": "BULLISH",
+      "rsi": 61.60593417011688,
+      "volume_ratio": 0.6150062209839429,
+      "structure_signals": [
+        [
+          "BULLISH_BOS",
+          356.9227680764979
+        ]
+      ],
+      "active_order_blocks": 2,
+      "bullish_fvgs": 4,
+      "bearish_fvgs": 0,
+      "entry_signals": [
+        {
+          "type": "SHORT_ENTRY",
+          "strength": "MODERATE",
+          "score": 4.0,
+          "entry_price": 391.3999938964844,
+          "stop_loss": 404.3738381318667,
+          "target_1": 365.4523054257197,
+          "target_2": 352.4784611903374,
+          "risk_per_share": 12.97384423538233,
+          "position_size": 77,
+          "risk_reward_1": 2.0,
+          "risk_reward_2": 3.0,
+          "factors": [
+            "BEARISH_OB_REJECTION",
+            "RSI_OVERBOUGHT"
+          ],
+          "ticker": "BIOCON",
+          "current_price": 391.3999938964844,
+          "trend_direction": "BULLISH",
+          "rsi": 61.60593417011688,
+          "volume_ratio": 0.6150062209839429
+        }
+      ],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "ULTRACEMCO",
+      "current_price": 12249.0,
+      "trend_direction": "NEUTRAL",
+      "rsi": 35.97605700214807,
+      "volume_ratio": 0.6305839286867665,
+      "structure_signals": [],
+      "active_order_blocks": 3,
+      "bullish_fvgs": 3,
+      "bearish_fvgs": 0,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "UNOMINDA",
+      "current_price": 1041.4000244140625,
+      "trend_direction": "NEUTRAL",
+      "rsi": 41.53269568050283,
+      "volume_ratio": 0.955251908774184,
+      "structure_signals": [],
+      "active_order_blocks": 2,
+      "bullish_fvgs": 0,
+      "bearish_fvgs": 1,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "TCS",
+      "current_price": 3036.800048828125,
+      "trend_direction": "NEUTRAL",
+      "rsi": 15.801704638960231,
+      "volume_ratio": 0.9619047532595325,
+      "structure_signals": [],
+      "active_order_blocks": 1,
+      "bullish_fvgs": 0,
+      "bearish_fvgs": 6,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "COFORGE",
+      "current_price": 1748.199951171875,
+      "trend_direction": "BULLISH",
+      "rsi": 33.8828761145582,
+      "volume_ratio": 1.2866383206595646,
+      "structure_signals": [
+        [
+          "BULLISH_BOS",
+          1642.1939245887793
+        ]
+      ],
+      "active_order_blocks": 1,
+      "bullish_fvgs": 0,
+      "bearish_fvgs": 4,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "NTPC",
+      "current_price": 334.25,
+      "trend_direction": "NEUTRAL",
+      "rsi": 33.65562835723982,
+      "volume_ratio": 1.0837663467188423,
+      "structure_signals": [],
+      "active_order_blocks": 4,
+      "bullish_fvgs": 0,
+      "bearish_fvgs": 0,
+      "entry_signals": [
+        {
+          "type": "LONG_ENTRY",
+          "strength": "MODERATE",
+          "score": 4.0,
+          "entry_price": 334.25,
+          "stop_loss": 328.69825607299805,
+          "target_1": 345.3534878540039,
+          "target_2": 350.90523178100585,
+          "risk_per_share": 5.551743927001951,
+          "position_size": 180,
+          "risk_reward_1": 2.0,
+          "risk_reward_2": 3.0,
+          "factors": [
+            "BULLISH_OB_REACTION",
+            "RSI_OVERSOLD"
+          ],
+          "ticker": "NTPC",
+          "current_price": 334.25,
+          "trend_direction": "NEUTRAL",
+          "rsi": 33.65562835723982,
+          "volume_ratio": 1.0837663467188423
+        }
+      ],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "IIFL",
+      "current_price": 477.95001220703125,
+      "trend_direction": "NEUTRAL",
+      "rsi": 32.66999373959658,
+      "volume_ratio": 1.3787820936890052,
+      "structure_signals": [],
+      "active_order_blocks": 1,
+      "bullish_fvgs": 1,
+      "bearish_fvgs": 1,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "SOLARINDS",
+      "current_price": 14220.0,
+      "trend_direction": "BULLISH",
+      "rsi": 11.97718631178708,
+      "volume_ratio": 1.5234870862797252,
+      "structure_signals": [
+        [
+          "BULLISH_BOS",
+          10433.853949467135
+        ]
+      ],
+      "active_order_blocks": 1,
+      "bullish_fvgs": 0,
+      "bearish_fvgs": 6,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "M&MFIN",
+      "current_price": 257.5,
+      "trend_direction": "NEUTRAL",
+      "rsi": 47.86275763238125,
+      "volume_ratio": 2.1668960484407966,
+      "structure_signals": [],
+      "active_order_blocks": 5,
+      "bullish_fvgs": 0,
+      "bearish_fvgs": 0,
+      "entry_signals": [],
+      "exit_signals": [
+        {
+          "type": "BULLISH_OB_MITIGATED",
+          "message": "Bullish order block mitigated - Exit long positions",
+          "level": 272.04184812082394,
+          "ticker": "M&MFIN"
+        }
+      ],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "YESBANK",
+      "current_price": 18.920000076293945,
+      "trend_direction": "BEARISH",
+      "rsi": 36.594208156679,
+      "volume_ratio": 1.364660875624493,
+      "structure_signals": [
+        [
+          "BEARISH_BOS",
+          19.31999969482422
+        ]
+      ],
+      "active_order_blocks": 3,
+      "bullish_fvgs": 0,
+      "bearish_fvgs": 3,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "GMRAIRPORT",
+      "current_price": 90.05999755859375,
+      "trend_direction": "NEUTRAL",
+      "rsi": 47.53803764285461,
+      "volume_ratio": 0.9280366207761819,
+      "structure_signals": [],
+      "active_order_blocks": 3,
+      "bullish_fvgs": 4,
+      "bearish_fvgs": 2,
+      "entry_signals": [],
+      "exit_signals": [
+        {
+          "type": "BEARISH_OB_MITIGATED",
+          "message": "Bearish order block mitigated - Exit short positions",
+          "level": 87.77999877929688,
+          "ticker": "GMRAIRPORT"
+        }
+      ],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "TECHM",
+      "current_price": 1463.699951171875,
+      "trend_direction": "NEUTRAL",
+      "rsi": 20.367190912379343,
+      "volume_ratio": 0.6663303238180845,
+      "structure_signals": [],
+      "active_order_blocks": 2,
+      "bullish_fvgs": 0,
+      "bearish_fvgs": 5,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "NAUKRI",
+      "current_price": 1392.300048828125,
+      "trend_direction": "NEUTRAL",
+      "rsi": 54.01566894335074,
+      "volume_ratio": 0.6539616958534066,
+      "structure_signals": [],
+      "active_order_blocks": 3,
+      "bullish_fvgs": 0,
+      "bearish_fvgs": 3,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "PFC",
+      "current_price": 409.95001220703125,
+      "trend_direction": "NEUTRAL",
+      "rsi": 29.041905954646353,
+      "volume_ratio": 0.7036676558153037,
+      "structure_signals": [],
+      "active_order_blocks": 3,
+      "bullish_fvgs": 0,
+      "bearish_fvgs": 0,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "INDIANB",
+      "current_price": 621.7000122070312,
+      "trend_direction": "NEUTRAL",
+      "rsi": 45.779502581510386,
+      "volume_ratio": 1.0554230921838295,
+      "structure_signals": [],
+      "active_order_blocks": 2,
+      "bullish_fvgs": 0,
+      "bearish_fvgs": 1,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "IDEA",
+      "current_price": 6.909999847412109,
+      "trend_direction": "NEUTRAL",
+      "rsi": 43.56435222867028,
+      "volume_ratio": 0.9608751555816297,
+      "structure_signals": [],
+      "active_order_blocks": 3,
+      "bullish_fvgs": 2,
+      "bearish_fvgs": 2,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "ASTRAL",
+      "current_price": 1401.199951171875,
+      "trend_direction": "NEUTRAL",
+      "rsi": 32.901426940542535,
+      "volume_ratio": 1.4123799627832,
+      "structure_signals": [],
+      "active_order_blocks": 2,
+      "bullish_fvgs": 0,
+      "bearish_fvgs": 3,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "FORTIS",
+      "current_price": 857.4500122070312,
+      "trend_direction": "BULLISH",
+      "rsi": 83.20097196064631,
+      "volume_ratio": 1.2616273621092307,
+      "structure_signals": [
+        [
+          "BULLISH_BOS",
+          724.0936387796258
+        ]
+      ],
+      "active_order_blocks": 1,
+      "bullish_fvgs": 2,
+      "bearish_fvgs": 0,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "DLF",
+      "current_price": 784.25,
+      "trend_direction": "NEUTRAL",
+      "rsi": 40.363560185314064,
+      "volume_ratio": 0.975951973757635,
+      "structure_signals": [],
+      "active_order_blocks": 2,
+      "bullish_fvgs": 0,
+      "bearish_fvgs": 1,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "TORNTPOWER",
+      "current_price": 1310.0,
+      "trend_direction": "BEARISH",
+      "rsi": 22.825473149585264,
+      "volume_ratio": 1.150704506218545,
+      "structure_signals": [
+        [
+          "BEARISH_BOS",
+          1356.175477406864
+        ]
+      ],
+      "active_order_blocks": 2,
+      "bullish_fvgs": 0,
+      "bearish_fvgs": 1,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "POWERGRID",
+      "current_price": 291.0,
+      "trend_direction": "NEUTRAL",
+      "rsi": 34.56035987009129,
+      "volume_ratio": 1.8209105263628425,
+      "structure_signals": [],
+      "active_order_blocks": 3,
+      "bullish_fvgs": 0,
+      "bearish_fvgs": 0,
+      "entry_signals": [
+        {
+          "type": "LONG_ENTRY",
+          "strength": "MODERATE",
+          "score": 4.5,
+          "entry_price": 291.0,
+          "stop_loss": 287.0575,
+          "target_1": 298.885,
+          "target_2": 302.8275,
+          "risk_per_share": 3.9424999999999955,
+          "position_size": 253,
+          "risk_reward_1": 2.0,
+          "risk_reward_2": 3.0,
+          "factors": [
+            "BULLISH_OB_REACTION",
+            "RSI_OVERSOLD",
+            "VOLUME_CONFIRM"
+          ],
+          "ticker": "POWERGRID",
+          "current_price": 291.0,
+          "trend_direction": "NEUTRAL",
+          "rsi": 34.56035987009129,
+          "volume_ratio": 1.8209105263628425
+        }
+      ],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "ADANIPORTS",
+      "current_price": 1373.0999755859375,
+      "trend_direction": "NEUTRAL",
+      "rsi": 32.06858039332873,
+      "volume_ratio": 1.501228808352845,
+      "structure_signals": [],
+      "active_order_blocks": 3,
+      "bullish_fvgs": 2,
+      "bearish_fvgs": 1,
+      "entry_signals": [
+        {
+          "type": "LONG_ENTRY",
+          "strength": "STRONG",
+          "score": 5.5,
+          "entry_price": 1373.0999755859375,
+          "stop_loss": 1358.3739514160156,
+          "target_1": 1402.5520239257812,
+          "target_2": 1417.278048095703,
+          "risk_per_share": 14.726024169921857,
+          "position_size": 67,
+          "risk_reward_1": 2.0,
+          "risk_reward_2": 3.0,
+          "factors": [
+            "BULLISH_OB_REACTION",
+            "RSI_OVERSOLD",
+            "VOLUME_CONFIRM",
+            "BULLISH_FVG"
+          ],
+          "ticker": "ADANIPORTS",
+          "current_price": 1373.0999755859375,
+          "trend_direction": "NEUTRAL",
+          "rsi": 32.06858039332873,
+          "volume_ratio": 1.501228808352845
+        }
+      ],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "IRB",
+      "current_price": 45.06999969482422,
+      "trend_direction": "NEUTRAL",
+      "rsi": 35.13513271210357,
+      "volume_ratio": 0.9382557418787253,
+      "structure_signals": [],
+      "active_order_blocks": 2,
+      "bullish_fvgs": 0,
+      "bearish_fvgs": 2,
+      "entry_signals": [
+        {
+          "type": "LONG_ENTRY",
+          "strength": "MODERATE",
+          "score": 4.0,
+          "entry_price": 45.06999969482422,
+          "stop_loss": 44.67550151824951,
+          "target_1": 45.85899604797363,
+          "target_2": 46.25349422454834,
+          "risk_per_share": 0.3944981765747073,
+          "position_size": 2534,
+          "risk_reward_1": 2.0,
+          "risk_reward_2": 3.0,
+          "factors": [
+            "BULLISH_OB_REACTION",
+            "RSI_OVERSOLD"
+          ],
+          "ticker": "IRB",
+          "current_price": 45.06999969482422,
+          "trend_direction": "NEUTRAL",
+          "rsi": 35.13513271210357,
+          "volume_ratio": 0.9382557418787253
+        }
+      ],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "TITAGARH",
+      "current_price": 860.1500244140625,
+      "trend_direction": "NEUTRAL",
+      "rsi": 30.997304582210248,
+      "volume_ratio": 0.8546776527312435,
+      "structure_signals": [],
+      "active_order_blocks": 3,
+      "bullish_fvgs": 0,
+      "bearish_fvgs": 2,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "RECLTD",
+      "current_price": 395.20001220703125,
+      "trend_direction": "NEUTRAL",
+      "rsi": 44.22510092185335,
+      "volume_ratio": 0.9473433749787119,
+      "structure_signals": [],
+      "active_order_blocks": 4,
+      "bullish_fvgs": 0,
+      "bearish_fvgs": 0,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "PAGEIND",
+      "current_price": 48805.0,
+      "trend_direction": "BULLISH",
+      "rsi": 54.924029262802485,
+      "volume_ratio": 1.2228868635686612,
+      "structure_signals": [
+        [
+          "BULLISH_BOS",
+          48593.93948845914
+        ]
+      ],
+      "active_order_blocks": 2,
+      "bullish_fvgs": 4,
+      "bearish_fvgs": 0,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "BAJAJ-AUTO",
+      "current_price": 8008.0,
+      "trend_direction": "NEUTRAL",
+      "rsi": 47.382431233362915,
+      "volume_ratio": 1.0868285397600124,
+      "structure_signals": [],
+      "active_order_blocks": 3,
+      "bullish_fvgs": 0,
+      "bearish_fvgs": 2,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "BAJAJFINSV",
+      "current_price": 1948.0,
+      "trend_direction": "NEUTRAL",
+      "rsi": 35.06045014246817,
+      "volume_ratio": 0.8734687329945388,
+      "structure_signals": [],
+      "active_order_blocks": 1,
+      "bullish_fvgs": 0,
+      "bearish_fvgs": 1,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "NHPC",
+      "current_price": 83.25,
+      "trend_direction": "NEUTRAL",
+      "rsi": 27.099212745170846,
+      "volume_ratio": 0.636619406368587,
+      "structure_signals": [],
+      "active_order_blocks": 4,
+      "bullish_fvgs": 1,
+      "bearish_fvgs": 2,
+      "entry_signals": [
+        {
+          "type": "LONG_ENTRY",
+          "strength": "STRONG",
+          "score": 5.0,
+          "entry_price": 83.25,
+          "stop_loss": 81.68949848175049,
+          "target_1": 86.37100303649902,
+          "target_2": 87.93150455474853,
+          "risk_per_share": 1.5605015182495094,
+          "position_size": 640,
+          "risk_reward_1": 2.0,
+          "risk_reward_2": 3.0,
+          "factors": [
+            "BULLISH_OB_REACTION",
+            "RSI_OVERSOLD",
+            "BULLISH_FVG"
+          ],
+          "ticker": "NHPC",
+          "current_price": 83.25,
+          "trend_direction": "NEUTRAL",
+          "rsi": 27.099212745170846,
+          "volume_ratio": 0.636619406368587
+        }
+      ],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "OIL",
+      "current_price": 440.0,
+      "trend_direction": "NEUTRAL",
+      "rsi": 55.11289074056812,
+      "volume_ratio": 0.8723278596895722,
+      "structure_signals": [],
+      "active_order_blocks": 2,
+      "bullish_fvgs": 0,
+      "bearish_fvgs": 1,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "GODREJPROP",
+      "current_price": 2102.89990234375,
+      "trend_direction": "NEUTRAL",
+      "rsi": 41.04295259602463,
+      "volume_ratio": 0.8249947515295193,
+      "structure_signals": [],
+      "active_order_blocks": 3,
+      "bullish_fvgs": 0,
+      "bearish_fvgs": 3,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "JSWENERGY",
+      "current_price": 515.0499877929688,
+      "trend_direction": "NEUTRAL",
+      "rsi": 41.65860319478288,
+      "volume_ratio": 0.5962153180225461,
+      "structure_signals": [],
+      "active_order_blocks": 4,
+      "bullish_fvgs": 0,
+      "bearish_fvgs": 0,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "JUBLFOOD",
+      "current_price": 655.5,
+      "trend_direction": "NEUTRAL",
+      "rsi": 34.91792042682722,
+      "volume_ratio": 0.7512282926355973,
+      "structure_signals": [],
+      "active_order_blocks": 4,
+      "bullish_fvgs": 0,
+      "bearish_fvgs": 3,
+      "entry_signals": [
+        {
+          "type": "LONG_ENTRY",
+          "strength": "MODERATE",
+          "score": 4.0,
+          "entry_price": 655.5,
+          "stop_loss": 648.6538416157541,
+          "target_1": 669.1923167684918,
+          "target_2": 676.0384751527376,
+          "risk_per_share": 6.846158384245882,
+          "position_size": 146,
+          "risk_reward_1": 2.0,
+          "risk_reward_2": 3.0,
+          "factors": [
+            "BULLISH_OB_REACTION",
+            "RSI_OVERSOLD"
+          ],
+          "ticker": "JUBLFOOD",
+          "current_price": 655.5,
+          "trend_direction": "NEUTRAL",
+          "rsi": 34.91792042682722,
+          "volume_ratio": 0.7512282926355973
+        }
+      ],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "PERSISTENT",
+      "current_price": 5160.5,
+      "trend_direction": "NEUTRAL",
+      "rsi": 32.18390804597702,
+      "volume_ratio": 0.9319005040547216,
+      "structure_signals": [],
+      "active_order_blocks": 2,
+      "bullish_fvgs": 0,
+      "bearish_fvgs": 2,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "SJVN",
+      "current_price": 93.62000274658203,
+      "trend_direction": "NEUTRAL",
+      "rsi": 31.774888515015377,
+      "volume_ratio": 1.2707767056962989,
+      "structure_signals": [],
+      "active_order_blocks": 2,
+      "bullish_fvgs": 0,
+      "bearish_fvgs": 0,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "OBEROIRLTY",
+      "current_price": 1630.0999755859375,
+      "trend_direction": "NEUTRAL",
+      "rsi": 21.334892944811997,
+      "volume_ratio": 0.9322002644426036,
+      "structure_signals": [],
+      "active_order_blocks": 2,
+      "bullish_fvgs": 0,
+      "bearish_fvgs": 5,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "PRESTIGE",
+      "current_price": 1626.5,
+      "trend_direction": "NEUTRAL",
+      "rsi": 40.72569236017272,
+      "volume_ratio": 0.9416513029993706,
+      "structure_signals": [],
+      "active_order_blocks": 1,
+      "bullish_fvgs": 0,
+      "bearish_fvgs": 3,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "COALINDIA",
+      "current_price": 376.3500061035156,
+      "trend_direction": "NEUTRAL",
+      "rsi": 44.14757765865833,
+      "volume_ratio": 1.3977927371677572,
+      "structure_signals": [],
+      "active_order_blocks": 4,
+      "bullish_fvgs": 0,
+      "bearish_fvgs": 1,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "DALBHARAT",
+      "current_price": 2235.5,
+      "trend_direction": "BULLISH",
+      "rsi": 57.75389113533515,
+      "volume_ratio": 0.5353727535127787,
+      "structure_signals": [
+        [
+          "BULLISH_BOS",
+          1914.2470202460206
+        ]
+      ],
+      "active_order_blocks": 2,
+      "bullish_fvgs": 2,
+      "bearish_fvgs": 0,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "MUTHOOTFIN",
+      "current_price": 2612.300048828125,
+      "trend_direction": "BULLISH",
+      "rsi": 43.18068705532423,
+      "volume_ratio": 1.7438886622524867,
+      "structure_signals": [
+        [
+          "BULLISH_BOS",
+          2405.9554517852694
+        ]
+      ],
+      "active_order_blocks": 1,
+      "bullish_fvgs": 0,
+      "bearish_fvgs": 0,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "LTF",
+      "current_price": 202.58999633789062,
+      "trend_direction": "BULLISH",
+      "rsi": 47.63145435554929,
+      "volume_ratio": 0.3821841191525489,
+      "structure_signals": [
+        [
+          "BULLISH_BOS",
+          179.26613624487243
+        ]
+      ],
+      "active_order_blocks": 2,
+      "bullish_fvgs": 2,
+      "bearish_fvgs": 1,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "PGEL",
+      "current_price": 811.6500244140625,
+      "trend_direction": "NEUTRAL",
+      "rsi": 64.74338000888604,
+      "volume_ratio": 1.1185119956752199,
+      "structure_signals": [],
+      "active_order_blocks": 5,
+      "bullish_fvgs": 1,
+      "bearish_fvgs": 0,
+      "entry_signals": [],
+      "exit_signals": [
+        {
+          "type": "BULLISH_OB_MITIGATED",
+          "message": "Bullish order block mitigated - Exit long positions",
+          "level": 941.9500122070312,
+          "ticker": "PGEL"
+        }
+      ],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "APLAPOLLO",
+      "current_price": 1601.199951171875,
+      "trend_direction": "NEUTRAL",
+      "rsi": 39.05568649698994,
+      "volume_ratio": 1.7807886446272017,
+      "structure_signals": [],
+      "active_order_blocks": 3,
+      "bullish_fvgs": 1,
+      "bearish_fvgs": 1,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "MCX",
+      "current_price": 7693.0,
+      "trend_direction": "NEUTRAL",
+      "rsi": 38.00675675675675,
+      "volume_ratio": 0.6047222244557369,
+      "structure_signals": [],
+      "active_order_blocks": 1,
+      "bullish_fvgs": 0,
+      "bearish_fvgs": 4,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "IRFC",
+      "current_price": 128.33999633789062,
+      "trend_direction": "NEUTRAL",
+      "rsi": 34.939216449838014,
+      "volume_ratio": 1.0413369145330469,
+      "structure_signals": [],
+      "active_order_blocks": 2,
+      "bullish_fvgs": 0,
+      "bearish_fvgs": 1,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "NBCC",
+      "current_price": 108.18000030517578,
+      "trend_direction": "NEUTRAL",
+      "rsi": 34.81335941274199,
+      "volume_ratio": 0.8171919049139178,
+      "structure_signals": [],
+      "active_order_blocks": 3,
+      "bullish_fvgs": 0,
+      "bearish_fvgs": 3,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "KALYANKJIL",
+      "current_price": 594.7000122070312,
+      "trend_direction": "BULLISH",
+      "rsi": 56.59484636005175,
+      "volume_ratio": 0.9938314378310419,
+      "structure_signals": [
+        [
+          "BULLISH_BOS",
+          575.9000244140625
+        ]
+      ],
+      "active_order_blocks": 4,
+      "bullish_fvgs": 3,
+      "bearish_fvgs": 0,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "INDUSTOWER",
+      "current_price": 363.0,
+      "trend_direction": "BEARISH",
+      "rsi": 25.06023547077794,
+      "volume_ratio": 2.7382515376801817,
+      "structure_signals": [
+        [
+          "BEARISH_BOS",
+          374.25
+        ]
+      ],
+      "active_order_blocks": 4,
+      "bullish_fvgs": 0,
+      "bearish_fvgs": 2,
+      "entry_signals": [
+        {
+          "type": "SHORT_ENTRY",
+          "strength": "STRONG",
+          "score": 6.5,
+          "entry_price": 363.0,
+          "stop_loss": 366.825,
+          "target_1": 355.35,
+          "target_2": 351.52500000000003,
+          "risk_per_share": 3.8249999999999886,
+          "position_size": 261,
+          "risk_reward_1": 2.0,
+          "risk_reward_2": 3.0,
+          "factors": [
+            "BEARISH_OB_REJECTION",
+            "BEARISH_STRUCTURE",
+            "TREND_ALIGNMENT",
+            "VOLUME_CONFIRM"
+          ],
+          "ticker": "INDUSTOWER",
+          "current_price": 363.0,
+          "trend_direction": "BEARISH",
+          "rsi": 25.06023547077794,
+          "volume_ratio": 2.7382515376801817
+        }
+      ],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "ABFRL",
+      "current_price": 72.87000274658203,
+      "trend_direction": "NEUTRAL",
+      "rsi": 30.451902625618857,
+      "volume_ratio": 0.6818652363272409,
+      "structure_signals": [],
+      "active_order_blocks": 3,
+      "bullish_fvgs": 0,
+      "bearish_fvgs": 1,
+      "entry_signals": [],
+      "exit_signals": [
+        {
+          "type": "BULLISH_OB_MITIGATED",
+          "message": "Bullish order block mitigated - Exit long positions",
+          "level": 77.58999633789062,
+          "ticker": "ABFRL"
+        }
+      ],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "LODHA",
+      "current_price": 1231.5999755859375,
+      "trend_direction": "NEUTRAL",
+      "rsi": 26.08572571015945,
+      "volume_ratio": 0.7308780845641406,
+      "structure_signals": [],
+      "active_order_blocks": 3,
+      "bullish_fvgs": 0,
+      "bearish_fvgs": 5,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "SONACOMS",
+      "current_price": 449.54998779296875,
+      "trend_direction": "NEUTRAL",
+      "rsi": 50.87082495558009,
+      "volume_ratio": 1.550601984689516,
+      "structure_signals": [],
+      "active_order_blocks": 2,
+      "bullish_fvgs": 0,
+      "bearish_fvgs": 2,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "POLICYBZR",
+      "current_price": 1812.0999755859375,
+      "trend_direction": "NEUTRAL",
+      "rsi": 52.93550247958936,
+      "volume_ratio": 1.0797400629463896,
+      "structure_signals": [],
+      "active_order_blocks": 3,
+      "bullish_fvgs": 0,
+      "bearish_fvgs": 0,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "NYKAA",
+      "current_price": 209.6199951171875,
+      "trend_direction": "BULLISH",
+      "rsi": 40.78022798336656,
+      "volume_ratio": 0.6647133559502018,
+      "structure_signals": [
+        [
+          "BULLISH_BOS",
+          184.36000061035156
+        ]
+      ],
+      "active_order_blocks": 1,
+      "bullish_fvgs": 1,
+      "bearish_fvgs": 1,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "INOXWIND",
+      "current_price": 150.74000549316406,
+      "trend_direction": "NEUTRAL",
+      "rsi": 12.5058356256868,
+      "volume_ratio": 0.8439561025454516,
+      "structure_signals": [],
+      "active_order_blocks": 2,
+      "bullish_fvgs": 0,
+      "bearish_fvgs": 3,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "ADANIENSOL",
+      "current_price": 808.4000244140625,
+      "trend_direction": "NEUTRAL",
+      "rsi": 18.782734175422377,
+      "volume_ratio": 0.6850943398305,
+      "structure_signals": [],
+      "active_order_blocks": 3,
+      "bullish_fvgs": 0,
+      "bearish_fvgs": 2,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "PAYTM",
+      "current_price": 1089.3499755859375,
+      "trend_direction": "NEUTRAL",
+      "rsi": 74.82040223585184,
+      "volume_ratio": 0.8987707521609186,
+      "structure_signals": [],
+      "active_order_blocks": 1,
+      "bullish_fvgs": 5,
+      "bearish_fvgs": 0,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "SYNGENE",
+      "current_price": 714.0,
+      "trend_direction": "NEUTRAL",
+      "rsi": 78.85056669488917,
+      "volume_ratio": 0.5788340914417743,
+      "structure_signals": [],
+      "active_order_blocks": 3,
+      "bullish_fvgs": 3,
+      "bearish_fvgs": 0,
+      "entry_signals": [
+        {
+          "type": "SHORT_ENTRY",
+          "strength": "MODERATE",
+          "score": 4.0,
+          "entry_price": 714.0,
+          "stop_loss": 729.6218367764777,
+          "target_1": 682.7563264470446,
+          "target_2": 667.1344896705668,
+          "risk_per_share": 15.621836776477721,
+          "position_size": 64,
+          "risk_reward_1": 2.0,
+          "risk_reward_2": 3.0,
+          "factors": [
+            "BEARISH_OB_REJECTION",
+            "RSI_OVERBOUGHT"
+          ],
+          "ticker": "SYNGENE",
+          "current_price": 714.0,
+          "trend_direction": "NEUTRAL",
+          "rsi": 78.85056669488917,
+          "volume_ratio": 0.5788340914417743
+        }
+      ],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "IDFCFIRSTB",
+      "current_price": 68.76000213623047,
+      "trend_direction": "NEUTRAL",
+      "rsi": 20.776888256667277,
+      "volume_ratio": 1.0531430209963237,
+      "structure_signals": [],
+      "active_order_blocks": 2,
+      "bullish_fvgs": 0,
+      "bearish_fvgs": 3,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "INDIGO",
+      "current_price": 5910.5,
+      "trend_direction": "NEUTRAL",
+      "rsi": 49.524456521739125,
+      "volume_ratio": 2.949519448544126,
+      "structure_signals": [],
+      "active_order_blocks": 1,
+      "bullish_fvgs": 2,
+      "bearish_fvgs": 0,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "MGL",
+      "current_price": 1358.0999755859375,
+      "trend_direction": "NEUTRAL",
+      "rsi": 28.49951995554825,
+      "volume_ratio": 0.882799522356187,
+      "structure_signals": [],
+      "active_order_blocks": 5,
+      "bullish_fvgs": 0,
+      "bearish_fvgs": 1,
+      "entry_signals": [],
+      "exit_signals": [
+        {
+          "type": "BEARISH_OB_MITIGATED",
+          "message": "Bearish order block mitigated - Exit short positions",
+          "level": 1311.050048828125,
+          "ticker": "MGL"
+        }
+      ],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "CROMPTON",
+      "current_price": 323.0,
+      "trend_direction": "NEUTRAL",
+      "rsi": 41.083929340752974,
+      "volume_ratio": 0.8476219459964788,
+      "structure_signals": [],
+      "active_order_blocks": 3,
+      "bullish_fvgs": 0,
+      "bearish_fvgs": 2,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "RBLBANK",
+      "current_price": 266.8299865722656,
+      "trend_direction": "BULLISH",
+      "rsi": 53.09670614385932,
+      "volume_ratio": 2.7595942102386912,
+      "structure_signals": [
+        [
+          "BULLISH_BOS",
+          174.5
+        ]
+      ],
+      "active_order_blocks": 1,
+      "bullish_fvgs": 3,
+      "bearish_fvgs": 0,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "LTIM",
+      "current_price": 5106.0,
+      "trend_direction": "NEUTRAL",
+      "rsi": 44.850669412976316,
+      "volume_ratio": 0.5412594009823553,
+      "structure_signals": [],
+      "active_order_blocks": 2,
+      "bullish_fvgs": 0,
+      "bearish_fvgs": 1,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "ALKEM",
+      "current_price": 5031.10009765625,
+      "trend_direction": "NEUTRAL",
+      "rsi": 74.5191625398675,
+      "volume_ratio": 1.0800783479360616,
+      "structure_signals": [],
+      "active_order_blocks": 1,
+      "bullish_fvgs": 1,
+      "bearish_fvgs": 0,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "ICICIPRULI",
+      "current_price": 615.9500122070312,
+      "trend_direction": "NEUTRAL",
+      "rsi": 24.29643185180511,
+      "volume_ratio": 0.30027148055634245,
+      "structure_signals": [],
+      "active_order_blocks": 2,
+      "bullish_fvgs": 0,
+      "bearish_fvgs": 2,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "PNBHOUSING",
+      "current_price": 986.2000122070312,
+      "trend_direction": "NEUTRAL",
+      "rsi": 22.41166344701665,
+      "volume_ratio": 0.7671189585046728,
+      "structure_signals": [],
+      "active_order_blocks": 2,
+      "bullish_fvgs": 0,
+      "bearish_fvgs": 2,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    },
+    {
+      "ticker": "VBL",
+      "current_price": 522.5999755859375,
+      "trend_direction": "NEUTRAL",
+      "rsi": 81.9047684953234,
+      "volume_ratio": 0.6994722154224013,
+      "structure_signals": [],
+      "active_order_blocks": 4,
+      "bullish_fvgs": 4,
+      "bearish_fvgs": 0,
+      "entry_signals": [],
+      "exit_signals": [],
+      "internal_sens": 5,
+      "external_sens": 25
+    }
+  ]
+}
