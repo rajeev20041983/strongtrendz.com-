@@ -1,0 +1,9 @@
+{
+  "metadata": {
+    "timestamp": "2025-07-30T21:08:36.280651",
+    "total_stocks_analyzed": 0,
+    "ml_settings": "ATR10_F3.0_T85",
+    "strategy": "Machine Learning Adaptive SuperTrend with K-means Volatility Clustering"
+  },
+  "signals": []
+}

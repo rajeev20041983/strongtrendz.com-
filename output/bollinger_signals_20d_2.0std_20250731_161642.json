@@ -1,0 +1,10 @@
+{
+  "metadata": {
+    "timestamp": "2025-07-31T16:16:42.702368",
+    "total_stocks_analyzed": 0,
+    "bb_period": 20,
+    "std_multiplier": 2.0,
+    "strategy": "Bollinger Bands with Trading Days Logic"
+  },
+  "signals": []
+}

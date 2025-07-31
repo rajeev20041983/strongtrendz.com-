@@ -1,0 +1,4010 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ichimoku Cloud Analysis - 2025-07-31</title>
+        <style>
+            body {
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                margin: 0;
+                padding: 20px;
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                min-height: 100vh;
+            }
+            .container {
+                max-width: 1800px;
+                margin: 0 auto;
+                background: white;
+                padding: 30px;
+                border-radius: 15px;
+                box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            }
+            .header {
+                text-align: center;
+                background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+                color: white;
+                padding: 40px;
+                border-radius: 15px;
+                margin-bottom: 30px;
+            }
+            .header h1 {
+                margin: 0;
+                font-size: 2.8em;
+                margin-bottom: 10px;
+            }
+            .header p {
+                margin: 5px 0;
+                font-size: 1.1em;
+            }
+            .stats-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+                gap: 20px;
+                margin: 30px 0;
+            }
+            .stat-card {
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                color: white;
+                padding: 20px;
+                border-radius: 10px;
+                text-align: center;
+            }
+            .stat-card h3 {
+                margin: 0 0 10px 0;
+                font-size: 2em;
+            }
+            .section {
+                margin: 40px 0;
+            }
+            .section h2 {
+                color: #333;
+                border-bottom: 3px solid #667eea;
+                padding-bottom: 10px;
+                margin-bottom: 20px;
+            }
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                margin: 15px 0;
+                box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+                border-radius: 8px;
+                overflow: hidden;
+                background: white;
+                font-size: 0.85em;
+            }
+            th, td {
+                padding: 8px;
+                text-align: left;
+                border-bottom: 1px solid #ddd;
+            }
+            th {
+                background: #f8f9fa;
+                font-weight: bold;
+                position: sticky;
+                top: 0;
+                font-size: 0.8em;
+            }
+            tr:nth-child(even) {
+                background-color: #f9f9f9;
+            }
+            tr:hover {
+                background-color: #f0f0f0;
+            }
+            .new-long {
+                background: linear-gradient(90deg, #28a745, #20c997);
+                color: white;
+                padding: 3px 6px;
+                border-radius: 10px;
+                font-weight: bold;
+                font-size: 0.75em;
+            }
+            .active-long {
+                background: linear-gradient(90deg, #28a745, #17a2b8);
+                color: white;
+                padding: 3px 6px;
+                border-radius: 10px;
+                font-weight: bold;
+                font-size: 0.75em;
+            }
+            .new-short {
+                background: linear-gradient(90deg, #dc3545, #e74c3c);
+                color: white;
+                padding: 3px 6px;
+                border-radius: 10px;
+                font-weight: bold;
+                font-size: 0.75em;
+            }
+            .active-short {
+                background: linear-gradient(90deg, #dc3545, #6f42c1);
+                color: white;
+                padding: 3px 6px;
+                border-radius: 10px;
+                font-weight: bold;
+                font-size: 0.75em;
+            }
+            .no-signal {
+                background: linear-gradient(90deg, #6c757d, #495057);
+                color: white;
+                padding: 3px 6px;
+                border-radius: 10px;
+                font-weight: bold;
+                font-size: 0.75em;
+            }
+            .footer {
+                text-align: center;
+                margin-top: 40px;
+                padding: 20px;
+                background: #f8f9fa;
+                border-radius: 10px;
+                border-left: 5px solid #667eea;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="header">
+                <h1>☁️ ICHIMOKU CLOUD ANALYSIS</h1>
+                <p><strong>4-Parameter Alert System with Complete Cloud Analysis</strong></p>
+                <p>Settings: T9_K26_S52_D26</p>
+                <p><strong>Total Results: 223 stocks analyzed</strong></p>
+                <p>Generated: 2025-07-31 05:00:02</p>
+            </div>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h3>0</h3>
+                    <p>NEW LONG</p>
+                </div>
+                <div class="stat-card">
+                    <h3>38</h3>
+                    <p>ACTIVE LONG</p>
+                </div>
+                <div class="stat-card">
+                    <h3>3</h3>
+                    <p>NEW SHORT</p>
+                </div>
+                <div class="stat-card">
+                    <h3>6</h3>
+                    <p>ACTIVE SHORT</p>
+                </div>
+                <div class="stat-card">
+                    <h3>176</h3>
+                    <p>NO SIGNAL</p>
+                </div>
+                <div class="stat-card">
+                    <h3>18</h3>
+                    <p>SECTORS</p>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>🏆 ALL ICHIMOKU SIGNALS - MASTER LIST (223 stocks)</h2>
+                <p><strong>✅ Complete 4-Parameter Ichimoku Cloud Analysis</strong></p>
+                <p><strong>📊 Parameters: Cloud Color + Price Position + Tenkan-Kijun + Chikou Span</strong></p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Rank</th>
+                            <th>Ticker</th>
+                            <th>Sector</th>
+                            <th>Signal</th>
+                            <th>Price</th>
+                            <th>Cloud High</th>
+                            <th>Cloud Low</th>
+                            <th>Cloud Status</th>
+                            <th>Position</th>
+                            <th>TK Status</th>
+                            <th>Chikou</th>
+                            <th>Volume</th>
+                            <th>Momentum</th>
+                            <th>Strength</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+    
+                        <tr>
+                            <td>1</td>
+                            <td><strong>ACC</strong></td>
+                            <td>Others</td>
+                            <td><span class="new-short">NEW SHORT</span></td>
+                            <td>₹1811.20</td>
+                            <td>₹1941.61</td>
+                            <td>₹1867.17</td>
+                            <td>🔴 Bearish</td>
+                            <td>🔴 Below Cloud</td>
+                            <td>🔴 Bearish</td>
+                            <td>🔴 Bearish</td>
+                            <td>2.1x</td>
+                            <td class="negative">-7.1%</td>
+                            <td>100</td>
+                        </tr>
+        
+                        <tr>
+                            <td>2</td>
+                            <td><strong>NESTLEIND</strong></td>
+                            <td>FMCG</td>
+                            <td><span class="new-short">NEW SHORT</span></td>
+                            <td>₹2231.50</td>
+                            <td>₹2383.58</td>
+                            <td>₹2372.75</td>
+                            <td>🔴 Bearish</td>
+                            <td>🔴 Below Cloud</td>
+                            <td>🔴 Bearish</td>
+                            <td>🔴 Bearish</td>
+                            <td>0.7x</td>
+                            <td class="negative">-9.0%</td>
+                            <td>100</td>
+                        </tr>
+        
+                        <tr>
+                            <td>3</td>
+                            <td><strong>PETRONET</strong></td>
+                            <td>Others</td>
+                            <td><span class="new-short">NEW SHORT</span></td>
+                            <td>₹292.05</td>
+                            <td>₹300.75</td>
+                            <td>₹299.50</td>
+                            <td>🔴 Bearish</td>
+                            <td>🔴 Below Cloud</td>
+                            <td>🔴 Bearish</td>
+                            <td>🔴 Bearish</td>
+                            <td>0.5x</td>
+                            <td class="negative">-4.8%</td>
+                            <td>100</td>
+                        </tr>
+        
+                        <tr>
+                            <td>4</td>
+                            <td><strong>PEL</strong></td>
+                            <td>Others</td>
+                            <td><span class="active-long">ACTIVE LONG</span></td>
+                            <td>₹1287.60</td>
+                            <td>₹1127.98</td>
+                            <td>₹1061.01</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟢 Above Cloud</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟢 Bullish</td>
+                            <td>3.3x</td>
+                            <td class="negative">-1.5%</td>
+                            <td>75</td>
+                        </tr>
+        
+                        <tr>
+                            <td>5</td>
+                            <td><strong>PNB</strong></td>
+                            <td>Others</td>
+                            <td><span class="active-long">ACTIVE LONG</span></td>
+                            <td>₹108.10</td>
+                            <td>₹103.12</td>
+                            <td>₹98.32</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟢 Above Cloud</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟢 Bullish</td>
+                            <td>2.4x</td>
+                            <td class="negative">-1.7%</td>
+                            <td>75</td>
+                        </tr>
+        
+                        <tr>
+                            <td>6</td>
+                            <td><strong>AMBER</strong></td>
+                            <td>Others</td>
+                            <td><span class="active-long">ACTIVE LONG</span></td>
+                            <td>₹8040.50</td>
+                            <td>₹6597.88</td>
+                            <td>₹6373.50</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟢 Above Cloud</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟢 Bullish</td>
+                            <td>2.2x</td>
+                            <td class="positive">+10.0%</td>
+                            <td>75</td>
+                        </tr>
+        
+                        <tr>
+                            <td>7</td>
+                            <td><strong>CHAMBLFERT</strong></td>
+                            <td>Others</td>
+                            <td><span class="active-short">ACTIVE SHORT</span></td>
+                            <td>₹538.20</td>
+                            <td>₹637.08</td>
+                            <td>₹561.18</td>
+                            <td>🔴 Bearish</td>
+                            <td>🔴 Below Cloud</td>
+                            <td>🔴 Bearish</td>
+                            <td>🔴 Bearish</td>
+                            <td>2.1x</td>
+                            <td class="negative">-3.7%</td>
+                            <td>75</td>
+                        </tr>
+        
+                        <tr>
+                            <td>8</td>
+                            <td><strong>RBLBANK</strong></td>
+                            <td>Others</td>
+                            <td><span class="active-long">ACTIVE LONG</span></td>
+                            <td>₹261.75</td>
+                            <td>₹226.43</td>
+                            <td>₹204.47</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟢 Above Cloud</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟢 Bullish</td>
+                            <td>2.0x</td>
+                            <td class="positive">+1.1%</td>
+                            <td>75</td>
+                        </tr>
+        
+                        <tr>
+                            <td>9</td>
+                            <td><strong>CESC</strong></td>
+                            <td>Others</td>
+                            <td><span class="active-long">ACTIVE LONG</span></td>
+                            <td>₹176.61</td>
+                            <td>₹167.79</td>
+                            <td>₹162.38</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟢 Above Cloud</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟢 Bullish</td>
+                            <td>1.9x</td>
+                            <td class="negative">-0.9%</td>
+                            <td>75</td>
+                        </tr>
+        
+                        <tr>
+                            <td>10</td>
+                            <td><strong>TATACHEM</strong></td>
+                            <td>Others</td>
+                            <td><span class="active-long">ACTIVE LONG</span></td>
+                            <td>₹1001.35</td>
+                            <td>₹913.19</td>
+                            <td>₹871.97</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟢 Above Cloud</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟢 Bullish</td>
+                            <td>1.8x</td>
+                            <td class="positive">+3.0%</td>
+                            <td>75</td>
+                        </tr>
+        
+                        <tr>
+                            <td>11</td>
+                            <td><strong>PIIND</strong></td>
+                            <td>Others</td>
+                            <td><span class="active-long">ACTIVE LONG</span></td>
+                            <td>₹4324.20</td>
+                            <td>₹3970.92</td>
+                            <td>₹3732.42</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟢 Above Cloud</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟢 Bullish</td>
+                            <td>1.7x</td>
+                            <td class="positive">+6.1%</td>
+                            <td>75</td>
+                        </tr>
+        
+                        <tr>
+                            <td>12</td>
+                            <td><strong>LAURUSLABS</strong></td>
+                            <td>Others</td>
+                            <td><span class="active-long">ACTIVE LONG</span></td>
+                            <td>₹881.45</td>
+                            <td>₹647.89</td>
+                            <td>₹616.62</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟢 Above Cloud</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟢 Bullish</td>
+                            <td>1.7x</td>
+                            <td class="positive">+7.2%</td>
+                            <td>75</td>
+                        </tr>
+        
+                        <tr>
+                            <td>13</td>
+                            <td><strong>BPCL</strong></td>
+                            <td>Oil & Gas</td>
+                            <td><span class="active-long">ACTIVE LONG</span></td>
+                            <td>₹332.05</td>
+                            <td>₹310.55</td>
+                            <td>₹302.50</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟢 Above Cloud</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟢 Bullish</td>
+                            <td>1.7x</td>
+                            <td class="negative">-2.1%</td>
+                            <td>75</td>
+                        </tr>
+        
+                        <tr>
+                            <td>14</td>
+                            <td><strong>BOSCHLTD</strong></td>
+                            <td>Others</td>
+                            <td><span class="active-long">ACTIVE LONG</span></td>
+                            <td>₹40060.00</td>
+                            <td>₹31443.23</td>
+                            <td>₹29042.00</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟢 Above Cloud</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟢 Bullish</td>
+                            <td>1.6x</td>
+                            <td class="positive">+6.9%</td>
+                            <td>75</td>
+                        </tr>
+        
+                        <tr>
+                            <td>15</td>
+                            <td><strong>INDIGO</strong></td>
+                            <td>Others</td>
+                            <td><span class="active-long">ACTIVE LONG</span></td>
+                            <td>₹5740.00</td>
+                            <td>₹5445.38</td>
+                            <td>₹5310.25</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟢 Above Cloud</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟢 Bullish</td>
+                            <td>1.5x</td>
+                            <td class="negative">-2.7%</td>
+                            <td>75</td>
+                        </tr>
+        
+                        <tr>
+                            <td>16</td>
+                            <td><strong>TORNTPOWER</strong></td>
+                            <td>Others</td>
+                            <td><span class="active-short">ACTIVE SHORT</span></td>
+                            <td>₹1336.50</td>
+                            <td>₹1495.18</td>
+                            <td>₹1419.59</td>
+                            <td>🔴 Bearish</td>
+                            <td>🔴 Below Cloud</td>
+                            <td>🔴 Bearish</td>
+                            <td>🔴 Bearish</td>
+                            <td>1.4x</td>
+                            <td class="negative">-1.5%</td>
+                            <td>75</td>
+                        </tr>
+        
+                        <tr>
+                            <td>17</td>
+                            <td><strong>JSWSTEEL</strong></td>
+                            <td>Metals & Mining</td>
+                            <td><span class="active-long">ACTIVE LONG</span></td>
+                            <td>₹1037.90</td>
+                            <td>₹999.13</td>
+                            <td>₹995.62</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟢 Above Cloud</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟢 Bullish</td>
+                            <td>1.3x</td>
+                            <td class="positive">+0.4%</td>
+                            <td>75</td>
+                        </tr>
+        
+                        <tr>
+                            <td>18</td>
+                            <td><strong>BIOCON</strong></td>
+                            <td>Others</td>
+                            <td><span class="active-long">ACTIVE LONG</span></td>
+                            <td>₹397.30</td>
+                            <td>₹348.78</td>
+                            <td>₹334.38</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟢 Above Cloud</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟢 Bullish</td>
+                            <td>1.2x</td>
+                            <td class="positive">+0.1%</td>
+                            <td>75</td>
+                        </tr>
+        
+                        <tr>
+                            <td>19</td>
+                            <td><strong>COLPAL</strong></td>
+                            <td>Others</td>
+                            <td><span class="active-short">ACTIVE SHORT</span></td>
+                            <td>₹2237.10</td>
+                            <td>₹2532.09</td>
+                            <td>₹2447.44</td>
+                            <td>🔴 Bearish</td>
+                            <td>🔴 Below Cloud</td>
+                            <td>🔴 Bearish</td>
+                            <td>🔴 Bearish</td>
+                            <td>1.2x</td>
+                            <td class="negative">-2.1%</td>
+                            <td>75</td>
+                        </tr>
+        
+                        <tr>
+                            <td>20</td>
+                            <td><strong>IEX</strong></td>
+                            <td>Others</td>
+                            <td><span class="active-short">ACTIVE SHORT</span></td>
+                            <td>₹136.05</td>
+                            <td>₹193.77</td>
+                            <td>₹191.68</td>
+                            <td>🔴 Bearish</td>
+                            <td>🔴 Below Cloud</td>
+                            <td>🔴 Bearish</td>
+                            <td>🔴 Bearish</td>
+                            <td>1.1x</td>
+                            <td class="negative">-27.6%</td>
+                            <td>75</td>
+                        </tr>
+        
+                        <tr>
+                            <td>21</td>
+                            <td><strong>AMBUJACEM</strong></td>
+                            <td>Others</td>
+                            <td><span class="active-long">ACTIVE LONG</span></td>
+                            <td>₹617.85</td>
+                            <td>₹548.49</td>
+                            <td>₹546.52</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟢 Above Cloud</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟢 Bullish</td>
+                            <td>1.1x</td>
+                            <td class="negative">-0.4%</td>
+                            <td>75</td>
+                        </tr>
+        
+                        <tr>
+                            <td>22</td>
+                            <td><strong>M&M</strong></td>
+                            <td>Automobiles</td>
+                            <td><span class="active-long">ACTIVE LONG</span></td>
+                            <td>₹3208.90</td>
+                            <td>₹3054.21</td>
+                            <td>₹2847.85</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟢 Above Cloud</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟢 Bullish</td>
+                            <td>1.1x</td>
+                            <td class="negative">-1.8%</td>
+                            <td>75</td>
+                        </tr>
+        
+                        <tr>
+                            <td>23</td>
+                            <td><strong>KOTAKBANK</strong></td>
+                            <td>Banking</td>
+                            <td><span class="active-short">ACTIVE SHORT</span></td>
+                            <td>₹1959.70</td>
+                            <td>₹2165.35</td>
+                            <td>₹2140.78</td>
+                            <td>🔴 Bearish</td>
+                            <td>🔴 Below Cloud</td>
+                            <td>🔴 Bearish</td>
+                            <td>🔴 Bearish</td>
+                            <td>1.0x</td>
+                            <td class="negative">-9.7%</td>
+                            <td>75</td>
+                        </tr>
+        
+                        <tr>
+                            <td>24</td>
+                            <td><strong>HDFCBANK</strong></td>
+                            <td>Banking</td>
+                            <td><span class="active-long">ACTIVE LONG</span></td>
+                            <td>₹2025.80</td>
+                            <td>₹1927.92</td>
+                            <td>₹1854.50</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟢 Above Cloud</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟢 Bullish</td>
+                            <td>1.0x</td>
+                            <td class="positive">+0.1%</td>
+                            <td>75</td>
+                        </tr>
+        
+                        <tr>
+                            <td>25</td>
+                            <td><strong>CUMMINSIND</strong></td>
+                            <td>Others</td>
+                            <td><span class="active-long">ACTIVE LONG</span></td>
+                            <td>₹3581.90</td>
+                            <td>₹3193.67</td>
+                            <td>₹3026.20</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟢 Above Cloud</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟢 Bullish</td>
+                            <td>0.9x</td>
+                            <td class="negative">-1.0%</td>
+                            <td>75</td>
+                        </tr>
+        
+                        <tr>
+                            <td>26</td>
+                            <td><strong>DALBHARAT</strong></td>
+                            <td>Others</td>
+                            <td><span class="active-long">ACTIVE LONG</span></td>
+                            <td>₹2239.50</td>
+                            <td>₹2077.42</td>
+                            <td>₹1971.58</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟢 Above Cloud</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟢 Bullish</td>
+                            <td>0.9x</td>
+                            <td class="negative">-1.3%</td>
+                            <td>75</td>
+                        </tr>
+        
+                        <tr>
+                            <td>27</td>
+                            <td><strong>IOC</strong></td>
+                            <td>Others</td>
+                            <td><span class="active-long">ACTIVE LONG</span></td>
+                            <td>₹149.04</td>
+                            <td>₹141.32</td>
+                            <td>₹139.29</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟢 Above Cloud</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟢 Bullish</td>
+                            <td>0.9x</td>
+                            <td class="negative">-2.2%</td>
+                            <td>75</td>
+                        </tr>
+        
+                        <tr>
+                            <td>28</td>
+                            <td><strong>FORTIS</strong></td>
+                            <td>Others</td>
+                            <td><span class="active-long">ACTIVE LONG</span></td>
+                            <td>₹842.70</td>
+                            <td>₹742.47</td>
+                            <td>₹707.76</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟢 Above Cloud</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟢 Bullish</td>
+                            <td>0.9x</td>
+                            <td class="positive">+2.4%</td>
+                            <td>75</td>
+                        </tr>
+        
+                        <tr>
+                            <td>29</td>
+                            <td><strong>LTF</strong></td>
+                            <td>Others</td>
+                            <td><span class="active-long">ACTIVE LONG</span></td>
+                            <td>₹203.40</td>
+                            <td>₹188.97</td>
+                            <td>₹175.43</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟢 Above Cloud</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟢 Bullish</td>
+                            <td>0.8x</td>
+                            <td class="negative">-4.7%</td>
+                            <td>75</td>
+                        </tr>
+        
+                        <tr>
+                            <td>30</td>
+                            <td><strong>HINDALCO</strong></td>
+                            <td>Metals & Mining</td>
+                            <td><span class="active-long">ACTIVE LONG</span></td>
+                            <td>₹688.80</td>
+                            <td>₹651.73</td>
+                            <td>₹614.58</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟢 Above Cloud</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟢 Bullish</td>
+                            <td>0.7x</td>
+                            <td class="negative">-0.9%</td>
+                            <td>75</td>
+                        </tr>
+        
+                        <tr>
+                            <td>31</td>
+                            <td><strong>JINDALSTEL</strong></td>
+                            <td>Others</td>
+                            <td><span class="active-long">ACTIVE LONG</span></td>
+                            <td>₹982.85</td>
+                            <td>₹921.50</td>
+                            <td>₹877.90</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟢 Above Cloud</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟢 Bullish</td>
+                            <td>0.7x</td>
+                            <td class="positive">+0.6%</td>
+                            <td>75</td>
+                        </tr>
+        
+                        <tr>
+                            <td>32</td>
+                            <td><strong>TATACOMM</strong></td>
+                            <td>Others</td>
+                            <td><span class="active-long">ACTIVE LONG</span></td>
+                            <td>₹1758.60</td>
+                            <td>₹1665.44</td>
+                            <td>₹1591.64</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟢 Above Cloud</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟢 Bullish</td>
+                            <td>0.7x</td>
+                            <td class="positive">+1.0%</td>
+                            <td>75</td>
+                        </tr>
+        
+                        <tr>
+                            <td>33</td>
+                            <td><strong>HDFCAMC</strong></td>
+                            <td>Others</td>
+                            <td><span class="active-long">ACTIVE LONG</span></td>
+                            <td>₹5670.00</td>
+                            <td>₹4927.63</td>
+                            <td>₹4492.18</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟢 Above Cloud</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟢 Bullish</td>
+                            <td>0.7x</td>
+                            <td class="positive">+1.3%</td>
+                            <td>75</td>
+                        </tr>
+        
+                        <tr>
+                            <td>34</td>
+                            <td><strong>APOLLOHOSP</strong></td>
+                            <td>Healthcare</td>
+                            <td><span class="active-long">ACTIVE LONG</span></td>
+                            <td>₹7450.00</td>
+                            <td>₹6990.00</td>
+                            <td>₹6954.00</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟢 Above Cloud</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟢 Bullish</td>
+                            <td>0.6x</td>
+                            <td class="positive">+1.0%</td>
+                            <td>75</td>
+                        </tr>
+        
+                        <tr>
+                            <td>35</td>
+                            <td><strong>DABUR</strong></td>
+                            <td>Others</td>
+                            <td><span class="active-long">ACTIVE LONG</span></td>
+                            <td>₹522.00</td>
+                            <td>₹470.79</td>
+                            <td>₹470.48</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟢 Above Cloud</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟢 Bullish</td>
+                            <td>0.6x</td>
+                            <td class="positive">+1.6%</td>
+                            <td>75</td>
+                        </tr>
+        
+                        <tr>
+                            <td>36</td>
+                            <td><strong>DELHIVERY</strong></td>
+                            <td>Others</td>
+                            <td><span class="active-long">ACTIVE LONG</span></td>
+                            <td>₹409.15</td>
+                            <td>₹366.85</td>
+                            <td>₹315.78</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟢 Above Cloud</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟢 Bullish</td>
+                            <td>0.6x</td>
+                            <td class="negative">-7.9%</td>
+                            <td>75</td>
+                        </tr>
+        
+                        <tr>
+                            <td>37</td>
+                            <td><strong>EXIDEIND</strong></td>
+                            <td>Others</td>
+                            <td><span class="active-long">ACTIVE LONG</span></td>
+                            <td>₹391.05</td>
+                            <td>₹383.15</td>
+                            <td>₹376.53</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟢 Above Cloud</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟢 Bullish</td>
+                            <td>0.6x</td>
+                            <td class="negative">-0.2%</td>
+                            <td>75</td>
+                        </tr>
+        
+                        <tr>
+                            <td>38</td>
+                            <td><strong>POLYCAB</strong></td>
+                            <td>Others</td>
+                            <td><span class="active-long">ACTIVE LONG</span></td>
+                            <td>₹6931.00</td>
+                            <td>₹6111.47</td>
+                            <td>₹5678.89</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟢 Above Cloud</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟢 Bullish</td>
+                            <td>0.6x</td>
+                            <td class="positive">+0.7%</td>
+                            <td>75</td>
+                        </tr>
+        
+                        <tr>
+                            <td>39</td>
+                            <td><strong>UNITDSPR</strong></td>
+                            <td>Others</td>
+                            <td><span class="active-short">ACTIVE SHORT</span></td>
+                            <td>₹1315.80</td>
+                            <td>₹1530.10</td>
+                            <td>₹1492.05</td>
+                            <td>🔴 Bearish</td>
+                            <td>🔴 Below Cloud</td>
+                            <td>🔴 Bearish</td>
+                            <td>🔴 Bearish</td>
+                            <td>0.5x</td>
+                            <td class="negative">-2.0%</td>
+                            <td>75</td>
+                        </tr>
+        
+                        <tr>
+                            <td>40</td>
+                            <td><strong>PAYTM</strong></td>
+                            <td>Others</td>
+                            <td><span class="active-long">ACTIVE LONG</span></td>
+                            <td>₹1068.20</td>
+                            <td>₹890.51</td>
+                            <td>₹883.50</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟢 Above Cloud</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟢 Bullish</td>
+                            <td>0.5x</td>
+                            <td class="negative">-0.3%</td>
+                            <td>75</td>
+                        </tr>
+        
+                        <tr>
+                            <td>41</td>
+                            <td><strong>JSWENERGY</strong></td>
+                            <td>Others</td>
+                            <td><span class="active-long">ACTIVE LONG</span></td>
+                            <td>₹526.50</td>
+                            <td>₹504.25</td>
+                            <td>₹491.18</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟢 Above Cloud</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟢 Bullish</td>
+                            <td>0.5x</td>
+                            <td class="negative">-1.4%</td>
+                            <td>75</td>
+                        </tr>
+        
+                        <tr>
+                            <td>42</td>
+                            <td><strong>NMDC</strong></td>
+                            <td>Others</td>
+                            <td><span class="active-long">ACTIVE LONG</span></td>
+                            <td>₹72.06</td>
+                            <td>₹70.11</td>
+                            <td>₹67.35</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟢 Above Cloud</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟢 Bullish</td>
+                            <td>0.5x</td>
+                            <td class="negative">-1.3%</td>
+                            <td>75</td>
+                        </tr>
+        
+                        <tr>
+                            <td>43</td>
+                            <td><strong>KALYANKJIL</strong></td>
+                            <td>Others</td>
+                            <td><span class="active-long">ACTIVE LONG</span></td>
+                            <td>₹606.65</td>
+                            <td>₹530.85</td>
+                            <td>₹529.08</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟢 Above Cloud</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟢 Bullish</td>
+                            <td>0.4x</td>
+                            <td class="negative">-0.8%</td>
+                            <td>75</td>
+                        </tr>
+        
+                        <tr>
+                            <td>44</td>
+                            <td><strong>IIFL</strong></td>
+                            <td>Others</td>
+                            <td><span class="active-long">ACTIVE LONG</span></td>
+                            <td>₹503.85</td>
+                            <td>₹462.93</td>
+                            <td>₹400.75</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟢 Above Cloud</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟢 Bullish</td>
+                            <td>0.4x</td>
+                            <td class="negative">-5.6%</td>
+                            <td>75</td>
+                        </tr>
+        
+                        <tr>
+                            <td>45</td>
+                            <td><strong>KEI</strong></td>
+                            <td>Others</td>
+                            <td><span class="active-long">ACTIVE LONG</span></td>
+                            <td>₹3901.40</td>
+                            <td>₹3704.48</td>
+                            <td>₹3255.33</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟢 Above Cloud</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟢 Bullish</td>
+                            <td>0.4x</td>
+                            <td class="negative">-1.7%</td>
+                            <td>75</td>
+                        </tr>
+        
+                        <tr>
+                            <td>46</td>
+                            <td><strong>GLENMARK</strong></td>
+                            <td>Others</td>
+                            <td><span class="active-long">ACTIVE LONG</span></td>
+                            <td>₹2153.60</td>
+                            <td>₹1608.25</td>
+                            <td>₹1532.50</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟢 Above Cloud</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟢 Bullish</td>
+                            <td>0.3x</td>
+                            <td class="positive">+0.7%</td>
+                            <td>75</td>
+                        </tr>
+        
+                        <tr>
+                            <td>47</td>
+                            <td><strong>NYKAA</strong></td>
+                            <td>Others</td>
+                            <td><span class="active-long">ACTIVE LONG</span></td>
+                            <td>₹213.84</td>
+                            <td>₹198.98</td>
+                            <td>₹190.50</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟢 Above Cloud</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟢 Bullish</td>
+                            <td>0.3x</td>
+                            <td class="negative">-2.2%</td>
+                            <td>75</td>
+                        </tr>
+        
+                        <tr>
+                            <td>48</td>
+                            <td><strong>KPITTECH</strong></td>
+                            <td>Others</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹1268.50</td>
+                            <td>₹1353.10</td>
+                            <td>₹1242.69</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟡 In Cloud</td>
+                            <td>🔴 Bearish</td>
+                            <td>🟡 Neutral</td>
+                            <td>4.9x</td>
+                            <td class="positive">+0.0%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>49</td>
+                            <td><strong>LT</strong></td>
+                            <td>Infrastructure</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹3665.10</td>
+                            <td>₹3591.17</td>
+                            <td>₹3364.37</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟢 Above Cloud</td>
+                            <td>🔴 Bearish</td>
+                            <td>🟡 Neutral</td>
+                            <td>4.9x</td>
+                            <td class="positive">+5.2%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>50</td>
+                            <td><strong>DMART</strong></td>
+                            <td>Others</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹4281.40</td>
+                            <td>₹4203.85</td>
+                            <td>₹4157.43</td>
+                            <td>🔴 Bearish</td>
+                            <td>🟢 Above Cloud</td>
+                            <td>🔴 Bearish</td>
+                            <td>🟡 Neutral</td>
+                            <td>4.3x</td>
+                            <td class="positive">+5.9%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>51</td>
+                            <td><strong>PAGEIND</strong></td>
+                            <td>Others</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹48315.00</td>
+                            <td>₹46642.50</td>
+                            <td>₹45088.48</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟢 Above Cloud</td>
+                            <td>🔴 Bearish</td>
+                            <td>🟢 Bullish</td>
+                            <td>3.2x</td>
+                            <td class="positive">+1.9%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>52</td>
+                            <td><strong>BANKINDIA</strong></td>
+                            <td>Others</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹114.14</td>
+                            <td>₹116.30</td>
+                            <td>₹113.12</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟡 In Cloud</td>
+                            <td>🔴 Bearish</td>
+                            <td>🟡 Neutral</td>
+                            <td>3.0x</td>
+                            <td class="positive">+0.8%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>53</td>
+                            <td><strong>VBL</strong></td>
+                            <td>Others</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹522.10</td>
+                            <td>₹507.05</td>
+                            <td>₹466.17</td>
+                            <td>🔴 Bearish</td>
+                            <td>🟢 Above Cloud</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟢 Bullish</td>
+                            <td>2.7x</td>
+                            <td class="positive">+7.0%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>54</td>
+                            <td><strong>TIINDIA</strong></td>
+                            <td>Others</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹2855.40</td>
+                            <td>₹2947.64</td>
+                            <td>₹2857.59</td>
+                            <td>🟢 Bullish</td>
+                            <td>🔴 Below Cloud</td>
+                            <td>🔴 Bearish</td>
+                            <td>🟡 Neutral</td>
+                            <td>2.6x</td>
+                            <td class="negative">-3.2%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>55</td>
+                            <td><strong>HINDCOPPER</strong></td>
+                            <td>Others</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹258.35</td>
+                            <td>₹249.13</td>
+                            <td>₹227.24</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟢 Above Cloud</td>
+                            <td>🔴 Bearish</td>
+                            <td>🟡 Neutral</td>
+                            <td>2.5x</td>
+                            <td class="negative">-6.4%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>56</td>
+                            <td><strong>KAYNES</strong></td>
+                            <td>Others</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹5638.00</td>
+                            <td>₹5757.55</td>
+                            <td>₹5667.25</td>
+                            <td>🔴 Bearish</td>
+                            <td>🔴 Below Cloud</td>
+                            <td>🔴 Bearish</td>
+                            <td>🟡 Neutral</td>
+                            <td>2.3x</td>
+                            <td class="negative">-1.9%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>57</td>
+                            <td><strong>TATAMOTORS</strong></td>
+                            <td>Automobiles</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹668.45</td>
+                            <td>₹697.79</td>
+                            <td>₹660.05</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟡 In Cloud</td>
+                            <td>🔴 Bearish</td>
+                            <td>🟡 Neutral</td>
+                            <td>2.3x</td>
+                            <td class="negative">-3.1%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>58</td>
+                            <td><strong>M&MFIN</strong></td>
+                            <td>Others</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹257.65</td>
+                            <td>₹262.20</td>
+                            <td>₹256.04</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟡 In Cloud</td>
+                            <td>🔴 Bearish</td>
+                            <td>🟡 Neutral</td>
+                            <td>2.0x</td>
+                            <td class="negative">-0.6%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>59</td>
+                            <td><strong>BSOFT</strong></td>
+                            <td>Others</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹414.75</td>
+                            <td>₹418.16</td>
+                            <td>₹392.53</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟡 In Cloud</td>
+                            <td>🔴 Bearish</td>
+                            <td>🟡 Neutral</td>
+                            <td>2.0x</td>
+                            <td class="positive">+2.7%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>60</td>
+                            <td><strong>MUTHOOTFIN</strong></td>
+                            <td>Others</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹2633.20</td>
+                            <td>₹2467.57</td>
+                            <td>₹2305.57</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟢 Above Cloud</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟡 Neutral</td>
+                            <td>2.0x</td>
+                            <td class="negative">-2.1%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>61</td>
+                            <td><strong>ASIANPAINT</strong></td>
+                            <td>Paints & Chemicals</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹2415.80</td>
+                            <td>₹2321.51</td>
+                            <td>₹2247.35</td>
+                            <td>🔴 Bearish</td>
+                            <td>🟢 Above Cloud</td>
+                            <td>🔴 Bearish</td>
+                            <td>🟢 Bullish</td>
+                            <td>1.8x</td>
+                            <td class="positive">+1.7%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>62</td>
+                            <td><strong>SYNGENE</strong></td>
+                            <td>Others</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹722.05</td>
+                            <td>₹675.89</td>
+                            <td>₹644.52</td>
+                            <td>🔴 Bearish</td>
+                            <td>🟢 Above Cloud</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟢 Bullish</td>
+                            <td>1.7x</td>
+                            <td class="positive">+6.1%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>63</td>
+                            <td><strong>MPHASIS</strong></td>
+                            <td>Others</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹2806.60</td>
+                            <td>₹2574.90</td>
+                            <td>₹2359.99</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟢 Above Cloud</td>
+                            <td>🔴 Bearish</td>
+                            <td>🟢 Bullish</td>
+                            <td>1.7x</td>
+                            <td class="positive">+2.6%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>64</td>
+                            <td><strong>HINDPETRO</strong></td>
+                            <td>Others</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹426.25</td>
+                            <td>₹394.52</td>
+                            <td>₹394.07</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟢 Above Cloud</td>
+                            <td>🔴 Bearish</td>
+                            <td>🟢 Bullish</td>
+                            <td>1.6x</td>
+                            <td class="negative">-1.9%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>65</td>
+                            <td><strong>BHARATFORG</strong></td>
+                            <td>Others</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹1188.60</td>
+                            <td>₹1287.30</td>
+                            <td>₹1146.11</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟡 In Cloud</td>
+                            <td>🔴 Bearish</td>
+                            <td>🟡 Neutral</td>
+                            <td>1.6x</td>
+                            <td class="negative">-2.9%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>66</td>
+                            <td><strong>APLAPOLLO</strong></td>
+                            <td>Others</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹1566.30</td>
+                            <td>₹1827.60</td>
+                            <td>₹1686.95</td>
+                            <td>🟢 Bullish</td>
+                            <td>🔴 Below Cloud</td>
+                            <td>🔴 Bearish</td>
+                            <td>🔴 Bearish</td>
+                            <td>1.5x</td>
+                            <td class="negative">-6.7%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>67</td>
+                            <td><strong>NTPC</strong></td>
+                            <td>Power</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹338.80</td>
+                            <td>₹344.90</td>
+                            <td>₹332.70</td>
+                            <td>🔴 Bearish</td>
+                            <td>🟡 In Cloud</td>
+                            <td>🔴 Bearish</td>
+                            <td>🟡 Neutral</td>
+                            <td>1.5x</td>
+                            <td class="negative">-1.2%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>68</td>
+                            <td><strong>GODREJCP</strong></td>
+                            <td>Others</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹1216.60</td>
+                            <td>₹1234.10</td>
+                            <td>₹1206.78</td>
+                            <td>🔴 Bearish</td>
+                            <td>🟡 In Cloud</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟡 Neutral</td>
+                            <td>1.4x</td>
+                            <td class="negative">-1.3%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>69</td>
+                            <td><strong>AARTIIND</strong></td>
+                            <td>Others</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹445.50</td>
+                            <td>₹458.76</td>
+                            <td>₹424.60</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟡 In Cloud</td>
+                            <td>🔴 Bearish</td>
+                            <td>🟡 Neutral</td>
+                            <td>1.4x</td>
+                            <td class="positive">+4.3%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>70</td>
+                            <td><strong>POWERGRID</strong></td>
+                            <td>Power</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹288.95</td>
+                            <td>₹301.90</td>
+                            <td>₹290.52</td>
+                            <td>🔴 Bearish</td>
+                            <td>🔴 Below Cloud</td>
+                            <td>🔴 Bearish</td>
+                            <td>🟡 Neutral</td>
+                            <td>1.4x</td>
+                            <td class="negative">-3.4%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>71</td>
+                            <td><strong>KFINTECH</strong></td>
+                            <td>Others</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹1109.20</td>
+                            <td>₹1245.95</td>
+                            <td>₹1189.88</td>
+                            <td>🟢 Bullish</td>
+                            <td>🔴 Below Cloud</td>
+                            <td>🔴 Bearish</td>
+                            <td>🟡 Neutral</td>
+                            <td>1.4x</td>
+                            <td class="negative">-12.1%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>72</td>
+                            <td><strong>SUNPHARMA</strong></td>
+                            <td>Pharmaceuticals</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹1733.80</td>
+                            <td>₹1731.70</td>
+                            <td>₹1677.15</td>
+                            <td>🔴 Bearish</td>
+                            <td>🟢 Above Cloud</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟢 Bullish</td>
+                            <td>1.4x</td>
+                            <td class="positive">+3.0%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>73</td>
+                            <td><strong>ITC</strong></td>
+                            <td>FMCG</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹407.60</td>
+                            <td>₹420.08</td>
+                            <td>₹419.99</td>
+                            <td>🟢 Bullish</td>
+                            <td>🔴 Below Cloud</td>
+                            <td>🔴 Bearish</td>
+                            <td>🔴 Bearish</td>
+                            <td>1.3x</td>
+                            <td class="negative">-1.8%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>74</td>
+                            <td><strong>NAUKRI</strong></td>
+                            <td>Others</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹1395.60</td>
+                            <td>₹1475.22</td>
+                            <td>₹1403.14</td>
+                            <td>🟢 Bullish</td>
+                            <td>🔴 Below Cloud</td>
+                            <td>🔴 Bearish</td>
+                            <td>🟡 Neutral</td>
+                            <td>1.3x</td>
+                            <td class="negative">-5.1%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>75</td>
+                            <td><strong>IRCTC</strong></td>
+                            <td>Others</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹736.15</td>
+                            <td>₹765.32</td>
+                            <td>₹763.25</td>
+                            <td>🟢 Bullish</td>
+                            <td>🔴 Below Cloud</td>
+                            <td>🔴 Bearish</td>
+                            <td>🔴 Bearish</td>
+                            <td>1.2x</td>
+                            <td class="negative">-3.4%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>76</td>
+                            <td><strong>AUBANK</strong></td>
+                            <td>Others</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹746.30</td>
+                            <td>₹763.93</td>
+                            <td>₹674.62</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟡 In Cloud</td>
+                            <td>🔴 Bearish</td>
+                            <td>🟡 Neutral</td>
+                            <td>1.2x</td>
+                            <td class="positive">+1.3%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>77</td>
+                            <td><strong>GRANULES</strong></td>
+                            <td>Others</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹490.65</td>
+                            <td>₹505.33</td>
+                            <td>₹483.07</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟡 In Cloud</td>
+                            <td>🔴 Bearish</td>
+                            <td>🟡 Neutral</td>
+                            <td>1.2x</td>
+                            <td class="positive">+3.4%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>78</td>
+                            <td><strong>ONGC</strong></td>
+                            <td>Oil & Gas</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹241.81</td>
+                            <td>₹248.00</td>
+                            <td>₹238.88</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟡 In Cloud</td>
+                            <td>🔴 Bearish</td>
+                            <td>🟡 Neutral</td>
+                            <td>1.2x</td>
+                            <td class="negative">-1.5%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>79</td>
+                            <td><strong>MARICO</strong></td>
+                            <td>Others</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹703.05</td>
+                            <td>₹707.85</td>
+                            <td>₹700.12</td>
+                            <td>🔴 Bearish</td>
+                            <td>🟡 In Cloud</td>
+                            <td>🔴 Bearish</td>
+                            <td>🟡 Neutral</td>
+                            <td>1.1x</td>
+                            <td class="negative">-2.4%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>80</td>
+                            <td><strong>CROMPTON</strong></td>
+                            <td>Others</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹324.15</td>
+                            <td>₹344.47</td>
+                            <td>₹335.88</td>
+                            <td>🟢 Bullish</td>
+                            <td>🔴 Below Cloud</td>
+                            <td>🔴 Bearish</td>
+                            <td>🔴 Bearish</td>
+                            <td>1.1x</td>
+                            <td class="negative">-3.8%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>81</td>
+                            <td><strong>COALINDIA</strong></td>
+                            <td>Metals & Mining</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹379.90</td>
+                            <td>₹394.10</td>
+                            <td>₹393.77</td>
+                            <td>🟢 Bullish</td>
+                            <td>🔴 Below Cloud</td>
+                            <td>🔴 Bearish</td>
+                            <td>🔴 Bearish</td>
+                            <td>1.1x</td>
+                            <td class="negative">-2.8%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>82</td>
+                            <td><strong>ABCAPITAL</strong></td>
+                            <td>Others</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹248.80</td>
+                            <td>₹249.42</td>
+                            <td>₹227.35</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟡 In Cloud</td>
+                            <td>🔴 Bearish</td>
+                            <td>🟡 Neutral</td>
+                            <td>1.1x</td>
+                            <td class="negative">-7.4%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>83</td>
+                            <td><strong>MOTHERSON</strong></td>
+                            <td>Others</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹98.92</td>
+                            <td>₹101.18</td>
+                            <td>₹91.21</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟡 In Cloud</td>
+                            <td>🔴 Bearish</td>
+                            <td>🟡 Neutral</td>
+                            <td>1.1x</td>
+                            <td class="positive">+0.1%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>84</td>
+                            <td><strong>CONCOR</strong></td>
+                            <td>Others</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹585.15</td>
+                            <td>₹602.94</td>
+                            <td>₹582.68</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟡 In Cloud</td>
+                            <td>🔴 Bearish</td>
+                            <td>🟡 Neutral</td>
+                            <td>1.1x</td>
+                            <td class="negative">-4.0%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>85</td>
+                            <td><strong>GRASIM</strong></td>
+                            <td>Textiles</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹2758.60</td>
+                            <td>₹2708.20</td>
+                            <td>₹2678.00</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟢 Above Cloud</td>
+                            <td>🔴 Bearish</td>
+                            <td>🟡 Neutral</td>
+                            <td>1.1x</td>
+                            <td class="positive">+1.8%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>86</td>
+                            <td><strong>TVSMOTOR</strong></td>
+                            <td>Others</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹2793.60</td>
+                            <td>₹2790.05</td>
+                            <td>₹2671.05</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟢 Above Cloud</td>
+                            <td>🔴 Bearish</td>
+                            <td>🟡 Neutral</td>
+                            <td>1.1x</td>
+                            <td class="negative">-0.3%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>87</td>
+                            <td><strong>ASTRAL</strong></td>
+                            <td>Others</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹1430.70</td>
+                            <td>₹1498.68</td>
+                            <td>₹1418.25</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟡 In Cloud</td>
+                            <td>🔴 Bearish</td>
+                            <td>🟡 Neutral</td>
+                            <td>1.1x</td>
+                            <td class="negative">-3.5%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>88</td>
+                            <td><strong>HUDCO</strong></td>
+                            <td>Others</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹217.43</td>
+                            <td>₹231.69</td>
+                            <td>₹227.61</td>
+                            <td>🟢 Bullish</td>
+                            <td>🔴 Below Cloud</td>
+                            <td>🔴 Bearish</td>
+                            <td>🟡 Neutral</td>
+                            <td>1.1x</td>
+                            <td class="negative">-3.5%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>89</td>
+                            <td><strong>PIDILITIND</strong></td>
+                            <td>Others</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹2874.10</td>
+                            <td>₹2991.87</td>
+                            <td>₹2963.96</td>
+                            <td>🔴 Bearish</td>
+                            <td>🔴 Below Cloud</td>
+                            <td>🔴 Bearish</td>
+                            <td>🟡 Neutral</td>
+                            <td>1.1x</td>
+                            <td class="negative">-1.5%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>90</td>
+                            <td><strong>SRF</strong></td>
+                            <td>Others</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹3086.50</td>
+                            <td>₹3028.38</td>
+                            <td>₹2933.61</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟢 Above Cloud</td>
+                            <td>🔴 Bearish</td>
+                            <td>🟢 Bullish</td>
+                            <td>1.1x</td>
+                            <td class="negative">-3.2%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>91</td>
+                            <td><strong>MAZDOCK</strong></td>
+                            <td>Others</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹2759.70</td>
+                            <td>₹3324.85</td>
+                            <td>₹3030.21</td>
+                            <td>🟢 Bullish</td>
+                            <td>🔴 Below Cloud</td>
+                            <td>🔴 Bearish</td>
+                            <td>🔴 Bearish</td>
+                            <td>1.1x</td>
+                            <td class="negative">-5.5%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>92</td>
+                            <td><strong>SHRIRAMFIN</strong></td>
+                            <td>Others</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹632.80</td>
+                            <td>₹663.62</td>
+                            <td>₹653.89</td>
+                            <td>🟢 Bullish</td>
+                            <td>🔴 Below Cloud</td>
+                            <td>🔴 Bearish</td>
+                            <td>🔴 Bearish</td>
+                            <td>1.1x</td>
+                            <td class="negative">-3.2%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>93</td>
+                            <td><strong>HEROMOTOCO</strong></td>
+                            <td>Automobiles</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹4251.30</td>
+                            <td>₹4256.07</td>
+                            <td>₹3952.58</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟡 In Cloud</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟡 Neutral</td>
+                            <td>1.0x</td>
+                            <td class="negative">-1.1%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>94</td>
+                            <td><strong>BHARTIARTL</strong></td>
+                            <td>Telecom</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹1932.60</td>
+                            <td>₹1874.41</td>
+                            <td>₹1825.54</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟢 Above Cloud</td>
+                            <td>🔴 Bearish</td>
+                            <td>🟡 Neutral</td>
+                            <td>1.0x</td>
+                            <td class="negative">-0.6%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>95</td>
+                            <td><strong>JUBLFOOD</strong></td>
+                            <td>Others</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹656.00</td>
+                            <td>₹687.80</td>
+                            <td>₹685.74</td>
+                            <td>🔴 Bearish</td>
+                            <td>🔴 Below Cloud</td>
+                            <td>🔴 Bearish</td>
+                            <td>🟡 Neutral</td>
+                            <td>1.0x</td>
+                            <td class="negative">-0.4%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>96</td>
+                            <td><strong>ABB</strong></td>
+                            <td>Others</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹5554.00</td>
+                            <td>₹5980.38</td>
+                            <td>₹5599.93</td>
+                            <td>🟢 Bullish</td>
+                            <td>🔴 Below Cloud</td>
+                            <td>🔴 Bearish</td>
+                            <td>🟡 Neutral</td>
+                            <td>1.0x</td>
+                            <td class="negative">-2.7%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>97</td>
+                            <td><strong>DRREDDY</strong></td>
+                            <td>Pharmaceuticals</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹1292.10</td>
+                            <td>₹1306.71</td>
+                            <td>₹1212.98</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟡 In Cloud</td>
+                            <td>🔴 Bearish</td>
+                            <td>🟡 Neutral</td>
+                            <td>1.0x</td>
+                            <td class="positive">+3.6%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>98</td>
+                            <td><strong>JIOFIN</strong></td>
+                            <td>Others</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹320.30</td>
+                            <td>₹291.21</td>
+                            <td>₹262.55</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟢 Above Cloud</td>
+                            <td>🔴 Bearish</td>
+                            <td>🟢 Bullish</td>
+                            <td>1.0x</td>
+                            <td class="positive">+1.9%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>99</td>
+                            <td><strong>FEDERALBNK</strong></td>
+                            <td>Others</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹204.68</td>
+                            <td>₹206.42</td>
+                            <td>₹198.80</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟡 In Cloud</td>
+                            <td>🔴 Bearish</td>
+                            <td>🟡 Neutral</td>
+                            <td>1.0x</td>
+                            <td class="negative">-3.8%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>100</td>
+                            <td><strong>BALKRISIND</strong></td>
+                            <td>Others</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹2755.10</td>
+                            <td>₹2517.04</td>
+                            <td>₹2478.38</td>
+                            <td>🔴 Bearish</td>
+                            <td>🟢 Above Cloud</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟢 Bullish</td>
+                            <td>1.0x</td>
+                            <td class="positive">+0.7%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>101</td>
+                            <td><strong>TATACONSUM</strong></td>
+                            <td>FMCG</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹1073.10</td>
+                            <td>₹1112.03</td>
+                            <td>₹1099.23</td>
+                            <td>🔴 Bearish</td>
+                            <td>🔴 Below Cloud</td>
+                            <td>🔴 Bearish</td>
+                            <td>🟡 Neutral</td>
+                            <td>1.0x</td>
+                            <td class="positive">+1.0%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>102</td>
+                            <td><strong>TATAPOWER</strong></td>
+                            <td>Others</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹401.35</td>
+                            <td>₹395.38</td>
+                            <td>₹383.22</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟢 Above Cloud</td>
+                            <td>🔴 Bearish</td>
+                            <td>🟡 Neutral</td>
+                            <td>1.0x</td>
+                            <td class="negative">-0.3%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>103</td>
+                            <td><strong>MANAPPURAM</strong></td>
+                            <td>Others</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹256.55</td>
+                            <td>₹264.55</td>
+                            <td>₹253.09</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟡 In Cloud</td>
+                            <td>🔴 Bearish</td>
+                            <td>🟡 Neutral</td>
+                            <td>1.0x</td>
+                            <td class="negative">-6.1%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>104</td>
+                            <td><strong>SOLARINDS</strong></td>
+                            <td>Others</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹14469.00</td>
+                            <td>₹15970.69</td>
+                            <td>₹14042.69</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟡 In Cloud</td>
+                            <td>🔴 Bearish</td>
+                            <td>🟡 Neutral</td>
+                            <td>1.0x</td>
+                            <td class="negative">-2.4%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>105</td>
+                            <td><strong>TCS</strong></td>
+                            <td>Information Technology</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹3053.60</td>
+                            <td>₹3439.50</td>
+                            <td>₹3376.68</td>
+                            <td>🟢 Bullish</td>
+                            <td>🔴 Below Cloud</td>
+                            <td>🔴 Bearish</td>
+                            <td>🔴 Bearish</td>
+                            <td>0.9x</td>
+                            <td class="negative">-3.9%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>106</td>
+                            <td><strong>SBIN</strong></td>
+                            <td>Banking</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹801.65</td>
+                            <td>₹797.99</td>
+                            <td>₹775.46</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟢 Above Cloud</td>
+                            <td>🔴 Bearish</td>
+                            <td>🟡 Neutral</td>
+                            <td>0.9x</td>
+                            <td class="negative">-2.3%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>107</td>
+                            <td><strong>ZYDUSLIFE</strong></td>
+                            <td>Others</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹995.15</td>
+                            <td>₹935.05</td>
+                            <td>₹894.11</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟢 Above Cloud</td>
+                            <td>🔴 Bearish</td>
+                            <td>🟢 Bullish</td>
+                            <td>0.9x</td>
+                            <td class="positive">+4.6%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>108</td>
+                            <td><strong>MANKIND</strong></td>
+                            <td>Others</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹2575.50</td>
+                            <td>₹2460.80</td>
+                            <td>₹2379.10</td>
+                            <td>🔴 Bearish</td>
+                            <td>🟢 Above Cloud</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟢 Bullish</td>
+                            <td>0.9x</td>
+                            <td class="negative">-0.9%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>109</td>
+                            <td><strong>COFORGE</strong></td>
+                            <td>Others</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹1745.50</td>
+                            <td>₹1786.83</td>
+                            <td>₹1559.91</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟡 In Cloud</td>
+                            <td>🔴 Bearish</td>
+                            <td>🟡 Neutral</td>
+                            <td>0.9x</td>
+                            <td class="negative">-5.4%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>110</td>
+                            <td><strong>POLICYBZR</strong></td>
+                            <td>Others</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹1821.40</td>
+                            <td>₹1848.05</td>
+                            <td>₹1716.50</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟡 In Cloud</td>
+                            <td>🔴 Bearish</td>
+                            <td>🟡 Neutral</td>
+                            <td>0.9x</td>
+                            <td class="positive">+0.0%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>111</td>
+                            <td><strong>SJVN</strong></td>
+                            <td>Others</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹96.82</td>
+                            <td>₹98.48</td>
+                            <td>₹96.88</td>
+                            <td>🟢 Bullish</td>
+                            <td>🔴 Below Cloud</td>
+                            <td>🔴 Bearish</td>
+                            <td>🟡 Neutral</td>
+                            <td>0.9x</td>
+                            <td class="negative">-2.0%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>112</td>
+                            <td><strong>CANBK</strong></td>
+                            <td>Others</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹108.20</td>
+                            <td>₹108.51</td>
+                            <td>₹99.65</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟡 In Cloud</td>
+                            <td>🔴 Bearish</td>
+                            <td>🟡 Neutral</td>
+                            <td>0.9x</td>
+                            <td class="positive">+0.4%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>113</td>
+                            <td><strong>MFSL</strong></td>
+                            <td>Others</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹1508.20</td>
+                            <td>₹1531.28</td>
+                            <td>₹1378.80</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟡 In Cloud</td>
+                            <td>🔴 Bearish</td>
+                            <td>🟡 Neutral</td>
+                            <td>0.9x</td>
+                            <td class="negative">-2.7%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>114</td>
+                            <td><strong>AXISBANK</strong></td>
+                            <td>Banking</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹1073.30</td>
+                            <td>₹1205.72</td>
+                            <td>₹1148.69</td>
+                            <td>🟢 Bullish</td>
+                            <td>🔴 Below Cloud</td>
+                            <td>🔴 Bearish</td>
+                            <td>🔴 Bearish</td>
+                            <td>0.9x</td>
+                            <td class="negative">-2.9%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>115</td>
+                            <td><strong>CAMS</strong></td>
+                            <td>Others</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹3890.20</td>
+                            <td>₹4080.63</td>
+                            <td>₹3854.67</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟡 In Cloud</td>
+                            <td>🔴 Bearish</td>
+                            <td>🟡 Neutral</td>
+                            <td>0.9x</td>
+                            <td class="negative">-8.3%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>116</td>
+                            <td><strong>ICICIBANK</strong></td>
+                            <td>Banking</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹1482.40</td>
+                            <td>₹1428.67</td>
+                            <td>₹1378.05</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟢 Above Cloud</td>
+                            <td>🔴 Bearish</td>
+                            <td>🟢 Bullish</td>
+                            <td>0.9x</td>
+                            <td class="negative">-0.4%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>117</td>
+                            <td><strong>CDSL</strong></td>
+                            <td>Others</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹1512.80</td>
+                            <td>₹1655.42</td>
+                            <td>₹1484.75</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟡 In Cloud</td>
+                            <td>🔴 Bearish</td>
+                            <td>🟡 Neutral</td>
+                            <td>0.9x</td>
+                            <td class="negative">-10.9%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>118</td>
+                            <td><strong>OIL</strong></td>
+                            <td>Others</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹444.80</td>
+                            <td>₹456.43</td>
+                            <td>₹413.95</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟡 In Cloud</td>
+                            <td>🔴 Bearish</td>
+                            <td>🟡 Neutral</td>
+                            <td>0.9x</td>
+                            <td class="negative">-1.9%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>119</td>
+                            <td><strong>LICI</strong></td>
+                            <td>Others</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹902.00</td>
+                            <td>₹910.29</td>
+                            <td>₹855.33</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟡 In Cloud</td>
+                            <td>🔴 Bearish</td>
+                            <td>🟡 Neutral</td>
+                            <td>0.9x</td>
+                            <td class="negative">-0.9%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>120</td>
+                            <td><strong>GMRAIRPORT</strong></td>
+                            <td>Others</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹89.84</td>
+                            <td>₹85.83</td>
+                            <td>₹83.43</td>
+                            <td>🔴 Bearish</td>
+                            <td>🟢 Above Cloud</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟢 Bullish</td>
+                            <td>0.9x</td>
+                            <td class="negative">-1.7%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>121</td>
+                            <td><strong>CYIENT</strong></td>
+                            <td>Others</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹1224.30</td>
+                            <td>₹1308.75</td>
+                            <td>₹1236.02</td>
+                            <td>🟢 Bullish</td>
+                            <td>🔴 Below Cloud</td>
+                            <td>🔴 Bearish</td>
+                            <td>🟡 Neutral</td>
+                            <td>0.9x</td>
+                            <td class="negative">-4.4%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>122</td>
+                            <td><strong>MARUTI</strong></td>
+                            <td>Automobiles</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹12618.00</td>
+                            <td>₹12493.00</td>
+                            <td>₹12187.50</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟢 Above Cloud</td>
+                            <td>🔴 Bearish</td>
+                            <td>🟡 Neutral</td>
+                            <td>0.9x</td>
+                            <td class="negative">-0.1%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>123</td>
+                            <td><strong>EICHERMOT</strong></td>
+                            <td>Automobiles</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹5481.00</td>
+                            <td>₹5544.43</td>
+                            <td>₹5436.00</td>
+                            <td>🔴 Bearish</td>
+                            <td>🟡 In Cloud</td>
+                            <td>🔴 Bearish</td>
+                            <td>🟡 Neutral</td>
+                            <td>0.8x</td>
+                            <td class="positive">+0.7%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>124</td>
+                            <td><strong>BAJAJ-AUTO</strong></td>
+                            <td>Automobiles</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹8043.50</td>
+                            <td>₹8378.77</td>
+                            <td>₹8030.23</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟡 In Cloud</td>
+                            <td>🔴 Bearish</td>
+                            <td>🟡 Neutral</td>
+                            <td>0.8x</td>
+                            <td class="negative">-4.2%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>125</td>
+                            <td><strong>DIVISLAB</strong></td>
+                            <td>Pharmaceuticals</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹6650.00</td>
+                            <td>₹6593.10</td>
+                            <td>₹6019.64</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟢 Above Cloud</td>
+                            <td>🔴 Bearish</td>
+                            <td>🟢 Bullish</td>
+                            <td>0.8x</td>
+                            <td class="positive">+0.4%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>126</td>
+                            <td><strong>INOXWIND</strong></td>
+                            <td>Others</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹156.15</td>
+                            <td>₹177.02</td>
+                            <td>₹170.35</td>
+                            <td>🟢 Bullish</td>
+                            <td>🔴 Below Cloud</td>
+                            <td>🔴 Bearish</td>
+                            <td>🔴 Bearish</td>
+                            <td>0.8x</td>
+                            <td class="negative">-4.4%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>127</td>
+                            <td><strong>INFY</strong></td>
+                            <td>Information Technology</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹1519.00</td>
+                            <td>₹1595.91</td>
+                            <td>₹1503.29</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟡 In Cloud</td>
+                            <td>🔴 Bearish</td>
+                            <td>🟡 Neutral</td>
+                            <td>0.8x</td>
+                            <td class="negative">-3.5%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>128</td>
+                            <td><strong>BAJAJFINSV</strong></td>
+                            <td>Financial Services</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹1959.80</td>
+                            <td>₹2005.52</td>
+                            <td>₹1994.45</td>
+                            <td>🔴 Bearish</td>
+                            <td>🔴 Below Cloud</td>
+                            <td>🔴 Bearish</td>
+                            <td>🟡 Neutral</td>
+                            <td>0.8x</td>
+                            <td class="negative">-4.9%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>129</td>
+                            <td><strong>PNBHOUSING</strong></td>
+                            <td>Others</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹986.80</td>
+                            <td>₹1072.63</td>
+                            <td>₹1030.45</td>
+                            <td>🟢 Bullish</td>
+                            <td>🔴 Below Cloud</td>
+                            <td>🔴 Bearish</td>
+                            <td>🟡 Neutral</td>
+                            <td>0.8x</td>
+                            <td class="negative">-7.2%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>130</td>
+                            <td><strong>CIPLA</strong></td>
+                            <td>Pharmaceuticals</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹1559.40</td>
+                            <td>₹1491.23</td>
+                            <td>₹1470.69</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟢 Above Cloud</td>
+                            <td>🔴 Bearish</td>
+                            <td>🟢 Bullish</td>
+                            <td>0.8x</td>
+                            <td class="positive">+5.8%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>131</td>
+                            <td><strong>CGPOWER</strong></td>
+                            <td>Others</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹660.35</td>
+                            <td>₹676.75</td>
+                            <td>₹623.25</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟡 In Cloud</td>
+                            <td>🔴 Bearish</td>
+                            <td>🟡 Neutral</td>
+                            <td>0.8x</td>
+                            <td class="negative">-3.3%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>132</td>
+                            <td><strong>UNIONBANK</strong></td>
+                            <td>Others</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹130.76</td>
+                            <td>₹141.00</td>
+                            <td>₹132.10</td>
+                            <td>🟢 Bullish</td>
+                            <td>🔴 Below Cloud</td>
+                            <td>🔴 Bearish</td>
+                            <td>🟡 Neutral</td>
+                            <td>0.8x</td>
+                            <td class="negative">-5.7%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>133</td>
+                            <td><strong>YESBANK</strong></td>
+                            <td>Others</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹19.22</td>
+                            <td>₹20.61</td>
+                            <td>₹20.14</td>
+                            <td>🟢 Bullish</td>
+                            <td>🔴 Below Cloud</td>
+                            <td>🔴 Bearish</td>
+                            <td>🟡 Neutral</td>
+                            <td>0.8x</td>
+                            <td class="negative">-3.4%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>134</td>
+                            <td><strong>PATANJALI</strong></td>
+                            <td>Others</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹1899.90</td>
+                            <td>₹1810.15</td>
+                            <td>₹1667.53</td>
+                            <td>🔴 Bearish</td>
+                            <td>🟢 Above Cloud</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟢 Bullish</td>
+                            <td>0.8x</td>
+                            <td class="negative">-1.8%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>135</td>
+                            <td><strong>IDEA</strong></td>
+                            <td>Others</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹7.00</td>
+                            <td>₹7.25</td>
+                            <td>₹6.78</td>
+                            <td>🔴 Bearish</td>
+                            <td>🟡 In Cloud</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟡 Neutral</td>
+                            <td>0.8x</td>
+                            <td class="negative">-6.4%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>136</td>
+                            <td><strong>HFCL</strong></td>
+                            <td>Others</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹77.00</td>
+                            <td>₹85.65</td>
+                            <td>₹83.01</td>
+                            <td>🟢 Bullish</td>
+                            <td>🔴 Below Cloud</td>
+                            <td>🔴 Bearish</td>
+                            <td>🔴 Bearish</td>
+                            <td>0.8x</td>
+                            <td class="negative">-4.6%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>137</td>
+                            <td><strong>TORNTPHARM</strong></td>
+                            <td>Others</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹3730.60</td>
+                            <td>₹3230.61</td>
+                            <td>₹3222.62</td>
+                            <td>🔴 Bearish</td>
+                            <td>🟢 Above Cloud</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟢 Bullish</td>
+                            <td>0.8x</td>
+                            <td class="positive">+5.0%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>138</td>
+                            <td><strong>BHEL</strong></td>
+                            <td>Others</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹241.65</td>
+                            <td>₹254.67</td>
+                            <td>₹237.15</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟡 In Cloud</td>
+                            <td>🔴 Bearish</td>
+                            <td>🟡 Neutral</td>
+                            <td>0.8x</td>
+                            <td class="negative">-3.8%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>139</td>
+                            <td><strong>GAIL</strong></td>
+                            <td>Others</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹180.57</td>
+                            <td>₹188.57</td>
+                            <td>₹185.10</td>
+                            <td>🟢 Bullish</td>
+                            <td>🔴 Below Cloud</td>
+                            <td>🔴 Bearish</td>
+                            <td>🟡 Neutral</td>
+                            <td>0.8x</td>
+                            <td class="negative">-3.1%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>140</td>
+                            <td><strong>HINDUNILVR</strong></td>
+                            <td>FMCG</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹2437.40</td>
+                            <td>₹2360.11</td>
+                            <td>₹2303.53</td>
+                            <td>🔴 Bearish</td>
+                            <td>🟢 Above Cloud</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟢 Bullish</td>
+                            <td>0.8x</td>
+                            <td class="negative">-0.5%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>141</td>
+                            <td><strong>BEL</strong></td>
+                            <td>Others</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹386.50</td>
+                            <td>₹399.12</td>
+                            <td>₹351.55</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟡 In Cloud</td>
+                            <td>🔴 Bearish</td>
+                            <td>🟡 Neutral</td>
+                            <td>0.8x</td>
+                            <td class="negative">-3.4%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>142</td>
+                            <td><strong>TATASTEEL</strong></td>
+                            <td>Metals & Mining</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹161.36</td>
+                            <td>₹154.59</td>
+                            <td>₹142.11</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟢 Above Cloud</td>
+                            <td>🔴 Bearish</td>
+                            <td>🟢 Bullish</td>
+                            <td>0.8x</td>
+                            <td class="negative">-0.9%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>143</td>
+                            <td><strong>LUPIN</strong></td>
+                            <td>Others</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹1984.60</td>
+                            <td>₹2016.21</td>
+                            <td>₹1965.35</td>
+                            <td>🔴 Bearish</td>
+                            <td>🟡 In Cloud</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟡 Neutral</td>
+                            <td>0.8x</td>
+                            <td class="positive">+4.0%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>144</td>
+                            <td><strong>IGL</strong></td>
+                            <td>Others</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹203.17</td>
+                            <td>₹204.60</td>
+                            <td>₹195.18</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟡 In Cloud</td>
+                            <td>🔴 Bearish</td>
+                            <td>🟡 Neutral</td>
+                            <td>0.8x</td>
+                            <td class="negative">-3.4%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>145</td>
+                            <td><strong>ULTRACEMCO</strong></td>
+                            <td>Cement</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹12268.00</td>
+                            <td>₹11556.25</td>
+                            <td>₹11346.08</td>
+                            <td>🔴 Bearish</td>
+                            <td>🟢 Above Cloud</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟢 Bullish</td>
+                            <td>0.8x</td>
+                            <td class="negative">-0.2%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>146</td>
+                            <td><strong>RECLTD</strong></td>
+                            <td>Others</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹399.55</td>
+                            <td>₹414.02</td>
+                            <td>₹399.05</td>
+                            <td>🔴 Bearish</td>
+                            <td>🟡 In Cloud</td>
+                            <td>🔴 Bearish</td>
+                            <td>🟡 Neutral</td>
+                            <td>0.8x</td>
+                            <td class="negative">-0.1%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>147</td>
+                            <td><strong>BRITANNIA</strong></td>
+                            <td>FMCG</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹5747.00</td>
+                            <td>₹5575.00</td>
+                            <td>₹5442.00</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟢 Above Cloud</td>
+                            <td>🔴 Bearish</td>
+                            <td>🟢 Bullish</td>
+                            <td>0.8x</td>
+                            <td class="positive">+0.5%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>148</td>
+                            <td><strong>INDUSINDBK</strong></td>
+                            <td>Banking</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹801.90</td>
+                            <td>₹811.17</td>
+                            <td>₹766.88</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟡 In Cloud</td>
+                            <td>🔴 Bearish</td>
+                            <td>🟡 Neutral</td>
+                            <td>0.8x</td>
+                            <td class="negative">-5.8%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>149</td>
+                            <td><strong>SHREECEM</strong></td>
+                            <td>Cement</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹30590.00</td>
+                            <td>₹30078.77</td>
+                            <td>₹29551.05</td>
+                            <td>🔴 Bearish</td>
+                            <td>🟢 Above Cloud</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟢 Bullish</td>
+                            <td>0.8x</td>
+                            <td class="negative">-4.7%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>150</td>
+                            <td><strong>SAIL</strong></td>
+                            <td>Others</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹124.16</td>
+                            <td>₹128.75</td>
+                            <td>₹118.55</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟡 In Cloud</td>
+                            <td>🔴 Bearish</td>
+                            <td>🟡 Neutral</td>
+                            <td>0.7x</td>
+                            <td class="negative">-7.9%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>151</td>
+                            <td><strong>HDFCLIFE</strong></td>
+                            <td>Others</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹757.45</td>
+                            <td>₹763.25</td>
+                            <td>₹733.10</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟡 In Cloud</td>
+                            <td>🔴 Bearish</td>
+                            <td>🟡 Neutral</td>
+                            <td>0.7x</td>
+                            <td class="negative">-0.7%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>152</td>
+                            <td><strong>SIEMENS</strong></td>
+                            <td>Others</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹3071.40</td>
+                            <td>₹3239.50</td>
+                            <td>₹3038.40</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟡 In Cloud</td>
+                            <td>🔴 Bearish</td>
+                            <td>🟡 Neutral</td>
+                            <td>0.7x</td>
+                            <td class="negative">-2.3%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>153</td>
+                            <td><strong>IDFCFIRSTB</strong></td>
+                            <td>Others</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹69.24</td>
+                            <td>₹69.88</td>
+                            <td>₹64.99</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟡 In Cloud</td>
+                            <td>🔴 Bearish</td>
+                            <td>🟡 Neutral</td>
+                            <td>0.7x</td>
+                            <td class="negative">-4.8%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>154</td>
+                            <td><strong>HAL</strong></td>
+                            <td>Others</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹4545.00</td>
+                            <td>₹4960.97</td>
+                            <td>₹4565.43</td>
+                            <td>🟢 Bullish</td>
+                            <td>🔴 Below Cloud</td>
+                            <td>🔴 Bearish</td>
+                            <td>🟡 Neutral</td>
+                            <td>0.7x</td>
+                            <td class="negative">-3.6%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>155</td>
+                            <td><strong>AUROPHARMA</strong></td>
+                            <td>Others</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹1158.00</td>
+                            <td>₹1160.40</td>
+                            <td>₹1134.48</td>
+                            <td>🔴 Bearish</td>
+                            <td>🟡 In Cloud</td>
+                            <td>🔴 Bearish</td>
+                            <td>🟡 Neutral</td>
+                            <td>0.7x</td>
+                            <td class="positive">+3.6%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>156</td>
+                            <td><strong>NCC</strong></td>
+                            <td>Others</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹222.81</td>
+                            <td>₹226.88</td>
+                            <td>₹221.82</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟡 In Cloud</td>
+                            <td>🔴 Bearish</td>
+                            <td>🟡 Neutral</td>
+                            <td>0.7x</td>
+                            <td class="negative">-0.7%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>157</td>
+                            <td><strong>PPLPHARMA</strong></td>
+                            <td>Others</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹201.37</td>
+                            <td>₹209.09</td>
+                            <td>₹199.03</td>
+                            <td>🔴 Bearish</td>
+                            <td>🟡 In Cloud</td>
+                            <td>🔴 Bearish</td>
+                            <td>🟡 Neutral</td>
+                            <td>0.7x</td>
+                            <td class="negative">-1.8%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>158</td>
+                            <td><strong>DLF</strong></td>
+                            <td>Others</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹788.80</td>
+                            <td>₹829.86</td>
+                            <td>₹741.50</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟡 In Cloud</td>
+                            <td>🔴 Bearish</td>
+                            <td>🟡 Neutral</td>
+                            <td>0.7x</td>
+                            <td class="negative">-5.6%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>159</td>
+                            <td><strong>IRB</strong></td>
+                            <td>Others</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹46.04</td>
+                            <td>₹50.03</td>
+                            <td>₹48.47</td>
+                            <td>🟢 Bullish</td>
+                            <td>🔴 Below Cloud</td>
+                            <td>🔴 Bearish</td>
+                            <td>🔴 Bearish</td>
+                            <td>0.7x</td>
+                            <td class="negative">-5.3%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>160</td>
+                            <td><strong>IRFC</strong></td>
+                            <td>Others</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹131.40</td>
+                            <td>₹138.35</td>
+                            <td>₹131.64</td>
+                            <td>🟢 Bullish</td>
+                            <td>🔴 Below Cloud</td>
+                            <td>🔴 Bearish</td>
+                            <td>🟡 Neutral</td>
+                            <td>0.7x</td>
+                            <td class="negative">-2.6%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>161</td>
+                            <td><strong>LICHSGFIN</strong></td>
+                            <td>Others</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹590.05</td>
+                            <td>₹599.63</td>
+                            <td>₹589.77</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟡 In Cloud</td>
+                            <td>🔴 Bearish</td>
+                            <td>🟡 Neutral</td>
+                            <td>0.7x</td>
+                            <td class="negative">-4.8%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>162</td>
+                            <td><strong>ADANIGREEN</strong></td>
+                            <td>Others</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹1009.70</td>
+                            <td>₹984.48</td>
+                            <td>₹963.75</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟢 Above Cloud</td>
+                            <td>🔴 Bearish</td>
+                            <td>🟢 Bullish</td>
+                            <td>0.7x</td>
+                            <td class="negative">-2.3%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>163</td>
+                            <td><strong>ADANIPORTS</strong></td>
+                            <td>Infrastructure</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹1394.00</td>
+                            <td>₹1393.44</td>
+                            <td>₹1296.69</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟢 Above Cloud</td>
+                            <td>🔴 Bearish</td>
+                            <td>🟡 Neutral</td>
+                            <td>0.7x</td>
+                            <td class="negative">-1.9%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>164</td>
+                            <td><strong>BAJFINANCE</strong></td>
+                            <td>Financial Services</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹884.85</td>
+                            <td>₹926.70</td>
+                            <td>₹915.15</td>
+                            <td>🟢 Bullish</td>
+                            <td>🔴 Below Cloud</td>
+                            <td>🔴 Bearish</td>
+                            <td>🔴 Bearish</td>
+                            <td>0.7x</td>
+                            <td class="negative">-8.6%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>165</td>
+                            <td><strong>RELIANCE</strong></td>
+                            <td>Oil & Gas</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹1410.10</td>
+                            <td>₹1439.98</td>
+                            <td>₹1321.50</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟡 In Cloud</td>
+                            <td>🔴 Bearish</td>
+                            <td>🟡 Neutral</td>
+                            <td>0.7x</td>
+                            <td class="negative">-1.0%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>166</td>
+                            <td><strong>TITAGARH</strong></td>
+                            <td>Others</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹869.95</td>
+                            <td>₹891.20</td>
+                            <td>₹820.82</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟡 In Cloud</td>
+                            <td>🔴 Bearish</td>
+                            <td>🟡 Neutral</td>
+                            <td>0.7x</td>
+                            <td class="negative">-5.6%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>167</td>
+                            <td><strong>BANDHANBNK</strong></td>
+                            <td>Others</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹168.27</td>
+                            <td>₹176.47</td>
+                            <td>₹165.37</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟡 In Cloud</td>
+                            <td>🔴 Bearish</td>
+                            <td>🟡 Neutral</td>
+                            <td>0.7x</td>
+                            <td class="negative">-7.3%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>168</td>
+                            <td><strong>POONAWALLA</strong></td>
+                            <td>Others</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹414.00</td>
+                            <td>₹426.33</td>
+                            <td>₹400.55</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟡 In Cloud</td>
+                            <td>🔴 Bearish</td>
+                            <td>🟡 Neutral</td>
+                            <td>0.6x</td>
+                            <td class="negative">-7.3%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>169</td>
+                            <td><strong>SBICARD</strong></td>
+                            <td>Others</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹814.70</td>
+                            <td>₹962.89</td>
+                            <td>₹925.45</td>
+                            <td>🟢 Bullish</td>
+                            <td>🔴 Below Cloud</td>
+                            <td>🔴 Bearish</td>
+                            <td>🔴 Bearish</td>
+                            <td>0.6x</td>
+                            <td class="negative">-9.0%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>170</td>
+                            <td><strong>ATGL</strong></td>
+                            <td>Others</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹625.15</td>
+                            <td>₹650.90</td>
+                            <td>₹648.46</td>
+                            <td>🟢 Bullish</td>
+                            <td>🔴 Below Cloud</td>
+                            <td>🔴 Bearish</td>
+                            <td>🟡 Neutral</td>
+                            <td>0.6x</td>
+                            <td class="negative">-4.1%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>171</td>
+                            <td><strong>PERSISTENT</strong></td>
+                            <td>Others</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹5162.50</td>
+                            <td>₹5870.42</td>
+                            <td>₹5246.58</td>
+                            <td>🟢 Bullish</td>
+                            <td>🔴 Below Cloud</td>
+                            <td>🔴 Bearish</td>
+                            <td>🟡 Neutral</td>
+                            <td>0.6x</td>
+                            <td class="negative">-7.9%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>172</td>
+                            <td><strong>INDHOTEL</strong></td>
+                            <td>Others</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹744.90</td>
+                            <td>₹773.90</td>
+                            <td>₹755.84</td>
+                            <td>🔴 Bearish</td>
+                            <td>🔴 Below Cloud</td>
+                            <td>🟢 Bullish</td>
+                            <td>🔴 Bearish</td>
+                            <td>0.6x</td>
+                            <td class="negative">-1.3%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>173</td>
+                            <td><strong>OFSS</strong></td>
+                            <td>Others</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹8570.00</td>
+                            <td>₹9219.38</td>
+                            <td>₹8428.78</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟡 In Cloud</td>
+                            <td>🔴 Bearish</td>
+                            <td>🟡 Neutral</td>
+                            <td>0.6x</td>
+                            <td class="negative">-2.4%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>174</td>
+                            <td><strong>TECHM</strong></td>
+                            <td>Information Technology</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹1463.20</td>
+                            <td>₹1621.40</td>
+                            <td>₹1471.69</td>
+                            <td>🟢 Bullish</td>
+                            <td>🔴 Below Cloud</td>
+                            <td>🔴 Bearish</td>
+                            <td>🟡 Neutral</td>
+                            <td>0.6x</td>
+                            <td class="negative">-5.4%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>175</td>
+                            <td><strong>ADANIENT</strong></td>
+                            <td>Others</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹2532.90</td>
+                            <td>₹2508.83</td>
+                            <td>₹2437.95</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟢 Above Cloud</td>
+                            <td>🔴 Bearish</td>
+                            <td>🟡 Neutral</td>
+                            <td>0.6x</td>
+                            <td class="negative">-3.1%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>176</td>
+                            <td><strong>MGL</strong></td>
+                            <td>Others</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹1412.40</td>
+                            <td>₹1378.42</td>
+                            <td>₹1344.25</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟢 Above Cloud</td>
+                            <td>🔴 Bearish</td>
+                            <td>🟡 Neutral</td>
+                            <td>0.6x</td>
+                            <td class="negative">-4.8%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>177</td>
+                            <td><strong>ALKEM</strong></td>
+                            <td>Others</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹5099.60</td>
+                            <td>₹5065.25</td>
+                            <td>₹4935.88</td>
+                            <td>🔴 Bearish</td>
+                            <td>🟢 Above Cloud</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟡 Neutral</td>
+                            <td>0.6x</td>
+                            <td class="positive">+2.5%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>178</td>
+                            <td><strong>ASHOKLEY</strong></td>
+                            <td>Others</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹121.90</td>
+                            <td>₹118.93</td>
+                            <td>₹110.31</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟢 Above Cloud</td>
+                            <td>🔴 Bearish</td>
+                            <td>🟢 Bullish</td>
+                            <td>0.6x</td>
+                            <td class="negative">-2.2%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>179</td>
+                            <td><strong>SUPREMEIND</strong></td>
+                            <td>Others</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹4279.20</td>
+                            <td>₹4294.82</td>
+                            <td>₹3901.00</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟡 In Cloud</td>
+                            <td>🔴 Bearish</td>
+                            <td>🟡 Neutral</td>
+                            <td>0.6x</td>
+                            <td class="positive">+3.5%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>180</td>
+                            <td><strong>WIPRO</strong></td>
+                            <td>Information Technology</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹250.20</td>
+                            <td>₹254.72</td>
+                            <td>₹246.21</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟡 In Cloud</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟡 Neutral</td>
+                            <td>0.6x</td>
+                            <td class="negative">-2.4%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>181</td>
+                            <td><strong>IREDA</strong></td>
+                            <td>Others</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹150.22</td>
+                            <td>₹168.83</td>
+                            <td>₹168.44</td>
+                            <td>🟢 Bullish</td>
+                            <td>🔴 Below Cloud</td>
+                            <td>🔴 Bearish</td>
+                            <td>🔴 Bearish</td>
+                            <td>0.6x</td>
+                            <td class="negative">-4.3%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>182</td>
+                            <td><strong>UNOMINDA</strong></td>
+                            <td>Others</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹1069.80</td>
+                            <td>₹1048.64</td>
+                            <td>₹958.97</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟢 Above Cloud</td>
+                            <td>🔴 Bearish</td>
+                            <td>🟡 Neutral</td>
+                            <td>0.6x</td>
+                            <td class="negative">-0.1%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>183</td>
+                            <td><strong>PRESTIGE</strong></td>
+                            <td>Others</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹1624.80</td>
+                            <td>₹1628.65</td>
+                            <td>₹1412.00</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟡 In Cloud</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟡 Neutral</td>
+                            <td>0.6x</td>
+                            <td class="negative">-7.4%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>184</td>
+                            <td><strong>UPL</strong></td>
+                            <td>Others</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹721.90</td>
+                            <td>₹644.43</td>
+                            <td>₹631.63</td>
+                            <td>🔴 Bearish</td>
+                            <td>🟢 Above Cloud</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟢 Bullish</td>
+                            <td>0.6x</td>
+                            <td class="negative">-0.7%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>185</td>
+                            <td><strong>NHPC</strong></td>
+                            <td>Others</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹84.46</td>
+                            <td>₹85.11</td>
+                            <td>₹84.29</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟡 In Cloud</td>
+                            <td>🔴 Bearish</td>
+                            <td>🟡 Neutral</td>
+                            <td>0.6x</td>
+                            <td class="negative">-2.3%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>186</td>
+                            <td><strong>SONACOMS</strong></td>
+                            <td>Others</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹461.30</td>
+                            <td>₹498.31</td>
+                            <td>₹479.29</td>
+                            <td>🟢 Bullish</td>
+                            <td>🔴 Below Cloud</td>
+                            <td>🟢 Bullish</td>
+                            <td>🔴 Bearish</td>
+                            <td>0.6x</td>
+                            <td class="negative">-5.7%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>187</td>
+                            <td><strong>HAVELLS</strong></td>
+                            <td>Others</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹1528.00</td>
+                            <td>₹1556.42</td>
+                            <td>₹1541.33</td>
+                            <td>🔴 Bearish</td>
+                            <td>🔴 Below Cloud</td>
+                            <td>🔴 Bearish</td>
+                            <td>🟡 Neutral</td>
+                            <td>0.6x</td>
+                            <td class="negative">-2.8%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>188</td>
+                            <td><strong>NATIONALUM</strong></td>
+                            <td>Others</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹187.13</td>
+                            <td>₹185.99</td>
+                            <td>₹167.43</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟢 Above Cloud</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟡 Neutral</td>
+                            <td>0.6x</td>
+                            <td class="negative">-5.5%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>189</td>
+                            <td><strong>INDUSTOWER</strong></td>
+                            <td>Others</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹383.80</td>
+                            <td>₹396.73</td>
+                            <td>₹393.35</td>
+                            <td>🟢 Bullish</td>
+                            <td>🔴 Below Cloud</td>
+                            <td>🔴 Bearish</td>
+                            <td>🟡 Neutral</td>
+                            <td>0.6x</td>
+                            <td class="negative">-5.3%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>190</td>
+                            <td><strong>RVNL</strong></td>
+                            <td>Others</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹358.40</td>
+                            <td>₹404.11</td>
+                            <td>₹382.65</td>
+                            <td>🟢 Bullish</td>
+                            <td>🔴 Below Cloud</td>
+                            <td>🔴 Bearish</td>
+                            <td>🔴 Bearish</td>
+                            <td>0.6x</td>
+                            <td class="negative">-4.1%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>191</td>
+                            <td><strong>INDIANB</strong></td>
+                            <td>Others</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹614.60</td>
+                            <td>₹615.43</td>
+                            <td>₹576.73</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟡 In Cloud</td>
+                            <td>🔴 Bearish</td>
+                            <td>🟡 Neutral</td>
+                            <td>0.6x</td>
+                            <td class="negative">-1.6%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>192</td>
+                            <td><strong>SBILIFE</strong></td>
+                            <td>Insurance</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹1839.10</td>
+                            <td>₹1787.50</td>
+                            <td>₹1665.00</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟢 Above Cloud</td>
+                            <td>🔴 Bearish</td>
+                            <td>🟡 Neutral</td>
+                            <td>0.6x</td>
+                            <td class="positive">+1.6%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>193</td>
+                            <td><strong>LODHA</strong></td>
+                            <td>Others</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹1238.20</td>
+                            <td>₹1458.90</td>
+                            <td>₹1313.15</td>
+                            <td>🟢 Bullish</td>
+                            <td>🔴 Below Cloud</td>
+                            <td>🔴 Bearish</td>
+                            <td>🟡 Neutral</td>
+                            <td>0.5x</td>
+                            <td class="negative">-7.2%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>194</td>
+                            <td><strong>LTIM</strong></td>
+                            <td>Others</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹5139.50</td>
+                            <td>₹5319.79</td>
+                            <td>₹4771.60</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟡 In Cloud</td>
+                            <td>🔴 Bearish</td>
+                            <td>🟡 Neutral</td>
+                            <td>0.5x</td>
+                            <td class="negative">-3.0%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>195</td>
+                            <td><strong>MCX</strong></td>
+                            <td>Others</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹7787.00</td>
+                            <td>₹7810.00</td>
+                            <td>₹6938.93</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟡 In Cloud</td>
+                            <td>🔴 Bearish</td>
+                            <td>🟡 Neutral</td>
+                            <td>0.5x</td>
+                            <td class="negative">-5.7%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>196</td>
+                            <td><strong>TRENT</strong></td>
+                            <td>Others</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹5043.50</td>
+                            <td>₹5795.36</td>
+                            <td>₹5405.51</td>
+                            <td>🟢 Bullish</td>
+                            <td>🔴 Below Cloud</td>
+                            <td>🔴 Bearish</td>
+                            <td>🔴 Bearish</td>
+                            <td>0.5x</td>
+                            <td class="negative">-5.9%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>197</td>
+                            <td><strong>VOLTAS</strong></td>
+                            <td>Others</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹1336.00</td>
+                            <td>₹1280.98</td>
+                            <td>₹1266.53</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟢 Above Cloud</td>
+                            <td>🔴 Bearish</td>
+                            <td>🟡 Neutral</td>
+                            <td>0.5x</td>
+                            <td class="negative">-2.3%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>198</td>
+                            <td><strong>GODREJPROP</strong></td>
+                            <td>Others</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹2129.40</td>
+                            <td>₹2361.97</td>
+                            <td>₹2216.15</td>
+                            <td>🟢 Bullish</td>
+                            <td>🔴 Below Cloud</td>
+                            <td>🔴 Bearish</td>
+                            <td>🟡 Neutral</td>
+                            <td>0.5x</td>
+                            <td class="negative">-8.4%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>199</td>
+                            <td><strong>HINDZINC</strong></td>
+                            <td>Others</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹432.45</td>
+                            <td>₹476.74</td>
+                            <td>₹462.77</td>
+                            <td>🟢 Bullish</td>
+                            <td>🔴 Below Cloud</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟡 Neutral</td>
+                            <td>0.5x</td>
+                            <td class="negative">-3.2%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>200</td>
+                            <td><strong>PGEL</strong></td>
+                            <td>Others</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹805.40</td>
+                            <td>₹862.00</td>
+                            <td>₹762.11</td>
+                            <td>🔴 Bearish</td>
+                            <td>🟡 In Cloud</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟡 Neutral</td>
+                            <td>0.5x</td>
+                            <td class="positive">+1.8%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>201</td>
+                            <td><strong>TITAN</strong></td>
+                            <td>Consumer Durables</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹3376.50</td>
+                            <td>₹3513.43</td>
+                            <td>₹3367.71</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟡 In Cloud</td>
+                            <td>🔴 Bearish</td>
+                            <td>🟡 Neutral</td>
+                            <td>0.5x</td>
+                            <td class="negative">-2.7%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>202</td>
+                            <td><strong>MAXHEALTH</strong></td>
+                            <td>Others</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹1264.60</td>
+                            <td>₹1194.47</td>
+                            <td>₹1156.32</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟢 Above Cloud</td>
+                            <td>🔴 Bearish</td>
+                            <td>🟢 Bullish</td>
+                            <td>0.5x</td>
+                            <td class="positive">+0.7%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>203</td>
+                            <td><strong>TATATECH</strong></td>
+                            <td>Others</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹709.35</td>
+                            <td>₹732.91</td>
+                            <td>₹687.16</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟡 In Cloud</td>
+                            <td>🔴 Bearish</td>
+                            <td>🟡 Neutral</td>
+                            <td>0.5x</td>
+                            <td class="negative">-0.9%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>204</td>
+                            <td><strong>OBEROIRLTY</strong></td>
+                            <td>Others</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹1648.00</td>
+                            <td>₹1886.39</td>
+                            <td>₹1734.82</td>
+                            <td>🟢 Bullish</td>
+                            <td>🔴 Below Cloud</td>
+                            <td>🔴 Bearish</td>
+                            <td>🟡 Neutral</td>
+                            <td>0.5x</td>
+                            <td class="negative">-6.8%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>205</td>
+                            <td><strong>NBCC</strong></td>
+                            <td>Others</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹108.82</td>
+                            <td>₹119.84</td>
+                            <td>₹106.06</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟡 In Cloud</td>
+                            <td>🔴 Bearish</td>
+                            <td>🟡 Neutral</td>
+                            <td>0.5x</td>
+                            <td class="negative">-4.9%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>206</td>
+                            <td><strong>ICICIGI</strong></td>
+                            <td>Others</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹1920.40</td>
+                            <td>₹1931.95</td>
+                            <td>₹1862.83</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟡 In Cloud</td>
+                            <td>🔴 Bearish</td>
+                            <td>🟡 Neutral</td>
+                            <td>0.5x</td>
+                            <td class="negative">-0.8%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>207</td>
+                            <td><strong>JSL</strong></td>
+                            <td>Others</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹681.10</td>
+                            <td>₹684.16</td>
+                            <td>₹619.17</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟡 In Cloud</td>
+                            <td>🔴 Bearish</td>
+                            <td>🟡 Neutral</td>
+                            <td>0.5x</td>
+                            <td class="positive">+0.8%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>208</td>
+                            <td><strong>BANKBARODA</strong></td>
+                            <td>Others</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹239.67</td>
+                            <td>₹238.24</td>
+                            <td>₹228.13</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟢 Above Cloud</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟡 Neutral</td>
+                            <td>0.4x</td>
+                            <td class="negative">-1.4%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>209</td>
+                            <td><strong>HCLTECH</strong></td>
+                            <td>Information Technology</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹1476.50</td>
+                            <td>₹1676.94</td>
+                            <td>₹1531.29</td>
+                            <td>🟢 Bullish</td>
+                            <td>🔴 Below Cloud</td>
+                            <td>🔴 Bearish</td>
+                            <td>🔴 Bearish</td>
+                            <td>0.4x</td>
+                            <td class="negative">-3.5%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>210</td>
+                            <td><strong>360ONE</strong></td>
+                            <td>Others</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹1060.20</td>
+                            <td>₹1109.81</td>
+                            <td>₹999.70</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟡 In Cloud</td>
+                            <td>🔴 Bearish</td>
+                            <td>🟡 Neutral</td>
+                            <td>0.4x</td>
+                            <td class="negative">-5.8%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>211</td>
+                            <td><strong>VEDL</strong></td>
+                            <td>Others</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹434.60</td>
+                            <td>₹443.87</td>
+                            <td>₹414.30</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟡 In Cloud</td>
+                            <td>🔴 Bearish</td>
+                            <td>🟡 Neutral</td>
+                            <td>0.4x</td>
+                            <td class="negative">-4.6%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>212</td>
+                            <td><strong>CHOLAFIN</strong></td>
+                            <td>Others</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹1478.10</td>
+                            <td>₹1581.44</td>
+                            <td>₹1536.51</td>
+                            <td>🟢 Bullish</td>
+                            <td>🔴 Below Cloud</td>
+                            <td>🔴 Bearish</td>
+                            <td>🔴 Bearish</td>
+                            <td>0.4x</td>
+                            <td class="negative">-5.0%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>213</td>
+                            <td><strong>PFC</strong></td>
+                            <td>Others</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹411.90</td>
+                            <td>₹410.57</td>
+                            <td>₹408.01</td>
+                            <td>🔴 Bearish</td>
+                            <td>🟢 Above Cloud</td>
+                            <td>🔴 Bearish</td>
+                            <td>🟡 Neutral</td>
+                            <td>0.4x</td>
+                            <td class="negative">-1.7%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>214</td>
+                            <td><strong>TATAELXSI</strong></td>
+                            <td>Others</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹6101.00</td>
+                            <td>₹6347.24</td>
+                            <td>₹5668.16</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟡 In Cloud</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟡 Neutral</td>
+                            <td>0.4x</td>
+                            <td class="negative">-2.2%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>215</td>
+                            <td><strong>DIXON</strong></td>
+                            <td>Others</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹16765.00</td>
+                            <td>₹14912.00</td>
+                            <td>₹14502.50</td>
+                            <td>🔴 Bearish</td>
+                            <td>🟢 Above Cloud</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟢 Bullish</td>
+                            <td>0.4x</td>
+                            <td class="positive">+1.3%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>216</td>
+                            <td><strong>BDL</strong></td>
+                            <td>Others</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹1620.30</td>
+                            <td>₹1905.13</td>
+                            <td>₹1674.30</td>
+                            <td>🟢 Bullish</td>
+                            <td>🔴 Below Cloud</td>
+                            <td>🔴 Bearish</td>
+                            <td>🟡 Neutral</td>
+                            <td>0.4x</td>
+                            <td class="negative">-4.9%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>217</td>
+                            <td><strong>ICICIPRULI</strong></td>
+                            <td>Others</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹619.15</td>
+                            <td>₹637.46</td>
+                            <td>₹610.17</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟡 In Cloud</td>
+                            <td>🔴 Bearish</td>
+                            <td>🟡 Neutral</td>
+                            <td>0.4x</td>
+                            <td class="negative">-1.6%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>218</td>
+                            <td><strong>ANGELONE</strong></td>
+                            <td>Others</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹2641.20</td>
+                            <td>₹2947.11</td>
+                            <td>₹2711.41</td>
+                            <td>🟢 Bullish</td>
+                            <td>🔴 Below Cloud</td>
+                            <td>🔴 Bearish</td>
+                            <td>🟡 Neutral</td>
+                            <td>0.4x</td>
+                            <td class="negative">-6.5%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>219</td>
+                            <td><strong>BSE</strong></td>
+                            <td>Others</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹2457.50</td>
+                            <td>₹2673.48</td>
+                            <td>₹2415.65</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟡 In Cloud</td>
+                            <td>🔴 Bearish</td>
+                            <td>🟡 Neutral</td>
+                            <td>0.3x</td>
+                            <td class="negative">-3.9%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>220</td>
+                            <td><strong>PHOENIXLTD</strong></td>
+                            <td>Others</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹1501.80</td>
+                            <td>₹1603.15</td>
+                            <td>₹1586.95</td>
+                            <td>🟢 Bullish</td>
+                            <td>🔴 Below Cloud</td>
+                            <td>🔴 Bearish</td>
+                            <td>🔴 Bearish</td>
+                            <td>0.3x</td>
+                            <td class="positive">+3.3%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>221</td>
+                            <td><strong>ABFRL</strong></td>
+                            <td>Others</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹74.65</td>
+                            <td>₹183.13</td>
+                            <td>₹123.89</td>
+                            <td>🔴 Bearish</td>
+                            <td>🔴 Below Cloud</td>
+                            <td>🔴 Bearish</td>
+                            <td>🟡 Neutral</td>
+                            <td>0.3x</td>
+                            <td class="negative">-1.4%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>222</td>
+                            <td><strong>ADANIENSOL</strong></td>
+                            <td>Others</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹823.90</td>
+                            <td>₹893.55</td>
+                            <td>₹857.92</td>
+                            <td>🔴 Bearish</td>
+                            <td>🔴 Below Cloud</td>
+                            <td>🔴 Bearish</td>
+                            <td>🟡 Neutral</td>
+                            <td>0.3x</td>
+                            <td class="negative">-4.5%</td>
+                            <td>0</td>
+                        </tr>
+        
+                        <tr>
+                            <td>223</td>
+                            <td><strong>BLUESTARCO</strong></td>
+                            <td>Others</td>
+                            <td><span class="no-signal">NO SIGNAL</span></td>
+                            <td>₹1754.70</td>
+                            <td>₹1804.08</td>
+                            <td>₹1604.07</td>
+                            <td>🔴 Bearish</td>
+                            <td>🟡 In Cloud</td>
+                            <td>🟢 Bullish</td>
+                            <td>🟡 Neutral</td>
+                            <td>0.3x</td>
+                            <td class="positive">+0.3%</td>
+                            <td>0</td>
+                        </tr>
+        
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="footer">
+                <p><strong>⚠️ Disclaimer:</strong> This analysis is for educational purposes only. Past performance does not guarantee future results. Always consult with financial advisors before making investment decisions.</p>
+                <p><strong>☁️ Strategy:</strong> Ichimoku Cloud 4-Parameter system analyzing cloud color, price position, Tenkan-Kijun relationship, and Chikou Span placement.</p>
+                <p><strong>📊 Parameters:</strong> 1) Cloud bullish/bearish, 2) Price above/below cloud, 3) Tenkan-Kijun crossing, 4) Chikou Span vs historical price and cloud</p>
+            </div>
+        </div>
+    </body>
+    </html>
+    

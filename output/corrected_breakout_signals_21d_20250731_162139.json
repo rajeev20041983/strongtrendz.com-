@@ -1,0 +1,15 @@
+{
+  "metadata": {
+    "timestamp": "2025-07-31T16:21:39.823994",
+    "total_stocks_analyzed": 0,
+    "lookback_days": 21,
+    "strategy": "CORRECTED High-Low Breakout Strategy with Proper Signal Logic",
+    "corrections_applied": [
+      "Volume confirmation uses previous period max",
+      "ATR-based stop losses",
+      "Proper breakout confirmation",
+      "State-based signal management"
+    ]
+  },
+  "signals": []
+}

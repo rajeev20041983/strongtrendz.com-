@@ -1,0 +1,9 @@
+{
+  "metadata": {
+    "timestamp": "2025-07-31T16:17:42.749343",
+    "total_stocks_analyzed": 0,
+    "lookback_days": 21,
+    "strategy": "Donchian Channel with Trading Days Logic"
+  },
+  "signals": []
+}

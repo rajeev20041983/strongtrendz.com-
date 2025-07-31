@@ -1,0 +1,319 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>CORRECTED Breakout Analysis - 2025-07-31</title>
+        <style>
+            body {
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                margin: 0;
+                padding: 20px;
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                min-height: 100vh;
+            }
+            .container {
+                max-width: 1400px;
+                margin: 0 auto;
+                background: white;
+                padding: 30px;
+                border-radius: 15px;
+                box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            }
+            .header {
+                text-align: center;
+                background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+                color: white;
+                padding: 40px;
+                border-radius: 15px;
+                margin-bottom: 30px;
+            }
+            .header h1 {
+                margin: 0;
+                font-size: 2.8em;
+                margin-bottom: 10px;
+            }
+            .header p {
+                margin: 5px 0;
+                font-size: 1.1em;
+            }
+            .correction-note {
+                background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+                color: white;
+                padding: 20px;
+                border-radius: 10px;
+                margin: 20px 0;
+                text-align: center;
+            }
+            .stats-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                gap: 20px;
+                margin: 30px 0;
+            }
+            .stat-card {
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                color: white;
+                padding: 20px;
+                border-radius: 10px;
+                text-align: center;
+            }
+            .stat-card h3 {
+                margin: 0 0 10px 0;
+                font-size: 2em;
+            }
+            .section {
+                margin: 40px 0;
+            }
+            .section h2 {
+                color: #333;
+                border-bottom: 3px solid #667eea;
+                padding-bottom: 10px;
+                margin-bottom: 20px;
+            }
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                margin: 20px 0;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+                border-radius: 10px;
+                overflow: hidden;
+            }
+            th, td {
+                padding: 12px;
+                text-align: left;
+                border-bottom: 1px solid #ddd;
+            }
+            th {
+                background: #f8f9fa;
+                font-weight: bold;
+                position: sticky;
+                top: 0;
+            }
+            tr:nth-child(even) {
+                background-color: #f9f9f9;
+            }
+            tr:hover {
+                background-color: #f0f0f0;
+            }
+            .rank {
+                font-weight: bold;
+                color: #007bff;
+                text-align: center;
+            }
+            .ticker {
+                font-weight: bold;
+                color: #28a745;
+            }
+            .strong-breakout-buy {
+                background: linear-gradient(90deg, #28a745, #20c997);
+                color: white;
+                padding: 5px 10px;
+                border-radius: 15px;
+                font-weight: bold;
+                text-align: center;
+            }
+            .weak-breakout-buy {
+                background: linear-gradient(90deg, #ffc107, #fd7e14);
+                color: white;
+                padding: 5px 10px;
+                border-radius: 15px;
+                font-weight: bold;
+                text-align: center;
+            }
+            .strong-breakout-sell {
+                background: linear-gradient(90deg, #dc3545, #e74c3c);
+                color: white;
+                padding: 5px 10px;
+                border-radius: 15px;
+                font-weight: bold;
+                text-align: center;
+            }
+            .weak-breakout-sell {
+                background: linear-gradient(90deg, #6c757d, #495057);
+                color: white;
+                padding: 5px 10px;
+                border-radius: 15px;
+                font-weight: bold;
+                text-align: center;
+            }
+            .price {
+                font-weight: bold;
+                color: #333;
+            }
+            .positive {
+                color: #28a745;
+                font-weight: bold;
+            }
+            .negative {
+                color: #dc3545;
+                font-weight: bold;
+            }
+            .footer {
+                text-align: center;
+                margin-top: 40px;
+                padding: 20px;
+                background: #f8f9fa;
+                border-radius: 10px;
+                border-left: 5px solid #667eea;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="header">
+                <h1>📊 CORRECTED COMPREHENSIVE BREAKOUT ANALYSIS</h1>
+                <p><strong>✅ Fixed Breakout Strategy Report</strong></p>
+                <p>Breakout: 21 days | ATR Stop Loss | Volume Confirmation</p>
+                <p>Generated: 2025-07-31 16:21:39</p>
+            </div>
+            
+            <div class="correction-note">
+                <h3>🔧 CORRECTED FEATURES</h3>
+                <p>✅ Proper breakout confirmation with volume (1.5x rolling max)</p>
+                <p>✅ ATR-based stop losses for better risk management</p>
+                <p>✅ State-based signal logic prevents false entries</p>
+                <p>✅ Volume timing: checks previous period, not current bar</p>
+            </div>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h3>0</h3>
+                    <p>BREAKOUT BUY</p>
+                </div>
+                <div class="stat-card">
+                    <h3>5</h3>
+                    <p>BREAKOUT SELL</p>
+                </div>
+                <div class="stat-card">
+                    <h3>82</h3>
+                    <p>HOLD Signals</p>
+                </div>
+                <div class="stat-card">
+                    <h3>224</h3>
+                    <p>Total Analyzed</p>
+                </div>
+            </div>
+    
+            <div class="section">
+                <h2>🔴 TOP CORRECTED BREAKOUT SELL SIGNALS</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Rank</th>
+                            <th>Ticker</th>
+                            <th>Signal</th>
+                            <th>Price</th>
+                            <th>Entry</th>
+                            <th>Stop Loss</th>
+                            <th>Resistance</th>
+                            <th>Support</th>
+                            <th>Strength</th>
+                            <th>Volume</th>
+                            <th>RSI</th>
+                            <th>Momentum</th>
+                            <th>ATR</th>
+                            <th>Qty</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+        
+                        <tr>
+                            <td class="rank">1</td>
+                            <td class="ticker">CHAMBLFERT</td>
+                            <td><span class="strong-breakout-sell">STRONG BREAKOUT SELL</span></td>
+                            <td class="price">₹514.90</td>
+                            <td class="price">₹501.99</td>
+                            <td class="price">₹541.41</td>
+                            <td class="price">₹570.90</td>
+                            <td class="price">₹503.00</td>
+                            <td>0.00%</td>
+                            <td>5.0x</td>
+                            <td>40</td>
+                            <td class="negative">-7.1%</td>
+                            <td>₹13.26</td>
+                            <td>37</td>
+                        </tr>
+            
+                        <tr>
+                            <td class="rank">2</td>
+                            <td class="ticker">ADANIENT</td>
+                            <td><span class="strong-breakout-sell">STRONG BREAKOUT SELL</span></td>
+                            <td class="price">₹2430.70</td>
+                            <td class="price">₹2417.75</td>
+                            <td class="price">₹2520.77</td>
+                            <td class="price">₹2654.50</td>
+                            <td class="price">₹2422.60</td>
+                            <td>0.00%</td>
+                            <td>3.1x</td>
+                            <td>34</td>
+                            <td class="negative">-6.8%</td>
+                            <td>₹45.03</td>
+                            <td>11</td>
+                        </tr>
+            
+                        <tr>
+                            <td class="rank">3</td>
+                            <td class="ticker">AARTIIND</td>
+                            <td><span class="strong-breakout-sell">STRONG BREAKOUT SELL</span></td>
+                            <td class="price">₹420.05</td>
+                            <td class="price">₹415.17</td>
+                            <td class="price">₹444.30</td>
+                            <td class="price">₹486.00</td>
+                            <td class="price">₹416.00</td>
+                            <td>0.00%</td>
+                            <td>4.6x</td>
+                            <td>40</td>
+                            <td class="negative">-3.1%</td>
+                            <td>₹12.13</td>
+                            <td>41</td>
+                        </tr>
+            
+                        <tr>
+                            <td class="rank">4</td>
+                            <td class="ticker">INDUSTOWER</td>
+                            <td><span class="strong-breakout-sell">STRONG BREAKOUT SELL</span></td>
+                            <td class="price">₹363.00</td>
+                            <td class="price">₹360.28</td>
+                            <td class="price">₹383.31</td>
+                            <td class="price">₹430.00</td>
+                            <td class="price">₹361.00</td>
+                            <td>0.00%</td>
+                            <td>2.7x</td>
+                            <td>25</td>
+                            <td class="negative">-9.6%</td>
+                            <td>₹10.15</td>
+                            <td>49</td>
+                        </tr>
+            
+                        <tr>
+                            <td class="rank">5</td>
+                            <td class="ticker">INDIGO</td>
+                            <td><span class="strong-breakout-sell">STRONG BREAKOUT SELL</span></td>
+                            <td class="price">₹5910.50</td>
+                            <td class="price">₹5595.29</td>
+                            <td class="price">₹6126.25</td>
+                            <td class="price">₹5967.50</td>
+                            <td class="price">₹5606.50</td>
+                            <td>0.00%</td>
+                            <td>2.9x</td>
+                            <td>50</td>
+                            <td class="positive">+1.1%</td>
+                            <td>₹107.88</td>
+                            <td>4</td>
+                        </tr>
+            
+                    </tbody>
+                </table>
+            </div>
+        
+            <div class="footer">
+                <p><strong>⚠️ Disclaimer:</strong> This analysis is for educational purposes only. Corrected breakout trading carries significant risk.</p>
+                <p><strong>📊 Corrected Strategy:</strong> High-Low breakout system with proper volume confirmation, ATR stops, and state management.</p>
+                <p><strong>🔧 Key Fix:</strong> Volume confirmation uses previous period's max, not current period, preventing look-ahead bias.</p>
+            </div>
+        </div>
+    </body>
+    </html>
+    
