@@ -1,9 +1,0 @@
-{
-  "metadata": {
-    "timestamp": "2025-07-31T18:00:21.648344",
-    "total_stocks_analyzed": 0,
-    "ce_settings": "ATR22_M3.0_CloseTrue",
-    "strategy": "Chandelier Exit Trailing Stop System"
-  },
-  "signals": []
-}

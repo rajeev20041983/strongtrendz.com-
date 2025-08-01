@@ -1,9 +1,0 @@
-{
-  "metadata": {
-    "timestamp": "2025-07-30T21:26:29.592064",
-    "total_stocks_analyzed": 0,
-    "fbb_settings": "L200_M3.0",
-    "strategy": "Fibonacci Bollinger Bands with VWMA"
-  },
-  "signals": []
-}

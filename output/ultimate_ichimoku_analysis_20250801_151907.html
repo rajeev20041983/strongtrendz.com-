@@ -1,0 +1,1044 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ultimate Ichimoku Analysis - 2025-08-01</title>
+        <style>
+            body {
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                margin: 0;
+                padding: 20px;
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                min-height: 100vh;
+            }
+            .container {
+                max-width: 1600px;
+                margin: 0 auto;
+                background: white;
+                padding: 30px;
+                border-radius: 15px;
+                box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            }
+            .header {
+                text-align: center;
+                background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+                color: white;
+                padding: 40px;
+                border-radius: 15px;
+                margin-bottom: 30px;
+            }
+            .header h1 {
+                margin: 0;
+                font-size: 2.8em;
+                margin-bottom: 10px;
+            }
+            .header p {
+                margin: 5px 0;
+                font-size: 1.1em;
+            }
+            .stats-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                gap: 20px;
+                margin: 30px 0;
+            }
+            .stat-card {
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                color: white;
+                padding: 20px;
+                border-radius: 10px;
+                text-align: center;
+            }
+            .stat-card h3 {
+                margin: 0 0 10px 0;
+                font-size: 2em;
+            }
+            .section {
+                margin: 40px 0;
+            }
+            .section h2 {
+                color: #333;
+                border-bottom: 3px solid #667eea;
+                padding-bottom: 10px;
+                margin-bottom: 20px;
+            }
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                margin: 20px 0;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+                border-radius: 10px;
+                overflow: hidden;
+            }
+            th, td {
+                padding: 12px;
+                text-align: left;
+                border-bottom: 1px solid #ddd;
+                font-size: 0.9em;
+            }
+            th {
+                background: #f8f9fa;
+                font-weight: bold;
+                position: sticky;
+                top: 0;
+            }
+            tr:nth-child(even) {
+                background-color: #f9f9f9;
+            }
+            tr:hover {
+                background-color: #f0f0f0;
+            }
+            .rank {
+                font-weight: bold;
+                color: #007bff;
+                text-align: center;
+            }
+            .ticker {
+                font-weight: bold;
+                color: #28a745;
+            }
+            .strong-buy {
+                background: linear-gradient(90deg, #28a745, #20c997);
+                color: white;
+                padding: 5px 10px;
+                border-radius: 15px;
+                font-weight: bold;
+                text-align: center;
+            }
+            .weak-buy {
+                background: linear-gradient(90deg, #ffc107, #fd7e14);
+                color: white;
+                padding: 5px 10px;
+                border-radius: 15px;
+                font-weight: bold;
+                text-align: center;
+            }
+            .strong-sell {
+                background: linear-gradient(90deg, #dc3545, #e74c3c);
+                color: white;
+                padding: 5px 10px;
+                border-radius: 15px;
+                font-weight: bold;
+                text-align: center;
+            }
+            .weak-sell {
+                background: linear-gradient(90deg, #6c757d, #495057);
+                color: white;
+                padding: 5px 10px;
+                border-radius: 15px;
+                font-weight: bold;
+                text-align: center;
+            }
+            .price {
+                font-weight: bold;
+                color: #333;
+            }
+            .positive {
+                color: #28a745;
+                font-weight: bold;
+            }
+            .negative {
+                color: #dc3545;
+                font-weight: bold;
+            }
+            .footer {
+                text-align: center;
+                margin-top: 40px;
+                padding: 20px;
+                background: #f8f9fa;
+                border-radius: 10px;
+                border-left: 5px solid #667eea;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="header">
+                <h1>☁️ ULTIMATE ICHIMOKU ANALYSIS</h1>
+                <p><strong>With Entry Levels, RSI, Volume & Momentum</strong></p>
+                <p>Volume: 20 days | Momentum: 5 days</p>
+                <p>Generated: 2025-08-01 15:19:07</p>
+            </div>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h3>66</h3>
+                    <p>BUY Signals</p>
+                </div>
+                <div class="stat-card">
+                    <h3>89</h3>
+                    <p>SELL Signals</p>
+                </div>
+                <div class="stat-card">
+                    <h3>68</h3>
+                    <p>HOLD Signals</p>
+                </div>
+                <div class="stat-card">
+                    <h3>223</h3>
+                    <p>Total Analyzed</p>
+                </div>
+            </div>
+    
+            <div class="section">
+                <h2>🟢 TOP BUY SIGNALS - ULTIMATE ICHIMOKU</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Rank</th>
+                            <th>Ticker</th>
+                            <th>Signal</th>
+                            <th>Current</th>
+                            <th>Entry</th>
+                            <th>Entry Logic</th>
+                            <th>RSI</th>
+                            <th>Volume</th>
+                            <th>Momentum</th>
+                            <th>Score</th>
+                            <th>Stop Loss</th>
+                            <th>Target</th>
+                            <th>R:R</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+        
+                        <tr>
+                            <td class="rank">1</td>
+                            <td class="ticker">KAYNES</td>
+                            <td><span class="weak-buy">WEAK BUY</span></td>
+                            <td class="price">₹6172.0</td>
+                            <td class="price">₹6212.4</td>
+                            <td>Above Round Number ₹...</td>
+                            <td>56</td>
+                            <td>12.6x</td>
+                            <td class="positive">+9.0%</td>
+                            <td>9.6</td>
+                            <td class="price">₹5553.9</td>
+                            <td class="price">₹7529.4</td>
+                            <td>1:2.0</td>
+                        </tr>
+            
+                        <tr>
+                            <td class="rank">2</td>
+                            <td class="ticker">HINDUNILVR</td>
+                            <td><span class="weak-buy">WEAK BUY</span></td>
+                            <td class="price">₹2521.2</td>
+                            <td class="price">₹2535.1</td>
+                            <td>Above Volume Resista...</td>
+                            <td>50</td>
+                            <td>3.5x</td>
+                            <td class="positive">+3.4%</td>
+                            <td>9.4</td>
+                            <td class="price">₹2257.5</td>
+                            <td class="price">₹3090.3</td>
+                            <td>1:2.0</td>
+                        </tr>
+            
+                        <tr>
+                            <td class="rank">3</td>
+                            <td class="ticker">JIOFIN</td>
+                            <td><span class="strong-buy">STRONG BUY</span></td>
+                            <td class="price">₹329.2</td>
+                            <td class="price">₹330.0</td>
+                            <td>Above Volume Resista...</td>
+                            <td>53</td>
+                            <td>3.2x</td>
+                            <td class="positive">+4.0%</td>
+                            <td>9.2</td>
+                            <td class="price">₹257.3</td>
+                            <td class="price">₹475.3</td>
+                            <td>1:2.0</td>
+                        </tr>
+            
+                        <tr>
+                            <td class="rank">4</td>
+                            <td class="ticker">RBLBANK</td>
+                            <td><span class="strong-buy">STRONG BUY</span></td>
+                            <td class="price">₹266.8</td>
+                            <td class="price">₹267.4</td>
+                            <td>Above Fractal High (...</td>
+                            <td>53</td>
+                            <td>3.0x</td>
+                            <td class="positive">+4.1%</td>
+                            <td>9.2</td>
+                            <td class="price">₹200.4</td>
+                            <td class="price">₹401.5</td>
+                            <td>1:2.0</td>
+                        </tr>
+            
+                        <tr>
+                            <td class="rank">5</td>
+                            <td class="ticker">MARUTI</td>
+                            <td><span class="weak-buy">WEAK BUY</span></td>
+                            <td class="price">₹12473.0</td>
+                            <td class="price">₹12516.8</td>
+                            <td>Above Fractal High (...</td>
+                            <td>52</td>
+                            <td>3.0x</td>
+                            <td class="positive">+0.4%</td>
+                            <td>8.7</td>
+                            <td class="price">₹11815.9</td>
+                            <td class="price">₹13918.6</td>
+                            <td>1:2.0</td>
+                        </tr>
+            
+                        <tr>
+                            <td class="rank">6</td>
+                            <td class="ticker">SBILIFE</td>
+                            <td><span class="strong-buy">STRONG BUY</span></td>
+                            <td class="price">₹1840.7</td>
+                            <td class="price">₹1850.7</td>
+                            <td>Above Volume Resista...</td>
+                            <td>51</td>
+                            <td>1.8x</td>
+                            <td class="positive">+2.6%</td>
+                            <td>8.5</td>
+                            <td class="price">₹1631.7</td>
+                            <td class="price">₹2288.7</td>
+                            <td>1:2.0</td>
+                        </tr>
+            
+                        <tr>
+                            <td class="rank">7</td>
+                            <td class="ticker">JSL</td>
+                            <td><span class="strong-buy">STRONG BUY</span></td>
+                            <td class="price">₹694.1</td>
+                            <td class="price">₹697.4</td>
+                            <td>Above Volume Resista...</td>
+                            <td>54</td>
+                            <td>1.8x</td>
+                            <td class="positive">+4.5%</td>
+                            <td>8.4</td>
+                            <td class="price">₹606.8</td>
+                            <td class="price">₹878.6</td>
+                            <td>1:2.0</td>
+                        </tr>
+            
+                        <tr>
+                            <td class="rank">8</td>
+                            <td class="ticker">JSWSTEEL</td>
+                            <td><span class="strong-buy">STRONG BUY</span></td>
+                            <td class="price">₹1048.3</td>
+                            <td class="price">₹1050.9</td>
+                            <td>Above Fractal High (...</td>
+                            <td>61</td>
+                            <td>2.2x</td>
+                            <td class="positive">+1.4%</td>
+                            <td>8.2</td>
+                            <td class="price">₹975.7</td>
+                            <td class="price">₹1201.3</td>
+                            <td>1:2.0</td>
+                        </tr>
+            
+                        <tr>
+                            <td class="rank">9</td>
+                            <td class="ticker">DELHIVERY</td>
+                            <td><span class="weak-buy">WEAK BUY</span></td>
+                            <td class="price">₹425.2</td>
+                            <td class="price">₹427.1</td>
+                            <td>Above Fractal High (...</td>
+                            <td>57</td>
+                            <td>2.3x</td>
+                            <td class="negative">-2.9%</td>
+                            <td>8.0</td>
+                            <td class="price">₹309.5</td>
+                            <td class="price">₹662.5</td>
+                            <td>1:2.0</td>
+                        </tr>
+            
+                        <tr>
+                            <td class="rank">10</td>
+                            <td class="ticker">AMBUJACEM</td>
+                            <td><span class="weak-buy">WEAK BUY</span></td>
+                            <td class="price">₹592.7</td>
+                            <td class="price">₹601.2</td>
+                            <td>Above Round Number ₹...</td>
+                            <td>54</td>
+                            <td>2.4x</td>
+                            <td class="negative">-4.5%</td>
+                            <td>7.9</td>
+                            <td class="price">₹535.6</td>
+                            <td class="price">₹732.4</td>
+                            <td>1:2.0</td>
+                        </tr>
+            
+                        <tr>
+                            <td class="rank">11</td>
+                            <td class="ticker">PIIND</td>
+                            <td><span class="strong-buy">STRONG BUY</span></td>
+                            <td class="price">₹4250.9</td>
+                            <td class="price">₹4282.6</td>
+                            <td>Above Fractal High (...</td>
+                            <td>64</td>
+                            <td>1.9x</td>
+                            <td class="positive">+3.3%</td>
+                            <td>7.8</td>
+                            <td class="price">₹3657.8</td>
+                            <td class="price">₹5532.4</td>
+                            <td>1:2.0</td>
+                        </tr>
+            
+                        <tr>
+                            <td class="rank">12</td>
+                            <td class="ticker">POLYCAB</td>
+                            <td><span class="weak-buy">WEAK BUY</span></td>
+                            <td class="price">₹6821.0</td>
+                            <td class="price">₹6857.9</td>
+                            <td>Above 20-SMA ₹6844.2...</td>
+                            <td>55</td>
+                            <td>1.8x</td>
+                            <td class="negative">-0.3%</td>
+                            <td>7.7</td>
+                            <td class="price">₹5565.3</td>
+                            <td class="price">₹9443.1</td>
+                            <td>1:2.0</td>
+                        </tr>
+            
+                        <tr>
+                            <td class="rank">13</td>
+                            <td class="ticker">HINDPETRO</td>
+                            <td><span class="weak-buy">WEAK BUY</span></td>
+                            <td class="price">₹418.5</td>
+                            <td class="price">₹420.8</td>
+                            <td>Above Round Number ₹...</td>
+                            <td>38</td>
+                            <td>2.3x</td>
+                            <td class="negative">-3.8%</td>
+                            <td>7.6</td>
+                            <td class="price">₹386.2</td>
+                            <td class="price">₹490.1</td>
+                            <td>1:2.0</td>
+                        </tr>
+            
+                        <tr>
+                            <td class="rank">14</td>
+                            <td class="ticker">INDIGO</td>
+                            <td><span class="strong-buy">STRONG BUY</span></td>
+                            <td class="price">₹5910.5</td>
+                            <td class="price">₹5961.9</td>
+                            <td>Above Round Number ₹...</td>
+                            <td>50</td>
+                            <td>3.2x</td>
+                            <td class="positive">+1.1%</td>
+                            <td>7.6</td>
+                            <td class="price">₹5204.0</td>
+                            <td class="price">₹7477.6</td>
+                            <td>1:2.0</td>
+                        </tr>
+            
+                        <tr>
+                            <td class="rank">15</td>
+                            <td class="ticker">PAGEIND</td>
+                            <td><span class="strong-buy">STRONG BUY</span></td>
+                            <td class="price">₹48805.0</td>
+                            <td class="price">₹48947.7</td>
+                            <td>Above Round Number ₹...</td>
+                            <td>55</td>
+                            <td>1.3x</td>
+                            <td class="positive">+3.6%</td>
+                            <td>7.5</td>
+                            <td class="price">₹44186.7</td>
+                            <td class="price">₹58469.7</td>
+                            <td>1:2.0</td>
+                        </tr>
+            
+                        <tr>
+                            <td class="rank">16</td>
+                            <td class="ticker">M&M</td>
+                            <td><span class="weak-buy">WEAK BUY</span></td>
+                            <td class="price">₹3203.1</td>
+                            <td class="price">₹3222.1</td>
+                            <td>Above Fractal High (...</td>
+                            <td>73</td>
+                            <td>2.2x</td>
+                            <td class="negative">-1.8%</td>
+                            <td>7.2</td>
+                            <td class="price">₹2790.9</td>
+                            <td class="price">₹4084.5</td>
+                            <td>1:2.0</td>
+                        </tr>
+            
+                        <tr>
+                            <td class="rank">17</td>
+                            <td class="ticker">ZYDUSLIFE</td>
+                            <td><span class="weak-buy">WEAK BUY</span></td>
+                            <td class="price">₹969.8</td>
+                            <td class="price">₹977.7</td>
+                            <td>Above Fractal High (...</td>
+                            <td>51</td>
+                            <td>1.4x</td>
+                            <td class="positive">+1.0%</td>
+                            <td>7.2</td>
+                            <td class="price">₹876.2</td>
+                            <td class="price">₹1180.7</td>
+                            <td>1:2.0</td>
+                        </tr>
+            
+                        <tr>
+                            <td class="rank">18</td>
+                            <td class="ticker">BRITANNIA</td>
+                            <td><span class="strong-buy">STRONG BUY</span></td>
+                            <td class="price">₹5771.0</td>
+                            <td class="price">₹5811.6</td>
+                            <td>Above Round Number ₹...</td>
+                            <td>51</td>
+                            <td>1.5x</td>
+                            <td class="positive">+1.7%</td>
+                            <td>7.1</td>
+                            <td class="price">₹5333.2</td>
+                            <td class="price">₹6768.5</td>
+                            <td>1:2.0</td>
+                        </tr>
+            
+                        <tr>
+                            <td class="rank">19</td>
+                            <td class="ticker">PEL</td>
+                            <td><span class="weak-buy">WEAK BUY</span></td>
+                            <td class="price">₹1251.8</td>
+                            <td class="price">₹1263.9</td>
+                            <td>Above 20-SMA ₹1261.4...</td>
+                            <td>56</td>
+                            <td>1.8x</td>
+                            <td class="negative">-4.2%</td>
+                            <td>7.0</td>
+                            <td class="price">₹1039.8</td>
+                            <td class="price">₹1712.2</td>
+                            <td>1:2.0</td>
+                        </tr>
+            
+                        <tr>
+                            <td class="rank">20</td>
+                            <td class="ticker">CUMMINSIND</td>
+                            <td><span class="weak-buy">WEAK BUY</span></td>
+                            <td class="price">₹3555.5</td>
+                            <td class="price">₹3607.2</td>
+                            <td>Above Round Number ₹...</td>
+                            <td>55</td>
+                            <td>1.2x</td>
+                            <td class="negative">-0.2%</td>
+                            <td>6.9</td>
+                            <td class="price">₹2965.7</td>
+                            <td class="price">₹4890.2</td>
+                            <td>1:2.0</td>
+                        </tr>
+            
+                        <tr>
+                            <td class="rank">21</td>
+                            <td class="ticker">AMBER</td>
+                            <td><span class="strong-buy">STRONG BUY</span></td>
+                            <td class="price">₹7963.5</td>
+                            <td class="price">₹8016.0</td>
+                            <td>Above Round Number ₹...</td>
+                            <td>63</td>
+                            <td>1.0x</td>
+                            <td class="positive">+8.0%</td>
+                            <td>6.8</td>
+                            <td class="price">₹6246.0</td>
+                            <td class="price">₹11555.9</td>
+                            <td>1:2.0</td>
+                        </tr>
+            
+                        <tr>
+                            <td class="rank">22</td>
+                            <td class="ticker">DABUR</td>
+                            <td><span class="strong-buy">STRONG BUY</span></td>
+                            <td class="price">₹529.0</td>
+                            <td class="price">₹531.1</td>
+                            <td>Above Round Number ₹...</td>
+                            <td>54</td>
+                            <td>1.1x</td>
+                            <td class="positive">+3.2%</td>
+                            <td>6.8</td>
+                            <td class="price">₹461.1</td>
+                            <td class="price">₹671.0</td>
+                            <td>1:2.0</td>
+                        </tr>
+            
+                        <tr>
+                            <td class="rank">23</td>
+                            <td class="ticker">CIPLA</td>
+                            <td><span class="strong-buy">STRONG BUY</span></td>
+                            <td class="price">₹1554.6</td>
+                            <td class="price">₹1580.2</td>
+                            <td>Above Volume Resista...</td>
+                            <td>70</td>
+                            <td>1.4x</td>
+                            <td class="positive">+4.5%</td>
+                            <td>6.6</td>
+                            <td class="price">₹1441.3</td>
+                            <td class="price">₹1857.9</td>
+                            <td>1:2.0</td>
+                        </tr>
+            
+                        <tr>
+                            <td class="rank">24</td>
+                            <td class="ticker">GODREJCP</td>
+                            <td><span class="weak-buy">WEAK BUY</span></td>
+                            <td class="price">₹1259.0</td>
+                            <td class="price">₹1274.4</td>
+                            <td>Above Volume Resista...</td>
+                            <td>42</td>
+                            <td>1.2x</td>
+                            <td class="positive">+2.8%</td>
+                            <td>6.6</td>
+                            <td class="price">₹1182.6</td>
+                            <td class="price">₹1458.0</td>
+                            <td>1:2.0</td>
+                        </tr>
+            
+                        <tr>
+                            <td class="rank">25</td>
+                            <td class="ticker">MAXHEALTH</td>
+                            <td><span class="strong-buy">STRONG BUY</span></td>
+                            <td class="price">₹1246.0</td>
+                            <td class="price">₹1252.5</td>
+                            <td>Above Round Number ₹...</td>
+                            <td>56</td>
+                            <td>1.3x</td>
+                            <td class="negative">-1.7%</td>
+                            <td>6.6</td>
+                            <td class="price">₹1133.2</td>
+                            <td class="price">₹1491.1</td>
+                            <td>1:2.0</td>
+                        </tr>
+            
+                    </tbody>
+                </table>
+            </div>
+        
+            <div class="section">
+                <h2>🔴 TOP SELL SIGNALS - ULTIMATE ICHIMOKU</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Rank</th>
+                            <th>Ticker</th>
+                            <th>Signal</th>
+                            <th>Current</th>
+                            <th>Entry</th>
+                            <th>Entry Logic</th>
+                            <th>RSI</th>
+                            <th>Volume</th>
+                            <th>Momentum</th>
+                            <th>Score</th>
+                            <th>Stop Loss</th>
+                            <th>Target</th>
+                            <th>R:R</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+        
+                        <tr>
+                            <td class="rank">1</td>
+                            <td class="ticker">CHAMBLFERT</td>
+                            <td><span class="strong-sell">STRONG SELL</span></td>
+                            <td class="price">₹514.9</td>
+                            <td class="price">₹509.0</td>
+                            <td>Below Round Number ₹...</td>
+                            <td>40</td>
+                            <td>6.0x</td>
+                            <td class="negative">-7.1%</td>
+                            <td>9.4</td>
+                            <td class="price">₹649.8</td>
+                            <td class="price">₹227.3</td>
+                            <td>1:2.0</td>
+                        </tr>
+            
+                        <tr>
+                            <td class="rank">2</td>
+                            <td class="ticker">ADANIENT</td>
+                            <td><span class="weak-sell">WEAK SELL</span></td>
+                            <td class="price">₹2430.7</td>
+                            <td class="price">₹2417.8</td>
+                            <td>Below 20-bar Low ₹24...</td>
+                            <td>34</td>
+                            <td>3.4x</td>
+                            <td class="negative">-6.8%</td>
+                            <td>9.0</td>
+                            <td class="price">₹2603.1</td>
+                            <td class="price">₹2047.0</td>
+                            <td>1:2.0</td>
+                        </tr>
+            
+                        <tr>
+                            <td class="rank">3</td>
+                            <td class="ticker">CAMS</td>
+                            <td><span class="weak-sell">WEAK SELL</span></td>
+                            <td class="price">₹3736.8</td>
+                            <td class="price">₹3692.6</td>
+                            <td>Below Round Number ₹...</td>
+                            <td>32</td>
+                            <td>3.2x</td>
+                            <td class="negative">-11.0%</td>
+                            <td>8.9</td>
+                            <td class="price">₹4162.2</td>
+                            <td class="price">₹2753.3</td>
+                            <td>1:2.0</td>
+                        </tr>
+            
+                        <tr>
+                            <td class="rank">4</td>
+                            <td class="ticker">CESC</td>
+                            <td><span class="weak-sell">WEAK SELL</span></td>
+                            <td class="price">₹169.5</td>
+                            <td class="price">₹167.1</td>
+                            <td>Below 20-bar Low ₹16...</td>
+                            <td>40</td>
+                            <td>2.1x</td>
+                            <td class="negative">-3.2%</td>
+                            <td>8.8</td>
+                            <td class="price">₹178.7</td>
+                            <td class="price">₹143.9</td>
+                            <td>1:2.0</td>
+                        </tr>
+            
+                        <tr>
+                            <td class="rank">5</td>
+                            <td class="ticker">AARTIIND</td>
+                            <td><span class="weak-sell">WEAK SELL</span></td>
+                            <td class="price">₹420.0</td>
+                            <td class="price">₹419.2</td>
+                            <td>Below Round Number ₹...</td>
+                            <td>40</td>
+                            <td>5.9x</td>
+                            <td class="negative">-3.1%</td>
+                            <td>8.8</td>
+                            <td class="price">₹467.9</td>
+                            <td class="price">₹321.6</td>
+                            <td>1:2.0</td>
+                        </tr>
+            
+                        <tr>
+                            <td class="rank">6</td>
+                            <td class="ticker">PNB</td>
+                            <td><span class="weak-sell">WEAK SELL</span></td>
+                            <td class="price">₹105.4</td>
+                            <td class="price">₹105.0</td>
+                            <td>Below Volume Support...</td>
+                            <td>39</td>
+                            <td>2.1x</td>
+                            <td class="negative">-4.8%</td>
+                            <td>8.7</td>
+                            <td class="price">₹112.0</td>
+                            <td class="price">₹91.1</td>
+                            <td>1:2.0</td>
+                        </tr>
+            
+                        <tr>
+                            <td class="rank">7</td>
+                            <td class="ticker">CHOLAFIN</td>
+                            <td><span class="weak-sell">WEAK SELL</span></td>
+                            <td class="price">₹1443.2</td>
+                            <td class="price">₹1423.8</td>
+                            <td>Below 20-bar Low ₹14...</td>
+                            <td>28</td>
+                            <td>3.4x</td>
+                            <td class="negative">-7.0%</td>
+                            <td>8.7</td>
+                            <td class="price">₹1613.1</td>
+                            <td class="price">₹1045.4</td>
+                            <td>1:2.0</td>
+                        </tr>
+            
+                        <tr>
+                            <td class="rank">8</td>
+                            <td class="ticker">APLAPOLLO</td>
+                            <td><span class="weak-sell">WEAK SELL</span></td>
+                            <td class="price">₹1601.2</td>
+                            <td class="price">₹1596.8</td>
+                            <td>Below Round Number ₹...</td>
+                            <td>39</td>
+                            <td>1.8x</td>
+                            <td class="negative">-5.1%</td>
+                            <td>8.5</td>
+                            <td class="price">₹1864.2</td>
+                            <td class="price">₹1062.1</td>
+                            <td>1:2.0</td>
+                        </tr>
+            
+                        <tr>
+                            <td class="rank">9</td>
+                            <td class="ticker">INDUSTOWER</td>
+                            <td><span class="weak-sell">WEAK SELL</span></td>
+                            <td class="price">₹363.0</td>
+                            <td class="price">₹360.3</td>
+                            <td>Below 20-bar Low ₹36...</td>
+                            <td>25</td>
+                            <td>2.9x</td>
+                            <td class="negative">-9.6%</td>
+                            <td>8.5</td>
+                            <td class="price">₹404.7</td>
+                            <td class="price">₹271.5</td>
+                            <td>1:2.0</td>
+                        </tr>
+            
+                        <tr>
+                            <td class="rank">10</td>
+                            <td class="ticker">KPITTECH</td>
+                            <td><span class="weak-sell">WEAK SELL</span></td>
+                            <td class="price">₹1226.4</td>
+                            <td class="price">₹1197.6</td>
+                            <td>Below Round Number ₹...</td>
+                            <td>43</td>
+                            <td>2.3x</td>
+                            <td class="negative">-1.6%</td>
+                            <td>8.4</td>
+                            <td class="price">₹1380.2</td>
+                            <td class="price">₹832.5</td>
+                            <td>1:2.0</td>
+                        </tr>
+            
+                        <tr>
+                            <td class="rank">11</td>
+                            <td class="ticker">ITC</td>
+                            <td><span class="weak-sell">WEAK SELL</span></td>
+                            <td class="price">₹412.0</td>
+                            <td class="price">₹410.9</td>
+                            <td>Below Fractal Low (2...</td>
+                            <td>42</td>
+                            <td>2.3x</td>
+                            <td class="positive">+0.5%</td>
+                            <td>8.2</td>
+                            <td class="price">₹428.5</td>
+                            <td class="price">₹375.8</td>
+                            <td>1:2.0</td>
+                        </tr>
+            
+                        <tr>
+                            <td class="rank">12</td>
+                            <td class="ticker">BSOFT</td>
+                            <td><span class="weak-sell">WEAK SELL</span></td>
+                            <td class="price">₹391.5</td>
+                            <td class="price">₹389.2</td>
+                            <td>Below Round Number ₹...</td>
+                            <td>39</td>
+                            <td>3.4x</td>
+                            <td class="negative">-1.2%</td>
+                            <td>8.2</td>
+                            <td class="price">₹426.5</td>
+                            <td class="price">₹314.6</td>
+                            <td>1:2.0</td>
+                        </tr>
+            
+                        <tr>
+                            <td class="rank">13</td>
+                            <td class="ticker">ATGL</td>
+                            <td><span class="weak-sell">WEAK SELL</span></td>
+                            <td class="price">₹604.1</td>
+                            <td class="price">₹601.2</td>
+                            <td>Below 20-bar Low ₹60...</td>
+                            <td>30</td>
+                            <td>1.9x</td>
+                            <td class="negative">-6.3%</td>
+                            <td>8.0</td>
+                            <td class="price">₹663.9</td>
+                            <td class="price">₹475.9</td>
+                            <td>1:2.0</td>
+                        </tr>
+            
+                        <tr>
+                            <td class="rank">14</td>
+                            <td class="ticker">SONACOMS</td>
+                            <td><span class="weak-sell">WEAK SELL</span></td>
+                            <td class="price">₹449.5</td>
+                            <td class="price">₹444.6</td>
+                            <td>Below Fractal Low (2...</td>
+                            <td>51</td>
+                            <td>1.7x</td>
+                            <td class="negative">-8.4%</td>
+                            <td>8.0</td>
+                            <td class="price">₹508.3</td>
+                            <td class="price">₹317.3</td>
+                            <td>1:2.0</td>
+                        </tr>
+            
+                        <tr>
+                            <td class="rank">15</td>
+                            <td class="ticker">ACC</td>
+                            <td><span class="strong-sell">STRONG SELL</span></td>
+                            <td class="price">₹1788.4</td>
+                            <td class="price">₹1778.4</td>
+                            <td>Below 20-bar Low ₹17...</td>
+                            <td>10</td>
+                            <td>3.6x</td>
+                            <td class="negative">-5.4%</td>
+                            <td>7.6</td>
+                            <td class="price">₹1980.4</td>
+                            <td class="price">₹1374.4</td>
+                            <td>1:2.0</td>
+                        </tr>
+            
+                        <tr>
+                            <td class="rank">16</td>
+                            <td class="ticker">YESBANK</td>
+                            <td><span class="weak-sell">WEAK SELL</span></td>
+                            <td class="price">₹18.9</td>
+                            <td class="price">₹18.8</td>
+                            <td>Below 20-bar Low ₹18...</td>
+                            <td>37</td>
+                            <td>1.4x</td>
+                            <td class="negative">-5.4%</td>
+                            <td>7.6</td>
+                            <td class="price">₹21.0</td>
+                            <td class="price">₹14.4</td>
+                            <td>1:2.0</td>
+                        </tr>
+            
+                        <tr>
+                            <td class="rank">17</td>
+                            <td class="ticker">HFCL</td>
+                            <td><span class="weak-sell">WEAK SELL</span></td>
+                            <td class="price">₹75.6</td>
+                            <td class="price">₹75.2</td>
+                            <td>Below Fractal Low (2...</td>
+                            <td>33</td>
+                            <td>1.6x</td>
+                            <td class="negative">-4.6%</td>
+                            <td>7.6</td>
+                            <td class="price">₹87.4</td>
+                            <td class="price">₹51.0</td>
+                            <td>1:2.0</td>
+                        </tr>
+            
+                        <tr>
+                            <td class="rank">18</td>
+                            <td class="ticker">COALINDIA</td>
+                            <td><span class="weak-sell">WEAK SELL</span></td>
+                            <td class="price">₹376.4</td>
+                            <td class="price">₹373.9</td>
+                            <td>Below 20-bar Low ₹37...</td>
+                            <td>44</td>
+                            <td>1.4x</td>
+                            <td class="negative">-2.4%</td>
+                            <td>7.4</td>
+                            <td class="price">₹402.0</td>
+                            <td class="price">₹317.9</td>
+                            <td>1:2.0</td>
+                        </tr>
+            
+                        <tr>
+                            <td class="rank">19</td>
+                            <td class="ticker">SJVN</td>
+                            <td><span class="weak-sell">WEAK SELL</span></td>
+                            <td class="price">₹93.6</td>
+                            <td class="price">₹92.7</td>
+                            <td>Below Fractal Low (2...</td>
+                            <td>32</td>
+                            <td>1.3x</td>
+                            <td class="negative">-5.2%</td>
+                            <td>7.3</td>
+                            <td class="price">₹100.4</td>
+                            <td class="price">₹77.2</td>
+                            <td>1:2.0</td>
+                        </tr>
+            
+                        <tr>
+                            <td class="rank">20</td>
+                            <td class="ticker">IDEA</td>
+                            <td><span class="strong-sell">STRONG SELL</span></td>
+                            <td class="price">₹6.9</td>
+                            <td class="price">₹6.8</td>
+                            <td>Below 20-bar Low ₹6....</td>
+                            <td>44</td>
+                            <td>0.9x</td>
+                            <td class="negative">-6.2%</td>
+                            <td>7.2</td>
+                            <td class="price">₹7.5</td>
+                            <td class="price">₹5.5</td>
+                            <td>1:2.0</td>
+                        </tr>
+            
+                        <tr>
+                            <td class="rank">21</td>
+                            <td class="ticker">ONGC</td>
+                            <td><span class="weak-sell">WEAK SELL</span></td>
+                            <td class="price">₹241.0</td>
+                            <td class="price">₹240.3</td>
+                            <td>Below Fractal Low (2...</td>
+                            <td>48</td>
+                            <td>1.3x</td>
+                            <td class="negative">-1.6%</td>
+                            <td>7.1</td>
+                            <td class="price">₹253.0</td>
+                            <td class="price">₹215.0</td>
+                            <td>1:2.0</td>
+                        </tr>
+            
+                        <tr>
+                            <td class="rank">22</td>
+                            <td class="ticker">SBICARD</td>
+                            <td><span class="weak-sell">WEAK SELL</span></td>
+                            <td class="price">₹807.4</td>
+                            <td class="price">₹801.4</td>
+                            <td>Below 20-bar Low ₹80...</td>
+                            <td>15</td>
+                            <td>1.5x</td>
+                            <td class="negative">-8.9%</td>
+                            <td>7.1</td>
+                            <td class="price">₹982.1</td>
+                            <td class="price">₹440.0</td>
+                            <td>1:2.0</td>
+                        </tr>
+            
+                        <tr>
+                            <td class="rank">23</td>
+                            <td class="ticker">GODREJPROP</td>
+                            <td><span class="weak-sell">WEAK SELL</span></td>
+                            <td class="price">₹2102.9</td>
+                            <td class="price">₹2095.8</td>
+                            <td>Below Fractal Low (2...</td>
+                            <td>41</td>
+                            <td>0.8x</td>
+                            <td class="negative">-9.1%</td>
+                            <td>7.1</td>
+                            <td class="price">₹2409.2</td>
+                            <td class="price">₹1469.0</td>
+                            <td>1:2.0</td>
+                        </tr>
+            
+                        <tr>
+                            <td class="rank">24</td>
+                            <td class="ticker">HINDZINC</td>
+                            <td><span class="strong-sell">STRONG SELL</span></td>
+                            <td class="price">₹424.0</td>
+                            <td class="price">₹419.2</td>
+                            <td>Below Round Number ₹...</td>
+                            <td>49</td>
+                            <td>0.8x</td>
+                            <td class="negative">-4.9%</td>
+                            <td>7.0</td>
+                            <td class="price">₹486.3</td>
+                            <td class="price">₹284.9</td>
+                            <td>1:2.0</td>
+                        </tr>
+            
+                        <tr>
+                            <td class="rank">25</td>
+                            <td class="ticker">BAJAJ-AUTO</td>
+                            <td><span class="weak-sell">WEAK SELL</span></td>
+                            <td class="price">₹8008.0</td>
+                            <td class="price">₹7984.0</td>
+                            <td>Below Round Number ₹...</td>
+                            <td>47</td>
+                            <td>1.1x</td>
+                            <td class="negative">-3.4%</td>
+                            <td>6.8</td>
+                            <td class="price">₹8546.3</td>
+                            <td class="price">₹6859.3</td>
+                            <td>1:2.0</td>
+                        </tr>
+            
+                    </tbody>
+                </table>
+            </div>
+        
+            <div class="footer">
+                <p><strong>⚠️ Disclaimer:</strong> This analysis is for educational purposes only. Entry levels are calculated based on support/resistance breakouts.</p>
+                <p><strong>☁️ Strategy:</strong> Ultimate Ichimoku Cloud system with precise entry levels and comprehensive technical analysis.</p>
+                <p><strong>🎯 Entry Logic:</strong> BUY above resistance, SELL below support with 0.2% buffer for confirmation.</p>
+            </div>
+        </div>
+    </body>
+    </html>
+    

@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>CORRECTED Breakout Analysis - 2025-07-30</title>
+        <title>Sector-wise Ichimoku Analysis - 2025-08-01</title>
         <style>
             body {
                 font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -14,7 +14,7 @@
                 min-height: 100vh;
             }
             .container {
-                max-width: 1400px;
+                max-width: 1600px;
                 margin: 0 auto;
                 background: white;
                 padding: 30px;
@@ -37,14 +37,6 @@
             .header p {
                 margin: 5px 0;
                 font-size: 1.1em;
-            }
-            .correction-note {
-                background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
-                color: white;
-                padding: 20px;
-                border-radius: 10px;
-                margin: 20px 0;
-                text-align: center;
             }
             .stats-grid {
                 display: grid;
@@ -71,6 +63,16 @@
                 border-bottom: 3px solid #667eea;
                 padding-bottom: 10px;
                 margin-bottom: 20px;
+                font-size: 1.8em;
+            }
+            .sector-header {
+                background: linear-gradient(135deg, #36d1dc 0%, #5b86e5 100%);
+                color: white;
+                padding: 15px 25px;
+                border-radius: 8px;
+                margin: 25px 0 15px 0;
+                font-size: 1.3em;
+                font-weight: bold;
             }
             table {
                 width: 100%;
@@ -84,6 +86,7 @@
                 padding: 12px;
                 text-align: left;
                 border-bottom: 1px solid #ddd;
+                font-size: 0.9em;
             }
             th {
                 background: #f8f9fa;
@@ -106,7 +109,7 @@
                 font-weight: bold;
                 color: #28a745;
             }
-            .strong-breakout-buy {
+            .strong-buy {
                 background: linear-gradient(90deg, #28a745, #20c997);
                 color: white;
                 padding: 5px 10px;
@@ -114,7 +117,7 @@
                 font-weight: bold;
                 text-align: center;
             }
-            .weak-breakout-buy {
+            .weak-buy {
                 background: linear-gradient(90deg, #ffc107, #fd7e14);
                 color: white;
                 padding: 5px 10px;
@@ -122,7 +125,7 @@
                 font-weight: bold;
                 text-align: center;
             }
-            .strong-breakout-sell {
+            .strong-sell {
                 background: linear-gradient(90deg, #dc3545, #e74c3c);
                 color: white;
                 padding: 5px 10px;
@@ -130,7 +133,7 @@
                 font-weight: bold;
                 text-align: center;
             }
-            .weak-breakout-sell {
+            .weak-sell {
                 background: linear-gradient(90deg, #6c757d, #495057);
                 color: white;
                 padding: 5px 10px;
@@ -163,87 +166,37 @@
     <body>
         <div class="container">
             <div class="header">
-                <h1>📊 CORRECTED COMPREHENSIVE BREAKOUT ANALYSIS</h1>
-                <p><strong>✅ Fixed Breakout Strategy Report</strong></p>
-                <p>Breakout: 21 days | ATR Stop Loss | Volume Confirmation</p>
-                <p>Generated: 2025-07-30 20:41:56</p>
-            </div>
-            
-            <div class="correction-note">
-                <h3>🔧 CORRECTED FEATURES</h3>
-                <p>✅ Proper breakout confirmation with volume (1.5x rolling max)</p>
-                <p>✅ ATR-based stop losses for better risk management</p>
-                <p>✅ State-based signal logic prevents false entries</p>
-                <p>✅ Volume timing: checks previous period, not current bar</p>
+                <h1>☁️ PINE SCRIPT ICHIMOKU ANALYSIS</h1>
+                <p><strong>Strict Pine Script Logic with Entry Levels</strong></p>
+                <p>Volume: 20 days | Momentum: 5 days</p>
+                <p>Generated: 2025-08-01 16:21:43</p>
             </div>
             
             <div class="stats-grid">
                 <div class="stat-card">
-                    <h3>1</h3>
-                    <p>BREAKOUT BUY</p>
+                    <h3>0</h3>
+                    <p>BUY Signals</p>
                 </div>
                 <div class="stat-card">
                     <h3>0</h3>
-                    <p>BREAKOUT SELL</p>
+                    <p>SELL Signals</p>
                 </div>
                 <div class="stat-card">
-                    <h3>89</h3>
-                    <p>HOLD Signals</p>
+                    <h3>6</h3>
+                    <p>EXIT Signals</p>
                 </div>
                 <div class="stat-card">
-                    <h3>224</h3>
+                    <h3>223</h3>
                     <p>Total Analyzed</p>
                 </div>
             </div>
     
-            <div class="section">
-                <h2>🟢 TOP CORRECTED BREAKOUT BUY SIGNALS</h2>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Rank</th>
-                            <th>Ticker</th>
-                            <th>Signal</th>
-                            <th>Price</th>
-                            <th>Entry</th>
-                            <th>Stop Loss</th>
-                            <th>Resistance</th>
-                            <th>Support</th>
-                            <th>Strength</th>
-                            <th>Volume</th>
-                            <th>RSI</th>
-                            <th>Momentum</th>
-                            <th>ATR</th>
-                            <th>Qty</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-        
-                        <tr>
-                            <td class="rank">1</td>
-                            <td class="ticker">LT</td>
-                            <td><span class="strong-breakout-buy">STRONG BREAKOUT BUY</span></td>
-                            <td class="price">₹3665.10</td>
-                            <td class="price">₹3692.67</td>
-                            <td class="price">₹3558.86</td>
-                            <td class="price">₹3685.30</td>
-                            <td class="price">₹3405.10</td>
-                            <td>0.00%</td>
-                            <td>4.9x</td>
-                            <td>59</td>
-                            <td class="positive">+5.2%</td>
-                            <td>₹53.12</td>
-                            <td>9</td>
-                        </tr>
-            
-                    </tbody>
-                </table>
-            </div>
-        
             <div class="footer">
-                <p><strong>⚠️ Disclaimer:</strong> This analysis is for educational purposes only. Corrected breakout trading carries significant risk.</p>
-                <p><strong>📊 Corrected Strategy:</strong> High-Low breakout system with proper volume confirmation, ATR stops, and state management.</p>
-                <p><strong>🔧 Key Fix:</strong> Volume confirmation uses previous period's max, not current period, preventing look-ahead bias.</p>
+                <p><strong>⚠️ Disclaimer:</strong> This analysis is for educational purposes only. Entry levels calculated based on support/resistance methodology.</p>
+                <p><strong>☁️ Strategy:</strong> Pine Script matching Ichimoku system with precise entry calculations and strict logic.</p>
+                <p><strong>🎯 Entry Logic:</strong> BUY above resistance + 0.2%, SELL below support - 0.2%. Hover over "Entry Logic" for full explanation.</p>
+                <p><strong>⚡ Pine Script Logic:</strong> ALL enabled conditions must be met. No partial matches allowed - ensures high-quality signals only.</p>
+                <p><strong>🚪 Exit Signals:</strong> Includes Pine Script exit conditions for proper position management and risk control.</p>
             </div>
         </div>
     </body>
