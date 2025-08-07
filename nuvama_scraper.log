@@ -21570,3 +21570,272 @@ Stacktrace:
 2025-05-08 05:10:59,878 - INFO - Found percent change: 1.12% in '9.55 (1.12%)'
 2025-05-08 05:10:59,878 - INFO - Added sector: Realty, Change: 1.12%
 2025-05-08 05:11:02,412 - INFO - Scraper stopped by user
+2025-08-04 19:07:25,316 - INFO - Starting Nuvama sector data scraper with 30-minute refresh
+2025-08-04 19:07:25,316 - INFO - Running Nuvama sector data scraper job at 2025-08-04 19:07:25
+2025-08-04 19:07:25,316 - INFO - Setting up Chrome driver...
+2025-08-04 19:07:25,316 - INFO - ====== WebDriver manager ======
+2025-08-04 19:07:27,855 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-04 19:07:28,040 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-04 19:07:28,071 - INFO - There is no [win64] chromedriver "138.0.7204.183" for browser google-chrome "138.0.7204" in cache
+2025-08-04 19:07:28,071 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-04 19:07:28,318 - INFO - WebDriver version 138.0.7204.183 selected
+2025-08-04 19:07:28,332 - INFO - Modern chrome version https://storage.googleapis.com/chrome-for-testing-public/138.0.7204.183/win32/chromedriver-win32.zip
+2025-08-04 19:07:28,332 - INFO - About to download new driver from https://storage.googleapis.com/chrome-for-testing-public/138.0.7204.183/win32/chromedriver-win32.zip
+2025-08-04 19:07:28,404 - INFO - Driver downloading response is 200
+2025-08-04 19:07:33,399 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-04 19:07:34,385 - INFO - Driver has been saved in cache [C:\Users\PC\.wdm\drivers\chromedriver\win64\138.0.7204.183]
+2025-08-04 19:07:36,900 - INFO - Navigating to https://www.nuvamawealth.com/market/stock-market-index/#key-indices
+2025-08-04 19:07:48,434 - INFO - Waiting for page to load...
+2025-08-04 19:08:06,008 - INFO - Refreshed page to get latest data
+2025-08-04 19:08:16,059 - WARNING - Could not click on SECTOR INDICES tab: Message: no such element: Unable to locate element: {"method":"xpath","selector":"//a[text()='SECTOR INDICES']"}
+  (Session info: chrome=138.0.7204.184); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#nosuchelementexception
+Stacktrace:
+	GetHandleVerifier [0x0x6cba83+63395]
+	GetHandleVerifier [0x0x6cbac4+63460]
+	(No symbol) [0x0x512113]
+	(No symbol) [0x0x55a85e]
+	(No symbol) [0x0x55abfb]
+	(No symbol) [0x0x5a2f92]
+	(No symbol) [0x0x57f3f4]
+	(No symbol) [0x0x5a07ba]
+	(No symbol) [0x0x57f1a6]
+	(No symbol) [0x0x54e7b2]
+	(No symbol) [0x0x54f654]
+	GetHandleVerifier [0x0x948883+2672035]
+	GetHandleVerifier [0x0x943cba+2652634]
+	GetHandleVerifier [0x0x6f2bca+223466]
+	GetHandleVerifier [0x0x6e2cb8+158168]
+	GetHandleVerifier [0x0x6e978d+185517]
+	GetHandleVerifier [0x0x6d3b78+96408]
+	GetHandleVerifier [0x0x6d3d02+96802]
+	GetHandleVerifier [0x0x6be90a+9770]
+	BaseThreadInitThunk [0x0x750c5d49+25]
+	RtlInitializeExceptionChain [0x0x7752d2fb+107]
+	RtlGetAppContainerNamedObjectPath [0x0x7752d281+561]
+
+2025-08-04 19:08:16,076 - WARNING - Could not click on second tab: Message: no such element: Unable to locate element: {"method":"css selector","selector":".tab-links li:nth-child(2) a"}
+  (Session info: chrome=138.0.7204.184); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#nosuchelementexception
+Stacktrace:
+	GetHandleVerifier [0x0x6cba83+63395]
+	GetHandleVerifier [0x0x6cbac4+63460]
+	(No symbol) [0x0x512113]
+	(No symbol) [0x0x55a85e]
+	(No symbol) [0x0x55abfb]
+	(No symbol) [0x0x5a2f92]
+	(No symbol) [0x0x57f3f4]
+	(No symbol) [0x0x5a07ba]
+	(No symbol) [0x0x57f1a6]
+	(No symbol) [0x0x54e7b2]
+	(No symbol) [0x0x54f654]
+	GetHandleVerifier [0x0x948883+2672035]
+	GetHandleVerifier [0x0x943cba+2652634]
+	GetHandleVerifier [0x0x6f2bca+223466]
+	GetHandleVerifier [0x0x6e2cb8+158168]
+	GetHandleVerifier [0x0x6e978d+185517]
+	GetHandleVerifier [0x0x6d3b78+96408]
+	GetHandleVerifier [0x0x6d3d02+96802]
+	GetHandleVerifier [0x0x6be90a+9770]
+	BaseThreadInitThunk [0x0x750c5d49+25]
+	RtlInitializeExceptionChain [0x0x7752d2fb+107]
+	RtlGetAppContainerNamedObjectPath [0x0x7752d281+561]
+
+2025-08-04 19:08:16,478 - INFO - Saved screenshot of sector tab
+2025-08-04 19:08:16,489 - INFO - Found 0 tables on page
+2025-08-04 19:08:18,735 - ERROR - No sector data found in the table
+2025-08-04 19:08:18,735 - ERROR - Failed to scrape sector data
+2025-08-04 19:09:19,082 - INFO - Running Nuvama sector data scraper job at 2025-08-04 19:09:19
+2025-08-04 19:09:19,082 - INFO - Setting up Chrome driver...
+2025-08-04 19:09:19,083 - INFO - ====== WebDriver manager ======
+2025-08-04 19:09:20,280 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-04 19:09:20,350 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-04 19:09:20,410 - INFO - Driver [C:\Users\PC\.wdm\drivers\chromedriver\win64\138.0.7204.183\chromedriver-win32/chromedriver.exe] found in cache
+2025-08-04 19:09:21,532 - INFO - Navigating to https://www.nuvamawealth.com/market/stock-market-index/#key-indices
+2025-08-04 19:09:25,462 - INFO - Waiting for page to load...
+2025-08-04 19:09:43,436 - INFO - Refreshed page to get latest data
+2025-08-04 19:09:53,530 - WARNING - Could not click on SECTOR INDICES tab: Message: no such element: Unable to locate element: {"method":"xpath","selector":"//a[text()='SECTOR INDICES']"}
+  (Session info: chrome=138.0.7204.184); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#nosuchelementexception
+Stacktrace:
+	GetHandleVerifier [0x0x6cba83+63395]
+	GetHandleVerifier [0x0x6cbac4+63460]
+	(No symbol) [0x0x512113]
+	(No symbol) [0x0x55a85e]
+	(No symbol) [0x0x55abfb]
+	(No symbol) [0x0x5a2f92]
+	(No symbol) [0x0x57f3f4]
+	(No symbol) [0x0x5a07ba]
+	(No symbol) [0x0x57f1a6]
+	(No symbol) [0x0x54e7b2]
+	(No symbol) [0x0x54f654]
+	GetHandleVerifier [0x0x948883+2672035]
+	GetHandleVerifier [0x0x943cba+2652634]
+	GetHandleVerifier [0x0x6f2bca+223466]
+	GetHandleVerifier [0x0x6e2cb8+158168]
+	GetHandleVerifier [0x0x6e978d+185517]
+	GetHandleVerifier [0x0x6d3b78+96408]
+	GetHandleVerifier [0x0x6d3d02+96802]
+	GetHandleVerifier [0x0x6be90a+9770]
+	BaseThreadInitThunk [0x0x750c5d49+25]
+	RtlInitializeExceptionChain [0x0x7752d2fb+107]
+	RtlGetAppContainerNamedObjectPath [0x0x7752d281+561]
+
+2025-08-04 19:09:53,553 - WARNING - Could not click on second tab: Message: no such element: Unable to locate element: {"method":"css selector","selector":".tab-links li:nth-child(2) a"}
+  (Session info: chrome=138.0.7204.184); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#nosuchelementexception
+Stacktrace:
+	GetHandleVerifier [0x0x6cba83+63395]
+	GetHandleVerifier [0x0x6cbac4+63460]
+	(No symbol) [0x0x512113]
+	(No symbol) [0x0x55a85e]
+	(No symbol) [0x0x55abfb]
+	(No symbol) [0x0x5a2f92]
+	(No symbol) [0x0x57f3f4]
+	(No symbol) [0x0x5a07ba]
+	(No symbol) [0x0x57f1a6]
+	(No symbol) [0x0x54e7b2]
+	(No symbol) [0x0x54f654]
+	GetHandleVerifier [0x0x948883+2672035]
+	GetHandleVerifier [0x0x943cba+2652634]
+	GetHandleVerifier [0x0x6f2bca+223466]
+	GetHandleVerifier [0x0x6e2cb8+158168]
+	GetHandleVerifier [0x0x6e978d+185517]
+	GetHandleVerifier [0x0x6d3b78+96408]
+	GetHandleVerifier [0x0x6d3d02+96802]
+	GetHandleVerifier [0x0x6be90a+9770]
+	BaseThreadInitThunk [0x0x750c5d49+25]
+	RtlInitializeExceptionChain [0x0x7752d2fb+107]
+	RtlGetAppContainerNamedObjectPath [0x0x7752d281+561]
+
+2025-08-04 19:09:53,843 - INFO - Saved screenshot of sector tab
+2025-08-04 19:09:53,865 - INFO - Found 0 tables on page
+2025-08-04 19:09:56,001 - ERROR - No sector data found in the table
+2025-08-04 19:09:56,001 - ERROR - Failed to scrape sector data
+2025-08-04 19:10:56,347 - INFO - Running Nuvama sector data scraper job at 2025-08-04 19:10:56
+2025-08-04 19:10:56,347 - INFO - Setting up Chrome driver...
+2025-08-04 19:10:56,348 - INFO - ====== WebDriver manager ======
+2025-08-04 19:10:57,538 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-04 19:10:57,585 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-04 19:10:57,640 - INFO - Driver [C:\Users\PC\.wdm\drivers\chromedriver\win64\138.0.7204.183\chromedriver-win32/chromedriver.exe] found in cache
+2025-08-04 19:10:58,729 - INFO - Navigating to https://www.nuvamawealth.com/market/stock-market-index/#key-indices
+2025-08-04 19:11:02,486 - INFO - Waiting for page to load...
+2025-08-04 19:11:19,329 - INFO - Refreshed page to get latest data
+2025-08-04 19:11:29,353 - WARNING - Could not click on SECTOR INDICES tab: Message: no such element: Unable to locate element: {"method":"xpath","selector":"//a[text()='SECTOR INDICES']"}
+  (Session info: chrome=138.0.7204.184); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#nosuchelementexception
+Stacktrace:
+	GetHandleVerifier [0x0x6cba83+63395]
+	GetHandleVerifier [0x0x6cbac4+63460]
+	(No symbol) [0x0x512113]
+	(No symbol) [0x0x55a85e]
+	(No symbol) [0x0x55abfb]
+	(No symbol) [0x0x5a2f92]
+	(No symbol) [0x0x57f3f4]
+	(No symbol) [0x0x5a07ba]
+	(No symbol) [0x0x57f1a6]
+	(No symbol) [0x0x54e7b2]
+	(No symbol) [0x0x54f654]
+	GetHandleVerifier [0x0x948883+2672035]
+	GetHandleVerifier [0x0x943cba+2652634]
+	GetHandleVerifier [0x0x6f2bca+223466]
+	GetHandleVerifier [0x0x6e2cb8+158168]
+	GetHandleVerifier [0x0x6e978d+185517]
+	GetHandleVerifier [0x0x6d3b78+96408]
+	GetHandleVerifier [0x0x6d3d02+96802]
+	GetHandleVerifier [0x0x6be90a+9770]
+	BaseThreadInitThunk [0x0x750c5d49+25]
+	RtlInitializeExceptionChain [0x0x7752d2fb+107]
+	RtlGetAppContainerNamedObjectPath [0x0x7752d281+561]
+
+2025-08-04 19:11:29,365 - WARNING - Could not click on second tab: Message: no such element: Unable to locate element: {"method":"css selector","selector":".tab-links li:nth-child(2) a"}
+  (Session info: chrome=138.0.7204.184); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#nosuchelementexception
+Stacktrace:
+	GetHandleVerifier [0x0x6cba83+63395]
+	GetHandleVerifier [0x0x6cbac4+63460]
+	(No symbol) [0x0x512113]
+	(No symbol) [0x0x55a85e]
+	(No symbol) [0x0x55abfb]
+	(No symbol) [0x0x5a2f92]
+	(No symbol) [0x0x57f3f4]
+	(No symbol) [0x0x5a07ba]
+	(No symbol) [0x0x57f1a6]
+	(No symbol) [0x0x54e7b2]
+	(No symbol) [0x0x54f654]
+	GetHandleVerifier [0x0x948883+2672035]
+	GetHandleVerifier [0x0x943cba+2652634]
+	GetHandleVerifier [0x0x6f2bca+223466]
+	GetHandleVerifier [0x0x6e2cb8+158168]
+	GetHandleVerifier [0x0x6e978d+185517]
+	GetHandleVerifier [0x0x6d3b78+96408]
+	GetHandleVerifier [0x0x6d3d02+96802]
+	GetHandleVerifier [0x0x6be90a+9770]
+	BaseThreadInitThunk [0x0x750c5d49+25]
+	RtlInitializeExceptionChain [0x0x7752d2fb+107]
+	RtlGetAppContainerNamedObjectPath [0x0x7752d281+561]
+
+2025-08-04 19:11:29,671 - INFO - Saved screenshot of sector tab
+2025-08-04 19:11:29,682 - INFO - Found 0 tables on page
+2025-08-04 19:11:31,847 - ERROR - No sector data found in the table
+2025-08-04 19:11:31,848 - ERROR - Failed to scrape sector data
+2025-08-04 19:12:32,289 - INFO - Running Nuvama sector data scraper job at 2025-08-04 19:12:32
+2025-08-04 19:12:32,289 - INFO - Setting up Chrome driver...
+2025-08-04 19:12:32,289 - INFO - ====== WebDriver manager ======
+2025-08-04 19:12:33,603 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-04 19:12:33,669 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-04 19:12:33,725 - INFO - Driver [C:\Users\PC\.wdm\drivers\chromedriver\win64\138.0.7204.183\chromedriver-win32/chromedriver.exe] found in cache
+2025-08-04 19:12:34,898 - INFO - Navigating to https://www.nuvamawealth.com/market/stock-market-index/#key-indices
+2025-08-04 19:12:39,052 - INFO - Waiting for page to load...
+2025-08-04 19:12:55,891 - INFO - Refreshed page to get latest data
+2025-08-04 19:13:05,956 - WARNING - Could not click on SECTOR INDICES tab: Message: no such element: Unable to locate element: {"method":"xpath","selector":"//a[text()='SECTOR INDICES']"}
+  (Session info: chrome=138.0.7204.184); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#nosuchelementexception
+Stacktrace:
+	GetHandleVerifier [0x0x6cba83+63395]
+	GetHandleVerifier [0x0x6cbac4+63460]
+	(No symbol) [0x0x512113]
+	(No symbol) [0x0x55a85e]
+	(No symbol) [0x0x55abfb]
+	(No symbol) [0x0x5a2f92]
+	(No symbol) [0x0x57f3f4]
+	(No symbol) [0x0x5a07ba]
+	(No symbol) [0x0x57f1a6]
+	(No symbol) [0x0x54e7b2]
+	(No symbol) [0x0x54f654]
+	GetHandleVerifier [0x0x948883+2672035]
+	GetHandleVerifier [0x0x943cba+2652634]
+	GetHandleVerifier [0x0x6f2bca+223466]
+	GetHandleVerifier [0x0x6e2cb8+158168]
+	GetHandleVerifier [0x0x6e978d+185517]
+	GetHandleVerifier [0x0x6d3b78+96408]
+	GetHandleVerifier [0x0x6d3d02+96802]
+	GetHandleVerifier [0x0x6be90a+9770]
+	BaseThreadInitThunk [0x0x750c5d49+25]
+	RtlInitializeExceptionChain [0x0x7752d2fb+107]
+	RtlGetAppContainerNamedObjectPath [0x0x7752d281+561]
+
+2025-08-04 19:13:05,986 - WARNING - Could not click on second tab: Message: no such element: Unable to locate element: {"method":"css selector","selector":".tab-links li:nth-child(2) a"}
+  (Session info: chrome=138.0.7204.184); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#nosuchelementexception
+Stacktrace:
+	GetHandleVerifier [0x0x6cba83+63395]
+	GetHandleVerifier [0x0x6cbac4+63460]
+	(No symbol) [0x0x512113]
+	(No symbol) [0x0x55a85e]
+	(No symbol) [0x0x55abfb]
+	(No symbol) [0x0x5a2f92]
+	(No symbol) [0x0x57f3f4]
+	(No symbol) [0x0x5a07ba]
+	(No symbol) [0x0x57f1a6]
+	(No symbol) [0x0x54e7b2]
+	(No symbol) [0x0x54f654]
+	GetHandleVerifier [0x0x948883+2672035]
+	GetHandleVerifier [0x0x943cba+2652634]
+	GetHandleVerifier [0x0x6f2bca+223466]
+	GetHandleVerifier [0x0x6e2cb8+158168]
+	GetHandleVerifier [0x0x6e978d+185517]
+	GetHandleVerifier [0x0x6d3b78+96408]
+	GetHandleVerifier [0x0x6d3d02+96802]
+	GetHandleVerifier [0x0x6be90a+9770]
+	BaseThreadInitThunk [0x0x750c5d49+25]
+	RtlInitializeExceptionChain [0x0x7752d2fb+107]
+	RtlGetAppContainerNamedObjectPath [0x0x7752d281+561]
+
+2025-08-04 19:13:06,280 - INFO - Saved screenshot of sector tab
+2025-08-04 19:13:06,292 - INFO - Found 0 tables on page
+2025-08-04 19:13:08,430 - ERROR - No sector data found in the table
+2025-08-04 19:13:08,430 - ERROR - Failed to scrape sector data
+2025-08-04 19:13:49,555 - INFO - Scraper stopped by user

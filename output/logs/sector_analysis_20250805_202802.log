@@ -1,0 +1,36 @@
+2025-08-05 20:28:02,620 - INFO: Starting sector-based stock analysis with CONTRARIAN logic + FRESH NEWS filtering + SHARING - 2025-08-05
+2025-08-05 20:28:29,957 - INFO: Fetched 215 unique articles from RSS + Web + Fallback
+2025-08-05 20:29:02,708 - INFO: Fetched 215 unique articles from RSS + Web + Fallback
+2025-08-05 20:29:23,789 - WARNING: 5 out of the last 11 calls to <function TensorFlowTrainer.make_predict_function.<locals>.one_step_on_data_distributed at 0x000001E846BA3D90> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has reduce_retracing=True option that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/guide/function#controlling_retracing and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+2025-08-05 20:29:24,378 - WARNING: 5 out of the last 11 calls to <function TensorFlowTrainer.make_predict_function.<locals>.one_step_on_data_distributed at 0x000001E846BA3D90> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has reduce_retracing=True option that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/guide/function#controlling_retracing and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+2025-08-05 20:29:29,626 - INFO: Fetched 215 unique articles from RSS + Web + Fallback
+2025-08-05 20:29:57,816 - INFO: Fetched 215 unique articles from RSS + Web + Fallback
+2025-08-05 20:30:32,157 - INFO: Fetched 215 unique articles from RSS + Web + Fallback
+2025-08-05 20:30:55,889 - INFO: Fetched 215 unique articles from RSS + Web + Fallback
+2025-08-05 20:31:26,143 - INFO: Fetched 215 unique articles from RSS + Web + Fallback
+2025-08-05 20:31:55,253 - INFO: Fetched 215 unique articles from RSS + Web + Fallback
+2025-08-05 20:32:25,235 - INFO: Fetched 215 unique articles from RSS + Web + Fallback
+2025-08-05 20:32:53,163 - INFO: Fetched 215 unique articles from RSS + Web + Fallback
+2025-08-05 20:33:22,203 - INFO: Fetched 215 unique articles from RSS + Web + Fallback
+2025-08-05 20:33:52,385 - INFO: Fetched 214 unique articles from RSS + Web + Fallback
+2025-08-05 20:34:21,063 - INFO: Fetched 214 unique articles from RSS + Web + Fallback
+2025-08-05 20:34:51,099 - INFO: Fetched 214 unique articles from RSS + Web + Fallback
+2025-08-05 20:35:20,235 - INFO: Fetched 214 unique articles from RSS + Web + Fallback
+2025-08-05 20:35:55,363 - INFO: Fetched 215 unique articles from RSS + Web + Fallback
+2025-08-05 20:36:23,336 - INFO: Fetched 215 unique articles from RSS + Web + Fallback
+2025-08-05 20:36:53,782 - INFO: Fetched 215 unique articles from RSS + Web + Fallback
+2025-08-05 20:37:20,804 - INFO: Fetched 215 unique articles from RSS + Web + Fallback
+2025-08-05 20:37:48,491 - INFO: Fetched 215 unique articles from RSS + Web + Fallback
+2025-08-05 20:37:49,520 - ERROR: Error saving results: Object of type datetime is not JSON serializable
+2025-08-06 08:59:35,498 - INFO: 
+--- Analysis Summary ---
+2025-08-06 08:59:35,498 - INFO: Total Stocks Analyzed: 20
+2025-08-06 08:59:35,498 - INFO: Successfully Analyzed: 20
+2025-08-06 08:59:35,498 - INFO: Failed Analyses: 0
+2025-08-06 08:59:35,498 - INFO: Model agreement rate: 14 (70.0%)
+2025-08-06 08:59:35,498 - INFO: Stocks with sentiment enhancement: 13 (65.0%)
+2025-08-06 08:59:35,498 - INFO: Stocks with contrarian logic applied: 0 (0.0%)
+2025-08-06 08:59:35,498 - INFO: Stocks with fresh news data: 13 (65.0%)
+2025-08-06 08:59:35,498 - INFO: Stocks with ARIMA-LSTM agreement: 14 (70.0%)
+2025-08-06 08:59:35,498 - INFO: Top BUY recommendations: 7
+2025-08-06 08:59:35,498 - INFO: Top SELL recommendations: 7

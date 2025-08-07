@@ -1,0 +1,2948 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Dual Sentiment Sector Analysis - 2025-08-06</title>
+        <style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+                margin: 0;
+                padding: 20px;
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                min-height: 100vh;
+            }
+            .container {
+                max-width: 1600px;
+                margin: 0 auto;
+                background-color: white;
+                padding: 30px;
+                border-radius: 15px;
+                box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            }
+            .header {
+                text-align: center;
+                margin-bottom: 40px;
+                padding: 30px;
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                color: white;
+                border-radius: 15px;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            }
+            .header h1 {
+                margin: 0 0 10px 0;
+                font-size: 2.5em;
+                font-weight: 700;
+            }
+            .dual-sentiment-banner {
+                background: linear-gradient(145deg, #28a745, #20c997);
+                color: white;
+                padding: 15px;
+                border-radius: 10px;
+                text-align: center;
+                margin: 20px 0;
+                font-weight: bold;
+            }
+            .summary-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                gap: 25px;
+                margin-bottom: 40px;
+            }
+            .summary-card {
+                background: linear-gradient(145deg, #f8f9fa, #e9ecef);
+                padding: 25px;
+                border-radius: 15px;
+                border-left: 5px solid #007bff;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+                transition: transform 0.3s ease;
+            }
+            .summary-card:hover {
+                transform: translateY(-5px);
+            }
+            .summary-card h3 {
+                margin: 0 0 15px 0;
+                color: #333;
+                font-size: 1.1em;
+            }
+            .summary-card .value {
+                font-size: 2.2em;
+                font-weight: bold;
+                color: #007bff;
+                margin-bottom: 5px;
+            }
+            .sector-section {
+                margin: 40px 0;
+                padding: 30px;
+                border: 2px solid #e9ecef;
+                border-radius: 15px;
+                background: linear-gradient(145deg, #ffffff, #f8f9fa);
+                box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            }
+            .sector-header {
+                margin-bottom: 25px;
+                padding: 20px;
+                background: linear-gradient(135deg, #28a745, #20c997);
+                color: white;
+                border-radius: 10px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+            .sector-header h2 {
+                margin: 0;
+                font-size: 1.8em;
+                font-weight: 600;
+            }
+            .recommendation-group {
+                margin: 25px 0;
+            }
+            .recommendation-header {
+                margin-bottom: 15px;
+                padding: 15px;
+                border-radius: 8px;
+                font-weight: bold;
+                font-size: 1.1em;
+            }
+            .buy-header {
+                background: linear-gradient(145deg, #d4edda, #c3e6cb);
+                color: #155724;
+                border-left: 5px solid #28a745;
+            }
+            .sell-header {
+                background: linear-gradient(145deg, #f8d7da, #f5c6cb);
+                color: #721c24;
+                border-left: 5px solid #dc3545;
+            }
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                margin: 15px 0;
+                background: white;
+                border-radius: 10px;
+                overflow: hidden;
+                box-shadow: 0 3px 10px rgba(0,0,0,0.06);
+                font-size: 0.85em;
+            }
+            th, td {
+                padding: 8px;
+                text-align: left;
+                border-bottom: 1px solid #e9ecef;
+            }
+            th {
+                background: linear-gradient(145deg, #f8f9fa, #e9ecef);
+                font-weight: 600;
+                color: #333;
+                font-size: 0.8em;
+            }
+            tr:hover {
+                background-color: #f8f9fa;
+            }
+            .buy { color: #28a745; font-weight: bold; }
+            .strong-buy { color: #155724; font-weight: bold; background: #d4edda; padding: 2px 6px; border-radius: 4px; }
+            .sell { color: #dc3545; font-weight: bold; }
+            .strong-sell { color: #721c24; font-weight: bold; background: #f8d7da; padding: 2px 6px; border-radius: 4px; }
+            .hold { color: #6c757d; font-weight: bold; }
+            
+            /* Dual sentiment column styling */
+            .momentum-buy, .momentum-strong-buy { color: #28a745; font-weight: 600; }
+            .momentum-sell, .momentum-strong-sell { color: #dc3545; font-weight: 600; }
+            .momentum-hold, .momentum-no_data { color: #6c757d; font-weight: 500; }
+            
+            .contrarian-buy, .contrarian-strong-buy { color: #28a745; font-weight: 600; }
+            .contrarian-sell, .contrarian-strong-sell { color: #dc3545; font-weight: 600; }
+            .contrarian-hold, .contrarian-no_data { color: #6c757d; font-weight: 500; }
+            
+            .enhancement-badge {
+                font-size: 9px;
+                padding: 2px 5px;
+                border-radius: 6px;
+                font-weight: bold;
+                text-transform: uppercase;
+            }
+            .all-agree-buy, .all-agree-sell { background: #28a745; color: white; }
+            .partial-agree-buy, .partial-agree-sell { background: #ffc107; color: #856404; }
+            .technical-only { background: #6c757d; color: white; }
+            .sentiment-disagree { background: #fd7e14; color: white; }
+            .no-sentiment-data { background: #e9ecef; color: #6c757d; }
+            
+            .footer {
+                text-align: center;
+                margin-top: 40px;
+                padding: 25px;
+                background: linear-gradient(145deg, #f8f9fa, #e9ecef);
+                border-radius: 15px;
+                border: 1px solid #dee2e6;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="header">
+                <h1>🏭 Dual Sentiment Sector Analysis</h1>
+                <p><strong>Technical Analysis + Momentum + Contrarian Strategies</strong></p>
+                <p>Generated: 2025-08-06 22:23:16</p>
+                <p>Technical drives decisions, sentiment enhances strength</p>
+            </div>
+            
+            <div class="dual-sentiment-banner">
+                📊 DUAL SENTIMENT STRATEGY: Technical analysis drives BUY/SELL decisions<br>
+                🚀 Momentum Column: Follow the trend | 🔄 Contrarian Column: Fade the move<br>
+                ⚡ Enhancement: All three agree → STRONG recommendations
+            </div>
+            
+            <div class="summary-grid">
+                <div class="summary-card">
+                    <h3>📈 Total Stocks Analyzed</h3>
+                    <div class="value">224</div>
+                    <div class="subtitle">Complete analysis attempted</div>
+                </div>
+                <div class="summary-card">
+                    <h3>🎯 Models Agree</h3>
+                    <div class="value">164</div>
+                    <div class="subtitle">ARIMA & LSTM agree on direction</div>
+                </div>
+                <div class="summary-card">
+                    <h3>📰 Dual Sentiment Enhanced</h3>
+                    <div class="value">163</div>
+                    <div class="subtitle">With momentum + contrarian analysis</div>
+                </div>
+                <div class="summary-card">
+                    <h3>⚡ Enhanced to STRONG</h3>
+                    <div class="value">61</div>
+                    <div class="subtitle">All strategies agree</div>
+                </div>
+            </div>
+    
+            <div class="sector-section">
+                <div class="sector-header">
+                    <h2>🏭 NIFTY_PHARMA</h2>
+                    <div class="sector-performance">+4.37%</div>
+                </div>
+                <p><strong>Total Stocks with Model Agreement:</strong> 13</p>
+        
+                <div class="recommendation-group">
+                    <div class="recommendation-header buy-header">
+                        🚀 BUY/STRONG BUY Recommendations (13 stocks)
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Ticker</th>
+                                <th>Company</th>
+                                <th>Price</th>
+                                <th>Change%</th>
+                                <th>Technical</th>
+                                <th>Final</th>
+                                <th>Confidence</th>
+                                <th>🚀 Momentum</th>
+                                <th>🔄 Contrarian</th>
+                                <th>Enhancement</th>
+                                <th>News</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+            
+                            <tr>
+                                <td><strong>LAURUSLABS.NS</strong></td>
+                                <td>Lauruslabs...</td>
+                                <td>₹836</td>
+                                <td class="buy">7.3%</td>
+                                <td>STRONG BUY</td>
+                                <td class="strong-strong-buy">STRONG BUY</td>
+                                <td>95%</td>
+                                <td class="momentum-strong-buy">STRONG BUY</td>
+                                <td class="contrarian-strong-sell">STRONG SELL</td>
+                                <td><span class="enhancement-badge partial-agree-buy">Partial </span></td>
+                                <td>7 articles</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>GRANULES.NS</strong></td>
+                                <td>Granules...</td>
+                                <td>₹439</td>
+                                <td class="buy">6.8%</td>
+                                <td>STRONG BUY</td>
+                                <td class="strong-strong-buy">STRONG BUY</td>
+                                <td>95%</td>
+                                <td class="momentum-strong-buy">STRONG BUY</td>
+                                <td class="contrarian-strong-sell">STRONG SELL</td>
+                                <td><span class="enhancement-badge partial-agree-buy">Partial </span></td>
+                                <td>15 articles</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>DIVISLAB.NS</strong></td>
+                                <td>Divislab...</td>
+                                <td>₹6,134</td>
+                                <td class="buy">6.0%</td>
+                                <td>STRONG BUY</td>
+                                <td class="strong-strong-buy">STRONG BUY</td>
+                                <td>95%</td>
+                                <td class="momentum-hold">HOLD</td>
+                                <td class="contrarian-hold">HOLD</td>
+                                <td><span class="enhancement-badge sentiment-disagree">Sentimen</span></td>
+                                <td>7 articles</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>SUNPHARMA.NS</strong></td>
+                                <td>Sunpharma...</td>
+                                <td>₹1,595</td>
+                                <td class="buy">5.2%</td>
+                                <td>STRONG BUY</td>
+                                <td class="strong-strong-buy">STRONG BUY</td>
+                                <td>95%</td>
+                                <td class="momentum-buy">BUY</td>
+                                <td class="contrarian-sell">SELL</td>
+                                <td><span class="enhancement-badge partial-agree-buy">Partial </span></td>
+                                <td>2 articles</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>LUPIN.NS</strong></td>
+                                <td>Lupin...</td>
+                                <td>₹1,852</td>
+                                <td class="buy">5.0%</td>
+                                <td>STRONG BUY</td>
+                                <td class="strong-strong-buy">STRONG BUY</td>
+                                <td>90%</td>
+                                <td class="momentum-strong-sell">STRONG SELL</td>
+                                <td class="contrarian-strong-buy">STRONG BUY</td>
+                                <td><span class="enhancement-badge partial-agree-buy">Partial </span></td>
+                                <td>14 articles</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>BIOCON.NS</strong></td>
+                                <td>Biocon...</td>
+                                <td>₹360</td>
+                                <td class="buy">5.0%</td>
+                                <td>STRONG BUY</td>
+                                <td class="strong-strong-buy">STRONG BUY</td>
+                                <td>90%</td>
+                                <td class="momentum-strong-buy">STRONG BUY</td>
+                                <td class="contrarian-strong-sell">STRONG SELL</td>
+                                <td><span class="enhancement-badge partial-agree-buy">Partial </span></td>
+                                <td>14 articles</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>ZYDUSLIFE.NS</strong></td>
+                                <td>Zyduslife...</td>
+                                <td>₹933</td>
+                                <td class="buy">4.5%</td>
+                                <td>STRONG BUY</td>
+                                <td class="strong-strong-buy">STRONG BUY</td>
+                                <td>90%</td>
+                                <td class="momentum-strong-buy">STRONG BUY</td>
+                                <td class="contrarian-strong-sell">STRONG SELL</td>
+                                <td><span class="enhancement-badge partial-agree-buy">Partial </span></td>
+                                <td>15 articles</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>DRREDDY.NS</strong></td>
+                                <td>Drreddy...</td>
+                                <td>₹1,197</td>
+                                <td class="buy">4.3%</td>
+                                <td>STRONG BUY</td>
+                                <td class="strong-strong-buy">STRONG BUY</td>
+                                <td>90%</td>
+                                <td class="momentum-strong-buy">STRONG BUY</td>
+                                <td class="contrarian-strong-sell">STRONG SELL</td>
+                                <td><span class="enhancement-badge partial-agree-buy">Partial </span></td>
+                                <td>3 articles</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>AUROPHARMA.NS</strong></td>
+                                <td>Auropharma...</td>
+                                <td>₹1,072</td>
+                                <td class="buy">3.4%</td>
+                                <td>STRONG BUY</td>
+                                <td class="strong-strong-buy">STRONG BUY</td>
+                                <td>90%</td>
+                                <td class="momentum-strong-buy">STRONG BUY</td>
+                                <td class="contrarian-strong-sell">STRONG SELL</td>
+                                <td><span class="enhancement-badge partial-agree-buy">Partial </span></td>
+                                <td>5 articles</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>CIPLA.NS</strong></td>
+                                <td>Cipla...</td>
+                                <td>₹1,487</td>
+                                <td class="buy">2.9%</td>
+                                <td>BUY</td>
+                                <td class="buy">BUY</td>
+                                <td>85%</td>
+                                <td class="momentum-strong-sell">STRONG SELL</td>
+                                <td class="contrarian-strong-buy">STRONG BUY</td>
+                                <td><span class="enhancement-badge partial-agree-buy">Partial </span></td>
+                                <td>13 articles</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>TORNTPHARM.NS</strong></td>
+                                <td>Torntpharm...</td>
+                                <td>₹3,524</td>
+                                <td class="buy">2.4%</td>
+                                <td>BUY</td>
+                                <td class="buy">BUY</td>
+                                <td>85%</td>
+                                <td class="momentum-strong-buy">STRONG BUY</td>
+                                <td class="contrarian-strong-sell">STRONG SELL</td>
+                                <td><span class="enhancement-badge partial-agree-buy">Partial </span></td>
+                                <td>6 articles</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>GLENMARK.NS</strong></td>
+                                <td>Glenmark...</td>
+                                <td>₹2,026</td>
+                                <td class="buy">2.2%</td>
+                                <td>BUY</td>
+                                <td class="buy">BUY</td>
+                                <td>85%</td>
+                                <td class="momentum-strong-buy">STRONG BUY</td>
+                                <td class="contrarian-strong-sell">STRONG SELL</td>
+                                <td><span class="enhancement-badge partial-agree-buy">Partial </span></td>
+                                <td>14 articles</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>ALKEM.NS</strong></td>
+                                <td>Alkem...</td>
+                                <td>₹4,871</td>
+                                <td class="buy">2.0%</td>
+                                <td>BUY</td>
+                                <td class="buy">BUY</td>
+                                <td>85%</td>
+                                <td class="momentum-strong-sell">STRONG SELL</td>
+                                <td class="contrarian-strong-buy">STRONG BUY</td>
+                                <td><span class="enhancement-badge partial-agree-buy">Partial </span></td>
+                                <td>14 articles</td>
+                            </tr>
+                
+                        </tbody>
+                    </table>
+                </div>
+            
+            </div>
+        
+            <div class="sector-section">
+                <div class="sector-header">
+                    <h2>🏭 NIFTY_OIL_AND_GAS</h2>
+                    <div class="sector-performance">+3.16%</div>
+                </div>
+                <p><strong>Total Stocks with Model Agreement:</strong> 9</p>
+        
+                <div class="recommendation-group">
+                    <div class="recommendation-header buy-header">
+                        🚀 BUY/STRONG BUY Recommendations (9 stocks)
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Ticker</th>
+                                <th>Company</th>
+                                <th>Price</th>
+                                <th>Change%</th>
+                                <th>Technical</th>
+                                <th>Final</th>
+                                <th>Confidence</th>
+                                <th>🚀 Momentum</th>
+                                <th>🔄 Contrarian</th>
+                                <th>Enhancement</th>
+                                <th>News</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+            
+                            <tr>
+                                <td><strong>PETRONET.NS</strong></td>
+                                <td>Petronet...</td>
+                                <td>₹273</td>
+                                <td class="buy">5.6%</td>
+                                <td>STRONG BUY</td>
+                                <td class="strong-strong-buy">STRONG BUY</td>
+                                <td>95%</td>
+                                <td class="momentum-strong-sell">STRONG SELL</td>
+                                <td class="contrarian-strong-buy">STRONG BUY</td>
+                                <td><span class="enhancement-badge partial-agree-buy">Partial </span></td>
+                                <td>14 articles</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>ATGL.NS</strong></td>
+                                <td>Atgl...</td>
+                                <td>₹589</td>
+                                <td class="buy">5.1%</td>
+                                <td>STRONG BUY</td>
+                                <td class="strong-strong-buy">STRONG BUY</td>
+                                <td>95%</td>
+                                <td class="momentum-strong-buy">STRONG BUY</td>
+                                <td class="contrarian-strong-sell">STRONG SELL</td>
+                                <td><span class="enhancement-badge partial-agree-buy">Partial </span></td>
+                                <td>5 articles</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>GAIL.NS</strong></td>
+                                <td>Gail...</td>
+                                <td>₹170</td>
+                                <td class="buy">4.2%</td>
+                                <td>STRONG BUY</td>
+                                <td class="strong-strong-buy">STRONG BUY</td>
+                                <td>90%</td>
+                                <td class="momentum-strong-buy">STRONG BUY</td>
+                                <td class="contrarian-strong-sell">STRONG SELL</td>
+                                <td><span class="enhancement-badge partial-agree-buy">Partial </span></td>
+                                <td>15 articles</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>MGL.NS</strong></td>
+                                <td>Mgl...</td>
+                                <td>₹1,293</td>
+                                <td class="buy">4.0%</td>
+                                <td>STRONG BUY</td>
+                                <td class="strong-strong-buy">STRONG BUY</td>
+                                <td>90%</td>
+                                <td class="momentum-strong-sell">STRONG SELL</td>
+                                <td class="contrarian-strong-buy">STRONG BUY</td>
+                                <td><span class="enhancement-badge partial-agree-buy">Partial </span></td>
+                                <td>11 articles</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>HINDPETRO.NS</strong></td>
+                                <td>Hindpetro...</td>
+                                <td>₹401</td>
+                                <td class="buy">3.2%</td>
+                                <td>STRONG BUY</td>
+                                <td class="strong-strong-buy">STRONG BUY</td>
+                                <td>90%</td>
+                                <td class="momentum-strong-buy">STRONG BUY</td>
+                                <td class="contrarian-strong-sell">STRONG SELL</td>
+                                <td><span class="enhancement-badge partial-agree-buy">Partial </span></td>
+                                <td>5 articles</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>BPCL.NS</strong></td>
+                                <td>Bpcl...</td>
+                                <td>₹316</td>
+                                <td class="buy">1.9%</td>
+                                <td>BUY</td>
+                                <td class="buy">BUY</td>
+                                <td>85%</td>
+                                <td class="momentum-strong-buy">STRONG BUY</td>
+                                <td class="contrarian-strong-sell">STRONG SELL</td>
+                                <td><span class="enhancement-badge partial-agree-buy">Partial </span></td>
+                                <td>15 articles</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>RELIANCE.NS</strong></td>
+                                <td>Reliance...</td>
+                                <td>₹1,393</td>
+                                <td class="buy">1.7%</td>
+                                <td>BUY</td>
+                                <td class="buy">BUY</td>
+                                <td>85%</td>
+                                <td class="momentum-strong-sell">STRONG SELL</td>
+                                <td class="contrarian-strong-buy">STRONG BUY</td>
+                                <td><span class="enhancement-badge partial-agree-buy">Partial </span></td>
+                                <td>15 articles</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>ONGC.NS</strong></td>
+                                <td>Ongc...</td>
+                                <td>₹234</td>
+                                <td class="buy">1.5%</td>
+                                <td>BUY</td>
+                                <td class="buy">BUY</td>
+                                <td>85%</td>
+                                <td class="momentum-strong-sell">STRONG SELL</td>
+                                <td class="contrarian-strong-buy">STRONG BUY</td>
+                                <td><span class="enhancement-badge partial-agree-buy">Partial </span></td>
+                                <td>15 articles</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>JIOFIN.NS</strong></td>
+                                <td>Jiofin...</td>
+                                <td>₹327</td>
+                                <td class="buy">1.3%</td>
+                                <td>BUY</td>
+                                <td class="buy">BUY</td>
+                                <td>85%</td>
+                                <td class="momentum-strong-sell">STRONG SELL</td>
+                                <td class="contrarian-strong-buy">STRONG BUY</td>
+                                <td><span class="enhancement-badge partial-agree-buy">Partial </span></td>
+                                <td>3 articles</td>
+                            </tr>
+                
+                        </tbody>
+                    </table>
+                </div>
+            
+            </div>
+        
+            <div class="sector-section">
+                <div class="sector-header">
+                    <h2>🏭 NIFTY_IT</h2>
+                    <div class="sector-performance">+3.11%</div>
+                </div>
+                <p><strong>Total Stocks with Model Agreement:</strong> 8</p>
+        
+                <div class="recommendation-group">
+                    <div class="recommendation-header buy-header">
+                        🚀 BUY/STRONG BUY Recommendations (8 stocks)
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Ticker</th>
+                                <th>Company</th>
+                                <th>Price</th>
+                                <th>Change%</th>
+                                <th>Technical</th>
+                                <th>Final</th>
+                                <th>Confidence</th>
+                                <th>🚀 Momentum</th>
+                                <th>🔄 Contrarian</th>
+                                <th>Enhancement</th>
+                                <th>News</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+            
+                            <tr>
+                                <td><strong>COFORGE.NS</strong></td>
+                                <td>Coforge...</td>
+                                <td>₹1,638</td>
+                                <td class="buy">6.0%</td>
+                                <td>STRONG BUY</td>
+                                <td class="strong-strong-buy">STRONG BUY</td>
+                                <td>95%</td>
+                                <td class="momentum-sell">SELL</td>
+                                <td class="contrarian-buy">BUY</td>
+                                <td><span class="enhancement-badge partial-agree-buy">Partial </span></td>
+                                <td>14 articles</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>PERSISTENT.NS</strong></td>
+                                <td>Persistent...</td>
+                                <td>₹5,047</td>
+                                <td class="buy">4.1%</td>
+                                <td>STRONG BUY</td>
+                                <td class="strong-strong-buy">STRONG BUY</td>
+                                <td>90%</td>
+                                <td class="momentum-strong-sell">STRONG SELL</td>
+                                <td class="contrarian-strong-buy">STRONG BUY</td>
+                                <td><span class="enhancement-badge partial-agree-buy">Partial </span></td>
+                                <td>13 articles</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>INFY.NS</strong></td>
+                                <td>Infy...</td>
+                                <td>₹1,437</td>
+                                <td class="buy">4.0%</td>
+                                <td>STRONG BUY</td>
+                                <td class="strong-strong-buy">STRONG BUY</td>
+                                <td>90%</td>
+                                <td class="momentum-strong-sell">STRONG SELL</td>
+                                <td class="contrarian-strong-buy">STRONG BUY</td>
+                                <td><span class="enhancement-badge partial-agree-buy">Partial </span></td>
+                                <td>15 articles</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>MPHASIS.NS</strong></td>
+                                <td>Mphasis...</td>
+                                <td>₹2,654</td>
+                                <td class="buy">3.7%</td>
+                                <td>STRONG BUY</td>
+                                <td class="strong-strong-buy">STRONG BUY</td>
+                                <td>90%</td>
+                                <td class="momentum-strong-buy">STRONG BUY</td>
+                                <td class="contrarian-strong-sell">STRONG SELL</td>
+                                <td><span class="enhancement-badge partial-agree-buy">Partial </span></td>
+                                <td>13 articles</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>WIPRO.NS</strong></td>
+                                <td>Wipro...</td>
+                                <td>₹240</td>
+                                <td class="buy">3.4%</td>
+                                <td>STRONG BUY</td>
+                                <td class="strong-strong-buy">STRONG BUY</td>
+                                <td>90%</td>
+                                <td class="momentum-strong-sell">STRONG SELL</td>
+                                <td class="contrarian-strong-buy">STRONG BUY</td>
+                                <td><span class="enhancement-badge partial-agree-buy">Partial </span></td>
+                                <td>15 articles</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>LTIM.NS</strong></td>
+                                <td>Ltim...</td>
+                                <td>₹5,036</td>
+                                <td class="buy">1.4%</td>
+                                <td>BUY</td>
+                                <td class="buy">BUY</td>
+                                <td>85%</td>
+                                <td class="momentum-strong-sell">STRONG SELL</td>
+                                <td class="contrarian-strong-buy">STRONG BUY</td>
+                                <td><span class="enhancement-badge partial-agree-buy">Partial </span></td>
+                                <td>13 articles</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>HCLTECH.NS</strong></td>
+                                <td>Hcltech...</td>
+                                <td>₹1,463</td>
+                                <td class="buy">1.3%</td>
+                                <td>BUY</td>
+                                <td class="buy">BUY</td>
+                                <td>85%</td>
+                                <td class="momentum-strong-sell">STRONG SELL</td>
+                                <td class="contrarian-strong-buy">STRONG BUY</td>
+                                <td><span class="enhancement-badge partial-agree-buy">Partial </span></td>
+                                <td>15 articles</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>TCS.NS</strong></td>
+                                <td>Tcs...</td>
+                                <td>₹3,032</td>
+                                <td class="buy">1.0%</td>
+                                <td>BUY</td>
+                                <td class="buy">BUY</td>
+                                <td>85%</td>
+                                <td class="momentum-strong-sell">STRONG SELL</td>
+                                <td class="contrarian-strong-buy">STRONG BUY</td>
+                                <td><span class="enhancement-badge partial-agree-buy">Partial </span></td>
+                                <td>15 articles</td>
+                            </tr>
+                
+                        </tbody>
+                    </table>
+                </div>
+            
+            </div>
+        
+            <div class="sector-section">
+                <div class="sector-header">
+                    <h2>🏭 NIFTY_CONSUMER</h2>
+                    <div class="sector-performance">+2.59%</div>
+                </div>
+                <p><strong>Total Stocks with Model Agreement:</strong> 9</p>
+        
+                <div class="recommendation-group">
+                    <div class="recommendation-header buy-header">
+                        🚀 BUY/STRONG BUY Recommendations (7 stocks)
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Ticker</th>
+                                <th>Company</th>
+                                <th>Price</th>
+                                <th>Change%</th>
+                                <th>Technical</th>
+                                <th>Final</th>
+                                <th>Confidence</th>
+                                <th>🚀 Momentum</th>
+                                <th>🔄 Contrarian</th>
+                                <th>Enhancement</th>
+                                <th>News</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+            
+                            <tr>
+                                <td><strong>BRITANNIA.NS</strong></td>
+                                <td>Britannia...</td>
+                                <td>₹5,402</td>
+                                <td class="buy">5.8%</td>
+                                <td>STRONG BUY</td>
+                                <td class="strong-strong-buy">STRONG BUY</td>
+                                <td>95%</td>
+                                <td class="momentum-strong-buy">STRONG BUY</td>
+                                <td class="contrarian-strong-sell">STRONG SELL</td>
+                                <td><span class="enhancement-badge partial-agree-buy">Partial </span></td>
+                                <td>11 articles</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>VBL.NS</strong></td>
+                                <td>Vbl...</td>
+                                <td>₹499</td>
+                                <td class="buy">3.7%</td>
+                                <td>STRONG BUY</td>
+                                <td class="strong-strong-buy">STRONG BUY</td>
+                                <td>90%</td>
+                                <td class="momentum-sell">SELL</td>
+                                <td class="contrarian-buy">BUY</td>
+                                <td><span class="enhancement-badge partial-agree-buy">Partial </span></td>
+                                <td>7 articles</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>GODREJCP.NS</strong></td>
+                                <td>Godrejcp...</td>
+                                <td>₹1,203</td>
+                                <td class="buy">3.1%</td>
+                                <td>STRONG BUY</td>
+                                <td class="strong-strong-buy">STRONG BUY</td>
+                                <td>90%</td>
+                                <td class="momentum-strong-buy">STRONG BUY</td>
+                                <td class="contrarian-strong-sell">STRONG SELL</td>
+                                <td><span class="enhancement-badge partial-agree-buy">Partial </span></td>
+                                <td>4 articles</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>DABUR.NS</strong></td>
+                                <td>Dabur...</td>
+                                <td>₹514</td>
+                                <td class="buy">2.9%</td>
+                                <td>BUY</td>
+                                <td class="buy">BUY</td>
+                                <td>85%</td>
+                                <td class="momentum-strong-buy">STRONG BUY</td>
+                                <td class="contrarian-strong-sell">STRONG SELL</td>
+                                <td><span class="enhancement-badge partial-agree-buy">Partial </span></td>
+                                <td>15 articles</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>UNITDSPR.NS</strong></td>
+                                <td>Unitdspr...</td>
+                                <td>₹1,308</td>
+                                <td class="buy">2.6%</td>
+                                <td>BUY</td>
+                                <td class="buy">BUY</td>
+                                <td>85%</td>
+                                <td class="momentum-strong-buy">STRONG BUY</td>
+                                <td class="contrarian-strong-sell">STRONG SELL</td>
+                                <td><span class="enhancement-badge partial-agree-buy">Partial </span></td>
+                                <td>7 articles</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>TATACONSUM.NS</strong></td>
+                                <td>Tataconsum...</td>
+                                <td>₹1,053</td>
+                                <td class="buy">2.1%</td>
+                                <td>BUY</td>
+                                <td class="buy">BUY</td>
+                                <td>85%</td>
+                                <td class="momentum-strong-buy">STRONG BUY</td>
+                                <td class="contrarian-strong-sell">STRONG SELL</td>
+                                <td><span class="enhancement-badge partial-agree-buy">Partial </span></td>
+                                <td>1 articles</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>NESTLEIND.NS</strong></td>
+                                <td>Nestleind...</td>
+                                <td>₹2,233</td>
+                                <td class="buy">1.8%</td>
+                                <td>BUY</td>
+                                <td class="buy">BUY</td>
+                                <td>85%</td>
+                                <td class="momentum-strong-buy">STRONG BUY</td>
+                                <td class="contrarian-strong-sell">STRONG SELL</td>
+                                <td><span class="enhancement-badge partial-agree-buy">Partial </span></td>
+                                <td>10 articles</td>
+                            </tr>
+                
+                        </tbody>
+                    </table>
+                </div>
+            
+            </div>
+        
+            <div class="sector-section">
+                <div class="sector-header">
+                    <h2>🏭 NIFTY_REALTY</h2>
+                    <div class="sector-performance">+2.58%</div>
+                </div>
+                <p><strong>Total Stocks with Model Agreement:</strong> 4</p>
+        
+                <div class="recommendation-group">
+                    <div class="recommendation-header buy-header">
+                        🚀 BUY/STRONG BUY Recommendations (4 stocks)
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Ticker</th>
+                                <th>Company</th>
+                                <th>Price</th>
+                                <th>Change%</th>
+                                <th>Technical</th>
+                                <th>Final</th>
+                                <th>Confidence</th>
+                                <th>🚀 Momentum</th>
+                                <th>🔄 Contrarian</th>
+                                <th>Enhancement</th>
+                                <th>News</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+            
+                            <tr>
+                                <td><strong>GODREJPROP.NS</strong></td>
+                                <td>Godrejprop...</td>
+                                <td>₹2,062</td>
+                                <td class="buy">3.4%</td>
+                                <td>STRONG BUY</td>
+                                <td class="strong-strong-buy">STRONG BUY</td>
+                                <td>90%</td>
+                                <td class="momentum-strong-buy">STRONG BUY</td>
+                                <td class="contrarian-strong-sell">STRONG SELL</td>
+                                <td><span class="enhancement-badge partial-agree-buy">Partial </span></td>
+                                <td>4 articles</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>DLF.NS</strong></td>
+                                <td>Dlf...</td>
+                                <td>₹764</td>
+                                <td class="buy">3.4%</td>
+                                <td>STRONG BUY</td>
+                                <td class="strong-strong-buy">STRONG BUY</td>
+                                <td>90%</td>
+                                <td class="momentum-strong-buy">STRONG BUY</td>
+                                <td class="contrarian-strong-sell">STRONG SELL</td>
+                                <td><span class="enhancement-badge partial-agree-buy">Partial </span></td>
+                                <td>13 articles</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>PHOENIXLTD.NS</strong></td>
+                                <td>Phoenixltd...</td>
+                                <td>₹1,448</td>
+                                <td class="buy">2.3%</td>
+                                <td>BUY</td>
+                                <td class="buy">BUY</td>
+                                <td>85%</td>
+                                <td class="momentum-strong-buy">STRONG BUY</td>
+                                <td class="contrarian-strong-sell">STRONG SELL</td>
+                                <td><span class="enhancement-badge partial-agree-buy">Partial </span></td>
+                                <td>6 articles</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>LODHA.NS</strong></td>
+                                <td>Lodha...</td>
+                                <td>₹1,228</td>
+                                <td class="buy">1.2%</td>
+                                <td>BUY</td>
+                                <td class="buy">BUY</td>
+                                <td>85%</td>
+                                <td class="momentum-strong-sell">STRONG SELL</td>
+                                <td class="contrarian-strong-buy">STRONG BUY</td>
+                                <td><span class="enhancement-badge partial-agree-buy">Partial </span></td>
+                                <td>9 articles</td>
+                            </tr>
+                
+                        </tbody>
+                    </table>
+                </div>
+            
+            </div>
+        
+            <div class="sector-section">
+                <div class="sector-header">
+                    <h2>🏭 NIFTY_FINSERV25_50</h2>
+                    <div class="sector-performance">+2.55%</div>
+                </div>
+                <p><strong>Total Stocks with Model Agreement:</strong> 2</p>
+        
+                <div class="recommendation-group">
+                    <div class="recommendation-header buy-header">
+                        🚀 BUY/STRONG BUY Recommendations (2 stocks)
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Ticker</th>
+                                <th>Company</th>
+                                <th>Price</th>
+                                <th>Change%</th>
+                                <th>Technical</th>
+                                <th>Final</th>
+                                <th>Confidence</th>
+                                <th>🚀 Momentum</th>
+                                <th>🔄 Contrarian</th>
+                                <th>Enhancement</th>
+                                <th>News</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+            
+                            <tr>
+                                <td><strong>LICHSGFIN.NS</strong></td>
+                                <td>Lichsgfin...</td>
+                                <td>₹576</td>
+                                <td class="buy">3.3%</td>
+                                <td>STRONG BUY</td>
+                                <td class="strong-strong-buy">STRONG BUY</td>
+                                <td>90%</td>
+                                <td class="momentum-strong-buy">STRONG BUY</td>
+                                <td class="contrarian-strong-sell">STRONG SELL</td>
+                                <td><span class="enhancement-badge partial-agree-buy">Partial </span></td>
+                                <td>6 articles</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>SBICARD.NS</strong></td>
+                                <td>SBIcard...</td>
+                                <td>₹793</td>
+                                <td class="buy">1.8%</td>
+                                <td>BUY</td>
+                                <td class="buy">BUY</td>
+                                <td>85%</td>
+                                <td class="momentum-strong-sell">STRONG SELL</td>
+                                <td class="contrarian-strong-buy">STRONG BUY</td>
+                                <td><span class="enhancement-badge partial-agree-buy">Partial </span></td>
+                                <td>3 articles</td>
+                            </tr>
+                
+                        </tbody>
+                    </table>
+                </div>
+            
+            </div>
+        
+            <div class="sector-section">
+                <div class="sector-header">
+                    <h2>🏭 NIFTY_ENERGY</h2>
+                    <div class="sector-performance">+2.54%</div>
+                </div>
+                <p><strong>Total Stocks with Model Agreement:</strong> 4</p>
+        
+                <div class="recommendation-group">
+                    <div class="recommendation-header buy-header">
+                        🚀 BUY/STRONG BUY Recommendations (4 stocks)
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Ticker</th>
+                                <th>Company</th>
+                                <th>Price</th>
+                                <th>Change%</th>
+                                <th>Technical</th>
+                                <th>Final</th>
+                                <th>Confidence</th>
+                                <th>🚀 Momentum</th>
+                                <th>🔄 Contrarian</th>
+                                <th>Enhancement</th>
+                                <th>News</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+            
+                            <tr>
+                                <td><strong>ADANIGREEN.NS</strong></td>
+                                <td>Adanigreen...</td>
+                                <td>₹958</td>
+                                <td class="buy">4.2%</td>
+                                <td>STRONG BUY</td>
+                                <td class="strong-strong-buy">STRONG BUY</td>
+                                <td>90%</td>
+                                <td class="momentum-hold">HOLD</td>
+                                <td class="contrarian-hold">HOLD</td>
+                                <td><span class="enhancement-badge no-sentiment-data">No Senti</span></td>
+                                <td>1 articles</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>TATAPOWER.NS</strong></td>
+                                <td>Tatapower...</td>
+                                <td>₹386</td>
+                                <td class="buy">2.3%</td>
+                                <td>BUY</td>
+                                <td class="buy">BUY</td>
+                                <td>85%</td>
+                                <td class="momentum-strong-buy">STRONG BUY</td>
+                                <td class="contrarian-strong-sell">STRONG SELL</td>
+                                <td><span class="enhancement-badge partial-agree-buy">Partial </span></td>
+                                <td>2 articles</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>ADANIENSOL.NS</strong></td>
+                                <td>Adaniensol...</td>
+                                <td>₹791</td>
+                                <td class="buy">2.1%</td>
+                                <td>BUY</td>
+                                <td class="buy">BUY</td>
+                                <td>85%</td>
+                                <td class="momentum-strong-buy">STRONG BUY</td>
+                                <td class="contrarian-strong-sell">STRONG SELL</td>
+                                <td><span class="enhancement-badge partial-agree-buy">Partial </span></td>
+                                <td>3 articles</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>POWERGRID.NS</strong></td>
+                                <td>Powergrid...</td>
+                                <td>₹285</td>
+                                <td class="buy">1.6%</td>
+                                <td>BUY</td>
+                                <td class="buy">BUY</td>
+                                <td>85%</td>
+                                <td class="momentum-strong-buy">STRONG BUY</td>
+                                <td class="contrarian-strong-sell">STRONG SELL</td>
+                                <td><span class="enhancement-badge partial-agree-buy">Partial </span></td>
+                                <td>10 articles</td>
+                            </tr>
+                
+                        </tbody>
+                    </table>
+                </div>
+            
+            </div>
+        
+            <div class="sector-section">
+                <div class="sector-header">
+                    <h2>🏭 NIFTY_PVT_BANK</h2>
+                    <div class="sector-performance">+1.92%</div>
+                </div>
+                <p><strong>Total Stocks with Model Agreement:</strong> 2</p>
+        
+                <div class="recommendation-group">
+                    <div class="recommendation-header buy-header">
+                        🚀 BUY/STRONG BUY Recommendations (2 stocks)
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Ticker</th>
+                                <th>Company</th>
+                                <th>Price</th>
+                                <th>Change%</th>
+                                <th>Technical</th>
+                                <th>Final</th>
+                                <th>Confidence</th>
+                                <th>🚀 Momentum</th>
+                                <th>🔄 Contrarian</th>
+                                <th>Enhancement</th>
+                                <th>News</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+            
+                            <tr>
+                                <td><strong>BANDHANBNK.NS</strong></td>
+                                <td>Bandhanbnk...</td>
+                                <td>₹165</td>
+                                <td class="buy">2.6%</td>
+                                <td>BUY</td>
+                                <td class="buy">BUY</td>
+                                <td>85%</td>
+                                <td class="momentum-strong-buy">STRONG BUY</td>
+                                <td class="contrarian-strong-sell">STRONG SELL</td>
+                                <td><span class="enhancement-badge partial-agree-buy">Partial </span></td>
+                                <td>7 articles</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>RBLBANK.NS</strong></td>
+                                <td>Rblbank...</td>
+                                <td>₹260</td>
+                                <td class="buy">1.2%</td>
+                                <td>BUY</td>
+                                <td class="buy">BUY</td>
+                                <td>85%</td>
+                                <td class="momentum-strong-buy">STRONG BUY</td>
+                                <td class="contrarian-strong-sell">STRONG SELL</td>
+                                <td><span class="enhancement-badge partial-agree-buy">Partial </span></td>
+                                <td>6 articles</td>
+                            </tr>
+                
+                        </tbody>
+                    </table>
+                </div>
+            
+            </div>
+        
+            <div class="sector-section">
+                <div class="sector-header">
+                    <h2>🏭 NIFTY_AUTO</h2>
+                    <div class="sector-performance">+1.64%</div>
+                </div>
+                <p><strong>Total Stocks with Model Agreement:</strong> 12</p>
+        
+                <div class="recommendation-group">
+                    <div class="recommendation-header buy-header">
+                        🚀 BUY/STRONG BUY Recommendations (7 stocks)
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Ticker</th>
+                                <th>Company</th>
+                                <th>Price</th>
+                                <th>Change%</th>
+                                <th>Technical</th>
+                                <th>Final</th>
+                                <th>Confidence</th>
+                                <th>🚀 Momentum</th>
+                                <th>🔄 Contrarian</th>
+                                <th>Enhancement</th>
+                                <th>News</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+            
+                            <tr>
+                                <td><strong>BALKRISIND.NS</strong></td>
+                                <td>Balkrisind...</td>
+                                <td>₹2,400</td>
+                                <td class="buy">8.7%</td>
+                                <td>STRONG BUY</td>
+                                <td class="strong-strong-buy">STRONG BUY</td>
+                                <td>95%</td>
+                                <td class="momentum-strong-buy">STRONG BUY</td>
+                                <td class="contrarian-strong-sell">STRONG SELL</td>
+                                <td><span class="enhancement-badge partial-agree-buy">Partial </span></td>
+                                <td>9 articles</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>BOSCHLTD.NS</strong></td>
+                                <td>Boschltd...</td>
+                                <td>₹38,255</td>
+                                <td class="buy">6.0%</td>
+                                <td>STRONG BUY</td>
+                                <td class="strong-strong-buy">STRONG BUY</td>
+                                <td>95%</td>
+                                <td class="momentum-strong-buy">STRONG BUY</td>
+                                <td class="contrarian-strong-sell">STRONG SELL</td>
+                                <td><span class="enhancement-badge partial-agree-buy">Partial </span></td>
+                                <td>7 articles</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>MOTHERSON.NS</strong></td>
+                                <td>Motherson...</td>
+                                <td>₹95</td>
+                                <td class="buy">4.2%</td>
+                                <td>STRONG BUY</td>
+                                <td class="strong-strong-buy">STRONG BUY</td>
+                                <td>90%</td>
+                                <td class="momentum-sell">SELL</td>
+                                <td class="contrarian-buy">BUY</td>
+                                <td><span class="enhancement-badge partial-agree-buy">Partial </span></td>
+                                <td>15 articles</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>BHARATFORG.NS</strong></td>
+                                <td>Bharatforg...</td>
+                                <td>₹1,139</td>
+                                <td class="buy">4.0%</td>
+                                <td>STRONG BUY</td>
+                                <td class="strong-strong-buy">STRONG BUY</td>
+                                <td>90%</td>
+                                <td class="momentum-strong-sell">STRONG SELL</td>
+                                <td class="contrarian-strong-buy">STRONG BUY</td>
+                                <td><span class="enhancement-badge partial-agree-buy">Partial </span></td>
+                                <td>3 articles</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>TATAMOTORS.NS</strong></td>
+                                <td>Tatamotors...</td>
+                                <td>₹653</td>
+                                <td class="buy">2.1%</td>
+                                <td>BUY</td>
+                                <td class="buy">BUY</td>
+                                <td>85%</td>
+                                <td class="momentum-hold">HOLD</td>
+                                <td class="contrarian-hold">HOLD</td>
+                                <td><span class="enhancement-badge no-sentiment-data">No Senti</span></td>
+                                <td>1 articles</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>EXIDEIND.NS</strong></td>
+                                <td>Exideind...</td>
+                                <td>₹382</td>
+                                <td class="buy">1.8%</td>
+                                <td>BUY</td>
+                                <td class="buy">BUY</td>
+                                <td>85%</td>
+                                <td class="momentum-buy">BUY</td>
+                                <td class="contrarian-sell">SELL</td>
+                                <td><span class="enhancement-badge partial-agree-buy">Partial </span></td>
+                                <td>6 articles</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>ASHOKLEY.NS</strong></td>
+                                <td>Ashokley...</td>
+                                <td>₹121</td>
+                                <td class="buy">1.4%</td>
+                                <td>BUY</td>
+                                <td class="buy">BUY</td>
+                                <td>85%</td>
+                                <td class="momentum-buy">BUY</td>
+                                <td class="contrarian-sell">SELL</td>
+                                <td><span class="enhancement-badge partial-agree-buy">Partial </span></td>
+                                <td>5 articles</td>
+                            </tr>
+                
+                        </tbody>
+                    </table>
+                </div>
+            
+                <div class="recommendation-group">
+                    <div class="recommendation-header sell-header">
+                        📉 SELL/STRONG SELL Recommendations (4 stocks)
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Ticker</th>
+                                <th>Company</th>
+                                <th>Price</th>
+                                <th>Change%</th>
+                                <th>Technical</th>
+                                <th>Final</th>
+                                <th>Confidence</th>
+                                <th>🚀 Momentum</th>
+                                <th>🔄 Contrarian</th>
+                                <th>Enhancement</th>
+                                <th>News</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+            
+                            <tr>
+                                <td><strong>TVSMOTOR.NS</strong></td>
+                                <td>Tvsmotor...</td>
+                                <td>₹2,953</td>
+                                <td class="sell">-2.7%</td>
+                                <td>SELL</td>
+                                <td class="sell">SELL</td>
+                                <td>85%</td>
+                                <td class="momentum-strong-sell">STRONG SELL</td>
+                                <td class="contrarian-strong-buy">STRONG BUY</td>
+                                <td><span class="enhancement-badge partial-agree-sell">Partial </span></td>
+                                <td>4 articles</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>M&M.NS</strong></td>
+                                <td>M&M...</td>
+                                <td>₹3,228</td>
+                                <td class="sell">-2.6%</td>
+                                <td>SELL</td>
+                                <td class="sell">SELL</td>
+                                <td>85%</td>
+                                <td class="momentum-sell">SELL</td>
+                                <td class="contrarian-buy">BUY</td>
+                                <td><span class="enhancement-badge partial-agree-sell">Partial </span></td>
+                                <td>13 articles</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>EICHERMOT.NS</strong></td>
+                                <td>Eichermot...</td>
+                                <td>₹5,668</td>
+                                <td class="sell">-2.0%</td>
+                                <td>SELL</td>
+                                <td class="sell">SELL</td>
+                                <td>85%</td>
+                                <td class="momentum-strong-sell">STRONG SELL</td>
+                                <td class="contrarian-strong-buy">STRONG BUY</td>
+                                <td><span class="enhancement-badge partial-agree-sell">Partial </span></td>
+                                <td>3 articles</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>TIINDIA.NS</strong></td>
+                                <td>Tiindia...</td>
+                                <td>₹2,960</td>
+                                <td class="sell">-1.5%</td>
+                                <td>SELL</td>
+                                <td class="sell">SELL</td>
+                                <td>85%</td>
+                                <td class="momentum-strong-buy">STRONG BUY</td>
+                                <td class="contrarian-strong-sell">STRONG SELL</td>
+                                <td><span class="enhancement-badge partial-agree-sell">Partial </span></td>
+                                <td>8 articles</td>
+                            </tr>
+                
+                        </tbody>
+                    </table>
+                </div>
+            
+            </div>
+        
+            <div class="sector-section">
+                <div class="sector-header">
+                    <h2>🏭 NIFTY_CONSUMPTION</h2>
+                    <div class="sector-performance">+1.63%</div>
+                </div>
+                <p><strong>Total Stocks with Model Agreement:</strong> 6</p>
+        
+                <div class="recommendation-group">
+                    <div class="recommendation-header buy-header">
+                        🚀 BUY/STRONG BUY Recommendations (5 stocks)
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Ticker</th>
+                                <th>Company</th>
+                                <th>Price</th>
+                                <th>Change%</th>
+                                <th>Technical</th>
+                                <th>Final</th>
+                                <th>Confidence</th>
+                                <th>🚀 Momentum</th>
+                                <th>🔄 Contrarian</th>
+                                <th>Enhancement</th>
+                                <th>News</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+            
+                            <tr>
+                                <td><strong>AMBER.NS</strong></td>
+                                <td>Amber...</td>
+                                <td>₹7,628</td>
+                                <td class="buy">3.3%</td>
+                                <td>STRONG BUY</td>
+                                <td class="strong-strong-buy">STRONG BUY</td>
+                                <td>90%</td>
+                                <td class="momentum-strong-buy">STRONG BUY</td>
+                                <td class="contrarian-strong-sell">STRONG SELL</td>
+                                <td><span class="enhancement-badge partial-agree-buy">Partial </span></td>
+                                <td>15 articles</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>VOLTAS.NS</strong></td>
+                                <td>Voltas...</td>
+                                <td>₹1,314</td>
+                                <td class="buy">3.0%</td>
+                                <td>BUY</td>
+                                <td class="buy">BUY</td>
+                                <td>85%</td>
+                                <td class="momentum-strong-buy">STRONG BUY</td>
+                                <td class="contrarian-strong-sell">STRONG SELL</td>
+                                <td><span class="enhancement-badge partial-agree-buy">Partial </span></td>
+                                <td>14 articles</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>DIXON.NS</strong></td>
+                                <td>Dixon...</td>
+                                <td>₹16,513</td>
+                                <td class="buy">2.8%</td>
+                                <td>BUY</td>
+                                <td class="buy">BUY</td>
+                                <td>85%</td>
+                                <td class="momentum-strong-buy">STRONG BUY</td>
+                                <td class="contrarian-strong-sell">STRONG SELL</td>
+                                <td><span class="enhancement-badge partial-agree-buy">Partial </span></td>
+                                <td>15 articles</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>CROMPTON.NS</strong></td>
+                                <td>Crompton...</td>
+                                <td>₹319</td>
+                                <td class="buy">1.3%</td>
+                                <td>BUY</td>
+                                <td class="buy">BUY</td>
+                                <td>85%</td>
+                                <td class="momentum-strong-buy">STRONG BUY</td>
+                                <td class="contrarian-strong-sell">STRONG SELL</td>
+                                <td><span class="enhancement-badge partial-agree-buy">Partial </span></td>
+                                <td>14 articles</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>HAVELLS.NS</strong></td>
+                                <td>Havells...</td>
+                                <td>₹1,489</td>
+                                <td class="buy">1.2%</td>
+                                <td>BUY</td>
+                                <td class="buy">BUY</td>
+                                <td>85%</td>
+                                <td class="momentum-strong-buy">STRONG BUY</td>
+                                <td class="contrarian-strong-sell">STRONG SELL</td>
+                                <td><span class="enhancement-badge partial-agree-buy">Partial </span></td>
+                                <td>15 articles</td>
+                            </tr>
+                
+                        </tbody>
+                    </table>
+                </div>
+            
+                <div class="recommendation-group">
+                    <div class="recommendation-header sell-header">
+                        📉 SELL/STRONG SELL Recommendations (1 stocks)
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Ticker</th>
+                                <th>Company</th>
+                                <th>Price</th>
+                                <th>Change%</th>
+                                <th>Technical</th>
+                                <th>Final</th>
+                                <th>Confidence</th>
+                                <th>🚀 Momentum</th>
+                                <th>🔄 Contrarian</th>
+                                <th>Enhancement</th>
+                                <th>News</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+            
+                            <tr>
+                                <td><strong>TITAN.NS</strong></td>
+                                <td>Titan...</td>
+                                <td>₹3,418</td>
+                                <td class="sell">-1.7%</td>
+                                <td>SELL</td>
+                                <td class="sell">SELL</td>
+                                <td>85%</td>
+                                <td class="momentum-strong-buy">STRONG BUY</td>
+                                <td class="contrarian-strong-sell">STRONG SELL</td>
+                                <td><span class="enhancement-badge partial-agree-sell">Partial </span></td>
+                                <td>14 articles</td>
+                            </tr>
+                
+                        </tbody>
+                    </table>
+                </div>
+            
+            </div>
+        
+            <div class="sector-section">
+                <div class="sector-header">
+                    <h2>🏭 NIFTY_HEALTHCARE</h2>
+                    <div class="sector-performance">+1.63%</div>
+                </div>
+                <p><strong>Total Stocks with Model Agreement:</strong> 2</p>
+        
+                <div class="recommendation-group">
+                    <div class="recommendation-header buy-header">
+                        🚀 BUY/STRONG BUY Recommendations (1 stocks)
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Ticker</th>
+                                <th>Company</th>
+                                <th>Price</th>
+                                <th>Change%</th>
+                                <th>Technical</th>
+                                <th>Final</th>
+                                <th>Confidence</th>
+                                <th>🚀 Momentum</th>
+                                <th>🔄 Contrarian</th>
+                                <th>Enhancement</th>
+                                <th>News</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+            
+                            <tr>
+                                <td><strong>SYNGENE.NS</strong></td>
+                                <td>Syngene...</td>
+                                <td>₹672</td>
+                                <td class="buy">5.6%</td>
+                                <td>STRONG BUY</td>
+                                <td class="strong-strong-buy">STRONG BUY</td>
+                                <td>95%</td>
+                                <td class="momentum-strong-sell">STRONG SELL</td>
+                                <td class="contrarian-strong-buy">STRONG BUY</td>
+                                <td><span class="enhancement-badge partial-agree-buy">Partial </span></td>
+                                <td>15 articles</td>
+                            </tr>
+                
+                        </tbody>
+                    </table>
+                </div>
+            
+                <div class="recommendation-group">
+                    <div class="recommendation-header sell-header">
+                        📉 SELL/STRONG SELL Recommendations (1 stocks)
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Ticker</th>
+                                <th>Company</th>
+                                <th>Price</th>
+                                <th>Change%</th>
+                                <th>Technical</th>
+                                <th>Final</th>
+                                <th>Confidence</th>
+                                <th>🚀 Momentum</th>
+                                <th>🔄 Contrarian</th>
+                                <th>Enhancement</th>
+                                <th>News</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+            
+                            <tr>
+                                <td><strong>MAXHEALTH.NS</strong></td>
+                                <td>Maxhealth...</td>
+                                <td>₹1,271</td>
+                                <td class="sell">-2.4%</td>
+                                <td>SELL</td>
+                                <td class="sell">SELL</td>
+                                <td>85%</td>
+                                <td class="momentum-strong-buy">STRONG BUY</td>
+                                <td class="contrarian-strong-sell">STRONG SELL</td>
+                                <td><span class="enhancement-badge partial-agree-sell">Partial </span></td>
+                                <td>15 articles</td>
+                            </tr>
+                
+                        </tbody>
+                    </table>
+                </div>
+            
+            </div>
+        
+            <div class="sector-section">
+                <div class="sector-header">
+                    <h2>🏭 UNKNOWN</h2>
+                    <div class="sector-performance">+1.44%</div>
+                </div>
+                <p><strong>Total Stocks with Model Agreement:</strong> 65</p>
+        
+                <div class="recommendation-group">
+                    <div class="recommendation-header buy-header">
+                        🚀 BUY/STRONG BUY Recommendations (40 stocks)
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Ticker</th>
+                                <th>Company</th>
+                                <th>Price</th>
+                                <th>Change%</th>
+                                <th>Technical</th>
+                                <th>Final</th>
+                                <th>Confidence</th>
+                                <th>🚀 Momentum</th>
+                                <th>🔄 Contrarian</th>
+                                <th>Enhancement</th>
+                                <th>News</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+            
+                            <tr>
+                                <td><strong>AARTIIND.NS</strong></td>
+                                <td>Aartiind...</td>
+                                <td>₹386</td>
+                                <td class="buy">6.2%</td>
+                                <td>STRONG BUY</td>
+                                <td class="strong-strong-buy">STRONG BUY</td>
+                                <td>95%</td>
+                                <td class="momentum-strong-buy">STRONG BUY</td>
+                                <td class="contrarian-strong-sell">STRONG SELL</td>
+                                <td><span class="enhancement-badge partial-agree-buy">Partial </span></td>
+                                <td>10 articles</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>IREDA.NS</strong></td>
+                                <td>IREDA...</td>
+                                <td>₹144</td>
+                                <td class="buy">6.0%</td>
+                                <td>STRONG BUY</td>
+                                <td class="strong-strong-buy">STRONG BUY</td>
+                                <td>95%</td>
+                                <td class="momentum-strong-sell">STRONG SELL</td>
+                                <td class="contrarian-strong-buy">STRONG BUY</td>
+                                <td><span class="enhancement-badge partial-agree-buy">Partial </span></td>
+                                <td>14 articles</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>INDUSTOWER.NS</strong></td>
+                                <td>Industower...</td>
+                                <td>₹341</td>
+                                <td class="buy">5.9%</td>
+                                <td>STRONG BUY</td>
+                                <td class="strong-strong-buy">STRONG BUY</td>
+                                <td>95%</td>
+                                <td class="momentum-strong-buy">STRONG BUY</td>
+                                <td class="contrarian-strong-sell">STRONG SELL</td>
+                                <td><span class="enhancement-badge partial-agree-buy">Partial </span></td>
+                                <td>3 articles</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>PGEL.NS</strong></td>
+                                <td>PGEL...</td>
+                                <td>₹752</td>
+                                <td class="buy">5.7%</td>
+                                <td>STRONG BUY</td>
+                                <td class="strong-strong-buy">STRONG BUY</td>
+                                <td>95%</td>
+                                <td class="momentum-strong-buy">STRONG BUY</td>
+                                <td class="contrarian-strong-sell">STRONG SELL</td>
+                                <td><span class="enhancement-badge partial-agree-buy">Partial </span></td>
+                                <td>6 articles</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>PPLPHARMA.NS</strong></td>
+                                <td>PPLPharma...</td>
+                                <td>₹186</td>
+                                <td class="buy">5.7%</td>
+                                <td>STRONG BUY</td>
+                                <td class="strong-strong-buy">STRONG BUY</td>
+                                <td>95%</td>
+                                <td class="momentum-strong-sell">STRONG SELL</td>
+                                <td class="contrarian-strong-buy">STRONG BUY</td>
+                                <td><span class="enhancement-badge partial-agree-buy">Partial </span></td>
+                                <td>5 articles</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>INOXWIND.NS</strong></td>
+                                <td>Inoxwind...</td>
+                                <td>₹147</td>
+                                <td class="buy">5.7%</td>
+                                <td>STRONG BUY</td>
+                                <td class="strong-strong-buy">STRONG BUY</td>
+                                <td>95%</td>
+                                <td class="momentum-strong-buy">STRONG BUY</td>
+                                <td class="contrarian-strong-sell">STRONG SELL</td>
+                                <td><span class="enhancement-badge partial-agree-buy">Partial </span></td>
+                                <td>6 articles</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>CONCOR.NS</strong></td>
+                                <td>Concor...</td>
+                                <td>₹555</td>
+                                <td class="buy">5.2%</td>
+                                <td>STRONG BUY</td>
+                                <td class="strong-strong-buy">STRONG BUY</td>
+                                <td>95%</td>
+                                <td class="momentum-strong-sell">STRONG SELL</td>
+                                <td class="contrarian-strong-buy">STRONG BUY</td>
+                                <td><span class="enhancement-badge partial-agree-buy">Partial </span></td>
+                                <td>14 articles</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>BSOFT.NS</strong></td>
+                                <td>Bsoft...</td>
+                                <td>₹386</td>
+                                <td class="buy">4.6%</td>
+                                <td>STRONG BUY</td>
+                                <td class="strong-strong-buy">STRONG BUY</td>
+                                <td>90%</td>
+                                <td class="momentum-strong-sell">STRONG SELL</td>
+                                <td class="contrarian-strong-buy">STRONG BUY</td>
+                                <td><span class="enhancement-badge partial-agree-buy">Partial </span></td>
+                                <td>4 articles</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>HUDCO.NS</strong></td>
+                                <td>Hudco...</td>
+                                <td>₹212</td>
+                                <td class="buy">4.6%</td>
+                                <td>STRONG BUY</td>
+                                <td class="strong-strong-buy">STRONG BUY</td>
+                                <td>90%</td>
+                                <td class="momentum-strong-buy">STRONG BUY</td>
+                                <td class="contrarian-strong-sell">STRONG SELL</td>
+                                <td><span class="enhancement-badge partial-agree-buy">Partial </span></td>
+                                <td>13 articles</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>JUBLFOOD.NS</strong></td>
+                                <td>Jublfood...</td>
+                                <td>₹630</td>
+                                <td class="buy">4.6%</td>
+                                <td>STRONG BUY</td>
+                                <td class="strong-strong-buy">STRONG BUY</td>
+                                <td>90%</td>
+                                <td class="momentum-buy">BUY</td>
+                                <td class="contrarian-sell">SELL</td>
+                                <td><span class="enhancement-badge partial-agree-buy">Partial </span></td>
+                                <td>1 articles</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>NAUKRI.NS</strong></td>
+                                <td>Naukri...</td>
+                                <td>₹1,322</td>
+                                <td class="buy">4.2%</td>
+                                <td>STRONG BUY</td>
+                                <td class="strong-strong-buy">STRONG BUY</td>
+                                <td>90%</td>
+                                <td class="momentum-strong-buy">STRONG BUY</td>
+                                <td class="contrarian-strong-sell">STRONG SELL</td>
+                                <td><span class="enhancement-badge partial-agree-buy">Partial </span></td>
+                                <td>7 articles</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>TATATECH.NS</strong></td>
+                                <td>Tatatech...</td>
+                                <td>₹668</td>
+                                <td class="buy">4.2%</td>
+                                <td>STRONG BUY</td>
+                                <td class="strong-strong-buy">STRONG BUY</td>
+                                <td>90%</td>
+                                <td class="momentum-strong-sell">STRONG SELL</td>
+                                <td class="contrarian-strong-buy">STRONG BUY</td>
+                                <td><span class="enhancement-badge partial-agree-buy">Partial </span></td>
+                                <td>5 articles</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>CESC.NS</strong></td>
+                                <td>CESC...</td>
+                                <td>₹162</td>
+                                <td class="buy">3.9%</td>
+                                <td>STRONG BUY</td>
+                                <td class="strong-strong-buy">STRONG BUY</td>
+                                <td>90%</td>
+                                <td class="momentum-strong-buy">STRONG BUY</td>
+                                <td class="contrarian-strong-sell">STRONG SELL</td>
+                                <td><span class="enhancement-badge partial-agree-buy">Partial </span></td>
+                                <td>11 articles</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>RVNL.NS</strong></td>
+                                <td>RVNL...</td>
+                                <td>₹346</td>
+                                <td class="buy">3.9%</td>
+                                <td>STRONG BUY</td>
+                                <td class="strong-strong-buy">STRONG BUY</td>
+                                <td>90%</td>
+                                <td class="momentum-strong-buy">STRONG BUY</td>
+                                <td class="contrarian-strong-sell">STRONG SELL</td>
+                                <td><span class="enhancement-badge partial-agree-buy">Partial </span></td>
+                                <td>14 articles</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>TATACHEM.NS</strong></td>
+                                <td>Tatachem...</td>
+                                <td>₹950</td>
+                                <td class="buy">3.8%</td>
+                                <td>STRONG BUY</td>
+                                <td class="strong-strong-buy">STRONG BUY</td>
+                                <td>90%</td>
+                                <td class="momentum-strong-buy">STRONG BUY</td>
+                                <td class="contrarian-strong-sell">STRONG SELL</td>
+                                <td><span class="enhancement-badge partial-agree-buy">Partial </span></td>
+                                <td>5 articles</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>TATAELXSI.NS</strong></td>
+                                <td>Tataelxsi...</td>
+                                <td>₹5,816</td>
+                                <td class="buy">3.7%</td>
+                                <td>STRONG BUY</td>
+                                <td class="strong-strong-buy">STRONG BUY</td>
+                                <td>90%</td>
+                                <td class="momentum-strong-sell">STRONG SELL</td>
+                                <td class="contrarian-strong-buy">STRONG BUY</td>
+                                <td><span class="enhancement-badge partial-agree-buy">Partial </span></td>
+                                <td>1 articles</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>HFCL.NS</strong></td>
+                                <td>HFCL...</td>
+                                <td>₹73</td>
+                                <td class="buy">3.4%</td>
+                                <td>STRONG BUY</td>
+                                <td class="strong-strong-buy">STRONG BUY</td>
+                                <td>90%</td>
+                                <td class="momentum-strong-buy">STRONG BUY</td>
+                                <td class="contrarian-strong-sell">STRONG SELL</td>
+                                <td><span class="enhancement-badge partial-agree-buy">Partial </span></td>
+                                <td>14 articles</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>ETERNAL.NS</strong></td>
+                                <td>Eternal...</td>
+                                <td>₹299</td>
+                                <td class="buy">3.3%</td>
+                                <td>STRONG BUY</td>
+                                <td class="strong-strong-buy">STRONG BUY</td>
+                                <td>90%</td>
+                                <td class="momentum-strong-buy">STRONG BUY</td>
+                                <td class="contrarian-strong-sell">STRONG SELL</td>
+                                <td><span class="enhancement-badge partial-agree-buy">Partial </span></td>
+                                <td>15 articles</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>IRB.NS</strong></td>
+                                <td>IRB...</td>
+                                <td>₹45</td>
+                                <td class="buy">3.2%</td>
+                                <td>STRONG BUY</td>
+                                <td class="strong-strong-buy">STRONG BUY</td>
+                                <td>90%</td>
+                                <td class="momentum-strong-buy">STRONG BUY</td>
+                                <td class="contrarian-strong-sell">STRONG SELL</td>
+                                <td><span class="enhancement-badge partial-agree-buy">Partial </span></td>
+                                <td>14 articles</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>BSE.NS</strong></td>
+                                <td>BSE...</td>
+                                <td>₹2,388</td>
+                                <td class="buy">3.2%</td>
+                                <td>STRONG BUY</td>
+                                <td class="strong-strong-buy">STRONG BUY</td>
+                                <td>90%</td>
+                                <td class="momentum-strong-buy">STRONG BUY</td>
+                                <td class="contrarian-strong-sell">STRONG SELL</td>
+                                <td><span class="enhancement-badge partial-agree-buy">Partial </span></td>
+                                <td>11 articles</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>YESBANK.NS</strong></td>
+                                <td>Yesbank...</td>
+                                <td>₹19</td>
+                                <td class="buy">3.1%</td>
+                                <td>STRONG BUY</td>
+                                <td class="strong-strong-buy">STRONG BUY</td>
+                                <td>90%</td>
+                                <td class="momentum-strong-sell">STRONG SELL</td>
+                                <td class="contrarian-strong-buy">STRONG BUY</td>
+                                <td><span class="enhancement-badge partial-agree-buy">Partial </span></td>
+                                <td>2 articles</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>SJVN.NS</strong></td>
+                                <td>SJVN...</td>
+                                <td>₹92</td>
+                                <td class="buy">2.9%</td>
+                                <td>BUY</td>
+                                <td class="buy">BUY</td>
+                                <td>85%</td>
+                                <td class="momentum-strong-sell">STRONG SELL</td>
+                                <td class="contrarian-strong-buy">STRONG BUY</td>
+                                <td><span class="enhancement-badge partial-agree-buy">Partial </span></td>
+                                <td>14 articles</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>SUPREMEIND.NS</strong></td>
+                                <td>Supremeind...</td>
+                                <td>₹4,184</td>
+                                <td class="buy">2.9%</td>
+                                <td>BUY</td>
+                                <td class="buy">BUY</td>
+                                <td>85%</td>
+                                <td class="momentum-strong-sell">STRONG SELL</td>
+                                <td class="contrarian-strong-buy">STRONG BUY</td>
+                                <td><span class="enhancement-badge partial-agree-buy">Partial </span></td>
+                                <td>8 articles</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>SRF.NS</strong></td>
+                                <td>SRF...</td>
+                                <td>₹2,969</td>
+                                <td class="buy">2.7%</td>
+                                <td>BUY</td>
+                                <td class="buy">BUY</td>
+                                <td>85%</td>
+                                <td class="momentum-strong-buy">STRONG BUY</td>
+                                <td class="contrarian-strong-sell">STRONG SELL</td>
+                                <td><span class="enhancement-badge partial-agree-buy">Partial </span></td>
+                                <td>13 articles</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>BDL.NS</strong></td>
+                                <td>BDL...</td>
+                                <td>₹1,577</td>
+                                <td class="buy">2.6%</td>
+                                <td>BUY</td>
+                                <td class="buy">BUY</td>
+                                <td>85%</td>
+                                <td class="momentum-strong-buy">STRONG BUY</td>
+                                <td class="contrarian-strong-sell">STRONG SELL</td>
+                                <td><span class="enhancement-badge partial-agree-buy">Partial </span></td>
+                                <td>12 articles</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>KEI.NS</strong></td>
+                                <td>KEI...</td>
+                                <td>₹3,810</td>
+                                <td class="buy">2.6%</td>
+                                <td>BUY</td>
+                                <td class="buy">BUY</td>
+                                <td>85%</td>
+                                <td class="momentum-strong-sell">STRONG SELL</td>
+                                <td class="contrarian-strong-buy">STRONG BUY</td>
+                                <td><span class="enhancement-badge partial-agree-buy">Partial </span></td>
+                                <td>13 articles</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>IDEA.NS</strong></td>
+                                <td>Idea...</td>
+                                <td>₹7</td>
+                                <td class="buy">2.5%</td>
+                                <td>BUY</td>
+                                <td class="buy">BUY</td>
+                                <td>85%</td>
+                                <td class="momentum-strong-buy">STRONG BUY</td>
+                                <td class="contrarian-strong-sell">STRONG SELL</td>
+                                <td><span class="enhancement-badge partial-agree-buy">Partial </span></td>
+                                <td>15 articles</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>PIIND.NS</strong></td>
+                                <td>PIInd...</td>
+                                <td>₹4,085</td>
+                                <td class="buy">2.4%</td>
+                                <td>BUY</td>
+                                <td class="buy">BUY</td>
+                                <td>85%</td>
+                                <td class="momentum-strong-buy">STRONG BUY</td>
+                                <td class="contrarian-strong-sell">STRONG SELL</td>
+                                <td><span class="enhancement-badge partial-agree-buy">Partial </span></td>
+                                <td>5 articles</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>AMBUJACEM.NS</strong></td>
+                                <td>Ambujacem...</td>
+                                <td>₹590</td>
+                                <td class="buy">2.4%</td>
+                                <td>BUY</td>
+                                <td class="buy">BUY</td>
+                                <td>85%</td>
+                                <td class="momentum-strong-buy">STRONG BUY</td>
+                                <td class="contrarian-strong-sell">STRONG SELL</td>
+                                <td><span class="enhancement-badge partial-agree-buy">Partial </span></td>
+                                <td>5 articles</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>PATANJALI.NS</strong></td>
+                                <td>Patanjali...</td>
+                                <td>₹1,824</td>
+                                <td class="buy">2.2%</td>
+                                <td>BUY</td>
+                                <td class="buy">BUY</td>
+                                <td>85%</td>
+                                <td class="momentum-strong-buy">STRONG BUY</td>
+                                <td class="contrarian-strong-sell">STRONG SELL</td>
+                                <td><span class="enhancement-badge partial-agree-buy">Partial </span></td>
+                                <td>13 articles</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>KPITTECH.NS</strong></td>
+                                <td>KPITtech...</td>
+                                <td>₹1,209</td>
+                                <td class="buy">2.2%</td>
+                                <td>BUY</td>
+                                <td class="buy">BUY</td>
+                                <td>85%</td>
+                                <td class="momentum-strong-buy">STRONG BUY</td>
+                                <td class="contrarian-strong-sell">STRONG SELL</td>
+                                <td><span class="enhancement-badge partial-agree-buy">Partial </span></td>
+                                <td>8 articles</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>TITAGARH.NS</strong></td>
+                                <td>Titagarh...</td>
+                                <td>₹842</td>
+                                <td class="buy">2.0%</td>
+                                <td>BUY</td>
+                                <td class="buy">BUY</td>
+                                <td>85%</td>
+                                <td class="momentum-strong-buy">STRONG BUY</td>
+                                <td class="contrarian-strong-sell">STRONG SELL</td>
+                                <td><span class="enhancement-badge partial-agree-buy">Partial </span></td>
+                                <td>14 articles</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>NYKAA.NS</strong></td>
+                                <td>Nykaa...</td>
+                                <td>₹209</td>
+                                <td class="buy">2.0%</td>
+                                <td>BUY</td>
+                                <td class="buy">BUY</td>
+                                <td>85%</td>
+                                <td class="momentum-strong-buy">STRONG BUY</td>
+                                <td class="contrarian-strong-sell">STRONG SELL</td>
+                                <td><span class="enhancement-badge partial-agree-buy">Partial </span></td>
+                                <td>14 articles</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>MANKIND.NS</strong></td>
+                                <td>Mankind...</td>
+                                <td>₹2,556</td>
+                                <td class="buy">1.7%</td>
+                                <td>BUY</td>
+                                <td class="buy">BUY</td>
+                                <td>85%</td>
+                                <td class="momentum-strong-buy">STRONG BUY</td>
+                                <td class="contrarian-strong-sell">STRONG SELL</td>
+                                <td><span class="enhancement-badge partial-agree-buy">Partial </span></td>
+                                <td>13 articles</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>PAGEIND.NS</strong></td>
+                                <td>Pageind...</td>
+                                <td>₹46,300</td>
+                                <td class="buy">1.7%</td>
+                                <td>BUY</td>
+                                <td class="buy">BUY</td>
+                                <td>85%</td>
+                                <td class="momentum-strong-buy">STRONG BUY</td>
+                                <td class="contrarian-strong-sell">STRONG SELL</td>
+                                <td><span class="enhancement-badge partial-agree-buy">Partial </span></td>
+                                <td>3 articles</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>LTF.NS</strong></td>
+                                <td>LTF...</td>
+                                <td>₹202</td>
+                                <td class="buy">1.3%</td>
+                                <td>BUY</td>
+                                <td class="buy">BUY</td>
+                                <td>85%</td>
+                                <td class="momentum-hold">HOLD</td>
+                                <td class="contrarian-hold">HOLD</td>
+                                <td><span class="enhancement-badge no-sentiment-data">No Senti</span></td>
+                                <td>1 articles</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>BHEL.NS</strong></td>
+                                <td>BHEL...</td>
+                                <td>₹240</td>
+                                <td class="buy">1.2%</td>
+                                <td>BUY</td>
+                                <td class="buy">BUY</td>
+                                <td>85%</td>
+                                <td class="momentum-strong-buy">STRONG BUY</td>
+                                <td class="contrarian-strong-sell">STRONG SELL</td>
+                                <td><span class="enhancement-badge partial-agree-buy">Partial </span></td>
+                                <td>15 articles</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>PAYTM.NS</strong></td>
+                                <td>Paytm...</td>
+                                <td>₹1,055</td>
+                                <td class="buy">1.2%</td>
+                                <td>BUY</td>
+                                <td class="buy">BUY</td>
+                                <td>85%</td>
+                                <td class="momentum-strong-buy">STRONG BUY</td>
+                                <td class="contrarian-strong-sell">STRONG SELL</td>
+                                <td><span class="enhancement-badge partial-agree-buy">Partial </span></td>
+                                <td>15 articles</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>ADANIPORTS.NS</strong></td>
+                                <td>Adaniports...</td>
+                                <td>₹1,367</td>
+                                <td class="buy">1.1%</td>
+                                <td>BUY</td>
+                                <td class="buy">BUY</td>
+                                <td>85%</td>
+                                <td class="momentum-strong-sell">STRONG SELL</td>
+                                <td class="contrarian-strong-buy">STRONG BUY</td>
+                                <td><span class="enhancement-badge partial-agree-buy">Partial </span></td>
+                                <td>1 articles</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>IRCTC.NS</strong></td>
+                                <td>IRCTC...</td>
+                                <td>₹730</td>
+                                <td class="buy">1.1%</td>
+                                <td>BUY</td>
+                                <td class="buy">BUY</td>
+                                <td>85%</td>
+                                <td class="momentum-strong-buy">STRONG BUY</td>
+                                <td class="contrarian-strong-sell">STRONG SELL</td>
+                                <td><span class="enhancement-badge partial-agree-buy">Partial </span></td>
+                                <td>15 articles</td>
+                            </tr>
+                
+                        </tbody>
+                    </table>
+                </div>
+            
+                <div class="recommendation-group">
+                    <div class="recommendation-header sell-header">
+                        📉 SELL/STRONG SELL Recommendations (15 stocks)
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Ticker</th>
+                                <th>Company</th>
+                                <th>Price</th>
+                                <th>Change%</th>
+                                <th>Technical</th>
+                                <th>Final</th>
+                                <th>Confidence</th>
+                                <th>🚀 Momentum</th>
+                                <th>🔄 Contrarian</th>
+                                <th>Enhancement</th>
+                                <th>News</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+            
+                            <tr>
+                                <td><strong>CHAMBLFERT.NS</strong></td>
+                                <td>Chamblfert...</td>
+                                <td>₹570</td>
+                                <td class="sell">-6.5%</td>
+                                <td>STRONG SELL</td>
+                                <td class="strong-strong-sell">STRONG SELL</td>
+                                <td>95%</td>
+                                <td class="momentum-buy">BUY</td>
+                                <td class="contrarian-sell">SELL</td>
+                                <td><span class="enhancement-badge partial-agree-sell">Partial </span></td>
+                                <td>10 articles</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>UNOMINDA.NS</strong></td>
+                                <td>Unominda...</td>
+                                <td>₹1,086</td>
+                                <td class="sell">-4.1%</td>
+                                <td>STRONG SELL</td>
+                                <td class="strong-strong-sell">STRONG SELL</td>
+                                <td>90%</td>
+                                <td class="momentum-strong-buy">STRONG BUY</td>
+                                <td class="contrarian-strong-sell">STRONG SELL</td>
+                                <td><span class="enhancement-badge partial-agree-sell">Partial </span></td>
+                                <td>7 articles</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>POONAWALLA.NS</strong></td>
+                                <td>Poonawalla...</td>
+                                <td>₹440</td>
+                                <td class="sell">-4.1%</td>
+                                <td>STRONG SELL</td>
+                                <td class="strong-strong-sell">STRONG SELL</td>
+                                <td>90%</td>
+                                <td class="momentum-strong-buy">STRONG BUY</td>
+                                <td class="contrarian-strong-sell">STRONG SELL</td>
+                                <td><span class="enhancement-badge partial-agree-sell">Partial </span></td>
+                                <td>15 articles</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>PIDILITIND.NS</strong></td>
+                                <td>Pidilitind...</td>
+                                <td>₹3,042</td>
+                                <td class="sell">-3.8%</td>
+                                <td>STRONG SELL</td>
+                                <td class="strong-strong-sell">STRONG SELL</td>
+                                <td>90%</td>
+                                <td class="momentum-strong-buy">STRONG BUY</td>
+                                <td class="contrarian-strong-sell">STRONG SELL</td>
+                                <td><span class="enhancement-badge partial-agree-sell">Partial </span></td>
+                                <td>9 articles</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>ABCAPITAL.NS</strong></td>
+                                <td>ABCapital...</td>
+                                <td>₹277</td>
+                                <td class="sell">-3.6%</td>
+                                <td>STRONG SELL</td>
+                                <td class="strong-strong-sell">STRONG SELL</td>
+                                <td>90%</td>
+                                <td class="momentum-strong-buy">STRONG BUY</td>
+                                <td class="contrarian-strong-sell">STRONG SELL</td>
+                                <td><span class="enhancement-badge partial-agree-sell">Partial </span></td>
+                                <td>5 articles</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>INDIGO.NS</strong></td>
+                                <td>Indigo...</td>
+                                <td>₹5,894</td>
+                                <td class="sell">-2.8%</td>
+                                <td>SELL</td>
+                                <td class="sell">SELL</td>
+                                <td>85%</td>
+                                <td class="momentum-strong-sell">STRONG SELL</td>
+                                <td class="contrarian-strong-buy">STRONG BUY</td>
+                                <td><span class="enhancement-badge partial-agree-sell">Partial </span></td>
+                                <td>13 articles</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>SOLARINDS.NS</strong></td>
+                                <td>Solarinds...</td>
+                                <td>₹15,014</td>
+                                <td class="sell">-2.6%</td>
+                                <td>SELL</td>
+                                <td class="sell">SELL</td>
+                                <td>85%</td>
+                                <td class="momentum-strong-buy">STRONG BUY</td>
+                                <td class="contrarian-strong-sell">STRONG SELL</td>
+                                <td><span class="enhancement-badge partial-agree-sell">Partial </span></td>
+                                <td>9 articles</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>CGPOWER.NS</strong></td>
+                                <td>CGPower...</td>
+                                <td>₹681</td>
+                                <td class="sell">-2.3%</td>
+                                <td>SELL</td>
+                                <td class="sell">SELL</td>
+                                <td>85%</td>
+                                <td class="momentum-strong-buy">STRONG BUY</td>
+                                <td class="contrarian-strong-sell">STRONG SELL</td>
+                                <td><span class="enhancement-badge partial-agree-sell">Partial </span></td>
+                                <td>5 articles</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>ABFRL.NS</strong></td>
+                                <td>ABFRL...</td>
+                                <td>₹76</td>
+                                <td class="sell">-2.0%</td>
+                                <td>SELL</td>
+                                <td class="sell">SELL</td>
+                                <td>85%</td>
+                                <td class="momentum-strong-sell">STRONG SELL</td>
+                                <td class="contrarian-strong-buy">STRONG BUY</td>
+                                <td><span class="enhancement-badge partial-agree-sell">Partial </span></td>
+                                <td>11 articles</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>ASIANPAINT.NS</strong></td>
+                                <td>Asianpaint...</td>
+                                <td>₹2,491</td>
+                                <td class="sell">-2.0%</td>
+                                <td>SELL</td>
+                                <td class="sell">SELL</td>
+                                <td>85%</td>
+                                <td class="momentum-strong-buy">STRONG BUY</td>
+                                <td class="contrarian-strong-sell">STRONG SELL</td>
+                                <td><span class="enhancement-badge partial-agree-sell">Partial </span></td>
+                                <td>3 articles</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>CUMMINSIND.NS</strong></td>
+                                <td>Cumminsind...</td>
+                                <td>₹3,636</td>
+                                <td class="sell">-1.9%</td>
+                                <td>SELL</td>
+                                <td class="sell">SELL</td>
+                                <td>85%</td>
+                                <td class="momentum-strong-buy">STRONG BUY</td>
+                                <td class="contrarian-strong-sell">STRONG SELL</td>
+                                <td><span class="enhancement-badge partial-agree-sell">Partial </span></td>
+                                <td>12 articles</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>DALBHARAT.NS</strong></td>
+                                <td>Dalbharat...</td>
+                                <td>₹2,251</td>
+                                <td class="sell">-1.8%</td>
+                                <td>SELL</td>
+                                <td class="sell">SELL</td>
+                                <td>85%</td>
+                                <td class="momentum-strong-sell">STRONG SELL</td>
+                                <td class="contrarian-strong-buy">STRONG BUY</td>
+                                <td><span class="enhancement-badge partial-agree-sell">Partial </span></td>
+                                <td>4 articles</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>TRENT.NS</strong></td>
+                                <td>Trent...</td>
+                                <td>₹5,356</td>
+                                <td class="sell">-1.7%</td>
+                                <td>SELL</td>
+                                <td class="sell">SELL</td>
+                                <td>85%</td>
+                                <td class="momentum-strong-sell">STRONG SELL</td>
+                                <td class="contrarian-strong-buy">STRONG BUY</td>
+                                <td><span class="enhancement-badge partial-agree-sell">Partial </span></td>
+                                <td>14 articles</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>ACC.NS</strong></td>
+                                <td>ACC...</td>
+                                <td>₹1,830</td>
+                                <td class="sell">-1.3%</td>
+                                <td>SELL</td>
+                                <td class="sell">SELL</td>
+                                <td>85%</td>
+                                <td class="momentum-strong-sell">STRONG SELL</td>
+                                <td class="contrarian-strong-buy">STRONG BUY</td>
+                                <td><span class="enhancement-badge partial-agree-sell">Partial </span></td>
+                                <td>13 articles</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>DMART.NS</strong></td>
+                                <td>DMart...</td>
+                                <td>₹4,242</td>
+                                <td class="sell">-1.2%</td>
+                                <td>SELL</td>
+                                <td class="sell">SELL</td>
+                                <td>85%</td>
+                                <td class="momentum-strong-buy">STRONG BUY</td>
+                                <td class="contrarian-strong-sell">STRONG SELL</td>
+                                <td><span class="enhancement-badge partial-agree-sell">Partial </span></td>
+                                <td>15 articles</td>
+                            </tr>
+                
+                        </tbody>
+                    </table>
+                </div>
+            
+            </div>
+        
+            <div class="sector-section">
+                <div class="sector-header">
+                    <h2>🏭 NIFTY_FIN_SERVICE</h2>
+                    <div class="sector-performance">+1.26%</div>
+                </div>
+                <p><strong>Total Stocks with Model Agreement:</strong> 10</p>
+        
+                <div class="recommendation-group">
+                    <div class="recommendation-header buy-header">
+                        🚀 BUY/STRONG BUY Recommendations (6 stocks)
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Ticker</th>
+                                <th>Company</th>
+                                <th>Price</th>
+                                <th>Change%</th>
+                                <th>Technical</th>
+                                <th>Final</th>
+                                <th>Confidence</th>
+                                <th>🚀 Momentum</th>
+                                <th>🔄 Contrarian</th>
+                                <th>Enhancement</th>
+                                <th>News</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+            
+                            <tr>
+                                <td><strong>PEL.NS</strong></td>
+                                <td>Pel...</td>
+                                <td>₹1,175</td>
+                                <td class="buy">6.3%</td>
+                                <td>STRONG BUY</td>
+                                <td class="strong-strong-buy">STRONG BUY</td>
+                                <td>95%</td>
+                                <td class="momentum-strong-buy">STRONG BUY</td>
+                                <td class="contrarian-strong-sell">STRONG SELL</td>
+                                <td><span class="enhancement-badge partial-agree-buy">Partial </span></td>
+                                <td>2 articles</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>M&MFIN.NS</strong></td>
+                                <td>M&Mfin...</td>
+                                <td>₹253</td>
+                                <td class="buy">2.9%</td>
+                                <td>BUY</td>
+                                <td class="buy">BUY</td>
+                                <td>85%</td>
+                                <td class="momentum-strong-buy">STRONG BUY</td>
+                                <td class="contrarian-strong-sell">STRONG SELL</td>
+                                <td><span class="enhancement-badge partial-agree-buy">Partial </span></td>
+                                <td>2 articles</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>IEX.NS</strong></td>
+                                <td>Iex...</td>
+                                <td>₹132</td>
+                                <td class="buy">2.4%</td>
+                                <td>BUY</td>
+                                <td class="buy">BUY</td>
+                                <td>85%</td>
+                                <td class="momentum-strong-sell">STRONG SELL</td>
+                                <td class="contrarian-strong-buy">STRONG BUY</td>
+                                <td><span class="enhancement-badge partial-agree-buy">Partial </span></td>
+                                <td>15 articles</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>RECLTD.NS</strong></td>
+                                <td>Recltd...</td>
+                                <td>₹389</td>
+                                <td class="buy">2.3%</td>
+                                <td>BUY</td>
+                                <td class="buy">BUY</td>
+                                <td>85%</td>
+                                <td class="momentum-strong-sell">STRONG SELL</td>
+                                <td class="contrarian-strong-buy">STRONG BUY</td>
+                                <td><span class="enhancement-badge partial-agree-buy">Partial </span></td>
+                                <td>6 articles</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>ICICIGI.NS</strong></td>
+                                <td>Icicigi...</td>
+                                <td>₹1,884</td>
+                                <td class="buy">1.6%</td>
+                                <td>BUY</td>
+                                <td class="buy">BUY</td>
+                                <td>85%</td>
+                                <td class="momentum-buy">BUY</td>
+                                <td class="contrarian-sell">SELL</td>
+                                <td><span class="enhancement-badge partial-agree-buy">Partial </span></td>
+                                <td>4 articles</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>BAJAJFINSV.NS</strong></td>
+                                <td>Bajajfinsv...</td>
+                                <td>₹1,924</td>
+                                <td class="buy">1.2%</td>
+                                <td>BUY</td>
+                                <td class="buy">BUY</td>
+                                <td>85%</td>
+                                <td class="momentum-strong-buy">STRONG BUY</td>
+                                <td class="contrarian-strong-sell">STRONG SELL</td>
+                                <td><span class="enhancement-badge partial-agree-buy">Partial </span></td>
+                                <td>2 articles</td>
+                            </tr>
+                
+                        </tbody>
+                    </table>
+                </div>
+            
+                <div class="recommendation-group">
+                    <div class="recommendation-header sell-header">
+                        📉 SELL/STRONG SELL Recommendations (3 stocks)
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Ticker</th>
+                                <th>Company</th>
+                                <th>Price</th>
+                                <th>Change%</th>
+                                <th>Technical</th>
+                                <th>Final</th>
+                                <th>Confidence</th>
+                                <th>🚀 Momentum</th>
+                                <th>🔄 Contrarian</th>
+                                <th>Enhancement</th>
+                                <th>News</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+            
+                            <tr>
+                                <td><strong>HDFCAMC.NS</strong></td>
+                                <td>Hdfcamc...</td>
+                                <td>₹5,681</td>
+                                <td class="sell">-2.2%</td>
+                                <td>SELL</td>
+                                <td class="sell">SELL</td>
+                                <td>85%</td>
+                                <td class="momentum-strong-buy">STRONG BUY</td>
+                                <td class="contrarian-strong-sell">STRONG SELL</td>
+                                <td><span class="enhancement-badge partial-agree-sell">Partial </span></td>
+                                <td>4 articles</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>SBILIFE.NS</strong></td>
+                                <td>Sbilife...</td>
+                                <td>₹1,854</td>
+                                <td class="sell">-1.4%</td>
+                                <td>SELL</td>
+                                <td class="sell">SELL</td>
+                                <td>85%</td>
+                                <td class="momentum-strong-buy">STRONG BUY</td>
+                                <td class="contrarian-strong-sell">STRONG SELL</td>
+                                <td><span class="enhancement-badge partial-agree-sell">Partial </span></td>
+                                <td>15 articles</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>ICICIPRULI.NS</strong></td>
+                                <td>Icicipruli...</td>
+                                <td>₹619</td>
+                                <td class="sell">-1.1%</td>
+                                <td>SELL</td>
+                                <td class="sell">SELL</td>
+                                <td>85%</td>
+                                <td class="momentum-strong-buy">STRONG BUY</td>
+                                <td class="contrarian-strong-sell">STRONG SELL</td>
+                                <td><span class="enhancement-badge partial-agree-sell">Partial </span></td>
+                                <td>7 articles</td>
+                            </tr>
+                
+                        </tbody>
+                    </table>
+                </div>
+            
+            </div>
+        
+            <div class="sector-section">
+                <div class="sector-header">
+                    <h2>🏭 NIFTY_BANK</h2>
+                    <div class="sector-performance">+0.39%</div>
+                </div>
+                <p><strong>Total Stocks with Model Agreement:</strong> 3</p>
+        
+                <div class="recommendation-group">
+                    <div class="recommendation-header buy-header">
+                        🚀 BUY/STRONG BUY Recommendations (1 stocks)
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Ticker</th>
+                                <th>Company</th>
+                                <th>Price</th>
+                                <th>Change%</th>
+                                <th>Technical</th>
+                                <th>Final</th>
+                                <th>Confidence</th>
+                                <th>🚀 Momentum</th>
+                                <th>🔄 Contrarian</th>
+                                <th>Enhancement</th>
+                                <th>News</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+            
+                            <tr>
+                                <td><strong>ICICIBANK.NS</strong></td>
+                                <td>Icicibank...</td>
+                                <td>₹1,444</td>
+                                <td class="buy">1.5%</td>
+                                <td>BUY</td>
+                                <td class="buy">BUY</td>
+                                <td>85%</td>
+                                <td class="momentum-strong-buy">STRONG BUY</td>
+                                <td class="contrarian-strong-sell">STRONG SELL</td>
+                                <td><span class="enhancement-badge partial-agree-buy">Partial </span></td>
+                                <td>15 articles</td>
+                            </tr>
+                
+                        </tbody>
+                    </table>
+                </div>
+            
+            </div>
+        
+            <div class="sector-section">
+                <div class="sector-header">
+                    <h2>🏭 NIFTY_METAL</h2>
+                    <div class="sector-performance">+0.35%</div>
+                </div>
+                <p><strong>Total Stocks with Model Agreement:</strong> 10</p>
+        
+                <div class="recommendation-group">
+                    <div class="recommendation-header buy-header">
+                        🚀 BUY/STRONG BUY Recommendations (3 stocks)
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Ticker</th>
+                                <th>Company</th>
+                                <th>Price</th>
+                                <th>Change%</th>
+                                <th>Technical</th>
+                                <th>Final</th>
+                                <th>Confidence</th>
+                                <th>🚀 Momentum</th>
+                                <th>🔄 Contrarian</th>
+                                <th>Enhancement</th>
+                                <th>News</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+            
+                            <tr>
+                                <td><strong>ADANIENT.NS</strong></td>
+                                <td>Adanient...</td>
+                                <td>₹2,300</td>
+                                <td class="buy">4.9%</td>
+                                <td>STRONG BUY</td>
+                                <td class="strong-strong-buy">STRONG BUY</td>
+                                <td>90%</td>
+                                <td class="momentum-strong-buy">STRONG BUY</td>
+                                <td class="contrarian-strong-sell">STRONG SELL</td>
+                                <td><span class="enhancement-badge partial-agree-buy">Partial </span></td>
+                                <td>1 articles</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>SAIL.NS</strong></td>
+                                <td>Sail...</td>
+                                <td>₹123</td>
+                                <td class="buy">1.9%</td>
+                                <td>BUY</td>
+                                <td class="buy">BUY</td>
+                                <td>85%</td>
+                                <td class="momentum-strong-buy">STRONG BUY</td>
+                                <td class="contrarian-strong-sell">STRONG SELL</td>
+                                <td><span class="enhancement-badge partial-agree-buy">Partial </span></td>
+                                <td>15 articles</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>HINDZINC.NS</strong></td>
+                                <td>Hindzinc...</td>
+                                <td>₹420</td>
+                                <td class="buy">1.8%</td>
+                                <td>BUY</td>
+                                <td class="buy">BUY</td>
+                                <td>85%</td>
+                                <td class="momentum-strong-buy">STRONG BUY</td>
+                                <td class="contrarian-strong-sell">STRONG SELL</td>
+                                <td><span class="enhancement-badge partial-agree-buy">Partial </span></td>
+                                <td>3 articles</td>
+                            </tr>
+                
+                        </tbody>
+                    </table>
+                </div>
+            
+                <div class="recommendation-group">
+                    <div class="recommendation-header sell-header">
+                        📉 SELL/STRONG SELL Recommendations (2 stocks)
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Ticker</th>
+                                <th>Company</th>
+                                <th>Price</th>
+                                <th>Change%</th>
+                                <th>Technical</th>
+                                <th>Final</th>
+                                <th>Confidence</th>
+                                <th>🚀 Momentum</th>
+                                <th>🔄 Contrarian</th>
+                                <th>Enhancement</th>
+                                <th>News</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+            
+                            <tr>
+                                <td><strong>JSL.NS</strong></td>
+                                <td>Jsl...</td>
+                                <td>₹734</td>
+                                <td class="sell">-3.1%</td>
+                                <td>STRONG SELL</td>
+                                <td class="strong-strong-sell">STRONG SELL</td>
+                                <td>90%</td>
+                                <td class="momentum-strong-buy">STRONG BUY</td>
+                                <td class="contrarian-strong-sell">STRONG SELL</td>
+                                <td><span class="enhancement-badge partial-agree-sell">Partial </span></td>
+                                <td>11 articles</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>JSWSTEEL.NS</strong></td>
+                                <td>Jswsteel...</td>
+                                <td>₹1,053</td>
+                                <td class="sell">-1.2%</td>
+                                <td>SELL</td>
+                                <td class="sell">SELL</td>
+                                <td>85%</td>
+                                <td class="momentum-strong-sell">STRONG SELL</td>
+                                <td class="contrarian-strong-buy">STRONG BUY</td>
+                                <td><span class="enhancement-badge partial-agree-sell">Partial </span></td>
+                                <td>1 articles</td>
+                            </tr>
+                
+                        </tbody>
+                    </table>
+                </div>
+            
+            </div>
+        
+            <div class="sector-section">
+                <div class="sector-header">
+                    <h2>🏭 NIFTY_PSU_BANK</h2>
+                    <div class="sector-performance">-0.57%</div>
+                </div>
+                <p><strong>Total Stocks with Model Agreement:</strong> 5</p>
+        
+                <div class="recommendation-group">
+                    <div class="recommendation-header buy-header">
+                        🚀 BUY/STRONG BUY Recommendations (1 stocks)
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Ticker</th>
+                                <th>Company</th>
+                                <th>Price</th>
+                                <th>Change%</th>
+                                <th>Technical</th>
+                                <th>Final</th>
+                                <th>Confidence</th>
+                                <th>🚀 Momentum</th>
+                                <th>🔄 Contrarian</th>
+                                <th>Enhancement</th>
+                                <th>News</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+            
+                            <tr>
+                                <td><strong>PNB.NS</strong></td>
+                                <td>Pnb...</td>
+                                <td>₹104</td>
+                                <td class="buy">1.5%</td>
+                                <td>BUY</td>
+                                <td class="buy">BUY</td>
+                                <td>85%</td>
+                                <td class="momentum-strong-sell">STRONG SELL</td>
+                                <td class="contrarian-strong-buy">STRONG BUY</td>
+                                <td><span class="enhancement-badge partial-agree-buy">Partial </span></td>
+                                <td>14 articles</td>
+                            </tr>
+                
+                        </tbody>
+                    </table>
+                </div>
+            
+                <div class="recommendation-group">
+                    <div class="recommendation-header sell-header">
+                        📉 SELL/STRONG SELL Recommendations (2 stocks)
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Ticker</th>
+                                <th>Company</th>
+                                <th>Price</th>
+                                <th>Change%</th>
+                                <th>Technical</th>
+                                <th>Final</th>
+                                <th>Confidence</th>
+                                <th>🚀 Momentum</th>
+                                <th>🔄 Contrarian</th>
+                                <th>Enhancement</th>
+                                <th>News</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+            
+                            <tr>
+                                <td><strong>CANBK.NS</strong></td>
+                                <td>Canbk...</td>
+                                <td>₹109</td>
+                                <td class="sell">-1.8%</td>
+                                <td>SELL</td>
+                                <td class="sell">SELL</td>
+                                <td>85%</td>
+                                <td class="momentum-strong-buy">STRONG BUY</td>
+                                <td class="contrarian-strong-sell">STRONG SELL</td>
+                                <td><span class="enhancement-badge partial-agree-sell">Partial </span></td>
+                                <td>8 articles</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>SBIN.NS</strong></td>
+                                <td>Sbin...</td>
+                                <td>₹805</td>
+                                <td class="sell">-1.3%</td>
+                                <td>SELL</td>
+                                <td class="sell">SELL</td>
+                                <td>85%</td>
+                                <td class="momentum-strong-buy">STRONG BUY</td>
+                                <td class="contrarian-strong-sell">STRONG SELL</td>
+                                <td><span class="enhancement-badge partial-agree-sell">Partial </span></td>
+                                <td>8 articles</td>
+                            </tr>
+                
+                        </tbody>
+                    </table>
+                </div>
+            
+            </div>
+        
+            <div class="footer">
+                <p><strong>📊 Dual Sentiment Report generated on 2025-08-06 at 22:23:16</strong></p>
+                <p><em>🎯 Technical Analysis drives BUY/SELL decisions based on ARIMA + LSTM model agreement</em></p>
+                <p><em>🚀 Momentum Strategy: Positive sentiment → BUY, Negative sentiment → SELL (Follow the trend)</em></p>
+                <p><em>🔄 Contrarian Strategy: Positive sentiment → SELL, Negative sentiment → BUY (Fade the move)</em></p>
+                <p><em>⚡ Enhancement Logic: When Technical + Both Sentiments agree → Enhanced to STRONG recommendation</em></p>
+                <p><em>📅 Fresh News Filter: Only articles from last 3 days used for sentiment analysis</em></p>
+                <p style="margin-top: 15px; padding-top: 15px; border-top: 1px solid #dee2e6;">
+                    <strong>⚠️ Disclaimer:</strong> This is for educational purposes only. Always consult with financial advisors before making investment decisions.
+                </p>
+            </div>
+        </div>
+    </body>
+    </html>
+    

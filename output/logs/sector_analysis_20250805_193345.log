@@ -1,0 +1,34 @@
+2025-08-05 19:33:45,135 - INFO: Starting sector-based stock analysis with CONTRARIAN logic + SHARING - 2025-08-05
+2025-08-05 19:34:15,624 - INFO: Fetched 217 unique articles from RSS + Web + Fallback
+2025-08-05 19:34:52,844 - INFO: Fetched 217 unique articles from RSS + Web + Fallback
+2025-08-05 19:35:14,592 - WARNING: 5 out of the last 11 calls to <function TensorFlowTrainer.make_predict_function.<locals>.one_step_on_data_distributed at 0x00000245EA5D4790> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has reduce_retracing=True option that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/guide/function#controlling_retracing and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+2025-08-05 19:35:15,009 - WARNING: 5 out of the last 11 calls to <function TensorFlowTrainer.make_predict_function.<locals>.one_step_on_data_distributed at 0x00000245EA5D4790> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has reduce_retracing=True option that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/guide/function#controlling_retracing and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+2025-08-05 19:35:20,509 - INFO: Fetched 217 unique articles from RSS + Web + Fallback
+2025-08-05 19:35:47,325 - INFO: Fetched 217 unique articles from RSS + Web + Fallback
+2025-08-05 19:36:19,371 - INFO: Fetched 217 unique articles from RSS + Web + Fallback
+2025-08-05 19:36:42,733 - INFO: Fetched 217 unique articles from RSS + Web + Fallback
+2025-08-05 19:37:10,881 - INFO: Fetched 217 unique articles from RSS + Web + Fallback
+2025-08-05 19:37:38,037 - INFO: Fetched 217 unique articles from RSS + Web + Fallback
+2025-08-05 19:38:06,804 - INFO: Fetched 217 unique articles from RSS + Web + Fallback
+2025-08-05 19:38:35,246 - INFO: Fetched 217 unique articles from RSS + Web + Fallback
+2025-08-05 19:39:03,127 - INFO: Fetched 217 unique articles from RSS + Web + Fallback
+2025-08-05 19:39:32,823 - INFO: Fetched 217 unique articles from RSS + Web + Fallback
+2025-08-05 19:39:58,610 - INFO: Fetched 217 unique articles from RSS + Web + Fallback
+2025-08-05 19:40:26,242 - INFO: Fetched 217 unique articles from RSS + Web + Fallback
+2025-08-05 19:40:53,568 - INFO: Fetched 217 unique articles from RSS + Web + Fallback
+2025-08-05 19:41:26,082 - INFO: Fetched 217 unique articles from RSS + Web + Fallback
+2025-08-05 19:41:58,343 - INFO: Fetched 217 unique articles from RSS + Web + Fallback
+2025-08-05 19:42:29,383 - INFO: Fetched 217 unique articles from RSS + Web + Fallback
+2025-08-05 19:42:56,096 - INFO: Fetched 217 unique articles from RSS + Web + Fallback
+2025-08-05 19:43:22,785 - INFO: Fetched 217 unique articles from RSS + Web + Fallback
+2025-08-05 19:43:52,531 - INFO: Fetched 217 unique articles from RSS + Web + Fallback
+2025-08-05 19:44:24,800 - INFO: Fetched 216 unique articles from RSS + Web + Fallback
+2025-08-05 19:44:54,531 - INFO: Fetched 216 unique articles from RSS + Web + Fallback
+2025-08-05 19:45:25,028 - INFO: Fetched 216 unique articles from RSS + Web + Fallback
+2025-08-05 19:45:51,502 - INFO: Fetched 216 unique articles from RSS + Web + Fallback
+2025-08-05 19:46:20,163 - INFO: Fetched 216 unique articles from RSS + Web + Fallback
+2025-08-05 19:46:49,620 - INFO: Fetched 216 unique articles from RSS + Web + Fallback
+2025-08-05 19:47:21,549 - INFO: Fetched 216 unique articles from RSS + Web + Fallback
+2025-08-05 19:47:47,654 - INFO: Fetched 216 unique articles from RSS + Web + Fallback
+2025-08-05 19:48:17,702 - INFO: Fetched 216 unique articles from RSS + Web + Fallback
+2025-08-05 19:48:49,122 - INFO: Fetched 216 unique articles from RSS + Web + Fallback

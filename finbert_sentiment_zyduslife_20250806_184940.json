@@ -1,0 +1,140 @@
+{
+  "ticker": "zyduslife",
+  "status": "success",
+  "ai_method": "FinBERT + Custom Fallback",
+  "article_count": 5,
+  "source_breakdown": {
+    "Google News RSS": 5
+  },
+  "sentiment_score": 0.10943634510040283,
+  "overall_sentiment": "NEUTRAL",
+  "confidence": 0.0,
+  "contrarian_analysis": {
+    "apply_contrarian": false,
+    "signal": "HOLD",
+    "confidence": 0.0,
+    "theory": "NONE",
+    "reasoning": "Insufficient signal strength (strength: 0.109, confidence: 4.1%) for high-confidence contrarian play. Need stronger sentiment indicators.",
+    "sentiment_score": 0.10943634510040283,
+    "strong_signals": [
+      {
+        "title": "There's No Escaping Zydus Lifesciences Limited's (NSE:ZYDUSL...",
+        "score": -0.9491340517997742,
+        "confidence": 0.9491340517997742,
+        "method": "FinBERT"
+      },
+      {
+        "title": "Zydus Lifesciences Limited (ZYDUSLIFE) Expands into New Mark...",
+        "score": 0.7894237041473389,
+        "confidence": 0.7894237041473389,
+        "method": "FinBERT"
+      },
+      {
+        "title": "Are Strong Financial Prospects The Force That Is Driving The...",
+        "score": 0.7068920731544495,
+        "confidence": 0.7068920731544495,
+        "method": "FinBERT"
+      }
+    ],
+    "analysis_methods": {
+      "FinBERT": 5,
+      "Custom": 0
+    }
+  },
+  "articles": [
+    {
+      "title": "Zydus Lifesciences Limited (NSE:ZYDUSLIFE) Looks Like A Good Stock, And It's Going Ex-Dividend Soon - simplywall.st",
+      "url": "https://news.google.com/rss/articles/CBMi8wFBVV95cUxPLWpUSDdyZ2kzUEtrVWIxZXBHQ1Zyd0JFeEswNFFvYkw1SVBDOXBwcno4bkRtMWx2ZEtfTWgtWmdsaFB6cVFBWHRubVBLRnJUWW5IUmF1aXh5aTVhOTROdVlUazUweGgza1dCR08wLWpPNi03dmd3RE9odDdHLXZzTTBJTjZwTFhCdGpEU3V1eWlZY1VFaXl4R2FzaUJhS2c1a0NWcld1Y0pfSEhNa3c2UE5qRlpaSmNBZjFuVUF1ZDMzZEE5ZzlRaDI3Smpib3hFQVROa1N1S2NrNi1sWG1iSndUdTFDVG83V0swRjZrSy14MFXSAfgBQVVfeXFMT0xCSVBIdWt2QlFUMTRpQ2xRY3pKaVpJMXJBU0l1eGtnSlJBU1BRNXA3aklFOElZNElJeDVLeVdrcjJXcTRzeGZVU2NJa0hXSmJ3YnNEMTNQMGtmV0ttVHk2bWdpN0s4QlpkdEZickc5RFVkc3VWVmQtQVRERGd1eFFUYmlEWlBZT0FuOU43Y3ltcnRFazZyYVpzZFNGZC1WSnFORGRSMzNXN1BaUWtNUkliVDh0eGFNRWNrT2JaSmtfWktEdnpiaE44alJlV3o0VmhqaUV4NF9IeVJyN29uQWFsa2JrdGFzblFIVU5VZHBNTEZXdDdiZlo?oc=5",
+      "source": "Google News RSS",
+      "content": "<a href=\"https://news.google.com/rss/articles/CBMi8wFBVV95cUxPLWpUSDdyZ2kzUEtrVWIxZXBHQ1Zyd0JFeEswNFFvYkw1SVBDOXBwcno4bkRtMWx2ZEtfTWgtWmdsaFB6cVFBWHRubVBLRnJUWW5IUmF1aXh5aTVhOTROdVlUazUweGgza1dCR08wLWpPNi03dmd3RE9odDdHLXZzTTBJTjZwTFhCdGpEU3V1eWlZY1VFaXl4R2FzaUJhS2c1a0NWcld1Y0pfSEhNa3c2UE5qRlpaSmNBZjFuVUF1ZDMzZEE5ZzlRaDI3Smpib3hFQVROa1N1S2NrNi1sWG1iSndUdTFDVG83V0swRjZrSy14MFXSAfgBQVVfeXFMT0xCSVBIdWt2QlFUMTRpQ2xRY3pKaVpJMXJBU0l1eGtnSlJBU1BRNXA3aklFOElZNElJeDVLeVdrcjJXcTRzeGZVU2NJa0hXSmJ3YnNEMTNQMGtmV0ttVHk2bWdpN0s4QlpkdEZickc5RFVkc3VWVmQtQVRERGd1eFFUYmlEWlBZT0FuOU43Y3ltcnRFazZyYVpzZFNGZC1WSnFORGRSMzNXN1BaUWtNUkliVDh0eGFNRWNrT2JaSmtfWktEdnpiaE44alJlV3o0VmhqaUV4NF9IeVJyN29uQWFsa2JrdGFzblFIVU5VZHBNTEZXdDdiZlo?oc=5\" target=\"_blank\">Zydus Lifesciences Limited (NSE:ZYDUSLIFE) Looks Like A Good Stock, And It's Going Ex-Dividend Soon</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">simplywall.st</font>",
+      "published_date": null,
+      "search_term_matched": "zyduslife",
+      "sentiment_analysis": {
+        "compound": 0.0,
+        "method": "FinBERT",
+        "confidence": 0.7418537139892578,
+        "label": "neutral",
+        "raw_result": {
+          "label": "neutral",
+          "score": 0.7418537139892578
+        }
+      }
+    },
+    {
+      "title": "Zydus Lifesciences' (NSE:ZYDUSLIFE) five-year total shareholder returns outpace the underlying earnings growth - simplywall.st",
+      "url": "https://news.google.com/rss/articles/CBMi8gFBVV95cUxQd0tHZVVRaVlKY3dzSEEyNldDRHI1UWF0NFliREtYNFpDa3AxdVBNdWQ2VS1VZWVlRlgzQ2ttM2JEc05sV3hIUTk0b1JCNzlJUXkzLU9UWmlOamVzdzdGR2QwNGZva25CRTdiX0lzX3h4VXBWZUJUaXJxbGowU2pWei1qYjNSX2RPTTE5MzZna1hoZE82VGhDbHZjV29vNllDSC1sd0t3NE5vUUxVYzEtVWR3bl9DNVE3SjhNbUVMT0I2amEyTS1TcVpjUDBSenpmNGhOZEFwOVpJRG91OXU2aTZSc2RtdmN6eW5lTDE0MkU3Z9IB9wFBVV95cUxPZzRpaXVDREJKa1dKZ1ZBcGZCdjdzYVB5THE2Wnd4dk1MTG9xbDFtbXczTjdRRWRzaGZJQklxYmw3UWJ0WmVHMHBRbjQwWEZGQ1ZmeW5CRzR3SzB2OTYwRTdOMlJlNUdSUjNOU2puc1ZmOXlhMjhJYjdWWXAxbnFsM0xzZkU2Yklycnh5MUdjUjBGQTR4Mk9QUXF3bzE4bEduYjUzTkw5R0RwWm95TEVyTmh6MFREYXRNSmhGekc2UGszTmJIT01BQWhxLWdZaDJkb2RJNzkwanh1dHJBVUZmZmcwTlhibnQzQ2loZnpvV3lZQTZlbGNR?oc=5",
+      "source": "Google News RSS",
+      "content": "<a href=\"https://news.google.com/rss/articles/CBMi8gFBVV95cUxQd0tHZVVRaVlKY3dzSEEyNldDRHI1UWF0NFliREtYNFpDa3AxdVBNdWQ2VS1VZWVlRlgzQ2ttM2JEc05sV3hIUTk0b1JCNzlJUXkzLU9UWmlOamVzdzdGR2QwNGZva25CRTdiX0lzX3h4VXBWZUJUaXJxbGowU2pWei1qYjNSX2RPTTE5MzZna1hoZE82VGhDbHZjV29vNllDSC1sd0t3NE5vUUxVYzEtVWR3bl9DNVE3SjhNbUVMT0I2amEyTS1TcVpjUDBSenpmNGhOZEFwOVpJRG91OXU2aTZSc2RtdmN6eW5lTDE0MkU3Z9IB9wFBVV95cUxPZzRpaXVDREJKa1dKZ1ZBcGZCdjdzYVB5THE2Wnd4dk1MTG9xbDFtbXczTjdRRWRzaGZJQklxYmw3UWJ0WmVHMHBRbjQwWEZGQ1ZmeW5CRzR3SzB2OTYwRTdOMlJlNUdSUjNOU2puc1ZmOXlhMjhJYjdWWXAxbnFsM0xzZkU2Yklycnh5MUdjUjBGQTR4Mk9QUXF3bzE4bEduYjUzTkw5R0RwWm95TEVyTmh6MFREYXRNSmhGekc2UGszTmJIT01BQWhxLWdZaDJkb2RJNzkwanh1dHJBVUZmZmcwTlhibnQzQ2loZnpvV3lZQTZlbGNR?oc=5\" target=\"_blank\">Zydus Lifesciences' (NSE:ZYDUSLIFE) five-year total shareholder returns outpace the underlying earnings growth</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">simplywall.st</font>",
+      "published_date": null,
+      "search_term_matched": "zyduslife",
+      "sentiment_analysis": {
+        "compound": 0.0,
+        "method": "FinBERT",
+        "confidence": 0.6109538078308105,
+        "label": "neutral",
+        "raw_result": {
+          "label": "neutral",
+          "score": 0.6109538078308105
+        }
+      }
+    },
+    {
+      "title": "There's No Escaping Zydus Lifesciences Limited's (NSE:ZYDUSLIFE) Muted Earnings - simplywall.st",
+      "url": "https://news.google.com/rss/articles/CBMi8gFBVV95cUxOS0RPTkZmd3VLbmN6QzBYQmZJOUE4MzVVakVCdmJ5U2V6UWY5blFrQ0w3ZDVSZ3V5NFZ3NzFCQ3AwcTBQZFdoY3h6ZmNjaXV5Y3JnZG4wM2NGTzJiWHpqLW5OcmNHQlhJcjNaQ1ZoVURmZ09FMUtURUJsbEFsZWpxakFQZzVKNWxmZE1mZHhZWUUtX3AxMEUtNzBqNzJEQmJoRnR3WUNvazJ5Sl9YV0ZFM3dZMFliUWp5ajMwU2hQRkhyWEZUN0V2dmNkVTVaRDdVVkJ5LUZDYlJ4RVpPTTlkSVJSaFh2LWdQNDUzZHZmcGQyQdIB9wFBVV95cUxNRzBwZ2ZrcUx5WTlSdTl1ZU4wUnJMS2NJaWJNZXhqQTBsZ05MZ2tHMF9zVnZTLTFac2tzdmdzTnpjc01uR0dfaEhMUGNISVVnUFlzOGdPUHgzVW50YjVlVUw1RHM0QlJkR0R3Wi1PZzRxS183YkhWdDFxSmpHZThyc0NRa0s5d29lUWZrUmg1ZTRNX3FNOTAzNTR4TVlMSHMweHNiTkRVVU91RkZ0R1d2RFlXcEJid2c1TV9Sd3JZQzFjd1V3eHI5U1lPU2lydDluekZZSjBBcXBNTVc4d1FUUm9QSDkxX1BkVjIzaXdHSzlzaGVyaDN3?oc=5",
+      "source": "Google News RSS",
+      "content": "<a href=\"https://news.google.com/rss/articles/CBMi8gFBVV95cUxOS0RPTkZmd3VLbmN6QzBYQmZJOUE4MzVVakVCdmJ5U2V6UWY5blFrQ0w3ZDVSZ3V5NFZ3NzFCQ3AwcTBQZFdoY3h6ZmNjaXV5Y3JnZG4wM2NGTzJiWHpqLW5OcmNHQlhJcjNaQ1ZoVURmZ09FMUtURUJsbEFsZWpxakFQZzVKNWxmZE1mZHhZWUUtX3AxMEUtNzBqNzJEQmJoRnR3WUNvazJ5Sl9YV0ZFM3dZMFliUWp5ajMwU2hQRkhyWEZUN0V2dmNkVTVaRDdVVkJ5LUZDYlJ4RVpPTTlkSVJSaFh2LWdQNDUzZHZmcGQyQdIB9wFBVV95cUxNRzBwZ2ZrcUx5WTlSdTl1ZU4wUnJMS2NJaWJNZXhqQTBsZ05MZ2tHMF9zVnZTLTFac2tzdmdzTnpjc01uR0dfaEhMUGNISVVnUFlzOGdPUHgzVW50YjVlVUw1RHM0QlJkR0R3Wi1PZzRxS183YkhWdDFxSmpHZThyc0NRa0s5d29lUWZrUmg1ZTRNX3FNOTAzNTR4TVlMSHMweHNiTkRVVU91RkZ0R1d2RFlXcEJid2c1TV9Sd3JZQzFjd1V3eHI5U1lPU2lydDluekZZSjBBcXBNTVc4d1FUUm9QSDkxX1BkVjIzaXdHSzlzaGVyaDN3?oc=5\" target=\"_blank\">There's No Escaping Zydus Lifesciences Limited's (NSE:ZYDUSLIFE) Muted Earnings</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">simplywall.st</font>",
+      "published_date": null,
+      "search_term_matched": "zyduslife",
+      "sentiment_analysis": {
+        "compound": -0.9491340517997742,
+        "method": "FinBERT",
+        "confidence": 0.9491340517997742,
+        "label": "negative",
+        "raw_result": {
+          "label": "negative",
+          "score": 0.9491340517997742
+        }
+      }
+    },
+    {
+      "title": "Zydus Lifesciences Limited (ZYDUSLIFE) Expands into New Market - Get exclusive access to premium stock research - Jammu Links News",
+      "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxQNERRRFpBVklxeEFTWDVZZWhCWHNBWm9zeWRKbU14c1ptaHhPTHJJUE9Kc2ZHdWZZTUhsVTZZS0UtMHBITy1TMGgxYTBINFRtN0tjNUtYWU0zWHlaak0zc0JOeHBUSE50NlVIVnI4cU03Q1BwbldWN252cW5VeDFlRmlMMVh0SjVSc2NhcU1DcGtMR3pITHhMQk5aY0JFeUR5S2FTODc1dlFOZUp1?oc=5",
+      "source": "Google News RSS",
+      "content": "<a href=\"https://news.google.com/rss/articles/CBMirAFBVV95cUxQNERRRFpBVklxeEFTWDVZZWhCWHNBWm9zeWRKbU14c1ptaHhPTHJJUE9Kc2ZHdWZZTUhsVTZZS0UtMHBITy1TMGgxYTBINFRtN0tjNUtYWU0zWHlaak0zc0JOeHBUSE50NlVIVnI4cU03Q1BwbldWN252cW5VeDFlRmlMMVh0SjVSc2NhcU1DcGtMR3pITHhMQk5aY0JFeUR5S2FTODc1dlFOZUp1?oc=5\" target=\"_blank\">Zydus Lifesciences Limited (ZYDUSLIFE) Expands into New Market - Get exclusive access to premium stock research</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Jammu Links News</font>",
+      "published_date": null,
+      "search_term_matched": "zyduslife",
+      "sentiment_analysis": {
+        "compound": 0.7894237041473389,
+        "method": "FinBERT",
+        "confidence": 0.7894237041473389,
+        "label": "positive",
+        "raw_result": {
+          "label": "positive",
+          "score": 0.7894237041473389
+        }
+      }
+    },
+    {
+      "title": "Are Strong Financial Prospects The Force That Is Driving The Momentum In Zydus Lifesciences Limited's NSE:ZYDUSLIFE) Stock? - simplywall.st",
+      "url": "https://news.google.com/rss/articles/CBMi-gFBVV95cUxPQVFCRjVURkZlaHNraEtxbS1VSHdqN215dHFJTDlsazhjRWowbWlqRUZMNG41LVYzVFFWaWF4V0N0VnEwek9BeHRWLV81OU04eHc0VERGS1BTSnItWjdWeHdTck1tQy1IVFA4WWlydFdFR2l4bU00WEYtMzZlUlFRSU5US1RfQkdkOVA4VWE1ZmZBeUZ0VlFFZkkyRHhwejZzYVRWTjZXdlE2V2p2MldBeVZmZ1JBQ3E1N1QxSWlXSzBfR2hVZTRiV2pJYjFwZFlpYlp2SXBmRmVxcGc0a3NELXprNGRpNEtWaGFJcmoxb0xHMW83TjdyaXpB0gH_AUFVX3lxTE9fdks1NlZWY3hQQkpvZ3RKX0dHb2h0VVpjZjItOXQzMFlBTHZSeTZHZ3VPc2RmdjdFYWotMHhtTzVaQXRZVlE1MExsd0VoT0p2SUptc3BXdWxyeF9qZDhISjdxeno4ZUVZUEVUVEw1QTdCckFtSmt1VEhGZ19QR0ROUUtTNnFsbmxjd0dYQnJYYmc2cGxDanVXR2ZTckl0bU5LSnJFVkx3UklQQU8wUEd1YnkwYktpdVZEUnRMYlNiNGF2VkdVa3ctUTZEUTJtTVJvMDliSWVoR1AzdzdSamZRdWRHRUZSb1R6TlhsZ3RUUWR6RzNmMDZwWFFlcTdJVQ?oc=5",
+      "source": "Google News RSS",
+      "content": "<a href=\"https://news.google.com/rss/articles/CBMi-gFBVV95cUxPQVFCRjVURkZlaHNraEtxbS1VSHdqN215dHFJTDlsazhjRWowbWlqRUZMNG41LVYzVFFWaWF4V0N0VnEwek9BeHRWLV81OU04eHc0VERGS1BTSnItWjdWeHdTck1tQy1IVFA4WWlydFdFR2l4bU00WEYtMzZlUlFRSU5US1RfQkdkOVA4VWE1ZmZBeUZ0VlFFZkkyRHhwejZzYVRWTjZXdlE2V2p2MldBeVZmZ1JBQ3E1N1QxSWlXSzBfR2hVZTRiV2pJYjFwZFlpYlp2SXBmRmVxcGc0a3NELXprNGRpNEtWaGFJcmoxb0xHMW83TjdyaXpB0gH_AUFVX3lxTE9fdks1NlZWY3hQQkpvZ3RKX0dHb2h0VVpjZjItOXQzMFlBTHZSeTZHZ3VPc2RmdjdFYWotMHhtTzVaQXRZVlE1MExsd0VoT0p2SUptc3BXdWxyeF9qZDhISjdxeno4ZUVZUEVUVEw1QTdCckFtSmt1VEhGZ19QR0ROUUtTNnFsbmxjd0dYQnJYYmc2cGxDanVXR2ZTckl0bU5LSnJFVkx3UklQQU8wUEd1YnkwYktpdVZEUnRMYlNiNGF2VkdVa3ctUTZEUTJtTVJvMDliSWVoR1AzdzdSamZRdWRHRUZSb1R6TlhsZ3RUUWR6RzNmMDZwWFFlcTdJVQ?oc=5\" target=\"_blank\">Are Strong Financial Prospects The Force That Is Driving The Momentum In Zydus Lifesciences Limited's NSE:ZYDUSLIFE) Stock?</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">simplywall.st</font>",
+      "published_date": null,
+      "search_term_matched": "zyduslife",
+      "sentiment_analysis": {
+        "compound": 0.7068920731544495,
+        "method": "FinBERT",
+        "confidence": 0.7068920731544495,
+        "label": "positive",
+        "raw_result": {
+          "label": "positive",
+          "score": 0.7068920731544495
+        }
+      }
+    }
+  ],
+  "analysis_timestamp": "2025-08-06T18:49:40.219732",
+  "search_terms": [
+    "zyduslife"
+  ]
+}

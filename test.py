@@ -1,214 +1,117 @@
-def filter_news_for_ticker(self, articles: List[Dict], ticker: str) -> List[Dict]:
-    """DEBUG VERSION: Shows exactly why articles are being rejected"""
-    search_terms = self.normalize_ticker_for_search(ticker)
-    relevant_articles = []
-    
-    print(f"🔍 Filtering {len(articles)} articles for {ticker} using terms: {search_terms}")
-    print(f"🔍 DEBUG MODE: Will show why articles are accepted/rejected")
-    
-    articles_checked = 0
-    
-    for article in articles:
-        text_to_search = f"{article['headline']} {article['content']}".upper()
-        
-        # DEBUG: Show first few articles being checked
-        if articles_checked < 10:
-            print(f"\n📝 CHECKING Article {articles_checked + 1}:")
-            print(f"   Headline: {article['headline'][:80]}...")
-            print(f"   Content: {article.get('content', 'No content')[:80]}...")
-        
-        best_match = None
-        best_score = 0
-        
-        for term in search_terms:
-            term_upper = term.upper()
-            
-            if articles_checked < 10:
-                print(f"   🔍 Testing term: '{term}'")
-            
-            # Check for exact word boundary match
-            if re.search(r'\b' + re.escape(term_upper) + r'\b', text_to_search):
-                if articles_checked < 10:
-                    print(f"      ✅ FOUND: '{term}' in text")
-                
-                # Now test validation
-                validation_result = self._validate_company_match(text_to_search, ticker, term)
-                
-                if articles_checked < 10:
-                    print(f"      🔍 VALIDATION: {validation_result}")
-                
-                if validation_result:
-                    match_type = 'exact_company_name' if len(term) >= 4 else 'exact_ticker'
-                    relevance_score = 90 if len(term) >= 4 else 100
-                    
-                    if relevance_score > best_score:
-                        best_score = relevance_score
-                        best_match = {
-                            'term': term,
-                            'match_type': match_type,
-                            'score': relevance_score
-                        }
-                        if articles_checked < 10:
-                            print(f"      ✅ ACCEPTED: Score {relevance_score}")
-                else:
-                    if articles_checked < 10:
-                        print(f"      ❌ REJECTED: Failed validation")
-            else:
-                if articles_checked < 10:
-                    print(f"      ❌ NOT FOUND: '{term}' not in text")
-        
-        # Only add article if we found a validated match
-        if best_match and best_score >= 80:
-            article_copy = article.copy()
-            article_copy['matched_term'] = best_match['term']
-            article_copy['match_type'] = best_match['match_type']
-            article_copy['ticker'] = ticker
-            article_copy['relevance_score'] = best_score
-            relevant_articles.append(article_copy)
-            
-            if articles_checked < 10:
-                print(f"   ✅ ARTICLE ACCEPTED!")
-        else:
-            if articles_checked < 10:
-                print(f"   ❌ ARTICLE REJECTED!")
-        
-        articles_checked += 1
-        
-        # Stop debugging after 10 articles
-        if articles_checked >= 10:
-            if articles_checked == 10:
-                print(f"\n... (checked {articles_checked} articles, continuing without debug output)")
-    
-    print(f"\n📊 FINAL RESULTS for {ticker}:")
-    print(f"   Total articles checked: {len(articles)}")
-    print(f"   Articles with term matches: [will count this]")
-    print(f"   Articles passing validation: {len(relevant_articles)}")
-    
-    return relevant_articles
+#!/usr/bin/env python
+# cipla_zone_analyzer.py - Find exact dates of CIPLA's swing zone formation
 
-def _validate_company_match(self, text: str, ticker: str, matched_term: str) -> bool:
-    """DEBUG VERSION: Shows exactly why validation passes/fails"""
-    
-    text_upper = text.upper()
-    ticker_upper = ticker.upper()
-    term_upper = matched_term.upper()
-    
-    print(f"         🔍 VALIDATING: '{matched_term}' for {ticker}")
-    print(f"         📝 Text sample: {text_upper[:100]}...")
-    
-    # Specific validation rules for problematic tickers
-    validation_rules = {
-        'TATASTEEL': {
-            'required_any': ['TATA STEEL', 'TISCO', 'STEEL PRODUCTION', 'TATA STEEL LIMITED'],
-            'forbidden_any': ['TATA MOTORS', 'TATA CONSULTANCY', 'TATA POWER', 'TATA CONSUMER']
-        },
-        'NATIONALUM': {
-            'required_any': ['NALCO', 'NATIONAL ALUMINIUM COMPANY LIMITED', 'ALUMINIUM PRODUCTION'],
-            'forbidden_any': ['HEALTHCARE', 'PHARMA', 'BIOTECH', 'MEDICAL']
-        },
-        'SAIL': {
-            'required_any': ['SAIL', 'STEEL AUTHORITY', 'STEEL PRODUCTION'],
-            'forbidden_any': ['BANDH', 'GENERAL MARKET', 'SENSEX TODAY', 'NIFTY TODAY']
-        },
-        'HINDALCO': {
-            'required_any': ['HINDALCO', 'ALUMINUM', 'ALUMINIUM', 'COPPER'],
-            'forbidden_any': ['SAFARI', 'TEXTILES', 'HEALTHCARE']
-        }
-    }
-    
-    if ticker_upper in validation_rules:
-        rules = validation_rules[ticker_upper]
-        
-        # Check for required context
-        if 'required_any' in rules:
-            required_terms = rules['required_any']
-            has_required = any(req in text_upper for req in required_terms)
-            
-            print(f"         📋 Required terms: {required_terms}")
-            print(f"         ✅ Has required: {has_required}")
-            
-            if not has_required:
-                print(f"         ❌ FAILED: No required context found")
-                return False
-        
-        # Check for forbidden context
-        if 'forbidden_any' in rules:
-            forbidden_terms = rules['forbidden_any']
-            has_forbidden = any(forb in text_upper for forb in forbidden_terms)
-            
-            print(f"         📋 Forbidden terms: {forbidden_terms}")
-            print(f"         ❌ Has forbidden: {has_forbidden}")
-            
-            if has_forbidden:
-                print(f"         ❌ FAILED: Forbidden context found")
-                return False
-    
-    # Additional validation for short terms
-    if len(matched_term) <= 6:
-        financial_context = ['STOCK', 'SHARE', 'PRICE', 'TRADING', 'EARNINGS', 'REVENUE', 'PROFIT', 'RESULTS', 'QUARTER']
-        has_financial_context = any(fc in text_upper for fc in financial_context)
-        
-        print(f"         💰 Financial context check: {has_financial_context}")
-        
-        if not has_financial_context:
-            print(f"         ❌ FAILED: No financial context for short term")
-            return False
-    
-    print(f"         ✅ VALIDATION PASSED!")
-    return True
+import yfinance as yf
+import pandas as pd
+from datetime import datetime, timedelta
 
-# Test function to run debugging
-def debug_ticker_matching(service, ticker):
-    """Run debug analysis for a specific ticker"""
+def analyze_cipla_zone():
+    """Find when CIPLA formed the 1441-1536 zone"""
     
-    print(f"\n🔍 DEBUG ANALYSIS FOR {ticker}")
-    print("=" * 60)
+    print("🔍 ANALYZING CIPLA ZONE FORMATION TIMELINE")
+    print("="*60)
     
-    # Get all news
-    all_news = service.fetch_news()
-    print(f"📰 Total articles available: {len(all_news)}")
+    # Get CIPLA data
+    ticker = "CIPLA.NS"
+    end_date = datetime.now()
+    start_date = end_date - timedelta(days=180)  # 6 months of data
     
-    # Show some sample headlines
-    print(f"\n📝 SAMPLE HEADLINES (first 10):")
-    for i, article in enumerate(all_news[:10]):
-        headline = article['headline'][:80] + "..." if len(article['headline']) > 80 else article['headline']
-        print(f"   [{i+1}] {headline}")
+    data = yf.Ticker(ticker).history(start=start_date, end=end_date)
     
-    # Test search terms
-    search_terms = service.normalize_ticker_for_search(ticker)
-    print(f"\n🔍 Search terms for {ticker}: {search_terms}")
+    if data.empty:
+        print("❌ Could not fetch CIPLA data")
+        return
     
-    # Now run the debug filtering
-    relevant_articles = service.filter_news_for_ticker(all_news, ticker)
+    print(f"📅 Data from {start_date.strftime('%Y-%m-%d')} to {end_date.strftime('%Y-%m-%d')}")
+    print(f"📊 Total days: {len(data)}")
     
-    print(f"\n📊 SUMMARY for {ticker}:")
-    print(f"   Total articles: {len(all_news)}")
-    print(f"   Relevant articles found: {len(relevant_articles)}")
+    # Find zone levels in recent data
+    zone_top = 1536
+    zone_bottom = 1441
+    tolerance = 10  # ±10 rupees tolerance
     
-    if relevant_articles:
-        print(f"\n✅ FOUND ARTICLES:")
-        for i, article in enumerate(relevant_articles):
-            print(f"   [{i+1}] {article['headline'][:60]}...")
+    print(f"\n🎯 SEARCHING FOR ZONE LEVELS:")
+    print(f"   Zone Top: ₹{zone_top} (±{tolerance})")
+    print(f"   Zone Bottom: ₹{zone_bottom} (±{tolerance})")
+    
+    # Find when price was near zone top
+    zone_top_dates = []
+    for i, (date, row) in enumerate(data.iterrows()):
+        if abs(row['High'] - zone_top) <= tolerance:
+            zone_top_dates.append({
+                'date': date.strftime('%Y-%m-%d'),
+                'high': row['High'],
+                'close': row['Close'],
+                'days_ago': (end_date - date).days
+            })
+    
+    # Find when price was near zone bottom  
+    zone_bottom_dates = []
+    for i, (date, row) in enumerate(data.iterrows()):
+        if abs(row['Low'] - zone_bottom) <= tolerance:
+            zone_bottom_dates.append({
+                'date': date.strftime('%Y-%m-%d'),
+                'low': row['Low'], 
+                'close': row['Close'],
+                'days_ago': (end_date - date).days
+            })
+    
+    # Display results
+    print(f"\n🏔️  ZONE TOP (~₹1,536) OCCURRENCES:")
+    if zone_top_dates:
+        for hit in zone_top_dates[-5:]:  # Last 5 occurrences
+            print(f"   📅 {hit['date']}: High ₹{hit['high']:.2f}, Close ₹{hit['close']:.2f} ({hit['days_ago']} days ago)")
     else:
-        print(f"\n❌ NO ARTICLES FOUND - Check debug output above to see why")
+        print("   ❌ No recent highs near ₹1,536 found")
     
-    return relevant_articles
+    print(f"\n🏞️  ZONE BOTTOM (~₹1,441) OCCURRENCES:")
+    if zone_bottom_dates:
+        for hit in zone_bottom_dates[-5:]:  # Last 5 occurrences
+            print(f"   📅 {hit['date']}: Low ₹{hit['low']:.2f}, Close ₹{hit['close']:.2f} ({hit['days_ago']} days ago)")
+    else:
+        print("   ❌ No recent lows near ₹1,441 found")
+    
+    # Find most recent swing high and low
+    print(f"\n📈 RECENT SWING ANALYSIS:")
+    
+    # Get recent swing high
+    recent_high = data['High'].tail(30).max()
+    recent_high_date = data['High'].tail(30).idxmax()
+    days_ago_high = (end_date - recent_high_date).days
+    
+    # Get recent swing low  
+    recent_low = data['Low'].tail(30).min()
+    recent_low_date = data['Low'].tail(30).idxmin()
+    days_ago_low = (end_date - recent_low_date).days
+    
+    print(f"   🏔️  Recent High: ₹{recent_high:.2f} on {recent_high_date.strftime('%Y-%m-%d')} ({days_ago_high} days ago)")
+    print(f"   🏞️  Recent Low: ₹{recent_low:.2f} on {recent_low_date.strftime('%Y-%m-%d')} ({days_ago_low} days ago)")
+    
+    # Current price
+    current_price = data['Close'].iloc[-1]
+    print(f"\n💰 CURRENT STATUS:")
+    print(f"   Current Price: ₹{current_price:.2f}")
+    print(f"   Distance to Zone Top: ₹{zone_top - current_price:.2f} ({((zone_top - current_price)/current_price*100):+.1f}%)")
+    print(f"   Distance to Zone Bottom: ₹{current_price - zone_bottom:.2f} ({((current_price - zone_bottom)/current_price*100):+.1f}%)")
+    
+    # Zone analysis
+    if zone_top_dates and zone_bottom_dates:
+        latest_top = zone_top_dates[-1]
+        latest_bottom = zone_bottom_dates[-1]
+        
+        print(f"\n🎯 ZONE FORMATION TIMELINE:")
+        print(f"   🏔️  Latest Zone Top: {latest_top['days_ago']} days ago")
+        print(f"   🏞️  Latest Zone Bottom: {latest_bottom['days_ago']} days ago")
+        
+        zone_age = min(latest_top['days_ago'], latest_bottom['days_ago'])
+        if zone_age < 30:
+            freshness = "🟢 FRESH"
+        elif zone_age < 60:
+            freshness = "🟡 MODERATE"  
+        else:
+            freshness = "🔴 STALE"
+            
+        print(f"   ⏰ Zone Freshness: {freshness} ({zone_age} days)")
 
-# Instructions for testing
-print("""
-🧪 DEBUG INSTRUCTIONS:
-
-1. Replace your filter_news_for_ticker method with the debug version above
-2. Replace your _validate_company_match method with the debug version above
-3. Run this test:
-
-# Test debugging
-service = SentimentAnalysisService(days_back=30, min_headlines=1)
-debug_ticker_matching(service, 'TATASTEEL')
-
-This will show you exactly:
-- Which articles are being checked
-- Which search terms are being tested
-- Why validation is passing/failing
-- What the required/forbidden terms are
-""")
+if __name__ == "__main__":
+    analyze_cipla_zone()

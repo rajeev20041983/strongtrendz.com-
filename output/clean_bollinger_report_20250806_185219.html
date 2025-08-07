@@ -1,0 +1,394 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Clean Bollinger Breakout Strategy - 2025-08-06</title>
+        <style>
+            body {
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                margin: 0;
+                padding: 20px;
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                min-height: 100vh;
+            }
+            .container {
+                max-width: 1400px;
+                margin: 0 auto;
+                background: white;
+                padding: 30px;
+                border-radius: 15px;
+                box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            }
+            .header {
+                text-align: center;
+                background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+                color: white;
+                padding: 40px;
+                border-radius: 15px;
+                margin-bottom: 30px;
+            }
+            .header h1 {
+                margin: 0;
+                font-size: 2.8em;
+                margin-bottom: 10px;
+            }
+            .stats-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                gap: 20px;
+                margin: 30px 0;
+            }
+            .stat-card {
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                color: white;
+                padding: 20px;
+                border-radius: 10px;
+                text-align: center;
+            }
+            .stat-card h3 {
+                margin: 0 0 10px 0;
+                font-size: 2em;
+            }
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                margin: 20px 0;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+                border-radius: 10px;
+                overflow: hidden;
+            }
+            th, td {
+                padding: 12px;
+                text-align: left;
+                border-bottom: 1px solid #ddd;
+            }
+            th {
+                background: #f8f9fa;
+                font-weight: bold;
+            }
+            tr:hover {
+                background-color: #f0f0f0;
+            }
+            .long {
+                background: linear-gradient(90deg, #28a745, #20c997);
+                color: white;
+                padding: 5px 10px;
+                border-radius: 15px;
+                font-weight: bold;
+                text-align: center;
+            }
+            .short {
+                background: linear-gradient(90deg, #dc3545, #e74c3c);
+                color: white;
+                padding: 5px 10px;
+                border-radius: 15px;
+                font-weight: bold;
+                text-align: center;
+            }
+            .section h2 {
+                color: #333;
+                border-bottom: 3px solid #667eea;
+                padding-bottom: 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="header">
+                <h1>🚀 CLEAN BOLLINGER BREAKOUT STRATEGY</h1>
+                <p><strong>Based on PineScript Logic</strong></p>
+                <p>Bollinger: 20-period (2.0x) | RSI: 14 | Direction: Both</p>
+                <p>Generated: 2025-08-06 18:52:19</p>
+            </div>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h3>2</h3>
+                    <p>LONG Signals</p>
+                </div>
+                <div class="stat-card">
+                    <h3>21</h3>
+                    <p>SHORT Signals</p>
+                </div>
+                <div class="stat-card">
+                    <h3>201</h3>
+                    <p>HOLD Signals</p>
+                </div>
+                <div class="stat-card">
+                    <h3>224</h3>
+                    <p>Total Analyzed</p>
+                </div>
+            </div>
+    
+            <div class="section">
+                <h2>🟢 LONG SIGNALS</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Rank</th><th>Ticker</th><th>Signal</th><th>Price</th>
+                            <th>Target</th><th>Stop</th><th>Strength</th><th>RSI</th>
+                            <th>R:R</th><th>Qty</th><th>Profit</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+        
+                        <tr>
+                            <td>1</td>
+                            <td><strong>ASIANPAINT</strong></td>
+                            <td><span class="long">LONG</span></td>
+                            <td>₹2491.20</td>
+                            <td>₹2590.85</td>
+                            <td>₹2441.38</td>
+                            <td>0.44%</td>
+                            <td>65</td>
+                            <td>2.0:1</td>
+                            <td>20</td>
+                            <td>₹1993</td>
+                        </tr>
+            
+                        <tr>
+                            <td>2</td>
+                            <td><strong>JSL</strong></td>
+                            <td><span class="long">LONG</span></td>
+                            <td>₹734.00</td>
+                            <td>₹763.36</td>
+                            <td>₹719.32</td>
+                            <td>0.40%</td>
+                            <td>69</td>
+                            <td>2.0:1</td>
+                            <td>68</td>
+                            <td>₹1996</td>
+                        </tr>
+            </tbody></table></div>
+            <div class="section">
+                <h2>🔴 SHORT SIGNALS</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Rank</th><th>Ticker</th><th>Signal</th><th>Price</th>
+                            <th>Target</th><th>Stop</th><th>Strength</th><th>RSI</th>
+                            <th>R:R</th><th>Qty</th><th>Profit</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+        
+                        <tr>
+                            <td>1</td>
+                            <td><strong>BALKRISIND</strong></td>
+                            <td><span class="short">SHORT</span></td>
+                            <td>₹2400.20</td>
+                            <td>₹2304.19</td>
+                            <td>₹2448.20</td>
+                            <td>3.49%</td>
+                            <td>20</td>
+                            <td>2.0:1</td>
+                            <td>20</td>
+                            <td>₹1920</td>
+                        </tr>
+            
+                        <tr>
+                            <td>2</td>
+                            <td><strong>DIVISLAB</strong></td>
+                            <td><span class="short">SHORT</span></td>
+                            <td>₹6133.50</td>
+                            <td>₹5888.16</td>
+                            <td>₹6256.17</td>
+                            <td>2.34%</td>
+                            <td>24</td>
+                            <td>2.0:1</td>
+                            <td>8</td>
+                            <td>₹1963</td>
+                        </tr>
+            
+                        <tr>
+                            <td>3</td>
+                            <td><strong>TATATECH</strong></td>
+                            <td><span class="short">SHORT</span></td>
+                            <td>₹668.50</td>
+                            <td>₹641.76</td>
+                            <td>₹681.87</td>
+                            <td>1.45%</td>
+                            <td>19</td>
+                            <td>2.0:1</td>
+                            <td>74</td>
+                            <td>₹1979</td>
+                        </tr>
+            
+                        <tr>
+                            <td>4</td>
+                            <td><strong>BIOCON</strong></td>
+                            <td><span class="short">SHORT</span></td>
+                            <td>₹360.40</td>
+                            <td>₹345.98</td>
+                            <td>₹367.61</td>
+                            <td>1.42%</td>
+                            <td>28</td>
+                            <td>2.0:1</td>
+                            <td>138</td>
+                            <td>₹1989</td>
+                        </tr>
+            
+                        <tr>
+                            <td>5</td>
+                            <td><strong>BRITANNIA</strong></td>
+                            <td><span class="short">SHORT</span></td>
+                            <td>₹5402.50</td>
+                            <td>₹5186.40</td>
+                            <td>₹5510.55</td>
+                            <td>1.10%</td>
+                            <td>32</td>
+                            <td>2.0:1</td>
+                            <td>9</td>
+                            <td>₹1945</td>
+                        </tr>
+            
+                        <tr>
+                            <td>6</td>
+                            <td><strong>SUNPHARMA</strong></td>
+                            <td><span class="short">SHORT</span></td>
+                            <td>₹1595.20</td>
+                            <td>₹1531.39</td>
+                            <td>₹1627.10</td>
+                            <td>1.07%</td>
+                            <td>28</td>
+                            <td>2.0:1</td>
+                            <td>31</td>
+                            <td>₹1978</td>
+                        </tr>
+            
+                        <tr>
+                            <td>7</td>
+                            <td><strong>CONCOR</strong></td>
+                            <td><span class="short">SHORT</span></td>
+                            <td>₹554.80</td>
+                            <td>₹532.61</td>
+                            <td>₹565.90</td>
+                            <td>1.06%</td>
+                            <td>13</td>
+                            <td>2.0:1</td>
+                            <td>90</td>
+                            <td>₹1997</td>
+                        </tr>
+            
+                        <tr>
+                            <td>8</td>
+                            <td><strong>TATAELXSI</strong></td>
+                            <td><span class="short">SHORT</span></td>
+                            <td>₹5816.00</td>
+                            <td>₹5583.36</td>
+                            <td>₹5932.32</td>
+                            <td>1.04%</td>
+                            <td>21</td>
+                            <td>2.0:1</td>
+                            <td>8</td>
+                            <td>₹1861</td>
+                        </tr>
+            
+                        <tr>
+                            <td>9</td>
+                            <td><strong>PGEL</strong></td>
+                            <td><span class="short">SHORT</span></td>
+                            <td>₹751.95</td>
+                            <td>₹721.87</td>
+                            <td>₹766.99</td>
+                            <td>0.76%</td>
+                            <td>28</td>
+                            <td>2.0:1</td>
+                            <td>66</td>
+                            <td>₹1985</td>
+                        </tr>
+            
+                        <tr>
+                            <td>10</td>
+                            <td><strong>GAIL</strong></td>
+                            <td><span class="short">SHORT</span></td>
+                            <td>₹169.91</td>
+                            <td>₹163.11</td>
+                            <td>₹173.31</td>
+                            <td>0.55%</td>
+                            <td>25</td>
+                            <td>2.0:1</td>
+                            <td>294</td>
+                            <td>₹1998</td>
+                        </tr>
+            
+                        <tr>
+                            <td>11</td>
+                            <td><strong>DRREDDY</strong></td>
+                            <td><span class="short">SHORT</span></td>
+                            <td>₹1196.70</td>
+                            <td>₹1148.83</td>
+                            <td>₹1220.63</td>
+                            <td>0.54%</td>
+                            <td>33</td>
+                            <td>2.0:1</td>
+                            <td>41</td>
+                            <td>₹1963</td>
+                        </tr>
+            
+                        <tr>
+                            <td>12</td>
+                            <td><strong>ADANIENT</strong></td>
+                            <td><span class="short">SHORT</span></td>
+                            <td>₹2300.30</td>
+                            <td>₹2208.29</td>
+                            <td>₹2346.31</td>
+                            <td>0.47%</td>
+                            <td>18</td>
+                            <td>2.0:1</td>
+                            <td>21</td>
+                            <td>₹1932</td>
+                        </tr>
+            
+                        <tr>
+                            <td>13</td>
+                            <td><strong>PETRONET</strong></td>
+                            <td><span class="short">SHORT</span></td>
+                            <td>₹272.60</td>
+                            <td>₹261.70</td>
+                            <td>₹278.05</td>
+                            <td>0.45%</td>
+                            <td>12</td>
+                            <td>2.0:1</td>
+                            <td>183</td>
+                            <td>₹1995</td>
+                        </tr>
+            
+                        <tr>
+                            <td>14</td>
+                            <td><strong>WIPRO</strong></td>
+                            <td><span class="short">SHORT</span></td>
+                            <td>₹239.96</td>
+                            <td>₹230.36</td>
+                            <td>₹244.76</td>
+                            <td>0.38%</td>
+                            <td>32</td>
+                            <td>2.0:1</td>
+                            <td>208</td>
+                            <td>₹1996</td>
+                        </tr>
+            
+                        <tr>
+                            <td>15</td>
+                            <td><strong>BHARATFORG</strong></td>
+                            <td><span class="short">SHORT</span></td>
+                            <td>₹1139.40</td>
+                            <td>₹1093.82</td>
+                            <td>₹1162.19</td>
+                            <td>0.30%</td>
+                            <td>33</td>
+                            <td>2.0:1</td>
+                            <td>43</td>
+                            <td>₹1960</td>
+                        </tr>
+            </tbody></table></div>
+            <div style="text-align: center; margin-top: 40px; padding: 20px; background: #f8f9fa; border-radius: 10px;">
+                <p><strong>⚠️ Disclaimer:</strong> This analysis is for educational purposes only. Always do your own research before trading.</p>
+                <p><strong>📊 Strategy:</strong> Clean Bollinger Breakout with RSI confirmation - exactly matching PineScript logic.</p>
+            </div>
+        </div>
+    </body>
+    </html>
+    

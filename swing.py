@@ -1,5 +1,6 @@
 #!/usr/bin/env python
-# enhanced_swing_sectorwise.py - Ultimate Ichimoku Strategy with Sector-wise Analysis and Full Entry Logic
+# swing_calls_analyzer.py - SWING CALLS Strategy (Pine Script Faithful)
+# MODIFIED: Added surajkumarsadhaphule's EMA(2)/SMA(200) suggestion
 
 import os
 import sys
@@ -12,7 +13,6 @@ import concurrent.futures
 import argparse
 from tabulate import tabulate
 import json
-from collections import defaultdict
 
 # Add your project directory to path
 current_dir = os.path.dirname(os.path.abspath(__file__))
@@ -54,896 +54,406 @@ except ImportError:
 
 warnings.filterwarnings("ignore")
 
-# SECTOR MAPPING FOR INDIAN STOCKS
-SECTOR_MAPPING = {
-    # Banking & Financial Services
-    'HDFCBANK': 'Banking', 'ICICIBANK': 'Banking', 'SBIN': 'Banking', 'AXISBANK': 'Banking',
-    'KOTAKBANK': 'Banking', 'INDUSINDBK': 'Banking', 'FEDERALBNK': 'Banking', 'BANDHANBNK': 'Banking',
-    'PNB': 'Banking', 'BANKBARODA': 'Banking', 'CANBK': 'Banking', 'IDFCFIRSTB': 'Banking',
+class SwingCallsStrategy:
+    """SWING CALLS Strategy - Faithful Pine Script Implementation"""
     
-    'BAJFINANCE': 'Financial Services', 'BAJAJFINSV': 'Financial Services', 'HDFCLIFE': 'Financial Services',
-    'SBILIFE': 'Financial Services', 'ICICIPRULI': 'Financial Services', 'LICI': 'Financial Services',
-    'MUTHOOTFIN': 'Financial Services', 'CHOLAFIN': 'Financial Services', 'PFC': 'Financial Services',
-    'RECLTD': 'Financial Services', 'SHRIRAMFIN': 'Financial Services',
+    def __init__(self, ema_value: int = 5, sma_value: int = 50, 
+                 rsi_overbought: int = 80, rsi_oversold: int = 20):
+        
+        # Pine Script parameters
+        self.ema_value = ema_value          # Fast EMA (default: 5)
+        self.sma_value = sma_value          # Slow SMA (default: 50)
+        self.rsi_overbought = rsi_overbought # RSI overbought limit (default: 80)
+        self.rsi_oversold = rsi_oversold     # RSI oversold limit (default: 20)
+        self.rsi_period = 14                 # RSI period (fixed in Pine Script)
     
-    # Information Technology
-    'TCS': 'Information Technology', 'INFY': 'Information Technology', 'WIPRO': 'Information Technology',
-    'HCLTECH': 'Information Technology', 'TECHM': 'Information Technology', 'LTI': 'Information Technology',
-    'LTIM': 'Information Technology', 'MPHASIS': 'Information Technology', 'MINDTREE': 'Information Technology',
-    'COFORGE': 'Information Technology', 'PERSISTENT': 'Information Technology', 'LTTS': 'Information Technology',
+    def calculate_indicators(self, data: pd.DataFrame) -> dict:
+        """Calculate all SWING CALLS indicators exactly like Pine Script"""
+        try:
+            # Pine Script: ema1=ema(close,ema_value)
+            ema1 = data['Close'].ewm(span=self.ema_value).mean()
+            
+            # Pine Script: sma2=sma(close,sma_value)  
+            sma2 = data['Close'].rolling(window=self.sma_value).mean()
+            
+            # Pine Script: rs=rsi(close,14)
+            rs = self.calculate_rsi(data['Close'], self.rsi_period)
+            
+            # Pine Script color logic:
+            # mycolor= iff(rs>=85 or rs<=15,color.yellow,iff(low> sma2,color.lime,iff(high<sma2,color.red,color.yellow)))
+            sma_color = []
+            for i in range(len(data)):
+                if i < len(rs) and not pd.isna(rs.iloc[i]) and not pd.isna(sma2.iloc[i]):
+                    rsi_val = rs.iloc[i]
+                    if rsi_val >= 85 or rsi_val <= 15:
+                        sma_color.append('yellow')  # Extreme RSI
+                    elif data['Low'].iloc[i] > sma2.iloc[i]:
+                        sma_color.append('green')   # Bullish (low > SMA)
+                    elif data['High'].iloc[i] < sma2.iloc[i]:
+                        sma_color.append('red')     # Bearish (high < SMA)  
+                    else:
+                        sma_color.append('yellow')  # Neutral
+                else:
+                    sma_color.append('yellow')
+            
+            return {
+                'ema1': ema1,
+                'sma2': sma2, 
+                'rsi': rs,
+                'sma_color': sma_color
+            }
+            
+        except Exception as e:
+            return {}
     
-    # Oil & Gas
-    'RELIANCE': 'Oil & Gas', 'ONGC': 'Oil & Gas', 'IOC': 'Oil & Gas', 'BPCL': 'Oil & Gas',
-    'HPCL': 'Oil & Gas', 'GAIL': 'Oil & Gas', 'OIL': 'Oil & Gas', 'MGL': 'Oil & Gas',
-    'IGL': 'Oil & Gas', 'PETRONET': 'Oil & Gas',
+    def calculate_rsi(self, prices: pd.Series, period: int = 14) -> pd.Series:
+        """Calculate RSI exactly like Pine Script"""
+        try:
+            delta = prices.diff()
+            gain = (delta.where(delta > 0, 0)).rolling(window=period).mean()
+            loss = (-delta.where(delta < 0, 0)).rolling(window=period).mean()
+            rs = gain / loss.replace(0, 0.001)
+            rsi = 100 - (100 / (1 + rs))
+            return rsi.fillna(50)
+        except:
+            return pd.Series([50] * len(prices), index=prices.index)
     
-    # Fast Moving Consumer Goods (FMCG)
-    'HINDUNILVR': 'FMCG', 'ITC': 'FMCG', 'NESTLEIND': 'FMCG', 'BRITANNIA': 'FMCG',
-    'DABUR': 'FMCG', 'MARICO': 'FMCG', 'GODREJCP': 'FMCG', 'COLPAL': 'FMCG',
-    'PGHH': 'FMCG', 'EMAMILTD': 'FMCG', 'UBL': 'FMCG', 'VBL': 'FMCG',
+    def detect_signals(self, data: pd.DataFrame) -> dict:
+        """Detect SWING CALLS signals exactly like Pine Script"""
+        
+        if len(data) < max(self.sma_value, self.rsi_period) + 5:
+            return {'signal': 'NO_DATA', 'details': {}}
+        
+        # Calculate indicators
+        indicators = self.calculate_indicators(data)
+        if not indicators:
+            return {'signal': 'NO_DATA', 'details': {}}
+        
+        try:
+            # Get latest values
+            ema1 = indicators['ema1']
+            sma2 = indicators['sma2']
+            rsi = indicators['rsi']
+            sma_color = indicators['sma_color']
+            
+            # Current bar values
+            current_close = data['Close'].iloc[-1]
+            current_open = data['Open'].iloc[-1]
+            current_high = data['High'].iloc[-1]
+            current_low = data['Low'].iloc[-1]
+            current_ema = ema1.iloc[-1]
+            current_sma = sma2.iloc[-1]
+            current_rsi = rsi.iloc[-1]
+            current_color = sma_color[-1]
+            
+            # Previous bar values for crossover detection
+            prev_ema = ema1.iloc[-2] if len(ema1) > 1 else current_ema
+            prev_sma = sma2.iloc[-2] if len(sma2) > 1 else current_sma
+            prev_rsi = rsi.iloc[-2] if len(rsi) > 1 else current_rsi
+            
+            # Check for NaN values
+            values_to_check = [current_ema, current_sma, current_rsi, prev_ema, prev_sma, prev_rsi]
+            if any(pd.isna(v) for v in values_to_check):
+                return {'signal': 'HOLD', 'details': self._get_details(data, indicators)}
+            
+            signal = 'HOLD'
+            signal_type = 'None'
+            rsi_alert = 'None'
+            
+            # Pine Script RSI alerts:
+            # buyexit= crossunder(rs,hl)  -> RSI crosses under overbought (exit buy position)
+            # sellexit=crossover(rs,ll)   -> RSI crosses over oversold (exit sell position)
+            if current_rsi < self.rsi_overbought and prev_rsi >= self.rsi_overbought:
+                rsi_alert = 'RSI_BEARISH'  # Exit buy positions
+            elif current_rsi > self.rsi_oversold and prev_rsi <= self.rsi_oversold:
+                rsi_alert = 'RSI_BULLISH'  # Exit sell positions
+            
+            # Pine Script main signals:
+            # buycall=crossunder(sma2,ema1) and high>sma2
+            # This means: SMA crosses under EMA (EMA > SMA = bullish) AND high > SMA
+            crossunder_sma_ema = (current_sma < current_ema and prev_sma >= prev_ema)
+            high_above_sma = current_high > current_sma
+            
+            if crossunder_sma_ema and high_above_sma:
+                signal = 'BUY'
+                signal_type = 'SWING_BUY'
+            
+            # sellcall=crossover(sma2,ema1) and open>close  
+            # This means: SMA crosses over EMA (SMA > EMA = bearish) AND red candle
+            crossover_sma_ema = (current_sma > current_ema and prev_sma <= prev_ema)
+            red_candle = current_open > current_close
+            
+            if crossover_sma_ema and red_candle:
+                signal = 'SELL'
+                signal_type = 'SWING_SELL'
+            
+            return {
+                'signal': signal,
+                'signal_type': signal_type,
+                'rsi_alert': rsi_alert,
+                'details': self._get_details(data, indicators),
+                'conditions': {
+                    'crossunder_sma_ema': crossunder_sma_ema,
+                    'high_above_sma': high_above_sma,
+                    'crossover_sma_ema': crossover_sma_ema,
+                    'red_candle': red_candle
+                }
+            }
+            
+        except Exception as e:
+            return {'signal': 'HOLD', 'details': self._get_details(data, indicators)}
     
-    # Pharmaceuticals
-    'SUNPHARMA': 'Pharmaceuticals', 'DRREDDY': 'Pharmaceuticals', 'CIPLA': 'Pharmaceuticals',
-    'DIVISLAB': 'Pharmaceuticals', 'LUPIN': 'Pharmaceuticals', 'BIOCON': 'Pharmaceuticals',
-    'TORNTPHARM': 'Pharmaceuticals', 'AUROPHARMA': 'Pharmaceuticals', 'CADILAHC': 'Pharmaceuticals',
-    'GLENMARK': 'Pharmaceuticals', 'ALKEM': 'Pharmaceuticals', 'LALPATHLAB': 'Pharmaceuticals',
-    
-    # Automotive
-    'MARUTI': 'Automotive', 'M&M': 'Automotive', 'TATAMOTORS': 'Automotive', 'BAJAJ-AUTO': 'Automotive',
-    'HEROMOTOCO': 'Automotive', 'EICHERMOT': 'Automotive', 'APOLLOTYRE': 'Automotive',
-    'MRF': 'Automotive', 'BALKRISIND': 'Automotive', 'ESCORTS': 'Automotive',
-    'ASHOKLEY': 'Automotive', 'TVSMOTOR': 'Automotive', 'BOSCHLTD': 'Automotive',
-    
-    # Metals & Mining
-    'TATASTEEL': 'Metals & Mining', 'JSWSTEEL': 'Metals & Mining', 'HINDALCO': 'Metals & Mining',
-    'VEDL': 'Metals & Mining', 'COALINDIA': 'Metals & Mining', 'SAIL': 'Metals & Mining',
-    'JINDALSTEL': 'Metals & Mining', 'NMDC': 'Metals & Mining', 'MOIL': 'Metals & Mining',
-    'NATIONALUM': 'Metals & Mining', 'HINDZINC': 'Metals & Mining',
-    
-    # Cement
-    'ULTRACEMCO': 'Cement', 'GRASIM': 'Cement', 'SHREECEM': 'Cement', 'ACC': 'Cement',
-    'AMBUJACEML': 'Cement', 'JKCEMENT': 'Cement', 'RAMCOCEM': 'Cement', 'HEIDELBERG': 'Cement',
-    'DALMIACEMT': 'Cement', 'INDIACEM': 'Cement',
-    
-    # Paints & Chemicals
-    'ASIANPAINT': 'Paints & Chemicals', 'BERGER': 'Paints & Chemicals', 'KANSAINER': 'Paints & Chemicals',
-    'AKZOINDIA': 'Paints & Chemicals', 'PIDILITIND': 'Paints & Chemicals',
-    'UPL': 'Chemicals', 'SRF': 'Chemicals', 'AARTI': 'Chemicals', 'DEEPAKNTR': 'Chemicals',
-    'TATACHEM': 'Chemicals', 'GNFC': 'Chemicals', 'CHAMBLFERT': 'Chemicals',
-    
-    # Capital Goods & Engineering
-    'LT': 'Capital Goods', 'ABB': 'Capital Goods', 'SIEMENS': 'Capital Goods', 'BHEL': 'Capital Goods',
-    'CUMMINSIND': 'Capital Goods', 'THERMAX': 'Capital Goods', 'KEI': 'Capital Goods',
-    'VOLTAS': 'Capital Goods', 'CROMPTON': 'Capital Goods', 'HAVELLS': 'Capital Goods',
-    
-    # Power & Utilities
-    'POWERGRID': 'Power', 'NTPC': 'Power', 'ADANIPOWER': 'Power', 'TATAPOWER': 'Power',
-    'JSPL': 'Power', 'ADANIGREEN': 'Power', 'SUZLON': 'Power', 'NHPC': 'Power',
-    
-    # Telecommunications
-    'BHARTIARTL': 'Telecom', 'IDEA': 'Telecom', 'RJIO': 'Telecom', 'RCOM': 'Telecom',
-    
-    # Consumer Durables
-    'TITAN': 'Consumer Durables', 'BAJAJELEEC': 'Consumer Durables', 'WHIRLPOOL': 'Consumer Durables',
-    'BLUESTARCO': 'Consumer Durables', 'AMBER': 'Consumer Durables', 'DIXON': 'Consumer Durables',
-    
-    # Textiles
-    'RAYMOND': 'Textiles', 'ADITYA': 'Textiles', 'WELSPUNIND': 'Textiles', 'VARDHMAN': 'Textiles',
-    'TRIDENT': 'Textiles', 'PAGES': 'Textiles',
-    
-    # Real Estate
-    'DLF': 'Real Estate', 'GODREJPROP': 'Real Estate', 'OBEROIRLTY': 'Real Estate', 'BRIGADE': 'Real Estate',
-    'SOBHA': 'Real Estate', 'PRESTIGE': 'Real Estate',
-    
-    # Airlines
-    'INDIGO': 'Airlines', 'SPICEJET': 'Airlines',
-    
-    # Media & Entertainment
-    'ZEEL': 'Media', 'SUNTV': 'Media', 'NETWORK18': 'Media', 'DISHTV': 'Media',
-    
-    # Diversified
-    'ITC': 'Diversified', 'RELIANCE': 'Diversified', 'ADANIGROUP': 'Diversified', 'TATA': 'Diversified'
-}
+    def _get_details(self, data: pd.DataFrame, indicators: dict) -> dict:
+        """Get current market details for context"""
+        try:
+            # Current values
+            current_close = float(data['Close'].iloc[-1])
+            current_open = float(data['Open'].iloc[-1])
+            current_high = float(data['High'].iloc[-1])
+            current_low = float(data['Low'].iloc[-1])
+            current_volume = float(data['Volume'].iloc[-1])
+            
+            # Indicator values
+            current_ema = float(indicators['ema1'].iloc[-1]) if 'ema1' in indicators else 0
+            current_sma = float(indicators['sma2'].iloc[-1]) if 'sma2' in indicators else 0
+            current_rsi = float(indicators['rsi'].iloc[-1]) if 'rsi' in indicators else 50
+            current_color = indicators['sma_color'][-1] if 'sma_color' in indicators else 'yellow'
+            
+            # Additional metrics
+            volume_ratio = 1.0
+            momentum = 0.0
+            
+            if len(data) >= 21:
+                avg_volume = data['Volume'].iloc[-21:-1].mean()
+                volume_ratio = current_volume / avg_volume if avg_volume > 0 else 1.0
+            
+            if len(data) >= 6:
+                past_price = float(data['Close'].iloc[-6])
+                momentum = ((current_close - past_price) / past_price) * 100
+            
+            # Candle type
+            candle_type = 'Green' if current_close > current_open else 'Red'
+            
+            # Market position relative to SMA
+            market_position = 'Above_SMA' if current_close > current_sma else 'Below_SMA'
+            
+            return {
+                'current_price': current_close,
+                'current_open': current_open,
+                'current_high': current_high,
+                'current_low': current_low,
+                'ema_5': current_ema,
+                'sma_50': current_sma,
+                'rsi': current_rsi,
+                'sma_color': current_color,
+                'candle_type': candle_type,
+                'market_position': market_position,
+                'volume_ratio': volume_ratio,
+                'momentum': momentum
+            }
+            
+        except Exception as e:
+            return {
+                'current_price': 0,
+                'current_open': 0,
+                'current_high': 0,
+                'current_low': 0,
+                'ema_5': 0,
+                'sma_50': 0,
+                'rsi': 50,
+                'sma_color': 'yellow',
+                'candle_type': 'Unknown',
+                'market_position': 'Unknown',
+                'volume_ratio': 1.0,
+                'momentum': 0
+            }
 
-def get_sector(ticker):
-    """Get sector for a ticker"""
-    return SECTOR_MAPPING.get(ticker, 'Others')
-
-# CUSTOMIZABLE ICHIMOKU CONDITIONS
-class IchimokuConfig:
-    # Long Entry Conditions (can enable/disable individually)
-    LONG_CONDITIONS = {
-        'conversion_crosses_base': True,      # Tenkan crosses above Kijun
-        'conversion_above_base': False,       # Tenkan > Kijun  
-        'positive_cloud': True,               # Span A > Span B
-        'price_above_cloud': True,            # Price > Cloud
-        'positive_chikou': True,              # Chikou > Price (26 bars ago)
-        'price_above_conversion': True,       # Price > Tenkan
-    }
+def get_stock_data(ticker, lookback_days=100, interval='1d'):
+    """Get stock data for analysis with configurable timeframe
     
-    # Short Entry Conditions
-    SHORT_CONDITIONS = {
-        'base_crosses_conversion': True,      # Kijun crosses above Tenkan
-        'base_above_conversion': False,       # Kijun > Tenkan
-        'negative_cloud': True,               # Span B > Span A
-        'price_below_cloud': True,            # Price < Cloud
-        'negative_chikou': True,              # Chikou < Price (26 bars ago)
-        'price_below_base': True,             # Price < Kijun
-    }
-    
-    # Minimum conditions required (flexibility setting)
-    MIN_LONG_CONDITIONS = 3    # Need at least 3 out of 6 conditions
-    MIN_SHORT_CONDITIONS = 3   # Need at least 3 out of 6 conditions
-
-def get_stock_data(ticker, lookback_days=200):
-    """Get stock data for analysis"""
+    Args:
+        ticker: Stock symbol
+        lookback_days: Number of periods to fetch
+        interval: Timeframe - '5m', '15m', '1h', '4h', '1d', '1wk', '1mo'
+    """
     try:
-        symbol = f"{ticker}.NS" if not ticker.endswith('.NS') else ticker
-        days_needed = lookback_days + 100
+        if ticker.endswith('.NS'):
+            symbol = ticker
+        else:
+            symbol = f"{ticker}.NS"
+        
+        # Calculate date range based on interval
+        if interval == '5m':
+            # 5-minute data: Limited to ~60 days, fetch more periods but fewer days
+            days_needed = min(60, lookback_days // 10 + 10)  # Fewer days, more periods per day
+            lookback_days = min(lookback_days, days_needed * 80)  # ~80 periods per trading day
+        elif interval == '15m':
+            # 15-minute data: Limited to ~60 days
+            days_needed = min(60, lookback_days // 5 + 15)  # ~26 periods per trading day
+            lookback_days = min(lookback_days, days_needed * 26)
+        elif interval == '1h':
+            # For hourly data, we need more calendar days
+            days_needed = lookback_days * 3 + 30  # Account for weekends/holidays
+        elif interval == '4h':
+            days_needed = lookback_days * 2 + 20
+        elif interval == '1d':
+            days_needed = lookback_days + 100
+        elif interval == '1wk':
+            days_needed = lookback_days * 7 + 50
+        elif interval == '1mo':
+            days_needed = lookback_days * 30 + 100
+        else:
+            days_needed = lookback_days + 100
+        
         end_date = datetime.now()
         start_date = end_date - timedelta(days=days_needed)
         
-        stock = yf.Ticker(symbol)
-        data = stock.history(start=start_date, end=end_date)
+        for attempt in range(3):
+            try:
+                stock = yf.Ticker(symbol)
+                data = stock.history(start=start_date, end=end_date, interval=interval, 
+                                   auto_adjust=True, prepost=True)
+                if not data.empty:
+                    break
+            except Exception as e:
+                if attempt == 2:
+                    raise e
+                continue
         
-        if data.empty or len(data) < 100:
-            print(f"   ⚠️  {ticker}: Insufficient data ({len(data)} days)")
+        if data.empty or len(data) < lookback_days:
             return None
         
-        return data.dropna()
+        data = data.dropna()
+        required_columns = ['Open', 'High', 'Low', 'Close', 'Volume']
+        if not all(col in data.columns for col in required_columns):
+            return None
         
-    except Exception as e:
-        print(f"   ❌ {ticker}: Data fetch error - {str(e)}")
+        if len(data) < lookback_days or (data['High'] < data['Low']).any() or (data['Close'] <= 0).any():
+            return None
+        
+        return data.sort_index()
+        
+    except Exception:
         return None
 
-def calculate_rsi(prices, period=14):
-    """Calculate RSI (Relative Strength Index) manually"""
-    try:
-        if len(prices) < period + 1:
-            return 50  # Neutral RSI if insufficient data
-        
-        delta = prices.diff().dropna()
-        if len(delta) < period:
-            return 50
-        
-        gain = (delta.where(delta > 0, 0)).rolling(window=period).mean()
-        loss = (-delta.where(delta < 0, 0)).rolling(window=period).mean()
-        
-        # Avoid division by zero
-        rs = gain / loss.replace(0, 0.001)  # Small value to avoid inf
-        rsi = 100 - (100 / (1 + rs))
-        
-        final_rsi = rsi.iloc[-1] if not pd.isna(rsi.iloc[-1]) else 50
-        return max(0, min(100, final_rsi))  # Ensure RSI is between 0-100
-    except Exception as e:
-        return 50  # Return neutral RSI on any error
-
-def enhanced_volume_confirmation(data, current_volume, lookback_days):
-    """Enhanced volume analysis for breakout confirmation"""
-    try:
-        if data is None or len(data) < 5:
-            return {'volume_strength': 'WEAK', 'volume_trend': 'NEUTRAL', 'volume_sma_ratio': 1.0}
-        
-        if lookback_days < 5:
-            lookback_days = 5  # Minimum lookback
-        
-        # Volume moving averages with safety checks
-        vol_sma_short = data['Volume'].rolling(window=min(5, len(data))).mean().iloc[-1]
-        vol_sma_long = data['Volume'].rolling(window=min(lookback_days, len(data))).mean().iloc[-1]
-        
-        # Handle NaN values
-        if pd.isna(vol_sma_short) or pd.isna(vol_sma_long) or vol_sma_long == 0:
-            return {'volume_strength': 'WEAK', 'volume_trend': 'NEUTRAL', 'volume_sma_ratio': 1.0}
-        
-        # Volume strength classification
-        volume_ratio = current_volume / vol_sma_long
-        
-        if volume_ratio > 2.0:
-            volume_strength = 'VERY_HIGH'
-        elif volume_ratio > 1.5:
-            volume_strength = 'HIGH'
-        elif volume_ratio > 0.8:
-            volume_strength = 'NORMAL'
-        else:
-            volume_strength = 'WEAK'
-        
-        # Volume trend
-        short_long_ratio = vol_sma_short / vol_sma_long
-        if short_long_ratio > 1.2:
-            volume_trend = 'INCREASING'
-        elif short_long_ratio < 0.8:
-            volume_trend = 'DECREASING'
-        else:
-            volume_trend = 'NEUTRAL'
-        
-        return {
-            'volume_strength': volume_strength,
-            'volume_trend': volume_trend,
-            'volume_sma_ratio': volume_ratio
-        }
-    except Exception as e:
-        # Return safe defaults on any error
-        return {'volume_strength': 'WEAK', 'volume_trend': 'NEUTRAL', 'volume_sma_ratio': 1.0}
-
-def calculate_proper_metrics(data, volume_days=20, momentum_days=5):
-    """Calculate volume and momentum using ONLY trading days"""
-    # Get latest values
-    latest = data.iloc[-1]
-    current_price = latest['Close']
-    current_volume = latest['Volume']
+def analyze_stock_swing_calls(ticker, ema_value=5, sma_value=50, rsi_overbought=80, rsi_oversold=20, interval='1d', debug=False):
+    """Analyze single stock using SWING CALLS strategy
     
-    # 📊 VOLUME RATIO - Last N TRADING DAYS
-    if len(data) >= volume_days + 1:
-        # Get exactly N trading days (excluding current day)
-        volume_period = data['Volume'].iloc[-(volume_days+1):-1]  # Last N trading sessions
-        avg_volume = volume_period.mean()
-        volume_ratio = current_volume / avg_volume if avg_volume > 0 else 1.0
-    else:
-        # Fallback if less than N days of data
-        avg_volume = data['Volume'].mean()
-        volume_ratio = current_volume / avg_volume if avg_volume > 0 else 1.0
-    
-    # 🚀 MOMENTUM - Last N TRADING DAYS
-    if len(data) >= momentum_days + 1:
-        # Get price from N trading days ago
-        price_n_days_ago = data['Close'].iloc[-(momentum_days+1)]  # N+1 rows back = N days ago
-        momentum = ((current_price - price_n_days_ago) / price_n_days_ago) * 100
-    else:
-        momentum = 0
-    
-    return volume_ratio, momentum, len(data)
-
-def detect_fractals(data, n=2):
-    """Detect fractal highs and lows"""
-    try:
-        highs = data['High'].values
-        lows = data['Low'].values
-        
-        fractal_highs = []
-        fractal_lows = []
-        
-        for i in range(n, len(highs) - n):
-            # Fractal high: current high is highest among surrounding n bars
-            is_fractal_high = True
-            for j in range(i - n, i + n + 1):
-                if j != i and highs[j] >= highs[i]:
-                    is_fractal_high = False
-                    break
-            
-            if is_fractal_high:
-                fractal_highs.append({'price': highs[i], 'index': i, 'strength': n})
-            
-            # Fractal low: current low is lowest among surrounding n bars
-            is_fractal_low = True
-            for j in range(i - n, i + n + 1):
-                if j != i and lows[j] <= lows[i]:
-                    is_fractal_low = False
-                    break
-            
-            if is_fractal_low:
-                fractal_lows.append({'price': lows[i], 'index': i, 'strength': n})
-        
-        return fractal_highs, fractal_lows
-    except:
-        return [], []
-
-def detect_support_resistance_levels(data, current_price, lookback_bars=50):
-    """Detect support and resistance levels using multiple methods"""
-    try:
-        if len(data) < lookback_bars:
-            lookback_bars = len(data) - 1
-        
-        recent_data = data.iloc[-lookback_bars:]
-        support_levels = []
-        resistance_levels = []
-        
-        # 1. Fractal-based levels
-        fractal_highs, fractal_lows = detect_fractals(recent_data, n=2)
-        
-        for fh in fractal_highs[-5:]:  # Last 5 fractal highs
-            resistance_levels.append({
-                'price': fh['price'],
-                'type': f'Fractal High ({fh["strength"]})',
-                'strength': 4
-            })
-        
-        for fl in fractal_lows[-5:]:  # Last 5 fractal lows
-            support_levels.append({
-                'price': fl['price'],
-                'type': f'Fractal Low ({fl["strength"]})',
-                'strength': 4
-            })
-        
-        # 2. Volume-based support/resistance
-        volume_weighted_highs = []
-        volume_weighted_lows = []
-        
-        for i in range(len(recent_data)):
-            vol_weight = recent_data['Volume'].iloc[i]
-            high_price = recent_data['High'].iloc[i]
-            low_price = recent_data['Low'].iloc[i]
-            
-            volume_weighted_highs.append((high_price, vol_weight))
-            volume_weighted_lows.append((low_price, vol_weight))
-        
-        # Sort by volume and take top levels
-        volume_weighted_highs.sort(key=lambda x: x[1], reverse=True)
-        volume_weighted_lows.sort(key=lambda x: x[1], reverse=True)
-        
-        for i, (price, vol) in enumerate(volume_weighted_highs[:3]):
-            resistance_levels.append({
-                'price': price,
-                'type': 'Volume Resistance',
-                'strength': 4
-            })
-        
-        for i, (price, vol) in enumerate(volume_weighted_lows[:3]):
-            support_levels.append({
-                'price': price,
-                'type': 'Volume Support',
-                'strength': 4
-            })
-        
-        # 3. Round number levels
-        price_range = recent_data['High'].max() - recent_data['Low'].min()
-        if price_range > 0:
-            # Find round numbers within range
-            min_price = recent_data['Low'].min()
-            max_price = recent_data['High'].max()
-            
-            # Determine round number step based on price level
-            if max_price > 1000:
-                step = 50
-            elif max_price > 100:
-                step = 10
-            else:
-                step = 5
-            
-            round_levels = []
-            start = int(min_price / step) * step
-            end = int(max_price / step + 1) * step
-            
-            for level in range(start, end + step, step):
-                if min_price <= level <= max_price:
-                    round_levels.append(level)
-            
-            for level in round_levels:
-                if level > current_price:
-                    resistance_levels.append({
-                        'price': level,
-                        'type': 'Round Number',
-                        'strength': 5
-                    })
-                elif level < current_price:
-                    support_levels.append({
-                        'price': level,
-                        'type': 'Round Number',
-                        'strength': 5
-                    })
-        
-        # 4. Moving average levels
-        if len(recent_data) >= 20:
-            sma_20 = recent_data['Close'].rolling(window=20).mean().iloc[-1]
-            if not pd.isna(sma_20):
-                if sma_20 > current_price:
-                    resistance_levels.append({
-                        'price': sma_20,
-                        'type': '20-SMA',
-                        'strength': 3
-                    })
-                else:
-                    support_levels.append({
-                        'price': sma_20,
-                        'type': '20-SMA',
-                        'strength': 3
-                    })
-        
-        # 5. Recent highs and lows
-        if len(recent_data) >= 20:
-            recent_high = recent_data['High'].rolling(window=20).max().iloc[-1]
-            recent_low = recent_data['Low'].rolling(window=20).min().iloc[-1]
-            
-            resistance_levels.append({
-                'price': recent_high,
-                'type': '20-bar High',
-                'strength': 3
-            })
-            
-            support_levels.append({
-                'price': recent_low,
-                'type': '20-bar Low',
-                'strength': 3
-            })
-        
-        # Remove duplicates and sort
-        support_levels = [dict(t) for t in {tuple(d.items()) for d in support_levels}]
-        resistance_levels = [dict(t) for t in {tuple(d.items()) for d in resistance_levels}]
-        
-        support_levels.sort(key=lambda x: abs(x['price'] - current_price))
-        resistance_levels.sort(key=lambda x: abs(x['price'] - current_price))
-        
-        return support_levels, resistance_levels
-        
-    except Exception as e:
-        return [], []
-
-def calculate_entry_price(signal_type, current_price, support_levels, resistance_levels):
-    """Calculate precise entry price based on support/resistance levels with full logic"""
-    try:
-        entry_price = current_price
-        entry_logic = "Market Price"
-        full_entry_explanation = "No specific entry level detected"
-        
-        if 'BUY' in signal_type.upper():
-            # For BUY signals: Find nearest resistance ABOVE current price
-            relevant_resistances = [r for r in resistance_levels if r['price'] > current_price]
-            
-            if relevant_resistances:
-                # Sort by distance from current price
-                relevant_resistances.sort(key=lambda x: abs(x['price'] - current_price))
-                nearest_resistance = relevant_resistances[0]
-                
-                # Entry price: slightly above resistance (0.2% buffer)
-                buffer = nearest_resistance['price'] * 0.002
-                entry_price = nearest_resistance['price'] + buffer
-                
-                entry_logic = f"Above {nearest_resistance['type']} ₹{nearest_resistance['price']:.1f}"
-                
-                # Full explanation
-                full_entry_explanation = (
-                    f"🔍 BUY Entry Logic: "
-                    f"Detected {nearest_resistance['type']} at ₹{nearest_resistance['price']:.2f}. "
-                    f"Entry at ₹{entry_price:.2f} = Resistance + 0.2% buffer "
-                    f"(₹{nearest_resistance['price']:.2f} + ₹{buffer:.2f}). "
-                    f"This confirms breakout above key resistance level with {nearest_resistance['strength']}/5 strength. "
-                    f"Distance from current price: {abs(entry_price - current_price):.2f} ({((entry_price - current_price)/current_price)*100:+.2f}%)"
-                )
-            else:
-                # No resistance found, use small buffer above current price
-                buffer = current_price * 0.002
-                entry_price = current_price + buffer
-                entry_logic = "Above Current Price (No Resistance)"
-                full_entry_explanation = (
-                    f"🔍 BUY Entry Logic: "
-                    f"No clear resistance level detected above current price ₹{current_price:.2f}. "
-                    f"Entry at ₹{entry_price:.2f} = Current Price + 0.2% buffer (₹{buffer:.2f}). "
-                    f"This provides minimal confirmation of upward momentum."
-                )
-        
-        elif 'SELL' in signal_type.upper():
-            # For SELL signals: Find nearest support BELOW current price
-            relevant_supports = [s for s in support_levels if s['price'] < current_price]
-            
-            if relevant_supports:
-                # Sort by distance from current price (closest first)
-                relevant_supports.sort(key=lambda x: abs(x['price'] - current_price))
-                nearest_support = relevant_supports[0]
-                
-                # Entry price: slightly below support (0.2% buffer)
-                buffer = nearest_support['price'] * 0.002
-                entry_price = nearest_support['price'] - buffer
-                
-                entry_logic = f"Below {nearest_support['type']} ₹{nearest_support['price']:.1f}"
-                
-                # Full explanation
-                full_entry_explanation = (
-                    f"🔍 SELL Entry Logic: "
-                    f"Detected {nearest_support['type']} at ₹{nearest_support['price']:.2f}. "
-                    f"Entry at ₹{entry_price:.2f} = Support - 0.2% buffer "
-                    f"(₹{nearest_support['price']:.2f} - ₹{buffer:.2f}). "
-                    f"This confirms breakdown below key support level with {nearest_support['strength']}/5 strength. "
-                    f"Distance from current price: {abs(current_price - entry_price):.2f} ({((current_price - entry_price)/current_price)*100:+.2f}%)"
-                )
-            else:
-                # No support found, use small buffer below current price
-                buffer = current_price * 0.002
-                entry_price = current_price - buffer
-                entry_logic = "Below Current Price (No Support)"
-                full_entry_explanation = (
-                    f"🔍 SELL Entry Logic: "
-                    f"No clear support level detected below current price ₹{current_price:.2f}. "
-                    f"Entry at ₹{entry_price:.2f} = Current Price - 0.2% buffer (₹{buffer:.2f}). "
-                    f"This provides minimal confirmation of downward momentum."
-                )
-        
-        return round(entry_price, 2), entry_logic, full_entry_explanation
-        
-    except Exception as e:
-        return current_price, "Market Price (Error)", f"Error calculating entry: {str(e)}"
-
-def calculate_ichimoku_ultimate(data):
-    """Calculate Ultimate Ichimoku components"""
-    try:
-        high = data['High']
-        low = data['Low']
-        close = data['Close']
-        
-        # Ichimoku parameters (customizable)
-        conversion_period = 9     # Tenkan-sen
-        base_period = 26         # Kijun-sen  
-        leading_span_period = 52 # Senkou Span B
-        displacement = 26        # Displacement for spans
-        
-        # Donchian calculation (high + low) / 2 for periods
-        def donchian(series_high, series_low, period):
-            return (series_high.rolling(period).max() + series_low.rolling(period).min()) / 2
-        
-        # Calculate Ichimoku lines
-        conversion_line = donchian(high, low, conversion_period)  # Tenkan-sen
-        base_line = donchian(high, low, base_period)              # Kijun-sen
-        
-        # Leading spans (projected forward)
-        leading_span_a = ((conversion_line + base_line) / 2).shift(displacement)
-        leading_span_b = donchian(high, low, leading_span_period).shift(displacement)
-        
-        # Lagging span (current close shifted back)
-        lagging_span = close.shift(-displacement)
-        
-        # Cloud boundaries
-        cloud_top = pd.concat([leading_span_a, leading_span_b], axis=1).max(axis=1)
-        cloud_bottom = pd.concat([leading_span_a, leading_span_b], axis=1).min(axis=1)
-        
-        # Cloud color (positive when Span A > Span B)
-        positive_cloud = leading_span_a > leading_span_b
-        
-        return {
-            'conversion_line': conversion_line,
-            'base_line': base_line,
-            'leading_span_a': leading_span_a,
-            'leading_span_b': leading_span_b,
-            'lagging_span': lagging_span,
-            'cloud_top': cloud_top,
-            'cloud_bottom': cloud_bottom,
-            'positive_cloud': positive_cloud,
-            'displacement': displacement
-        }
-    except Exception as e:
-        return None
-
-def check_ichimoku_conditions(data, ichimoku, config=IchimokuConfig()):
-    """Check Ichimoku conditions with flexibility"""
-    try:
-        close = data['Close']
-        high = data['High']
-        low = data['Low']
-        
-        # Get current values
-        current_close = close.iloc[-1]
-        prev_close = close.iloc[-2] if len(close) > 1 else current_close
-        
-        current_conversion = ichimoku['conversion_line'].iloc[-1]
-        prev_conversion = ichimoku['conversion_line'].iloc[-2]
-        current_base = ichimoku['base_line'].iloc[-1]
-        prev_base = ichimoku['base_line'].iloc[-2]
-        
-        # Cloud values (at displacement)
-        disp = ichimoku['displacement']
-        current_cloud_top = ichimoku['cloud_top'].iloc[-1] if not pd.isna(ichimoku['cloud_top'].iloc[-1]) else current_close
-        current_cloud_bottom = ichimoku['cloud_bottom'].iloc[-1] if not pd.isna(ichimoku['cloud_bottom'].iloc[-1]) else current_close
-        current_positive_cloud = ichimoku['positive_cloud'].iloc[-1] if not pd.isna(ichimoku['positive_cloud'].iloc[-1]) else True
-        
-        # Chikou comparison (current close vs price 26 bars ago)
-        chikou_reference_price = close.iloc[-disp-1] if len(close) > disp else current_close
-        
-        # ============ LONG CONDITIONS ============
-        long_conditions_met = {}
-        
-        # 1. Conversion crosses above Base (Tenkan crosses Kijun)
-        long_conditions_met['conversion_crosses_base'] = (
-            current_conversion > current_base and prev_conversion <= prev_base
-        )
-        
-        # 2. Conversion above Base
-        long_conditions_met['conversion_above_base'] = current_conversion > current_base
-        
-        # 3. Positive Cloud (Span A > Span B)
-        long_conditions_met['positive_cloud'] = current_positive_cloud
-        
-        # 4. Price above Cloud
-        long_conditions_met['price_above_cloud'] = (
-            current_close > current_cloud_top
-        )
-        
-        # 5. Positive Chikou (current close > price 26 bars ago)
-        long_conditions_met['positive_chikou'] = current_close > chikou_reference_price
-        
-        # 6. Price above Conversion
-        long_conditions_met['price_above_conversion'] = current_close > current_conversion
-        
-        # ============ SHORT CONDITIONS ============
-        short_conditions_met = {}
-        
-        # 1. Base crosses above Conversion (Kijun crosses Tenkan)
-        short_conditions_met['base_crosses_conversion'] = (
-            current_base > current_conversion and prev_base <= prev_conversion
-        )
-        
-        # 2. Base above Conversion
-        short_conditions_met['base_above_conversion'] = current_base > current_conversion
-        
-        # 3. Negative Cloud (Span B > Span A)
-        short_conditions_met['negative_cloud'] = not current_positive_cloud
-        
-        # 4. Price below Cloud
-        short_conditions_met['price_below_cloud'] = (
-            current_close < current_cloud_bottom
-        )
-        
-        # 5. Negative Chikou (current close < price 26 bars ago)
-        short_conditions_met['negative_chikou'] = current_close < chikou_reference_price
-        
-        # 6. Price below Base
-        short_conditions_met['price_below_base'] = current_close < current_base
-        
-        return {
-            'long_conditions': long_conditions_met,
-            'short_conditions': short_conditions_met,
-            'ichimoku_values': {
-                'conversion_line': current_conversion,
-                'base_line': current_base,
-                'cloud_top': current_cloud_top,
-                'cloud_bottom': current_cloud_bottom,
-                'positive_cloud': current_positive_cloud,
-                'chikou_vs_past': current_close - chikou_reference_price
-            }
-        }
-        
-    except Exception as e:
-        return None
-
-def analyze_ultimate_ichimoku(ticker, volume_days=20, momentum_days=5, debug=False):
-    """Ultimate Ichimoku Strategy Analysis with Entry Levels, RSI, Volume & Momentum"""
+    Args:
+        interval: Timeframe - '1d', '1h', '4h', '1wk', '1mo'
+    """
     try:
         if debug:
-            print(f"📊 Analyzing {ticker} with Ultimate Ichimoku...")
+            print(f"📊 Analyzing {ticker} - SWING CALLS Strategy ({interval} timeframe)...")
         
-        data = get_stock_data(ticker, 200)
+        data = get_stock_data(ticker, lookback_days=100, interval=interval)
         if data is None:
+            if debug:
+                print(f"   ❌ {ticker}: No data available")
             return None
         
-        # Calculate Ichimoku
-        ichimoku = calculate_ichimoku_ultimate(data)
-        if ichimoku is None:
+        if debug:
+            print(f"   📅 Data: {len(data)} {interval} periods available")
+        
+        min_required = max(sma_value, 20) + 10
+        if len(data) < min_required:
+            if debug:
+                print(f"   ⚠️  {ticker}: Insufficient data {len(data)} < {min_required}")
             return None
         
-        # Check conditions
-        conditions = check_ichimoku_conditions(data, ichimoku)
-        if conditions is None:
+        # Create SWING CALLS analyzer
+        swing_strategy = SwingCallsStrategy(ema_value, sma_value, rsi_overbought, rsi_oversold)
+        
+        # Detect current signal
+        analysis = swing_strategy.detect_signals(data)
+        if analysis['signal'] == 'NO_DATA':
+            if debug:
+                print(f"   ⚠️  {ticker}: Unable to analyze SWING CALLS")
             return None
         
-        # Get current market data
-        close = data['Close']
-        high = data['High']
-        low = data['Low']
-        volume = data['Volume']
+        details = analysis['details']
+        signal = analysis['signal']
+        signal_type = analysis.get('signal_type', 'None')
+        rsi_alert = analysis.get('rsi_alert', 'None')
         
-        current_price = close.iloc[-1]
-        current_volume = volume.iloc[-1]
-        
-        print(f"   📅 Data: {len(data)} trading days available")
-        
-        # Calculate metrics using proper trading days
-        volume_ratio, momentum, trading_days_used = calculate_proper_metrics(
-            data, volume_days, momentum_days
-        )
-        
-        # Enhanced volume confirmation
-        volume_analysis = enhanced_volume_confirmation(data, current_volume, volume_days)
-        
-        # Calculate RSI
-        rsi = calculate_rsi(data['Close'])
-        
-        print(f"   📊 Volume: Current {current_volume:,.0f} vs {volume_days}-day avg = {volume_ratio:.1f}x ({volume_analysis['volume_strength']})")
-        print(f"   🚀 Momentum: {momentum:+.1f}% ({momentum_days} trading days)")
-        print(f"   📈 RSI: {rsi:.1f}")
-        
-        # Detect support and resistance levels
-        support_levels, resistance_levels = detect_support_resistance_levels(
-            data, current_price, lookback_bars=50
-        )
-        
-        # ============ SIGNAL GENERATION ============
-        
-        config = IchimokuConfig()
-        
-        # Count long conditions met
-        long_conditions = conditions['long_conditions']
-        long_conditions_count = sum(
-            1 for condition, enabled in config.LONG_CONDITIONS.items()
-            if enabled and long_conditions.get(condition, False)
-        )
-        long_conditions_enabled = sum(1 for enabled in config.LONG_CONDITIONS.values() if enabled)
-        
-        # Count short conditions met  
-        short_conditions = conditions['short_conditions']
-        short_conditions_count = sum(
-            1 for condition, enabled in config.SHORT_CONDITIONS.items()
-            if enabled and short_conditions.get(condition, False)
-        )
-        short_conditions_enabled = sum(1 for enabled in config.SHORT_CONDITIONS.values() if enabled)
-        
-        # ============ DETERMINE SIGNAL ============
-        
-        signal_type = 'HOLD'
-        signal_strength = 0
-        entry_reason = ""
-        conditions_breakdown = []
-        
-        # Long Signal
-        if long_conditions_count >= config.MIN_LONG_CONDITIONS:
-            signal_type = 'STRONG_BUY' if long_conditions_count >= 4 else 'WEAK_BUY'
-            signal_strength = (long_conditions_count / long_conditions_enabled) * 10
-            entry_reason = f"{long_conditions_count}/{long_conditions_enabled} Ichimoku Long Conditions"
+        if debug:
+            print(f"   🎯 Signal: {signal}")
+            if signal_type != 'None':
+                print(f"   📊 Signal Type: {signal_type}")
+            if rsi_alert != 'None':
+                print(f"   📈 RSI Alert: {rsi_alert}")
+            print(f"   💰 Price: ₹{details['current_price']:.2f}")
+            print(f"   📈 EMA({ema_value}): ₹{details['ema_5']:.2f}")
+            print(f"   📊 SMA({sma_value}): ₹{details['sma_50']:.2f}")
+            print(f"   📈 RSI: {details['rsi']:.1f}")
+            print(f"   🎨 SMA Color: {details['sma_color']}")
+            print(f"   🕯️  Candle: {details['candle_type']}")
+            print(f"   📍 Position: {details['market_position']}")
+            print(f"   📊 Volume: {details['volume_ratio']:.1f}x")
             
-            # Add specific conditions met
-            for condition, met in long_conditions.items():
-                if config.LONG_CONDITIONS.get(condition, False) and met:
-                    condition_name = condition.replace('_', ' ').title()
-                    conditions_breakdown.append(f"✅ {condition_name}")
+            if 'conditions' in analysis:
+                print(f"   🔍 Signal Conditions:")
+                for condition, met in analysis['conditions'].items():
+                    status = "✅" if met else "❌"
+                    print(f"      {status} {condition}: {met}")
         
-        # Short Signal (only if no long signal)
-        elif short_conditions_count >= config.MIN_SHORT_CONDITIONS:
-            signal_type = 'STRONG_SELL' if short_conditions_count >= 4 else 'WEAK_SELL'  
-            signal_strength = (short_conditions_count / short_conditions_enabled) * 10
-            entry_reason = f"{short_conditions_count}/{short_conditions_enabled} Ichimoku Short Conditions"
-            
-            # Add specific conditions met
-            for condition, met in short_conditions.items():
-                if config.SHORT_CONDITIONS.get(condition, False) and met:
-                    condition_name = condition.replace('_', ' ').title()
-                    conditions_breakdown.append(f"✅ {condition_name}")
-        
-        # Volume boost
-        if volume_ratio > 1.5:
-            signal_strength *= 1.2
-            entry_reason += f" + Volume ({volume_ratio:.1f}x)"
-        
-        # RSI boost
-        if signal_type in ['STRONG_BUY', 'WEAK_BUY'] and rsi < 40:
-            signal_strength *= 1.15  # Oversold boost for buys
-        elif signal_type in ['STRONG_SELL', 'WEAK_SELL'] and rsi > 60:
-            signal_strength *= 1.15  # Overbought boost for sells
-        
-        # Calculate entry price using support/resistance with full explanation
-        entry_price, entry_logic, full_entry_explanation = calculate_entry_price(
-            signal_type, current_price, support_levels, resistance_levels
-        )
-        
-        # ============ RISK MANAGEMENT ============
-        
-        ichi_values = conditions['ichimoku_values']
-        
-        # Use Ichimoku levels for stops and targets
-        if 'BUY' in signal_type:
-            # Long stops: below cloud or Kijun
-            stop_loss = min(ichi_values['cloud_bottom'], ichi_values['base_line']) * 0.98
-            
-            # Long targets: use 2:1 R:R or next resistance
-            risk_distance = entry_price - stop_loss
-            take_profit = entry_price + (risk_distance * 2)
-            
-        elif 'SELL' in signal_type:
-            # Short stops: above cloud or Kijun  
-            stop_loss = max(ichi_values['cloud_top'], ichi_values['base_line']) * 1.02
-            
-            # Short targets: use 2:1 R:R or next support
-            risk_distance = stop_loss - entry_price
-            take_profit = entry_price - (risk_distance * 2)
-            
-        else:
-            stop_loss = current_price * 0.97
-            take_profit = current_price * 1.06
-            entry_price = current_price
-            entry_logic = "Market Price"
-            full_entry_explanation = "HOLD signal - no specific entry required"
-        
-        # Risk-Reward calculation
-        risk_per_share = abs(entry_price - stop_loss)
-        reward_per_share = abs(take_profit - entry_price)
-        risk_reward_ratio = reward_per_share / risk_per_share if risk_per_share > 0 else 0
-        
-        # Filter poor R:R trades
-        if risk_reward_ratio < 0.8 and signal_type != 'HOLD':
-            signal_type = 'HOLD'
-            signal_strength = 0
-            entry_reason = f"Poor R:R {risk_reward_ratio:.1f} - Skipped"
-            conditions_breakdown = []
-            full_entry_explanation = f"Signal filtered out due to poor risk-reward ratio: 1:{risk_reward_ratio:.1f}"
-        
-        # Position sizing
-        capital = 100000
-        risk_amount = capital * 0.02
-        position_size = int(risk_amount / risk_per_share) if risk_per_share > 0 else 0
-        
-        # Trend classification
-        if ichi_values['positive_cloud'] and current_price > ichi_values['cloud_top']:
-            trend_status = "BULLISH"
-        elif not ichi_values['positive_cloud'] and current_price < ichi_values['cloud_bottom']:
-            trend_status = "BEARISH"
-        elif ichi_values['cloud_bottom'] <= current_price <= ichi_values['cloud_top']:
-            trend_status = "IN_CLOUD"
-        else:
-            trend_status = "NEUTRAL"
-        
-        # Get sector
-        sector = get_sector(ticker)
-        
-        print(f"   🎯 Signal: {signal_type}")
-        print(f"   💰 Entry: ₹{entry_price:.2f} ({entry_logic})")
-        print(f"   🏢 Sector: {sector}")
-        
+        # Build result
         result = {
             'ticker': ticker,
-            'sector': sector,
+            'signal': signal,
             'signal_type': signal_type,
-            'signal_strength': float(signal_strength),
-            'current_price': float(current_price),
-            'entry_price': float(entry_price),
-            'entry_logic': entry_logic,
-            'full_entry_explanation': full_entry_explanation,
-            'entry_reason': entry_reason,
-            'trend_status': trend_status,
-            
-            # Condition breakdown
-            'conditions_met': conditions_breakdown,
-            'long_conditions_count': long_conditions_count,
-            'short_conditions_count': short_conditions_count,
-            
-            # Ichimoku Values
-            'conversion_line': float(ichi_values['conversion_line']),
-            'base_line': float(ichi_values['base_line']),
-            'cloud_top': float(ichi_values['cloud_top']),
-            'cloud_bottom': float(ichi_values['cloud_bottom']),
-            'positive_cloud': bool(ichi_values['positive_cloud']),
-            'chikou_vs_past': float(ichi_values['chikou_vs_past']),
-            
-            # Technical Indicators
-            'rsi': float(rsi),
-            'volume_ratio': float(volume_ratio),
-            'volume_analysis': volume_analysis,
-            'momentum': float(momentum),
-            'trading_days_used': int(trading_days_used),
-            'volume_period': f"{volume_days} trading days",
-            'momentum_period': f"{momentum_days} trading days",
-            
-            # Support/Resistance
-            'support_levels': support_levels[:3],  # Top 3 support levels
-            'resistance_levels': resistance_levels[:3],  # Top 3 resistance levels
-            
-            # Risk Management
-            'stop_loss': float(stop_loss),
-            'take_profit': float(take_profit),
-            'risk_reward_ratio': float(risk_reward_ratio),
-            'position_size': int(position_size),
-            'risk_per_share': float(risk_per_share),
-            
-            'strategy': 'Ultimate Ichimoku with Entry Levels'
+            'rsi_alert': rsi_alert,
+            'current_price': details['current_price'],
+            'ema_5': details['ema_5'],
+            'sma_50': details['sma_50'],
+            'rsi': details['rsi'],
+            'sma_color': details['sma_color'],
+            'candle_type': details['candle_type'],
+            'market_position': details['market_position'],
+            'volume_ratio': details['volume_ratio'],
+            'momentum': details['momentum'],
+            # Strategy parameters
+            'ema_value': ema_value,
+            'sma_value': sma_value,
+            'rsi_overbought': rsi_overbought,
+            'rsi_oversold': rsi_oversold,
+            'interval': interval
         }
         
         return result
         
     except Exception as e:
         if debug:
-            print(f"Error analyzing {ticker}: {e}")
+            print(f"❌ Error analyzing {ticker}: {e}")
         return None
 
-def analyze_all_stocks_ultimate(volume_days=20, momentum_days=5, max_workers=3, debug=False):
-    """Analyze all stocks with Ultimate Ichimoku strategy"""
+def analyze_all_stocks_swing_calls(ema_value=5, sma_value=50, rsi_overbought=80, rsi_oversold=20, interval='1d', max_workers=3, debug=False):
+    """Analyze all stocks using SWING CALLS strategy"""
     
     tickers = [stock['symbol'].replace('.NS', '') for stock in config.TOP_STOCKS]
     
-    print(f"\n🚀 ULTIMATE ICHIMOKU CLOUD STRATEGY")
-    print(f"📊 Analyzing {len(tickers)} stocks with Entry Levels & Sector Analysis")
-    print(f"⚙️  Flexible Conditions - Partial Confirmations Allowed")
-    print(f"📊 Volume Period: {volume_days} trading days")
-    print(f"🚀 Momentum Period: {momentum_days} trading days")
-    print("="*80)
+    timeframe_name = {
+        '5m': '5-Minute',
+        '15m': '15-Minute',
+        '1h': 'Hourly',
+        '4h': '4-Hour',
+        '1d': 'Daily',
+        '1wk': 'Weekly',
+        '1mo': 'Monthly'
+    }.get(interval, interval)
+    
+    print(f"\n🚀 SWING CALLS STRATEGY ANALYSIS")
+    print(f"📊 Analyzing {len(tickers)} stocks")
+    print(f"⏰ Timeframe: {timeframe_name} ({interval})")
+    print(f"📈 Strategy: EMA({ema_value}) vs SMA({sma_value}) + RSI({rsi_overbought}/{rsi_oversold})")
+    print(f"🎯 Pine Script: SMA/EMA Crossover + RSI Alerts")
+    print("="*60)
     
     all_signals = []
     
     with concurrent.futures.ThreadPoolExecutor(max_workers=max_workers) as executor:
         future_to_ticker = {
-            executor.submit(analyze_ultimate_ichimoku, ticker, volume_days, momentum_days, debug): ticker 
+            executor.submit(analyze_stock_swing_calls, ticker, ema_value, sma_value, rsi_overbought, rsi_oversold, interval, debug): ticker 
             for ticker in tickers
         }
         
@@ -960,7 +470,11 @@ def analyze_all_stocks_ultimate(volume_days=20, momentum_days=5, max_workers=3, 
                 if result:
                     all_signals.append(result)
                     successful += 1
-                    print(f"✅ {ticker} ({completed}/{len(tickers)}) - {result['signal_type']} | {result['sector']}")
+                    signal_display = result['signal']
+                    price_display = f"₹{result['current_price']:.2f}"
+                    rsi_display = f"RSI:{result['rsi']:.0f}"
+                    color_display = result['sma_color']
+                    print(f"✅ {ticker} ({completed}/{len(tickers)}) - {signal_display} | {price_display} | {rsi_display} | {color_display}")
                 else:
                     failed += 1
                     print(f"⚪ {ticker} ({completed}/{len(tickers)}) - No data")
@@ -978,787 +492,885 @@ def analyze_all_stocks_ultimate(volume_days=20, momentum_days=5, max_workers=3, 
     
     return all_signals
 
-def sort_signals_by_combined_score(signals):
-    """Sort signals by combined score of RSI, Volume, and Momentum"""
+def filter_signals_by_type(all_signals, signal_types):
+    """Filter signals by type"""
+    return [signal for signal in all_signals if signal['signal'] in signal_types]
+
+def display_swing_signals(signals, signal_title, top_n=10):
+    """Display SWING CALLS signals"""
+    
     if not signals:
-        return signals
-    
-    for signal in signals:
-        # Calculate combined score
-        rsi_score = 0
-        volume_score = 0
-        momentum_score = 0
-        
-        # RSI scoring
-        rsi = signal.get('rsi', 50)
-        if 'BUY' in signal['signal_type']:
-            # For BUY: Lower RSI is better (oversold)
-            if rsi <= 30:
-                rsi_score = 10
-            elif rsi <= 40:
-                rsi_score = 8
-            elif rsi <= 50:
-                rsi_score = 6
-            else:
-                rsi_score = max(0, 10 - (rsi - 50) * 0.2)
-        else:
-            # For SELL: Higher RSI is better (overbought)
-            if rsi >= 70:
-                rsi_score = 10
-            elif rsi >= 60:
-                rsi_score = 8
-            elif rsi >= 50:
-                rsi_score = 6
-            else:
-                rsi_score = max(0, 10 - (50 - rsi) * 0.2)
-        
-        # Volume scoring
-        volume_ratio = signal.get('volume_ratio', 1.0)
-        if volume_ratio >= 2.0:
-            volume_score = 10
-        elif volume_ratio >= 1.5:
-            volume_score = 8
-        elif volume_ratio >= 1.2:
-            volume_score = 6
-        elif volume_ratio >= 0.8:
-            volume_score = 4
-        else:
-            volume_score = 2
-        
-        # Momentum scoring
-        momentum = signal.get('momentum', 0)
-        if 'BUY' in signal['signal_type']:
-            # For BUY: Positive momentum is better
-            if momentum >= 5:
-                momentum_score = 10
-            elif momentum >= 2:
-                momentum_score = 8
-            elif momentum >= 0:
-                momentum_score = 6
-            else:
-                momentum_score = max(0, 6 + momentum * 0.5)
-        else:
-            # For SELL: Negative momentum is better
-            if momentum <= -5:
-                momentum_score = 10
-            elif momentum <= -2:
-                momentum_score = 8
-            elif momentum <= 0:
-                momentum_score = 6
-            else:
-                momentum_score = max(0, 6 - momentum * 0.5)
-        
-        # Combined score with weights
-        signal['combined_score'] = (
-            rsi_score * 0.3 +      # 30% weight
-            volume_score * 0.4 +   # 40% weight  
-            momentum_score * 0.3   # 30% weight
-        )
-        
-        signal['rsi_score'] = rsi_score
-        signal['volume_score'] = volume_score
-        signal['momentum_score'] = momentum_score
-    
-    # Sort by combined score (highest first)
-    return sorted(signals, key=lambda x: x['combined_score'], reverse=True)
-
-def group_signals_by_sector(signals):
-    """Group signals by sector"""
-    sector_groups = defaultdict(list)
-    
-    for signal in signals:
-        sector = signal.get('sector', 'Others')
-        sector_groups[sector].append(signal)
-    
-    # Sort each sector's signals by combined score
-    for sector in sector_groups:
-        sector_groups[sector] = sort_signals_by_combined_score(sector_groups[sector])
-    
-    return dict(sector_groups)
-
-def display_sector_wise_signals(all_signals, signal_types, title):
-    """Display sector-wise signals with full entry logic"""
-    
-    # Filter signals
-    filtered_signals = [s for s in all_signals if s['signal_type'] in signal_types]
-    
-    if not filtered_signals:
-        print(f"\n❌ No {title} signals found!")
+        print(f"\n❌ No {signal_title} signals found!")
         return
     
-    # Sort by combined score
-    filtered_signals = sort_signals_by_combined_score(filtered_signals)
+    # Sort by RSI and volume for better signals
+    signals.sort(key=lambda x: (abs(x['rsi'] - 50), x['volume_ratio']), reverse=True)
+    top_signals = signals[:top_n]
     
-    # Group by sector
-    sector_groups = group_signals_by_sector(filtered_signals)
+    print(f"\n🏆 TOP {len(top_signals)} {signal_title} SIGNALS")
+    print(f"📊 SWING CALLS Strategy (Pine Script Style)")
+    print("="*100)
     
-    print(f"\n🏆 SECTOR-WISE {title} SIGNALS")
-    print(f"📊 Ultimate Ichimoku with Full Entry Logic")
-    print("="*120)
+    table_data = []
+    headers = ['Rank', 'Ticker', 'Signal', 'Timeframe', 'Price', 'EMA', 'SMA', 'RSI', 
+               'SMA Color', 'Candle', 'Position', 'Volume']
     
-    total_signals = 0
-    
-    # Display each sector
-    for sector, signals in sector_groups.items():
-        if not signals:
-            continue
-            
-        total_signals += len(signals)
+    for i, signal in enumerate(top_signals, 1):
+        volume_display = f"{signal['volume_ratio']:.1f}x"
+        if signal['volume_ratio'] > 2.0:
+            volume_display += "🟢"
+        elif signal['volume_ratio'] > 1.5:
+            volume_display += "🟡"
+        elif signal['volume_ratio'] < 0.8:
+            volume_display += "🔴"
         
-        # Show strong signals first (top 5 per sector)
-        strong_signals = [s for s in signals if 'STRONG' in s['signal_type']][:5]
+        rsi_display = f"{signal['rsi']:.0f}"
+        if signal['rsi'] >= 80:
+            rsi_display += "🔴"  # Overbought
+        elif signal['rsi'] <= 20:
+            rsi_display += "🟢"  # Oversold
+        elif signal['rsi'] >= 70:
+            rsi_display += "🟡"  # Warning overbought
+        elif signal['rsi'] <= 30:
+            rsi_display += "🟡"  # Warning oversold
         
-        if strong_signals:
-            print(f"\n🏢 {sector.upper()} SECTOR - STRONG {title} SIGNALS")
-            print("-" * 120)
-            
-            for i, signal in enumerate(strong_signals, 1):
-                # Basic info
-                print(f"{i}. {signal['ticker']:10} | {signal['signal_type']:11} | "
-                      f"Current: ₹{signal['current_price']:7.1f} | "
-                      f"Entry: ₹{signal['entry_price']:7.1f} | "
-                      f"Score: {signal.get('combined_score', 0):4.1f}/10")
-                
-                # Technical indicators
-                rsi_icon = "🔴" if signal['rsi'] > 70 else "🟢" if signal['rsi'] < 30 else ""
-                volume_icon = "🟢" if signal['volume_analysis']['volume_strength'] in ['HIGH', 'VERY_HIGH'] else "🟡" if signal['volume_analysis']['volume_strength'] == 'NORMAL' else "🔴"
-                momentum_icon = "🟢" if ('BUY' in signal['signal_type'] and signal['momentum'] > 0) or ('SELL' in signal['signal_type'] and signal['momentum'] < 0) else "🔴"
-                
-                print(f"   📊 RSI: {signal['rsi']:4.1f}{rsi_icon} | "
-                      f"Volume: {signal['volume_ratio']:4.1f}x{volume_icon} | "
-                      f"Momentum: {signal['momentum']:+5.1f}%{momentum_icon} | "
-                      f"R:R: 1:{signal['risk_reward_ratio']:.1f}")
-                
-                # Full entry explanation
-                print(f"   💡 {signal['full_entry_explanation']}")
-                
-                # Ichimoku levels
-                cloud_status = "☁️ Positive" if signal['positive_cloud'] else "☁️ Negative"
-                print(f"   ☁️  Tenkan: ₹{signal['conversion_line']:6.1f} | "
-                      f"Kijun: ₹{signal['base_line']:6.1f} | "
-                      f"{cloud_status} | "
-                      f"Cloud: ₹{signal['cloud_bottom']:6.1f}-₹{signal['cloud_top']:6.1f}")
-                
-                # Risk management
-                print(f"   🛑 Stop: ₹{signal['stop_loss']:6.1f} | "
-                      f"Target: ₹{signal['take_profit']:6.1f} | "
-                      f"Position: {signal['position_size']} shares | "
-                      f"Risk: ₹{signal['risk_per_share']:5.1f}/share")
-                
-                print()
-    
-    # Summary by sector
-    print(f"\n📊 SECTOR SUMMARY:")
-    sector_stats = []
-    for sector, signals in sector_groups.items():
-        strong_count = len([s for s in signals if 'STRONG' in s['signal_type']])
-        avg_score = sum(s.get('combined_score', 0) for s in signals) / len(signals) if signals else 0
-        avg_rsi = sum(s['rsi'] for s in signals) / len(signals) if signals else 50
-        avg_volume = sum(s['volume_ratio'] for s in signals) / len(signals) if signals else 1
+        # Color code SMA Color
+        color_display = signal['sma_color']
+        if color_display == 'green':
+            color_display = "🟢Bullish"
+        elif color_display == 'red':
+            color_display = "🔴Bearish"
+        else:
+            color_display = "🟡Neutral"
         
-        sector_stats.append({
-            'sector': sector,
-            'total': len(signals),
-            'strong': strong_count,
-            'avg_score': avg_score,
-            'avg_rsi': avg_rsi,
-            'avg_volume': avg_volume
-        })
+        # Candle type
+        candle_display = signal['candle_type']
+        if candle_display == 'Green':
+            candle_display = "🟢"
+        else:
+            candle_display = "🔴"
+        
+        # Timeframe display
+        timeframe_display = signal.get('interval', '1d')
+        
+        table_data.append([
+            i,
+            signal['ticker'],
+            signal['signal'],
+            timeframe_display,
+            f"₹{signal['current_price']:.2f}",
+            f"₹{signal['ema_5']:.2f}",
+            f"₹{signal['sma_50']:.2f}",
+            rsi_display,
+            color_display,
+            candle_display,
+            signal['market_position'].replace('_', ' '),
+            volume_display
+        ])
     
-    # Sort sectors by number of strong signals
-    sector_stats.sort(key=lambda x: x['strong'], reverse=True)
+    print(tabulate(table_data, headers=headers, tablefmt="grid"))
     
-    for stat in sector_stats:
-        print(f"   🏢 {stat['sector']:20} | "
-              f"Total: {stat['total']:2d} | "
-              f"Strong: {stat['strong']:2d} | "
-              f"Avg Score: {stat['avg_score']:4.1f} | "
-              f"Avg RSI: {stat['avg_rsi']:4.1f} | "
-              f"Avg Vol: {stat['avg_volume']:4.1f}x")
+    # Summary statistics
+    avg_rsi = sum(signal['rsi'] for signal in top_signals) / len(top_signals)
+    avg_volume = sum(signal['volume_ratio'] for signal in top_signals) / len(top_signals)
+    avg_momentum = sum(abs(signal['momentum']) for signal in top_signals) / len(top_signals)
     
-    print(f"\n🎯 BEST PERFORMING SECTORS:")
-    top_3_sectors = sector_stats[:3]
-    for i, stat in enumerate(top_3_sectors, 1):
-        print(f"   {i}. {stat['sector']} - {stat['strong']} strong signals, {stat['avg_score']:.1f} avg score")
+    # Count signal types
+    swing_buy_count = sum(1 for signal in top_signals if signal['signal'] == 'BUY')
+    swing_sell_count = sum(1 for signal in top_signals if signal['signal'] == 'SELL')
+    rsi_alerts = sum(1 for signal in top_signals if signal['rsi_alert'] != 'None')
+    
+    # Count by timeframes
+    timeframe_counts = {}
+    for signal in top_signals:
+        tf = signal.get('interval', '1d')
+        timeframe_counts[tf] = timeframe_counts.get(tf, 0) + 1
+    
+    print(f"\n📊 SWING CALLS SUMMARY:")
+    print(f"   🎯 {signal_title} signals: {len(signals)}")
+    print(f"   📈 Average RSI: {avg_rsi:.1f}")
+    print(f"   📊 Average volume: {avg_volume:.1f}x")
+    print(f"   🚀 Average momentum: {avg_momentum:.1f}%")
+    print(f"   📈 Swing signals: {swing_buy_count + swing_sell_count}")
+    print(f"   🔔 RSI alerts: {rsi_alerts}")
+    
+    if timeframe_counts:
+        print(f"   ⏰ Timeframe breakdown:")
+        for tf, count in timeframe_counts.items():
+            tf_name = {
+                '5m': '5-Minute',
+                '15m': '15-Minute', 
+                '1h': 'Hourly',
+                '4h': '4-Hour',
+                '1d': 'Daily',
+                '1wk': 'Weekly',
+                '1mo': 'Monthly'
+            }.get(tf, tf)
+            print(f"      {tf_name} ({tf}): {count} signals")
 
-def generate_sector_wise_html(all_signals, volume_days, momentum_days, output_dir):
-    """Generate sector-wise HTML report in donchian.py table format"""
+def compare_configurations(interval='1d'):
+    """Compare original EMA(5)/SMA(50) vs suggested EMA(2)/SMA(200) on single timeframe"""
     
-    if not all_signals:
-        print("❌ No signals to generate report")
-        return None
+    timeframe_name = {
+        '5m': '5-Minute',
+        '15m': '15-Minute',
+        '1h': 'Hourly', 
+        '4h': '4-Hour',
+        '1d': 'Daily',
+        '1wk': 'Weekly',
+        '1mo': 'Monthly'
+    }.get(interval, interval)
     
-    # Separate signals by type
-    buy_signals = [s for s in all_signals if s['signal_type'] in ['STRONG_BUY', 'WEAK_BUY']]
-    sell_signals = [s for s in all_signals if s['signal_type'] in ['STRONG_SELL', 'WEAK_SELL']]
+    print("🎯 COMPARING CONFIGURATIONS: Original vs Suggested")
+    print("📊 Testing surajkumarsadhaphule's EMA(2)/SMA(200) suggestion")
+    print(f"⏰ Timeframe: {timeframe_name} ({interval})")
+    print("="*70)
     
-    # Sort by combined score
-    buy_signals = sort_signals_by_combined_score(buy_signals) if buy_signals else []
-    sell_signals = sort_signals_by_combined_score(sell_signals) if sell_signals else []
+    test_tickers = ['RELIANCE', 'TCS', 'HDFCBANK', 'INFY', 'ITC', 'KOTAKBANK']
     
-    # Group by sector
-    buy_sectors = group_signals_by_sector(buy_signals)
-    sell_sectors = group_signals_by_sector(sell_signals)
+    configs = [
+        {'ema': 5, 'sma': 50, 'name': 'Original EMA(5)/SMA(50)'},
+        {'ema': 2, 'sma': 200, 'name': 'Suggested EMA(2)/SMA(200)'}
+    ]
     
-    timestamp = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+    results = {}
     
-    html_content = f"""
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Sector-wise Ichimoku Analysis - {datetime.now().strftime('%Y-%m-%d')}</title>
-        <style>
-            body {{
-                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-                margin: 0;
-                padding: 20px;
-                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-                min-height: 100vh;
-            }}
-            .container {{
-                max-width: 1600px;
-                margin: 0 auto;
-                background: white;
-                padding: 30px;
-                border-radius: 15px;
-                box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-            }}
-            .header {{
-                text-align: center;
-                background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-                color: white;
-                padding: 40px;
-                border-radius: 15px;
-                margin-bottom: 30px;
-            }}
-            .header h1 {{
-                margin: 0;
-                font-size: 2.8em;
-                margin-bottom: 10px;
-            }}
-            .header p {{
-                margin: 5px 0;
-                font-size: 1.1em;
-            }}
-            .stats-grid {{
-                display: grid;
-                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-                gap: 20px;
-                margin: 30px 0;
-            }}
-            .stat-card {{
-                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-                color: white;
-                padding: 20px;
-                border-radius: 10px;
-                text-align: center;
-            }}
-            .stat-card h3 {{
-                margin: 0 0 10px 0;
-                font-size: 2em;
-            }}
-            .section {{
-                margin: 40px 0;
-            }}
-            .section h2 {{
-                color: #333;
-                border-bottom: 3px solid #667eea;
-                padding-bottom: 10px;
-                margin-bottom: 20px;
-                font-size: 1.8em;
-            }}
-            .sector-header {{
-                background: linear-gradient(135deg, #36d1dc 0%, #5b86e5 100%);
-                color: white;
-                padding: 15px 25px;
-                border-radius: 8px;
-                margin: 25px 0 15px 0;
-                font-size: 1.3em;
-                font-weight: bold;
-            }}
-            table {{
-                width: 100%;
-                border-collapse: collapse;
-                margin: 20px 0;
-                box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-                border-radius: 10px;
-                overflow: hidden;
-            }}
-            th, td {{
-                padding: 12px;
-                text-align: left;
-                border-bottom: 1px solid #ddd;
-                font-size: 0.9em;
-            }}
-            th {{
-                background: #f8f9fa;
-                font-weight: bold;
-                position: sticky;
-                top: 0;
-            }}
-            tr:nth-child(even) {{
-                background-color: #f9f9f9;
-            }}
-            tr:hover {{
-                background-color: #f0f0f0;
-            }}
-            .rank {{
-                font-weight: bold;
-                color: #007bff;
-                text-align: center;
-            }}
-            .ticker {{
-                font-weight: bold;
-                color: #28a745;
-            }}
-            .strong-buy {{
-                background: linear-gradient(90deg, #28a745, #20c997);
-                color: white;
-                padding: 5px 10px;
-                border-radius: 15px;
-                font-weight: bold;
-                text-align: center;
-            }}
-            .weak-buy {{
-                background: linear-gradient(90deg, #ffc107, #fd7e14);
-                color: white;
-                padding: 5px 10px;
-                border-radius: 15px;
-                font-weight: bold;
-                text-align: center;
-            }}
-            .strong-sell {{
-                background: linear-gradient(90deg, #dc3545, #e74c3c);
-                color: white;
-                padding: 5px 10px;
-                border-radius: 15px;
-                font-weight: bold;
-                text-align: center;
-            }}
-            .weak-sell {{
-                background: linear-gradient(90deg, #6c757d, #495057);
-                color: white;
-                padding: 5px 10px;
-                border-radius: 15px;
-                font-weight: bold;
-                text-align: center;
-            }}
-            .price {{
-                font-weight: bold;
-                color: #333;
-            }}
-            .positive {{
-                color: #28a745;
-                font-weight: bold;
-            }}
-            .negative {{
-                color: #dc3545;
-                font-weight: bold;
-            }}
-            .footer {{
-                text-align: center;
-                margin-top: 40px;
-                padding: 20px;
-                background: #f8f9fa;
-                border-radius: 10px;
-                border-left: 5px solid #667eea;
-            }}
-        </style>
-    </head>
-    <body>
-        <div class="container">
-            <div class="header">
-                <h1>☁️ SECTOR-WISE ICHIMOKU ANALYSIS</h1>
-                <p><strong>Ultimate Ichimoku Strategy with Entry Levels</strong></p>
-                <p>Volume: {volume_days} days | Momentum: {momentum_days} days</p>
-                <p>Generated: {timestamp}</p>
-            </div>
+    for config in configs:
+        print(f"\n📈 Testing {config['name']} on {timeframe_name}...")
+        print("-" * 40)
+        
+        config_signals = []
+        
+        for ticker in test_tickers:
+            result = analyze_stock_swing_calls(
+                ticker, config['ema'], config['sma'], 80, 20, interval, debug=False
+            )
+            if result:
+                config_signals.append(result)
+                if result['signal'] in ['BUY', 'SELL']:
+                    print(f"   ✅ {ticker}: {result['signal']} @ ₹{result['current_price']:.2f}")
+        
+        buy_count = sum(1 for r in config_signals if r['signal'] == 'BUY')
+        sell_count = sum(1 for r in config_signals if r['signal'] == 'SELL')
+        total_signals = buy_count + sell_count
+        
+        results[config['name']] = {
+            'signals': config_signals,
+            'buy_count': buy_count,
+            'sell_count': sell_count,
+            'total_signals': total_signals
+        }
+        
+        print(f"   📊 Results: {buy_count} BUY, {sell_count} SELL = {total_signals} total signals")
+    
+    # Comparison
+    original = results['Original EMA(5)/SMA(50)']
+    suggested = results['Suggested EMA(2)/SMA(200)']
+    
+    print(f"\n🏆 COMPARISON RESULTS ({timeframe_name} timeframe):")
+    print("="*50)
+    print(f"   Original  EMA(5)/SMA(50):  {original['total_signals']} signals")
+    print(f"   Suggested EMA(2)/SMA(200): {suggested['total_signals']} signals")
+    
+    if suggested['total_signals'] > original['total_signals']:
+        improvement = suggested['total_signals'] - original['total_signals']
+        print(f"\n✅ SURAJKUMARSADHAPHULE WAS RIGHT!")
+        print(f"   🎉 EMA(2)/SMA(200) gives +{improvement} more signals on {timeframe_name}!")
+        print(f"   📊 Improvement: {improvement} additional signals found")
+    elif suggested['total_signals'] < original['total_signals']:
+        decrease = original['total_signals'] - suggested['total_signals']
+        print(f"\n📉 Original performs better on {timeframe_name} timeframe")
+        print(f"   📊 Original has {decrease} more signals than suggested")
+    else:
+        print(f"\n➡️  Both configurations give same number of signals on {timeframe_name}")
+    
+    print(f"\n🚀 Try the suggested config: python swing.py --suggested --timeframe {interval}")
+
+
+def analyze_custom_timeframes(timeframes, ema_value=5, sma_value=50, rsi_overbought=80, rsi_oversold=20, max_workers=3, debug=False):
+    """Analyze stocks across custom specified timeframes"""
+    
+    timeframe_names = {
+        '5m': '5-Min',
+        '15m': '15-Min',
+        '1h': '1-Hour',
+        '4h': '4-Hour',
+        '1d': 'Daily',
+        '1wk': 'Weekly',
+        '1mo': 'Monthly'
+    }
+    
+    # Use more stocks for analysis but still reasonable for API limits
+    tickers = [stock['symbol'].replace('.NS', '') for stock in config.TOP_STOCKS[:30]]  # First 30 stocks
+    
+    print(f"\n🚀 CUSTOM MULTI-TIMEFRAME SWING CALLS ANALYSIS")
+    print(f"📊 Analyzing {len(tickers)} stocks across {len(timeframes)} timeframes")
+    print(f"📈 Strategy: EMA({ema_value}) vs SMA({sma_value}) + RSI({rsi_overbought}/{rsi_oversold})")
+    print(f"⏰ Selected Timeframes: {', '.join([f'{timeframe_names[tf]} ({tf})' for tf in timeframes])}")
+    print("="*80)
+    
+    all_signals = []
+    
+    for timeframe in timeframes:
+        print(f"\n📊 Analyzing {timeframe_names[timeframe]} ({timeframe}) timeframe...")
+        
+        with concurrent.futures.ThreadPoolExecutor(max_workers=max_workers) as executor:
+            future_to_ticker = {
+                executor.submit(analyze_stock_swing_calls, ticker, ema_value, sma_value, rsi_overbought, rsi_oversold, timeframe, False): ticker 
+                for ticker in tickers
+            }
             
-            <div class="stats-grid">
-                <div class="stat-card">
-                    <h3>{len(buy_signals)}</h3>
-                    <p>BUY Signals</p>
-                </div>
-                <div class="stat-card">
-                    <h3>{len(sell_signals)}</h3>
-                    <p>SELL Signals</p>
-                </div>
-                <div class="stat-card">
-                    <h3>{len(buy_sectors)}</h3>
-                    <p>BUY Sectors</p>
-                </div>
-                <div class="stat-card">
-                    <h3>{len(sell_sectors)}</h3>
-                    <p>SELL Sectors</p>
-                </div>
-            </div>
-    """
-    
-    # Generate BUY signals by sector
-    if buy_sectors:
-        html_content += f"""
-            <div class="section">
-                <h2>🟢 BUY SIGNALS BY SECTOR</h2>
-        """
-        
-        # Sort sectors by number of strong signals
-        sorted_buy_sectors = sorted(buy_sectors.items(), 
-                                   key=lambda x: len([s for s in x[1] if 'STRONG' in s['signal_type']]), 
-                                   reverse=True)
-        
-        for sector, signals in sorted_buy_sectors:
-            if not signals:
-                continue
-                
-            # Separate strong and weak signals
-            strong_signals = [s for s in signals if 'STRONG' in s['signal_type']]
-            weak_signals = [s for s in signals if 'WEAK' in s['signal_type']]
+            timeframe_signals = []
+            completed = 0
+            successful = 0
             
-            # Combine: strong first, then weak
-            ordered_signals = strong_signals + weak_signals
+            for future in concurrent.futures.as_completed(future_to_ticker):
+                ticker = future_to_ticker[future]
+                completed += 1
+                
+                try:
+                    result = future.result(timeout=30)
+                    if result:
+                        successful += 1
+                        if result['signal'] in ['BUY', 'SELL']:
+                            timeframe_signals.append(result)
+                            all_signals.append(result)
+                            signal_display = result['signal']
+                            price_display = f"₹{result['current_price']:.2f}"
+                            rsi_display = f"RSI:{result['rsi']:.0f}"
+                            print(f"   ✅ {ticker} ({completed}/{len(tickers)}): {signal_display} @ {price_display} | {rsi_display}")
+                        else:
+                            print(f"   ⚪ {ticker} ({completed}/{len(tickers)}): HOLD")
+                except Exception as e:
+                    print(f"   ❌ {ticker} ({completed}/{len(tickers)}): Error")
+                    continue
             
-            if ordered_signals:
-                html_content += f'<div class="sector-header">🏢 {sector.upper()} SECTOR ({len(strong_signals)} Strong, {len(weak_signals)} Weak)</div>'
-                html_content += '''
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Rank</th>
-                                <th>Ticker</th>
-                                <th>Signal</th>
-                                <th>Current</th>
-                                <th>Entry</th>
-                                <th>Entry Logic</th>
-                                <th>RSI</th>
-                                <th>Volume</th>
-                                <th>Momentum</th>
-                                <th>Score</th>
-                                <th>Stop Loss</th>
-                                <th>Target</th>
-                                <th>R:R</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                '''
-                
-                for i, signal in enumerate(ordered_signals, 1):
-                    signal_class = signal['signal_type'].lower().replace('_', '-')
-                    momentum_class = 'positive' if signal['momentum'] >= 0 else 'negative'
-                    
-                    # RSI interpretation
-                    rsi_value = signal.get('rsi', 50)
-                    rsi_display = f"{rsi_value:.0f}"
-                    if rsi_value > 70:
-                        rsi_display += "🔴"  # Overbought
-                    elif rsi_value < 30:
-                        rsi_display += "🟢"  # Oversold
-                    
-                    # Volume with strength indicator
-                    volume_strength = signal['volume_analysis']['volume_strength']
-                    volume_display = f"{signal['volume_ratio']:.1f}x"
-                    if volume_strength == 'VERY_HIGH':
-                        volume_display += "🟢"
-                    elif volume_strength == 'HIGH':
-                        volume_display += "🟡"
-                    elif volume_strength == 'WEAK':
-                        volume_display += "🔴"
-                    
-                    # Truncate entry logic for table
-                    entry_logic_short = signal['entry_logic'][:25] + "..." if len(signal['entry_logic']) > 25 else signal['entry_logic']
-                    
-                    html_content += f'''
-                            <tr>
-                                <td class="rank">{i}</td>
-                                <td class="ticker">{signal['ticker']}</td>
-                                <td><span class="{signal_class}">{signal['signal_type'].replace('_', ' ')}</span></td>
-                                <td class="price">₹{signal['current_price']:.1f}</td>
-                                <td class="price">₹{signal['entry_price']:.1f}</td>
-                                <td title="{signal['full_entry_explanation']}">{entry_logic_short}</td>
-                                <td>{rsi_display}</td>
-                                <td>{volume_display}</td>
-                                <td class="{momentum_class}">{signal['momentum']:+.1f}%</td>
-                                <td>{signal.get('combined_score', 0):.1f}</td>
-                                <td class="price">₹{signal['stop_loss']:.1f}</td>
-                                <td class="price">₹{signal['take_profit']:.1f}</td>
-                                <td>1:{signal['risk_reward_ratio']:.1f}</td>
-                            </tr>
-                    '''
-                
-                html_content += '''
-                        </tbody>
-                    </table>
-                '''
-        
-        html_content += '</div>'
-    
-    # Generate SELL signals by sector
-    if sell_sectors:
-        html_content += f"""
-            <div class="section">
-                <h2>🔴 SELL SIGNALS BY SECTOR</h2>
-        """
-        
-        # Sort sectors by number of strong signals
-        sorted_sell_sectors = sorted(sell_sectors.items(), 
-                                    key=lambda x: len([s for s in x[1] if 'STRONG' in s['signal_type']]), 
-                                    reverse=True)
-        
-        for sector, signals in sorted_sell_sectors:
-            if not signals:
-                continue
-                
-            # Separate strong and weak signals
-            strong_signals = [s for s in signals if 'STRONG' in s['signal_type']]
-            weak_signals = [s for s in signals if 'WEAK' in s['signal_type']]
+            buy_signals = sum(1 for s in timeframe_signals if s['signal'] == 'BUY')
+            sell_signals = sum(1 for s in timeframe_signals if s['signal'] == 'SELL')
             
-            # Combine: strong first, then weak
-            ordered_signals = strong_signals + weak_signals
-            
-            if ordered_signals:
-                html_content += f'<div class="sector-header">🏢 {sector.upper()} SECTOR ({len(strong_signals)} Strong, {len(weak_signals)} Weak)</div>'
-                html_content += '''
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Rank</th>
-                                <th>Ticker</th>
-                                <th>Signal</th>
-                                <th>Current</th>
-                                <th>Entry</th>
-                                <th>Entry Logic</th>
-                                <th>RSI</th>
-                                <th>Volume</th>
-                                <th>Momentum</th>
-                                <th>Score</th>
-                                <th>Stop Loss</th>
-                                <th>Target</th>
-                                <th>R:R</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                '''
-                
-                for i, signal in enumerate(ordered_signals, 1):
-                    signal_class = signal['signal_type'].lower().replace('_', '-')
-                    momentum_class = 'positive' if signal['momentum'] >= 0 else 'negative'
-                    
-                    # RSI interpretation
-                    rsi_value = signal.get('rsi', 50)
-                    rsi_display = f"{rsi_value:.0f}"
-                    if rsi_value > 70:
-                        rsi_display += "🔴"  # Overbought
-                    elif rsi_value < 30:
-                        rsi_display += "🟢"  # Oversold
-                    
-                    # Volume with strength indicator
-                    volume_strength = signal['volume_analysis']['volume_strength']
-                    volume_display = f"{signal['volume_ratio']:.1f}x"
-                    if volume_strength == 'VERY_HIGH':
-                        volume_display += "🟢"
-                    elif volume_strength == 'HIGH':
-                        volume_display += "🟡"
-                    elif volume_strength == 'WEAK':
-                        volume_display += "🔴"
-                    
-                    # Truncate entry logic for table
-                    entry_logic_short = signal['entry_logic'][:25] + "..." if len(signal['entry_logic']) > 25 else signal['entry_logic']
-                    
-                    html_content += f'''
-                            <tr>
-                                <td class="rank">{i}</td>
-                                <td class="ticker">{signal['ticker']}</td>
-                                <td><span class="{signal_class}">{signal['signal_type'].replace('_', ' ')}</span></td>
-                                <td class="price">₹{signal['current_price']:.1f}</td>
-                                <td class="price">₹{signal['entry_price']:.1f}</td>
-                                <td title="{signal['full_entry_explanation']}">{entry_logic_short}</td>
-                                <td>{rsi_display}</td>
-                                <td>{volume_display}</td>
-                                <td class="{momentum_class}">{signal['momentum']:+.1f}%</td>
-                                <td>{signal.get('combined_score', 0):.1f}</td>
-                                <td class="price">₹{signal['stop_loss']:.1f}</td>
-                                <td class="price">₹{signal['take_profit']:.1f}</td>
-                                <td>1:{signal['risk_reward_ratio']:.1f}</td>
-                            </tr>
-                    '''
-                
-                html_content += '''
-                        </tbody>
-                    </table>
-                '''
+            print(f"\n   📊 {timeframe_names[timeframe]} ({timeframe}) SUMMARY:")
+            print(f"      ✅ Analyzed: {successful}/{len(tickers)} stocks")
+            print(f"      🟢 BUY signals: {buy_signals}")
+            print(f"      🔴 SELL signals: {sell_signals}")
+            print(f"      📈 Total signals: {len(timeframe_signals)}")
+    
+    print(f"\n📊 COMBINED MULTI-TIMEFRAME SUMMARY:")
+    print(f"   📈 Total signals found: {len(all_signals)}")
+    
+    # Group by timeframe for summary
+    by_timeframe = {}
+    for signal in all_signals:
+        tf = signal.get('interval', '1d')
+        if tf not in by_timeframe:
+            by_timeframe[tf] = {'buy': 0, 'sell': 0, 'total': 0}
+        by_timeframe[tf][signal['signal'].lower()] += 1
+        by_timeframe[tf]['total'] += 1
+    
+    print(f"   📊 Breakdown by timeframe:")
+    for tf in timeframes:
+        if tf in by_timeframe:
+            data = by_timeframe[tf]
+            print(f"      ⏰ {timeframe_names[tf]:<8} ({tf}): {data['total']:2d} signals ({data['buy']} BUY, {data['sell']} SELL)")
+        else:
+            print(f"      ⏰ {timeframe_names[tf]:<8} ({tf}):  0 signals")
+    
+    return all_signals
+    """Analyze stocks across multiple timeframes simultaneously"""
+    
+    timeframes = ['5m', '15m', '1h', '4h', '1d']
+    timeframe_names = {
+        '5m': '5-Min',
+        '15m': '15-Min',
+        '1h': '1-Hour',
+        '4h': '4-Hour',
+        '1d': 'Daily'
+    }
+    
+    # Use fewer stocks for multi-timeframe analysis to avoid API limits
+    test_tickers = [stock['symbol'].replace('.NS', '') for stock in config.TOP_STOCKS[:20]]  # First 20 stocks
+    
+    print(f"\n🚀 MULTI-TIMEFRAME SWING CALLS ANALYSIS")
+    print(f"📊 Analyzing {len(test_tickers)} stocks across {len(timeframes)} timeframes")
+    print(f"📈 Strategy: EMA({ema_value}) vs SMA({sma_value}) + RSI({rsi_overbought}/{rsi_oversold})")
+    print(f"⏰ Timeframes: {', '.join([f'{timeframe_names[tf]} ({tf})' for tf in timeframes])}")
+    print("="*80)
+    
+    all_signals = []
+    
+    for timeframe in timeframes:
+        print(f"\n📊 Analyzing {timeframe_names[timeframe]} ({timeframe}) timeframe...")
         
-        html_content += '</div>'
+        with concurrent.futures.ThreadPoolExecutor(max_workers=max_workers) as executor:
+            future_to_ticker = {
+                executor.submit(analyze_stock_swing_calls, ticker, ema_value, sma_value, rsi_overbought, rsi_oversold, timeframe, False): ticker 
+                for ticker in test_tickers
+            }
+            
+            timeframe_signals = []
+            completed = 0
+            
+            for future in concurrent.futures.as_completed(future_to_ticker):
+                ticker = future_to_ticker[future]
+                completed += 1
+                
+                try:
+                    result = future.result(timeout=30)
+                    if result and result['signal'] in ['BUY', 'SELL']:
+                        timeframe_signals.append(result)
+                        all_signals.append(result)
+                        signal_display = result['signal']
+                        price_display = f"₹{result['current_price']:.2f}"
+                        print(f"   ✅ {ticker}: {signal_display} @ {price_display}")
+                except Exception:
+                    continue
+            
+            print(f"   📊 {timeframe_names[timeframe]} Results: {len(timeframe_signals)} signals from {len(test_tickers)} stocks")
     
-    html_content += """
-            <div class="footer">
-                <p><strong>⚠️ Disclaimer:</strong> This analysis is for educational purposes only. Entry levels calculated based on support/resistance methodology.</p>
-                <p><strong>☁️ Strategy:</strong> Sector-wise Ultimate Ichimoku system with precise entry calculations and comprehensive analysis.</p>
-                <p><strong>🎯 Entry Logic:</strong> BUY above resistance + 0.2%, SELL below support - 0.2%. Hover over "Entry Logic" for full explanation.</p>
-                <p><strong>📊 Ranking:</strong> Strong signals first, then weak signals. Sorted by combined RSI + Volume + Momentum score.</p>
-            </div>
-        </div>
-    </body>
-    </html>
-    """
+    print(f"\n📊 MULTI-TIMEFRAME SUMMARY:")
+    print(f"   📈 Total signals found: {len(all_signals)}")
     
-    # Save HTML
-    html_filename = f"sector_wise_ichimoku_analysis_{datetime.now().strftime('%Y%m%d_%H%M%S')}.html"
-    html_path = os.path.join(output_dir, html_filename)
+    # Group by timeframe
+    by_timeframe = {}
+    for signal in all_signals:
+        tf = signal.get('interval', '1d')
+        if tf not in by_timeframe:
+            by_timeframe[tf] = []
+        by_timeframe[tf].append(signal)
     
-    with open(html_path, 'w', encoding='utf-8') as f:
-        f.write(html_content)
+    for tf in timeframes:
+        if tf in by_timeframe:
+            signals = by_timeframe[tf]
+            buy_count = sum(1 for s in signals if s['signal'] == 'BUY')
+            sell_count = sum(1 for s in signals if s['signal'] == 'SELL')
+            print(f"   ⏰ {timeframe_names[tf]} ({tf}): {len(signals)} signals ({buy_count} BUY, {sell_count} SELL)")
+        else:
+            print(f"   ⏰ {timeframe_names[tf]} ({tf}): 0 signals")
     
-    return html_path
+    return all_signals
+
+
+def compare_configurations_multi_timeframe():
+    """Compare original vs suggested across multiple timeframes"""
+    
+    print("🎯 MULTI-TIMEFRAME CONFIGURATION COMPARISON")
+    print("📊 Testing Original EMA(5)/SMA(50) vs Suggested EMA(2)/SMA(200)")
+    print("⏰ Across multiple timeframes: 5m, 15m, 1h, 4h, 1d")
+    print("="*80)
+    
+    timeframes = ['5m', '15m', '1h', '4h', '1d']
+    timeframe_names = {
+        '5m': '5-Min', '15m': '15-Min', '1h': '1-Hour', '4h': '4-Hour', '1d': 'Daily'
+    }
+    
+    configs = [
+        {'ema': 5, 'sma': 50, 'name': 'Original EMA(5)/SMA(50)'},
+        {'ema': 2, 'sma': 200, 'name': 'Suggested EMA(2)/SMA(200)'}
+    ]
+    
+    test_tickers = ['RELIANCE', 'TCS', 'HDFCBANK', 'INFY', 'ITC', 'KOTAKBANK']
+    
+    results = {}
+    
+    for config in configs:
+        print(f"\n📈 Testing {config['name']}...")
+        print("-" * 50)
+        
+        config_results = {}
+        total_signals = 0
+        
+        for timeframe in timeframes:
+            timeframe_signals = []
+            
+            for ticker in test_tickers:
+                result = analyze_stock_swing_calls(
+                    ticker, config['ema'], config['sma'], 80, 20, timeframe, debug=False
+                )
+                if result and result['signal'] in ['BUY', 'SELL']:
+                    timeframe_signals.append(result)
+                    total_signals += 1
+            
+            config_results[timeframe] = timeframe_signals
+            buy_count = sum(1 for r in timeframe_signals if r['signal'] == 'BUY')
+            sell_count = sum(1 for r in timeframe_signals if r['signal'] == 'SELL')
+            
+            print(f"   {timeframe_names[timeframe]:<8} ({timeframe}): {len(timeframe_signals):2d} signals ({buy_count} BUY, {sell_count} SELL)")
+        
+        results[config['name']] = {
+            'by_timeframe': config_results,
+            'total_signals': total_signals
+        }
+        
+        print(f"   📊 Total: {total_signals} signals across all timeframes")
+    
+    # Comparison
+    original = results['Original EMA(5)/SMA(50)']
+    suggested = results['Suggested EMA(2)/SMA(200)']
+    
+    print(f"\n🏆 MULTI-TIMEFRAME COMPARISON:")
+    print("="*60)
+    
+    # Detailed comparison by timeframe
+    print(f"{'Timeframe':<12} | {'Original':<10} | {'Suggested':<10} | {'Difference':<12}")
+    print("-" * 60)
+    
+    total_original = 0
+    total_suggested = 0
+    
+    for tf in timeframes:
+        orig_count = len(original['by_timeframe'].get(tf, []))
+        sugg_count = len(suggested['by_timeframe'].get(tf, []))
+        diff = sugg_count - orig_count
+        diff_str = f"+{diff}" if diff > 0 else str(diff)
+        
+        total_original += orig_count
+        total_suggested += sugg_count
+        
+        print(f"{timeframe_names[tf]:<12} | {orig_count:<10} | {sugg_count:<10} | {diff_str:<12}")
+    
+    print("-" * 60)
+    print(f"{'TOTAL':<12} | {total_original:<10} | {total_suggested:<10} | {'+' if total_suggested > total_original else ''}{total_suggested - total_original:<12}")
+    
+    if total_suggested > total_original:
+        improvement = total_suggested - total_original
+        print(f"\n✅ SURAJKUMARSADHAPHULE WAS RIGHT!")
+        print(f"   🎉 EMA(2)/SMA(200) gives +{improvement} more signals across all timeframes!")
+        print(f"   📊 Total improvement: {improvement} additional signals")
+        
+        # Find best performing timeframes
+        best_improvements = []
+        for tf in timeframes:
+            orig_count = len(original['by_timeframe'].get(tf, []))
+            sugg_count = len(suggested['by_timeframe'].get(tf, []))
+            if sugg_count > orig_count:
+                best_improvements.append((tf, sugg_count - orig_count))
+        
+        if best_improvements:
+            best_improvements.sort(key=lambda x: x[1], reverse=True)
+            print(f"\n🚀 BEST PERFORMING TIMEFRAMES FOR EMA(2)/SMA(200):")
+            for tf, improvement in best_improvements[:3]:
+                print(f"   {timeframe_names[tf]} ({tf}): +{improvement} more signals")
+    
+    elif total_suggested < total_original:
+        decrease = total_original - total_suggested
+        print(f"\n📉 Original EMA(5)/SMA(50) performs better overall")
+        print(f"   📊 Original has {decrease} more signals than suggested")
+    else:
+        print(f"\n➡️  Both configurations give same total number of signals")
+    
+    print(f"\n🚀 RECOMMENDED COMMANDS:")
+    print(f"   # Test best performing timeframe")
+    if total_suggested > total_original:
+        print(f"   python swing.py --suggested --15min --debug")
+        print(f"   python swing.py --suggested --5min --debug")
+    else:
+        print(f"   python swing.py --hourly --debug")
+    print(f"   # Run multi-timeframe analysis")
+    print(f"   python swing.py --multi-timeframe --suggested")
+    """Compare original EMA(5)/SMA(50) vs suggested EMA(2)/SMA(200)"""
+    
+    timeframe_name = {
+        '5m': '5-Minute',
+        '15m': '15-Minute',
+        '1h': 'Hourly', 
+        '4h': '4-Hour',
+        '1d': 'Daily',
+        '1wk': 'Weekly',
+        '1mo': 'Monthly'
+    }.get(interval, interval)
+    
+    print("🎯 COMPARING CONFIGURATIONS: Original vs Suggested")
+    print("📊 Testing surajkumarsadhaphule's EMA(2)/SMA(200) suggestion")
+    print(f"⏰ Timeframe: {timeframe_name} ({interval})")
+    print("="*70)
+    
+    test_tickers = ['RELIANCE', 'TCS', 'HDFCBANK', 'INFY', 'ITC', 'KOTAKBANK']
+    
+    configs = [
+        {'ema': 5, 'sma': 50, 'name': 'Original EMA(5)/SMA(50)'},
+        {'ema': 2, 'sma': 200, 'name': 'Suggested EMA(2)/SMA(200)'}
+    ]
+    
+    results = {}
+    
+    for config in configs:
+        print(f"\n📈 Testing {config['name']} on {timeframe_name}...")
+        print("-" * 40)
+        
+        config_signals = []
+        
+        for ticker in test_tickers:
+            result = analyze_stock_swing_calls(
+                ticker, config['ema'], config['sma'], 80, 20, interval, debug=False
+            )
+            if result:
+                config_signals.append(result)
+                if result['signal'] in ['BUY', 'SELL']:
+                    print(f"   ✅ {ticker}: {result['signal']} @ ₹{result['current_price']:.2f}")
+        
+        buy_count = sum(1 for r in config_signals if r['signal'] == 'BUY')
+        sell_count = sum(1 for r in config_signals if r['signal'] == 'SELL')
+        total_signals = buy_count + sell_count
+        
+        results[config['name']] = {
+            'signals': config_signals,
+            'buy_count': buy_count,
+            'sell_count': sell_count,
+            'total_signals': total_signals
+        }
+        
+        print(f"   📊 Results: {buy_count} BUY, {sell_count} SELL = {total_signals} total signals")
+    
+    # Comparison
+    original = results['Original EMA(5)/SMA(50)']
+    suggested = results['Suggested EMA(2)/SMA(200)']
+    
+    print(f"\n🏆 COMPARISON RESULTS ({timeframe_name} timeframe):")
+    print("="*50)
+    print(f"   Original  EMA(5)/SMA(50):  {original['total_signals']} signals")
+    print(f"   Suggested EMA(2)/SMA(200): {suggested['total_signals']} signals")
+    
+    if suggested['total_signals'] > original['total_signals']:
+        improvement = suggested['total_signals'] - original['total_signals']
+        print(f"\n✅ SURAJKUMARSADHAPHULE WAS RIGHT!")
+        print(f"   🎉 EMA(2)/SMA(200) gives +{improvement} more signals on {timeframe_name}!")
+        print(f"   📊 Improvement: {improvement} additional signals found")
+    elif suggested['total_signals'] < original['total_signals']:
+        decrease = original['total_signals'] - suggested['total_signals']
+        print(f"\n📉 Original performs better on {timeframe_name} timeframe")
+        print(f"   📊 Original has {decrease} more signals than suggested")
+    else:
+        print(f"\n➡️  Both configurations give same number of signals on {timeframe_name}")
+    
+    print(f"\n🚀 Try the suggested config: python swing.py --suggested --timeframe {interval}")
 
 def main():
-    """Main function with sector-wise comprehensive analysis"""
-    parser = argparse.ArgumentParser(description="Sector-wise Ultimate Ichimoku Strategy")
+    """Main function - SWING CALLS Strategy"""
+    parser = argparse.ArgumentParser(description="SWING CALLS Strategy Analyzer (Pine Script)")
     
-    parser.add_argument('--volume-days', type=int, default=20, 
-                       help='Volume average days (default: 20)')
-    parser.add_argument('--momentum-days', type=int, default=5, 
-                       help='Momentum calculation days (default: 5)')
-    parser.add_argument('--workers', type=int, default=3, 
-                       help='Max concurrent workers (default: 3)')
+    # Pine Script parameters
+    parser.add_argument('--ema-value', type=int, default=5, 
+                       help='EMA period (default: 5)')
+    parser.add_argument('--sma-value', type=int, default=50, 
+                       help='SMA period (default: 50)')
+    parser.add_argument('--rsi-overbought', type=int, default=80, 
+                       help='RSI overbought level (default: 80)')
+    parser.add_argument('--rsi-oversold', type=int, default=20, 
+                       help='RSI oversold level (default: 20)')
+    parser.add_argument('--top', type=int, default=15, 
+                       help='Top N signals to display (default: 15)')
     parser.add_argument('--output', type=str, 
                        help='Output directory (default: output)')
+    parser.add_argument('--workers', type=int, default=3, 
+                       help='Max concurrent workers (default: 3)')
     parser.add_argument('--test-single', type=str, 
-                       help='Test analysis on a single ticker for debugging')
+                       help='Test analysis on a single ticker')
     parser.add_argument('--debug', action='store_true', 
-                       help='Enable debug output for troubleshooting')
-    parser.add_argument('--sector', type=str, 
-                       help='Show signals for specific sector only')
+                       help='Enable debug output')
+    parser.add_argument('--show-all', action='store_true', 
+                       help='Show all signals (default behavior)')
     parser.add_argument('--buy-only', action='store_true', 
                        help='Show only BUY signals')
     parser.add_argument('--sell-only', action='store_true', 
                        help='Show only SELL signals')
+    parser.add_argument('--quick-test', action='store_true',
+                       help='Quick test with popular stocks')
+    
+    # NEW: Add suggested configuration option
+    parser.add_argument('--suggested', action='store_true',
+                       help='Use surajkumarsadhaphule suggestion: EMA(2)/SMA(200)')
+    parser.add_argument('--compare', action='store_true',
+                       help='Compare original vs suggested configurations')
+    parser.add_argument('--multi-timeframe', action='store_true',
+                       help='Analyze across multiple timeframes (5m, 15m, 1h, 4h, 1d)')
+    parser.add_argument('--compare-multi', action='store_true',
+                       help='Compare configurations across multiple timeframes')
+    
+    # NEW: Add timeframe options
+    parser.add_argument('--timeframe', type=str, default='1d',
+                       choices=['5m', '15m', '1h', '4h', '1d', '1wk', '1mo'],
+                       help='Timeframe: 5m, 15m, 1h, 4h, 1d (default), 1wk, 1mo')
+    parser.add_argument('--5min', action='store_true', dest='min5',
+                       help='Use 5-minute timeframe (shortcut for --timeframe 5m)')
+    parser.add_argument('--15min', action='store_true', dest='min15',
+                       help='Use 15-minute timeframe (shortcut for --timeframe 15m)')
+    parser.add_argument('--hourly', action='store_true',
+                       help='Use 1-hour timeframe (shortcut for --timeframe 1h)')
+    parser.add_argument('--4hour', action='store_true', dest='hour4',
+                       help='Use 4-hour timeframe (shortcut for --timeframe 4h)')
+    parser.add_argument('--weekly', action='store_true',
+                       help='Use weekly timeframe (shortcut for --timeframe 1wk)')
     
     args = parser.parse_args()
     
-    # Test single ticker if requested
+    # Handle timeframe shortcuts
+    if args.min5:
+        args.timeframe = '5m'
+    elif args.min15:
+        args.timeframe = '15m'
+    elif args.hourly:
+        args.timeframe = '1h'
+    elif args.hour4:
+        args.timeframe = '4h'  
+    elif args.weekly:
+        args.timeframe = '1wk'
+    
+    timeframe_name = {
+        '5m': '5-Minute',
+        '15m': '15-Minute',
+        '1h': 'Hourly',
+        '4h': '4-Hour',
+        '1d': 'Daily',
+        '1wk': 'Weekly',
+        '1mo': 'Monthly'
+    }.get(args.timeframe, args.timeframe)
+    
+    # Handle suggested configuration
+    if args.suggested:
+        args.ema_value = 2
+        args.sma_value = 200
+        print("🎯 Using SUGGESTED CONFIGURATION: EMA(2)/SMA(200)")
+        print("💡 Based on surajkumarsadhaphule's comment: 'Results are far better'")
+    
+    print(f"⏰ Timeframe: {timeframe_name} ({args.timeframe})")
+    
+    # Compare configurations mode
+    if args.compare:
+        compare_configurations(args.timeframe)
+        return
+    
+    # Multi-timeframe comparison mode
+    if args.compare_multi:
+        compare_configurations_multi_timeframe()
+        return
+    
+    # Multi-timeframe analysis mode
+    if args.multi_timeframe:
+        print("🚀 MULTI-TIMEFRAME ANALYSIS MODE")
+        all_signals = analyze_multiple_timeframes(
+            ema_value=args.ema_value,
+            sma_value=args.sma_value,
+            rsi_overbought=args.rsi_overbought,
+            rsi_oversold=args.rsi_oversold,
+            max_workers=args.workers,
+            debug=args.debug
+        )
+        
+        if all_signals:
+            # Show combined results from all timeframes
+            buy_signals = [s for s in all_signals if s['signal'] == 'BUY']
+            sell_signals = [s for s in all_signals if s['signal'] == 'SELL']
+            
+            if buy_signals:
+                display_swing_signals(buy_signals, "BUY (All Timeframes)", args.top)
+            if sell_signals:
+                display_swing_signals(sell_signals, "SELL (All Timeframes)", args.top)
+            
+            print(f"\n📊 MULTI-TIMEFRAME FINAL SUMMARY:")
+            print(f"   🟢 Total BUY signals: {len(buy_signals)}")
+            print(f"   🔴 Total SELL signals: {len(sell_signals)}")
+            print(f"   📈 Total signals across all timeframes: {len(all_signals)}")
+        else:
+            print("\n❌ No signals found across any timeframes!")
+        
+        return
+    
+    # Quick test mode
+    if args.quick_test:
+        print("🧪 QUICK TEST MODE - SWING CALLS Strategy")
+        if args.suggested:
+            print("🎯 Using SUGGESTED EMA(2)/SMA(200) parameters")
+        test_tickers = ['RELIANCE', 'TCS', 'HDFCBANK', 'INFY', 'ITC']
+        print("="*50)
+        
+        for ticker in test_tickers:
+            print(f"\n🔍 Testing {ticker}...")
+            result = analyze_stock_swing_calls(
+                ticker, args.ema_value, args.sma_value, args.rsi_overbought, args.rsi_oversold, args.timeframe, debug=True
+            )
+            if result:
+                signal = result['signal']
+                price = f"₹{result['current_price']:.2f}"
+                rsi = f"RSI:{result['rsi']:.0f}"
+                color = result['sma_color']
+                print(f"✅ {ticker}: {signal} | {price} | {rsi} | {color}")
+            else:
+                print(f"❌ {ticker}: Failed")
+        return
+    
+    # Test single ticker
     if args.test_single:
+        config_name = f"EMA({args.ema_value})/SMA({args.sma_value})"
+        if args.suggested:
+            config_name += " - SUGGESTED CONFIG"
+        
         print(f"🧪 TESTING SINGLE TICKER: {args.test_single}")
-        print("="*80)
-        result = analyze_ultimate_ichimoku(
+        print(f"📊 SWING CALLS: {config_name} + RSI({args.rsi_overbought}/{args.rsi_oversold})")
+        print(f"⏰ Timeframe: {timeframe_name} ({args.timeframe})")
+        print("="*50)
+        result = analyze_stock_swing_calls(
             args.test_single, 
-            args.volume_days, 
-            args.momentum_days, 
+            args.ema_value, args.sma_value, args.rsi_overbought, args.rsi_oversold, args.timeframe,
             debug=True
         )
         if result:
-            print(f"\n✅ SUCCESS! Signal: {result['signal_type']}")
-            print(f"   🏢 Sector: {result['sector']}")
-            print(f"   📊 Current Price: ₹{result['current_price']:.2f}")
-            print(f"   💰 Entry Price: ₹{result['entry_price']:.2f}")
-            print(f"   🎯 Entry Logic: {result['entry_logic']}")
-            print(f"\n💡 FULL ENTRY EXPLANATION:")
-            print(f"   {result['full_entry_explanation']}")
-            print(f"\n📊 Technical Indicators:")
+            print(f"\n✅ SWING CALLS Analysis:")
+            print(f"   🎯 Signal: {result['signal']}")
+            if result['signal_type'] != 'None':
+                print(f"   📊 Type: {result['signal_type']}")
+            if result['rsi_alert'] != 'None':
+                print(f"   🔔 RSI Alert: {result['rsi_alert']}")
+            print(f"   💰 Price: ₹{result['current_price']:.2f}")
+            print(f"   📈 EMA({args.ema_value}): ₹{result['ema_5']:.2f}")
+            print(f"   📊 SMA({args.sma_value}): ₹{result['sma_50']:.2f}")
             print(f"   📈 RSI: {result['rsi']:.1f}")
-            print(f"   📊 Volume: {result['volume_ratio']:.1f}x")
-            print(f"   🚀 Momentum: {result['momentum']:+.1f}%")
-            print(f"   🏆 Combined Score: {result.get('combined_score', 0):.1f}/10")
+            print(f"   🎨 SMA Color: {result['sma_color']}")
+            print(f"   🕯️  Candle: {result['candle_type']}")
         else:
             print(f"\n❌ No result for {args.test_single}")
         return
     
-    print("☁️ SECTOR-WISE ULTIMATE ICHIMOKU ANALYZER")
-    print("🎯 With Full Entry Logic & Comprehensive Analysis")
-    print("="*80)
-    print(f"📊 Volume Period: {args.volume_days} trading days") 
-    print(f"🚀 Momentum Period: {args.momentum_days} trading days")
-    print(f"⚙️  Workers: {args.workers}")
-    print("="*80)
+    config_name = f"EMA({args.ema_value})/SMA({args.sma_value})"
+    if args.suggested:
+        config_name += " - SUGGESTED"
+    
+    print("🎯 SWING CALLS STRATEGY ANALYZER")
+    print("📊 Pine Script: SMA/EMA Crossover + RSI System")
+    print("="*50)
+    print(f"📈 Configuration: {config_name}")
+    print(f"📈 RSI: {args.rsi_overbought}/{args.rsi_oversold} levels")
+    if args.suggested:
+        print(f"💡 Using surajkumarsadhaphule's suggestion")
+    print(f"🎯 Pine Script faithful implementation")
+    print("="*50)
     
     # Set output directory
     output_dir = args.output or getattr(config, 'OUTPUT_DIR', 'output')
     os.makedirs(output_dir, exist_ok=True)
     
     # Analyze all stocks
-    all_signals = analyze_all_stocks_ultimate(
-        volume_days=args.volume_days,
-        momentum_days=args.momentum_days,
+    all_signals = analyze_all_stocks_swing_calls(
+        ema_value=args.ema_value,
+        sma_value=args.sma_value,
+        rsi_overbought=args.rsi_overbought,
+        rsi_oversold=args.rsi_oversold,
+        interval=args.timeframe,
         max_workers=args.workers,
         debug=args.debug
     )
     
     if not all_signals:
         print("\n❌ No signals generated!")
-        print("💡 TROUBLESHOOTING TIPS:")
-        print("   🔧 Enable debug mode: --debug")
-        print("   🔧 Check internet connection for data fetching")
-        print("   🔧 Try single ticker test: --test-single RELIANCE --debug")
+        print("\n💡 TROUBLESHOOTING:")
+        print("   🧪 Try: --quick-test")
+        print("   🎯 Try: --suggested (EMA2/SMA200)")
+        print("   🚀 Try: --multi-timeframe --suggested")
+        print("   ⚡ Try: --5min (5-minute timeframe - many signals)")
+        print("   🎯 Try: --15min (15-minute timeframe - frequent signals)")
+        print("   ⚡ Try: --hourly (1h timeframe)")
+        print("   🎯 Try: --4hour (4h timeframe)")
+        print("   🔧 Try: --test-single RELIANCE --debug")
+        print("   📊 Try: --compare-multi (compare across all timeframes)")
+        print("   📊 Try: --compare --timeframe 5m")
+        print("   📊 Try: --compare --timeframe 15m")
+        print("   💡 Shorter timeframes usually give MORE signals!")
         return
     
-    # Filter by sector if specified
-    if args.sector:
-        all_signals = [s for s in all_signals if s['sector'].upper() == args.sector.upper()]
-        if not all_signals:
-            print(f"\n❌ No signals found for sector: {args.sector}")
-            return
-    
-    # Display results based on arguments
+    # Display results
     if args.buy_only:
-        display_sector_wise_signals(all_signals, ['STRONG_BUY', 'WEAK_BUY'], "BUY")
+        buy_signals = filter_signals_by_type(all_signals, ['BUY'])
+        display_swing_signals(buy_signals, "BUY", args.top)
     elif args.sell_only:
-        display_sector_wise_signals(all_signals, ['STRONG_SELL', 'WEAK_SELL'], "SELL")
+        sell_signals = filter_signals_by_type(all_signals, ['SELL'])
+        display_swing_signals(sell_signals, "SELL", args.top)
     else:
-        # Show both BUY and SELL signals
-        display_sector_wise_signals(all_signals, ['STRONG_BUY', 'WEAK_BUY'], "BUY")
-        display_sector_wise_signals(all_signals, ['STRONG_SELL', 'WEAK_SELL'], "SELL")
+        # Show all by default
+        buy_signals = filter_signals_by_type(all_signals, ['BUY'])
+        sell_signals = filter_signals_by_type(all_signals, ['SELL'])
+        hold_signals = filter_signals_by_type(all_signals, ['HOLD'])
+        
+        if buy_signals:
+            display_swing_signals(buy_signals, "BUY", args.top)
+        if sell_signals:
+            display_swing_signals(sell_signals, "SELL", args.top)
+        
+        print(f"\n📊 SWING CALLS SUMMARY:")
+        print(f"   🟢 BUY signals: {len(buy_signals)}")
+        print(f"   🔴 SELL signals: {len(sell_signals)}")
+        print(f"   ⚪ HOLD (no signal): {len(hold_signals)}")
+        print(f"   📈 Total analyzed: {len(all_signals)}")
     
-    # Generate reports
-    print(f"\n📄 Generating sector-wise reports...")
+    print(f"\n✅ SWING CALLS Analysis Complete!")
     
-    # HTML Report
-    html_path = generate_sector_wise_html(
-        all_signals, args.volume_days, args.momentum_days, output_dir
-    )
-    if html_path:
-        print(f"🌐 Sector-wise HTML Report: {html_path}")
-        print(f"🔗 Open: file://{os.path.abspath(html_path)}")
+    # Strategy notes
+    print(f"\n💡 SWING CALLS STRATEGY NOTES:")
+    print(f"   📊 Configuration: {config_name}")
+    print(f"   🟢 BUY: SMA crosses under EMA + high > SMA (bullish breakout)")
+    print(f"   🔴 SELL: SMA crosses over EMA + red candle (bearish breakdown)")
+    print(f"   🔔 RSI Alerts: Exit signals at {args.rsi_overbought}/{args.rsi_oversold} levels")
+    print(f"   🎨 SMA Colors: Green=Bullish, Red=Bearish, Yellow=Neutral/Extreme")
+    if args.suggested:
+        print(f"   🎯 Using surajkumarsadhaphule's suggestion for better results")
     
-    # JSON Report (existing function can be reused)
-    json_filename = f"sector_wise_ichimoku_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json"
-    json_path = os.path.join(output_dir, json_filename)
+    print(f"\n🎯 USAGE EXAMPLES:")
+    print(f"   # Test suggested EMA(2)/SMA(200) on daily timeframe")
+    print(f"   python {sys.argv[0]} --suggested --debug")
+    print(f"   ")
+    print(f"   # Multi-timeframe analysis (5m, 15m, 1h, 4h, 1d)")
+    print(f"   python {sys.argv[0]} --multi-timeframe --suggested")
+    print(f"   python {sys.argv[0]} --multi-timeframe --debug")
+    print(f"   ")
+    print(f"   # Compare configurations across all timeframes")
+    print(f"   python {sys.argv[0]} --compare-multi")
+    print(f"   ")
+    print(f"   # Intraday timeframes (more signals, more noise)")
+    print(f"   python {sys.argv[0]} --5min --suggested --debug")
+    print(f"   python {sys.argv[0]} --15min --suggested --debug")
+    print(f"   python {sys.argv[0]} --timeframe 5m --debug")
+    print(f"   ")
+    print(f"   # Test on 1-hour timeframe (as recommended in Pine Script)")
+    print(f"   python {sys.argv[0]} --hourly --debug")
+    print(f"   python {sys.argv[0]} --timeframe 1h --suggested")
+    print(f"   ")
+    print(f"   # Test on 4-hour timeframe")
+    print(f"   python {sys.argv[0]} --4hour --suggested --debug")
+    print(f"   ")
+    print(f"   # Compare configurations on different timeframes")
+    print(f"   python {sys.argv[0]} --compare")
+    print(f"   python {sys.argv[0]} --compare --timeframe 5m")
+    print(f"   python {sys.argv[0]} --compare --timeframe 15m")
+    print(f"   python {sys.argv[0]} --compare --timeframe 1h")
+    print(f"   python {sys.argv[0]} --compare --timeframe 4h")
+    print(f"   ")
+    print(f"   # Single stock analysis")
+    print(f"   python {sys.argv[0]} --test-single RELIANCE --suggested --5min --debug")
+    print(f"   python {sys.argv[0]} --test-single KOTAKBANK --15min --debug")
+    print(f"   python {sys.argv[0]} --test-single INFY --hourly --suggested --debug")
+    print(f"   ")
+    print(f"   # Quick tests")
+    print(f"   python {sys.argv[0]} --quick-test --suggested --5min")
+    print(f"   python {sys.argv[0]} --quick-test --15min")
     
-    # Prepare JSON data
-    json_data = {
-        'metadata': {
-            'timestamp': datetime.now().isoformat(),
-            'total_stocks_analyzed': len(all_signals),
-            'volume_days': int(args.volume_days),  
-            'momentum_days': int(args.momentum_days),
-            'strategy': 'Sector-wise Ultimate Ichimoku with Entry Levels'
-        },
-        'signals': all_signals
-    }
-    
-    with open(json_path, 'w', encoding='utf-8') as f:
-        json.dump(json_data, f, indent=2, ensure_ascii=False, default=str)
-    
-    print(f"📊 JSON Data: {json_path}")
-    
-    print(f"\n✅ Sector-wise Analysis Complete!")
-    print(f"📁 Output Directory: {os.path.abspath(output_dir)}")
-    
-    # Enhanced trading notes
-    print(f"\n💡 SECTOR-WISE ICHIMOKU FEATURES:")
-    print(f"   🏢 SECTOR ANALYSIS: Stocks grouped by industry sectors")
-    print(f"   ☁️  ICHIMOKU: Full cloud analysis with flexible conditions")
-    print(f"   🎯 ENTRY LEVELS: Precise entry above resistance/below support")
-    print(f"   💡 FULL LOGIC: Complete entry explanation for each signal")
-    print(f"   📊 RSI + VOLUME + MOMENTUM: Combined scoring system")
-    print(f"   🏆 SECTOR RANKING: Best performing sectors highlighted")
-    print(f"   💰 ENTRY BUFFER: 0.2% buffer for breakout confirmation")
-    print(f"   🛑 RISK MANAGEMENT: Ichimoku-based stops with 2:1 R:R minimum")
-    
-    print(f"\n🚀 USAGE EXAMPLES:")
-    print(f"   python swing.py --buy-only                    # Show all BUY signals by sector")
-    print(f"   python swing.py --sell-only                   # Show all SELL signals by sector") 
-    print(f"   python swing.py --sector Banking              # Show only Banking sector signals")
-    print(f"   python swing.py --test-single RELIANCE --debug # Test single stock with full details")
+    print(f"\n💡 TIMEFRAME RECOMMENDATIONS:")
+    print(f"   ⚡ 5-Minute (5m): Scalping, very frequent signals, high noise")
+    print(f"   🎯 15-Minute (15m): Intraday trading, good signal frequency")
+    print(f"   📊 1-Hour (1h): Pine Script recommended, balanced approach")
+    print(f"   🎯 4-Hour (4h): Swing trading, quality signals")
+    print(f"   📈 Daily (1d): Position trading, less noise, fewer signals")
+    print(f"   📊 Weekly (1wk): Long-term trend following")
+    print(f"   ")
+    print(f"   🚨 INTRADAY NOTES:")
+    print(f"   • 5m & 15m have limited historical data (~60 days)")
+    print(f"   • More signals = more opportunities but also more noise")
+    print(f"   • EMA(2)/SMA(200) might work especially well on shorter timeframes")
+    print(f"   ")
+    print(f"   🎯 BEST COMMANDS TO TRY:")
+    print(f"   python {sys.argv[0]} --multi-timeframe --suggested")
+    print(f"   python {sys.argv[0]} --compare-multi")
+    print(f"   python {sys.argv[0]} --15min --suggested --debug")
+    print(f"   ")
+    print(f"   💡 Pine Script author says: 'Best work with 1h+ timeframes'")
+    print(f"   🎯 surajkumarsadhaphule suggests: EMA(2)/SMA(200) for better results")
+    print(f"   ⚡ Try EMA(2)/SMA(200) on 15m for frequent intraday signals!")
 
 if __name__ == "__main__":
     main()

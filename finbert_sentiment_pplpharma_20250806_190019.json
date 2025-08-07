@@ -1,0 +1,92 @@
+{
+  "ticker": "pplpharma",
+  "status": "success",
+  "ai_method": "FinBERT + Custom Fallback",
+  "article_count": 3,
+  "source_breakdown": {
+    "Google News RSS": 3
+  },
+  "sentiment_score": 0.30350327491760254,
+  "overall_sentiment": "POSITIVE",
+  "confidence": 0.81,
+  "contrarian_analysis": {
+    "apply_contrarian": true,
+    "signal": "SELL",
+    "confidence": 0.81,
+    "theory": "STRONG_SIGNAL_CONTRARIAN",
+    "reasoning": "FinBERT detected 1 very strong positive signals (avg: 0.911). Despite mixed overall sentiment, strong positive signals indicate overbought conditions - contrarian SELL opportunity.",
+    "sentiment_score": 0.30350327491760254,
+    "strong_signals": [
+      {
+        "title": "Piramal Pharma Limited (PPLPHARMA) Hits 52 Week High - Unbel...",
+        "score": 0.9105098247528076,
+        "confidence": 0.9105098247528076,
+        "method": "FinBERT"
+      }
+    ],
+    "analysis_methods": {
+      "FinBERT": 3,
+      "Custom": 0
+    }
+  },
+  "articles": [
+    {
+      "title": "Why Investors Shouldn't Be Surprised By Piramal Pharma Limited's (NSE:PPLPHARMA) P/S - simplywall.st",
+      "url": "https://news.google.com/rss/articles/CBMi7gFBVV95cUxPQ1I4Q1oxbEdpbTRGOHFQSEtVdHdUcTBPYjk4NThWRy1XTGhIRVBzVTZTR2JKTXRSRGVzTC03amIwS0VvWno1ME1lN0Y2dmVWLXM4ZGE3VDdhNG8xZ094QXhCUHpseDhmU0stNWhwZW1nVEdBMnlFYkhiaTg2d05oa2RkeVFwYy1uM1BrOU1JRU9XWVprSmk0ZjcxM0tsUmUyeEdQVngtal9WRzBRM3VEbkNuaXNUeE9maEZpbGxpQ0FjMk1RMFRvRHZNZV9NYTlnWFJKQ2JSYTRqUUVld0tSSkp5ZnJQVGhiNml3dXhR0gHzAUFVX3lxTE8xLW8tUnJmTHZHZmFMWjVrTVkzQS1XdnNGTDAtTFc1M3NlaTg2XzRRdzRrRHdVR1RsU1ZQbFI3LVhXQ2EzT1BtdTRPUHJLenA1YUVDNGxUbGVSNmc3Z2h1SE9Ua00xQWlITEpJU3ZTaFYxR2dBM3g3RHpSc3hRazV0Zzg0WXJjMVRwLUloa3hwanRmbTNvd191SVhNb2g0MWxZM3NUdTJDMUYweDB3b29zSENZQkNXNW5LNXFNWEdhWWZIYk94RndSdy16enJNTmdwUko4ZkM5ODJPWW1EWGczVG9RNGFKR1ZGOUpjaHhBSm93MA?oc=5",
+      "source": "Google News RSS",
+      "content": "<a href=\"https://news.google.com/rss/articles/CBMi7gFBVV95cUxPQ1I4Q1oxbEdpbTRGOHFQSEtVdHdUcTBPYjk4NThWRy1XTGhIRVBzVTZTR2JKTXRSRGVzTC03amIwS0VvWno1ME1lN0Y2dmVWLXM4ZGE3VDdhNG8xZ094QXhCUHpseDhmU0stNWhwZW1nVEdBMnlFYkhiaTg2d05oa2RkeVFwYy1uM1BrOU1JRU9XWVprSmk0ZjcxM0tsUmUyeEdQVngtal9WRzBRM3VEbkNuaXNUeE9maEZpbGxpQ0FjMk1RMFRvRHZNZV9NYTlnWFJKQ2JSYTRqUUVld0tSSkp5ZnJQVGhiNml3dXhR0gHzAUFVX3lxTE8xLW8tUnJmTHZHZmFMWjVrTVkzQS1XdnNGTDAtTFc1M3NlaTg2XzRRdzRrRHdVR1RsU1ZQbFI3LVhXQ2EzT1BtdTRPUHJLenA1YUVDNGxUbGVSNmc3Z2h1SE9Ua00xQWlITEpJU3ZTaFYxR2dBM3g3RHpSc3hRazV0Zzg0WXJjMVRwLUloa3hwanRmbTNvd191SVhNb2g0MWxZM3NUdTJDMUYweDB3b29zSENZQkNXNW5LNXFNWEdhWWZIYk94RndSdy16enJNTmdwUko4ZkM5ODJPWW1EWGczVG9RNGFKR1ZGOUpjaHhBSm93MA?oc=5\" target=\"_blank\">Why Investors Shouldn't Be Surprised By Piramal Pharma Limited's (NSE:PPLPHARMA) P/S</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">simplywall.st</font>",
+      "published_date": null,
+      "search_term_matched": "pplpharma",
+      "sentiment_analysis": {
+        "compound": 0.0,
+        "method": "FinBERT",
+        "confidence": 0.8901705741882324,
+        "label": "neutral",
+        "raw_result": {
+          "label": "neutral",
+          "score": 0.8901705741882324
+        }
+      }
+    },
+    {
+      "title": "Piramal Pharma Limited (PPLPHARMA) Hits 52 Week High - Unbelievable profit margins - Jammu Links News",
+      "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxPdEVsVnE5RUFYRUVCZWVnRHVFMVJIZ2I2VTVSazlzS0YxQkx6UE9VZTBOUHhqVXktNlRBY2RPMEdNV0d3a3RBcFFqSnBWTkdUYU9EZTJVaTZYX19UNXZoS0ZWNE15Yndwa1RmM1lyYXpueTFla0M1c0h5QVpQTXp0UldLeVlaR1Ryc2tjN0RyOF9lUjZuVFhESVBEbmNUWFk?oc=5",
+      "source": "Google News RSS",
+      "content": "<a href=\"https://news.google.com/rss/articles/CBMinwFBVV95cUxPdEVsVnE5RUFYRUVCZWVnRHVFMVJIZ2I2VTVSazlzS0YxQkx6UE9VZTBOUHhqVXktNlRBY2RPMEdNV0d3a3RBcFFqSnBWTkdUYU9EZTJVaTZYX19UNXZoS0ZWNE15Yndwa1RmM1lyYXpueTFla0M1c0h5QVpQTXp0UldLeVlaR1Ryc2tjN0RyOF9lUjZuVFhESVBEbmNUWFk?oc=5\" target=\"_blank\">Piramal Pharma Limited (PPLPHARMA) Hits 52 Week High - Unbelievable profit margins</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Jammu Links News</font>",
+      "published_date": null,
+      "search_term_matched": "pplpharma",
+      "sentiment_analysis": {
+        "compound": 0.9105098247528076,
+        "method": "FinBERT",
+        "confidence": 0.9105098247528076,
+        "label": "positive",
+        "raw_result": {
+          "label": "positive",
+          "score": 0.9105098247528076
+        }
+      }
+    },
+    {
+      "title": "PPLPHARMA Stock Price and Chart \u2014 NSE:PPLPHARMA - TradingView",
+      "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE1xS1VWVXltOGlJOWtCTkx4aHlaTjVvMWdsMGZDWWpMM1FiWjlFb1YxMG1hOHBoR3lLbGs3ZHo1MjJqN0J1Q2Q5eWVrbDhYWVFMdndkVHNQeVdPQkRRd3NZ?oc=5",
+      "source": "Google News RSS",
+      "content": "<a href=\"https://news.google.com/rss/articles/CBMiX0FVX3lxTE1xS1VWVXltOGlJOWtCTkx4aHlaTjVvMWdsMGZDWWpMM1FiWjlFb1YxMG1hOHBoR3lLbGs3ZHo1MjJqN0J1Q2Q5eWVrbDhYWVFMdndkVHNQeVdPQkRRd3NZ?oc=5\" target=\"_blank\">PPLPHARMA Stock Price and Chart \u2014 NSE:PPLPHARMA</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">TradingView</font>",
+      "published_date": null,
+      "search_term_matched": "pplpharma",
+      "sentiment_analysis": {
+        "compound": 0.0,
+        "method": "FinBERT",
+        "confidence": 0.9207269549369812,
+        "label": "neutral",
+        "raw_result": {
+          "label": "neutral",
+          "score": 0.9207269549369812
+        }
+      }
+    }
+  ],
+  "analysis_timestamp": "2025-08-06T19:00:19.495448",
+  "search_terms": [
+    "pplpharma"
+  ]
+}
