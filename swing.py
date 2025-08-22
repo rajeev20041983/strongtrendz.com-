@@ -1,6 +1,5 @@
 #!/usr/bin/env python
-# swing_calls_analyzer.py - SWING CALLS Strategy (Pine Script Faithful)
-# MODIFIED: Added surajkumarsadhaphule's EMA(2)/SMA(200) suggestion
+# comprehensive_strategy_analyzer.py - Multi-Indicator Strategy (Squeeze Momentum + EMA + RSI + MACD)
 
 import os
 import sys
@@ -21,9 +20,9 @@ sys.path.append(current_dir)
 # Import your existing configurations
 try:
     from app import config
-    print("✅ Successfully loaded config with tickers")
+    print("Successfully loaded config with tickers")
 except ImportError:
-    print("❌ Config not found! Using default tickers")
+    print("Config not found! Using default tickers")
     # Default configuration if config file not found
     class DefaultConfig:
         TOP_STOCKS = [
@@ -54,406 +53,480 @@ except ImportError:
 
 warnings.filterwarnings("ignore")
 
-class SwingCallsStrategy:
-    """SWING CALLS Strategy - Faithful Pine Script Implementation"""
-    
-    def __init__(self, ema_value: int = 5, sma_value: int = 50, 
-                 rsi_overbought: int = 80, rsi_oversold: int = 20):
-        
-        # Pine Script parameters
-        self.ema_value = ema_value          # Fast EMA (default: 5)
-        self.sma_value = sma_value          # Slow SMA (default: 50)
-        self.rsi_overbought = rsi_overbought # RSI overbought limit (default: 80)
-        self.rsi_oversold = rsi_oversold     # RSI oversold limit (default: 20)
-        self.rsi_period = 14                 # RSI period (fixed in Pine Script)
-    
-    def calculate_indicators(self, data: pd.DataFrame) -> dict:
-        """Calculate all SWING CALLS indicators exactly like Pine Script"""
-        try:
-            # Pine Script: ema1=ema(close,ema_value)
-            ema1 = data['Close'].ewm(span=self.ema_value).mean()
-            
-            # Pine Script: sma2=sma(close,sma_value)  
-            sma2 = data['Close'].rolling(window=self.sma_value).mean()
-            
-            # Pine Script: rs=rsi(close,14)
-            rs = self.calculate_rsi(data['Close'], self.rsi_period)
-            
-            # Pine Script color logic:
-            # mycolor= iff(rs>=85 or rs<=15,color.yellow,iff(low> sma2,color.lime,iff(high<sma2,color.red,color.yellow)))
-            sma_color = []
-            for i in range(len(data)):
-                if i < len(rs) and not pd.isna(rs.iloc[i]) and not pd.isna(sma2.iloc[i]):
-                    rsi_val = rs.iloc[i]
-                    if rsi_val >= 85 or rsi_val <= 15:
-                        sma_color.append('yellow')  # Extreme RSI
-                    elif data['Low'].iloc[i] > sma2.iloc[i]:
-                        sma_color.append('green')   # Bullish (low > SMA)
-                    elif data['High'].iloc[i] < sma2.iloc[i]:
-                        sma_color.append('red')     # Bearish (high < SMA)  
-                    else:
-                        sma_color.append('yellow')  # Neutral
-                else:
-                    sma_color.append('yellow')
-            
-            return {
-                'ema1': ema1,
-                'sma2': sma2, 
-                'rsi': rs,
-                'sma_color': sma_color
-            }
-            
-        except Exception as e:
-            return {}
-    
-    def calculate_rsi(self, prices: pd.Series, period: int = 14) -> pd.Series:
-        """Calculate RSI exactly like Pine Script"""
-        try:
-            delta = prices.diff()
-            gain = (delta.where(delta > 0, 0)).rolling(window=period).mean()
-            loss = (-delta.where(delta < 0, 0)).rolling(window=period).mean()
-            rs = gain / loss.replace(0, 0.001)
-            rsi = 100 - (100 / (1 + rs))
-            return rsi.fillna(50)
-        except:
-            return pd.Series([50] * len(prices), index=prices.index)
-    
-    def detect_signals(self, data: pd.DataFrame) -> dict:
-        """Detect SWING CALLS signals exactly like Pine Script"""
-        
-        if len(data) < max(self.sma_value, self.rsi_period) + 5:
-            return {'signal': 'NO_DATA', 'details': {}}
-        
-        # Calculate indicators
-        indicators = self.calculate_indicators(data)
-        if not indicators:
-            return {'signal': 'NO_DATA', 'details': {}}
-        
-        try:
-            # Get latest values
-            ema1 = indicators['ema1']
-            sma2 = indicators['sma2']
-            rsi = indicators['rsi']
-            sma_color = indicators['sma_color']
-            
-            # Current bar values
-            current_close = data['Close'].iloc[-1]
-            current_open = data['Open'].iloc[-1]
-            current_high = data['High'].iloc[-1]
-            current_low = data['Low'].iloc[-1]
-            current_ema = ema1.iloc[-1]
-            current_sma = sma2.iloc[-1]
-            current_rsi = rsi.iloc[-1]
-            current_color = sma_color[-1]
-            
-            # Previous bar values for crossover detection
-            prev_ema = ema1.iloc[-2] if len(ema1) > 1 else current_ema
-            prev_sma = sma2.iloc[-2] if len(sma2) > 1 else current_sma
-            prev_rsi = rsi.iloc[-2] if len(rsi) > 1 else current_rsi
-            
-            # Check for NaN values
-            values_to_check = [current_ema, current_sma, current_rsi, prev_ema, prev_sma, prev_rsi]
-            if any(pd.isna(v) for v in values_to_check):
-                return {'signal': 'HOLD', 'details': self._get_details(data, indicators)}
-            
-            signal = 'HOLD'
-            signal_type = 'None'
-            rsi_alert = 'None'
-            
-            # Pine Script RSI alerts:
-            # buyexit= crossunder(rs,hl)  -> RSI crosses under overbought (exit buy position)
-            # sellexit=crossover(rs,ll)   -> RSI crosses over oversold (exit sell position)
-            if current_rsi < self.rsi_overbought and prev_rsi >= self.rsi_overbought:
-                rsi_alert = 'RSI_BEARISH'  # Exit buy positions
-            elif current_rsi > self.rsi_oversold and prev_rsi <= self.rsi_oversold:
-                rsi_alert = 'RSI_BULLISH'  # Exit sell positions
-            
-            # Pine Script main signals:
-            # buycall=crossunder(sma2,ema1) and high>sma2
-            # This means: SMA crosses under EMA (EMA > SMA = bullish) AND high > SMA
-            crossunder_sma_ema = (current_sma < current_ema and prev_sma >= prev_ema)
-            high_above_sma = current_high > current_sma
-            
-            if crossunder_sma_ema and high_above_sma:
-                signal = 'BUY'
-                signal_type = 'SWING_BUY'
-            
-            # sellcall=crossover(sma2,ema1) and open>close  
-            # This means: SMA crosses over EMA (SMA > EMA = bearish) AND red candle
-            crossover_sma_ema = (current_sma > current_ema and prev_sma <= prev_ema)
-            red_candle = current_open > current_close
-            
-            if crossover_sma_ema and red_candle:
-                signal = 'SELL'
-                signal_type = 'SWING_SELL'
-            
-            return {
-                'signal': signal,
-                'signal_type': signal_type,
-                'rsi_alert': rsi_alert,
-                'details': self._get_details(data, indicators),
-                'conditions': {
-                    'crossunder_sma_ema': crossunder_sma_ema,
-                    'high_above_sma': high_above_sma,
-                    'crossover_sma_ema': crossover_sma_ema,
-                    'red_candle': red_candle
-                }
-            }
-            
-        except Exception as e:
-            return {'signal': 'HOLD', 'details': self._get_details(data, indicators)}
-    
-    def _get_details(self, data: pd.DataFrame, indicators: dict) -> dict:
-        """Get current market details for context"""
-        try:
-            # Current values
-            current_close = float(data['Close'].iloc[-1])
-            current_open = float(data['Open'].iloc[-1])
-            current_high = float(data['High'].iloc[-1])
-            current_low = float(data['Low'].iloc[-1])
-            current_volume = float(data['Volume'].iloc[-1])
-            
-            # Indicator values
-            current_ema = float(indicators['ema1'].iloc[-1]) if 'ema1' in indicators else 0
-            current_sma = float(indicators['sma2'].iloc[-1]) if 'sma2' in indicators else 0
-            current_rsi = float(indicators['rsi'].iloc[-1]) if 'rsi' in indicators else 50
-            current_color = indicators['sma_color'][-1] if 'sma_color' in indicators else 'yellow'
-            
-            # Additional metrics
-            volume_ratio = 1.0
-            momentum = 0.0
-            
-            if len(data) >= 21:
-                avg_volume = data['Volume'].iloc[-21:-1].mean()
-                volume_ratio = current_volume / avg_volume if avg_volume > 0 else 1.0
-            
-            if len(data) >= 6:
-                past_price = float(data['Close'].iloc[-6])
-                momentum = ((current_close - past_price) / past_price) * 100
-            
-            # Candle type
-            candle_type = 'Green' if current_close > current_open else 'Red'
-            
-            # Market position relative to SMA
-            market_position = 'Above_SMA' if current_close > current_sma else 'Below_SMA'
-            
-            return {
-                'current_price': current_close,
-                'current_open': current_open,
-                'current_high': current_high,
-                'current_low': current_low,
-                'ema_5': current_ema,
-                'sma_50': current_sma,
-                'rsi': current_rsi,
-                'sma_color': current_color,
-                'candle_type': candle_type,
-                'market_position': market_position,
-                'volume_ratio': volume_ratio,
-                'momentum': momentum
-            }
-            
-        except Exception as e:
-            return {
-                'current_price': 0,
-                'current_open': 0,
-                'current_high': 0,
-                'current_low': 0,
-                'ema_5': 0,
-                'sma_50': 0,
-                'rsi': 50,
-                'sma_color': 'yellow',
-                'candle_type': 'Unknown',
-                'market_position': 'Unknown',
-                'volume_ratio': 1.0,
-                'momentum': 0
-            }
-
-def get_stock_data(ticker, lookback_days=100, interval='1d'):
-    """Get stock data for analysis with configurable timeframe
-    
-    Args:
-        ticker: Stock symbol
-        lookback_days: Number of periods to fetch
-        interval: Timeframe - '5m', '15m', '1h', '4h', '1d', '1wk', '1mo'
-    """
+def get_stock_data(ticker, lookback_days=50):
+    """Get stock data for analysis with proper error handling"""
     try:
-        if ticker.endswith('.NS'):
-            symbol = ticker
-        else:
-            symbol = f"{ticker}.NS"
+        # Add .NS for NSE stocks
+        symbol = f"{ticker}.NS" if not ticker.endswith('.NS') else ticker
         
-        # Calculate date range based on interval
-        if interval == '5m':
-            # 5-minute data: Limited to ~60 days, fetch more periods but fewer days
-            days_needed = min(60, lookback_days // 10 + 10)  # Fewer days, more periods per day
-            lookback_days = min(lookback_days, days_needed * 80)  # ~80 periods per trading day
-        elif interval == '15m':
-            # 15-minute data: Limited to ~60 days
-            days_needed = min(60, lookback_days // 5 + 15)  # ~26 periods per trading day
-            lookback_days = min(lookback_days, days_needed * 26)
-        elif interval == '1h':
-            # For hourly data, we need more calendar days
-            days_needed = lookback_days * 3 + 30  # Account for weekends/holidays
-        elif interval == '4h':
-            days_needed = lookback_days * 2 + 20
-        elif interval == '1d':
-            days_needed = lookback_days + 100
-        elif interval == '1wk':
-            days_needed = lookback_days * 7 + 50
-        elif interval == '1mo':
-            days_needed = lookback_days * 30 + 100
-        else:
-            days_needed = lookback_days + 100
-        
+        # Get enough data for lookback + buffer (trading days only)
+        days_needed = lookback_days + 100  # Extra buffer for weekends/holidays
         end_date = datetime.now()
         start_date = end_date - timedelta(days=days_needed)
         
-        for attempt in range(3):
-            try:
-                stock = yf.Ticker(symbol)
-                data = stock.history(start=start_date, end=end_date, interval=interval, 
-                                   auto_adjust=True, prepost=True)
-                if not data.empty:
-                    break
-            except Exception as e:
-                if attempt == 2:
-                    raise e
-                continue
+        # Download data
+        stock = yf.Ticker(symbol)
+        data = stock.history(start=start_date, end=end_date)
         
         if data.empty or len(data) < lookback_days:
+            print(f"   {ticker}: Insufficient data ({len(data)} days)")
             return None
         
+        # Clean data
         data = data.dropna()
-        required_columns = ['Open', 'High', 'Low', 'Close', 'Volume']
-        if not all(col in data.columns for col in required_columns):
+        
+        if len(data) < lookback_days:
+            print(f"   {ticker}: Insufficient clean data ({len(data)} days)")
             return None
         
-        if len(data) < lookback_days or (data['High'] < data['Low']).any() or (data['Close'] <= 0).any():
-            return None
+        return data
         
-        return data.sort_index()
-        
-    except Exception:
+    except Exception as e:
+        print(f"   {ticker}: Data fetch error - {str(e)}")
         return None
 
-def analyze_stock_swing_calls(ticker, ema_value=5, sma_value=50, rsi_overbought=80, rsi_oversold=20, interval='1d', debug=False):
-    """Analyze single stock using SWING CALLS strategy
-    
-    Args:
-        interval: Timeframe - '1d', '1h', '4h', '1wk', '1mo'
+def calculate_rsi(prices, period=14):
+    """Calculate RSI (Relative Strength Index)"""
+    try:
+        if len(prices) < period + 1:
+            return 50
+        
+        delta = prices.diff().dropna()
+        if len(delta) < period:
+            return 50
+        
+        gain = (delta.where(delta > 0, 0)).rolling(window=period).mean()
+        loss = (-delta.where(delta < 0, 0)).rolling(window=period).mean()
+        
+        rs = gain / loss.replace(0, 0.001)
+        rsi = 100 - (100 / (1 + rs))
+        
+        final_rsi = rsi.iloc[-1] if not pd.isna(rsi.iloc[-1]) else 50
+        return max(0, min(100, final_rsi))
+    except Exception as e:
+        return 50
+
+def calculate_ema(prices, period):
+    """Calculate Exponential Moving Average"""
+    try:
+        if len(prices) < period:
+            return prices.mean() if len(prices) > 0 else 0
+        
+        ema = prices.ewm(span=period).mean()
+        return ema.iloc[-1] if not pd.isna(ema.iloc[-1]) else prices.iloc[-1]
+    except:
+        return prices.iloc[-1] if len(prices) > 0 else 0
+
+def calculate_sma(prices, period):
+    """Calculate Simple Moving Average"""
+    try:
+        if len(prices) < period:
+            return prices.mean() if len(prices) > 0 else 0
+        
+        sma = prices.rolling(window=period).mean()
+        return sma.iloc[-1] if not pd.isna(sma.iloc[-1]) else prices.iloc[-1]
+    except:
+        return prices.iloc[-1] if len(prices) > 0 else 0
+
+def calculate_atr(data, period=14):
+    """Calculate Average True Range"""
+    try:
+        if len(data) < period + 1:
+            return 0
+        
+        high_low = data['High'] - data['Low']
+        high_close = abs(data['High'] - data['Close'].shift(1))
+        low_close = abs(data['Low'] - data['Close'].shift(1))
+        
+        tr = pd.concat([high_low, high_close, low_close], axis=1).max(axis=1)
+        atr = tr.rolling(window=period).mean()
+        
+        return atr.iloc[-1] if not pd.isna(atr.iloc[-1]) else 0
+    except:
+        return 0
+
+def calculate_macd(prices, fast_length=16, slow_length=26, signal_length=8):
+    """Calculate MACD with custom parameters"""
+    try:
+        if len(prices) < slow_length + signal_length:
+            return {'macd': 0, 'signal': 0, 'histogram': 0}
+        
+        fast_ema = prices.ewm(span=fast_length).mean()
+        slow_ema = prices.ewm(span=slow_length).mean()
+        macd_line = fast_ema - slow_ema
+        signal_line = macd_line.ewm(span=signal_length).mean()
+        histogram = macd_line - signal_line
+        
+        return {
+            'macd': macd_line.iloc[-1] if not pd.isna(macd_line.iloc[-1]) else 0,
+            'signal': signal_line.iloc[-1] if not pd.isna(signal_line.iloc[-1]) else 0,
+            'histogram': histogram.iloc[-1] if not pd.isna(histogram.iloc[-1]) else 0,
+            'histogram_prev': histogram.iloc[-2] if len(histogram) > 1 and not pd.isna(histogram.iloc[-2]) else 0
+        }
+    except:
+        return {'macd': 0, 'signal': 0, 'histogram': 0, 'histogram_prev': 0}
+
+def calculate_squeeze_momentum(data, bb_length=20, bb_mult=2.0, kc_length=20, kc_mult=1.5):
+    """Calculate Squeeze Momentum indicator"""
+    try:
+        if len(data) < max(bb_length, kc_length) + 1:
+            return {'squeeze_on': False, 'momentum_value': 0, 'momentum_color': 'neutral'}
+        
+        # Bollinger Bands
+        bb_basis = data['Close'].rolling(window=bb_length).mean()
+        bb_dev = data['Close'].rolling(window=bb_length).std() * bb_mult
+        bb_upper = bb_basis + bb_dev
+        bb_lower = bb_basis - bb_dev
+        
+        # Keltner Channels
+        kc_basis = data['Close'].rolling(window=kc_length).mean()
+        tr = pd.concat([
+            data['High'] - data['Low'],
+            abs(data['High'] - data['Close'].shift(1)),
+            abs(data['Low'] - data['Close'].shift(1))
+        ], axis=1).max(axis=1)
+        kc_range = tr.rolling(window=kc_length).mean() * kc_mult
+        kc_upper = kc_basis + kc_range
+        kc_lower = kc_basis - kc_range
+        
+        # Squeeze condition
+        squeeze_on = (bb_lower.iloc[-1] > kc_lower.iloc[-1]) and (bb_upper.iloc[-1] < kc_upper.iloc[-1])
+        
+        # Momentum calculation (simplified linear regression)
+        highest_high = data['High'].rolling(window=kc_length).max()
+        lowest_low = data['Low'].rolling(window=kc_length).min()
+        avg_hl = (highest_high + lowest_low) / 2
+        avg_close = data['Close'].rolling(window=kc_length).mean()
+        momentum_source = data['Close'] - (avg_hl + avg_close) / 2
+        
+        # Simple momentum value (last value)
+        momentum_value = momentum_source.iloc[-1] if not pd.isna(momentum_source.iloc[-1]) else 0
+        momentum_prev = momentum_source.iloc[-2] if len(momentum_source) > 1 and not pd.isna(momentum_source.iloc[-2]) else 0
+        
+        # Momentum color/direction
+        if momentum_value > 0:
+            momentum_color = 'green' if momentum_value > momentum_prev else 'dark_green'
+        else:
+            momentum_color = 'red' if momentum_value < momentum_prev else 'dark_red'
+        
+        return {
+            'squeeze_on': squeeze_on,
+            'momentum_value': momentum_value,
+            'momentum_prev': momentum_prev,
+            'momentum_color': momentum_color,
+            'is_green_momentum': momentum_value > 0,
+            'is_red_momentum': momentum_value < 0
+        }
+    except Exception as e:
+        return {'squeeze_on': False, 'momentum_value': 0, 'momentum_prev': 0, 'momentum_color': 'neutral', 'is_green_momentum': False, 'is_red_momentum': False}
+
+def detect_comprehensive_signals(data, current_price, debug=False):
+    """
+    Detect signals using comprehensive multi-indicator strategy
+    Based on: Squeeze Momentum + EMA + RSI + MACD + ATR
     """
     try:
-        if debug:
-            print(f"📊 Analyzing {ticker} - SWING CALLS Strategy ({interval} timeframe)...")
+        if len(data) < 50:
+            return {
+                'signal_type': 'HOLD',
+                'signal_strength': 0,
+                'squeeze_data': {},
+                'macd_data': {},
+                'ema_data': {},
+                'rsi_data': {},
+                'atr_data': {},
+                'stop_loss': current_price,
+                'target_price': current_price,
+                'breakout_signal': 'NONE'
+            }
         
-        data = get_stock_data(ticker, lookback_days=100, interval=interval)
-        if data is None:
-            if debug:
-                print(f"   ❌ {ticker}: No data available")
-            return None
+        # Calculate all indicators
+        ema_200 = calculate_ema(data['Close'], 200)
+        rsi = calculate_rsi(data['Close'], 5)  # Fast RSI like in Pine Script
+        macd_data = calculate_macd(data['Close'])
+        squeeze_data = calculate_squeeze_momentum(data)
+        atr = calculate_atr(data)
         
-        if debug:
-            print(f"   📅 Data: {len(data)} {interval} periods available")
+        # ATR-based stop loss
+        atr_multiplier = 1.6
+        long_stop_loss = current_price - (atr * atr_multiplier)
+        short_stop_loss = current_price + (atr * atr_multiplier)
         
-        min_required = max(sma_value, 20) + 10
-        if len(data) < min_required:
-            if debug:
-                print(f"   ⚠️  {ticker}: Insufficient data {len(data)} < {min_required}")
-            return None
+        # Trend conditions
+        bullish_trend = current_price > ema_200
+        bearish_trend = current_price < ema_200
         
-        # Create SWING CALLS analyzer
-        swing_strategy = SwingCallsStrategy(ema_value, sma_value, rsi_overbought, rsi_oversold)
+        # Signal conditions from Pine Script strategy
         
-        # Detect current signal
-        analysis = swing_strategy.detect_signals(data)
-        if analysis['signal'] == 'NO_DATA':
-            if debug:
-                print(f"   ⚠️  {ticker}: Unable to analyze SWING CALLS")
-            return None
+        # Squeeze momentum signal (trend crossover)
+        trend_buy_signal_sqz = (
+            squeeze_data['momentum_value'] > 0 and squeeze_data['momentum_prev'] <= 0
+        ) or (
+            squeeze_data['momentum_value'] > 0 and 
+            squeeze_data['momentum_value'] > squeeze_data['momentum_prev'] and 
+            squeeze_data['momentum_prev'] < 0
+        )
         
-        details = analysis['details']
-        signal = analysis['signal']
-        signal_type = analysis.get('signal_type', 'None')
-        rsi_alert = analysis.get('rsi_alert', 'None')
+        trend_sell_signal_sqz = squeeze_data['momentum_value'] < 0 and squeeze_data['momentum_prev'] >= 0
         
-        if debug:
-            print(f"   🎯 Signal: {signal}")
-            if signal_type != 'None':
-                print(f"   📊 Signal Type: {signal_type}")
-            if rsi_alert != 'None':
-                print(f"   📈 RSI Alert: {rsi_alert}")
-            print(f"   💰 Price: ₹{details['current_price']:.2f}")
-            print(f"   📈 EMA({ema_value}): ₹{details['ema_5']:.2f}")
-            print(f"   📊 SMA({sma_value}): ₹{details['sma_50']:.2f}")
-            print(f"   📈 RSI: {details['rsi']:.1f}")
-            print(f"   🎨 SMA Color: {details['sma_color']}")
-            print(f"   🕯️  Candle: {details['candle_type']}")
-            print(f"   📍 Position: {details['market_position']}")
-            print(f"   📊 Volume: {details['volume_ratio']:.1f}x")
+        # MACD signal (specific pattern from Pine Script)
+        macd_buy_signal = (
+            macd_data['histogram'] > macd_data['histogram_prev'] and
+            data['Close'].iloc[-1] > data['Close'].iloc[-2] and
+            macd_data['histogram'] < 0 and
+            squeeze_data['is_red_momentum'] and
+            data['Open'].iloc[-2] > ema_200  # Previous open above EMA
+        )
+        
+        # RSI signals
+        rsi_buy_signal = rsi < 30 and squeeze_data['is_red_momentum'] and bearish_trend
+        rsi_sell_signal = rsi > 70 and squeeze_data['is_green_momentum']
+        
+        # Determine signal type and strength
+        signal_type = 'HOLD'
+        signal_strength = 0
+        stop_loss = current_price
+        target_price = current_price
+        
+        # STRONG BUY: Squeeze momentum buy + bullish trend
+        if trend_buy_signal_sqz and bullish_trend:
+            signal_type = 'STRONG_BUY'
+            signal_strength = abs(squeeze_data['momentum_value']) * 100
+            stop_loss = long_stop_loss
+            target_price = current_price + (current_price - stop_loss) * 2  # 2:1 R/R
             
-            if 'conditions' in analysis:
-                print(f"   🔍 Signal Conditions:")
-                for condition, met in analysis['conditions'].items():
-                    status = "✅" if met else "❌"
-                    print(f"      {status} {condition}: {met}")
+        # WEAK BUY: MACD signal + bullish trend
+        elif macd_buy_signal and bullish_trend:
+            signal_type = 'WEAK_BUY'
+            signal_strength = abs(macd_data['histogram']) * 50
+            stop_loss = long_stop_loss
+            target_price = current_price + (current_price - stop_loss) * 1.5  # 1.5:1 R/R
+            
+        # STRONG SELL: Squeeze momentum sell + bearish trend
+        elif trend_sell_signal_sqz and bearish_trend:
+            signal_type = 'STRONG_SELL'
+            signal_strength = abs(squeeze_data['momentum_value']) * 100
+            stop_loss = short_stop_loss
+            target_price = current_price - (stop_loss - current_price) * 2  # 2:1 R/R
+            
+        # WEAK SELL: RSI overbought + momentum conditions
+        elif rsi_sell_signal:
+            signal_type = 'WEAK_SELL'
+            signal_strength = (rsi - 70) * 2
+            stop_loss = short_stop_loss
+            target_price = current_price - (stop_loss - current_price) * 1.5  # 1.5:1 R/R
         
-        # Build result
+        # AGAINST TREND signals (if enabled)
+        elif trend_buy_signal_sqz and bearish_trend:
+            signal_type = 'WEAK_BUY'  # Against trend
+            signal_strength = abs(squeeze_data['momentum_value']) * 50
+            stop_loss = long_stop_loss
+            target_price = current_price + (current_price - stop_loss) * 1.0  # 1:1 R/R
+        
+        if debug:
+            print(f"   DEBUG: EMA200: {ema_200:.2f}, Current: {current_price:.2f}")
+            print(f"   DEBUG: RSI: {rsi:.1f}")
+            print(f"   DEBUG: Squeeze: {squeeze_data}")
+            print(f"   DEBUG: MACD: {macd_data}")
+            print(f"   DEBUG: Signals - SqzBuy: {trend_buy_signal_sqz}, MacdBuy: {macd_buy_signal}")
+        
+        return {
+            'signal_type': signal_type,
+            'signal_strength': float(signal_strength),
+            'squeeze_data': squeeze_data,
+            'macd_data': macd_data,
+            'ema_data': {'ema_200': ema_200, 'bullish_trend': bullish_trend, 'bearish_trend': bearish_trend},
+            'rsi_data': {'rsi': rsi},
+            'atr_data': {'atr': atr},
+            'stop_loss': float(stop_loss),
+            'target_price': float(target_price),
+            'breakout_signal': signal_type if signal_type != 'HOLD' else 'NONE'
+        }
+        
+    except Exception as e:
+        if debug:
+            print(f"   DEBUG: Signal detection error: {e}")
+        return {
+            'signal_type': 'HOLD',
+            'signal_strength': 0,
+            'squeeze_data': {},
+            'macd_data': {},
+            'ema_data': {},
+            'rsi_data': {},
+            'atr_data': {},
+            'stop_loss': current_price,
+            'target_price': current_price,
+            'breakout_signal': 'NONE'
+        }
+
+def enhanced_volume_confirmation(data, current_volume, lookback_days):
+    """Enhanced volume analysis for breakout confirmation"""
+    try:
+        if data is None or len(data) < 5:
+            return {'volume_strength': 'WEAK', 'volume_trend': 'NEUTRAL', 'volume_sma_ratio': 1.0}
+        
+        if lookback_days < 5:
+            lookback_days = 5
+        
+        vol_sma_short = data['Volume'].rolling(window=min(5, len(data))).mean().iloc[-1]
+        vol_sma_long = data['Volume'].rolling(window=min(lookback_days, len(data))).mean().iloc[-1]
+        
+        if pd.isna(vol_sma_short) or pd.isna(vol_sma_long) or vol_sma_long == 0:
+            return {'volume_strength': 'WEAK', 'volume_trend': 'NEUTRAL', 'volume_sma_ratio': 1.0}
+        
+        volume_ratio = current_volume / vol_sma_long
+        
+        if volume_ratio > 2.0:
+            volume_strength = 'VERY_HIGH'
+        elif volume_ratio > 1.5:
+            volume_strength = 'HIGH'
+        elif volume_ratio > 0.8:
+            volume_strength = 'NORMAL'
+        else:
+            volume_strength = 'WEAK'
+        
+        short_long_ratio = vol_sma_short / vol_sma_long
+        if short_long_ratio > 1.2:
+            volume_trend = 'INCREASING'
+        elif short_long_ratio < 0.8:
+            volume_trend = 'DECREASING'
+        else:
+            volume_trend = 'NEUTRAL'
+        
+        return {
+            'volume_strength': volume_strength,
+            'volume_trend': volume_trend,
+            'volume_sma_ratio': volume_ratio
+        }
+    except Exception as e:
+        return {'volume_strength': 'WEAK', 'volume_trend': 'NEUTRAL', 'volume_sma_ratio': 1.0}
+
+def calculate_proper_metrics(data, volume_days=20, momentum_days=5):
+    """Calculate volume and momentum using ONLY trading days"""
+    latest = data.iloc[-1]
+    current_price = latest['Close']
+    current_volume = latest['Volume']
+    
+    if len(data) >= volume_days + 1:
+        volume_period = data['Volume'].iloc[-(volume_days+1):-1]
+        avg_volume = volume_period.mean()
+        volume_ratio = current_volume / avg_volume if avg_volume > 0 else 1.0
+    else:
+        avg_volume = data['Volume'].mean()
+        volume_ratio = current_volume / avg_volume if avg_volume > 0 else 1.0
+    
+    if len(data) >= momentum_days + 1:
+        price_n_days_ago = data['Close'].iloc[-(momentum_days+1)]
+        momentum = ((current_price - price_n_days_ago) / price_n_days_ago) * 100
+    else:
+        momentum = 0
+    
+    return volume_ratio, momentum, len(data)
+
+def analyze_stock_comprehensive(ticker, volume_days=20, momentum_days=5, debug=False):
+    """
+    Comprehensive stock analysis with multi-indicator strategy
+    """
+    try:
+        print(f"Analyzing {ticker} (Multi-Indicator Strategy)...")
+        
+        # Get data
+        data = get_stock_data(ticker, max(50, volume_days + 10))
+        if data is None:
+            return None
+        
+        print(f"   Data: {len(data)} trading days available")
+        
+        # Get latest values
+        latest = data.iloc[-1]
+        current_price = latest['Close']
+        current_volume = latest['Volume']
+        
+        # Detect comprehensive signals
+        signal_data = detect_comprehensive_signals(data, current_price, debug)
+        
+        # Calculate metrics using proper trading days
+        volume_ratio, momentum, trading_days_used = calculate_proper_metrics(
+            data, volume_days, momentum_days
+        )
+        
+        # Enhanced volume confirmation
+        volume_analysis = enhanced_volume_confirmation(data, current_volume, volume_days)
+        
+        print(f"   Volume: Current {current_volume:,.0f} vs {volume_days}-day avg = {volume_ratio:.1f}x ({volume_analysis['volume_strength']})")
+        print(f"   Momentum: {momentum:+.1f}% ({momentum_days} trading days)")
+        print(f"   RSI: {signal_data['rsi_data'].get('rsi', 50):.1f}")
+        print(f"   EMA Trend: {'BULLISH' if signal_data['ema_data'].get('bullish_trend') else 'BEARISH'}")
+        print(f"   Squeeze: {'ON' if signal_data['squeeze_data'].get('squeeze_on') else 'OFF'}")
+        
+        # Risk management and position sizing
+        if signal_data['signal_type'] in ['STRONG_BUY', 'WEAK_BUY']:
+            risk_per_share = current_price - signal_data['stop_loss']
+            buy_strength = signal_data['signal_strength']
+            sell_strength = 0
+        elif signal_data['signal_type'] in ['STRONG_SELL', 'WEAK_SELL']:
+            risk_per_share = signal_data['stop_loss'] - current_price
+            buy_strength = 0
+            sell_strength = signal_data['signal_strength']
+        else:
+            risk_per_share = 0
+            buy_strength = 0
+            sell_strength = 0
+        
+        # Position sizing (1% risk on 100k capital)
+        capital = 100000
+        risk_amount = capital * 0.01
+        position_size = int(risk_amount / risk_per_share) if risk_per_share > 0 else 0
+        
         result = {
             'ticker': ticker,
-            'signal': signal,
-            'signal_type': signal_type,
-            'rsi_alert': rsi_alert,
-            'current_price': details['current_price'],
-            'ema_5': details['ema_5'],
-            'sma_50': details['sma_50'],
-            'rsi': details['rsi'],
-            'sma_color': details['sma_color'],
-            'candle_type': details['candle_type'],
-            'market_position': details['market_position'],
-            'volume_ratio': details['volume_ratio'],
-            'momentum': details['momentum'],
-            # Strategy parameters
-            'ema_value': ema_value,
-            'sma_value': sma_value,
-            'rsi_overbought': rsi_overbought,
-            'rsi_oversold': rsi_oversold,
-            'interval': interval
+            'signal_type': signal_data['signal_type'],
+            'current_price': float(current_price),
+            'target_price': signal_data['target_price'],
+            'stop_loss': signal_data['stop_loss'],
+            'buy_strength': float(buy_strength),
+            'sell_strength': float(sell_strength),
+            'volume_ratio': float(volume_ratio),
+            'volume_analysis': volume_analysis,
+            'momentum': float(momentum),
+            'position_size': int(position_size),
+            'risk_per_share': float(risk_per_share),
+            'trading_days_used': int(trading_days_used),
+            'volume_period': f"{volume_days} trading days",
+            'momentum_period': f"{momentum_days} trading days",
+            'ema_200': signal_data['ema_data'].get('ema_200', 0),
+            'ema_trend': 'BULLISH' if signal_data['ema_data'].get('bullish_trend') else 'BEARISH',
+            'volatility_score': signal_data['atr_data'].get('atr', 0),
+            'rsi': signal_data['rsi_data'].get('rsi', 50),
+            'squeeze_data': signal_data['squeeze_data'],
+            'macd_data': signal_data['macd_data']
         }
+        
+        print(f"   Signal: {signal_data['signal_type']}")
         
         return result
         
     except Exception as e:
-        if debug:
-            print(f"❌ Error analyzing {ticker}: {e}")
+        print(f"Error analyzing {ticker}: {e}")
         return None
 
-def analyze_all_stocks_swing_calls(ema_value=5, sma_value=50, rsi_overbought=80, rsi_oversold=20, interval='1d', max_workers=3, debug=False):
-    """Analyze all stocks using SWING CALLS strategy"""
+def analyze_all_stocks(volume_days=20, momentum_days=5, max_workers=3, debug=False):
+    """Analyze all stocks with multi-indicator strategy"""
     
     tickers = [stock['symbol'].replace('.NS', '') for stock in config.TOP_STOCKS]
     
-    timeframe_name = {
-        '5m': '5-Minute',
-        '15m': '15-Minute',
-        '1h': 'Hourly',
-        '4h': '4-Hour',
-        '1d': 'Daily',
-        '1wk': 'Weekly',
-        '1mo': 'Monthly'
-    }.get(interval, interval)
-    
-    print(f"\n🚀 SWING CALLS STRATEGY ANALYSIS")
-    print(f"📊 Analyzing {len(tickers)} stocks")
-    print(f"⏰ Timeframe: {timeframe_name} ({interval})")
-    print(f"📈 Strategy: EMA({ema_value}) vs SMA({sma_value}) + RSI({rsi_overbought}/{rsi_oversold})")
-    print(f"🎯 Pine Script: SMA/EMA Crossover + RSI Alerts")
+    print(f"\nCOMPREHENSIVE MULTI-INDICATOR ANALYSIS")
+    print(f"Analyzing {len(tickers)} stocks")
+    print(f"Indicators: Squeeze Momentum + EMA200 + RSI + MACD + ATR")
+    print(f"Volume Period: {volume_days} trading days")
+    print(f"Momentum Period: {momentum_days} trading days")
     print("="*60)
     
     all_signals = []
     
     with concurrent.futures.ThreadPoolExecutor(max_workers=max_workers) as executor:
         future_to_ticker = {
-            executor.submit(analyze_stock_swing_calls, ticker, ema_value, sma_value, rsi_overbought, rsi_oversold, interval, debug): ticker 
+            executor.submit(analyze_stock_comprehensive, ticker, volume_days, momentum_days, debug): ticker 
             for ticker in tickers
         }
         
@@ -470,777 +543,170 @@ def analyze_all_stocks_swing_calls(ema_value=5, sma_value=50, rsi_overbought=80,
                 if result:
                     all_signals.append(result)
                     successful += 1
-                    signal_display = result['signal']
-                    price_display = f"₹{result['current_price']:.2f}"
-                    rsi_display = f"RSI:{result['rsi']:.0f}"
-                    color_display = result['sma_color']
-                    print(f"✅ {ticker} ({completed}/{len(tickers)}) - {signal_display} | {price_display} | {rsi_display} | {color_display}")
+                    print(f"{ticker} ({completed}/{len(tickers)}) - {result['signal_type']}")
                 else:
                     failed += 1
-                    print(f"⚪ {ticker} ({completed}/{len(tickers)}) - No data")
+                    print(f"{ticker} ({completed}/{len(tickers)}) - No data")
             except concurrent.futures.TimeoutError:
                 failed += 1
-                print(f"⏰ {ticker} ({completed}/{len(tickers)}) - Timeout")
+                print(f"{ticker} ({completed}/{len(tickers)}) - Timeout")
             except Exception as e:
                 failed += 1
-                print(f"❌ {ticker} ({completed}/{len(tickers)}) - Error: {str(e)[:50]}")
+                print(f"{ticker} ({completed}/{len(tickers)}) - Error: {str(e)[:50]}")
         
-        print(f"\n📊 ANALYSIS SUMMARY:")
-        print(f"   ✅ Successful: {successful}")
-        print(f"   ❌ Failed: {failed}")
-        print(f"   📈 Total signals: {len(all_signals)}")
+        print(f"\nANALYSIS SUMMARY:")
+        print(f"   Successful: {successful}")
+        print(f"   Failed: {failed}")
+        print(f"   Total signals: {len(all_signals)}")
     
     return all_signals
 
 def filter_signals_by_type(all_signals, signal_types):
     """Filter signals by type"""
-    return [signal for signal in all_signals if signal['signal'] in signal_types]
+    return [signal for signal in all_signals if signal['signal_type'] in signal_types]
 
-def display_swing_signals(signals, signal_title, top_n=10):
-    """Display SWING CALLS signals"""
+def sort_signals_properly(signals):
+    """Sort signals with STRONG first, then WEAK, by strength within each category"""
     
     if not signals:
-        print(f"\n❌ No {signal_title} signals found!")
+        return signals
+    
+    strong_signals = [s for s in signals if 'STRONG' in s['signal_type']]
+    weak_signals = [s for s in signals if 'WEAK' in s['signal_type']]
+    
+    is_buy_signals = any('BUY' in s['signal_type'] for s in signals)
+    
+    if is_buy_signals:
+        strong_signals.sort(key=lambda x: x['buy_strength'], reverse=True)
+        weak_signals.sort(key=lambda x: x['buy_strength'], reverse=True)
+    else:
+        strong_signals.sort(key=lambda x: x['sell_strength'], reverse=True)
+        weak_signals.sort(key=lambda x: x['sell_strength'], reverse=True)
+    
+    return strong_signals + weak_signals
+
+def display_top_signals(signals, signal_title, top_n=10):
+    """Display top N signals"""
+    
+    if not signals:
+        print(f"\nNo {signal_title} signals found!")
         return
     
-    # Sort by RSI and volume for better signals
-    signals.sort(key=lambda x: (abs(x['rsi'] - 50), x['volume_ratio']), reverse=True)
+    signals = sort_signals_properly(signals)
     top_signals = signals[:top_n]
     
-    print(f"\n🏆 TOP {len(top_signals)} {signal_title} SIGNALS")
-    print(f"📊 SWING CALLS Strategy (Pine Script Style)")
-    print("="*100)
+    print(f"\nTOP {len(top_signals)} {signal_title} SIGNALS")
+    print(f"Multi-Indicator Strategy (Squeeze + EMA + RSI + MACD)")
+    print("="*80)
     
     table_data = []
-    headers = ['Rank', 'Ticker', 'Signal', 'Timeframe', 'Price', 'EMA', 'SMA', 'RSI', 
-               'SMA Color', 'Candle', 'Position', 'Volume']
+    headers = ['Rank', 'Ticker', 'Signal', 'Price', 'Target', 'Strength%', 
+              'Volume', 'RSI', 'EMA Trend', 'Momentum%', 'Stop Loss', 'Qty']
     
     for i, signal in enumerate(top_signals, 1):
-        volume_display = f"{signal['volume_ratio']:.1f}x"
-        if signal['volume_ratio'] > 2.0:
-            volume_display += "🟢"
-        elif signal['volume_ratio'] > 1.5:
-            volume_display += "🟡"
-        elif signal['volume_ratio'] < 0.8:
-            volume_display += "🔴"
+        target_price = signal['target_price']
         
-        rsi_display = f"{signal['rsi']:.0f}"
-        if signal['rsi'] >= 80:
-            rsi_display += "🔴"  # Overbought
-        elif signal['rsi'] <= 20:
-            rsi_display += "🟢"  # Oversold
-        elif signal['rsi'] >= 70:
-            rsi_display += "🟡"  # Warning overbought
-        elif signal['rsi'] <= 30:
-            rsi_display += "🟡"  # Warning oversold
-        
-        # Color code SMA Color
-        color_display = signal['sma_color']
-        if color_display == 'green':
-            color_display = "🟢Bullish"
-        elif color_display == 'red':
-            color_display = "🔴Bearish"
+        if 'BUY' in signal['signal_type']:
+            strength = signal['buy_strength']
         else:
-            color_display = "🟡Neutral"
+            strength = signal['sell_strength']
         
-        # Candle type
-        candle_display = signal['candle_type']
-        if candle_display == 'Green':
-            candle_display = "🟢"
-        else:
-            candle_display = "🔴"
+        try:
+            rsi_value = signal.get('rsi', 50)
+            rsi_display = f"{rsi_value:.0f}"
+        except:
+            rsi_display = "50"
         
-        # Timeframe display
-        timeframe_display = signal.get('interval', '1d')
+        try:
+            volume_strength = signal['volume_analysis']['volume_strength']
+            volume_display = f"{signal['volume_ratio']:.1f}x"
+        except:
+            volume_display = f"{signal['volume_ratio']:.1f}x"
+        
+        ema_trend = signal.get('ema_trend', 'NEUTRAL')
         
         table_data.append([
             i,
             signal['ticker'],
-            signal['signal'],
-            timeframe_display,
-            f"₹{signal['current_price']:.2f}",
-            f"₹{signal['ema_5']:.2f}",
-            f"₹{signal['sma_50']:.2f}",
+            signal['signal_type'].replace('_', ' '),
+            f"Rs{signal['current_price']:.2f}",
+            f"Rs{target_price:.2f}",
+            f"{strength:.2f}%",
+            volume_display,
             rsi_display,
-            color_display,
-            candle_display,
-            signal['market_position'].replace('_', ' '),
-            volume_display
+            ema_trend,
+            f"{signal['momentum']:+.1f}%",
+            f"Rs{signal['stop_loss']:.2f}",
+            signal['position_size']
         ])
     
     print(tabulate(table_data, headers=headers, tablefmt="grid"))
     
     # Summary statistics
-    avg_rsi = sum(signal['rsi'] for signal in top_signals) / len(top_signals)
+    avg_strength = sum(strength for signal in top_signals 
+                      for strength in [signal['buy_strength'] if 'BUY' in signal['signal_type'] 
+                                     else signal['sell_strength']]) / len(top_signals)
     avg_volume = sum(signal['volume_ratio'] for signal in top_signals) / len(top_signals)
-    avg_momentum = sum(abs(signal['momentum']) for signal in top_signals) / len(top_signals)
+    avg_momentum = sum(signal['momentum'] for signal in top_signals) / len(top_signals)
     
-    # Count signal types
-    swing_buy_count = sum(1 for signal in top_signals if signal['signal'] == 'BUY')
-    swing_sell_count = sum(1 for signal in top_signals if signal['signal'] == 'SELL')
-    rsi_alerts = sum(1 for signal in top_signals if signal['rsi_alert'] != 'None')
-    
-    # Count by timeframes
-    timeframe_counts = {}
-    for signal in top_signals:
-        tf = signal.get('interval', '1d')
-        timeframe_counts[tf] = timeframe_counts.get(tf, 0) + 1
-    
-    print(f"\n📊 SWING CALLS SUMMARY:")
-    print(f"   🎯 {signal_title} signals: {len(signals)}")
-    print(f"   📈 Average RSI: {avg_rsi:.1f}")
-    print(f"   📊 Average volume: {avg_volume:.1f}x")
-    print(f"   🚀 Average momentum: {avg_momentum:.1f}%")
-    print(f"   📈 Swing signals: {swing_buy_count + swing_sell_count}")
-    print(f"   🔔 RSI alerts: {rsi_alerts}")
-    
-    if timeframe_counts:
-        print(f"   ⏰ Timeframe breakdown:")
-        for tf, count in timeframe_counts.items():
-            tf_name = {
-                '5m': '5-Minute',
-                '15m': '15-Minute', 
-                '1h': 'Hourly',
-                '4h': '4-Hour',
-                '1d': 'Daily',
-                '1wk': 'Weekly',
-                '1mo': 'Monthly'
-            }.get(tf, tf)
-            print(f"      {tf_name} ({tf}): {count} signals")
-
-def compare_configurations(interval='1d'):
-    """Compare original EMA(5)/SMA(50) vs suggested EMA(2)/SMA(200) on single timeframe"""
-    
-    timeframe_name = {
-        '5m': '5-Minute',
-        '15m': '15-Minute',
-        '1h': 'Hourly', 
-        '4h': '4-Hour',
-        '1d': 'Daily',
-        '1wk': 'Weekly',
-        '1mo': 'Monthly'
-    }.get(interval, interval)
-    
-    print("🎯 COMPARING CONFIGURATIONS: Original vs Suggested")
-    print("📊 Testing surajkumarsadhaphule's EMA(2)/SMA(200) suggestion")
-    print(f"⏰ Timeframe: {timeframe_name} ({interval})")
-    print("="*70)
-    
-    test_tickers = ['RELIANCE', 'TCS', 'HDFCBANK', 'INFY', 'ITC', 'KOTAKBANK']
-    
-    configs = [
-        {'ema': 5, 'sma': 50, 'name': 'Original EMA(5)/SMA(50)'},
-        {'ema': 2, 'sma': 200, 'name': 'Suggested EMA(2)/SMA(200)'}
-    ]
-    
-    results = {}
-    
-    for config in configs:
-        print(f"\n📈 Testing {config['name']} on {timeframe_name}...")
-        print("-" * 40)
-        
-        config_signals = []
-        
-        for ticker in test_tickers:
-            result = analyze_stock_swing_calls(
-                ticker, config['ema'], config['sma'], 80, 20, interval, debug=False
-            )
-            if result:
-                config_signals.append(result)
-                if result['signal'] in ['BUY', 'SELL']:
-                    print(f"   ✅ {ticker}: {result['signal']} @ ₹{result['current_price']:.2f}")
-        
-        buy_count = sum(1 for r in config_signals if r['signal'] == 'BUY')
-        sell_count = sum(1 for r in config_signals if r['signal'] == 'SELL')
-        total_signals = buy_count + sell_count
-        
-        results[config['name']] = {
-            'signals': config_signals,
-            'buy_count': buy_count,
-            'sell_count': sell_count,
-            'total_signals': total_signals
-        }
-        
-        print(f"   📊 Results: {buy_count} BUY, {sell_count} SELL = {total_signals} total signals")
-    
-    # Comparison
-    original = results['Original EMA(5)/SMA(50)']
-    suggested = results['Suggested EMA(2)/SMA(200)']
-    
-    print(f"\n🏆 COMPARISON RESULTS ({timeframe_name} timeframe):")
-    print("="*50)
-    print(f"   Original  EMA(5)/SMA(50):  {original['total_signals']} signals")
-    print(f"   Suggested EMA(2)/SMA(200): {suggested['total_signals']} signals")
-    
-    if suggested['total_signals'] > original['total_signals']:
-        improvement = suggested['total_signals'] - original['total_signals']
-        print(f"\n✅ SURAJKUMARSADHAPHULE WAS RIGHT!")
-        print(f"   🎉 EMA(2)/SMA(200) gives +{improvement} more signals on {timeframe_name}!")
-        print(f"   📊 Improvement: {improvement} additional signals found")
-    elif suggested['total_signals'] < original['total_signals']:
-        decrease = original['total_signals'] - suggested['total_signals']
-        print(f"\n📉 Original performs better on {timeframe_name} timeframe")
-        print(f"   📊 Original has {decrease} more signals than suggested")
-    else:
-        print(f"\n➡️  Both configurations give same number of signals on {timeframe_name}")
-    
-    print(f"\n🚀 Try the suggested config: python swing.py --suggested --timeframe {interval}")
-
-
-def analyze_custom_timeframes(timeframes, ema_value=5, sma_value=50, rsi_overbought=80, rsi_oversold=20, max_workers=3, debug=False):
-    """Analyze stocks across custom specified timeframes"""
-    
-    timeframe_names = {
-        '5m': '5-Min',
-        '15m': '15-Min',
-        '1h': '1-Hour',
-        '4h': '4-Hour',
-        '1d': 'Daily',
-        '1wk': 'Weekly',
-        '1mo': 'Monthly'
-    }
-    
-    # Use more stocks for analysis but still reasonable for API limits
-    tickers = [stock['symbol'].replace('.NS', '') for stock in config.TOP_STOCKS[:30]]  # First 30 stocks
-    
-    print(f"\n🚀 CUSTOM MULTI-TIMEFRAME SWING CALLS ANALYSIS")
-    print(f"📊 Analyzing {len(tickers)} stocks across {len(timeframes)} timeframes")
-    print(f"📈 Strategy: EMA({ema_value}) vs SMA({sma_value}) + RSI({rsi_overbought}/{rsi_oversold})")
-    print(f"⏰ Selected Timeframes: {', '.join([f'{timeframe_names[tf]} ({tf})' for tf in timeframes])}")
-    print("="*80)
-    
-    all_signals = []
-    
-    for timeframe in timeframes:
-        print(f"\n📊 Analyzing {timeframe_names[timeframe]} ({timeframe}) timeframe...")
-        
-        with concurrent.futures.ThreadPoolExecutor(max_workers=max_workers) as executor:
-            future_to_ticker = {
-                executor.submit(analyze_stock_swing_calls, ticker, ema_value, sma_value, rsi_overbought, rsi_oversold, timeframe, False): ticker 
-                for ticker in tickers
-            }
-            
-            timeframe_signals = []
-            completed = 0
-            successful = 0
-            
-            for future in concurrent.futures.as_completed(future_to_ticker):
-                ticker = future_to_ticker[future]
-                completed += 1
-                
-                try:
-                    result = future.result(timeout=30)
-                    if result:
-                        successful += 1
-                        if result['signal'] in ['BUY', 'SELL']:
-                            timeframe_signals.append(result)
-                            all_signals.append(result)
-                            signal_display = result['signal']
-                            price_display = f"₹{result['current_price']:.2f}"
-                            rsi_display = f"RSI:{result['rsi']:.0f}"
-                            print(f"   ✅ {ticker} ({completed}/{len(tickers)}): {signal_display} @ {price_display} | {rsi_display}")
-                        else:
-                            print(f"   ⚪ {ticker} ({completed}/{len(tickers)}): HOLD")
-                except Exception as e:
-                    print(f"   ❌ {ticker} ({completed}/{len(tickers)}): Error")
-                    continue
-            
-            buy_signals = sum(1 for s in timeframe_signals if s['signal'] == 'BUY')
-            sell_signals = sum(1 for s in timeframe_signals if s['signal'] == 'SELL')
-            
-            print(f"\n   📊 {timeframe_names[timeframe]} ({timeframe}) SUMMARY:")
-            print(f"      ✅ Analyzed: {successful}/{len(tickers)} stocks")
-            print(f"      🟢 BUY signals: {buy_signals}")
-            print(f"      🔴 SELL signals: {sell_signals}")
-            print(f"      📈 Total signals: {len(timeframe_signals)}")
-    
-    print(f"\n📊 COMBINED MULTI-TIMEFRAME SUMMARY:")
-    print(f"   📈 Total signals found: {len(all_signals)}")
-    
-    # Group by timeframe for summary
-    by_timeframe = {}
-    for signal in all_signals:
-        tf = signal.get('interval', '1d')
-        if tf not in by_timeframe:
-            by_timeframe[tf] = {'buy': 0, 'sell': 0, 'total': 0}
-        by_timeframe[tf][signal['signal'].lower()] += 1
-        by_timeframe[tf]['total'] += 1
-    
-    print(f"   📊 Breakdown by timeframe:")
-    for tf in timeframes:
-        if tf in by_timeframe:
-            data = by_timeframe[tf]
-            print(f"      ⏰ {timeframe_names[tf]:<8} ({tf}): {data['total']:2d} signals ({data['buy']} BUY, {data['sell']} SELL)")
-        else:
-            print(f"      ⏰ {timeframe_names[tf]:<8} ({tf}):  0 signals")
-    
-    return all_signals
-    """Analyze stocks across multiple timeframes simultaneously"""
-    
-    timeframes = ['5m', '15m', '1h', '4h', '1d']
-    timeframe_names = {
-        '5m': '5-Min',
-        '15m': '15-Min',
-        '1h': '1-Hour',
-        '4h': '4-Hour',
-        '1d': 'Daily'
-    }
-    
-    # Use fewer stocks for multi-timeframe analysis to avoid API limits
-    test_tickers = [stock['symbol'].replace('.NS', '') for stock in config.TOP_STOCKS[:20]]  # First 20 stocks
-    
-    print(f"\n🚀 MULTI-TIMEFRAME SWING CALLS ANALYSIS")
-    print(f"📊 Analyzing {len(test_tickers)} stocks across {len(timeframes)} timeframes")
-    print(f"📈 Strategy: EMA({ema_value}) vs SMA({sma_value}) + RSI({rsi_overbought}/{rsi_oversold})")
-    print(f"⏰ Timeframes: {', '.join([f'{timeframe_names[tf]} ({tf})' for tf in timeframes])}")
-    print("="*80)
-    
-    all_signals = []
-    
-    for timeframe in timeframes:
-        print(f"\n📊 Analyzing {timeframe_names[timeframe]} ({timeframe}) timeframe...")
-        
-        with concurrent.futures.ThreadPoolExecutor(max_workers=max_workers) as executor:
-            future_to_ticker = {
-                executor.submit(analyze_stock_swing_calls, ticker, ema_value, sma_value, rsi_overbought, rsi_oversold, timeframe, False): ticker 
-                for ticker in test_tickers
-            }
-            
-            timeframe_signals = []
-            completed = 0
-            
-            for future in concurrent.futures.as_completed(future_to_ticker):
-                ticker = future_to_ticker[future]
-                completed += 1
-                
-                try:
-                    result = future.result(timeout=30)
-                    if result and result['signal'] in ['BUY', 'SELL']:
-                        timeframe_signals.append(result)
-                        all_signals.append(result)
-                        signal_display = result['signal']
-                        price_display = f"₹{result['current_price']:.2f}"
-                        print(f"   ✅ {ticker}: {signal_display} @ {price_display}")
-                except Exception:
-                    continue
-            
-            print(f"   📊 {timeframe_names[timeframe]} Results: {len(timeframe_signals)} signals from {len(test_tickers)} stocks")
-    
-    print(f"\n📊 MULTI-TIMEFRAME SUMMARY:")
-    print(f"   📈 Total signals found: {len(all_signals)}")
-    
-    # Group by timeframe
-    by_timeframe = {}
-    for signal in all_signals:
-        tf = signal.get('interval', '1d')
-        if tf not in by_timeframe:
-            by_timeframe[tf] = []
-        by_timeframe[tf].append(signal)
-    
-    for tf in timeframes:
-        if tf in by_timeframe:
-            signals = by_timeframe[tf]
-            buy_count = sum(1 for s in signals if s['signal'] == 'BUY')
-            sell_count = sum(1 for s in signals if s['signal'] == 'SELL')
-            print(f"   ⏰ {timeframe_names[tf]} ({tf}): {len(signals)} signals ({buy_count} BUY, {sell_count} SELL)")
-        else:
-            print(f"   ⏰ {timeframe_names[tf]} ({tf}): 0 signals")
-    
-    return all_signals
-
-
-def compare_configurations_multi_timeframe():
-    """Compare original vs suggested across multiple timeframes"""
-    
-    print("🎯 MULTI-TIMEFRAME CONFIGURATION COMPARISON")
-    print("📊 Testing Original EMA(5)/SMA(50) vs Suggested EMA(2)/SMA(200)")
-    print("⏰ Across multiple timeframes: 5m, 15m, 1h, 4h, 1d")
-    print("="*80)
-    
-    timeframes = ['5m', '15m', '1h', '4h', '1d']
-    timeframe_names = {
-        '5m': '5-Min', '15m': '15-Min', '1h': '1-Hour', '4h': '4-Hour', '1d': 'Daily'
-    }
-    
-    configs = [
-        {'ema': 5, 'sma': 50, 'name': 'Original EMA(5)/SMA(50)'},
-        {'ema': 2, 'sma': 200, 'name': 'Suggested EMA(2)/SMA(200)'}
-    ]
-    
-    test_tickers = ['RELIANCE', 'TCS', 'HDFCBANK', 'INFY', 'ITC', 'KOTAKBANK']
-    
-    results = {}
-    
-    for config in configs:
-        print(f"\n📈 Testing {config['name']}...")
-        print("-" * 50)
-        
-        config_results = {}
-        total_signals = 0
-        
-        for timeframe in timeframes:
-            timeframe_signals = []
-            
-            for ticker in test_tickers:
-                result = analyze_stock_swing_calls(
-                    ticker, config['ema'], config['sma'], 80, 20, timeframe, debug=False
-                )
-                if result and result['signal'] in ['BUY', 'SELL']:
-                    timeframe_signals.append(result)
-                    total_signals += 1
-            
-            config_results[timeframe] = timeframe_signals
-            buy_count = sum(1 for r in timeframe_signals if r['signal'] == 'BUY')
-            sell_count = sum(1 for r in timeframe_signals if r['signal'] == 'SELL')
-            
-            print(f"   {timeframe_names[timeframe]:<8} ({timeframe}): {len(timeframe_signals):2d} signals ({buy_count} BUY, {sell_count} SELL)")
-        
-        results[config['name']] = {
-            'by_timeframe': config_results,
-            'total_signals': total_signals
-        }
-        
-        print(f"   📊 Total: {total_signals} signals across all timeframes")
-    
-    # Comparison
-    original = results['Original EMA(5)/SMA(50)']
-    suggested = results['Suggested EMA(2)/SMA(200)']
-    
-    print(f"\n🏆 MULTI-TIMEFRAME COMPARISON:")
-    print("="*60)
-    
-    # Detailed comparison by timeframe
-    print(f"{'Timeframe':<12} | {'Original':<10} | {'Suggested':<10} | {'Difference':<12}")
-    print("-" * 60)
-    
-    total_original = 0
-    total_suggested = 0
-    
-    for tf in timeframes:
-        orig_count = len(original['by_timeframe'].get(tf, []))
-        sugg_count = len(suggested['by_timeframe'].get(tf, []))
-        diff = sugg_count - orig_count
-        diff_str = f"+{diff}" if diff > 0 else str(diff)
-        
-        total_original += orig_count
-        total_suggested += sugg_count
-        
-        print(f"{timeframe_names[tf]:<12} | {orig_count:<10} | {sugg_count:<10} | {diff_str:<12}")
-    
-    print("-" * 60)
-    print(f"{'TOTAL':<12} | {total_original:<10} | {total_suggested:<10} | {'+' if total_suggested > total_original else ''}{total_suggested - total_original:<12}")
-    
-    if total_suggested > total_original:
-        improvement = total_suggested - total_original
-        print(f"\n✅ SURAJKUMARSADHAPHULE WAS RIGHT!")
-        print(f"   🎉 EMA(2)/SMA(200) gives +{improvement} more signals across all timeframes!")
-        print(f"   📊 Total improvement: {improvement} additional signals")
-        
-        # Find best performing timeframes
-        best_improvements = []
-        for tf in timeframes:
-            orig_count = len(original['by_timeframe'].get(tf, []))
-            sugg_count = len(suggested['by_timeframe'].get(tf, []))
-            if sugg_count > orig_count:
-                best_improvements.append((tf, sugg_count - orig_count))
-        
-        if best_improvements:
-            best_improvements.sort(key=lambda x: x[1], reverse=True)
-            print(f"\n🚀 BEST PERFORMING TIMEFRAMES FOR EMA(2)/SMA(200):")
-            for tf, improvement in best_improvements[:3]:
-                print(f"   {timeframe_names[tf]} ({tf}): +{improvement} more signals")
-    
-    elif total_suggested < total_original:
-        decrease = total_original - total_suggested
-        print(f"\n📉 Original EMA(5)/SMA(50) performs better overall")
-        print(f"   📊 Original has {decrease} more signals than suggested")
-    else:
-        print(f"\n➡️  Both configurations give same total number of signals")
-    
-    print(f"\n🚀 RECOMMENDED COMMANDS:")
-    print(f"   # Test best performing timeframe")
-    if total_suggested > total_original:
-        print(f"   python swing.py --suggested --15min --debug")
-        print(f"   python swing.py --suggested --5min --debug")
-    else:
-        print(f"   python swing.py --hourly --debug")
-    print(f"   # Run multi-timeframe analysis")
-    print(f"   python swing.py --multi-timeframe --suggested")
-    """Compare original EMA(5)/SMA(50) vs suggested EMA(2)/SMA(200)"""
-    
-    timeframe_name = {
-        '5m': '5-Minute',
-        '15m': '15-Minute',
-        '1h': 'Hourly', 
-        '4h': '4-Hour',
-        '1d': 'Daily',
-        '1wk': 'Weekly',
-        '1mo': 'Monthly'
-    }.get(interval, interval)
-    
-    print("🎯 COMPARING CONFIGURATIONS: Original vs Suggested")
-    print("📊 Testing surajkumarsadhaphule's EMA(2)/SMA(200) suggestion")
-    print(f"⏰ Timeframe: {timeframe_name} ({interval})")
-    print("="*70)
-    
-    test_tickers = ['RELIANCE', 'TCS', 'HDFCBANK', 'INFY', 'ITC', 'KOTAKBANK']
-    
-    configs = [
-        {'ema': 5, 'sma': 50, 'name': 'Original EMA(5)/SMA(50)'},
-        {'ema': 2, 'sma': 200, 'name': 'Suggested EMA(2)/SMA(200)'}
-    ]
-    
-    results = {}
-    
-    for config in configs:
-        print(f"\n📈 Testing {config['name']} on {timeframe_name}...")
-        print("-" * 40)
-        
-        config_signals = []
-        
-        for ticker in test_tickers:
-            result = analyze_stock_swing_calls(
-                ticker, config['ema'], config['sma'], 80, 20, interval, debug=False
-            )
-            if result:
-                config_signals.append(result)
-                if result['signal'] in ['BUY', 'SELL']:
-                    print(f"   ✅ {ticker}: {result['signal']} @ ₹{result['current_price']:.2f}")
-        
-        buy_count = sum(1 for r in config_signals if r['signal'] == 'BUY')
-        sell_count = sum(1 for r in config_signals if r['signal'] == 'SELL')
-        total_signals = buy_count + sell_count
-        
-        results[config['name']] = {
-            'signals': config_signals,
-            'buy_count': buy_count,
-            'sell_count': sell_count,
-            'total_signals': total_signals
-        }
-        
-        print(f"   📊 Results: {buy_count} BUY, {sell_count} SELL = {total_signals} total signals")
-    
-    # Comparison
-    original = results['Original EMA(5)/SMA(50)']
-    suggested = results['Suggested EMA(2)/SMA(200)']
-    
-    print(f"\n🏆 COMPARISON RESULTS ({timeframe_name} timeframe):")
-    print("="*50)
-    print(f"   Original  EMA(5)/SMA(50):  {original['total_signals']} signals")
-    print(f"   Suggested EMA(2)/SMA(200): {suggested['total_signals']} signals")
-    
-    if suggested['total_signals'] > original['total_signals']:
-        improvement = suggested['total_signals'] - original['total_signals']
-        print(f"\n✅ SURAJKUMARSADHAPHULE WAS RIGHT!")
-        print(f"   🎉 EMA(2)/SMA(200) gives +{improvement} more signals on {timeframe_name}!")
-        print(f"   📊 Improvement: {improvement} additional signals found")
-    elif suggested['total_signals'] < original['total_signals']:
-        decrease = original['total_signals'] - suggested['total_signals']
-        print(f"\n📉 Original performs better on {timeframe_name} timeframe")
-        print(f"   📊 Original has {decrease} more signals than suggested")
-    else:
-        print(f"\n➡️  Both configurations give same number of signals on {timeframe_name}")
-    
-    print(f"\n🚀 Try the suggested config: python swing.py --suggested --timeframe {interval}")
+    print(f"\nSUMMARY:")
+    print(f"   {signal_title} signals: {len(signals)}")
+    print(f"   Average strength: {avg_strength:.2f}%")
+    print(f"   Average volume ratio: {avg_volume:.1f}x")
+    print(f"   Average momentum: {avg_momentum:+.1f}%")
 
 def main():
-    """Main function - SWING CALLS Strategy"""
-    parser = argparse.ArgumentParser(description="SWING CALLS Strategy Analyzer (Pine Script)")
+    """Main function with comprehensive analysis"""
+    parser = argparse.ArgumentParser(description="Comprehensive Multi-Indicator Strategy Analyzer")
     
-    # Pine Script parameters
-    parser.add_argument('--ema-value', type=int, default=5, 
-                       help='EMA period (default: 5)')
-    parser.add_argument('--sma-value', type=int, default=50, 
-                       help='SMA period (default: 50)')
-    parser.add_argument('--rsi-overbought', type=int, default=80, 
-                       help='RSI overbought level (default: 80)')
-    parser.add_argument('--rsi-oversold', type=int, default=20, 
-                       help='RSI oversold level (default: 20)')
-    parser.add_argument('--top', type=int, default=15, 
-                       help='Top N signals to display (default: 15)')
+    parser.add_argument('--volume-days', type=int, default=20, 
+                       help='Volume average days (default: 20)')
+    parser.add_argument('--momentum-days', type=int, default=5, 
+                       help='Momentum calculation days (default: 5)')
+    parser.add_argument('--top', type=int, default=10, 
+                       help='Top N signals to display (default: 10)')
     parser.add_argument('--output', type=str, 
                        help='Output directory (default: output)')
     parser.add_argument('--workers', type=int, default=3, 
                        help='Max concurrent workers (default: 3)')
     parser.add_argument('--test-single', type=str, 
-                       help='Test analysis on a single ticker')
+                       help='Test analysis on a single ticker for debugging')
     parser.add_argument('--debug', action='store_true', 
-                       help='Enable debug output')
+                       help='Enable debug output for troubleshooting')
     parser.add_argument('--show-all', action='store_true', 
-                       help='Show all signals (default behavior)')
+                       help='Show all signal types (BUY, SELL, HOLD)')
     parser.add_argument('--buy-only', action='store_true', 
                        help='Show only BUY signals')
     parser.add_argument('--sell-only', action='store_true', 
                        help='Show only SELL signals')
-    parser.add_argument('--quick-test', action='store_true',
-                       help='Quick test with popular stocks')
-    
-    # NEW: Add suggested configuration option
-    parser.add_argument('--suggested', action='store_true',
-                       help='Use surajkumarsadhaphule suggestion: EMA(2)/SMA(200)')
-    parser.add_argument('--compare', action='store_true',
-                       help='Compare original vs suggested configurations')
-    parser.add_argument('--multi-timeframe', action='store_true',
-                       help='Analyze across multiple timeframes (5m, 15m, 1h, 4h, 1d)')
-    parser.add_argument('--compare-multi', action='store_true',
-                       help='Compare configurations across multiple timeframes')
-    
-    # NEW: Add timeframe options
-    parser.add_argument('--timeframe', type=str, default='1d',
-                       choices=['5m', '15m', '1h', '4h', '1d', '1wk', '1mo'],
-                       help='Timeframe: 5m, 15m, 1h, 4h, 1d (default), 1wk, 1mo')
-    parser.add_argument('--5min', action='store_true', dest='min5',
-                       help='Use 5-minute timeframe (shortcut for --timeframe 5m)')
-    parser.add_argument('--15min', action='store_true', dest='min15',
-                       help='Use 15-minute timeframe (shortcut for --timeframe 15m)')
-    parser.add_argument('--hourly', action='store_true',
-                       help='Use 1-hour timeframe (shortcut for --timeframe 1h)')
-    parser.add_argument('--4hour', action='store_true', dest='hour4',
-                       help='Use 4-hour timeframe (shortcut for --timeframe 4h)')
-    parser.add_argument('--weekly', action='store_true',
-                       help='Use weekly timeframe (shortcut for --timeframe 1wk)')
     
     args = parser.parse_args()
     
-    # Handle timeframe shortcuts
-    if args.min5:
-        args.timeframe = '5m'
-    elif args.min15:
-        args.timeframe = '15m'
-    elif args.hourly:
-        args.timeframe = '1h'
-    elif args.hour4:
-        args.timeframe = '4h'  
-    elif args.weekly:
-        args.timeframe = '1wk'
-    
-    timeframe_name = {
-        '5m': '5-Minute',
-        '15m': '15-Minute',
-        '1h': 'Hourly',
-        '4h': '4-Hour',
-        '1d': 'Daily',
-        '1wk': 'Weekly',
-        '1mo': 'Monthly'
-    }.get(args.timeframe, args.timeframe)
-    
-    # Handle suggested configuration
-    if args.suggested:
-        args.ema_value = 2
-        args.sma_value = 200
-        print("🎯 Using SUGGESTED CONFIGURATION: EMA(2)/SMA(200)")
-        print("💡 Based on surajkumarsadhaphule's comment: 'Results are far better'")
-    
-    print(f"⏰ Timeframe: {timeframe_name} ({args.timeframe})")
-    
-    # Compare configurations mode
-    if args.compare:
-        compare_configurations(args.timeframe)
-        return
-    
-    # Multi-timeframe comparison mode
-    if args.compare_multi:
-        compare_configurations_multi_timeframe()
-        return
-    
-    # Multi-timeframe analysis mode
-    if args.multi_timeframe:
-        print("🚀 MULTI-TIMEFRAME ANALYSIS MODE")
-        all_signals = analyze_multiple_timeframes(
-            ema_value=args.ema_value,
-            sma_value=args.sma_value,
-            rsi_overbought=args.rsi_overbought,
-            rsi_oversold=args.rsi_oversold,
-            max_workers=args.workers,
-            debug=args.debug
-        )
-        
-        if all_signals:
-            # Show combined results from all timeframes
-            buy_signals = [s for s in all_signals if s['signal'] == 'BUY']
-            sell_signals = [s for s in all_signals if s['signal'] == 'SELL']
-            
-            if buy_signals:
-                display_swing_signals(buy_signals, "BUY (All Timeframes)", args.top)
-            if sell_signals:
-                display_swing_signals(sell_signals, "SELL (All Timeframes)", args.top)
-            
-            print(f"\n📊 MULTI-TIMEFRAME FINAL SUMMARY:")
-            print(f"   🟢 Total BUY signals: {len(buy_signals)}")
-            print(f"   🔴 Total SELL signals: {len(sell_signals)}")
-            print(f"   📈 Total signals across all timeframes: {len(all_signals)}")
-        else:
-            print("\n❌ No signals found across any timeframes!")
-        
-        return
-    
-    # Quick test mode
-    if args.quick_test:
-        print("🧪 QUICK TEST MODE - SWING CALLS Strategy")
-        if args.suggested:
-            print("🎯 Using SUGGESTED EMA(2)/SMA(200) parameters")
-        test_tickers = ['RELIANCE', 'TCS', 'HDFCBANK', 'INFY', 'ITC']
-        print("="*50)
-        
-        for ticker in test_tickers:
-            print(f"\n🔍 Testing {ticker}...")
-            result = analyze_stock_swing_calls(
-                ticker, args.ema_value, args.sma_value, args.rsi_overbought, args.rsi_oversold, args.timeframe, debug=True
-            )
-            if result:
-                signal = result['signal']
-                price = f"₹{result['current_price']:.2f}"
-                rsi = f"RSI:{result['rsi']:.0f}"
-                color = result['sma_color']
-                print(f"✅ {ticker}: {signal} | {price} | {rsi} | {color}")
-            else:
-                print(f"❌ {ticker}: Failed")
-        return
-    
-    # Test single ticker
+    # Test single ticker if requested
     if args.test_single:
-        config_name = f"EMA({args.ema_value})/SMA({args.sma_value})"
-        if args.suggested:
-            config_name += " - SUGGESTED CONFIG"
-        
-        print(f"🧪 TESTING SINGLE TICKER: {args.test_single}")
-        print(f"📊 SWING CALLS: {config_name} + RSI({args.rsi_overbought}/{args.rsi_oversold})")
-        print(f"⏰ Timeframe: {timeframe_name} ({args.timeframe})")
+        print(f"TESTING SINGLE TICKER: {args.test_single}")
         print("="*50)
-        result = analyze_stock_swing_calls(
+        result = analyze_stock_comprehensive(
             args.test_single, 
-            args.ema_value, args.sma_value, args.rsi_overbought, args.rsi_oversold, args.timeframe,
+            args.volume_days, 
+            args.momentum_days, 
             debug=True
         )
         if result:
-            print(f"\n✅ SWING CALLS Analysis:")
-            print(f"   🎯 Signal: {result['signal']}")
-            if result['signal_type'] != 'None':
-                print(f"   📊 Type: {result['signal_type']}")
-            if result['rsi_alert'] != 'None':
-                print(f"   🔔 RSI Alert: {result['rsi_alert']}")
-            print(f"   💰 Price: ₹{result['current_price']:.2f}")
-            print(f"   📈 EMA({args.ema_value}): ₹{result['ema_5']:.2f}")
-            print(f"   📊 SMA({args.sma_value}): ₹{result['sma_50']:.2f}")
-            print(f"   📈 RSI: {result['rsi']:.1f}")
-            print(f"   🎨 SMA Color: {result['sma_color']}")
-            print(f"   🕯️  Candle: {result['candle_type']}")
+            print(f"\nSUCCESS! Signal: {result['signal_type']}")
+            print(f"Squeeze Data: {result['squeeze_data']}")
+            print(f"MACD Data: {result['macd_data']}")
         else:
-            print(f"\n❌ No result for {args.test_single}")
+            print(f"\nNo result for {args.test_single}")
         return
     
-    config_name = f"EMA({args.ema_value})/SMA({args.sma_value})"
-    if args.suggested:
-        config_name += " - SUGGESTED"
-    
-    print("🎯 SWING CALLS STRATEGY ANALYZER")
-    print("📊 Pine Script: SMA/EMA Crossover + RSI System")
+    print("COMPREHENSIVE MULTI-INDICATOR STRATEGY ANALYZER")
+    print("Using Squeeze Momentum + EMA + RSI + MACD + ATR")
     print("="*50)
-    print(f"📈 Configuration: {config_name}")
-    print(f"📈 RSI: {args.rsi_overbought}/{args.rsi_oversold} levels")
-    if args.suggested:
-        print(f"💡 Using surajkumarsadhaphule's suggestion")
-    print(f"🎯 Pine Script faithful implementation")
+    print(f"Volume Period: {args.volume_days} trading days") 
+    print(f"Momentum Period: {args.momentum_days} trading days")
+    print(f"Top Signals: {args.top}")
+    print(f"Workers: {args.workers}")
     print("="*50)
     
     # Set output directory
@@ -1248,129 +714,67 @@ def main():
     os.makedirs(output_dir, exist_ok=True)
     
     # Analyze all stocks
-    all_signals = analyze_all_stocks_swing_calls(
-        ema_value=args.ema_value,
-        sma_value=args.sma_value,
-        rsi_overbought=args.rsi_overbought,
-        rsi_oversold=args.rsi_oversold,
-        interval=args.timeframe,
+    all_signals = analyze_all_stocks(
+        volume_days=args.volume_days, 
+        momentum_days=args.momentum_days,
         max_workers=args.workers,
         debug=args.debug
     )
     
     if not all_signals:
-        print("\n❌ No signals generated!")
-        print("\n💡 TROUBLESHOOTING:")
-        print("   🧪 Try: --quick-test")
-        print("   🎯 Try: --suggested (EMA2/SMA200)")
-        print("   🚀 Try: --multi-timeframe --suggested")
-        print("   ⚡ Try: --5min (5-minute timeframe - many signals)")
-        print("   🎯 Try: --15min (15-minute timeframe - frequent signals)")
-        print("   ⚡ Try: --hourly (1h timeframe)")
-        print("   🎯 Try: --4hour (4h timeframe)")
-        print("   🔧 Try: --test-single RELIANCE --debug")
-        print("   📊 Try: --compare-multi (compare across all timeframes)")
-        print("   📊 Try: --compare --timeframe 5m")
-        print("   📊 Try: --compare --timeframe 15m")
-        print("   💡 Shorter timeframes usually give MORE signals!")
+        print("\nNo signals generated!")
+        print("TROUBLESHOOTING TIPS:")
+        print("   Check if markets are open and data is available")
+        print("   Enable debug mode: --debug")
         return
     
-    # Display results
+    # Display results based on arguments
     if args.buy_only:
-        buy_signals = filter_signals_by_type(all_signals, ['BUY'])
-        display_swing_signals(buy_signals, "BUY", args.top)
+        buy_signals = filter_signals_by_type(all_signals, ['STRONG_BUY', 'WEAK_BUY'])
+        buy_signals = sort_signals_properly(buy_signals) if buy_signals else []
+        display_top_signals(buy_signals, "BUY", args.top)
     elif args.sell_only:
-        sell_signals = filter_signals_by_type(all_signals, ['SELL'])
-        display_swing_signals(sell_signals, "SELL", args.top)
-    else:
-        # Show all by default
-        buy_signals = filter_signals_by_type(all_signals, ['BUY'])
-        sell_signals = filter_signals_by_type(all_signals, ['SELL'])
+        sell_signals = filter_signals_by_type(all_signals, ['STRONG_SELL', 'WEAK_SELL'])
+        sell_signals = sort_signals_properly(sell_signals) if sell_signals else []
+        display_top_signals(sell_signals, "SELL", args.top)
+    elif args.show_all:
+        # Show all types
+        buy_signals = filter_signals_by_type(all_signals, ['STRONG_BUY', 'WEAK_BUY'])
+        sell_signals = filter_signals_by_type(all_signals, ['STRONG_SELL', 'WEAK_SELL'])
         hold_signals = filter_signals_by_type(all_signals, ['HOLD'])
         
         if buy_signals:
-            display_swing_signals(buy_signals, "BUY", args.top)
+            buy_signals = sort_signals_properly(buy_signals)
+            display_top_signals(buy_signals, "BUY", args.top)
         if sell_signals:
-            display_swing_signals(sell_signals, "SELL", args.top)
+            sell_signals = sort_signals_properly(sell_signals)
+            display_top_signals(sell_signals, "SELL", args.top)
         
-        print(f"\n📊 SWING CALLS SUMMARY:")
-        print(f"   🟢 BUY signals: {len(buy_signals)}")
-        print(f"   🔴 SELL signals: {len(sell_signals)}")
-        print(f"   ⚪ HOLD (no signal): {len(hold_signals)}")
-        print(f"   📈 Total analyzed: {len(all_signals)}")
+        print(f"\nOVERALL SUMMARY:")
+        print(f"   BUY signals: {len(buy_signals)}")
+        print(f"   SELL signals: {len(sell_signals)}")
+        print(f"   HOLD signals: {len(hold_signals)}")
+        print(f"   Total analyzed: {len(all_signals)}")
+    else:
+        # Default: Show BUY signals only
+        buy_signals = filter_signals_by_type(all_signals, ['STRONG_BUY', 'WEAK_BUY'])
+        buy_signals = sort_signals_properly(buy_signals) if buy_signals else []
+        display_top_signals(buy_signals, "BUY", args.top)
     
-    print(f"\n✅ SWING CALLS Analysis Complete!")
+    print(f"\nAnalysis Complete!")
     
-    # Strategy notes
-    print(f"\n💡 SWING CALLS STRATEGY NOTES:")
-    print(f"   📊 Configuration: {config_name}")
-    print(f"   🟢 BUY: SMA crosses under EMA + high > SMA (bullish breakout)")
-    print(f"   🔴 SELL: SMA crosses over EMA + red candle (bearish breakdown)")
-    print(f"   🔔 RSI Alerts: Exit signals at {args.rsi_overbought}/{args.rsi_oversold} levels")
-    print(f"   🎨 SMA Colors: Green=Bullish, Red=Bearish, Yellow=Neutral/Extreme")
-    if args.suggested:
-        print(f"   🎯 Using surajkumarsadhaphule's suggestion for better results")
+    # Trading notes
+    print(f"\nTRADING NOTES:")
+    print(f"   STRONG BUY: Squeeze momentum crossover + bullish EMA trend")
+    print(f"   WEAK BUY: MACD reversal signal + bullish trend")
+    print(f"   STRONG SELL: Squeeze momentum crossunder + bearish EMA trend")
+    print(f"   WEAK SELL: RSI overbought + squeeze momentum conditions")
+    print(f"   STOP LOSS: ATR-based (1.6x ATR)")
+    print(f"   POSITION SIZE: 1% risk-based sizing")
     
-    print(f"\n🎯 USAGE EXAMPLES:")
-    print(f"   # Test suggested EMA(2)/SMA(200) on daily timeframe")
-    print(f"   python {sys.argv[0]} --suggested --debug")
-    print(f"   ")
-    print(f"   # Multi-timeframe analysis (5m, 15m, 1h, 4h, 1d)")
-    print(f"   python {sys.argv[0]} --multi-timeframe --suggested")
-    print(f"   python {sys.argv[0]} --multi-timeframe --debug")
-    print(f"   ")
-    print(f"   # Compare configurations across all timeframes")
-    print(f"   python {sys.argv[0]} --compare-multi")
-    print(f"   ")
-    print(f"   # Intraday timeframes (more signals, more noise)")
-    print(f"   python {sys.argv[0]} --5min --suggested --debug")
-    print(f"   python {sys.argv[0]} --15min --suggested --debug")
-    print(f"   python {sys.argv[0]} --timeframe 5m --debug")
-    print(f"   ")
-    print(f"   # Test on 1-hour timeframe (as recommended in Pine Script)")
-    print(f"   python {sys.argv[0]} --hourly --debug")
-    print(f"   python {sys.argv[0]} --timeframe 1h --suggested")
-    print(f"   ")
-    print(f"   # Test on 4-hour timeframe")
-    print(f"   python {sys.argv[0]} --4hour --suggested --debug")
-    print(f"   ")
-    print(f"   # Compare configurations on different timeframes")
-    print(f"   python {sys.argv[0]} --compare")
-    print(f"   python {sys.argv[0]} --compare --timeframe 5m")
-    print(f"   python {sys.argv[0]} --compare --timeframe 15m")
-    print(f"   python {sys.argv[0]} --compare --timeframe 1h")
-    print(f"   python {sys.argv[0]} --compare --timeframe 4h")
-    print(f"   ")
-    print(f"   # Single stock analysis")
-    print(f"   python {sys.argv[0]} --test-single RELIANCE --suggested --5min --debug")
-    print(f"   python {sys.argv[0]} --test-single KOTAKBANK --15min --debug")
-    print(f"   python {sys.argv[0]} --test-single INFY --hourly --suggested --debug")
-    print(f"   ")
-    print(f"   # Quick tests")
-    print(f"   python {sys.argv[0]} --quick-test --suggested --5min")
-    print(f"   python {sys.argv[0]} --quick-test --15min")
-    
-    print(f"\n💡 TIMEFRAME RECOMMENDATIONS:")
-    print(f"   ⚡ 5-Minute (5m): Scalping, very frequent signals, high noise")
-    print(f"   🎯 15-Minute (15m): Intraday trading, good signal frequency")
-    print(f"   📊 1-Hour (1h): Pine Script recommended, balanced approach")
-    print(f"   🎯 4-Hour (4h): Swing trading, quality signals")
-    print(f"   📈 Daily (1d): Position trading, less noise, fewer signals")
-    print(f"   📊 Weekly (1wk): Long-term trend following")
-    print(f"   ")
-    print(f"   🚨 INTRADAY NOTES:")
-    print(f"   • 5m & 15m have limited historical data (~60 days)")
-    print(f"   • More signals = more opportunities but also more noise")
-    print(f"   • EMA(2)/SMA(200) might work especially well on shorter timeframes")
-    print(f"   ")
-    print(f"   🎯 BEST COMMANDS TO TRY:")
-    print(f"   python {sys.argv[0]} --multi-timeframe --suggested")
-    print(f"   python {sys.argv[0]} --compare-multi")
-    print(f"   python {sys.argv[0]} --15min --suggested --debug")
-    print(f"   ")
-    print(f"   💡 Pine Script author says: 'Best work with 1h+ timeframes'")
-    print(f"   🎯 surajkumarsadhaphule suggests: EMA(2)/SMA(200) for better results")
-    print(f"   ⚡ Try EMA(2)/SMA(200) on 15m for frequent intraday signals!")
+    print(f"\nTROUBLESHOOTING COMMANDS:")
+    print(f"   python {sys.argv[0]} --test-single RELIANCE --debug")
+    print(f"   python {sys.argv[0]} --debug")
 
 if __name__ == "__main__":
     main()

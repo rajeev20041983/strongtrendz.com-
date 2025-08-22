@@ -1,0 +1,9 @@
+{
+  "metadata": {
+    "timestamp": "2025-08-21T19:11:54.784246",
+    "total_stocks_analyzed": 0,
+    "lookback_bars": 3,
+    "strategy": "Inside Bar Pine Script with EMA Filter"
+  },
+  "signals": []
+}

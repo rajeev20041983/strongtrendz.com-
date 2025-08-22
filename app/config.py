@@ -504,3 +504,63 @@ LSTM_LOOKBACK_DAYS = 7
 TRAIN_TEST_SPLIT = 0.8
 EPOCHS = 10
 BATCH_SIZE = 32
+
+
+import os
+from pathlib import Path
+
+# Project directories
+BASE_DIR = Path(__file__).parent.parent.absolute()
+OUTPUT_DIR = os.path.join(BASE_DIR, "output")
+DATA_DIR = os.path.join(OUTPUT_DIR, "data")
+PLOTS_DIR = os.path.join(OUTPUT_DIR, "plots")
+
+# Create directories if they don't exist
+os.makedirs(OUTPUT_DIR, exist_ok=True)
+os.makedirs(DATA_DIR, exist_ok=True)
+os.makedirs(PLOTS_DIR, exist_ok=True)
+
+# 🔥 DHAN API CONFIGURATION - ADD YOUR CREDENTIALS HERE
+DHAN_CONFIG = {
+    # 📊 STEP 1: Get these from your Dhan account
+    'client_id': '1106497024',           # Your Dhan Client ID
+    'access_token': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJkaGFuIiwicGFydG5lcklkIjoiIiwiZXhwIjoxNzU0NzE1MDY5LCJ0b2tlbkNvbnN1bWVyVHlwZSI6IlNFTEYiLCJ3ZWJob29rVXJsIjoiIiwiZGhhbkNsaWVudElkIjoiMTEwNjQ5NzAyNCJ9.Y8WFYlIzCdUqTLQciF3PRQcgUMDuzgOoXmBiZwGSLguXZzNSFLk5pjhf7G39jLfitUZM_DvMeyx5Zy7CT4eGHw',     # Your Dhan Access Token
+    
+    # 📊 STEP 2: Set to True when you add real credentials
+    'enabled': True,  # 🔧 CHANGE TO True after adding real credentials
+    
+    # 📊 Optional: Additional Dhan settings
+    'api_version': 'v2',
+    'timeout': 10,  # API timeout in seconds
+    'max_retries': 3,
+    
+    # 📊 Trading preferences (optional)
+    'auto_square_off': True,
+    'default_product': 'MIS',  # MIS, CNC, NRML
+    'default_order_type': 'MARKET',  # MARKET, LIMIT
+}
+
+# 🔧 TRADING STRATEGY PARAMETERS
+STRATEGY_CONFIG = {
+    'swing_calls': {
+        'ema_period': 2,              # Fast EMA (surajkumarsadhaphule's suggestion)
+        'sma_period': 50,             # Slow SMA (optimized for 5-minute data)
+        'rsi_overbought': 80,         # RSI overbought level
+        'rsi_oversold': 20,           # RSI oversold level
+        'timeframe': '5m',            # Primary timeframe
+        'confidence_threshold': 80,   # Minimum confidence for alerts
+    }
+}
+
+# 📊 LIVE MONITORING SETTINGS
+LIVE_CONFIG = {
+    'market_hours': {
+        'open': (9, 30),    # 9:30 AM IST
+        'close': (15, 30),  # 3:30 PM IST
+    },
+    'analysis_interval': 5,         # Run analysis every 5 minutes
+    'max_concurrent_stocks': 2,     # Concurrent processing limit
+    'price_tolerance': 2.0,         # Max acceptable price difference %
+    'auto_save_signals': True,      # Save signals to JSON automatically
+    'send_notifications': False,    # Enable notifications (implement as needed)
+}

@@ -1,9 +1,0 @@
-{
-  "metadata": {
-    "timestamp": "2025-08-07T10:50:12.015604",
-    "total_stocks_analyzed": 0,
-    "lookback_days": 50,
-    "strategy": "Fibonacci Retracement with Confluence Detection"
-  },
-  "signals": []
-}

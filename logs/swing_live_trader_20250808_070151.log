@@ -1,0 +1,14 @@
+2025-08-08 07:01:52,125 - INFO - Loading trading configuration from swing_trading_config.json
+2025-08-08 07:01:52,125 - INFO - Trading configuration loaded successfully
+2025-08-08 07:01:52,125 - INFO - Loading security IDs from security_ids.xlsx
+2025-08-08 07:01:58,695 - INFO - Successfully read Excel file with 1850 rows
+2025-08-08 07:01:58,805 - INFO - Security IDs mapping created with 3700 entries
+2025-08-08 07:01:58,820 - INFO - ======================================================================
+2025-08-08 07:02:03,185 - ERROR - $CUMMINSIND.NS: possibly delisted; no price data found  (5m 2025-07-19 07:02:03.110440 -> 2025-08-08 07:02:03.110440)
+2025-08-08 07:02:04,065 - ERROR - $VOLTAS.NS: possibly delisted; no price data found  (5m 2025-07-19 07:02:04.010571 -> 2025-08-08 07:02:04.010571)
+2025-08-08 07:02:06,230 - ERROR - $HINDCOPPER.NS: possibly delisted; no price data found  (5m 2025-07-19 07:02:06.175631 -> 2025-08-08 07:02:06.175631)
+2025-08-08 07:02:06,679 - ERROR - $KEI.NS: possibly delisted; no price data found  (5m 2025-07-19 07:02:06.612877 -> 2025-08-08 07:02:06.612877)
+2025-08-08 07:02:06,955 - ERROR - $KFINTECH.NS: possibly delisted; no price data found  (5m 2025-07-19 07:02:06.883107 -> 2025-08-08 07:02:06.883107)
+2025-08-08 07:02:07,235 - ERROR - $POONAWALLA.NS: possibly delisted; no price data found  (5m 2025-07-19 07:02:07.188515 -> 2025-08-08 07:02:07.188515)
+2025-08-08 07:02:07,515 - ERROR - $BSE.NS: possibly delisted; no price data found  (5m 2025-07-19 07:02:07.435539 -> 2025-08-08 07:02:07.435539)
+2025-08-08 07:02:08,027 - ERROR - $DIXON.NS: possibly delisted; no price data found  (5m 2025-07-19 07:02:07.905656 -> 2025-08-08 07:02:07.905656)

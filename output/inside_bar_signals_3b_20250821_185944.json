@@ -1,0 +1,9 @@
+{
+  "metadata": {
+    "timestamp": "2025-08-21T18:59:44.141066",
+    "total_stocks_analyzed": 0,
+    "lookback_bars": 3,
+    "strategy": "Inside Bar with Pine Script Logic and Trading Days Calculation"
+  },
+  "signals": []
+}

@@ -1,0 +1,5 @@
+2025-08-08 06:54:53,138 - INFO - Loading trading configuration from swing_trading_config.json
+2025-08-08 06:54:53,156 - INFO - Trading configuration loaded successfully
+2025-08-08 06:54:53,156 - INFO - Loading security IDs from security_ids.xlsx
+2025-08-08 06:54:53,160 - ERROR - Error loading security IDs from Excel: Missing optional dependency 'openpyxl'.  Use pip or conda to install openpyxl.
+2025-08-08 06:54:53,180 - INFO - ======================================================================

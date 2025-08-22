@@ -1,0 +1,41 @@
+2025-08-22 08:35:36,373 - INFO - Starting intraday inside bar analyzer with 3-minute updates
+2025-08-22 08:35:36,373 - INFO - Running intraday inside bar analysis at 2025-08-22 08:35:36
+2025-08-22 08:35:46,817 - INFO - Intraday analyzer stopped by user
+2025-08-22 08:37:45,664 - INFO - Starting intraday analyzer | UK: 08:37:45 | IST: 13:07:45 | Updates every 3 minutes
+2025-08-22 08:37:45,666 - INFO - Running intraday analysis at UK: 2025-08-22 08:37:45 | IST: 2025-08-22 13:07:45
+2025-08-22 08:37:45,684 - INFO - Analyzing 224 stocks with intraday 5-minute data...
+2025-08-22 08:37:52,878 - INFO - Completed: 224 successful, 0 failed
+2025-08-22 08:37:52,912 - INFO - Saved intraday entry signals to intraday_inside_bar_entries.csv
+2025-08-22 08:40:52,950 - INFO - Running intraday analysis at UK: 2025-08-22 08:40:52 | IST: 2025-08-22 13:10:52
+2025-08-22 08:40:53,000 - INFO - Analyzing 224 stocks with intraday 5-minute data...
+2025-08-22 08:40:57,865 - INFO - Completed: 224 successful, 0 failed
+2025-08-22 08:40:57,891 - INFO - Saved intraday entry signals to intraday_inside_bar_entries.csv
+2025-08-22 08:43:57,929 - INFO - Running intraday analysis at UK: 2025-08-22 08:43:57 | IST: 2025-08-22 13:13:57
+2025-08-22 08:43:57,942 - INFO - Analyzing 224 stocks with intraday 5-minute data...
+2025-08-22 08:44:03,561 - INFO - Completed: 224 successful, 0 failed
+2025-08-22 08:44:03,590 - INFO - Saved intraday entry signals to intraday_inside_bar_entries.csv
+2025-08-22 08:47:03,649 - INFO - Running intraday analysis at UK: 2025-08-22 08:47:03 | IST: 2025-08-22 13:17:03
+2025-08-22 08:47:03,691 - INFO - Analyzing 224 stocks with intraday 5-minute data...
+2025-08-22 08:47:08,637 - INFO - Completed: 224 successful, 0 failed
+2025-08-22 08:47:08,661 - INFO - Saved intraday entry signals to intraday_inside_bar_entries.csv
+2025-08-22 08:50:08,691 - INFO - Running intraday analysis at UK: 2025-08-22 08:50:08 | IST: 2025-08-22 13:20:08
+2025-08-22 08:50:08,743 - INFO - Analyzing 224 stocks with intraday 5-minute data...
+2025-08-22 08:50:14,086 - INFO - Intraday analyzer stopped by user
+2025-08-22 08:50:21,103 - INFO - Starting intraday analyzer | UK: 08:50:21 | IST: 13:20:21 | Updates every 3 minutes
+2025-08-22 08:50:21,103 - INFO - Running intraday analysis at UK: 2025-08-22 08:50:21 | IST: 2025-08-22 13:20:21
+2025-08-22 08:50:21,120 - INFO - Analyzing 224 stocks with intraday 5-minute data...
+2025-08-22 08:50:26,016 - INFO - Completed: 224 successful, 0 failed
+2025-08-22 08:50:26,048 - INFO - Saved intraday entry signals to intraday_inside_bar_entries.csv
+2025-08-22 08:51:02,543 - INFO - Intraday analyzer stopped by user
+2025-08-22 08:51:31,210 - INFO - Starting intraday analyzer | UK: 08:51:31 | IST: 13:21:31 | Updates every 3 minutes
+2025-08-22 08:51:31,210 - INFO - Running intraday analysis at UK: 2025-08-22 08:51:31 | IST: 2025-08-22 13:21:31
+2025-08-22 08:51:31,235 - INFO - Analyzing 224 stocks with intraday 5-minute data...
+2025-08-22 08:51:36,434 - INFO - Completed: 224 successful, 0 failed
+2025-08-22 08:51:36,469 - INFO - Saved intraday entry signals to intraday_inside_bar_entries.csv
+2025-08-22 08:51:45,653 - INFO - Intraday analyzer stopped by user
+2025-08-22 08:54:04,957 - INFO - Starting intraday analyzer | UK: 08:54:04 | IST: 13:24:04 | Updates every 3 minutes
+2025-08-22 08:54:04,958 - INFO - Running intraday analysis at UK: 2025-08-22 08:54:04 | IST: 2025-08-22 13:24:04
+2025-08-22 08:54:04,975 - INFO - Analyzing 224 stocks with intraday 5-minute data...
+2025-08-22 08:54:10,095 - INFO - Completed: 224 successful, 0 failed
+2025-08-22 08:54:10,125 - INFO - Saved intraday entry signals to intraday_inside_bar_entries.csv
+2025-08-22 08:54:41,893 - INFO - Intraday analyzer stopped by user
