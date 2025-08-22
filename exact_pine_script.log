@@ -1,0 +1,483 @@
+2025-08-22 12:02:19,654 - INFO - Analyzing 10 stocks with exact Pine Script replication...
+2025-08-22 12:04:27,458 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 12:04:27,605 - WARNING - ✗ RELIANCE: No signal generated
+2025-08-22 12:04:30,612 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 12:04:30,674 - WARNING - ✗ HDFCBANK: No signal generated
+2025-08-22 12:04:31,202 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 12:04:31,233 - WARNING - ✗ TCS: No signal generated
+2025-08-22 12:04:32,338 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 12:04:32,361 - WARNING - ✗ INFY: No signal generated
+2025-08-22 12:06:31,579 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 12:06:34,728 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 12:06:37,303 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 12:06:42,308 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 12:07:47,026 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 12:07:48,590 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 12:09:33,696 - INFO - Analyzing 224 stocks with exact Pine Script replication...
+2025-08-22 12:11:40,290 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 12:11:40,347 - WARNING - ✗ BEL: No signal generated
+2025-08-22 12:11:45,932 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 12:11:45,947 - WARNING - ✗ ABB: No signal generated
+2025-08-22 12:11:46,041 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 12:11:46,074 - WARNING - ✗ LAURUSLABS: No signal generated
+2025-08-22 12:11:49,798 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 12:11:49,799 - WARNING - ✗ BAJFINANCE: No signal generated
+2025-08-22 12:13:46,772 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 12:13:46,963 - WARNING - ✗ BLUESTARCO: No signal generated
+2025-08-22 12:13:58,352 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 12:13:58,375 - WARNING - ✗ CHAMBLFERT: No signal generated
+2025-08-22 12:14:02,396 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 12:14:02,431 - WARNING - ✗ CESC: No signal generated
+2025-08-22 12:14:10,966 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 12:14:10,998 - WARNING - ✗ EXIDEIND: No signal generated
+2025-08-22 12:16:01,761 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 12:16:01,833 - WARNING - ✗ CIPLA: No signal generated
+2025-08-22 12:16:11,375 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 12:16:11,410 - WARNING - ✗ CGPOWER: No signal generated
+2025-08-22 12:16:19,006 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 12:16:19,116 - WARNING - ✗ DABUR: No signal generated
+2025-08-22 12:16:23,370 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 12:16:23,436 - WARNING - ✗ BHEL: No signal generated
+2025-08-22 12:18:16,282 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 12:18:16,350 - WARNING - ✗ HINDPETRO: No signal generated
+2025-08-22 12:18:30,529 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 12:18:30,626 - WARNING - ✗ SBIN: No signal generated
+2025-08-22 12:18:44,236 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 12:18:49,631 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 12:20:40,075 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 12:20:48,311 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 12:21:14,332 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 12:21:15,403 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 12:23:14,089 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 12:23:15,482 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 12:23:40,554 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 12:23:42,900 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 12:25:34,996 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 12:25:45,049 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 12:26:16,293 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 12:26:21,541 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 12:28:01,533 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 12:28:20,756 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 12:28:46,165 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 12:28:51,801 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 12:30:27,136 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 12:30:46,261 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 12:31:15,704 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 12:31:31,836 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 12:32:45,149 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 12:33:21,389 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 12:33:28,382 - INFO - Analyzing 224 stocks with exact Pine Script replication...
+2025-08-22 12:33:30,806 - INFO - ✓ BEL: HOLD (Score: 5-3)
+2025-08-22 12:33:30,994 - INFO - ✓ BAJFINANCE: HOLD (Score: 3-2)
+2025-08-22 12:33:31,036 - INFO - ✓ LAURUSLABS: HOLD (Score: 0-4)
+2025-08-22 12:33:31,415 - INFO - ✓ ABB: HOLD (Score: 4-3)
+2025-08-22 12:33:33,224 - INFO - ✓ BLUESTARCO: HOLD (Score: 6-1)
+2025-08-22 12:33:33,683 - INFO - ✓ CHAMBLFERT: HOLD (Score: 2-2)
+2025-08-22 12:33:33,737 - INFO - ✓ EXIDEIND: HOLD (Score: 0-3)
+2025-08-22 12:33:33,841 - INFO - ✓ CESC: HOLD (Score: 4-1)
+2025-08-22 12:33:35,304 - INFO - ✓ CIPLA: HOLD (Score: 2-4)
+2025-08-22 12:33:35,890 - INFO - ✓ CGPOWER: HOLD (Score: 4-0)
+2025-08-22 12:33:36,150 - INFO - ✓ BHEL: HOLD (Score: 0-4)
+2025-08-22 12:33:36,719 - INFO - ✓ DABUR: HOLD (Score: 0-3)
+2025-08-22 12:33:37,648 - INFO - ✓ HINDPETRO: HOLD (Score: 1-6)
+2025-08-22 12:33:38,124 - INFO - ✓ SAIL: HOLD (Score: 2-4)
+2025-08-22 12:33:38,489 - INFO - ✓ SBIN: HOLD (Score: 0-3)
+2025-08-22 12:33:39,076 - INFO - ✓ TITAN: HOLD (Score: 3-3)
+2025-08-22 12:33:39,995 - INFO - ✓ DRREDDY: HOLD (Score: 2-2)
+2025-08-22 12:33:40,321 - INFO - ✓ HDFCBANK: HOLD (Score: 6-3)
+2025-08-22 12:33:41,308 - INFO - ✓ HEROMOTOCO: HOLD (Score: 0-2)
+2025-08-22 12:33:41,424 - INFO - ✓ HFCL: HOLD (Score: 4-3)
+2025-08-22 12:33:42,420 - INFO - ✓ HINDZINC: HOLD (Score: 3-2)
+2025-08-22 12:33:42,611 - INFO - ✓ INFY: HOLD (Score: 2-1)
+2025-08-22 12:33:43,450 - INFO - ✓ JSWSTEEL: HOLD (Score: 2-2)
+2025-08-22 12:33:43,830 - INFO - ✓ KOTAKBANK: HOLD (Score: 0-5)
+2025-08-22 12:33:44,669 - INFO - ✓ TRENT: HOLD (Score: 0-5)
+2025-08-22 12:33:45,034 - INFO - ✓ LICHSGFIN: HOLD (Score: 3-2)
+2025-08-22 12:33:45,921 - INFO - ✓ LUPIN: HOLD (Score: 3-2)
+2025-08-22 12:33:46,140 - INFO - ✓ MFSL: HOLD (Score: 0-3)
+2025-08-22 12:33:47,059 - INFO - ✓ NCC: HOLD (Score: 5-2)
+2025-08-22 12:33:47,377 - INFO - ✓ VEDL: HOLD (Score: 5-2)
+2025-08-22 12:33:48,223 - INFO - ✓ GRASIM: HOLD (Score: 0-3)
+2025-08-22 12:33:48,584 - INFO - ✓ PEL: HOLD (Score: 0-3)
+2025-08-22 12:33:49,503 - INFO - ✓ ONGC: HOLD (Score: 0-2)
+2025-08-22 12:33:49,931 - INFO - ✓ RELIANCE: HOLD (Score: 0-3)
+2025-08-22 12:33:50,534 - INFO - ✓ PIDILITIND: HOLD (Score: 4-1)
+2025-08-22 12:33:50,675 - INFO - ✓ PATANJALI: HOLD (Score: 4-2)
+2025-08-22 12:33:52,021 - INFO - ✓ TATAPOWER: HOLD (Score: 0-3)
+2025-08-22 12:33:52,167 - INFO - ✓ SHREECEM: HOLD (Score: 1-3)
+2025-08-22 12:33:52,734 - INFO - ✓ ACC: HOLD (Score: 0-4)
+2025-08-22 12:33:53,558 - INFO - ✓ TATAELXSI: HOLD (Score: 2-2)
+2025-08-22 12:33:53,939 - INFO - ✓ TORNTPHARM: HOLD (Score: 2-0)
+2025-08-22 12:33:54,889 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 12:33:54,905 - INFO - ✓ HINDALCO: HOLD (Score: 0-3)
+2025-08-22 12:33:55,032 - INFO - ✓ AMBUJACEM: HOLD (Score: 0-3)
+2025-08-22 12:33:56,252 - INFO - ✓ FEDERALBNK: HOLD (Score: 2-2)
+2025-08-22 12:33:56,252 - INFO - ✓ ASHOKLEY: HOLD (Score: 4-1)
+2025-08-22 12:33:56,584 - INFO - ✓ TATASTEEL: HOLD (Score: 0-5)
+2025-08-22 12:33:57,676 - INFO - ✓ CUMMINSIND: HOLD (Score: 4-1)
+2025-08-22 12:33:58,056 - INFO - ✓ TATACOMM: HOLD (Score: 2-3)
+2025-08-22 12:33:58,563 - INFO - ✓ BHARATFORG: HOLD (Score: 4-2)
+2025-08-22 12:33:59,180 - INFO - ✓ LT: HOLD (Score: 2-4)
+2025-08-22 12:33:59,688 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 12:34:00,047 - INFO - ✓ M&M: HOLD (Score: 2-4)
+2025-08-22 12:34:00,400 - INFO - ✓ BOSCHLTD: HOLD (Score: 2-4)
+2025-08-22 12:34:00,939 - INFO - ✓ BPCL: HOLD (Score: 4-2)
+2025-08-22 12:34:01,525 - INFO - ✓ SIEMENS: HOLD (Score: 1-3)
+2025-08-22 12:34:02,587 - INFO - ✓ TATAMOTORS: HOLD (Score: 4-2)
+2025-08-22 12:34:02,736 - INFO - ✓ VOLTAS: HOLD (Score: 6-2)
+2025-08-22 12:34:03,763 - INFO - ✓ HINDUNILVR: HOLD (Score: 0-7)
+2025-08-22 12:34:03,888 - INFO - ✓ TATACHEM: HOLD (Score: 3-2)
+2025-08-22 12:34:04,774 - INFO - ✓ NESTLEIND: HOLD (Score: 1-3)
+2025-08-22 12:34:05,070 - INFO - ✓ TATACONSUM: HOLD (Score: 1-4)
+2025-08-22 12:34:06,184 - INFO - ✓ ASIANPAINT: HOLD (Score: 0-3)
+2025-08-22 12:34:06,295 - INFO - ✓ BRITANNIA: HOLD (Score: 0-2)
+2025-08-22 12:34:06,643 - INFO - ✓ COLPAL: HOLD (Score: 0-3)
+2025-08-22 12:34:07,789 - INFO - ✓ INDHOTEL: HOLD (Score: 7-2)
+2025-08-22 12:34:08,151 - INFO - ✓ BALKRISIND: HOLD (Score: 0-7)
+2025-08-22 12:34:09,024 - INFO - ✓ PHOENIXLTD: HOLD (Score: 6-1)
+2025-08-22 12:34:09,246 - INFO - ✓ ITC: HOLD (Score: 0-2)
+2025-08-22 12:34:10,181 - INFO - ✓ SRF: HOLD (Score: 1-3)
+2025-08-22 12:34:10,510 - INFO - ✓ EICHERMOT: HOLD (Score: 1-3)
+2025-08-22 12:34:11,096 - INFO - ✓ WIPRO: HOLD (Score: 0-3)
+2025-08-22 12:34:11,577 - INFO - ✓ APOLLOHOSP: HOLD (Score: 2-3)
+2025-08-22 12:34:12,500 - INFO - ✓ SUPREMEIND: HOLD (Score: 2-1)
+2025-08-22 12:34:12,957 - INFO - ✓ CHOLAFIN: HOLD (Score: 2-4)
+2025-08-22 12:34:13,320 - INFO - ✓ SHRIRAMFIN: HOLD (Score: 0-2)
+2025-08-22 12:34:14,207 - INFO - ✓ UPL: HOLD (Score: 2-1)
+2025-08-22 12:34:14,713 - INFO - ✓ ADANIENT: HOLD (Score: 0-3)
+2025-08-22 12:34:15,357 - INFO - ✓ DELHIVERY: HOLD (Score: 3-1)
+2025-08-22 12:34:15,699 - INFO - ✓ LICI: HOLD (Score: 2-3)
+2025-08-22 12:34:16,648 - INFO - ✓ HINDCOPPER: HOLD (Score: 0-3)
+2025-08-22 12:34:17,154 - INFO - ✓ MOTHERSON: HOLD (Score: 3-2)
+2025-08-22 12:34:17,582 - INFO - ✓ HAVELLS: HOLD (Score: 0-4)
+2025-08-22 12:34:18,159 - INFO - ✓ PPLPHARMA: HOLD (Score: 5-3)
+2025-08-22 12:34:19,056 - INFO - ✓ KEI: HOLD (Score: 5-3)
+2025-08-22 12:34:19,418 - INFO - ✓ KAYNES: HOLD (Score: 5-3)
+2025-08-22 12:34:20,043 - INFO - ✓ KFINTECH: HOLD (Score: 0-3)
+2025-08-22 12:34:20,693 - INFO - ✓ MANKIND: HOLD (Score: 2-0)
+2025-08-22 12:34:21,462 - INFO - ✓ PIIND: HOLD (Score: 6-0)
+2025-08-22 12:34:21,920 - INFO - ✓ POONAWALLA: HOLD (Score: 2-6)
+2025-08-22 12:34:22,428 - INFO - ✓ JIOFIN: HOLD (Score: 0-3)
+2025-08-22 12:34:23,882 - INFO - ✓ AARTIIND: HOLD (Score: 0-3)
+2025-08-22 12:34:24,009 - INFO - ✓ BSE: HOLD (Score: 2-2)
+2025-08-22 12:34:24,150 - INFO - ✓ DMART: HOLD (Score: 3-1)
+2025-08-22 12:34:25,394 - INFO - ✓ HUDCO: HOLD (Score: 0-4)
+2025-08-22 12:34:26,164 - INFO - ✓ AUBANK: HOLD (Score: 0-3)
+2025-08-22 12:34:26,386 - INFO - ✓ DIXON: HOLD (Score: 2-4)
+2025-08-22 12:34:26,630 - INFO - ✓ CDSL: HOLD (Score: 4-3)
+2025-08-22 12:34:28,280 - INFO - ✓ ABCAPITAL: HOLD (Score: 0-4)
+2025-08-22 12:34:28,304 - INFO - ✓ AUROPHARMA: HOLD (Score: 3-1)
+2025-08-22 12:34:28,417 - INFO - ✓ SUNPHARMA: HOLD (Score: 4-1)
+2025-08-22 12:34:29,538 - INFO - ✓ MPHASIS: HOLD (Score: 3-1)
+2025-08-22 12:34:30,075 - INFO - ✓ IREDA: HOLD (Score: 0-3)
+2025-08-22 12:34:30,433 - INFO - ✓ NMDC: HOLD (Score: 1-3)
+2025-08-22 12:34:30,965 - INFO - ✓ TATATECH: HOLD (Score: 1-3)
+2025-08-22 12:34:32,178 - INFO - ✓ ICICIGI: HOLD (Score: 3-2)
+2025-08-22 12:34:32,304 - INFO - ✓ SBILIFE: HOLD (Score: 0-4)
+2025-08-22 12:34:32,971 - INFO - ✓ IEX: HOLD (Score: 2-3)
+2025-08-22 12:34:33,188 - INFO - ✓ TIINDIA: HOLD (Score: 3-2)
+2025-08-22 12:34:34,355 - INFO - ✓ HDFCLIFE: HOLD (Score: 0-3)
+2025-08-22 12:34:34,700 - INFO - ✓ AMBER: HOLD (Score: 6-3)
+2025-08-22 12:34:35,247 - INFO - ✓ BDL: HOLD (Score: 0-3)
+2025-08-22 12:34:35,784 - INFO - ✓ BANDHANBNK: HOLD (Score: 0-4)
+2025-08-22 12:34:36,688 - INFO - ✓ HAL: HOLD (Score: 0-3)
+2025-08-22 12:34:37,014 - INFO - ✓ HDFCAMC: HOLD (Score: 2-1)
+2025-08-22 12:34:37,728 - INFO - ✓ ATGL: HOLD (Score: 0-5)
+2025-08-22 12:34:38,149 - INFO - ✓ ADANIGREEN: HOLD (Score: 1-2)
+2025-08-22 12:34:38,897 - INFO - ✓ IOC: HOLD (Score: 4-2)
+2025-08-22 12:34:39,898 - INFO - ✓ CONCOR: HOLD (Score: 2-3)
+2025-08-22 12:34:40,035 - INFO - ✓ MANAPPURAM: HOLD (Score: 3-1)
+2025-08-22 12:34:40,411 - INFO - ✓ POLYCAB: HOLD (Score: 0-3)
+2025-08-22 12:34:41,198 - INFO - ✓ RVNL: HOLD (Score: 0-3)
+2025-08-22 12:34:42,018 - INFO - ✓ KPITTECH: HOLD (Score: 1-3)
+2025-08-22 12:34:42,286 - INFO - ✓ MARICO: HOLD (Score: 0-3)
+2025-08-22 12:34:43,457 - INFO - ✓ 360ONE: HOLD (Score: 9-0)
+2025-08-22 12:34:44,278 - INFO - ✓ SBICARD: HOLD (Score: 2-3)
+2025-08-22 12:34:44,534 - INFO - ✓ IRCTC: HOLD (Score: 0-5)
+2025-08-22 12:34:44,543 - INFO - ✓ MAXHEALTH: HOLD (Score: 0-4)
+2025-08-22 12:34:46,507 - INFO - ✓ BANKBARODA: HOLD (Score: 0-2)
+2025-08-22 12:34:46,667 - INFO - ✓ BANKINDIA: HOLD (Score: 2-3)
+2025-08-22 12:34:47,306 - INFO - ✓ CAMS: HOLD (Score: 2-3)
+2025-08-22 12:34:47,993 - INFO - ✓ GAIL: HOLD (Score: 0-6)
+2025-08-22 12:34:49,308 - INFO - ✓ ICICIBANK: HOLD (Score: 1-3)
+2025-08-22 12:34:49,446 - INFO - ✓ ANGELONE: HOLD (Score: 2-2)
+2025-08-22 12:34:49,909 - INFO - ✓ CYIENT: HOLD (Score: 2-2)
+2025-08-22 12:34:51,287 - INFO - ✓ MAZDOCK: HOLD (Score: 0-3)
+2025-08-22 12:34:51,680 - INFO - ✓ INDUSINDBK: HOLD (Score: 4-3)
+2025-08-22 12:34:52,200 - INFO - ✓ AXISBANK: HOLD (Score: 0-3)
+2025-08-22 12:34:53,488 - INFO - ✓ NATIONALUM: HOLD (Score: 4-3)
+2025-08-22 12:34:54,341 - INFO - ✓ JINDALSTEL: HOLD (Score: 0-3)
+2025-08-22 12:34:54,354 - INFO - ✓ HCLTECH: HOLD (Score: 0-3)
+2025-08-22 12:34:55,441 - INFO - ✓ GLENMARK: HOLD (Score: 2-2)
+2025-08-22 12:34:56,407 - INFO - ✓ TVSMOTOR: HOLD (Score: 6-4)
+2025-08-22 12:34:56,698 - INFO - ✓ BSOFT: HOLD (Score: 1-2)
+2025-08-22 12:34:56,859 - INFO - ✓ ZYDUSLIFE: HOLD (Score: 0-4)
+2025-08-22 12:34:58,580 - INFO - ✓ GODREJCP: HOLD (Score: 6-1)
+2025-08-22 12:34:58,742 - INFO - ✓ UNITDSPR: HOLD (Score: 6-1)
+2025-08-22 12:34:59,641 - INFO - ✓ BHARTIARTL: HOLD (Score: 3-5)
+2025-08-22 12:35:00,022 - INFO - ✓ PNB: HOLD (Score: 0-3)
+2025-08-22 12:35:01,060 - INFO - ✓ OFSS: HOLD (Score: 0-3)
+2025-08-22 12:35:01,405 - INFO - ✓ UNIONBANK: HOLD (Score: 1-3)
+2025-08-22 12:35:02,439 - INFO - ✓ GRANULES: HOLD (Score: 0-3)
+2025-08-22 12:35:03,183 - INFO - ✓ CANBK: HOLD (Score: 0-3)
+2025-08-22 12:35:03,729 - INFO - ✓ MARUTI: HOLD (Score: 4-0)
+2025-08-22 12:35:04,102 - INFO - ✓ DIVISLAB: HOLD (Score: 2-1)
+2025-08-22 12:35:04,383 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 12:35:05,043 - INFO - ✓ JSL: HOLD (Score: 4-0)
+2025-08-22 12:35:05,688 - INFO - ✓ PETRONET: HOLD (Score: 0-3)
+2025-08-22 12:35:06,144 - INFO - ✓ IGL: HOLD (Score: 2-1)
+2025-08-22 12:35:06,692 - INFO - ✓ BIOCON: HOLD (Score: 0-4)
+2025-08-22 12:35:08,062 - INFO - ✓ ULTRACEMCO: HOLD (Score: 1-2)
+2025-08-22 12:35:08,738 - INFO - ✓ UNOMINDA: HOLD (Score: 3-1)
+2025-08-22 12:35:08,968 - INFO - ✓ COFORGE: HOLD (Score: 4-0)
+2025-08-22 12:35:09,318 - INFO - ✓ TCS: HOLD (Score: 5-3)
+2025-08-22 12:35:10,572 - INFO - ✓ NTPC: HOLD (Score: 1-3)
+2025-08-22 12:35:10,902 - INFO - ✓ IIFL: HOLD (Score: 5-3)
+2025-08-22 12:35:11,776 - INFO - ✓ YESBANK: HOLD (Score: 6-3)
+2025-08-22 12:35:12,176 - INFO - ✓ M&MFIN: HOLD (Score: 1-3)
+2025-08-22 12:35:13,269 - INFO - ✓ SOLARINDS: HOLD (Score: 3-1)
+2025-08-22 12:35:13,400 - INFO - ✓ GMRAIRPORT: HOLD (Score: 2-2)
+2025-08-22 12:35:14,161 - INFO - ✓ TECHM: HOLD (Score: 5-3)
+2025-08-22 12:35:14,592 - INFO - ✓ NAUKRI: HOLD (Score: 2-2)
+2025-08-22 12:35:15,488 - INFO - ✓ TORNTPOWER: HOLD (Score: 0-2)
+2025-08-22 12:35:15,858 - INFO - ✓ PFC: HOLD (Score: 0-5)
+2025-08-22 12:35:16,419 - INFO - ✓ INDIANB: HOLD (Score: 0-5)
+2025-08-22 12:35:17,065 - INFO - ✓ IDEA: HOLD (Score: 2-4)
+2025-08-22 12:35:18,216 - INFO - ✓ PAGEIND: HOLD (Score: 0-5)
+2025-08-22 12:35:18,389 - INFO - ✓ ASTRAL: HOLD (Score: 2-1)
+2025-08-22 12:35:19,387 - INFO - ✓ FORTIS: HOLD (Score: 2-4)
+2025-08-22 12:35:20,020 - INFO - ✓ DLF: HOLD (Score: 0-3)
+2025-08-22 12:35:20,539 - INFO - ✓ POWERGRID: HOLD (Score: 0-2)
+2025-08-22 12:35:21,783 - INFO - ✓ ADANIPORTS: HOLD (Score: 1-2)
+2025-08-22 12:35:21,963 - INFO - ✓ IRB: HOLD (Score: 1-2)
+2025-08-22 12:35:22,660 - INFO - ✓ RECLTD: HOLD (Score: 1-3)
+2025-08-22 12:35:23,263 - INFO - ✓ TITAGARH: HOLD (Score: 2-9)
+2025-08-22 12:35:24,893 - INFO - ✓ BAJAJFINSV: HOLD (Score: 5-2)
+2025-08-22 12:35:25,106 - INFO - ✓ BAJAJ-AUTO: HOLD (Score: 0-5)
+2025-08-22 12:35:25,269 - INFO - ✓ NHPC: HOLD (Score: 5-3)
+2025-08-22 12:35:25,391 - INFO - ✓ OIL: HOLD (Score: 2-6)
+2025-08-22 12:35:27,052 - INFO - ✓ GODREJPROP: HOLD (Score: 2-1)
+2025-08-22 12:35:27,396 - INFO - ✓ JSWENERGY: HOLD (Score: 0-3)
+2025-08-22 12:35:27,992 - INFO - ✓ PERSISTENT: HOLD (Score: 3-1)
+2025-08-22 12:35:28,852 - INFO - ✓ JUBLFOOD: HOLD (Score: 2-3)
+2025-08-22 12:35:30,376 - INFO - ✓ SJVN: HOLD (Score: 2-3)
+2025-08-22 12:35:30,403 - INFO - ✓ OBEROIRLTY: HOLD (Score: 3-3)
+2025-08-22 12:35:30,787 - INFO - ✓ PRESTIGE: HOLD (Score: 0-3)
+2025-08-22 12:35:31,078 - INFO - ✓ COALINDIA: HOLD (Score: 0-2)
+2025-08-22 12:35:33,039 - INFO - ✓ DALBHARAT: HOLD (Score: 2-3)
+2025-08-22 12:35:33,343 - INFO - ✓ MUTHOOTFIN: HOLD (Score: 0-3)
+2025-08-22 12:35:33,697 - INFO - ✓ LTF: HOLD (Score: 2-2)
+2025-08-22 12:35:33,880 - INFO - ✓ PGEL: HOLD (Score: 5-1)
+2025-08-22 12:35:35,502 - INFO - ✓ MCX: HOLD (Score: 0-3)
+2025-08-22 12:35:35,675 - INFO - ✓ APLAPOLLO: HOLD (Score: 7-1)
+2025-08-22 12:35:36,313 - INFO - ✓ NBCC: HOLD (Score: 5-3)
+2025-08-22 12:35:36,536 - INFO - ✓ IRFC: HOLD (Score: 5-3)
+2025-08-22 12:35:37,304 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 12:35:37,834 - INFO - ✓ INDUSTOWER: HOLD (Score: 2-2)
+2025-08-22 12:35:38,097 - INFO - ✓ KALYANKJIL: HOLD (Score: 3-0)
+2025-08-22 12:35:38,601 - INFO - ✓ LODHA: HOLD (Score: 0-3)
+2025-08-22 12:35:39,200 - INFO - ✓ ABFRL: HOLD (Score: 2-2)
+2025-08-22 12:35:40,190 - INFO - ✓ SONACOMS: HOLD (Score: 0-5)
+2025-08-22 12:35:40,467 - INFO - ✓ ETERNAL: HOLD (Score: 1-3)
+2025-08-22 12:35:41,513 - INFO - ✓ NYKAA: HOLD (Score: 0-3)
+2025-08-22 12:35:41,880 - INFO - ✓ POLICYBZR: HOLD (Score: 2-8)
+2025-08-22 12:35:42,713 - INFO - ✓ PAYTM: HOLD (Score: 2-2)
+2025-08-22 12:35:43,369 - INFO - ✓ INOXWIND: HOLD (Score: 2-2)
+2025-08-22 12:35:43,671 - INFO - ✓ ADANIENSOL: HOLD (Score: 1-3)
+2025-08-22 12:35:44,546 - INFO - ✓ SYNGENE: HOLD (Score: 6-3)
+2025-08-22 12:35:44,932 - INFO - ✓ IDFCFIRSTB: HOLD (Score: 0-4)
+2025-08-22 12:35:45,961 - INFO - ✓ INDIGO: HOLD (Score: 0-5)
+2025-08-22 12:35:46,169 - INFO - ✓ ALKEM: HOLD (Score: 7-1)
+2025-08-22 12:35:47,362 - INFO - ✓ CROMPTON: HOLD (Score: 5-3)
+2025-08-22 12:35:47,509 - INFO - ✓ MGL: HOLD (Score: 0-2)
+2025-08-22 12:35:48,473 - INFO - ✓ LTIM: HOLD (Score: 2-1)
+2025-08-22 12:35:48,811 - INFO - ✓ RBLBANK: HOLD (Score: 6-2)
+2025-08-22 12:35:49,377 - INFO - ✓ ICICIPRULI: HOLD (Score: 2-2)
+2025-08-22 12:35:49,685 - INFO - ✓ PNBHOUSING: HOLD (Score: 2-2)
+2025-08-22 12:35:49,991 - INFO - ✓ VBL: HOLD (Score: 3-3)
+2025-08-22 12:36:22,504 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 12:36:36,838 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 12:37:34,627 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 12:37:52,938 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 12:38:38,942 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 12:38:53,400 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 12:39:50,737 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 12:40:05,809 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 12:40:43,492 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 12:41:12,263 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 12:42:17,551 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 12:42:26,017 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 12:43:13,648 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 12:43:46,919 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 12:44:37,303 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 12:44:54,609 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 12:45:41,042 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 12:46:17,624 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 12:47:07,537 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 12:47:26,859 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 12:47:48,307 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 12:48:32,332 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 12:49:35,156 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 12:49:55,451 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 12:50:21,295 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 12:50:49,455 - ERROR - HTTP Error 404: 
+2025-08-22 12:50:49,842 - ERROR - $EXIDE.NS: possibly delisted; no price data found  (period=1mo) (Yahoo error = "No data found, symbol may be delisted")
+2025-08-22 12:50:49,842 - WARNING - Insufficient data for EXIDE: 0 bars
+2025-08-22 12:50:49,842 - WARNING - Insufficient data for EXIDE
+2025-08-22 12:51:01,792 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 12:52:01,066 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 12:52:08,478 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 12:52:40,610 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 12:53:33,473 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 12:54:30,102 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 12:54:30,532 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 12:55:06,262 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 12:55:56,535 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 12:56:51,705 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 12:56:57,100 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 12:57:32,831 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 12:58:12,865 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 12:59:23,889 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 12:59:25,493 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 13:00:16,534 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 13:00:38,194 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 13:01:49,909 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 13:01:51,747 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 13:02:29,861 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 13:02:47,404 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 13:04:20,326 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 13:04:20,584 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 13:05:05,256 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 13:05:14,965 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 13:06:34,290 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 13:06:42,678 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 13:07:28,722 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 13:07:31,574 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 13:08:51,535 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 13:09:04,023 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 13:09:48,517 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 13:09:53,485 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 13:11:12,144 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 13:11:24,407 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 13:12:00,823 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 13:12:03,066 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 13:13:24,323 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 13:13:46,419 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 13:14:12,437 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 13:14:17,934 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 13:15:47,918 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 13:16:08,786 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 13:16:34,805 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 13:16:37,753 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 13:18:17,328 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 13:18:33,534 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 13:18:58,944 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 13:19:01,680 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 13:20:42,111 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 13:20:58,086 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 13:21:09,894 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 13:21:18,594 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 13:23:22,239 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 13:23:24,327 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 13:23:42,366 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 13:23:44,960 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 13:25:43,719 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 13:25:53,069 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 13:26:03,408 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 13:26:11,194 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 13:28:10,213 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 13:28:18,666 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 13:28:20,302 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 13:28:24,455 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 13:30:18,168 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 13:30:29,751 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 13:30:30,607 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 13:30:33,905 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 13:32:20,565 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 13:32:37,036 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 13:32:39,642 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 13:32:40,478 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 13:34:24,117 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 13:34:39,087 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 13:34:47,485 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 13:34:51,813 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 13:36:32,242 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 13:36:38,386 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 13:36:53,232 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 13:36:54,871 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 13:38:41,163 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 13:38:44,390 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 13:38:58,098 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 13:39:01,717 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 13:40:50,438 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 13:40:57,062 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 13:41:04,315 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 13:41:07,020 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 13:43:00,051 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 13:43:03,924 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 13:43:10,774 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 13:43:14,196 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 13:44:59,134 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 13:45:08,640 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 13:45:14,311 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 13:45:14,527 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 13:46:55,422 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 13:47:17,010 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 13:47:21,702 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 13:47:22,575 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 13:49:08,819 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 13:49:19,920 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 13:49:20,677 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 13:49:25,625 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 13:51:01,713 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 13:51:16,208 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 13:51:20,143 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 13:51:33,161 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 13:53:00,959 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 13:53:14,059 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 13:53:24,219 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 13:53:38,987 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 13:55:11,494 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 13:55:17,115 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 13:55:36,567 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 13:55:43,617 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 13:57:12,154 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 13:57:27,190 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 13:57:42,323 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 13:57:52,419 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 13:59:01,588 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 13:59:33,198 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 13:59:49,034 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 13:59:54,289 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 14:00:51,848 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 14:01:43,061 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 14:02:02,723 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 14:02:04,647 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 14:02:40,756 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 14:03:48,000 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 14:04:11,694 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 14:04:20,341 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 14:04:40,426 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 14:05:52,888 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 14:06:20,537 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 14:06:26,247 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 14:06:36,662 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 14:08:00,493 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 14:08:21,774 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 14:08:28,641 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 14:08:37,782 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 14:10:09,962 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 14:10:29,584 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 14:10:35,216 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 14:10:41,532 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 14:12:18,362 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 14:12:39,067 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 14:12:40,940 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 14:12:45,474 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 14:14:17,484 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 14:14:44,749 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 14:14:45,726 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 14:14:50,306 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 14:16:04,015 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 14:16:18,503 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'
+2025-08-22 14:16:19,759 - ERROR - Error in exact Pine Script calculation: 'numpy.ndarray' object has no attribute 'ewm'

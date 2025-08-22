@@ -23,3 +23,10 @@
 2025-08-22 11:05:05,975 - INFO - Running Multi-Indicator analysis at UK: 2025-08-22 11:05:05 | IST: 2025-08-22 15:35:05
 2025-08-22 11:08:06,040 - INFO - Running Multi-Indicator analysis at UK: 2025-08-22 11:08:06 | IST: 2025-08-22 15:38:06
 2025-08-22 11:10:13,137 - INFO - Multi-Indicator analyzer stopped by user
+2025-08-22 11:17:15,172 - INFO - Starting Multi-Indicator analyzer (15-min charts) | UK: 11:17:15 | IST: 15:47:15 | Updates every 15 minutes
+2025-08-22 11:17:15,172 - INFO - Note: Analysis runs outside market hours using latest available data
+2025-08-22 11:17:15,172 - INFO - Running Multi-Indicator analysis at UK: 2025-08-22 11:17:15 | IST: 2025-08-22 15:47:15
+2025-08-22 11:17:15,201 - INFO - Analyzing 224 stocks with Multi-Indicator strategy...
+2025-08-22 11:17:30,217 - INFO - Completed: 224 successful, 0 failed
+2025-08-22 11:17:30,245 - INFO - Saved Multi-Indicator signals to multi_indicator_signals_20250822_1117.csv
+2025-08-22 11:27:27,249 - INFO - Multi-Indicator analyzer stopped by user
