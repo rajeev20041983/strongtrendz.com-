@@ -743,26 +743,6 @@ def calculate_exact_pine_script_signals(data, config: PineScriptConfig):
         logger.error(f"Error in Pine Script calculation: {e}")
         return None
 
-def calculate_pine_script_stops_and_targets(entry_price, signal_type, config: PineScriptConfig):
-    """
-    Calculate stop loss and targets exactly like Pine Script strategy
-    """
-    # Pine Script stop loss calculation
-    stop_loss_percent = config.stoplosspercent / 100  # Convert to decimal
-    
-    if signal_type == 'long':
-        # Pine Script: longstoploss = strategy.position_avg_price * (1 + stoplosspercent)
-        # For -2.5%: stop_loss = entry_price * (1 + (-2.5/100)) = entry_price * 0.975
-        stop_loss = entry_price * (1 + stop_loss_percent)  # stop_loss_percent is negative
-        target_price = entry_price + (entry_price - stop_loss) * 2  # 2:1 R:R
-    else:  # short
-        # Pine Script: shortstoploss = strategy.position_avg_price * (1 - stoplosspercent)
-        # For -2.5%: stop_loss = entry_price * (1 - (-2.5/100)) = entry_price * 1.025
-        stop_loss = entry_price * (1 - stop_loss_percent)  # stop_loss_percent is negative, so this adds
-        target_price = entry_price - (stop_loss - entry_price) * 2  # 2:1 R:R
-    
-    return stop_loss, target_price
-
 def is_indian_trading_hours():
     ist = pytz.timezone('Asia/Kolkata')
     now = datetime.now(ist)
@@ -803,50 +783,6 @@ def analyze_stock_pine_script(ticker, pine_config: PineScriptConfig = None, posi
         if position_manager:
             position_manager.update_position_prices(ticker, current_price)
         
-        # EXACT Pine Script Entry Logic
-        # Pine Script: if tradetrendoption ? alternatelong and mabuy and longpositions : alternatelong and longpositions
-        should_enter_long = False
-        should_enter_short = False
-        
-        if pine_config.tradetrendoption:
-            # With trend filter
-            should_enter_long = signals['alternatelong'].iloc[latest_idx] and signals['mabuy'].iloc[latest_idx]
-            should_enter_short = signals['alternateshort'].iloc[latest_idx] and signals['masell'].iloc[latest_idx]
-        else:
-            # Without trend filter
-            should_enter_long = signals['alternatelong'].iloc[latest_idx]
-            should_enter_short = signals['alternateshort'].iloc[latest_idx]
-        
-        # EXACT Pine Script Exit Logic
-        # Pine Script: if (shortentry or printstoplong) and longpositions: strategy.close("longposition")
-        # Pine Script: if (longentry or printstopshort) and shortpositions: strategy.close("shortposition")
-        
-        if position_manager and ticker in position_manager.positions:
-            position = position_manager.positions[ticker]
-            
-            if position.position_type == 'long':
-                # Exit long on shortentry OR stop loss
-                if signals['shortentry'].iloc[latest_idx]:
-                    position_manager.close_position(ticker, current_price, "Short Entry Signal")
-                # Stop loss already handled in update_position_prices
-            else:  # short position
-                # Exit short on longentry OR stop loss  
-                if signals['longentry'].iloc[latest_idx]:
-                    position_manager.close_position(ticker, current_price, "Long Entry Signal")
-                # Stop loss already handled in update_position_prices
-        
-        # Enter new positions (only if not already in position)
-        if position_manager and ticker not in position_manager.positions:
-            if should_enter_long:
-                entry_price = current_price
-                stop_loss, target_price = calculate_pine_script_stops_and_targets(entry_price, 'long', pine_config)
-                position_manager.enter_position(ticker, 'long', entry_price, stop_loss, target_price)
-            elif should_enter_short:
-                entry_price = current_price
-                stop_loss, target_price = calculate_pine_script_stops_and_targets(entry_price, 'short', pine_config)
-                position_manager.enter_position(ticker, 'short', entry_price, stop_loss, target_price)
-        
-        # Determine signal type for display
         signal_type = 'HOLD'
         signal_strength = 'NONE'
         
@@ -942,10 +878,6 @@ def analyze_stock_pine_script(ticker, pine_config: PineScriptConfig = None, posi
             'position_series': int(signals['pos_series'].iloc[latest_idx]),
             'long_signal': signals['final_long'].iloc[latest_idx],
             'short_signal': signals['final_short'].iloc[latest_idx],
-            'alternatelong': signals['alternatelong'].iloc[latest_idx],
-            'alternateshort': signals['alternateshort'].iloc[latest_idx],
-            'longentry': signals['longentry'].iloc[latest_idx],
-            'shortentry': signals['shortentry'].iloc[latest_idx],
             'position': position_info,
             'is_trading_hours': is_indian_trading_hours()
         }

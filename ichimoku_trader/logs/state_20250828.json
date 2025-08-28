@@ -1,0 +1,24 @@
+{
+  "date": "2025-08-28",
+  "daily_signals": [
+    {
+      "time": "2025-08-28T10:33:55.594413",
+      "symbol": "HDFCBANK",
+      "signal": "LONG",
+      "order_action": "BUY",
+      "quantity": 1,
+      "order_id": "unknown"
+    }
+  ],
+  "current_positions": {
+    "HDFCBANK": {
+      "action": "LONG",
+      "quantity": 1,
+      "entry_time": "2025-08-28T10:33:55.594413",
+      "order_id": "unknown",
+      "entry_price": 0,
+      "capital_deployed": 0
+    }
+  },
+  "total_signals": 1
+}

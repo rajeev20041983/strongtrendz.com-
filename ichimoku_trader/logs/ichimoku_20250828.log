@@ -1,0 +1,215 @@
+2025-08-28 05:01:50,292 - INFO - Loaded 9 active stocks from config
+2025-08-28 05:01:50,295 - INFO - Dhan client initialized
+2025-08-28 05:01:50,295 - INFO - Loading security IDs from Excel file...
+2025-08-28 05:01:56,981 - INFO - Loaded 1850 total records from Excel
+2025-08-28 05:01:56,981 - INFO - Filtered to 1850 NSE equity records
+2025-08-28 05:01:57,095 - INFO - Created security mapping with 9 symbols from our target list
+2025-08-28 05:01:57,095 - INFO - Checking availability of our 9 target stocks:
+2025-08-28 05:01:57,095 - INFO - [FOUND] HDFCBANK: 1333
+2025-08-28 05:01:57,095 - INFO - [FOUND] SHRIRAMFIN: 4306
+2025-08-28 05:01:57,095 - INFO - [FOUND] LTF: 24948
+2025-08-28 05:01:57,095 - INFO - [FOUND] BRITANNIA: 547
+2025-08-28 05:01:57,095 - INFO - [FOUND] NYKAA: 6545
+2025-08-28 05:01:57,095 - INFO - [FOUND] EICHERMOT: 910
+2025-08-28 05:01:57,095 - INFO - [FOUND] VEDL: 3063
+2025-08-28 05:01:57,095 - INFO - [FOUND] IREDA: 20261
+2025-08-28 05:01:57,095 - INFO - [FOUND] BHARATFORG: 422
+2025-08-28 05:01:57,095 - INFO - Stock availability: 9/9 found
+2025-08-28 05:01:57,095 - INFO - Starting Ichimoku Webhook Server for Open Interest Stocks
+2025-08-28 05:01:57,095 - INFO - Monitoring 9 high open interest stocks
+2025-08-28 05:01:57,095 - INFO - No existing state found, starting fresh
+2025-08-28 05:01:57,127 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.235:5000
+2025-08-28 05:01:57,129 - INFO - [33mPress CTRL+C to quit[0m
+2025-08-28 05:05:03,445 - ERROR - Webhook error: 415 Unsupported Media Type: Did not attempt to load JSON data because the request Content-Type was not 'application/json'.
+2025-08-28 05:05:03,447 - INFO - 127.0.0.1 - - [28/Aug/2025 05:05:03] "POST /ichimoku-alert HTTP/1.1" 200 -
+2025-08-28 05:06:30,928 - INFO - 127.0.0.1 - - [28/Aug/2025 05:06:30] "GET /status HTTP/1.1" 200 -
+2025-08-28 05:06:35,735 - INFO - 127.0.0.1 - - [28/Aug/2025 05:06:35] "GET /status HTTP/1.1" 200 -
+2025-08-28 05:06:44,490 - INFO - 127.0.0.1 - - [28/Aug/2025 05:06:44] "GET /positions HTTP/1.1" 200 -
+2025-08-28 05:10:01,538 - ERROR - Webhook error: 415 Unsupported Media Type: Did not attempt to load JSON data because the request Content-Type was not 'application/json'.
+2025-08-28 05:10:01,539 - INFO - 127.0.0.1 - - [28/Aug/2025 05:10:01] "POST /ichimoku-alert HTTP/1.1" 200 -
+2025-08-28 05:12:01,515 - INFO - Loaded 9 active stocks from config
+2025-08-28 05:12:01,515 - INFO - Dhan client initialized
+2025-08-28 05:12:01,515 - INFO - Loading security IDs from Excel file...
+2025-08-28 05:12:07,684 - INFO - Loaded 1850 total records from Excel
+2025-08-28 05:12:07,684 - INFO - Filtered to 1850 NSE equity records
+2025-08-28 05:12:07,794 - INFO - Created security mapping with 9 symbols from our target list
+2025-08-28 05:12:07,794 - INFO - Checking availability of our 9 target stocks:
+2025-08-28 05:12:07,794 - INFO - [FOUND] HDFCBANK: 1333
+2025-08-28 05:12:07,794 - INFO - [FOUND] SHRIRAMFIN: 4306
+2025-08-28 05:12:07,795 - INFO - [FOUND] LTF: 24948
+2025-08-28 05:12:07,795 - INFO - [FOUND] BRITANNIA: 547
+2025-08-28 05:12:07,795 - INFO - [FOUND] NYKAA: 6545
+2025-08-28 05:12:07,795 - INFO - [FOUND] EICHERMOT: 910
+2025-08-28 05:12:07,795 - INFO - [FOUND] VEDL: 3063
+2025-08-28 05:12:07,796 - INFO - [FOUND] IREDA: 20261
+2025-08-28 05:12:07,796 - INFO - [FOUND] BHARATFORG: 422
+2025-08-28 05:12:07,796 - INFO - Stock availability: 9/9 found
+2025-08-28 05:12:07,798 - INFO - Starting Ichimoku Webhook Server for Open Interest Stocks
+2025-08-28 05:12:07,798 - INFO - Monitoring 9 high open interest stocks
+2025-08-28 05:12:07,800 - INFO - No existing state found, starting fresh
+2025-08-28 05:12:07,822 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.235:5000
+2025-08-28 05:12:07,823 - INFO - [33mPress CTRL+C to quit[0m
+2025-08-28 05:21:49,650 - INFO - Loaded 9 active stocks from config
+2025-08-28 05:21:49,650 - INFO - Dhan client initialized
+2025-08-28 05:21:49,650 - INFO - Loading security IDs from Excel file...
+2025-08-28 05:21:55,714 - INFO - Loaded 1850 total records from Excel
+2025-08-28 05:21:55,714 - INFO - Filtered to 1850 NSE equity records
+2025-08-28 05:21:55,823 - INFO - Created security mapping with 9 symbols from our target list
+2025-08-28 05:21:55,823 - INFO - Checking availability of our 9 target stocks:
+2025-08-28 05:21:55,823 - INFO - [FOUND] HDFCBANK: 1333
+2025-08-28 05:21:55,823 - INFO - [FOUND] SHRIRAMFIN: 4306
+2025-08-28 05:21:55,823 - INFO - [FOUND] LTF: 24948
+2025-08-28 05:21:55,823 - INFO - [FOUND] BRITANNIA: 547
+2025-08-28 05:21:55,823 - INFO - [FOUND] NYKAA: 6545
+2025-08-28 05:21:55,823 - INFO - [FOUND] EICHERMOT: 910
+2025-08-28 05:21:55,823 - INFO - [FOUND] VEDL: 3063
+2025-08-28 05:21:55,823 - INFO - [FOUND] IREDA: 20261
+2025-08-28 05:21:55,823 - INFO - [FOUND] BHARATFORG: 422
+2025-08-28 05:21:55,823 - INFO - Stock availability: 9/9 found
+2025-08-28 05:21:55,823 - INFO - Starting Ichimoku Webhook Server for Open Interest Stocks
+2025-08-28 05:21:55,823 - INFO - Monitoring 9 high open interest stocks
+2025-08-28 05:21:55,835 - INFO - No existing state found, starting fresh
+2025-08-28 05:21:55,860 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.235:5000
+2025-08-28 05:21:55,860 - INFO - [33mPress CTRL+C to quit[0m
+2025-08-28 05:35:54,908 - INFO - Using config quantity: 290
+2025-08-28 05:35:54,908 - INFO - Ichimoku Signal: BUY NYKAA 290 shares
+2025-08-28 05:35:54,908 - INFO - Signal received outside market hours: BUY NYKAA
+2025-08-28 05:35:54,909 - INFO - 127.0.0.1 - - [28/Aug/2025 05:35:54] "POST /ichimoku-alert HTTP/1.1" 200 -
+2025-08-28 06:38:02,779 - INFO - Using config quantity: 350
+2025-08-28 06:38:02,779 - INFO - Ichimoku Signal: BUY LTF 350 shares
+2025-08-28 06:38:02,779 - INFO - Signal received outside market hours: BUY LTF
+2025-08-28 06:38:02,780 - INFO - 127.0.0.1 - - [28/Aug/2025 06:38:02] "POST /ichimoku-alert HTTP/1.1" 200 -
+2025-08-28 06:50:07,477 - INFO - Using config quantity: 350
+2025-08-28 06:50:07,477 - INFO - Ichimoku Signal: BUY LTF 350 shares
+2025-08-28 06:50:07,477 - INFO - Signal received outside market hours: BUY LTF
+2025-08-28 06:50:07,479 - INFO - 127.0.0.1 - - [28/Aug/2025 06:50:07] "POST /ichimoku-alert HTTP/1.1" 200 -
+2025-08-28 06:55:02,760 - INFO - Using config quantity: 290
+2025-08-28 06:55:02,761 - INFO - Ichimoku Signal: BUY NYKAA 290 shares
+2025-08-28 06:55:02,761 - INFO - Signal received outside market hours: BUY NYKAA
+2025-08-28 06:55:02,762 - INFO - 127.0.0.1 - - [28/Aug/2025 06:55:02] "POST /ichimoku-alert HTTP/1.1" 200 -
+2025-08-28 06:55:04,459 - INFO - Using config quantity: 350
+2025-08-28 06:55:04,481 - INFO - Ichimoku Signal: SELL LTF 350 shares
+2025-08-28 06:55:04,489 - INFO - Signal received outside market hours: SELL LTF
+2025-08-28 06:55:04,505 - INFO - 127.0.0.1 - - [28/Aug/2025 06:55:04] "POST /ichimoku-alert HTTP/1.1" 200 -
+2025-08-28 08:05:01,484 - INFO - Using config quantity: 35
+2025-08-28 08:05:01,484 - INFO - Ichimoku Signal: BUY BHARATFORG 35 shares
+2025-08-28 08:05:01,484 - INFO - Signal received outside market hours: BUY BHARATFORG
+2025-08-28 08:05:01,485 - INFO - 127.0.0.1 - - [28/Aug/2025 08:05:01] "POST /ichimoku-alert HTTP/1.1" 200 -
+2025-08-28 10:17:58,049 - INFO - Loaded 10 active stocks from config
+2025-08-28 10:17:58,061 - INFO - Dhan client initialized
+2025-08-28 10:17:58,061 - INFO - Loading security IDs from Excel file...
+2025-08-28 10:18:04,601 - INFO - Loaded 1850 total records from Excel
+2025-08-28 10:18:04,601 - INFO - Filtered to 1850 NSE equity records
+2025-08-28 10:18:04,709 - INFO - Created security mapping with 10 symbols from our target list
+2025-08-28 10:18:04,709 - INFO - Checking availability of our 10 target stocks:
+2025-08-28 10:18:04,709 - INFO - [FOUND] HDFCBANK: 1333
+2025-08-28 10:18:04,710 - INFO - [FOUND] SHRIRAMFIN: 4306
+2025-08-28 10:18:04,710 - INFO - [FOUND] LTF: 24948
+2025-08-28 10:18:04,710 - INFO - [FOUND] BRITANNIA: 547
+2025-08-28 10:18:04,710 - INFO - [FOUND] NYKAA: 6545
+2025-08-28 10:18:04,710 - INFO - [FOUND] EICHERMOT: 910
+2025-08-28 10:18:04,710 - INFO - [FOUND] VEDL: 3063
+2025-08-28 10:18:04,711 - INFO - [FOUND] IREDA: 20261
+2025-08-28 10:18:04,711 - INFO - [FOUND] BHARATFORG: 422
+2025-08-28 10:18:04,711 - INFO - [FOUND] ATGL: 6066
+2025-08-28 10:18:04,711 - INFO - Stock availability: 10/10 found
+2025-08-28 10:18:04,713 - INFO - Starting Ichimoku Webhook Server for Open Interest Stocks
+2025-08-28 10:18:04,713 - INFO - Monitoring 10 high open interest stocks
+2025-08-28 10:18:07,391 - INFO - No existing state found, starting fresh
+2025-08-28 10:18:07,391 - WARNING - WARNING: No saved positions found - close signals will be rejected until new positions are opened
+2025-08-28 10:18:07,419 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.235:5000
+2025-08-28 10:18:07,419 - INFO - [33mPress CTRL+C to quit[0m
+2025-08-28 10:19:01,732 - INFO - 127.0.0.1 - - [28/Aug/2025 10:19:01] "GET /positions HTTP/1.1" 200 -
+2025-08-28 10:23:15,466 - INFO - 127.0.0.1 - - [28/Aug/2025 10:23:15] "GET /positions HTTP/1.1" 200 -
+2025-08-28 10:23:29,249 - INFO - 127.0.0.1 - - [28/Aug/2025 10:23:29] "GET /positions HTTP/1.1" 200 -
+2025-08-28 10:23:29,251 - INFO - 127.0.0.1 - - [28/Aug/2025 10:23:29] "GET /positions HTTP/1.1" 200 -
+2025-08-28 10:23:29,921 - INFO - 127.0.0.1 - - [28/Aug/2025 10:23:29] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-08-28 10:23:30,127 - INFO - 127.0.0.1 - - [28/Aug/2025 10:23:30] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-08-28 10:23:34,699 - INFO - 127.0.0.1 - - [28/Aug/2025 10:23:34] "GET /positions HTTP/1.1" 200 -
+2025-08-28 10:23:35,305 - INFO - 127.0.0.1 - - [28/Aug/2025 10:23:35] "GET /positions HTTP/1.1" 200 -
+2025-08-28 10:23:35,449 - INFO - 127.0.0.1 - - [28/Aug/2025 10:23:35] "GET /positions HTTP/1.1" 200 -
+2025-08-28 10:33:55,593 - INFO - Using config quantity: 1
+2025-08-28 10:33:55,594 - INFO - Ichimoku Signal: LONG HDFCBANK 1 shares
+2025-08-28 10:33:55,594 - INFO - Opening LONG position for HDFCBANK with BUY order
+2025-08-28 10:33:55,594 - ERROR - Error fetching price for HDFCBANK: 'dhanhq' object has no attribute 'EQUITY'
+2025-08-28 10:33:56,262 - INFO - Dhan order response for HDFCBANK: {'status': 'success', 'remarks': '', 'data': {'orderId': '6125082825612', 'orderStatus': 'TRANSIT'}}
+2025-08-28 10:33:56,262 - INFO - Position OPENED: LONG HDFCBANK x1 @ ₹0.00
+2025-08-28 10:33:56,265 - INFO - 127.0.0.1 - - [28/Aug/2025 10:33:56] "POST /ichimoku-alert HTTP/1.1" 200 -
+2025-08-28 10:34:12,760 - INFO - Using config quantity: 1
+2025-08-28 10:34:12,760 - INFO - Ichimoku Signal: BUY BRITANNIA 1 shares
+2025-08-28 10:34:12,761 - ERROR - Unknown action: BUY
+2025-08-28 10:34:12,761 - INFO - 127.0.0.1 - - [28/Aug/2025 10:34:12] "POST /ichimoku-alert HTTP/1.1" 200 -
+2025-08-28 10:35:03,103 - INFO - Using config quantity: 1
+2025-08-28 10:35:03,104 - INFO - Ichimoku Signal: SELL LTF 1 shares
+2025-08-28 10:35:03,104 - ERROR - Unknown action: SELL
+2025-08-28 10:35:03,104 - INFO - 127.0.0.1 - - [28/Aug/2025 10:35:03] "POST /ichimoku-alert HTTP/1.1" 200 -
+2025-08-28 10:40:59,027 - INFO - Loaded 10 active stocks from config
+2025-08-28 10:40:59,032 - INFO - Dhan client initialized
+2025-08-28 10:40:59,033 - INFO - Loading security IDs from Excel file...
+2025-08-28 10:41:05,382 - INFO - Loaded 1850 total records from Excel
+2025-08-28 10:41:05,383 - INFO - Filtered to 1850 NSE equity records
+2025-08-28 10:41:05,498 - INFO - Created security mapping with 10 symbols from our target list
+2025-08-28 10:41:05,499 - INFO - Checking availability of our 10 target stocks:
+2025-08-28 10:41:05,499 - INFO - [FOUND] HDFCBANK: 1333
+2025-08-28 10:41:05,500 - INFO - [FOUND] SHRIRAMFIN: 4306
+2025-08-28 10:41:05,500 - INFO - [FOUND] LTF: 24948
+2025-08-28 10:41:05,500 - INFO - [FOUND] BRITANNIA: 547
+2025-08-28 10:41:05,500 - INFO - [FOUND] NYKAA: 6545
+2025-08-28 10:41:05,500 - INFO - [FOUND] EICHERMOT: 910
+2025-08-28 10:41:05,501 - INFO - [FOUND] VEDL: 3063
+2025-08-28 10:41:05,501 - INFO - [FOUND] IREDA: 20261
+2025-08-28 10:41:05,501 - INFO - [FOUND] BHARATFORG: 422
+2025-08-28 10:41:05,501 - INFO - [FOUND] ATGL: 6066
+2025-08-28 10:41:05,501 - INFO - Stock availability: 10/10 found
+2025-08-28 10:41:05,504 - INFO - Starting Ichimoku Webhook Server for Open Interest Stocks
+2025-08-28 10:41:05,504 - INFO - Monitoring 10 high open interest stocks
+2025-08-28 10:41:05,609 - INFO - Restored 1 open positions from saved state
+2025-08-28 10:41:05,609 - INFO -   - HDFCBANK: LONG x1
+2025-08-28 10:41:05,610 - INFO - Loaded existing state: 1 signals, 1 positions
+2025-08-28 10:41:05,636 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.235:5000
+2025-08-28 10:41:05,636 - INFO - [33mPress CTRL+C to quit[0m
+2025-08-28 10:44:55,272 - ERROR - Error fetching price for HDFCBANK: 'dhanhq' object has no attribute 'get_ltp'
+2025-08-28 10:44:55,299 - INFO - 127.0.0.1 - - [28/Aug/2025 10:44:55] "GET /positions HTTP/1.1" 200 -
+2025-08-28 10:53:07,499 - INFO - Loaded 10 active stocks from config
+2025-08-28 10:53:07,499 - INFO - Dhan client initialized
+2025-08-28 10:53:07,499 - INFO - Loading security IDs from Excel file...
+2025-08-28 10:53:14,080 - INFO - Loaded 1850 total records from Excel
+2025-08-28 10:53:14,081 - INFO - Filtered to 1850 NSE equity records
+2025-08-28 10:53:14,189 - INFO - Created security mapping with 10 symbols from our target list
+2025-08-28 10:53:14,189 - INFO - Checking availability of our 10 target stocks:
+2025-08-28 10:53:14,190 - INFO - [FOUND] HDFCBANK: 1333
+2025-08-28 10:53:14,190 - INFO - [FOUND] SHRIRAMFIN: 4306
+2025-08-28 10:53:14,190 - INFO - [FOUND] LTF: 24948
+2025-08-28 10:53:14,190 - INFO - [FOUND] BRITANNIA: 547
+2025-08-28 10:53:14,192 - INFO - [FOUND] NYKAA: 6545
+2025-08-28 10:53:14,192 - INFO - [FOUND] EICHERMOT: 910
+2025-08-28 10:53:14,192 - INFO - [FOUND] VEDL: 3063
+2025-08-28 10:53:14,193 - INFO - [FOUND] IREDA: 20261
+2025-08-28 10:53:14,193 - INFO - [FOUND] BHARATFORG: 422
+2025-08-28 10:53:14,193 - INFO - [FOUND] ATGL: 6066
+2025-08-28 10:53:14,193 - INFO - Stock availability: 10/10 found
+2025-08-28 10:53:14,196 - INFO - Starting Ichimoku Webhook Server for Open Interest Stocks
+2025-08-28 10:53:14,196 - INFO - Monitoring 10 high open interest stocks
+2025-08-28 10:53:14,266 - INFO - Restored 1 open positions from saved state
+2025-08-28 10:53:14,266 - INFO -   - HDFCBANK: LONG x1
+2025-08-28 10:53:14,267 - INFO - Loaded existing state: 1 signals, 1 positions
+2025-08-28 10:53:14,294 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.235:5000
+2025-08-28 10:53:14,294 - INFO - [33mPress CTRL+C to quit[0m

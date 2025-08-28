@@ -1,0 +1,14 @@
+{
+  "metadata": {
+    "timestamp": "2025-08-26T18:06:33.364588",
+    "total_stocks_analyzed": 0,
+    "strategy": "Ichimoku Cloud Analysis",
+    "ichimoku_parameters": {
+      "conversion_periods": 9,
+      "base_periods": 26,
+      "lagging_span2_periods": 52,
+      "displacement": 26
+    }
+  },
+  "signals": []
+}

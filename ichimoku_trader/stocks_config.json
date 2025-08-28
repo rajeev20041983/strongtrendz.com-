@@ -1,0 +1,65 @@
+{
+  "stocks_open_interest": {
+    "description": "High-Activity NSE Stocks for Ichimoku Trading",
+    "last_updated": "2025-08-27",
+    "stocks": [
+      {
+        "symbol": "HDFCBANK",
+        "quantity": 1,
+        "enabled": true
+      },
+      {
+        "symbol": "SHRIRAMFIN",
+        "quantity": 1,
+        "enabled": true
+      },
+      {
+        "symbol": "LTF",
+        "quantity": 1,
+        "enabled": true
+      },
+      {
+        "symbol": "BRITANNIA",
+        "quantity": 1,
+        "enabled": true
+      },
+      {
+        "symbol": "NYKAA",
+        "quantity": 1,
+        "enabled": true
+      },
+      {
+        "symbol": "EICHERMOT",
+        "quantity": 1,
+        "enabled": true
+      },
+      {
+        "symbol": "VEDL",
+        "quantity": 1,
+        "enabled": true
+      },
+      {
+        "symbol": "IREDA",
+        "quantity": 1,
+        "enabled": true
+      },
+      {
+        "symbol": "BHARATFORG",
+        "quantity": 1,
+        "enabled": true
+      },
+          {
+        "symbol": "ATGL",
+        "quantity": 1,
+        "enabled": true
+      }
+    ]
+  },
+  "trading_settings": {
+    "max_signals_per_stock_daily": 3,
+    "market_open": "09:15",
+    "market_close": "15:30",
+    "product_type": "INTRA",
+    "order_type": "MARKET"
+  }
+}
