@@ -1,63 +1,21 @@
 {
-  "stocks_open_interest": {
-    "description": "High-Activity NSE Stocks for Ichimoku Trading",
-    "last_updated": "2025-08-27",
-    "stocks": [
-      {
-        "symbol": "HDFCBANK",
-        "quantity": 1,
-        "enabled": true
-      },
-      {
-        "symbol": "SHRIRAMFIN",
-        "quantity": 1,
-        "enabled": true
-      },
-      {
-        "symbol": "LTF",
-        "quantity": 1,
-        "enabled": true
-      },
-      {
-        "symbol": "BRITANNIA",
-        "quantity": 1,
-        "enabled": true
-      },
-      {
-        "symbol": "NYKAA",
-        "quantity": 1,
-        "enabled": true
-      },
-      {
-        "symbol": "EICHERMOT",
-        "quantity": 1,
-        "enabled": true
-      },
-      {
-        "symbol": "VEDL",
-        "quantity": 1,
-        "enabled": true
-      },
-      {
-        "symbol": "IREDA",
-        "quantity": 1,
-        "enabled": true
-      },
-      {
-        "symbol": "BHARATFORG",
-        "quantity": 1,
-        "enabled": true
-      },
-          {
-        "symbol": "ATGL",
-        "quantity": 1,
-        "enabled": true
-      }
+  "stocks": {
+    "list": [
+      {"symbol": "PGEL", "quantity": 150, "timeframe": "5min", "enabled": true},
+      {"symbol": "PPLPHARMA", "quantity": 250, "timeframe": "5min", "enabled": true},
+      {"symbol": "TATASTEEL", "quantity": 250, "timeframe": "5min", "enabled": true},
+      {"symbol": "INDUSTOWER", "quantity": 200, "timeframe": "5min", "enabled": true},
+      {"symbol": "JINDALSTEL", "quantity": 80, "timeframe": "5min", "enabled": true},
+      {"symbol": "GLENMARK", "quantity": 40, "timeframe": "5min", "enabled": true},
+      {"symbol": "KAYNES", "quantity": 25, "timeframe": "5min", "enabled": true},
+      {"symbol": "RBLBANK", "quantity": 250, "timeframe": "5min", "enabled": true},
+      {"symbol": "MUTHOOTFIN", "quantity": 50, "timeframe": "5min", "enabled": true},
+      {"symbol": "M&M", "quantity": 10, "timeframe": "5min", "enabled": true}
     ]
   },
   "trading_settings": {
-    "max_signals_per_stock_daily": 3,
-    "market_open": "09:15",
+    "enable_reentry_after_squareoff": true,
+    "market_open": "09:30",
     "market_close": "15:30",
     "product_type": "INTRA",
     "order_type": "MARKET"
