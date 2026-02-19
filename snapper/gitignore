@@ -1,0 +1,17 @@
+# Credentials — never commit these
+config/dhan_credentials.json
+security_ids.xlsx
+
+# Generated at runtime
+data/
+logs/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.env
+
+# OS
+.DS_Store
+Thumbs.db

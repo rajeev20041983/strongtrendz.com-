@@ -1,3 +1,22 @@
+
+During market hours (9:30 AM - 3:30 PM):
+
+bash curl -X POST https://strongtrendz.ngrok.app/manual-override \
+  -H "Content-Type: application/json" \
+  -d '{"symbol": "PGEL", "action": "OPENED_BUY", "quantity": 150, "price": 125.50}'
+
+Outside market hours (will get warning):
+bash# This will show warning
+
+curl -X POST https://strongtrendz.ngrok.app/manual-override \
+  -H "Content-Type: application/json" \
+  -d '{"symbol": "PGEL", "action": "OPENED_BUY", "quantity": 150, "price": 125.50}'
+
+# Use force to override
+curl -X POST https://strongtrendz.ngrok.app/manual-override \
+  -H "Content-Type: application/json" \
+  -d '{"symbol": "PGEL", "action": "OPENED_BUY", "quantity": 150, "price": 125.50, "force": true}'
+
 TradingView Range Filter Automated Trading System
 System Overview
 Automated trading system that receives signals from TradingView's Range Filter indicator via webhooks and executes trades on Dhan broker.
@@ -22,6 +41,8 @@ Daily Operation Guide
 Step 1: Start Ngrok Tunnel
 bash# Open Terminal 1
 ngrok http 5000
+
+ngrok http 5000 --domain=strongtrendz.ngrok.app    
 
 # Verify ngrok is running at:
 # https://strongtrendz.ngrok.app

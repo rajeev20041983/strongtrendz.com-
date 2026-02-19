@@ -1,0 +1,1215 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>ARIMA Stock Analysis - 2025-09-29</title>
+        <style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+                margin: 0;
+                padding: 20px;
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                min-height: 100vh;
+            }
+            .container {
+                max-width: 1400px;
+                margin: 0 auto;
+                background-color: white;
+                padding: 30px;
+                border-radius: 15px;
+                box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            }
+            .header {
+                text-align: center;
+                margin-bottom: 40px;
+                padding: 30px;
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                color: white;
+                border-radius: 15px;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            }
+            .header h1 {
+                margin: 0 0 10px 0;
+                font-size: 2.5em;
+                font-weight: 700;
+            }
+            .arima-banner {
+                background: linear-gradient(145deg, #007bff, #0056b3);
+                color: white;
+                padding: 15px;
+                border-radius: 10px;
+                text-align: center;
+                margin: 20px 0;
+                font-weight: bold;
+            }
+            .summary-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                gap: 25px;
+                margin-bottom: 40px;
+            }
+            .summary-card {
+                background: linear-gradient(145deg, #f8f9fa, #e9ecef);
+                padding: 25px;
+                border-radius: 15px;
+                border-left: 5px solid #007bff;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+                transition: transform 0.3s ease;
+            }
+            .summary-card:hover {
+                transform: translateY(-5px);
+            }
+            .summary-card h3 {
+                margin: 0 0 15px 0;
+                color: #333;
+                font-size: 1.1em;
+            }
+            .summary-card .value {
+                font-size: 2.2em;
+                font-weight: bold;
+                color: #007bff;
+                margin-bottom: 5px;
+            }
+            .sector-section {
+                margin: 40px 0;
+                padding: 30px;
+                border: 2px solid #e9ecef;
+                border-radius: 15px;
+                background: linear-gradient(145deg, #ffffff, #f8f9fa);
+                box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            }
+            .sector-header {
+                margin-bottom: 25px;
+                padding: 20px;
+                background: linear-gradient(135deg, #007bff, #0056b3);
+                color: white;
+                border-radius: 10px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+            .sector-header h2 {
+                margin: 0;
+                font-size: 1.8em;
+                font-weight: 600;
+            }
+            .recommendation-group {
+                margin: 25px 0;
+            }
+            .recommendation-header {
+                margin-bottom: 15px;
+                padding: 15px;
+                border-radius: 8px;
+                font-weight: bold;
+                font-size: 1.1em;
+            }
+            .strong-buy-header {
+                background: linear-gradient(145deg, #d4edda, #c3e6cb);
+                color: #155724;
+                border-left: 5px solid #28a745;
+            }
+            .strong-sell-header {
+                background: linear-gradient(145deg, #f8d7da, #f5c6cb);
+                color: #721c24;
+                border-left: 5px solid #dc3545;
+            }
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                margin: 15px 0;
+                background: white;
+                border-radius: 10px;
+                overflow: hidden;
+                box-shadow: 0 3px 10px rgba(0,0,0,0.06);
+                font-size: 0.9em;
+            }
+            th, td {
+                padding: 12px;
+                text-align: left;
+                border-bottom: 1px solid #e9ecef;
+            }
+            th {
+                background: linear-gradient(145deg, #f8f9fa, #e9ecef);
+                font-weight: 600;
+                color: #333;
+                font-size: 0.85em;
+            }
+            tr:hover {
+                background-color: #f8f9fa;
+            }
+            .strong-buy { color: #155724; font-weight: bold; background: #d4edda; padding: 4px 8px; border-radius: 4px; }
+            .strong-sell { color: #721c24; font-weight: bold; background: #f8d7da; padding: 4px 8px; border-radius: 4px; }
+            .low-error { color: #28a745; font-weight: 600; }
+            .sector-tag { background: #007bff; color: white; padding: 2px 8px; border-radius: 12px; font-size: 0.8em; }
+            .price { font-weight: 600; color: #333; }
+            .change-positive { color: #28a745; font-weight: 600; }
+            .change-negative { color: #dc3545; font-weight: 600; }
+            .footer {
+                text-align: center;
+                margin-top: 40px;
+                padding: 25px;
+                background: linear-gradient(145deg, #f8f9fa, #e9ecef);
+                border-radius: 15px;
+                border: 1px solid #dee2e6;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="header">
+                <h1>📈 Pure ARIMA Stock Analysis</h1>
+                <p><strong>Strong Buy/Sell Recommendations Only</strong></p>
+                <p>Generated: 2025-09-29 19:50:23</p>
+                <p>ARIMA Error < 30% Filter Applied</p>
+            </div>
+            
+            <div class="arima-banner">
+                📊 PURE ARIMA STRATEGY: Technical analysis using ARIMA predictions only<br>
+                🎯 Strong Recommendations: STRONG BUY & STRONG SELL only<br>
+                ⚡ Quality Filter: ARIMA Error < 30% for reliable predictions
+            </div>
+            
+            <div class="summary-grid">
+                <div class="summary-card">
+                    <h3>📈 Total Stocks Analyzed</h3>
+                    <div class="value">224</div>
+                    <div class="subtitle">Complete analysis attempted</div>
+                </div>
+                <div class="summary-card">
+                    <h3>⚡ Strong Recommendations</h3>
+                    <div class="value">79</div>
+                    <div class="subtitle">ARIMA Error < 30%</div>
+                </div>
+                <div class="summary-card">
+                    <h3>🚀 Strong Buy</h3>
+                    <div class="value">78</div>
+                    <div class="subtitle">Buy recommendations</div>
+                </div>
+                <div class="summary-card">
+                    <h3>📉 Strong Sell</h3>
+                    <div class="value">1</div>
+                    <div class="subtitle">Sell recommendations</div>
+                </div>
+            </div>
+    
+            <div class="sector-section">
+                <div class="sector-header">
+                    <h2>🏭 UNKNOWN</h2>
+                    <div class="sector-performance">+3.06%</div>
+                </div>
+                <p><strong>Strong Recommendations:</strong> 79 stocks</p>
+        
+                <div class="recommendation-group">
+                    <div class="recommendation-header strong-buy-header">
+                        🚀 STRONG BUY Recommendations (78 stocks)
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Ticker</th>
+                                <th>Company</th>
+                                <th>Sector</th>
+                                <th>Current Price</th>
+                                <th>ARIMA Prediction</th>
+                                <th>Combined Prediction</th>
+                                <th>ARIMA Change %</th>
+                                <th>ARIMA Error %</th>
+                                <th>Signal</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+            
+                            <tr>
+                                <td><strong>DIXON.NS</strong></td>
+                                <td>Dixon...</td>
+                                <td><span class="sector-tag">UNKNOWN</span></td>
+                                <td class="price">₹16,678.00</td>
+                                <td class="price">₹18,227.37</td>
+                                <td class="price">₹17,608.04</td>
+                                <td class="change-positive">+9.3%</td>
+                                <td class="low-error">9.3%</td>
+                                <td class="strong-buy">STRONG BUY</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>ATGL.NS</strong></td>
+                                <td>Atgl...</td>
+                                <td><span class="sector-tag">UNKNOWN</span></td>
+                                <td class="price">₹629.70</td>
+                                <td class="price">₹674.00</td>
+                                <td class="price">₹690.01</td>
+                                <td class="change-positive">+7.0%</td>
+                                <td class="low-error">7.0%</td>
+                                <td class="strong-buy">STRONG BUY</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>PGEL.NS</strong></td>
+                                <td>PGEL...</td>
+                                <td><span class="sector-tag">UNKNOWN</span></td>
+                                <td class="price">₹504.70</td>
+                                <td class="price">₹539.25</td>
+                                <td class="price">₹563.56</td>
+                                <td class="change-positive">+6.8%</td>
+                                <td class="low-error">6.8%</td>
+                                <td class="strong-buy">STRONG BUY</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>KAYNES.NS</strong></td>
+                                <td>Kaynes...</td>
+                                <td><span class="sector-tag">UNKNOWN</span></td>
+                                <td class="price">₹7,050.50</td>
+                                <td class="price">₹7,514.72</td>
+                                <td class="price">₹7,280.61</td>
+                                <td class="change-positive">+6.6%</td>
+                                <td class="low-error">6.6%</td>
+                                <td class="strong-buy">STRONG BUY</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>LAURUSLABS.NS</strong></td>
+                                <td>Lauruslabs...</td>
+                                <td><span class="sector-tag">UNKNOWN</span></td>
+                                <td class="price">₹840.95</td>
+                                <td class="price">₹893.33</td>
+                                <td class="price">₹904.76</td>
+                                <td class="change-positive">+6.2%</td>
+                                <td class="low-error">6.2%</td>
+                                <td class="strong-buy">STRONG BUY</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>JSL.NS</strong></td>
+                                <td>Jsl...</td>
+                                <td><span class="sector-tag">UNKNOWN</span></td>
+                                <td class="price">₹737.70</td>
+                                <td class="price">₹783.30</td>
+                                <td class="price">₹782.14</td>
+                                <td class="change-positive">+6.2%</td>
+                                <td class="low-error">6.2%</td>
+                                <td class="strong-buy">STRONG BUY</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>MAZDOCK.NS</strong></td>
+                                <td>Mazdock...</td>
+                                <td><span class="sector-tag">UNKNOWN</span></td>
+                                <td class="price">₹2,751.10</td>
+                                <td class="price">₹2,920.85</td>
+                                <td class="price">₹2,928.71</td>
+                                <td class="change-positive">+6.2%</td>
+                                <td class="low-error">6.2%</td>
+                                <td class="strong-buy">STRONG BUY</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>IDEA.NS</strong></td>
+                                <td>Idea...</td>
+                                <td><span class="sector-tag">UNKNOWN</span></td>
+                                <td class="price">₹8.24</td>
+                                <td class="price">₹8.69</td>
+                                <td class="price">₹8.55</td>
+                                <td class="change-positive">+5.5%</td>
+                                <td class="low-error">5.5%</td>
+                                <td class="strong-buy">STRONG BUY</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>OFSS.NS</strong></td>
+                                <td>OFSS...</td>
+                                <td><span class="sector-tag">UNKNOWN</span></td>
+                                <td class="price">₹8,453.50</td>
+                                <td class="price">₹8,906.66</td>
+                                <td class="price">₹8,909.57</td>
+                                <td class="change-positive">+5.4%</td>
+                                <td class="low-error">5.4%</td>
+                                <td class="strong-buy">STRONG BUY</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>BSOFT.NS</strong></td>
+                                <td>Bsoft...</td>
+                                <td><span class="sector-tag">UNKNOWN</span></td>
+                                <td class="price">₹347.90</td>
+                                <td class="price">₹365.43</td>
+                                <td class="price">₹369.71</td>
+                                <td class="change-positive">+5.0%</td>
+                                <td class="low-error">5.0%</td>
+                                <td class="strong-buy">STRONG BUY</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>PERSISTENT.NS</strong></td>
+                                <td>Persistent...</td>
+                                <td><span class="sector-tag">UNKNOWN</span></td>
+                                <td class="price">₹4,870.50</td>
+                                <td class="price">₹5,105.81</td>
+                                <td class="price">₹5,255.11</td>
+                                <td class="change-positive">+4.8%</td>
+                                <td class="low-error">4.8%</td>
+                                <td class="strong-buy">STRONG BUY</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>BIOCON.NS</strong></td>
+                                <td>Biocon...</td>
+                                <td><span class="sector-tag">UNKNOWN</span></td>
+                                <td class="price">₹340.15</td>
+                                <td class="price">₹355.60</td>
+                                <td class="price">₹356.84</td>
+                                <td class="change-positive">+4.5%</td>
+                                <td class="low-error">4.5%</td>
+                                <td class="strong-buy">STRONG BUY</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>SOLARINDS.NS</strong></td>
+                                <td>Solarinds...</td>
+                                <td><span class="sector-tag">UNKNOWN</span></td>
+                                <td class="price">₹13,545.00</td>
+                                <td class="price">₹14,159.03</td>
+                                <td class="price">₹14,452.56</td>
+                                <td class="change-positive">+4.5%</td>
+                                <td class="low-error">4.5%</td>
+                                <td class="strong-buy">STRONG BUY</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>BALKRISIND.NS</strong></td>
+                                <td>Balkrisind...</td>
+                                <td><span class="sector-tag">UNKNOWN</span></td>
+                                <td class="price">₹2,286.30</td>
+                                <td class="price">₹2,386.28</td>
+                                <td class="price">₹2,430.17</td>
+                                <td class="change-positive">+4.4%</td>
+                                <td class="low-error">4.4%</td>
+                                <td class="strong-buy">STRONG BUY</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>CHAMBLFERT.NS</strong></td>
+                                <td>Chamblfert...</td>
+                                <td><span class="sector-tag">UNKNOWN</span></td>
+                                <td class="price">₹508.40</td>
+                                <td class="price">₹529.01</td>
+                                <td class="price">₹531.50</td>
+                                <td class="change-positive">+4.1%</td>
+                                <td class="low-error">4.1%</td>
+                                <td class="strong-buy">STRONG BUY</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>KPITTECH.NS</strong></td>
+                                <td>KPITtech...</td>
+                                <td><span class="sector-tag">UNKNOWN</span></td>
+                                <td class="price">₹1,209.80</td>
+                                <td class="price">₹1,257.66</td>
+                                <td class="price">₹1,262.71</td>
+                                <td class="change-positive">+4.0%</td>
+                                <td class="low-error">4.0%</td>
+                                <td class="strong-buy">STRONG BUY</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>PAGEIND.NS</strong></td>
+                                <td>Pageind...</td>
+                                <td><span class="sector-tag">UNKNOWN</span></td>
+                                <td class="price">₹41,085.00</td>
+                                <td class="price">₹42,708.05</td>
+                                <td class="price">₹43,133.13</td>
+                                <td class="change-positive">+4.0%</td>
+                                <td class="low-error">4.0%</td>
+                                <td class="strong-buy">STRONG BUY</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>TIINDIA.NS</strong></td>
+                                <td>Tiindia...</td>
+                                <td><span class="sector-tag">UNKNOWN</span></td>
+                                <td class="price">₹3,098.60</td>
+                                <td class="price">₹3,217.00</td>
+                                <td class="price">₹3,281.74</td>
+                                <td class="change-positive">+3.8%</td>
+                                <td class="low-error">3.8%</td>
+                                <td class="strong-buy">STRONG BUY</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>BDL.NS</strong></td>
+                                <td>BDL...</td>
+                                <td><span class="sector-tag">UNKNOWN</span></td>
+                                <td class="price">₹1,498.90</td>
+                                <td class="price">₹1,554.14</td>
+                                <td class="price">₹1,585.41</td>
+                                <td class="change-positive">+3.7%</td>
+                                <td class="low-error">3.7%</td>
+                                <td class="strong-buy">STRONG BUY</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>POLICYBZR.NS</strong></td>
+                                <td>Policybzr...</td>
+                                <td><span class="sector-tag">UNKNOWN</span></td>
+                                <td class="price">₹1,686.50</td>
+                                <td class="price">₹1,747.64</td>
+                                <td class="price">₹1,772.82</td>
+                                <td class="change-positive">+3.6%</td>
+                                <td class="low-error">3.6%</td>
+                                <td class="strong-buy">STRONG BUY</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>SYNGENE.NS</strong></td>
+                                <td>Syngene...</td>
+                                <td><span class="sector-tag">UNKNOWN</span></td>
+                                <td class="price">₹614.30</td>
+                                <td class="price">₹636.37</td>
+                                <td class="price">₹647.86</td>
+                                <td class="change-positive">+3.6%</td>
+                                <td class="low-error">3.6%</td>
+                                <td class="strong-buy">STRONG BUY</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>GLENMARK.NS</strong></td>
+                                <td>Glenmark...</td>
+                                <td><span class="sector-tag">UNKNOWN</span></td>
+                                <td class="price">₹1,958.20</td>
+                                <td class="price">₹2,026.84</td>
+                                <td class="price">₹2,021.34</td>
+                                <td class="change-positive">+3.5%</td>
+                                <td class="low-error">3.5%</td>
+                                <td class="strong-buy">STRONG BUY</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>DELHIVERY.NS</strong></td>
+                                <td>Delhivery...</td>
+                                <td><span class="sector-tag">UNKNOWN</span></td>
+                                <td class="price">₹439.90</td>
+                                <td class="price">₹455.32</td>
+                                <td class="price">₹462.27</td>
+                                <td class="change-positive">+3.5%</td>
+                                <td class="low-error">3.5%</td>
+                                <td class="strong-buy">STRONG BUY</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>SAIL.NS</strong></td>
+                                <td>Sail...</td>
+                                <td><span class="sector-tag">UNKNOWN</span></td>
+                                <td class="price">₹131.71</td>
+                                <td class="price">₹136.28</td>
+                                <td class="price">₹135.72</td>
+                                <td class="change-positive">+3.5%</td>
+                                <td class="low-error">3.5%</td>
+                                <td class="strong-buy">STRONG BUY</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>HUDCO.NS</strong></td>
+                                <td>Hudco...</td>
+                                <td><span class="sector-tag">UNKNOWN</span></td>
+                                <td class="price">₹220.37</td>
+                                <td class="price">₹227.91</td>
+                                <td class="price">₹230.13</td>
+                                <td class="change-positive">+3.4%</td>
+                                <td class="low-error">3.4%</td>
+                                <td class="strong-buy">STRONG BUY</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>DIVISLAB.NS</strong></td>
+                                <td>Divislab...</td>
+                                <td><span class="sector-tag">UNKNOWN</span></td>
+                                <td class="price">₹5,697.50</td>
+                                <td class="price">₹5,890.02</td>
+                                <td class="price">₹5,984.48</td>
+                                <td class="change-positive">+3.4%</td>
+                                <td class="low-error">3.4%</td>
+                                <td class="strong-buy">STRONG BUY</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>AMBUJACEM.NS</strong></td>
+                                <td>Ambujacem...</td>
+                                <td><span class="sector-tag">UNKNOWN</span></td>
+                                <td class="price">₹565.20</td>
+                                <td class="price">₹583.85</td>
+                                <td class="price">₹583.32</td>
+                                <td class="change-positive">+3.3%</td>
+                                <td class="low-error">3.3%</td>
+                                <td class="strong-buy">STRONG BUY</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>ANGELONE.NS</strong></td>
+                                <td>AngelOne...</td>
+                                <td><span class="sector-tag">UNKNOWN</span></td>
+                                <td class="price">₹2,124.90</td>
+                                <td class="price">₹2,194.04</td>
+                                <td class="price">₹2,251.08</td>
+                                <td class="change-positive">+3.3%</td>
+                                <td class="low-error">3.3%</td>
+                                <td class="strong-buy">STRONG BUY</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>HFCL.NS</strong></td>
+                                <td>HFCL...</td>
+                                <td><span class="sector-tag">UNKNOWN</span></td>
+                                <td class="price">₹74.07</td>
+                                <td class="price">₹76.46</td>
+                                <td class="price">₹76.37</td>
+                                <td class="change-positive">+3.2%</td>
+                                <td class="low-error">3.2%</td>
+                                <td class="strong-buy">STRONG BUY</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>INFY.NS</strong></td>
+                                <td>Infy...</td>
+                                <td><span class="sector-tag">UNKNOWN</span></td>
+                                <td class="price">₹1,441.80</td>
+                                <td class="price">₹1,487.83</td>
+                                <td class="price">₹1,504.98</td>
+                                <td class="change-positive">+3.2%</td>
+                                <td class="low-error">3.2%</td>
+                                <td class="strong-buy">STRONG BUY</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>TATAELXSI.NS</strong></td>
+                                <td>Tataelxsi...</td>
+                                <td><span class="sector-tag">UNKNOWN</span></td>
+                                <td class="price">₹5,301.00</td>
+                                <td class="price">₹5,469.69</td>
+                                <td class="price">₹5,568.32</td>
+                                <td class="change-positive">+3.2%</td>
+                                <td class="low-error">3.2%</td>
+                                <td class="strong-buy">STRONG BUY</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>DRREDDY.NS</strong></td>
+                                <td>Drreddy...</td>
+                                <td><span class="sector-tag">UNKNOWN</span></td>
+                                <td class="price">₹1,234.60</td>
+                                <td class="price">₹1,273.48</td>
+                                <td class="price">₹1,284.88</td>
+                                <td class="change-positive">+3.1%</td>
+                                <td class="low-error">3.1%</td>
+                                <td class="strong-buy">STRONG BUY</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>TATACHEM.NS</strong></td>
+                                <td>Tatachem...</td>
+                                <td><span class="sector-tag">UNKNOWN</span></td>
+                                <td class="price">₹925.40</td>
+                                <td class="price">₹954.53</td>
+                                <td class="price">₹970.59</td>
+                                <td class="change-positive">+3.1%</td>
+                                <td class="low-error">3.1%</td>
+                                <td class="strong-buy">STRONG BUY</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>ADANIGREEN.NS</strong></td>
+                                <td>Adanigreen...</td>
+                                <td><span class="sector-tag">UNKNOWN</span></td>
+                                <td class="price">₹1,035.35</td>
+                                <td class="price">₹1,067.37</td>
+                                <td class="price">₹1,082.10</td>
+                                <td class="change-positive">+3.1%</td>
+                                <td class="low-error">3.1%</td>
+                                <td class="strong-buy">STRONG BUY</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>ASTRAL.NS</strong></td>
+                                <td>Astral...</td>
+                                <td><span class="sector-tag">UNKNOWN</span></td>
+                                <td class="price">₹1,366.70</td>
+                                <td class="price">₹1,408.02</td>
+                                <td class="price">₹1,416.98</td>
+                                <td class="change-positive">+3.0%</td>
+                                <td class="low-error">3.0%</td>
+                                <td class="strong-buy">STRONG BUY</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>GRANULES.NS</strong></td>
+                                <td>Granules...</td>
+                                <td><span class="sector-tag">UNKNOWN</span></td>
+                                <td class="price">₹514.60</td>
+                                <td class="price">₹529.75</td>
+                                <td class="price">₹537.17</td>
+                                <td class="change-positive">+2.9%</td>
+                                <td class="low-error">2.9%</td>
+                                <td class="strong-buy">STRONG BUY</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>SRF.NS</strong></td>
+                                <td>SRF...</td>
+                                <td><span class="sector-tag">UNKNOWN</span></td>
+                                <td class="price">₹2,798.00</td>
+                                <td class="price">₹2,880.32</td>
+                                <td class="price">₹2,887.96</td>
+                                <td class="change-positive">+2.9%</td>
+                                <td class="low-error">2.9%</td>
+                                <td class="strong-buy">STRONG BUY</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>NAUKRI.NS</strong></td>
+                                <td>Naukri...</td>
+                                <td><span class="sector-tag">UNKNOWN</span></td>
+                                <td class="price">₹1,315.80</td>
+                                <td class="price">₹1,354.12</td>
+                                <td class="price">₹1,371.14</td>
+                                <td class="change-positive">+2.9%</td>
+                                <td class="low-error">2.9%</td>
+                                <td class="strong-buy">STRONG BUY</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>IRB.NS</strong></td>
+                                <td>IRB...</td>
+                                <td><span class="sector-tag">UNKNOWN</span></td>
+                                <td class="price">₹40.84</td>
+                                <td class="price">₹42.03</td>
+                                <td class="price">₹42.94</td>
+                                <td class="change-positive">+2.9%</td>
+                                <td class="low-error">2.9%</td>
+                                <td class="strong-buy">STRONG BUY</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>TATACOMM.NS</strong></td>
+                                <td>Tatacomm...</td>
+                                <td><span class="sector-tag">UNKNOWN</span></td>
+                                <td class="price">₹1,613.00</td>
+                                <td class="price">₹1,658.78</td>
+                                <td class="price">₹1,662.34</td>
+                                <td class="change-positive">+2.8%</td>
+                                <td class="low-error">2.8%</td>
+                                <td class="strong-buy">STRONG BUY</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>DABUR.NS</strong></td>
+                                <td>Dabur...</td>
+                                <td><span class="sector-tag">UNKNOWN</span></td>
+                                <td class="price">₹492.85</td>
+                                <td class="price">₹506.67</td>
+                                <td class="price">₹512.69</td>
+                                <td class="change-positive">+2.8%</td>
+                                <td class="low-error">2.8%</td>
+                                <td class="strong-buy">STRONG BUY</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>HCLTECH.NS</strong></td>
+                                <td>Hcltech...</td>
+                                <td><span class="sector-tag">UNKNOWN</span></td>
+                                <td class="price">₹1,387.40</td>
+                                <td class="price">₹1,426.26</td>
+                                <td class="price">₹1,442.64</td>
+                                <td class="change-positive">+2.8%</td>
+                                <td class="low-error">2.8%</td>
+                                <td class="strong-buy">STRONG BUY</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>ADANIENSOL.NS</strong></td>
+                                <td>Adaniensol...</td>
+                                <td><span class="sector-tag">UNKNOWN</span></td>
+                                <td class="price">₹871.75</td>
+                                <td class="price">₹895.64</td>
+                                <td class="price">₹904.71</td>
+                                <td class="change-positive">+2.7%</td>
+                                <td class="low-error">2.7%</td>
+                                <td class="strong-buy">STRONG BUY</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>JIOFIN.NS</strong></td>
+                                <td>Jiofin...</td>
+                                <td><span class="sector-tag">UNKNOWN</span></td>
+                                <td class="price">₹294.20</td>
+                                <td class="price">₹302.06</td>
+                                <td class="price">₹311.11</td>
+                                <td class="change-positive">+2.7%</td>
+                                <td class="low-error">2.7%</td>
+                                <td class="strong-buy">STRONG BUY</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>CAMS.NS</strong></td>
+                                <td>CAMS...</td>
+                                <td><span class="sector-tag">UNKNOWN</span></td>
+                                <td class="price">₹3,785.40</td>
+                                <td class="price">₹3,886.39</td>
+                                <td class="price">₹3,985.49</td>
+                                <td class="change-positive">+2.7%</td>
+                                <td class="low-error">2.7%</td>
+                                <td class="strong-buy">STRONG BUY</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>KALYANKJIL.NS</strong></td>
+                                <td>Kalyankjil...</td>
+                                <td><span class="sector-tag">UNKNOWN</span></td>
+                                <td class="price">₹448.30</td>
+                                <td class="price">₹459.97</td>
+                                <td class="price">₹478.64</td>
+                                <td class="change-positive">+2.6%</td>
+                                <td class="low-error">2.6%</td>
+                                <td class="strong-buy">STRONG BUY</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>ABFRL.NS</strong></td>
+                                <td>ABFRL...</td>
+                                <td><span class="sector-tag">UNKNOWN</span></td>
+                                <td class="price">₹85.01</td>
+                                <td class="price">₹87.19</td>
+                                <td class="price">₹89.81</td>
+                                <td class="change-positive">+2.6%</td>
+                                <td class="low-error">2.6%</td>
+                                <td class="strong-buy">STRONG BUY</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>GMRAIRPORT.NS</strong></td>
+                                <td>GMRairport...</td>
+                                <td><span class="sector-tag">UNKNOWN</span></td>
+                                <td class="price">₹86.90</td>
+                                <td class="price">₹89.10</td>
+                                <td class="price">₹89.85</td>
+                                <td class="change-positive">+2.5%</td>
+                                <td class="low-error">2.5%</td>
+                                <td class="strong-buy">STRONG BUY</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>ACC.NS</strong></td>
+                                <td>ACC...</td>
+                                <td><span class="sector-tag">UNKNOWN</span></td>
+                                <td class="price">₹1,807.70</td>
+                                <td class="price">₹1,852.81</td>
+                                <td class="price">₹1,862.30</td>
+                                <td class="change-positive">+2.5%</td>
+                                <td class="low-error">2.5%</td>
+                                <td class="strong-buy">STRONG BUY</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>LICHSGFIN.NS</strong></td>
+                                <td>Lichsgfin...</td>
+                                <td><span class="sector-tag">UNKNOWN</span></td>
+                                <td class="price">₹564.95</td>
+                                <td class="price">₹579.05</td>
+                                <td class="price">₹586.01</td>
+                                <td class="change-positive">+2.5%</td>
+                                <td class="low-error">2.5%</td>
+                                <td class="strong-buy">STRONG BUY</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>COLPAL.NS</strong></td>
+                                <td>Colpal...</td>
+                                <td><span class="sector-tag">UNKNOWN</span></td>
+                                <td class="price">₹2,218.40</td>
+                                <td class="price">₹2,273.68</td>
+                                <td class="price">₹2,314.89</td>
+                                <td class="change-positive">+2.5%</td>
+                                <td class="low-error">2.5%</td>
+                                <td class="strong-buy">STRONG BUY</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>SUNPHARMA.NS</strong></td>
+                                <td>Sunpharma...</td>
+                                <td><span class="sector-tag">UNKNOWN</span></td>
+                                <td class="price">₹1,589.30</td>
+                                <td class="price">₹1,628.55</td>
+                                <td class="price">₹1,648.18</td>
+                                <td class="change-positive">+2.5%</td>
+                                <td class="low-error">2.5%</td>
+                                <td class="strong-buy">STRONG BUY</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>MAXHEALTH.NS</strong></td>
+                                <td>Maxhealth...</td>
+                                <td><span class="sector-tag">UNKNOWN</span></td>
+                                <td class="price">₹1,112.00</td>
+                                <td class="price">₹1,139.46</td>
+                                <td class="price">₹1,146.27</td>
+                                <td class="change-positive">+2.5%</td>
+                                <td class="low-error">2.5%</td>
+                                <td class="strong-buy">STRONG BUY</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>ASIANPAINT.NS</strong></td>
+                                <td>Asianpaint...</td>
+                                <td><span class="sector-tag">UNKNOWN</span></td>
+                                <td class="price">₹2,342.60</td>
+                                <td class="price">₹2,397.91</td>
+                                <td class="price">₹2,417.91</td>
+                                <td class="change-positive">+2.4%</td>
+                                <td class="low-error">2.4%</td>
+                                <td class="strong-buy">STRONG BUY</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>PIIND.NS</strong></td>
+                                <td>PIInd...</td>
+                                <td><span class="sector-tag">UNKNOWN</span></td>
+                                <td class="price">₹3,492.30</td>
+                                <td class="price">₹3,573.98</td>
+                                <td class="price">₹3,601.99</td>
+                                <td class="change-positive">+2.3%</td>
+                                <td class="low-error">2.3%</td>
+                                <td class="strong-buy">STRONG BUY</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>COFORGE.NS</strong></td>
+                                <td>Coforge...</td>
+                                <td><span class="sector-tag">UNKNOWN</span></td>
+                                <td class="price">₹1,552.20</td>
+                                <td class="price">₹1,588.25</td>
+                                <td class="price">₹1,651.49</td>
+                                <td class="change-positive">+2.3%</td>
+                                <td class="low-error">2.3%</td>
+                                <td class="strong-buy">STRONG BUY</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>M&MFIN.NS</strong></td>
+                                <td>M&Mfin...</td>
+                                <td><span class="sector-tag">UNKNOWN</span></td>
+                                <td class="price">₹272.95</td>
+                                <td class="price">₹279.22</td>
+                                <td class="price">₹281.39</td>
+                                <td class="change-positive">+2.3%</td>
+                                <td class="low-error">2.3%</td>
+                                <td class="strong-buy">STRONG BUY</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>HAVELLS.NS</strong></td>
+                                <td>Havells...</td>
+                                <td><span class="sector-tag">UNKNOWN</span></td>
+                                <td class="price">₹1,505.20</td>
+                                <td class="price">₹1,539.40</td>
+                                <td class="price">₹1,559.12</td>
+                                <td class="change-positive">+2.3%</td>
+                                <td class="low-error">2.3%</td>
+                                <td class="strong-buy">STRONG BUY</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>TECHM.NS</strong></td>
+                                <td>Techm...</td>
+                                <td><span class="sector-tag">UNKNOWN</span></td>
+                                <td class="price">₹1,410.70</td>
+                                <td class="price">₹1,442.57</td>
+                                <td class="price">₹1,455.02</td>
+                                <td class="change-positive">+2.3%</td>
+                                <td class="low-error">2.3%</td>
+                                <td class="strong-buy">STRONG BUY</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>SJVN.NS</strong></td>
+                                <td>SJVN...</td>
+                                <td><span class="sector-tag">UNKNOWN</span></td>
+                                <td class="price">₹90.03</td>
+                                <td class="price">₹91.97</td>
+                                <td class="price">₹93.42</td>
+                                <td class="change-positive">+2.2%</td>
+                                <td class="low-error">2.2%</td>
+                                <td class="strong-buy">STRONG BUY</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>TCS.NS</strong></td>
+                                <td>Tcs...</td>
+                                <td><span class="sector-tag">UNKNOWN</span></td>
+                                <td class="price">₹2,896.10</td>
+                                <td class="price">₹2,957.66</td>
+                                <td class="price">₹3,022.59</td>
+                                <td class="change-positive">+2.1%</td>
+                                <td class="low-error">2.1%</td>
+                                <td class="strong-buy">STRONG BUY</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>CYIENT.NS</strong></td>
+                                <td>Cyient...</td>
+                                <td><span class="sector-tag">UNKNOWN</span></td>
+                                <td class="price">₹1,148.00</td>
+                                <td class="price">₹1,171.68</td>
+                                <td class="price">₹1,190.60</td>
+                                <td class="change-positive">+2.1%</td>
+                                <td class="low-error">2.1%</td>
+                                <td class="strong-buy">STRONG BUY</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>AARTIIND.NS</strong></td>
+                                <td>Aartiind...</td>
+                                <td><span class="sector-tag">UNKNOWN</span></td>
+                                <td class="price">₹372.85</td>
+                                <td class="price">₹380.50</td>
+                                <td class="price">₹387.42</td>
+                                <td class="change-positive">+2.1%</td>
+                                <td class="low-error">2.1%</td>
+                                <td class="strong-buy">STRONG BUY</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>PPLPHARMA.NS</strong></td>
+                                <td>PPLPharma...</td>
+                                <td><span class="sector-tag">UNKNOWN</span></td>
+                                <td class="price">₹191.64</td>
+                                <td class="price">₹195.54</td>
+                                <td class="price">₹198.28</td>
+                                <td class="change-positive">+2.0%</td>
+                                <td class="low-error">2.0%</td>
+                                <td class="strong-buy">STRONG BUY</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>TITAGARH.NS</strong></td>
+                                <td>Titagarh...</td>
+                                <td><span class="sector-tag">UNKNOWN</span></td>
+                                <td class="price">₹884.65</td>
+                                <td class="price">₹901.98</td>
+                                <td class="price">₹919.64</td>
+                                <td class="change-positive">+2.0%</td>
+                                <td class="low-error">2.0%</td>
+                                <td class="strong-buy">STRONG BUY</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>CIPLA.NS</strong></td>
+                                <td>Cipla...</td>
+                                <td><span class="sector-tag">UNKNOWN</span></td>
+                                <td class="price">₹1,488.00</td>
+                                <td class="price">₹1,516.81</td>
+                                <td class="price">₹1,535.48</td>
+                                <td class="change-positive">+1.9%</td>
+                                <td class="low-error">1.9%</td>
+                                <td class="strong-buy">STRONG BUY</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>ETERNAL.NS</strong></td>
+                                <td>Eternal...</td>
+                                <td><span class="sector-tag">UNKNOWN</span></td>
+                                <td class="price">₹324.85</td>
+                                <td class="price">₹331.04</td>
+                                <td class="price">₹336.16</td>
+                                <td class="change-positive">+1.9%</td>
+                                <td class="low-error">1.9%</td>
+                                <td class="strong-buy">STRONG BUY</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>PAYTM.NS</strong></td>
+                                <td>Paytm...</td>
+                                <td><span class="sector-tag">UNKNOWN</span></td>
+                                <td class="price">₹1,119.00</td>
+                                <td class="price">₹1,138.77</td>
+                                <td class="price">₹1,166.03</td>
+                                <td class="change-positive">+1.8%</td>
+                                <td class="low-error">1.8%</td>
+                                <td class="strong-buy">STRONG BUY</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>CROMPTON.NS</strong></td>
+                                <td>Crompton...</td>
+                                <td><span class="sector-tag">UNKNOWN</span></td>
+                                <td class="price">₹293.65</td>
+                                <td class="price">₹298.83</td>
+                                <td class="price">₹303.62</td>
+                                <td class="change-positive">+1.8%</td>
+                                <td class="low-error">1.8%</td>
+                                <td class="strong-buy">STRONG BUY</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>SIEMENS.NS</strong></td>
+                                <td>Siemens...</td>
+                                <td><span class="sector-tag">UNKNOWN</span></td>
+                                <td class="price">₹3,105.20</td>
+                                <td class="price">₹3,151.24</td>
+                                <td class="price">₹3,251.06</td>
+                                <td class="change-positive">+1.5%</td>
+                                <td class="low-error">1.5%</td>
+                                <td class="strong-buy">STRONG BUY</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>RVNL.NS</strong></td>
+                                <td>RVNL...</td>
+                                <td><span class="sector-tag">UNKNOWN</span></td>
+                                <td class="price">₹341.65</td>
+                                <td class="price">₹346.65</td>
+                                <td class="price">₹351.92</td>
+                                <td class="change-positive">+1.5%</td>
+                                <td class="low-error">1.5%</td>
+                                <td class="strong-buy">STRONG BUY</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>INOXWIND.NS</strong></td>
+                                <td>Inoxwind...</td>
+                                <td><span class="sector-tag">UNKNOWN</span></td>
+                                <td class="price">₹138.70</td>
+                                <td class="price">₹140.69</td>
+                                <td class="price">₹145.31</td>
+                                <td class="change-positive">+1.4%</td>
+                                <td class="low-error">1.4%</td>
+                                <td class="strong-buy">STRONG BUY</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>LTIM.NS</strong></td>
+                                <td>Ltim...</td>
+                                <td><span class="sector-tag">UNKNOWN</span></td>
+                                <td class="price">₹5,158.00</td>
+                                <td class="price">₹5,230.59</td>
+                                <td class="price">₹5,316.26</td>
+                                <td class="change-positive">+1.4%</td>
+                                <td class="low-error">1.4%</td>
+                                <td class="strong-buy">STRONG BUY</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>CDSL.NS</strong></td>
+                                <td>CDSL...</td>
+                                <td><span class="sector-tag">UNKNOWN</span></td>
+                                <td class="price">₹1,475.00</td>
+                                <td class="price">₹1,492.13</td>
+                                <td class="price">₹1,529.24</td>
+                                <td class="change-positive">+1.2%</td>
+                                <td class="low-error">1.2%</td>
+                                <td class="strong-buy">STRONG BUY</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>PRESTIGE.NS</strong></td>
+                                <td>Prestige...</td>
+                                <td><span class="sector-tag">UNKNOWN</span></td>
+                                <td class="price">₹1,520.80</td>
+                                <td class="price">₹1,536.60</td>
+                                <td class="price">₹1,583.43</td>
+                                <td class="change-positive">+1.0%</td>
+                                <td class="low-error">1.0%</td>
+                                <td class="strong-buy">STRONG BUY</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>IREDA.NS</strong></td>
+                                <td>IREDA...</td>
+                                <td><span class="sector-tag">UNKNOWN</span></td>
+                                <td class="price">₹148.78</td>
+                                <td class="price">₹149.66</td>
+                                <td class="price">₹154.34</td>
+                                <td class="change-positive">+0.6%</td>
+                                <td class="low-error">0.6%</td>
+                                <td class="strong-buy">STRONG BUY</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>TRENT.NS</strong></td>
+                                <td>Trent...</td>
+                                <td><span class="sector-tag">UNKNOWN</span></td>
+                                <td class="price">₹4,730.50</td>
+                                <td class="price">₹4,737.67</td>
+                                <td class="price">₹4,898.95</td>
+                                <td class="change-positive">+0.2%</td>
+                                <td class="low-error">0.2%</td>
+                                <td class="strong-buy">STRONG BUY</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>DLF.NS</strong></td>
+                                <td>Dlf...</td>
+                                <td><span class="sector-tag">UNKNOWN</span></td>
+                                <td class="price">₹722.15</td>
+                                <td class="price">₹721.13</td>
+                                <td class="price">₹743.99</td>
+                                <td class="change-negative">-0.1%</td>
+                                <td class="low-error">0.1%</td>
+                                <td class="strong-buy">STRONG BUY</td>
+                            </tr>
+                
+                        </tbody>
+                    </table>
+                </div>
+            
+                <div class="recommendation-group">
+                    <div class="recommendation-header strong-sell-header">
+                        📉 STRONG SELL Recommendations (1 stocks)
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Ticker</th>
+                                <th>Company</th>
+                                <th>Sector</th>
+                                <th>Current Price</th>
+                                <th>ARIMA Prediction</th>
+                                <th>Combined Prediction</th>
+                                <th>ARIMA Change %</th>
+                                <th>ARIMA Error %</th>
+                                <th>Signal</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+            
+                            <tr>
+                                <td><strong>HINDPETRO.NS</strong></td>
+                                <td>Hindpetro...</td>
+                                <td><span class="sector-tag">UNKNOWN</span></td>
+                                <td class="price">₹441.75</td>
+                                <td class="price">₹423.10</td>
+                                <td class="price">₹412.58</td>
+                                <td class="change-negative">-4.2%</td>
+                                <td class="low-error">4.2%</td>
+                                <td class="strong-sell">STRONG SELL</td>
+                            </tr>
+                
+                        </tbody>
+                    </table>
+                </div>
+            
+            </div>
+        
+            <div class="footer">
+                <p><strong>📊 ARIMA Analysis Report generated on 2025-09-29 at 19:50:23</strong></p>
+                <p><em>🎯 Only Strong Buy/Strong Sell recommendations shown</em></p>
+                <p><em>📈 ARIMA Error < 30% filter applied for quality predictions</em></p>
+                <p><em>💼 Organized by sector for better analysis</em></p>
+                <p><em>📊 Average ARIMA Error: 3.2%</em></p>
+                <p style="margin-top: 15px; padding-top: 15px; border-top: 1px solid #dee2e6;">
+                    <strong>⚠️ Disclaimer:</strong> This is for educational purposes only. Always consult with financial advisors before making investment decisions.
+                </p>
+            </div>
+        </div>
+    </body>
+    </html>
+    

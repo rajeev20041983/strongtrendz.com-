@@ -1,0 +1,543 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>ARIMA Stock Analysis - 2025-10-05</title>
+        <style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+                margin: 0;
+                padding: 20px;
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                min-height: 100vh;
+            }
+            .container {
+                max-width: 1400px;
+                margin: 0 auto;
+                background-color: white;
+                padding: 30px;
+                border-radius: 15px;
+                box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            }
+            .header {
+                text-align: center;
+                margin-bottom: 40px;
+                padding: 30px;
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                color: white;
+                border-radius: 15px;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            }
+            .header h1 {
+                margin: 0 0 10px 0;
+                font-size: 2.5em;
+                font-weight: 700;
+            }
+            .arima-banner {
+                background: linear-gradient(145deg, #007bff, #0056b3);
+                color: white;
+                padding: 15px;
+                border-radius: 10px;
+                text-align: center;
+                margin: 20px 0;
+                font-weight: bold;
+            }
+            .summary-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                gap: 25px;
+                margin-bottom: 40px;
+            }
+            .summary-card {
+                background: linear-gradient(145deg, #f8f9fa, #e9ecef);
+                padding: 25px;
+                border-radius: 15px;
+                border-left: 5px solid #007bff;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+                transition: transform 0.3s ease;
+            }
+            .summary-card:hover {
+                transform: translateY(-5px);
+            }
+            .summary-card h3 {
+                margin: 0 0 15px 0;
+                color: #333;
+                font-size: 1.1em;
+            }
+            .summary-card .value {
+                font-size: 2.2em;
+                font-weight: bold;
+                color: #007bff;
+                margin-bottom: 5px;
+            }
+            .sector-section {
+                margin: 40px 0;
+                padding: 30px;
+                border: 2px solid #e9ecef;
+                border-radius: 15px;
+                background: linear-gradient(145deg, #ffffff, #f8f9fa);
+                box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            }
+            .sector-header {
+                margin-bottom: 25px;
+                padding: 20px;
+                background: linear-gradient(135deg, #007bff, #0056b3);
+                color: white;
+                border-radius: 10px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+            .sector-header h2 {
+                margin: 0;
+                font-size: 1.8em;
+                font-weight: 600;
+            }
+            .recommendation-group {
+                margin: 25px 0;
+            }
+            .recommendation-header {
+                margin-bottom: 15px;
+                padding: 15px;
+                border-radius: 8px;
+                font-weight: bold;
+                font-size: 1.1em;
+            }
+            .strong-buy-header {
+                background: linear-gradient(145deg, #d4edda, #c3e6cb);
+                color: #155724;
+                border-left: 5px solid #28a745;
+            }
+            .strong-sell-header {
+                background: linear-gradient(145deg, #f8d7da, #f5c6cb);
+                color: #721c24;
+                border-left: 5px solid #dc3545;
+            }
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                margin: 15px 0;
+                background: white;
+                border-radius: 10px;
+                overflow: hidden;
+                box-shadow: 0 3px 10px rgba(0,0,0,0.06);
+                font-size: 0.9em;
+            }
+            th, td {
+                padding: 12px;
+                text-align: left;
+                border-bottom: 1px solid #e9ecef;
+            }
+            th {
+                background: linear-gradient(145deg, #f8f9fa, #e9ecef);
+                font-weight: 600;
+                color: #333;
+                font-size: 0.85em;
+            }
+            tr:hover {
+                background-color: #f8f9fa;
+            }
+            .strong-buy { color: #155724; font-weight: bold; background: #d4edda; padding: 4px 8px; border-radius: 4px; }
+            .strong-sell { color: #721c24; font-weight: bold; background: #f8d7da; padding: 4px 8px; border-radius: 4px; }
+            .low-error { color: #28a745; font-weight: 600; }
+            .sector-tag { background: #007bff; color: white; padding: 2px 8px; border-radius: 12px; font-size: 0.8em; }
+            .price { font-weight: 600; color: #333; }
+            .change-positive { color: #28a745; font-weight: 600; }
+            .change-negative { color: #dc3545; font-weight: 600; }
+            .footer {
+                text-align: center;
+                margin-top: 40px;
+                padding: 25px;
+                background: linear-gradient(145deg, #f8f9fa, #e9ecef);
+                border-radius: 15px;
+                border: 1px solid #dee2e6;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="header">
+                <h1>📈 Pure ARIMA Stock Analysis</h1>
+                <p><strong>Strong Buy/Sell Recommendations Only</strong></p>
+                <p>Generated: 2025-10-05 20:16:41</p>
+                <p>ARIMA Error < 30% Filter Applied</p>
+            </div>
+            
+            <div class="arima-banner">
+                📊 PURE ARIMA STRATEGY: Technical analysis using ARIMA predictions only<br>
+                🎯 Strong Recommendations: STRONG BUY & STRONG SELL only<br>
+                ⚡ Quality Filter: ARIMA Error < 30% for reliable predictions
+            </div>
+            
+            <div class="summary-grid">
+                <div class="summary-card">
+                    <h3>📈 Total Stocks Analyzed</h3>
+                    <div class="value">224</div>
+                    <div class="subtitle">Complete analysis attempted</div>
+                </div>
+                <div class="summary-card">
+                    <h3>⚡ Strong Recommendations</h3>
+                    <div class="value">23</div>
+                    <div class="subtitle">ARIMA Error < 30%</div>
+                </div>
+                <div class="summary-card">
+                    <h3>🚀 Strong Buy</h3>
+                    <div class="value">1</div>
+                    <div class="subtitle">Buy recommendations</div>
+                </div>
+                <div class="summary-card">
+                    <h3>📉 Strong Sell</h3>
+                    <div class="value">22</div>
+                    <div class="subtitle">Sell recommendations</div>
+                </div>
+            </div>
+    
+            <div class="sector-section">
+                <div class="sector-header">
+                    <h2>🏭 UNKNOWN</h2>
+                    <div class="sector-performance">-2.02%</div>
+                </div>
+                <p><strong>Strong Recommendations:</strong> 23 stocks</p>
+        
+                <div class="recommendation-group">
+                    <div class="recommendation-header strong-buy-header">
+                        🚀 STRONG BUY Recommendations (1 stocks)
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Ticker</th>
+                                <th>Company</th>
+                                <th>Sector</th>
+                                <th>Current Price</th>
+                                <th>ARIMA Prediction</th>
+                                <th>Combined Prediction</th>
+                                <th>ARIMA Change %</th>
+                                <th>ARIMA Error %</th>
+                                <th>Signal</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+            
+                            <tr>
+                                <td><strong>MAXHEALTH.NS</strong></td>
+                                <td>Maxhealth...</td>
+                                <td><span class="sector-tag">UNKNOWN</span></td>
+                                <td class="price">₹1,069.20</td>
+                                <td class="price">₹1,114.43</td>
+                                <td class="price">₹1,116.67</td>
+                                <td class="change-positive">+4.2%</td>
+                                <td class="low-error">4.2%</td>
+                                <td class="strong-buy">STRONG BUY</td>
+                            </tr>
+                
+                        </tbody>
+                    </table>
+                </div>
+            
+                <div class="recommendation-group">
+                    <div class="recommendation-header strong-sell-header">
+                        📉 STRONG SELL Recommendations (22 stocks)
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Ticker</th>
+                                <th>Company</th>
+                                <th>Sector</th>
+                                <th>Current Price</th>
+                                <th>ARIMA Prediction</th>
+                                <th>Combined Prediction</th>
+                                <th>ARIMA Change %</th>
+                                <th>ARIMA Error %</th>
+                                <th>Signal</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+            
+                            <tr>
+                                <td><strong>KALYANKJIL.NS</strong></td>
+                                <td>Kalyankjil...</td>
+                                <td><span class="sector-tag">UNKNOWN</span></td>
+                                <td class="price">₹492.15</td>
+                                <td class="price">₹464.21</td>
+                                <td class="price">₹465.09</td>
+                                <td class="change-negative">-5.7%</td>
+                                <td class="low-error">5.7%</td>
+                                <td class="strong-sell">STRONG SELL</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>POONAWALLA.NS</strong></td>
+                                <td>Poonawalla...</td>
+                                <td><span class="sector-tag">UNKNOWN</span></td>
+                                <td class="price">₹524.40</td>
+                                <td class="price">₹501.75</td>
+                                <td class="price">₹502.93</td>
+                                <td class="change-negative">-4.3%</td>
+                                <td class="low-error">4.3%</td>
+                                <td class="strong-sell">STRONG SELL</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>IDEA.NS</strong></td>
+                                <td>Idea...</td>
+                                <td><span class="sector-tag">UNKNOWN</span></td>
+                                <td class="price">₹8.82</td>
+                                <td class="price">₹8.49</td>
+                                <td class="price">₹8.32</td>
+                                <td class="change-negative">-3.8%</td>
+                                <td class="low-error">3.8%</td>
+                                <td class="strong-sell">STRONG SELL</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>SOLARINDS.NS</strong></td>
+                                <td>Solarinds...</td>
+                                <td><span class="sector-tag">UNKNOWN</span></td>
+                                <td class="price">₹13,853.00</td>
+                                <td class="price">₹13,378.95</td>
+                                <td class="price">₹13,338.27</td>
+                                <td class="change-negative">-3.4%</td>
+                                <td class="low-error">3.4%</td>
+                                <td class="strong-sell">STRONG SELL</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>TATASTEEL.NS</strong></td>
+                                <td>Tatasteel...</td>
+                                <td><span class="sector-tag">UNKNOWN</span></td>
+                                <td class="price">₹173.21</td>
+                                <td class="price">₹167.72</td>
+                                <td class="price">₹167.20</td>
+                                <td class="change-negative">-3.2%</td>
+                                <td class="low-error">3.2%</td>
+                                <td class="strong-sell">STRONG SELL</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>HFCL.NS</strong></td>
+                                <td>HFCL...</td>
+                                <td><span class="sector-tag">UNKNOWN</span></td>
+                                <td class="price">₹75.87</td>
+                                <td class="price">₹73.54</td>
+                                <td class="price">₹73.54</td>
+                                <td class="change-negative">-3.1%</td>
+                                <td class="low-error">3.1%</td>
+                                <td class="strong-sell">STRONG SELL</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>NATIONALUM.NS</strong></td>
+                                <td>Nationalum...</td>
+                                <td><span class="sector-tag">UNKNOWN</span></td>
+                                <td class="price">₹221.16</td>
+                                <td class="price">₹214.89</td>
+                                <td class="price">₹209.41</td>
+                                <td class="change-negative">-2.8%</td>
+                                <td class="low-error">2.8%</td>
+                                <td class="strong-sell">STRONG SELL</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>NBCC.NS</strong></td>
+                                <td>NBCC...</td>
+                                <td><span class="sector-tag">UNKNOWN</span></td>
+                                <td class="price">₹113.12</td>
+                                <td class="price">₹109.94</td>
+                                <td class="price">₹108.74</td>
+                                <td class="change-negative">-2.8%</td>
+                                <td class="low-error">2.8%</td>
+                                <td class="strong-sell">STRONG SELL</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>HINDPETRO.NS</strong></td>
+                                <td>Hindpetro...</td>
+                                <td><span class="sector-tag">UNKNOWN</span></td>
+                                <td class="price">₹446.30</td>
+                                <td class="price">₹434.44</td>
+                                <td class="price">₹430.88</td>
+                                <td class="change-negative">-2.7%</td>
+                                <td class="low-error">2.7%</td>
+                                <td class="strong-sell">STRONG SELL</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>GRANULES.NS</strong></td>
+                                <td>Granules...</td>
+                                <td><span class="sector-tag">UNKNOWN</span></td>
+                                <td class="price">₹557.30</td>
+                                <td class="price">₹543.48</td>
+                                <td class="price">₹539.38</td>
+                                <td class="change-negative">-2.5%</td>
+                                <td class="low-error">2.5%</td>
+                                <td class="strong-sell">STRONG SELL</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>HEROMOTOCO.NS</strong></td>
+                                <td>Heromotoco...</td>
+                                <td><span class="sector-tag">UNKNOWN</span></td>
+                                <td class="price">₹5,550.50</td>
+                                <td class="price">₹5,412.92</td>
+                                <td class="price">₹5,348.90</td>
+                                <td class="change-negative">-2.5%</td>
+                                <td class="low-error">2.5%</td>
+                                <td class="strong-sell">STRONG SELL</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>BHEL.NS</strong></td>
+                                <td>BHEL...</td>
+                                <td><span class="sector-tag">UNKNOWN</span></td>
+                                <td class="price">₹245.02</td>
+                                <td class="price">₹240.23</td>
+                                <td class="price">₹237.08</td>
+                                <td class="change-negative">-2.0%</td>
+                                <td class="low-error">2.0%</td>
+                                <td class="strong-sell">STRONG SELL</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>HINDALCO.NS</strong></td>
+                                <td>Hindalco...</td>
+                                <td><span class="sector-tag">UNKNOWN</span></td>
+                                <td class="price">₹780.35</td>
+                                <td class="price">₹766.48</td>
+                                <td class="price">₹755.80</td>
+                                <td class="change-negative">-1.8%</td>
+                                <td class="low-error">1.8%</td>
+                                <td class="strong-sell">STRONG SELL</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>ABFRL.NS</strong></td>
+                                <td>ABFRL...</td>
+                                <td><span class="sector-tag">UNKNOWN</span></td>
+                                <td class="price">₹87.99</td>
+                                <td class="price">₹86.50</td>
+                                <td class="price">₹84.88</td>
+                                <td class="change-negative">-1.7%</td>
+                                <td class="low-error">1.7%</td>
+                                <td class="strong-sell">STRONG SELL</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>CANBK.NS</strong></td>
+                                <td>Canbk...</td>
+                                <td><span class="sector-tag">UNKNOWN</span></td>
+                                <td class="price">₹125.90</td>
+                                <td class="price">₹124.02</td>
+                                <td class="price">₹121.72</td>
+                                <td class="change-negative">-1.5%</td>
+                                <td class="low-error">1.5%</td>
+                                <td class="strong-sell">STRONG SELL</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>ABCAPITAL.NS</strong></td>
+                                <td>ABCapital...</td>
+                                <td><span class="sector-tag">UNKNOWN</span></td>
+                                <td class="price">₹303.95</td>
+                                <td class="price">₹299.86</td>
+                                <td class="price">₹292.38</td>
+                                <td class="change-negative">-1.3%</td>
+                                <td class="low-error">1.3%</td>
+                                <td class="strong-sell">STRONG SELL</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>HINDZINC.NS</strong></td>
+                                <td>Hindzinc...</td>
+                                <td><span class="sector-tag">UNKNOWN</span></td>
+                                <td class="price">₹491.50</td>
+                                <td class="price">₹485.16</td>
+                                <td class="price">₹472.84</td>
+                                <td class="change-negative">-1.3%</td>
+                                <td class="low-error">1.3%</td>
+                                <td class="strong-sell">STRONG SELL</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>LTF.NS</strong></td>
+                                <td>LTF...</td>
+                                <td><span class="sector-tag">UNKNOWN</span></td>
+                                <td class="price">₹262.33</td>
+                                <td class="price">₹259.04</td>
+                                <td class="price">₹253.95</td>
+                                <td class="change-negative">-1.3%</td>
+                                <td class="low-error">1.3%</td>
+                                <td class="strong-sell">STRONG SELL</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>BANDHANBNK.NS</strong></td>
+                                <td>Bandhanbnk...</td>
+                                <td><span class="sector-tag">UNKNOWN</span></td>
+                                <td class="price">₹165.96</td>
+                                <td class="price">₹164.11</td>
+                                <td class="price">₹160.45</td>
+                                <td class="change-negative">-1.1%</td>
+                                <td class="low-error">1.1%</td>
+                                <td class="strong-sell">STRONG SELL</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>BANKINDIA.NS</strong></td>
+                                <td>Bankindia...</td>
+                                <td><span class="sector-tag">UNKNOWN</span></td>
+                                <td class="price">₹125.53</td>
+                                <td class="price">₹124.58</td>
+                                <td class="price">₹121.12</td>
+                                <td class="change-negative">-0.8%</td>
+                                <td class="low-error">0.8%</td>
+                                <td class="strong-sell">STRONG SELL</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>HINDCOPPER.NS</strong></td>
+                                <td>Hindcopper...</td>
+                                <td><span class="sector-tag">UNKNOWN</span></td>
+                                <td class="price">₹338.40</td>
+                                <td class="price">₹335.90</td>
+                                <td class="price">₹323.08</td>
+                                <td class="change-negative">-0.7%</td>
+                                <td class="low-error">0.7%</td>
+                                <td class="strong-sell">STRONG SELL</td>
+                            </tr>
+                
+                            <tr>
+                                <td><strong>HUDCO.NS</strong></td>
+                                <td>Hudco...</td>
+                                <td><span class="sector-tag">UNKNOWN</span></td>
+                                <td class="price">₹233.79</td>
+                                <td class="price">₹232.59</td>
+                                <td class="price">₹226.56</td>
+                                <td class="change-negative">-0.5%</td>
+                                <td class="low-error">0.5%</td>
+                                <td class="strong-sell">STRONG SELL</td>
+                            </tr>
+                
+                        </tbody>
+                    </table>
+                </div>
+            
+            </div>
+        
+            <div class="footer">
+                <p><strong>📊 ARIMA Analysis Report generated on 2025-10-05 at 20:16:41</strong></p>
+                <p><em>🎯 Only Strong Buy/Strong Sell recommendations shown</em></p>
+                <p><em>📈 ARIMA Error < 30% filter applied for quality predictions</em></p>
+                <p><em>💼 Organized by sector for better analysis</em></p>
+                <p><em>📊 Average ARIMA Error: 2.4%</em></p>
+                <p style="margin-top: 15px; padding-top: 15px; border-top: 1px solid #dee2e6;">
+                    <strong>⚠️ Disclaimer:</strong> This is for educational purposes only. Always consult with financial advisors before making investment decisions.
+                </p>
+            </div>
+        </div>
+    </body>
+    </html>
+    

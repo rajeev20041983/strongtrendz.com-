@@ -1,0 +1,36 @@
+{
+  "stocks": {
+    "list": [
+      {"symbol": "KFINTECH", "quantity": 25, "timeframe": "5min", "enabled": true},
+      {"symbol": "MUTHOOTFIN", "quantity": 25, "timeframe": "5min", "enabled": true},
+      {"symbol": "RBLBANK", "quantity": 25, "timeframe": "5min", "enabled": true},
+      {"symbol": "ADANIGREEN", "quantity": 25, "timeframe": "5min", "enabled": true},
+      {"symbol": "LTIM", "quantity": 25, "timeframe": "5min", "enabled": true},
+      {"symbol": "PERSISTENT", "quantity": 25, "timeframe": "5min", "enabled": true},
+      {"symbol": "MPHASIS", "quantity": 25, "timeframe": "5min", "enabled": true},
+      {"symbol": "MAZDOCK", "quantity": 25, "timeframe": "5min", "enabled": true},
+      {"symbol": "VOLTAS", "quantity": 25, "timeframe": "5min", "enabled": true},
+      {"symbol": "BLUESTARCO", "quantity": 25, "timeframe": "5min", "enabled": true},
+      {"symbol": "ADANIENSOL", "quantity": 25, "timeframe": "5min", "enabled": true},
+      {"symbol": "COFORGE", "quantity": 25, "timeframe": "5min", "enabled": true},
+      {"symbol": "NIFTY", "quantity": 25, "timeframe": "5min", "enabled": true},
+      {"symbol": "TECHM", "quantity": 25, "timeframe": "5min", "enabled": true},
+      {"symbol": "PPLPHARMA", "quantity": 25, "timeframe": "5min", "enabled": true},
+      {"symbol": "INFY", "quantity": 25, "timeframe": "5min", "enabled": true},
+      {"symbol": "360ONE", "quantity": 25, "timeframe": "5min", "enabled": true}
+    ]
+  },
+  "trading_settings": {
+    "market_open": "09:20",
+    "market_close": "14:30",
+    "product_type": "INTRA",
+    "order_type": "MARKET",
+    "enable_reentry_after_squareoff": false,
+    "max_positions_per_symbol": 1,
+    "max_total_positions": 10,
+    "stop_loss_percentage": 2.0,
+    "target_percentage": 3.0,
+    "trailing_stop_loss": false,
+    "notes": "Stocks with >10.0% change (17 stocks) - Updated 2025-09-22 19:25:26"
+  }
+}
