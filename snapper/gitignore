@@ -1,7 +1,7 @@
 # Credentials — never commit these
 config/dhan_credentials.json
 security_ids.xlsx
-
+stocks_config.json
 # Generated at runtime
 data/
 logs/
@@ -15,3 +15,5 @@ __pycache__/
 # OS
 .DS_Store
 Thumbs.db
+
+gitignore 
