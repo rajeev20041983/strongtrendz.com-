@@ -1,0 +1,34 @@
+{
+  "stocks": {
+    "list": [
+      {"symbol": "ABB", "quantity": 2, "enabled": true},
+      {"symbol": "PERSISTENT", "quantity": 2, "enabled": true},
+      {"symbol": "SIEMENS", "quantity": 3, "enabled": true},
+      {"symbol": "ONGC", "quantity": 43, "enabled": true},
+      {"symbol": "OIL", "quantity": 25, "enabled": true},
+      {"symbol": "INFY", "quantity": 8, "enabled": true},
+      {"symbol": "ZYDUSLIFE", "quantity": 13, "enabled": true},
+      {"symbol": "ULTRACEMCO", "quantity": 1, "enabled": true},
+      {"symbol": "UNIONBANK", "quantity": 50, "enabled": true},
+      {"symbol": "DIVISLAB", "quantity": 1, "enabled": true},
+      {"symbol": "CHOLAFIN", "quantity": 7, "enabled": true},
+      {"symbol": "NHPC", "quantity": 162, "enabled": true},
+      {"symbol": "RVNL", "quantity": 39, "enabled": true},
+      {"symbol": "ALKEM", "quantity": 2, "enabled": true},
+      {"symbol": "HINDALCO", "quantity": 13, "enabled": true},
+      {"symbol": "BAJAJ-AUTO", "quantity": 1, "enabled": true},
+      {"symbol": "PIDILITIND", "quantity": 8, "enabled": true},
+      {"symbol": "MAXHEALTH", "quantity": 11, "enabled": true},
+      {"symbol": "SHREECEM", "quantity": 1, "enabled": true},
+      {"symbol": "TORNTPHARM", "quantity": 2, "enabled": true},
+      {"symbol": "POWERINDIA", "quantity": 1, "enabled": true},
+      {"symbol": "MCX", "quantity": 4, "enabled": true},
+      {"symbol": "TECHM", "quantity": 8, "enabled": true},
+      {"symbol": "BAJFINANCE", "quantity": 11, "enabled": true}
+    ]
+  },
+  "trading_settings": {
+    "max_total_positions": 24,
+    "_updated": "2026-02-21 17:04:53 | top30 by OI change% | 24 stocks | Spurts-in-OI-By-Underlying-20022026 (7).csv"
+  }
+}
