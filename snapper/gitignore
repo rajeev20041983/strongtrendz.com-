@@ -1,7 +1,7 @@
 # Credentials — never commit these
-config/dhan_credentials.json
+dhan_credentials.json
 security_ids.xlsx
-stocks_config.json
+config/stocks_config.json
 # Generated at runtime
 data/
 logs/
