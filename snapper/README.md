@@ -11,7 +11,7 @@ NSE OI File (manual download)
         ↓
 watch_oi.py (file watcher)
         ↓
-stocks_config.json (top 30 by OI change%)
+stocks_config.json (filtered stocks by OI change%)
         ↓
 TradeSmart Pine Script (5min chart signals)
         ↓
@@ -19,7 +19,7 @@ TradingView Webhook Alerts
         ↓
 Ngrok Tunnel (strongtrendz.ngrok-free.app)
         ↓
-tradesmart_webhook.py (Flask server)
+tradesmart.py (Flask webhook server)
         ↓
 Dhan API → NSE Market Order
 ```
@@ -30,7 +30,7 @@ Dhan API → NSE Market Order
 
 | File | Purpose |
 |------|---------|
-| `tradesmart_webhook.py` | Flask webhook server — receives signals, places Dhan orders |
+| `tradesmart.py` | Flask webhook server — receives signals, places Dhan orders |
 | `watch_oi.py` | Watches Downloads for NSE OI files, updates stock config |
 | `TradeSmart.pine` | Pine Script indicator for TradingView |
 | `config/stocks_config.json` | Active stock list with quantities |
@@ -72,11 +72,132 @@ ngrok http 5000 --domain=strongtrendz.ngrok-free.app
 
 ---
 
-## Daily Routine
+## OI Filter Rules — How Stocks Are Selected
 
-### 8:55am — Start Terminals
+Every time you drop a new NSE file, `watch_oi.py` applies progressive filters based on how many files have been downloaded so far that day.
 
-**Terminal 1 — Ngrok tunnel:**
+### Filter Rules (get stricter with each file)
+
+| Files Downloaded | Rules Active |
+|-----------------|--------------|
+| 1 file | No filtering — take all stocks |
+| 2 files | Rule 1: exclude if OI dropped vs previous file OR dropped from peak |
+| 3 files | Rule 1 + Rule 2: also exclude weak builds below 2% |
+| 4+ files | Rule 1 + Rule 2 + Rule 3: must show consistent climb |
+
+### Rule Detail
+
+**Rule 1 — Drop filter (2+ files)**
+Two checks:
+- If OI change% is lower than the immediately previous file → excluded
+- If stock dropped more than 0.5% from its peak across all files → excluded
+
+```
+SIEMENS: peak +4.15 → final +4.00 = drop 0.15  ✅ within 0.5% tolerance → KEEP
+FORTIS:  peak +4.29 → final +3.74 = drop 0.55  ❌ exceeded 0.5%         → EXCLUDE
+```
+
+**Rule 2 — Weak build filter (3+ files)**
+If OI change% is below 2% → excluded. Not enough conviction.
+
+**Rule 3 — Consistency filter (4+ files)**
+If stock had more down moves than up moves across all files → excluded.
+
+### Index Futures Always Excluded
+NIFTY, BANKNIFTY, MIDCPNIFTY, FINNIFTY, SENSEX, BANKEX, NIFTYNXT50
+
+### Example Result — 8 files downloaded (9:00 to 9:15am)
+
+```
+ABB        +10.08%  ✅ strongest — consistent climb all 8 files
+PERSISTENT  +4.96%  ✅ steady build every file
+SIEMENS     +4.00%  ✅ minor dip within 0.5% tolerance
+ONGC        +2.96%  ✅ slow but clean
+FORTIS      +3.74%  ❌ peaked at 4.29 — dropped 0.55% from peak
+INDUSINDBK  +1.50%  ❌ weak build below 2%
+```
+
+Final result: **11 high conviction stocks**
+
+---
+
+## TradingView Alert Setup
+
+### 2 Alerts Per Stock Only
+
+**Alert 1 — Entry (A1):**
+- Condition → `TradeSmart` → **"Any alert() function call"**
+- Message → **leave blank** (Pine sends automatically)
+- Webhook → `https://strongtrendz.ngrok-free.app/webhook`
+- Trigger → Once Per Bar Close
+
+Pine sends automatically: `LONG|ABB|5923.45` or `SHORT|ABB|5923.45`
+
+**Alert 2 — Exit (A2):**
+- Condition → `TradeSmart` → **A2**
+- Message → `{{ticker}}|{{close}}`
+- Webhook → `https://strongtrendz.ngrok-free.app/webhook`
+- Trigger → Once Per Bar Close
+
+> 30 stocks × 2 alerts = 60 alerts — requires TradingView Pro+ plan (100 alert limit)
+
+---
+
+## Signal Flow
+
+### LONG Signal
+```
+TradeSmart fires LONG on 5min candle close
+        ↓
+Pine sends: LONG|ABB|5923.45
+        ↓
+POST https://strongtrendz.ngrok-free.app/webhook
+        ↓
+Ngrok → localhost:5000/webhook
+        ↓
+Python checks:
+  ABB in config?        ✅
+  ABB already LONG?     → ignore duplicate
+  ABB open SHORT?       → square off SHORT first → then BUY
+  No position?          → BUY directly
+        ↓
+Dhan MARKET BUY ABB × qty
+        ↓
+NSE fills at best available price
+        ↓
+Position saved to state file
+Dashboard updates
+```
+
+### SHORT Signal
+Same as LONG but reversed — squares off any open LONG first, then enters SHORT.
+
+### Exit Signal (TP or SL)
+```
+TradeSmart TP or SL fires
+        ↓
+TradingView sends: ABB|5960.00
+        ↓
+Python → no LONG/SHORT prefix → EXIT
+        ↓
+Squares off open ABB position at MARKET
+        ↓
+P&L calculated and logged
+```
+
+---
+
+## Monday Morning Flow — Step by Step
+
+### 8:50am — Refresh Dhan Token
+1. Go to [dhanhq.co](https://dhanhq.co) → Login → My Account → API
+2. Generate new access token
+3. Open `config/dhan_credentials.json` → replace `access_token`
+4. Save file
+
+### 8:55am — Start All 3 Terminals
+
+**Terminal 1 — Ngrok:**
 ```bash
 ngrok http 5000 --domain=strongtrendz.ngrok-free.app
 ```
@@ -87,622 +208,49 @@ cd ~/OneDrive/projects/strongtrendz.com-/snapper
 py tradesmart.py
 ```
 
-**Terminal 3 — OI file watcher:**
+**Terminal 3 — OI watcher:**
 ```bash
 cd ~/OneDrive/projects/strongtrendz.com-/snapper/scripts
 py watch_oi.py --folder "C:/Users/PC/Downloads"
 ```
 
-### 9:00am — Download OI Files from NSE
+Leave all 3 running. Never close during market hours.
 
-1. Go to [nseindia.com](https://www.nseindia.com) → Derivatives → OI Spurts
-2. Download CSV file
-3. Save to `C:/Users/PC/Downloads/`
-4. `watch_oi.py` auto-detects new file → updates `stocks_config.json` → reloads server
+### 9:00am — Download File 1 from NSE
+1. Go to [nseindia.com](https://nseindia.com) → Derivatives → OI Spurts
+2. Download CSV
+3. Terminal 3 detects within 10 seconds
+4. Config updates — **1 file = no filters yet, all stocks loaded**
 
-Repeat every few minutes until 9:14am. Each new file refreshes the stock list automatically.
+### 9:05am — Download File 2
+Terminal 3 detects → **Rule 1 activates**
+Stocks that dropped vs file 1 or from peak → removed
 
-> File naming: `Spurts-in-OI-By-Underlying-DDMMYYYY.csv`
-> Script picks today's files only. Falls back to yesterday if none found.
+### 9:08am — Download File 3
+Terminal 3 detects → **Rules 1+2 active**
+Stocks below 2% also removed
 
-### 9:10am — Verify System
+### 9:10am — Download File 4
+Terminal 3 detects → **Rules 1+2+3 all active**
+Only consistent climbers remain
 
+### 9:12am — Verify Config
 ```bash
-"""
-watch_oi.py
------------
-Watches a folder for new OI Spurts xlsx files dropped manually.
-On each new file:
-  - Reads stocks with change% > MIN_CHANGE
-  - Compares with current stocks_config.json
-  - Removes stocks not in new file
-  - Adds new stocks that qualify
-  - Updates stocks_config.json
-  - Reloads live trading server automatically
-
-Usage:
-    python watch_oi.py
-    python watch_oi.py --folder "C:/Downloads" --min-change 5
-"""
-
-import os
-import sys
-import json
-import time
-import glob
-import argparse
-import requests
-import pandas as pd
-from datetime import datetime
-from pathlib import Path
-
-# ── CONFIG ────────────────────────────────────────────────────
-WATCH_FOLDER    = os.path.expanduser("~/Downloads")   # folder to watch
-CONFIG_FILE     = "config/stocks_config.json"
-RELOAD_URL      = "https://strongtrendz.ngrok-free.app/reload-config"
-MIN_CHANGE      = 2.0      # minimum change% to qualify (weak build threshold)
-
-# Index futures to exclude — not tradeable as equity cash
-EXCLUDE_SYMBOLS = {
-    'NIFTY', 'BANKNIFTY', 'MIDCPNIFTY', 'FINNIFTY',
-    'SENSEX', 'BANKEX', 'NIFTYNXT50', 'CRUDEOIL',
-    'GOLD', 'SILVER', 'NATURALGAS'
-}
-MAX_STOCKS      = 30       # max stocks in config
-TARGET_VALUE    = 12000    # ₹ per position for qty calc
-POLL_INTERVAL   = 10       # seconds between folder checks
-FILE_PREFIX     = "Spurts-in-OI"  # filename prefix to watch for
-FILE_EXT        = "*.csv"             # NSE downloads as CSV
-
-# ── QUANTITY CALC ─────────────────────────────────────────────
-def calculate_quantity(price: float) -> int:
-    if not price or price <= 0:
-        return 25
-    qty = int(TARGET_VALUE / price)
-    if price < 100:   return min(200, max(50,  qty))
-    if price < 500:   return min(50,  max(20,  qty))
-    if price < 1000:  return min(25,  max(10,  qty))
-    if price < 2000:  return min(15,  max(5,   qty))
-    if price < 5000:  return min(5,   max(2,   qty))
-    return max(1, qty)
-
-
-# ── EXCEL PARSER ──────────────────────────────────────────────
-def parse_oi_file(filepath: str) -> list:
-    """
-    Parse NSE OI Spurts xlsx file.
-    Returns list of dicts with symbol, change_pct, ltp, quantity
-    sorted by change% descending.
-    """
-    try:
-        df = pd.read_csv(filepath, header=0)
-        df.columns = df.columns.str.strip()
-
-        print(f"   Columns found: {df.columns.tolist()}")
-
-        # Find relevant columns — NSE file uses various names
-        def find_col(patterns):
-            for pat in patterns:
-                for col in df.columns:
-                    if pat.lower() in col.lower():
-                        return col
-            return None
-
-        sym_col    = find_col(['symbol', 'underlying', 'scrip', 'ticker'])
-        change_col = find_col(['%chng', 'change%', 'chng%', '% change', 'change (%)'])
-        price_col  = find_col(['underlying value', 'ltp', 'last price', 'close', 'prev. close', 'price', 'underlying'])
-
-        if not sym_col:
-            sym_col = df.columns[0]
-            print(f"   ⚠️  Using first column as symbol: {sym_col}")
-
-        if not change_col:
-            print(f"   ❌ Cannot find change% column")
-            return []
-
-        print(f"   Symbol col  : {sym_col}")
-        print(f"   Change col  : {change_col}")
-        print(f"   Price col   : {price_col or 'not found'}")
-
-        # Clean change column
-        df[change_col] = (
-            df[change_col].astype(str)
-            .str.replace('%', '', regex=False)
-            .str.replace(',', '', regex=False)
-            .str.strip()
-        )
-        df[change_col] = pd.to_numeric(df[change_col], errors='coerce')
-
-        # Sort by change% descending, take top MAX_STOCKS
-        # No minimum filter — take all stocks ordered by OI change
-        filtered = df.copy()
-        filtered = filtered.sort_values(change_col, ascending=False)
-        filtered = filtered.head(MAX_STOCKS)
-
-        results = []
-        for _, row in filtered.iterrows():
-            symbol = str(row[sym_col]).strip().upper().split(':')[-1]
-            if not symbol or symbol in ('NAN', 'SYMBOL', ''):
-                continue
-
-            # Skip index futures
-            if symbol in EXCLUDE_SYMBOLS:
-                print(f"   ⏭️  Skipping index: {symbol}")
-                continue
-
-            # Get price for qty calculation
-            price = None
-            if price_col:
-                try:
-                    price = float(str(row[price_col]).replace(',', '').replace(' ', ''))
-                except (ValueError, TypeError):
-                    pass
-
-            change = round(float(row[change_col]), 2) if pd.notna(row[change_col]) else 0
-            qty    = calculate_quantity(price) if price else 25
-
-            results.append({
-                "symbol":     symbol,
-                "change_pct": change,
-                "ltp":        round(price, 2) if price else None,
-                "quantity":   qty,
-            })
-
-        return results
-
-    except Exception as e:
-        print(f"   ❌ Parse error: {e}")
-        return []
-
-
-# ── CONFIG MANAGER ────────────────────────────────────────────
-def load_config() -> dict:
-    try:
-        with open(CONFIG_FILE) as f:
-            return json.load(f)
-    except FileNotFoundError:
-        return {"stocks": {"list": []}, "trading_settings": {"max_total_positions": 10}}
-
-
-def save_config(stock_list: list, note: str):
-    config = {
-        "stocks": {
-            "list": stock_list
-        },
-        "trading_settings": {
-            "max_total_positions": min(len(stock_list), MAX_STOCKS),
-            "_updated": note
-        }
-    }
-    os.makedirs(os.path.dirname(CONFIG_FILE), exist_ok=True)
-    with open(CONFIG_FILE, "w") as f:
-        # Write header
-        f.write('{\n  "stocks": {\n    "list": [\n')
-        # Write each stock on one line
-        for i, s in enumerate(stock_list):
-            comma = ',' if i < len(stock_list) - 1 else ''
-            f.write(f'      {{"symbol": "{s["symbol"]}", "quantity": {s["quantity"]}, "enabled": {str(s["enabled"]).lower()}}}{comma}\n')
-        f.write('    ]\n  },\n')
-        f.write(f'  "trading_settings": {{\n')
-        f.write(f'    "max_total_positions": {min(len(stock_list), MAX_STOCKS)},\n')
-        f.write(f'    "_updated": "{note}"\n')
-        f.write('  }\n}\n')
-
-
-def reload_server():
-    try:
-        resp = requests.post(RELOAD_URL, timeout=5)
-        if resp.status_code == 200:
-            print(f"   ✅ Server reloaded — {resp.json().get('stocks', '?')} stocks active")
-        else:
-            print(f"   ⚠️  Reload returned {resp.status_code}")
-    except Exception as e:
-        print(f"   ⚠️  Could not reach server: {e}")
-
-
-# ── CORE UPDATE LOGIC ─────────────────────────────────────────
-def update_from_file(filepath: str):
-    print(f"\n{'─'*55}")
-    print(f"📂 New file detected: {Path(filepath).name}")
-    print(f"{'─'*55}")
-
-    # Step 1 — Parse latest OI file only
-    oi_stocks = parse_oi_file(filepath)
-
-    if not oi_stocks:
-        print("   ⚠️  No stocks found in OI file — config unchanged")
-        return
-
-    # Find ALL today's files to check OI direction across them
-    today     = DATE_OVERRIDE or datetime.now().strftime("%d%m%Y")
-    pattern   = os.path.join(os.path.dirname(filepath), f"{FILE_PREFIX}*{today}*.csv")
-    all_today = sorted(glob.glob(pattern), key=os.path.getmtime)
-
-    # Build OI history: symbol → [pct_file1, pct_file2, ... pct_latest]
-    oi_history = {}
-    for f in all_today:
-        stocks = parse_oi_file(f)
-        for s in stocks:
-            sym = s["symbol"]
-            if sym not in oi_history:
-                oi_history[sym] = []
-            oi_history[sym].append(s["change_pct"])
-
-    # ── Filter rules — stricter with more files ─────────────────
-    # 1 file  → no filtering, take everything
-    # 2 files → Rule 1: exclude stocks where OI dropped vs previous
-    # 3 files → Rule 1 + Rule 2: also exclude weak builds
-    # 4+ files→ Rule 1 + Rule 2 + Rule 3: must show consistent climb
-
-    num_files = len(all_today)
-    filtered_stocks = []
-    excluded = []
-
-    print(f"   📂 Files so far today: {num_files} → ", end='')
-    if num_files == 1:
-        print("no filters applied")
-    elif num_files == 2:
-        print("Rule 1 active: drop filter")
-    elif num_files == 3:
-        print("Rules 1+2 active: drop + weak build filter")
-    else:
-        print(f"Rules 1+2+3 active: drop + weak + consistent climb filter")
-
-    for s in oi_stocks:
-        sym      = s["symbol"]
-        curr_pct = s["change_pct"]
-        history  = oi_history.get(sym, [curr_pct])
-
-        # Rule 1 (2+ files) — OI dropped vs previous file OR dropped from peak
-        if num_files >= 2 and len(history) >= 2:
-            prev_pct = history[-2]
-            peak_pct = max(history)
-            # Dropped vs previous file
-            if curr_pct < prev_pct:
-                excluded.append(f"{sym}(dropped:{prev_pct:+.2f}→{curr_pct:+.2f})")
-                continue
-            # Dropped from peak by more than 0.5% tolerance
-            PEAK_TOLERANCE = 0.5
-            if (peak_pct - curr_pct) > PEAK_TOLERANCE:
-                excluded.append(f"{sym}(peak:{peak_pct:+.2f}→now:{curr_pct:+.2f} drop:{peak_pct-curr_pct:.2f})")
-                continue
-
-        # Rule 2 (3+ files) — Weak build, barely moved
-        if num_files >= 3:
-            if curr_pct < MIN_CHANGE:
-                excluded.append(f"{sym}(weak:{curr_pct:+.2f}%)")
-                continue
-
-        # Rule 3 (4+ files) — Must show consistent upward climb
-        # i.e. more ups than downs across all files
-        if num_files >= 4 and len(history) >= 3:
-            ups   = sum(1 for i in range(1, len(history)) if history[i] >= history[i-1])
-            downs = sum(1 for i in range(1, len(history)) if history[i] < history[i-1])
-            if downs > ups:
-                excluded.append(f"{sym}(inconsistent:{ups}up/{downs}dn)")
-                continue
-
-        filtered_stocks.append(s)
-
-    if excluded:
-        print(f"\n   ❌ Excluded ({len(excluded)}): {', '.join(excluded)}")
-    print(f"   ✅ Qualifying: {len(filtered_stocks)} stocks")
-
-    oi_stocks = filtered_stocks
-
-    # Step 2 — Load current config (deduplicate in case of bad state)
-    current_cfg  = load_config()
-    current_list = current_cfg.get("stocks", {}).get("list", [])
-    seen = set()
-    deduped = []
-    for s in current_list:
-        if s["symbol"] not in seen:
-            seen.add(s["symbol"])
-            deduped.append(s)
-    current_list = deduped
-    current_map  = {s["symbol"]: s for s in current_list}
-    current_syms = set(current_map.keys())
-
-    # Step 3 — Build OI lookup map for quick reference
-    oi_map     = {s["symbol"]: s for s in oi_stocks}
-    oi_symbols = [s["symbol"] for s in oi_stocks]  # ordered by change% desc
-
-    # Step 4 — Start with existing config stocks that are still in today's OI
-    final_list  = []
-    kept_syms   = set()
-    added_syms  = set()
-    removed_syms = set()
-
-    # Keep existing config stocks that appear in today's OI file
-    for sym, cfg_stock in current_map.items():
-        if sym in oi_map:
-            # Stock still active in OI — keep with existing qty
-            final_list.append({
-                "symbol":   sym,
-                "quantity": cfg_stock.get("quantity", oi_map[sym]["quantity"]),
-                "enabled":  cfg_stock.get("enabled", True),
-            })
-            kept_syms.add(sym)
-        else:
-            # Stock no longer in today's OI file — remove
-            removed_syms.add(sym)
-
-    # Step 5 — Add all remaining OI stocks (no cap)
-    for sym in oi_symbols:
-        if sym not in kept_syms:
-            s = oi_map[sym]
-            final_list.append({
-                "symbol":   sym,
-                "quantity": s["quantity"],
-                "enabled":  True,
-            })
-            added_syms.add(sym)
-
-    # Step 6 — Deduplicate and sort final list by OI change% desc
-    seen_final = set()
-    deduped_final = []
-    for s in final_list:
-        if s["symbol"] not in seen_final:
-            seen_final.add(s["symbol"])
-            deduped_final.append(s)
-    final_list = deduped_final
-
-    oi_rank = {sym: i for i, sym in enumerate(oi_symbols)}
-    final_list.sort(key=lambda x: oi_rank.get(x["symbol"], 999))
-
-    # Print summary table
-    now = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-    print(f"\n   {'SYMBOL':<14} {'CHANGE%':>8} {'LTP':>9} {'QTY':>5} {'STATUS'}")
-    print(f"   {'─'*55}")
-    for stock in final_list:
-        sym    = stock["symbol"]
-        oi     = oi_map.get(sym, {})
-        chg    = f"{oi.get('change_pct', 0):>+7.2f}%" if oi else "  N/A  "
-        ltp    = f"₹{oi['ltp']:.2f}" if oi.get('ltp') else "    N/A"
-        status = "🆕 NEW" if sym in added_syms else "✅ KEPT"
-        print(f"   {sym:<14} {chg}  {ltp:>9}  {stock['quantity']:>4}  {status}")
-
-    print(f"\n   ✅ Kept    : {len(kept_syms)} | 🆕 Added: {len(added_syms)} | ❌ Removed: {len(removed_syms)}")
-    if removed_syms:
-        print(f"   ❌ Removed : {', '.join(sorted(removed_syms))}")
-    print(f"   📊 Total   : {len(final_list)} stocks (all qualifying)")
-
-    # Save config
-    note = f"{now} | top{MAX_STOCKS} by OI change% | {len(final_list)} stocks | {Path(filepath).name}"
-    save_config(final_list, note)
-    print(f"\n   💾 Config saved → {CONFIG_FILE}")
-
-    # Reload live server
-    reload_server()
-
-
-# ── FILE WATCHER ──────────────────────────────────────────────
-# Global date override — set via --date argument
-DATE_OVERRIDE = None
-
-
-def get_latest_file(folder: str) -> str | None:
-    """
-    Get the most recently modified OI spurts file.
-    Tries today first — if not found falls back to yesterday.
-    NSE file format: Spurts-in-OI-By-Underlying-DDMMYYYY.csv
-    Use --date DDMMYYYY to override for testing.
-    """
-    from datetime import timedelta
-
-    if DATE_OVERRIDE:
-        dates_to_try = [DATE_OVERRIDE]
-    else:
-        today     = datetime.now()
-        yesterday = today - timedelta(days=1)
-        dates_to_try = [
-            today.strftime("%d%m%Y"),
-            yesterday.strftime("%d%m%Y"),
-        ]
-
-    for date in dates_to_try:
-        pattern = os.path.join(folder, f"{FILE_PREFIX}*{date}*.csv")
-        files   = glob.glob(pattern)
-        if files:
-            latest = max(files, key=os.path.getmtime)
-            print(f"   📅 Using file date: {date} → {Path(latest).name}")
-            return latest
-        else:
-            print(f"   📅 No files for {date} — trying previous day...")
-
-    print(f"   ❌ No OI files found for today or yesterday")
-    return None
-
-
-def watch_folder(folder: str):
-    print(f"\n{'═'*55}")
-    print(f"  👁️  OI Spurts File Watcher")
-    print(f"{'═'*55}")
-    print(f"  Watching : {folder}")
-    print(f"  Pattern  : {FILE_PREFIX}*.xlsx")
-    print(f"  Min Δ%   : {MIN_CHANGE}%")
-    print(f"  Max stks : {MAX_STOCKS}")
-    print(f"  Reload   : {RELOAD_URL}")
-    print(f"{'═'*55}")
-    print(f"\n  Drop any '{FILE_PREFIX}*.xlsx' file into the folder.")
-    print(f"  Config updates automatically.\n")
-
-    last_processed = None
-
-    while True:
-        try:
-            latest = get_latest_file(folder)
-
-            if latest and latest != last_processed:
-                # Wait briefly — file might still be copying
-                time.sleep(1.5)
-                # Check file is not still being written (size stable)
-                size1 = os.path.getsize(latest)
-                time.sleep(0.5)
-                size2 = os.path.getsize(latest)
-                if size1 != size2:
-                    continue  # still copying
-                update_from_file(latest)
-                last_processed = latest
-
-        except KeyboardInterrupt:
-            print("\n\n👋 Watcher stopped.")
-            sys.exit(0)
-        except Exception as e:
-            print(f"⚠️  Watcher error: {e}")
-
-        time.sleep(POLL_INTERVAL)
-
-
-# ── MAIN ──────────────────────────────────────────────────────
-if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="OI Spurts file watcher")
-    parser.add_argument("--folder",     default=WATCH_FOLDER,
-                        help=f"Folder to watch (default: {WATCH_FOLDER})")
-    parser.add_argument("--min-change", type=float, default=0.0,
-                        help="Min change%% (default 0 = no filter)")
-    parser.add_argument("--max-stocks", type=int,   default=MAX_STOCKS,
-                        help=f"Max stocks (default {MAX_STOCKS})")
-    parser.add_argument("--run-once",   action="store_true",
-                        help="Process latest file once and exit")
-    parser.add_argument("--date",       default=None,
-                        help="Date override for testing e.g. 20022026")
-    args = parser.parse_args()
-
-    MIN_CHANGE = args.min_change
-    MAX_STOCKS = args.max_stocks
-
-    # Apply date override globally so update_from_file can use it
-    if args.date:
-        import re
-        if re.match(r'\d{8}', args.date):
-            DATE_OVERRIDE = args.date
-            print(f"📅 Date override: {DATE_OVERRIDE}")
-        else:
-            print("❌ Invalid date format — use DDMMYYYY e.g. 20022026")
-            sys.exit(1)
-
-    if args.run_once:
-        # Process latest file immediately and exit
-        latest = get_latest_file(args.folder)
-        if latest:
-            update_from_file(latest)
-        else:
-            print(f"No {FILE_PREFIX}*.csv files found in {args.folder}")
-    else:
-        watch_folder(args.folder)
-
-
-Expected:
-```json
-{"status": "ok", "stocks": 30, "version": "v7.0"}
+curl https://strongtrendz.ngrok-free.app/status
 ```
+Check stock list looks right. Edit `config/stocks_config.json` manually if needed.
 
-### 9:10am — Set TradingView Alerts
-
-For each stock in your config, create **2 alerts**:
-
-**Alert 1 — Entry (LONG or SHORT):**
-- Condition → `TradeSmart` → **"Any alert() function call"**
-- Webhook URL → `https://strongtrendz.ngrok-free.app/webhook`
-- Message → leave blank (Pine fills automatically)
-- Trigger → Once Per Bar Close
-
-**Alert 2 — Exit (TP or SL):**
-- Condition → `TradeSmart` → **A2**
-- Webhook URL → `https://strongtrendz.ngrok-free.app/webhook`
-- Message → `{{ticker}}|{{close}}`
-- Trigger → Once Per Bar Close
-
-> 30 stocks × 2 alerts = 60 alerts — requires TradingView Pro+ plan (100 alert limit)
+### 9:13am — Set TradingView Alerts
+For each stock in final config — create Alert 1 and Alert 2 as described above.
 
 ### 9:15am — Market Opens
+Stop downloading new files. System runs fully automatically from here.
 
-System runs automatically. Monitor via dashboard:
-
+### During Market — Monitor
 ```
 http://localhost:5000
 ```
-
-Auto-refreshes every 5 seconds. Shows open positions, trades, P&L.
-
----
-
-## Signal Flow (What Happens on Each Alert)
-
-### LONG Signal
-
-```
-TradeSmart fires LONG on 5min candle close
-        ↓
-Pine sends: LONG|ABB|5923.45
-        ↓
-TradingView POST → https://strongtrendz.ngrok-free.app/webhook
-        ↓
-Ngrok forwards → localhost:5000/webhook
-        ↓
-Python checks:
-  — ABB in config?          ✅
-  — ABB already LONG?       → ignore
-  — ABB open SHORT?         → square off SHORT first → then BUY
-  — No position?            → BUY directly
-        ↓
-Dhan MARKET BUY ABB × qty
-        ↓
-NSE fills at best available price
-        ↓
-Position saved to state file
-```
-
-### SHORT Signal
-
-Same as LONG but in reverse — squares off any open LONG first, then enters SHORT.
-
-### Exit Signal (TP or SL)
-
-```
-TradeSmart TP or SL fires
-        ↓
-TradingView sends: ABB|5960.00
-        ↓
-Python receives → no LONG/SHORT prefix → treated as EXIT
-        ↓
-Squares off open ABB position at MARKET
-        ↓
-P&L calculated and logged
-```
-
----
-
-## Stock Config Logic
-
-`watch_oi.py` manages `stocks_config.json` automatically:
-
-- Reads today's NSE OI file from Downloads
-- Sorts all stocks by OI change% descending
-- Excludes index futures: NIFTY, BANKNIFTY, MIDCPNIFTY, FINNIFTY etc.
-- Takes top 30
-- Stocks already in config → **KEPT** with existing quantity
-- New stocks → **ADDED** with auto-calculated quantity
-- Stocks no longer in OI file → **REMOVED**
-- Quantity based on ₹12,000 per position
-
-Config format:
-```json
-{
-  "stocks": {
-    "list": [
-      {"symbol": "ABB", "quantity": 2, "enabled": true},
-      {"symbol": "RELIANCE", "quantity": 8, "enabled": true}
-    ]
-  },
-  "trading_settings": {
-    "max_total_positions": 10
-  }
-}
-```
-
-To disable a stock without removing it — set `"enabled": false`.
+Auto-refreshes every 5 seconds. Shows positions, trades, P&L.
 
 ---
 
@@ -723,14 +271,19 @@ curl https://strongtrendz.ngrok-free.app/status
 curl https://strongtrendz.ngrok-free.app/trades
 ```
 
-### Sync a manually placed Dhan order
+### Health check
+```bash
+curl https://strongtrendz.ngrok-free.app/health
+```
+
+### Sync manually placed Dhan order
 ```bash
 curl -X POST https://strongtrendz.ngrok-free.app/manual-override \
   -H "Content-Type: application/json" \
   -d '{"symbol": "RELIANCE", "action": "OPENED_BUY", "quantity": 8, "price": 1410.50}'
 ```
 
-### Sync a manually closed position
+### Sync manually closed position
 ```bash
 curl -X POST https://strongtrendz.ngrok-free.app/manual-override \
   -H "Content-Type: application/json" \
@@ -742,9 +295,9 @@ curl -X POST https://strongtrendz.ngrok-free.app/manual-override \
 curl -X POST https://strongtrendz.ngrok-free.app/clear-all
 ```
 
-> This only clears Python's memory — does NOT place any orders in Dhan. Square off physically in Dhan first.
+> This only clears Python memory — does NOT place orders in Dhan. Square off in Dhan first.
 
-### Test a signal without placing order
+### Test signal without placing order
 ```bash
 curl -X POST https://strongtrendz.ngrok-free.app/test-parse \
   -d "LONG|RELIANCE|1410"
@@ -754,20 +307,14 @@ curl -X POST https://strongtrendz.ngrok-free.app/test-parse \
 
 ## End of Day (3:15pm)
 
-1. Check all positions closed:
 ```bash
+# Check all positions closed
 curl https://strongtrendz.ngrok-free.app/status
-```
 
-2. Square off any remaining positions manually in Dhan
-
-3. Sync Python state:
-```bash
+# Square off any remaining in Dhan manually, then sync
 curl -X POST https://strongtrendz.ngrok-free.app/clear-all
-```
 
-4. Review day's trades:
-```bash
+# Review trades
 curl https://strongtrendz.ngrok-free.app/trades
 ```
 
@@ -783,12 +330,13 @@ curl https://strongtrendz.ngrok-free.app/trades
 | 8:55am | Start Terminal 3 — watch_oi.py |
 | 9:00am | Download first OI file from NSE |
 | 9:05am | Download second OI file |
-| 9:10am | Download final OI file — verify 30 stocks in config |
-| 9:10am | Health check — curl /health |
-| 9:10am | Set TradingView alerts for today's stocks |
-| 9:15am | Market opens — monitor dashboard |
+| 9:08am | Download third OI file |
+| 9:10am | Download fourth OI file |
+| 9:12am | Health check + verify config |
+| 9:13am | Set TradingView alerts for today's stocks |
+| 9:15am | Market opens — stop downloading — monitor dashboard |
 | 3:15pm | Verify all positions closed |
-| 3:20pm | Review P&L |
+| 3:20pm | Review P&L — clear state |
 
 ---
 
@@ -798,25 +346,59 @@ curl https://strongtrendz.ngrok-free.app/trades
 |-------|-------|-----|
 | `DH-901 Invalid Authentication` | Dhan token expired | Refresh token at dhanhq.co |
 | `DH-906 Market is Closed` | NSE closed | Expected on weekends/holidays |
-| `Entry order failed` | Check server terminal for Dhan error | See error code above |
-| `No Spurts-in-OI*.csv files found` | No today's file in Downloads | Download from NSE or check folder path |
-| `Reload returned 404` | Webhook server not running | Start tradesmart.py first |
-| Config has fewer than 30 stocks | OI file has fewer qualifying stocks | Normal — file may have limited data |
+| `Entry order failed` | Check server terminal | See Dhan error code |
+| `No Spurts-in-OI*.csv files found` | No today's file in Downloads | Download from NSE or check folder |
+| `Reload returned 404/502` | Webhook server not running | Start tradesmart.py first |
+| Config has fewer stocks than expected | Filter rules removing weak stocks | Normal — working correctly |
+| `fatal: 'swing' does not appear to be a git repository` | Using branch name as remote | Use `git push origin swing` |
+
+---
+
+## Git Workflow
+
+```bash
+# Check branch
+git branch
+
+# Stage all changes
+git add -A
+
+# Commit
+git commit -m "your message"
+
+# Push to remote
+git push origin swing
+
+# If rejected (diverged) — force push your local version
+git push origin swing --force
+```
+
+---
+
+## Key Rules to Remember
+
+1. **Dhan token refreshes daily** — do this first every morning
+2. **Stop downloading new files after 9:14am** — lock in the stock list
+3. **Do not manually edit config after 9:15** — positions may already be open
+4. **Never close Terminal 1 (ngrok)** — TradingView alerts will stop reaching Python
+5. **3:15pm hard stop** — square off everything before NSE closes at 3:30
+6. **2 alerts per stock only** — A1 (entry) and A2 (exit)
+7. **Market orders only** — fills instantly at best available price
 
 ---
 
 ## Architecture
 
 ```
-┌─────────────────┐     ┌──────────────────┐     ┌─────────────────┐
-│   NSE Website   │────▶│   watch_oi.py    │────▶│stocks_config    │
-│  OI Spurts CSV  │     │  (file watcher)  │     │    .json        │
-└─────────────────┘     └──────────────────┘     └────────┬────────┘
+┌─────────────────┐     ┌──────────────────┐     ┌──────────────────┐
+│   NSE Website   │────▶│   watch_oi.py    │────▶│stocks_config.json│
+│  OI Spurts CSV  │     │  (file watcher)  │     │  filtered stocks │
+└─────────────────┘     └──────────────────┘     └────────┬─────────┘
                                                            │
 ┌─────────────────┐     ┌──────────────────┐              │
 │   TradeSmart    │     │   TradingView    │              │
-│  Pine Script   │────▶│ Webhook Alerts   │              │
-│  (5min chart)  │     └────────┬─────────┘              │
+│  Pine Script    │────▶│ Webhook Alerts   │              │
+│  (5min chart)   │     └────────┬─────────┘              │
 └─────────────────┘              │                        │
                                  ▼                        │
                     ┌────────────────────────┐            │
@@ -827,14 +409,14 @@ curl https://strongtrendz.ngrok-free.app/trades
                              │                            │
                              ▼                            │
                     ┌────────────────────────┐            │
-                    │  tradesmart_webhook.py │◀───────────┘
-                    │   Flask :5000          │
+                    │     tradesmart.py      │◀───────────┘
+                    │     Flask :5000        │
                     └────────┬───────────────┘
                              │
                              ▼
                     ┌────────────────────────┐
                     │       Dhan API         │
-                    │   MARKET orders        │
+                    │   MARKET orders only   │
                     └────────┬───────────────┘
                              │
                              ▼
@@ -843,146 +425,3 @@ curl https://strongtrendz.ngrok-free.app/trades
                     │   Instant fill         │
                     └────────────────────────┘
 ```
-
----
-
-## OI Filter Rules — How Stocks Are Selected
-
-Every time you drop a new NSE file, `watch_oi.py` applies progressive filters based on how many files have been downloaded so far that day.
-
-### Filter Rules (get stricter with each file)
-
-| Files Downloaded | Rules Active |
-|-----------------|--------------|
-| 1 file | No filtering — take all stocks |
-| 2 files | Rule 1: exclude stocks where OI dropped vs previous file |
-| 3 files | Rule 1 + Rule 2: also exclude weak builds below 2% |
-| 4+ files | Rule 1 + Rule 2 + Rule 3: must show consistent climb (more ups than downs) |
-
-### Rule Detail
-
-**Rule 1 — Drop filter (2+ files)**
-If OI change% is lower than the previous file → excluded.
-Also excluded if stock dropped more than 0.5% from its peak across all files.
-```
-SIEMENS: peak +4.15 → final +4.00 = drop 0.15  ✅ within tolerance → KEEP
-FORTIS:  peak +4.29 → final +3.74 = drop 0.55  ❌ exceeded 0.5%   → EXCLUDE
-```
-
-**Rule 2 — Weak build filter (3+ files)**
-If OI change% below 2% → excluded. Not enough conviction.
-
-**Rule 3 — Consistency filter (4+ files)**
-If stock had more down moves than up moves across all files → excluded.
-
-### Example — 8 files downloaded (9:00 to 9:15am)
-
-```
-ABB        +10.08%  ✅ strongest conviction — consistent climb
-PERSISTENT  +4.96%  ✅ steady build every file
-SIEMENS     +4.00%  ✅ minor dip within tolerance
-ONGC        +2.96%  ✅ slow but clean
-FORTIS      +3.74%  ❌ peaked at 4.29 — dropped 0.55% from peak
-INDUSINDBK  +1.50%  ❌ weak build below 2%
-```
-
-**Final result: 11 high conviction stocks — no weak builds, no peak drops**
-
----
-
-## Monday Morning Flow — Step by Step
-
-### 8:50am — Refresh Dhan Token
-1. Go to [dhanhq.co](https://dhanhq.co) → Login → My Account → API
-2. Generate new access token
-3. Open `config/dhan_credentials.json` → replace `access_token`
-4. Save file
-
-### 8:55am — Start All 3 Terminals
-
-**Terminal 1:**
-```bash
-ngrok http 5000 --domain=strongtrendz.ngrok-free.app
-```
-
-**Terminal 2:**
-```bash
-cd ~/OneDrive/projects/strongtrendz.com-/snapper
-py tradesmart.py
-```
-
-**Terminal 3:**
-```bash
-cd ~/OneDrive/projects/strongtrendz.com-/snapper/scripts
-py watch_oi.py --folder "C:/Users/PC/Downloads"
-```
-
-Leave all 3 running. Never close them during market hours.
-
-### 9:00am — Start Downloading OI Files
-
-1. Go to [nseindia.com](https://nseindia.com) → Derivatives → OI Spurts
-2. Download CSV → saves as `Spurts-in-OI-By-Underlying-DDMMYYYY.csv`
-3. Terminal 3 detects it automatically within 10 seconds
-4. Config updates — but with 1 file, no filters applied yet
-
-### 9:05am — Download Second File
-- Go back to NSE → download again
-- Terminal 3 detects new file → **Rule 1 activates**
-- Stocks that dropped vs first file get removed
-
-### 9:08am — Download Third File
-- Terminal 3 detects → **Rules 1+2 active**
-- Weak stocks below 2% also removed now
-
-### 9:10am — Download Fourth File
-- Terminal 3 detects → **Rules 1+2+3 all active**
-- Only consistent climbers remain
-
-### 9:12am — Final Check
-```bash
-curl https://strongtrendz.ngrok-free.app/status
-```
-Verify stock list looks right. Edit `config/stocks_config.json` manually if needed.
-
-### 9:13am — Set TradingView Alerts
-For each stock in final config:
-- Open 5min chart on TradingView
-- Confirm TradeSmart indicator loaded
-- Alert 1: condition = **"Any alert() function call"** → webhook URL → Once Per Bar Close
-- Alert 2: condition = **A2** → message = `{{ticker}}|{{close}}` → webhook URL → Once Per Bar Close
-
-### 9:15am — Market Opens
-System runs fully automatically from here:
-```
-TradeSmart signal fires on any stock
-        ↓
-TradingView sends to webhook
-        ↓
-Python places MARKET order on Dhan
-        ↓
-NSE fills instantly
-        ↓
-Dashboard updates at localhost:5000
-```
-
-### During Market — What to Watch
-- Keep `localhost:5000` open in browser — auto refreshes every 5 seconds
-- Watch Terminal 2 logs for any errors
-- If Dhan rejects an order — check terminal for error code
-
-### 3:15pm — Close Out
-1. Check all positions closed: `curl https://strongtrendz.ngrok-free.app/status`
-2. Square off any open positions manually in Dhan
-3. Sync Python: `curl -X POST https://strongtrendz.ngrok-free.app/clear-all`
-4. Review trades: `curl https://strongtrendz.ngrok-free.app/trades`
-
----
-
-## Key Rules to Remember
-
-1. **Dhan token refreshes daily** — do this first every morning before anything else
-2. **Stop downloading new files after 9:14am** — let the system trade with the final list
-3. **Do not manually edit config after 9:15** — positions may already be open
-4. **Never close Terminal 1 (ngrok)** — TradingView alerts will stop reaching Python
-5. **3:15pm hard stop** — square off everything, NSE closes at 3:30
